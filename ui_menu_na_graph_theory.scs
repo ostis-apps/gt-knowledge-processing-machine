@@ -1,0 +1,10 @@
+ui_menu_na_graph_theory	<- ui_user_command_class_noatom;;
+
+ui_menu_na_graph_theory	=> nrel_main_idtf: [Теория графов] (* <- lang_ru;; *);;
+ui_menu_na_graph_theory => nrel_main_idtf: [Graph theory] (* <- lang_en;; *);;
+
+ui_menu_na_graph_theory <= nrel_ui_commands_decomposition:
+{
+	ui_menu_na_numerical_characteristic_graph;
+	ui_menu_na_search_request_sets_characterizing_graph	
+};;
