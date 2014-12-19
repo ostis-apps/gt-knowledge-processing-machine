@@ -1,0 +1,32 @@
+scp_program -> proc_del_arc_first_second (*
+	
+	-> rrel_params: ...
+	(*
+		-> rrel_1: rrel_in: _first;;
+		-> rrel_2: rrel_in: _second;;
+	*);;
+
+	-> rrel_operators: ...
+	(*
+		->rrel_init:..find
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _first;;
+                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc;;
+                        -> rrel_3: rrel_fixed: rrel_scp_var: _second;;
+			=>nrel_then: ..erase_arc;;
+			=>nrel_else: ..rett;; 
+		*);;
+		
+		->..erase_arc
+		(*
+			<-eraseEl;;
+			->rrel_1:rrel_erase: rrel_scp_var:rrel_fixed: _arc;;
+			=>nrel_goto: ..rett;; 
+		*);;
+		
+		->..rett(*<-return;;*);;
+	*);;
+		
+		
+*);;

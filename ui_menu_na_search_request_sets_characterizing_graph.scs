@@ -1,0 +1,9 @@
+ui_menu_na_search_request_sets_characterizing_graph <- ui_user_command_class_noatom;;
+
+ui_menu_na_search_request_sets_characterizing_graph => nrel_main_idtf: [Запросы поиска множества,характерезующее граф] (* <- lang_ru;; *);;
+ui_menu_na_search_request_sets_characterizing_graph => nrel_main_idtf: [Request search request sets characterizing graph] (* <- lang_en;; *);;
+
+ui_menu_na_search_request_sets_characterizing_graph <= nrel_ui_commands_decomposition:
+{
+	ui_menu_search_operation_articulation_points	
+};;
