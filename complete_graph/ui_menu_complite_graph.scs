@@ -1,0 +1,17 @@
+ui_menu_complite_graph <- ui_user_command_class_atom; ui_user_command_class_view_kb;;
+
+ui_menu_complite_graph =>nrel_main_idtf: [Проверка графа на полноту] (* <- lang_ru;; *);;
+ui_menu_complite_graph =>nrel_main_idtf: [Checking if graph is complite] (* <- lang_en;; *);;
+
+ui_menu_complite_graph =>ui_nrel_command_template:
+[*
+	question_is_graph_complite _-> ._question_is_graph_complite_instance
+	(*
+		_-> ui_arg_1;;
+	*);;
+	._question_is_graph_complite_instance _<- question;;
+*];;
+
+ui_menu_complite_graph =>ui_nrel_command_lang_template: [Запрос проверки графа на полноту: $ui_arg_1] (*<- lang_ru;; *);;
+
+ui_menu_complite_graph =>ui_nrel_command_lang_template: [Request of checking if graph is complite: $ui_arg_1] (* <- lang_en;; *);;

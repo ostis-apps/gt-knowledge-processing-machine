@@ -1,0 +1,31 @@
+undirected_graph->graph5a(*
+	->rrel_vertex: v1;;
+	->rrel_vertex: v2;;
+	->rrel_vertex: v3;;
+	->rrel_vertex: v4;;
+	->rrel_vertex: v5;;
+	->rrel_vertex: v6;;
+	->rrel_vertex: v7;;
+	->rrel_vertex: v8;;
+	->rrel_vertex: v9;;
+	->rrel_edge: ( v1 => v2 );;
+	->rrel_edge: ( v2 => v3 );;
+	->rrel_edge: ( v3 => v4 );;
+	->rrel_edge: ( v4 => v5 );;
+	->rrel_edge: ( v5 => v6 );;
+	->rrel_edge: ( v6 => v7 );;
+	->rrel_edge: ( v7 => v8 );;
+	->rrel_edge: ( v8 => v9 );;
+
+	->rrel_edge: ( v2 => v1 );;
+	->rrel_edge: ( v3 => v2 );;
+	->rrel_edge: ( v4 => v3 );;
+	->rrel_edge: ( v5 => v4 );;
+	->rrel_edge: ( v6 => v5 );;
+	->rrel_edge: ( v7 => v6 );;
+	->rrel_edge: ( v8 => v7 );;
+	->rrel_edge: ( v9 => v8 );;
+
+	=>rrel_number_of_deleted_nodes:rrel_node: rrel_link: rrel_const: num5;;
+*);;
+

@@ -1,0 +1,17 @@
+ui_menu_find_num_graph_tree_nodes <- ui_user_command_class_atom; ui_user_command_class_view_kb;;
+
+ui_menu_find_num_graph_tree_nodes =>nrel_main_idtf: [Запрос поиска количества рёбер, удаление которых сделает граф деревом] (* <- lang_ru;; *);;
+ui_menu_find_num_graph_tree_nodes =>nrel_main_idtf: [Request search of number of nodes you should delete to transform your graph into tree] (* <- lang_en;; *);;
+
+ui_menu_find_num_graph_tree_nodes =>ui_nrel_command_template:
+[*
+	question_amount_of_nodes_you_should_delete _-> ._question_amount_of_nodes_you_should_delete_instance
+	(*
+		_-> ui_arg_1;;
+	*);;
+	._question_amount_of_nodes_you_should_delete_instance _<- question;;
+*];;
+
+ui_menu_find_num_graph_tree_nodes =>ui_nrel_command_lang_template: [Запрос поиска количества рёбер, удаление которых сделает граф деревом: $ui_arg_1] (*<- lang_ru;; *);;
+
+ui_menu_find_num_graph_tree_nodes =>ui_nrel_command_lang_template: [Request search of number of nodes you should delete to transform your graph into tree: $ui_arg_1] (* <- lang_en;; *);;
