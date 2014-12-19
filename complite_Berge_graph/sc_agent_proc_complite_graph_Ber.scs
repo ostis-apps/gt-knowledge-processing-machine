@@ -1,0 +1,54 @@
+sc_agent_proc_complite_graph_Ber
+=>nrel_main_idtf:
+[агент проверки графа на то, является ли он полным графом Бержа] (* <- lang_ru;; *);
+[sc-agent of checking if graph is complite Berge graph ] (* <- lang_en;; *);
+<- abstract_sc_agent;
+=>nrel_primary_initiation_condition: (sc_event_add_output_arc =>question_initiated);
+=>nrel_initiation_condition_and_result: (..sc_agent_proc_complite_graph_Ber_initiation_condition =>
+..sc_agent_proc_complite_graph_Ber_result);
+<= nrel_sc_agent_key_sc_elements:
+{
+question_initiated;
+question;
+question_is_graph_complite_Ber
+};
+<- key_sc_element:
+...
+(*
+<- sc_description_of_sc_agent_behavior;;
+<= nrel_sc_text_translation:
+...
+(*
+->rrel_example:
+[Задачей sc-агента является проверка графа на то, является ли он полным графом Бержа.];;
+*);;
+*);
+=>nrel_inclusion: ...
+(*
+<- platform_independent_abstract_sc_agent;;
+<= nrel_sc_agent_program:
+{
+agent_proc_complite_graph_Ber;
+proc_run_test_complite_graph_Ber
+};;
+->sc_agent_proc_complite_graph_Ber_scp (* <- active_sc_agent;; *);;
+*);;
+// условия инициирования агента
+..sc_agent_proc_complite_graph_Ber_initiation_condition
+= [*
+question_is_graph_complite_Ber _-> .._question;;
+question_initiated _-> .._question;;
+question _-> .._question;;
+.._question _-> .._parameter;;
+*];;
+// описание результатов выполнения sc-агента
+..sc_agent_proc_complite_graph_Ber
+= [*
+question_is_graph_complite_Ber _-> .._question;;
+question_finished _-> .._question;;
+question _-> .._question;;
+.._question _=>nrel_answer:: .._answer;;
+.._question _-> .._parameter;;
+*];;
+
+
