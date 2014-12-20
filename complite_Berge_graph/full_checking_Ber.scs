@@ -34,16 +34,7 @@ scp_program -> full_checking_Ber (*
 <- eraseEl;;
 -> rrel_1 : rrel_fixed : rrel_pos_const_perm : rrel_erase:rrel_scp_var : _arc;;
 
-=> nrel_goto : ..full_checking_Ber_step3;; *);;
-
-
--> ..full_checking_Ber_step3 (*
-<- ifCoin;;
--> rrel_1 : rrel_fixed : rrel_scp_var : _new;;
--> rrel_2 : rrel_fixed : rrel_scp_var : _current;;
-
-=> nrel_then: ..full_checking_Ber_step1;;
-=> nrel_else: ..full_checking_Ber_step4;; *);;
+=> nrel_goto : ..full_checking_Ber_step4;; *);;
 
 
 -> ..full_checking_Ber_step4 (*
@@ -54,7 +45,7 @@ scp_program -> full_checking_Ber (*
 -> rrel_4 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc1;;
 -> rrel_5 : rrel_fixed : rrel_scp_var : _graph;;
 
-=> nrel_then : ..full_checking_Ber_step5;;
+=> nrel_then : ..full_checking_Ber_step1;;
 => nrel_else : ..if_not_full;; *);;
 
 
@@ -68,9 +59,6 @@ scp_program -> full_checking_Ber (*
 
 => nrel_then : ..full_checking_Ber_step1;;
 => nrel_else : ..if_not_full;; *);;
-
-
-
 
 
 -> ..if_not_full (*

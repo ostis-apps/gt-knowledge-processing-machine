@@ -47,7 +47,7 @@ scp_program -> proc_run_test_complite_graph_Ber (*
 
 -> ..ave_start_checking (*
 <- call;;
-	-> rrel_1: rrel_fixed: rrel_scp_const: full_checking;;
+	-> rrel_1: rrel_fixed: rrel_scp_const: full_checking_Ber;;
 	-> rrel_2: rrel_fixed: rrel_scp_const: ... (*
 		-> rrel_1: rrel_fixed: rrel_scp_var: _node;;
 		-> rrel_2: rrel_fixed: rrel_scp_var: _graph;;
