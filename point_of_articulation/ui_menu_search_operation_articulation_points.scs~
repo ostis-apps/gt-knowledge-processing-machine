@@ -1,7 +1,7 @@
 ui_menu_search_operation_articulation_points <- ui_user_command_class_atom; ui_user_command_class_view_kb;;
 
 // Указываем русский идентификатор нашей операции в меню
-ui_menu_search_operation_articulation_points =>nrel_main_idtf: [Запрос поиска точек сочленения графа] (* <- lang_ru;; *);;
+ui_menu_search_operation_articulation_points =>nrel_main_idtf: [Запрос поиска точек сочленения орграфа] (* <- lang_ru;; *);;
 
 // Указываем английский идентификатор нашей операции в меню
 ui_menu_search_operation_articulation_points =>nrel_main_idtf: [Request search orgraph's articulation points] (* <- lang_en;; *);;
