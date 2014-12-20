@@ -1,0 +1,28 @@
+undirected_graph->graph4a(*
+	->rrel_vertex: v1;;
+	->rrel_vertex: v2;;
+	->rrel_vertex: v3;;
+	->rrel_vertex: v4;;
+	->rrel_vertex: v5;;
+	->rrel_vertex: v6;;
+	->rrel_edge: ( v1 => v2 );;
+	->rrel_edge: ( v1 => v4 );;
+	->rrel_edge: ( v2 => v4 );;
+	->rrel_edge: ( v2 => v5 );;
+	->rrel_edge: ( v2 => v3 );;
+	->rrel_edge: ( v3 => v5 );;
+	->rrel_edge: ( v3 => v6 );;
+	->rrel_edge: ( v4 => v5 );;
+	->rrel_edge: ( v5 => v6 );;
+
+	->rrel_edge: ( v2 => v1 );;
+	->rrel_edge: ( v4 => v1 );;
+	->rrel_edge: ( v4 => v2 );;
+	->rrel_edge: ( v5 => v2 );;
+	->rrel_edge: ( v3 => v2 );;
+	->rrel_edge: ( v5 => v3 );;
+	->rrel_edge: ( v6 => v3 );;
+	->rrel_edge: ( v5 => v4 );;
+	->rrel_edge: ( v6 => v5 );;
+*);;
+
