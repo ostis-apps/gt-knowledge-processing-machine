@@ -8,5 +8,9 @@ undirected_graph->graph1a(*
 	->rrel_edge: ( v2 => v1 );;
 	->rrel_edge: ( v3 => v2 );;
 	->rrel_edge: ( v1 => v3 );;
+	->rrel_edge: ( v1 => v1 );;
+	->rrel_edge: ( v2 => v2 );;
+	->rrel_edge: ( v3 => v3 );;
+
 *);;
 

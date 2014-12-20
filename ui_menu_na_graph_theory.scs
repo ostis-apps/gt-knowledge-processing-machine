@@ -7,13 +7,11 @@ ui_menu_na_graph_theory <= nrel_ui_commands_decomposition:
 {
 	ui_menu_na_numerical_characteristic_graph;
 	ui_menu_na_search_request_sets_characterizing_graph;
-	//Рома	
-	ui_menu_find_num_graph_tree_nodes;
-	ui_menu_complite_graph;
-	ui_menu_complite_Berge_graph;
+	ui_menu_na_view_of_graph
+
 	//Дима
-	ui_menu_find_connected_graph;
-	ui_menu_find_pappus;
-	ui_menu_find_tree;
-	ui_menu_search_diameter	
+	//ui_menu_find_connected_graph;
+	//ui_menu_find_pappus;
+	//ui_menu_find_tree;
+	//ui_menu_search_diameter;	
 };;

@@ -1,0 +1,11 @@
+ui_menu_na_view_of_graph <- ui_user_command_class_noatom;;
+
+ui_menu_na_view_of_graph => nrel_main_idtf: [Определение вида графа] (* <- lang_ru;; *);;
+ui_menu_na_view_of_graph => nrel_main_idtf: [Definition of the type of the graph] (* <- lang_en;; *);;
+
+ui_menu_na_view_of_graph <= nrel_ui_commands_decomposition:
+{
+	ui_menu_complite_graph;
+	ui_menu_complite_Berge_graph;
+	ui_menu_bipartite_graph	
+};;

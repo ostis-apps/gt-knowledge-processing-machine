@@ -1,4 +1,4 @@
-scp_program -> proc_run_test_complite_graph (*
+scp_program -> proc_run_test_complite_graph_Ber (*
 	
 	-> rrel_params: ... (*
 		-> rrel_1: rrel_in: _graph;;
@@ -15,30 +15,30 @@ scp_program -> proc_run_test_complite_graph (*
 -> rrel_5: rrel_fixed: rrel_scp_const : rrel_vertex;;
 -> rrel_set_3 : rrel_assign : rrel_scp_var : _soUPset;;
 
-=> nrel_goto : ..proc_complite_graph_step1;; *);;
+=> nrel_goto : ..proc_complite_graph_Ber_step1;; *);;
 
 
--> ..proc_complite_graph_step_0 (*
+-> ..proc_complite_graph_Ber_step_0 (*
 <- searchElStr3;;
 -> rrel_1 : rrel_fixed : rrel_scp_var : _answer;;
 -> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
 -> rrel_3 : rrel_fixed : rrel_scp_var : _graph;;
 
 => nrel_then : ..free_mem;; 
-=> nrel_else : ..proc_complite_graph_step1;; *);;
+=> nrel_else : ..proc_complite_graph_Ber_step1;; *);;
 
 
--> ..proc_complite_graph_step1 (*
+-> ..proc_complite_graph_Ber_step1 (*
 <- searchElStr3;;
 -> rrel_1 : rrel_fixed : rrel_scp_var : _soUPset;;
 -> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
 -> rrel_3 : rrel_assign : rrel_scp_var : _node;;
 
-=> nrel_then : ..proc_complite_graph_step2;; 
+=> nrel_then : ..proc_complite_graph_Ber_step2;; 
 => nrel_else : ..graph_is_full_1 ;;*);; 
 
 
--> ..proc_complite_graph_step2 (*
+-> ..proc_complite_graph_Ber_step2 (*
 <- eraseEl;;
 -> rrel_1 : rrel_fixed : rrel_pos_const_perm : rrel_erase: rrel_scp_var : _arc;;
 
@@ -62,7 +62,7 @@ scp_program -> proc_run_test_complite_graph (*
 	<- waitReturn;;
 	-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
 	
-	=> nrel_goto: ..proc_complite_graph_step_0;; *);;
+	=> nrel_goto: ..proc_complite_graph_Ber_step_0;; *);;
 	
 
 -> ..graph_is_full_1 (*

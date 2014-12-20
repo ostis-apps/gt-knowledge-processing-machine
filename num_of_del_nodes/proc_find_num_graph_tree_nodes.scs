@@ -98,7 +98,55 @@ scp_program -> proc_find_num_graph_tree_nodes (*
 -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
 -> rrel_3: rrel_fixed: rrel_scp_var: _counter;;
 
+=> nrel_goto : ..proc_find_num_graph_tree_nodes_get_ans1;; *);;
+
+
+-> ..proc_find_num_graph_tree_nodes_get_ans1 (*
+<- genElStr3;;
+-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+=> nrel_goto : ..proc_find_num_graph_tree_nodes_get_ans2;; *);;
+
+
+-> ..proc_find_num_graph_tree_nodes_get_ans2 (*
+<- genElStr5;;
+-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+-> rrel_2: rrel_assign:rrel_const: rrel_common: rrel_scp_var: _arc2;;
+-> rrel_3: rrel_fixed: rrel_scp_var: _counter;;
+-> rrel_4: rrel_assign:rrel_pos_const_perm: rrel_scp_var: _arc;;
+-> rrel_5: rrel_fixed: rrel_scp_const: nrel_number_of_deleted_nodes;;
+
+=> nrel_goto : ..proc_find_num_graph_tree_nodes_get_ans3;; *);;
+
+
+-> ..proc_find_num_graph_tree_nodes_get_ans3 (*
+<- genElStr3;;
+-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+-> rrel_3: rrel_fixed: rrel_scp_var: _arc2;;
+
+=> nrel_goto : ..proc_find_num_graph_tree_nodes_get_ans4;; *);;
+
+
+-> ..proc_find_num_graph_tree_nodes_get_ans4 (*
+<- genElStr3;;
+-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+-> rrel_3: rrel_fixed: rrel_const: nrel_number_of_deleted_nodes;;
+
+=> nrel_goto : ..proc_find_num_graph_tree_nodes_get_ans5;; *);;
+
+
+-> ..proc_find_num_graph_tree_nodes_get_ans5 (*
+<- genElStr3;;
+-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+-> rrel_3: rrel_fixed: rrel_scp_var: _arc;;
+
 => nrel_goto : ..proc_find_num_graph_tree_nodes_op_returno;; *);;
+
 
 -> ..proc_find_num_graph_tree_nodes_op_returno (*
 <- return;; *);;

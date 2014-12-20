@@ -5,5 +5,6 @@ ui_menu_na_numerical_characteristic_graph => nrel_main_idtf: [Request of search 
 
 ui_menu_na_numerical_characteristic_graph <= nrel_ui_commands_decomposition:
 {
-	ui_menu_search_number_connected_components	
+	ui_menu_search_number_connected_components;
+	ui_menu_find_num_graph_tree_nodes	
 };;
