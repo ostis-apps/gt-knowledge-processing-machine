@@ -1,0 +1,138 @@
+scp_program -> symmetric_graph
+(*
+	-> rrel_params: ...
+	(*
+		-> rrel_1: rrel_in: _curr_graph;;
+		-> rrel_2: rrel_in: _answer;;
+	*);;
+
+	-> rrel_operators: ... 
+	(*
+		-> rrel_init: .symmetric_graph_operator0
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: concept_symmetric_graph;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
+			
+			=> nrel_then: .symmetric_graph_operator_return;;
+			=> nrel_else: .symmetric_graph_operator1;;
+		*);;
+		-> .symmetric_graph_operator1
+		(*
+			<- searchSetStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _curr_graph;;
+                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs1;;
+                        -> rrel_3: rrel_assign: rrel_scp_var: rrel_common: _ar;;
+                        -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs2;;
+                        -> rrel_5: rrel_fixed: rrel_scp_const: rrel_edge;;
+
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _arcs;;
+			
+			=> nrel_then: .symmetric_graph_operator2;;
+                	=> nrel_else: .symmetric_graph_operator6;;
+		*);;
+
+		-> .symmetric_graph_operator2
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _arcs;;
+                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_erase;;
+                        -> rrel_3: rrel_assign: rrel_scp_var: _curr_arc;;
+			
+			=>nrel_then: .symmetric_graph_operator3_1;;
+			=>nrel_else: .symmetric_graph_operator5;; 	
+		*);;
+		
+		-> .symmetric_graph_operator3_1
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_assign: rrel_scp_var: _levoe;;
+                        -> rrel_2: rrel_fixed: rrel_scp_var: _curr_arc;;
+                        -> rrel_3: rrel_assign: rrel_scp_var: _pravoe;;
+
+			=>nrel_then: .symmetric_graph_operator3_2;;
+			=>nrel_else: .symmetric_graph_operatorxx;; 	
+		*);;		
+
+		-> .symmetric_graph_operator3_2
+		(*
+			<- searchElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _pravoe;;
+                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc_of_vertexs1;;
+                        -> rrel_3: rrel_fixed: rrel_scp_var: _levoe;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs2;;
+			-> rrel_5: rrel_fixed: rrel_scp_var: _curr_graph;;
+
+			=>nrel_then: .symmetric_graph_operator4;;
+			=>nrel_else: .symmetric_graph_operatorxx;; 	
+		*);;
+		
+		-> .symmetric_graph_operator4
+		(*
+			<- eraseEl;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc_erase;;
+			
+			=> nrel_goto: .symmetric_graph_operator2;;
+		*);;
+	
+		-> .symmetric_graph_operator5
+		(*
+			<- eraseEl;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arcs;;
+			
+			=> nrel_goto: .symmetric_graph_operator6;;
+		*);;
+
+		-> .symmetric_graph_operator6
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: concept_symmetric_graph;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
+			
+			=> nrel_goto: .symmetric_graph_operator7;;
+		*);;
+
+		-> .symmetric_graph_operator7
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara1;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: concept_symmetric_graph;;
+			
+			=> nrel_goto: .symmetric_graph_operator8;;
+		*);;
+
+		-> .symmetric_graph_operator8
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _ara;;
+			
+			=> nrel_goto: .symmetric_graph_operator9;;
+		*);;
+
+		-> .symmetric_graph_operator9
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
+			
+			=> nrel_goto: .symmetric_graph_operator_return;;
+		*);;
+		
+		-> .symmetric_graph_operatorxx
+		(*
+			<- eraseEl;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arcs;;
+			
+			=> nrel_goto: .symmetric_graph_operator9;;
+		*);;
+		
+		-> .symmetric_graph_operator_return(*<-return;;*);;
+	*);;
+*);;
+
