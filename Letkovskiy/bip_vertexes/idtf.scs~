@@ -1,0 +1,7 @@
+nrel_first_bip_set => nrel_main_idtf:
+[ первое множество вершин двудольного графа* ] (* <-lang_ru;; *);
+[ the first set of vertexes of a bipartite graph* ] (* <-lang_en;; *);;
+
+nrel_second_bip_set => nrel_main_idtf:
+[ второе множество вершин двудольного графа* ] (* <-lang_ru;; *);
+[ the second set of vertexes of a bipartite graph* ] (* <-lang_en;; *);;

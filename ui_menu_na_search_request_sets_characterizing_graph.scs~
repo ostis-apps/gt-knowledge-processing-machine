@@ -5,6 +5,5 @@ ui_menu_na_search_request_sets_characterizing_graph => nrel_main_idtf: [Search r
 
 ui_menu_na_search_request_sets_characterizing_graph <= nrel_ui_commands_decomposition:
 {
-	ui_menu_search_operation_articulation_points;
-	ui_menu_check_bipart_graph_vertexes	
+	ui_menu_search_operation_articulation_points	
 };;
