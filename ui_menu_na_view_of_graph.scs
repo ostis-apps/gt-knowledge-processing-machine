@@ -9,5 +9,12 @@ ui_menu_na_view_of_graph <= nrel_ui_commands_decomposition:
 	ui_menu_complite_Berge_graph;
 	ui_menu_bipartite_graph;
 	ui_menu_search_operation_reflexive_graphs;
-	ui_menu_search_operation_symmetric_graph
+
+	ui_menu_search_operation_symmetric_graph;
+
+	ui_menu_find_tree;
+	ui_menu_find_pappus;
+	ui_menu_find_strongly_connected_graph;
+	ui_menu_find_connected_graph
+
 };;

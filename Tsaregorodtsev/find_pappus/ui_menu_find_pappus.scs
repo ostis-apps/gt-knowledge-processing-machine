@@ -1,0 +1,28 @@
+ui_menu_find_pappus <- ui_user_command_class_atom; ui_user_command_class_view_kb;;
+
+// Указываем русский идентификатор нашей операции в меню
+ui_menu_find_pappus =>nrel_main_idtf: [Запрос графа Паппа] (* <- lang_ru;; *);;
+
+// Указываем английский идентификатор нашей операции в меню
+ui_menu_find_pappus =>nrel_main_idtf: [Request of Pappus graph] (* <- lang_en;; *);;
+
+// Указываем шаблон нашей команды
+ui_menu_find_pappus =>ui_nrel_command_template:
+[*
+	question_find_pappus _-> ._question_find_pappus_instance
+	(*
+		_-> ui_arg_1;;
+	*);;
+
+	._question_find_pappus_instance _<- question;;
+*];;
+
+// Указываем текстовый шаблон команды на русском языке
+ui_menu_find_pappus =>ui_nrel_command_lang_template: [Запрос графа Паппа: $ui_arg_1] 
+(*
+	<- lang_ru;; 
+*);;
+
+// Указываем текстовый шаблон команды на английском языке
+ui_menu_find_pappus =>ui_nrel_command_lang_template: [Request of Pappus graph: $ui_arg_1]
+(* <- lang_en;; *);;
