@@ -27,6 +27,7 @@ import student.Student;
 import table.ColumnModel;
 import table.ExamTableModel;
 import table.GroupableTableHeader;
+import table.Page;
 import constants.MenuName;
 import constants.Path;
 
@@ -37,7 +38,13 @@ public class SearchDialog {
 	private JFrame frame;
 	private List<Student> studentList;
 	private SearcherAndRemover searcherAndRemover;
-	boolean remove;
+	private boolean remove;
+	private JComboBox<Integer> numberRecords;;
+	private ExamTableModel searchTableModel;
+	private JButton leftStartButton;
+	private JButton leftButton;
+	private JButton rightButton;
+	private JButton rightEndButton;
 
 	public SearchDialog(JFrame frame, JTable table, List<Student> studentList) {
 		this.table = table;
@@ -48,10 +55,11 @@ public class SearchDialog {
 
 	void creteSearchDialog() {
 		searchDialog = new JDialog(frame, "Search", false);
-		searchDialog.setSize(500, 400);
+		searchDialog.setSize(400, 400);
 		searchDialog.setLocationRelativeTo(frame);
 		searchDialog.setVisible(true);
 		searchDialog.setLayout(new BorderLayout());
+		searchDialog.setResizable(false);
 
 		JPanel searchCriterionPanel = new JPanel();
 		JPanel searchPanel = new JPanel();
@@ -69,13 +77,11 @@ public class SearchDialog {
 		searchPanel.add(searchCriterionPanel, BorderLayout.CENTER);
 		searchPanel.add(criterionPanel, BorderLayout.SOUTH);
 
-		JButton leftButton = new JButton(
-				new ImageIcon(Path.LEFT_ICON.getPath()));
-		JButton leftStartButton = new JButton(new ImageIcon(
+		leftButton = new JButton(new ImageIcon(Path.LEFT_ICON.getPath()));
+		leftStartButton = new JButton(new ImageIcon(
 				Path.LEFT_START_ICON.getPath()));
-		JButton rightButton = new JButton(new ImageIcon(
-				Path.RIGHT_ICON.getPath()));
-		JButton rightEndButton = new JButton(new ImageIcon(
+		rightButton = new JButton(new ImageIcon(Path.RIGHT_ICON.getPath()));
+		rightEndButton = new JButton(new ImageIcon(
 				Path.RIGHT_END_ICON.getPath()));
 
 		pagePanel.add(leftStartButton);
@@ -85,16 +91,31 @@ public class SearchDialog {
 
 		createTable();
 		addCriterion(searchCriterionPanel, criterionPanel);
+
+		leftButton.setActionCommand("Left");
+		leftStartButton.setActionCommand("Left Start");
+		rightButton.setActionCommand("Right");
+		rightEndButton.setActionCommand("Right End");
+
+		/*
+		 * Page page = new Page(searchTable);
+		 * leftStartButton.addActionListener(page);
+		 * leftButton.addActionListener(page);
+		 * rightButton.addActionListener(page);
+		 * rightEndButton.addActionListener(page);
+		 */
 	}
 
 	@SuppressWarnings("serial")
 	void createTable() {
 
 		ExamTableModel examTableModel = (ExamTableModel) table.getModel();
-		ExamTableModel searchTableModel = new ExamTableModel(
-				examTableModel.getNumberExams());
-		searchTableModel.setStudentList(examTableModel.getStudentList());
+		searchTableModel = new ExamTableModel(examTableModel.getNumberExams());
+		// studentList = examTableModel.getStudentList();
+		searchTableModel.setStudentList(studentList);
 		// searchTableModel.getStudentList().clear();
+
+		searchTableModel.setNumberRecords(examTableModel.getNumberRecords());
 
 		searchTable = new JTable(searchTableModel) {
 			protected JTableHeader createDefaultTableHeader() {
@@ -152,7 +173,10 @@ public class SearchDialog {
 				oKButton.removeActionListener(searcherAndRemover);
 				oKButton.setActionCommand("meanScoreName");
 				searcherAndRemover = new SearcherAndRemover(minMarkComboBox,
-						maxMarkComboBox, nameField, searchTable, studentList, remove, table);
+						maxMarkComboBox, nameField, numberGroupField,
+						searchTable, studentList, remove, table,
+						leftStartButton, leftButton, rightButton,
+						rightEndButton);
 				oKButton.addActionListener(searcherAndRemover);
 
 				searchDialog.setVisible(true);
@@ -169,12 +193,15 @@ public class SearchDialog {
 				criterionPanel.add(oKButton);
 				oKButton.removeActionListener(searcherAndRemover);
 				oKButton.setActionCommand("numberGroupName");
-				searcherAndRemover = new SearcherAndRemover(numberGroupField,
-						nameField, searchTable, studentList, remove, table);
+				searcherAndRemover = new SearcherAndRemover(minMarkComboBox,
+						maxMarkComboBox, numberGroupField, nameField,
+						searchTable, studentList, remove, table,
+						leftStartButton, leftButton, rightButton,
+						rightEndButton);
 				oKButton.addActionListener(searcherAndRemover);
 
 				searchDialog.setVisible(true);
-				
+
 			}
 		});
 
@@ -189,9 +216,13 @@ public class SearchDialog {
 				oKButton.removeActionListener(searcherAndRemover);
 				oKButton.setActionCommand("nameMark");
 				searcherAndRemover = new SearcherAndRemover(minMarkComboBox,
-						maxMarkComboBox, nameField, searchTable, studentList, remove, table);
+						maxMarkComboBox, nameField, numberGroupField,
+						searchTable, studentList, remove, table,
+						leftStartButton, leftButton, rightButton,
+						rightEndButton);
 				oKButton.addActionListener(searcherAndRemover);
 
+				// leftstartbutton.doclick();
 				searchDialog.setVisible(true);
 
 			}

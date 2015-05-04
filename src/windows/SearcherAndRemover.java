@@ -5,12 +5,14 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
 import student.Student;
 import table.ExamTableModel;
+import table.Page;
 
 public class SearcherAndRemover implements ActionListener {
 
@@ -25,30 +27,30 @@ public class SearcherAndRemover implements ActionListener {
 	private boolean remove;
 	private JTable table;
 
+	private JButton leftStartButton;
+	private JButton leftButton;
+	private JButton rightButton;
+	private JButton rightEndButton;
+	Page page;
 	public SearcherAndRemover(JComboBox<Integer> minMarkComboBox,
-			JComboBox<Integer> maxMarkComboBox, JTextField firstField,
+			JComboBox<Integer> maxMarkComboBox, JTextField firstField, JTextField secondField,
 			JTable searchTable, List<Student> studentList, boolean remove,
-			JTable table) {
+			JTable table, JButton leftStartButton, JButton leftButton, JButton rightButton, JButton rightEndButton) {
 		this.minMarkComboBox = minMarkComboBox;
 		this.maxMarkComboBox = maxMarkComboBox;
-		this.firstField = firstField;
-		this.searchTable = searchTable;
-		this.studentList = studentList;
-		this.remove = remove;
-		this.table = table;
-		maxMarkComboBox.setSelectedIndex(9);
-	}
-
-	public SearcherAndRemover(JTextField firstField, JTextField secondField,
-			JTable searchTable, List<Student> studentList, boolean remove,
-			JTable table) {
 		this.firstField = firstField;
 		this.secondField = secondField;
 		this.searchTable = searchTable;
 		this.studentList = studentList;
 		this.remove = remove;
 		this.table = table;
+		this.leftStartButton = leftStartButton;
+		this.leftButton = leftButton;
+		this.rightButton = rightButton;
+		this.rightEndButton = rightEndButton;
+		maxMarkComboBox.setSelectedIndex(9);
 	}
+
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -63,10 +65,25 @@ public class SearcherAndRemover implements ActionListener {
 		}
 
 		examTableModel.setStudentList(searchStudent);
+		
+		leftButton.removeActionListener(page);
+		leftStartButton.removeActionListener(page);
+		rightButton.removeActionListener(page);
+		rightEndButton.removeActionListener(page);
+		
+		page = new Page(searchTable);
+		leftStartButton.addActionListener(page);
+		leftButton.addActionListener(page);
+		rightButton.addActionListener(page);
+		rightEndButton.addActionListener(page);
+		
+		leftStartButton.doClick();
+
 		searchTable.updateUI();
 
 		if (remove) {
 			ExamTableModel examTableModel = (ExamTableModel) table.getModel();
+			examTableModel.setStudentList(studentList);
 			examTableModel.deleteDate(searchStudent);
 			table.updateUI();
 		}
@@ -76,11 +93,11 @@ public class SearcherAndRemover implements ActionListener {
 	void searchMeanScoreName() {
 		for (Student student : studentList) {
 			List<Integer> markList = student.getMark();
-			int sum = 0;
+			double sum = 0;
 			for (Integer mark : markList) {
 				sum += mark;
 			}
-			int meanScore = sum / markList.size();
+			double meanScore = sum / markList.size();
 
 			if ((meanScore >= (Integer) minMarkComboBox.getSelectedItem() && meanScore <= (Integer) maxMarkComboBox
 					.getSelectedItem())

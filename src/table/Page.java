@@ -11,7 +11,7 @@ import student.Student;
 public class Page implements ActionListener {
 	private JTable table;
 	private List<Student> studentList;
-	private int numberRecords;
+	private int numberRecords = 1;
 	private int currentRecord;
 	private ExamTableModel examTableModel;
 	private List<Student> newList = null;
@@ -29,6 +29,9 @@ public class Page implements ActionListener {
 		numberRecords = examTableModel.getNumberRecords();
 		int size = studentList.size();
 
+		if(numberRecords > size){
+			return;
+		}	
 		int endPage = size % numberRecords;
 
 		if (endPage == 0) {
@@ -58,7 +61,6 @@ public class Page implements ActionListener {
 						+ numberRecords);
 			}
 
-			// currentRecord -= numberRecords;
 		} else if (e.getActionCommand().equals("Left")) {
 			if (left) {
 				currentRecord += numberRecords;
@@ -78,4 +80,10 @@ public class Page implements ActionListener {
 		examTableModel.setStudentList(newList);
 		table.updateUI();
 	}
+
+	
+
+	
+	
+
 }

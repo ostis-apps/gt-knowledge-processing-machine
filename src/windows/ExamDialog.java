@@ -19,22 +19,25 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 
 import constants.MenuName;
+import student.Student;
 import student.StudentCreator;
 
 public class ExamDialog {
 	private int numberExams;
 	private JTable table;
+	private JButton button;
 
-	public ExamDialog(JFrame frame, JTable table, int numberExams) {
+	public ExamDialog(JFrame frame, JTable table, JButton button, int numberExams, List<Student> studentList) {
 		this.numberExams = numberExams;
-		createExamDialog(frame, table);
+		this.button = button;
+		createExamDialog(frame, table, studentList);
 	}
 
 	public void setNumberExams(int number) {
 		numberExams = number;
 	}
 
-	void createExamDialog(JFrame frame, JTable table) {
+	void createExamDialog(JFrame frame, JTable table, List<Student> studentList) {
 		JDialog examDialog = new JDialog(frame, "Exams", false);
 		examDialog.setSize(330, 300);
 		examDialog.setLocationRelativeTo(frame);
@@ -119,9 +122,10 @@ public class ExamDialog {
 				0, 0, GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
 				new Insets(2, 2, 2, 2), 0, 10));
 
-		oKButton.addActionListener(new StudentCreator(examDialog, table,
+		oKButton.addActionListener(new StudentCreator(examDialog, table, studentList,
 				firstNameField, secondNameField, thirdNameField,
-				numberGroupField, nameExamList, markList, incorrectLabel));
+				numberGroupField, nameExamList, markList, incorrectLabel, button));
+
 	}
 
 }

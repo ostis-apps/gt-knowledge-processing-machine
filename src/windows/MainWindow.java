@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ContainerEvent;
 import java.awt.event.ContainerListener;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,13 +25,17 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.WindowConstants;
-import javax.swing.event.TableModelEvent;
-import javax.swing.event.TableModelListener;
 import javax.swing.table.JTableHeader;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 
+import org.xml.sax.XMLFilter;
+
+import XML.FileChooserListener;
+import XML.FileSaver;
+import XML.XMLFile;
 import student.Student;
 import table.ColumnModel;
 import table.ExamTableModel;
@@ -38,20 +43,20 @@ import table.GroupableTableHeader;
 import table.Page;
 import constants.MenuName;
 import constants.Path;
+import constants.XMLTag;
 
 public class MainWindow {
-	private JFrame frame;
-	private JScrollPane scrollPane;
 	private JComboBox<Integer> numberExams;
 	private JComboBox<Integer> numberRecords;
 	private ExamTableModel tableModel;
 	private JTable table;
 	private List<Student> studentList;
 	private Page page;
+	private JMenuItem addPeopleItem;
 
 	public MainWindow() {
 
-		frame = new JFrame(MenuName.TITLE);
+		JFrame frame = new JFrame(MenuName.TITLE);
 		frame.setSize(700, 400);
 		frame.setLocationRelativeTo(null);
 		// frame.setResizable(false);
@@ -66,12 +71,12 @@ public class MainWindow {
 		numberRecords = new JComboBox<Integer>(MenuName.MARK);
 		numberExams.setSelectedItem(2);
 		numberRecords.setSelectedItem(2);
-		createMenu();
-		createTable((Integer)numberExams.getSelectedItem());
-		createToolBar();
+		createMenu(frame);
+		createTable((Integer) numberExams.getSelectedItem(), frame);
+		createToolBar(frame);
 	}
 
-	void createMenu() {
+	void createMenu(JFrame frame) {
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
 
@@ -79,7 +84,7 @@ public class MainWindow {
 		JMenu tableMenu = new JMenu(MenuName.TABLE);
 
 		JMenuItem searchPeopleItem = new JMenuItem(MenuName.SERCH_PEOPLE);
-		JMenuItem addPeopleItem = new JMenuItem(MenuName.ADD_PEOPLE);
+		addPeopleItem = new JMenuItem(MenuName.ADD_PEOPLE);
 		JMenuItem deletePeopleItem = new JMenuItem(MenuName.DELETE_PEOPLE);
 
 		JMenuItem newFileItem = new JMenuItem(MenuName.NEW_FILE);
@@ -114,11 +119,29 @@ public class MainWindow {
 
 			}
 		});
+		
+		
+
+		searchPeopleItem.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new SearchDialog(frame, table, studentList);
+			}
+		});
+
+		deletePeopleItem.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new SearchDialog(frame, table, studentList).startRemove(true);
+			}
+		});
 
 	}
 
 	@SuppressWarnings("serial")
-	void createTable(int numberExams) {
+	void createTable(int numberExams, JFrame frame) {
 		List<Integer> d = new ArrayList<Integer>();
 		d.add(9);
 		d.add(5);
@@ -133,12 +156,14 @@ public class MainWindow {
 
 		tableModel = new ExamTableModel(numberExams);
 		studentList = tableModel.getStudentList();
-		Student student = new Student("Джум", "Владислав", "Егорович", 321702, d1, d);
-		Student student1 = new Student("Зверуго", "Алексей", "Викторович", 321701, d1, d2);
+		Student student = new Student("Джум", "Владислав", "Егорович", 321702,
+				d1, d);
+		Student student1 = new Student("Зверуго", "Алексей", "Викторович",
+				321701, d1, d2);
 		Student student2 = new Student("2", "Максим", "", 321701, d1, d2);
-		Student student3 = new Student("3", "Максим", "", 421701, d1, d2);
-		Student student4 = new Student("4", "Максим", "", 521701, d1, d2);
-		Student student5 = new Student("5", "Максим", "", 621701, d1, d2);
+		Student student3 = new Student("3", "Максим", "", 321702, d1, d2);
+		Student student4 = new Student("4", "Максим", "", 321702, d1, d2);
+		Student student5 = new Student("5", "Максим", "", 321701, d1, d2);
 
 		tableModel.addDate(student);
 		tableModel.addDate(student1);
@@ -154,7 +179,7 @@ public class MainWindow {
 		};
 
 		new ColumnModel(table, numberExams);
-		scrollPane = new JScrollPane(table);
+		JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.setPreferredSize(new Dimension(400, 400));
 		frame.add(scrollPane);
 
@@ -162,7 +187,7 @@ public class MainWindow {
 
 	}
 
-	void createToolBar() {
+	void createToolBar(JFrame frame) {
 		JToolBar fileToolBar = new JToolBar();
 		JToolBar peopleToolBar = new JToolBar();
 		JPanel transitionPage = new JPanel();
@@ -178,23 +203,20 @@ public class MainWindow {
 		frame.add(peopleToolBar, BorderLayout.LINE_START);
 		frame.add(transitionPage, BorderLayout.SOUTH);
 
-		
 		JLabel numberExamsLabel = new JLabel("   Number of Exams");
 		JLabel numberRecordsLabel = new JLabel("   Number of Records");
 		JLabel numberAvailableRecords = new JLabel(
 				"    Number of the available records  ");
 		JLabel numberAvailableRecordsLabel = new JLabel(
 				String.valueOf(tableModel.getStudentList().size()));
-		//JTextField numberExamsTextField = new JTextField(
-				//String.valueOf(numberExams), 1);
-		
+
 		Color darkGreen = new Color(17, 111, 21);
 		numberAvailableRecordsLabel.setForeground(Color.BLUE);
 		numberAvailableRecordsLabel.setFont(new Font("Calibri", Font.BOLD, 20));
 		numberExamsLabel.setForeground(darkGreen);
 		numberRecordsLabel.setForeground(darkGreen);
 		numberAvailableRecords.setForeground(darkGreen);
-		
+
 		JButton newFileButton = new JButton(new ImageIcon(
 				Path.NEW_FILE_ICON.getPath()));
 		JButton saveButton = new JButton(
@@ -216,19 +238,14 @@ public class MainWindow {
 		JButton rightEndButton = new JButton(new ImageIcon(
 				Path.RIGHT_END_ICON.getPath()));
 		
+		saveButton.addActionListener(new FileSaver(studentList));
+		openFileButton.addActionListener(new FileChooserListener(studentList, leftStartButton));
+			
+
 		leftButton.setActionCommand("Left");
 		leftStartButton.setActionCommand("Left Start");
 		rightButton.setActionCommand("Right");
 		rightEndButton.setActionCommand("Right End");
-		
-		page = new Page(table);
-		
-		leftButton.addActionListener(page);
-		leftStartButton.addActionListener(page);
-		rightButton.addActionListener(page);
-		rightEndButton.addActionListener(page);
-		
-		
 
 		deletePeopleButton.setActionCommand("Remove");
 
@@ -251,11 +268,22 @@ public class MainWindow {
 		peopleToolBar.add(deletePeopleButton);
 		peopleToolBar.add(searchPeopleButton);
 
+		
+		addPeopleItem.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new ExamDialog(frame, table, leftStartButton, (Integer) numberExams
+						.getSelectedItem(), studentList);
+			}
+		});
+		
 		addPeopleButton.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new ExamDialog(frame, table, (Integer)numberExams.getSelectedItem());
+				new ExamDialog(frame, table, leftStartButton, (Integer) numberExams
+						.getSelectedItem(), studentList);
 			}
 		});
 
@@ -275,49 +303,66 @@ public class MainWindow {
 			}
 		});
 
-		numberExams.addActionListener(new ActionListener() {
+		numberRecords.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				List<Student> stud = tableModel.getStudentList();
-				tableModel = new ExamTableModel((Integer)numberExams.getSelectedItem());
-				table.setModel(tableModel);
-				new ColumnModel(table, (Integer)numberExams.getSelectedItem());
-				tableModel.setStudentList(stud);
-				table.requestFocusInWindow();
-			}
-		});
-		
-		numberRecords.addActionListener(new ActionListener() {
-						@Override
-			public void actionPerformed(ActionEvent e) {
-				tableModel.setNumberRecords((Integer)numberRecords.getSelectedItem());
+				tableModel.setNumberRecords((Integer) numberRecords
+						.getSelectedItem());
 				leftStartButton.doClick();
 			}
 		});
-		
-		numberRecords.setSelectedItem(3);
+		numberExams.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				tableModel = new ExamTableModel((Integer) numberExams
+						.getSelectedItem());
+				table.setModel(tableModel);
+				new ColumnModel(table, (Integer) numberExams.getSelectedItem());
+				tableModel.setStudentList(studentList);
+
+				leftButton.removeActionListener(page);
+				leftStartButton.removeActionListener(page);
+				rightButton.removeActionListener(page);
+				rightEndButton.removeActionListener(page);
+
+				page = new Page(table);
+				leftButton.addActionListener(page);
+				leftStartButton.addActionListener(page);
+				rightButton.addActionListener(page);
+				rightEndButton.addActionListener(page);
+				table.requestFocusInWindow();
+
+				numberRecords.setSelectedItem(numberRecords.getSelectedItem());
+			}
+		});
 
 		table.addContainerListener(new ContainerListener() {
 
 			private ExamTableModel model = (ExamTableModel) table.getModel();
+
 			@Override
 			public void componentRemoved(ContainerEvent e) {
-				model = (ExamTableModel) table.getModel();
-				numberAvailableRecordsLabel.setText(String.valueOf(model
-						.getStudentList().size()));
-				numberAvailableRecordsLabel.setText(String.valueOf(studentList.size()));
+				/*
+				 * model = (ExamTableModel) table.getModel();
+				 * numberAvailableRecordsLabel.setText(String.valueOf(model
+				 * .getStudentList().size()));
+				 */
+				numberAvailableRecordsLabel.setText(String.valueOf(studentList
+						.size()));
 			}
 
 			@Override
 			public void componentAdded(ContainerEvent e) {
-				model = (ExamTableModel) table.getModel();
-				numberAvailableRecordsLabel.setText(String.valueOf(model
-						.getStudentList().size()));
-				numberAvailableRecordsLabel.setText(String.valueOf(studentList.size()));
+				/*
+				 * model = (ExamTableModel) table.getModel();
+				 * numberAvailableRecordsLabel.setText(String.valueOf(model
+				 * .getStudentList().size()));
+				 */
+				numberAvailableRecordsLabel.setText(String.valueOf(studentList
+						.size()));
 			}
 		});
-		
-		leftStartButton.doClick();
+		numberExams.setSelectedItem(2);
 	}
-	
+
 }

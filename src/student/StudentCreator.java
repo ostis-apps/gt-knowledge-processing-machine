@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -24,12 +25,14 @@ public class StudentCreator implements ActionListener {
 	private ExamTableModel tableModel;
 	private JTable table;
 	private JLabel incorrectLable;
+	private List<Student> studentList;
+	private JButton button;
 
-	public StudentCreator(JDialog examDialog, JTable table,
+	public StudentCreator(JDialog examDialog, JTable table, List<Student> studentList, 
 			JTextField firstNameField, JTextField secondNameField,
 			JTextField thirdNameField, JTextField numberGroupField,
 			List<JTextField> nameExamList, List<JComboBox> markList,
-			JLabel incorrectLable) {
+			JLabel incorrectLable, JButton button) {
 		this.firstNameField = firstNameField;
 		this.secondNameField = secondNameField;
 		this.thirdNameField = thirdNameField;
@@ -37,9 +40,11 @@ public class StudentCreator implements ActionListener {
 		this.nameExamList = nameExamList;
 		this.markList = markList;
 		this.examDialog = examDialog;
+		this.button = button;
 		this.table = table;
 		this.tableModel = (ExamTableModel) table.getModel();
 		this.incorrectLable = incorrectLable;
+		this.studentList = studentList;
 
 	}
 
@@ -58,7 +63,9 @@ public class StudentCreator implements ActionListener {
 					mark);
 
 			examDialog.setVisible(false);
+			tableModel.setStudentList(studentList);
 			tableModel.addDate(student);
+			button.doClick();
 			table.updateUI();
 
 		} catch (NumberFormatException exept) {

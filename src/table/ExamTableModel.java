@@ -10,12 +10,15 @@ import student.Student;
 @SuppressWarnings("serial")
 public class ExamTableModel extends AbstractTableModel {
 	private int numberExams;
-	int numberRecords;
+	int numberRecords = 1;
 	private List<Student> studentList;
+
+	// private List<Student> stud;
 
 	public ExamTableModel(int numberExams) {
 		this.numberExams = numberExams;
 		studentList = new ArrayList<Student>();
+		// stud = studentList;
 	}
 
 	public List<Student> getStudentList() {
@@ -43,23 +46,24 @@ public class ExamTableModel extends AbstractTableModel {
 			return null;
 		}
 		return student.getRow().get(columnIndex);
-		
+
 	}
 
 	public void addDate(Student student) {
 		studentList.add(student);
+		// stud.add(student);
 	}
 
 	public void deleteDate(List<Student> searchStudent) {
 		studentList.removeAll(searchStudent);
-
+		// stud.removeAll(searchStudent);
 	}
 
 	public void clearDate() {
-		//dataArrayList.clear();
+		// dataArrayList.clear();
 
 	}
-	
+
 	public int getNumberExams() {
 		return numberExams;
 	}
@@ -86,4 +90,13 @@ public class ExamTableModel extends AbstractTableModel {
 		numberRecords = size;
 	}
 
+	public void setNumberExams(Integer numberExams2) {
+		numberExams = numberExams2;
+	}
+
+	/*
+	 * public void setStud(List<Student> stud){ this.stud = stud; }
+	 * 
+	 * public List<Student> getStud(){ return stud; }
+	 */
 }
