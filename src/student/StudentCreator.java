@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -13,6 +12,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 
 import table.ExamTableModel;
+import windows.PageToggle;
 
 public class StudentCreator implements ActionListener {
 	private JTextField firstNameField, secondNameField, thirdNameField,
@@ -26,13 +26,14 @@ public class StudentCreator implements ActionListener {
 	private JTable table;
 	private JLabel incorrectLable;
 	private List<Student> studentList;
-	private JButton button;
+	private PageToggle pageToggle;
 
-	public StudentCreator(JDialog examDialog, JTable table, List<Student> studentList, 
-			JTextField firstNameField, JTextField secondNameField,
-			JTextField thirdNameField, JTextField numberGroupField,
-			List<JTextField> nameExamList, List<JComboBox> markList,
-			JLabel incorrectLable, JButton button) {
+	public StudentCreator(JDialog examDialog, JTable table,
+			List<Student> studentList, JTextField firstNameField,
+			JTextField secondNameField, JTextField thirdNameField,
+			JTextField numberGroupField, List<JTextField> nameExamList,
+			List<JComboBox> markList, JLabel incorrectLable,
+			PageToggle pageToggle) {
 		this.firstNameField = firstNameField;
 		this.secondNameField = secondNameField;
 		this.thirdNameField = thirdNameField;
@@ -40,7 +41,7 @@ public class StudentCreator implements ActionListener {
 		this.nameExamList = nameExamList;
 		this.markList = markList;
 		this.examDialog = examDialog;
-		this.button = button;
+		this.pageToggle = pageToggle;
 		this.table = table;
 		this.tableModel = (ExamTableModel) table.getModel();
 		this.incorrectLable = incorrectLable;
@@ -65,7 +66,8 @@ public class StudentCreator implements ActionListener {
 			examDialog.setVisible(false);
 			tableModel.setStudentList(studentList);
 			tableModel.addDate(student);
-			button.doClick();
+			pageToggle.addButtonActionListener(table);
+			pageToggle.getLeftStartButton().doClick();
 			table.updateUI();
 
 		} catch (NumberFormatException exept) {

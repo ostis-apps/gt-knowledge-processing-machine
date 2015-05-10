@@ -9,9 +9,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ContainerEvent;
 import java.awt.event.ContainerListener;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javafx.stage.FileChooser;
 
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -28,22 +29,15 @@ import javax.swing.JTable;
 import javax.swing.JToolBar;
 import javax.swing.WindowConstants;
 import javax.swing.table.JTableHeader;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerException;
 
-import org.xml.sax.XMLFilter;
-
-import XML.FileChooserListener;
-import XML.FileSaver;
-import XML.XMLFile;
 import student.Student;
 import table.ColumnModel;
 import table.ExamTableModel;
 import table.GroupableTableHeader;
-import table.Page;
+import XML.FileChooserListener;
+import XML.FileSaver;
 import constants.MenuName;
 import constants.Path;
-import constants.XMLTag;
 
 public class MainWindow {
 	private JComboBox<Integer> numberExams;
@@ -51,8 +45,9 @@ public class MainWindow {
 	private ExamTableModel tableModel;
 	private JTable table;
 	private List<Student> studentList;
-	private Page page;
 	private JMenuItem addPeopleItem;
+	private PageToggle pageToggle;
+	private JMenuItem openFileItem;
 
 	public MainWindow() {
 
@@ -62,8 +57,6 @@ public class MainWindow {
 		// frame.setResizable(false);
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.setLayout(new BorderLayout());
-
-		// JPanel statusPanel = new JPanel();
 
 		frame.setVisible(true);
 
@@ -87,12 +80,11 @@ public class MainWindow {
 		addPeopleItem = new JMenuItem(MenuName.ADD_PEOPLE);
 		JMenuItem deletePeopleItem = new JMenuItem(MenuName.DELETE_PEOPLE);
 
-		JMenuItem newFileItem = new JMenuItem(MenuName.NEW_FILE);
-		JMenuItem openFileItem = new JMenuItem(MenuName.OPEN_FILE);
+		//JMenuItem newFileItem = new JMenuItem(MenuName.NEW_FILE);
+		openFileItem = new JMenuItem(MenuName.OPEN_FILE);
 		JMenuItem saveFileItem = new JMenuItem(MenuName.SAVE_AS);
 		JMenuItem exitItem = new JMenuItem(MenuName.EXIT);
 
-		newFileItem.setIcon(new ImageIcon(Path.NEW_FILE_ICON.getPath()));
 		openFileItem.setIcon(new ImageIcon(Path.OPEN_ICON.getPath()));
 		saveFileItem.setIcon(new ImageIcon(Path.SAVE_ICON.getPath()));
 		searchPeopleItem.setIcon(new ImageIcon(Path.SEARCH_ICON.getPath()));
@@ -102,7 +94,7 @@ public class MainWindow {
 		menuBar.add(fileMenu);
 		menuBar.add(tableMenu);
 
-		fileMenu.add(newFileItem);
+		//fileMenu.add(newFileItem);
 		fileMenu.add(openFileItem);
 		fileMenu.add(saveFileItem);
 		fileMenu.addSeparator();
@@ -119,14 +111,12 @@ public class MainWindow {
 
 			}
 		});
-		
-		
 
 		searchPeopleItem.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new SearchDialog(frame, table, studentList);
+				new SearchDialog(frame, table, studentList, pageToggle);
 			}
 		});
 
@@ -134,9 +124,12 @@ public class MainWindow {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new SearchDialog(frame, table, studentList).startRemove(true);
+				new SearchDialog(frame, table, studentList, pageToggle)
+						.startRemove(true);
 			}
 		});
+		
+		
 
 	}
 
@@ -217,8 +210,6 @@ public class MainWindow {
 		numberRecordsLabel.setForeground(darkGreen);
 		numberAvailableRecords.setForeground(darkGreen);
 
-		JButton newFileButton = new JButton(new ImageIcon(
-				Path.NEW_FILE_ICON.getPath()));
 		JButton saveButton = new JButton(
 				new ImageIcon(Path.SAVE_ICON.getPath()));
 		JButton openFileButton = new JButton(new ImageIcon(
@@ -229,27 +220,15 @@ public class MainWindow {
 				Path.SEARCH_ICON.getPath()));
 		JButton deletePeopleButton = new JButton(new ImageIcon(
 				Path.DELETE_ICON.getPath()));
-		JButton leftButton = new JButton(
-				new ImageIcon(Path.LEFT_ICON.getPath()));
-		JButton leftStartButton = new JButton(new ImageIcon(
-				Path.LEFT_START_ICON.getPath()));
-		JButton rightButton = new JButton(new ImageIcon(
-				Path.RIGHT_ICON.getPath()));
-		JButton rightEndButton = new JButton(new ImageIcon(
-				Path.RIGHT_END_ICON.getPath()));
-		
+
+		pageToggle = new PageToggle(transitionPage);
 		saveButton.addActionListener(new FileSaver(studentList));
-		openFileButton.addActionListener(new FileChooserListener(studentList, leftStartButton));
-			
-
-		leftButton.setActionCommand("Left");
-		leftStartButton.setActionCommand("Left Start");
-		rightButton.setActionCommand("Right");
-		rightEndButton.setActionCommand("Right End");
-
+		openFileButton.addActionListener(new FileChooserListener(studentList, pageToggle, table));
 		deletePeopleButton.setActionCommand("Remove");
+		
+		
+		openFileItem.addActionListener(new FileChooserListener(studentList, pageToggle, table));
 
-		fileToolBar.add(newFileButton);
 		fileToolBar.add(openFileButton);
 		fileToolBar.add(saveButton);
 		fileToolBar.add(numberExamsLabel);
@@ -259,31 +238,25 @@ public class MainWindow {
 		fileToolBar.add(numberAvailableRecords);
 		fileToolBar.add(numberAvailableRecordsLabel);
 
-		transitionPage.add(leftStartButton);
-		transitionPage.add(leftButton);
-		transitionPage.add(rightButton);
-		transitionPage.add(rightEndButton);
-
 		peopleToolBar.add(addPeopleButton);
 		peopleToolBar.add(deletePeopleButton);
 		peopleToolBar.add(searchPeopleButton);
 
-		
 		addPeopleItem.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new ExamDialog(frame, table, leftStartButton, (Integer) numberExams
-						.getSelectedItem(), studentList);
+				new ExamDialog(frame, table, (Integer) numberExams
+						.getSelectedItem(), studentList, pageToggle);
 			}
 		});
-		
+
 		addPeopleButton.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new ExamDialog(frame, table, leftStartButton, (Integer) numberExams
-						.getSelectedItem(), studentList);
+				new ExamDialog(frame, table, (Integer) numberExams
+						.getSelectedItem(), studentList, pageToggle);
 			}
 		});
 
@@ -291,7 +264,7 @@ public class MainWindow {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new SearchDialog(frame, table, studentList);
+				new SearchDialog(frame, table, studentList, pageToggle);
 			}
 		});
 
@@ -299,16 +272,20 @@ public class MainWindow {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new SearchDialog(frame, table, studentList).startRemove(true);
+				new SearchDialog(frame, table, studentList, pageToggle)
+						.startRemove(true);
 			}
 		});
 
+	
+		
 		numberRecords.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				tableModel.setNumberRecords((Integer) numberRecords
 						.getSelectedItem());
-				leftStartButton.doClick();
+				// leftStartButton.doClick();
+				pageToggle.getLeftStartButton().doClick();
 			}
 		});
 		numberExams.addActionListener(new ActionListener() {
@@ -320,17 +297,7 @@ public class MainWindow {
 				new ColumnModel(table, (Integer) numberExams.getSelectedItem());
 				tableModel.setStudentList(studentList);
 
-				leftButton.removeActionListener(page);
-				leftStartButton.removeActionListener(page);
-				rightButton.removeActionListener(page);
-				rightEndButton.removeActionListener(page);
-
-				page = new Page(table);
-				leftButton.addActionListener(page);
-				leftStartButton.addActionListener(page);
-				rightButton.addActionListener(page);
-				rightEndButton.addActionListener(page);
-				table.requestFocusInWindow();
+				pageToggle.addButtonActionListener(table);
 
 				numberRecords.setSelectedItem(numberRecords.getSelectedItem());
 			}
@@ -347,6 +314,7 @@ public class MainWindow {
 				 * numberAvailableRecordsLabel.setText(String.valueOf(model
 				 * .getStudentList().size()));
 				 */
+				// pageToggle.addButtonActionListener(table);
 				numberAvailableRecordsLabel.setText(String.valueOf(studentList
 						.size()));
 			}
@@ -358,11 +326,11 @@ public class MainWindow {
 				 * numberAvailableRecordsLabel.setText(String.valueOf(model
 				 * .getStudentList().size()));
 				 */
+				// pageToggle.addButtonActionListener(table);
 				numberAvailableRecordsLabel.setText(String.valueOf(studentList
 						.size()));
 			}
 		});
 		numberExams.setSelectedItem(2);
 	}
-
 }

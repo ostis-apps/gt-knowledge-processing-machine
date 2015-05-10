@@ -5,14 +5,13 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
 import student.Student;
 import table.ExamTableModel;
-import table.Page;
 
 public class SearcherAndRemover implements ActionListener {
 
@@ -27,15 +26,13 @@ public class SearcherAndRemover implements ActionListener {
 	private boolean remove;
 	private JTable table;
 
-	private JButton leftStartButton;
-	private JButton leftButton;
-	private JButton rightButton;
-	private JButton rightEndButton;
-	Page page;
+	private PageToggle pageToggle;
+	private PageToggle pageToggleFirst;
 	public SearcherAndRemover(JComboBox<Integer> minMarkComboBox,
-			JComboBox<Integer> maxMarkComboBox, JTextField firstField, JTextField secondField,
-			JTable searchTable, List<Student> studentList, boolean remove,
-			JTable table, JButton leftStartButton, JButton leftButton, JButton rightButton, JButton rightEndButton) {
+			JComboBox<Integer> maxMarkComboBox, JTextField firstField,
+			JTextField secondField, JTable searchTable,
+			List<Student> studentList, boolean remove, JTable table,
+			PageToggle pageToggle, PageToggle pageToggleFirst) {
 		this.minMarkComboBox = minMarkComboBox;
 		this.maxMarkComboBox = maxMarkComboBox;
 		this.firstField = firstField;
@@ -44,13 +41,10 @@ public class SearcherAndRemover implements ActionListener {
 		this.studentList = studentList;
 		this.remove = remove;
 		this.table = table;
-		this.leftStartButton = leftStartButton;
-		this.leftButton = leftButton;
-		this.rightButton = rightButton;
-		this.rightEndButton = rightEndButton;
+		this.pageToggle = pageToggle;
+		this.pageToggleFirst = pageToggleFirst;
 		maxMarkComboBox.setSelectedIndex(9);
 	}
-
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -65,19 +59,11 @@ public class SearcherAndRemover implements ActionListener {
 		}
 
 		examTableModel.setStudentList(searchStudent);
-		
-		leftButton.removeActionListener(page);
-		leftStartButton.removeActionListener(page);
-		rightButton.removeActionListener(page);
-		rightEndButton.removeActionListener(page);
-		
-		page = new Page(searchTable);
-		leftStartButton.addActionListener(page);
-		leftButton.addActionListener(page);
-		rightButton.addActionListener(page);
-		rightEndButton.addActionListener(page);
-		
-		leftStartButton.doClick();
+
+		pageToggle.addButtonActionListener(searchTable);
+		//pageToggle.addButtonActionListener(table);
+
+		pageToggle.getLeftStartButton().doClick();
 
 		searchTable.updateUI();
 
@@ -85,8 +71,12 @@ public class SearcherAndRemover implements ActionListener {
 			ExamTableModel examTableModel = (ExamTableModel) table.getModel();
 			examTableModel.setStudentList(studentList);
 			examTableModel.deleteDate(searchStudent);
+			pageToggleFirst.addButtonActionListener(table);
+			pageToggleFirst.getLeftStartButton().doClick();
 			table.updateUI();
 		}
+		
+		JOptionPane.showMessageDialog(table, "Number of found records: " + searchStudent.size());
 
 	}
 

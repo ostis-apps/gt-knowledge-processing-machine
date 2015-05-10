@@ -18,18 +18,18 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-import constants.MenuName;
 import student.Student;
 import student.StudentCreator;
+import constants.MenuName;
 
 public class ExamDialog {
 	private int numberExams;
-	private JTable table;
-	private JButton button;
+	private PageToggle pageToggle;
 
-	public ExamDialog(JFrame frame, JTable table, JButton button, int numberExams, List<Student> studentList) {
+	public ExamDialog(JFrame frame, JTable table, int numberExams,
+			List<Student> studentList, PageToggle pageToggle) {
 		this.numberExams = numberExams;
-		this.button = button;
+		this.pageToggle = pageToggle;
 		createExamDialog(frame, table, studentList);
 	}
 
@@ -98,8 +98,9 @@ public class ExamDialog {
 			JLabel nameExamLabel = new JLabel("       Exam");
 			JLabel markExamLabel = new JLabel("       Mark: ");
 			JTextField nameExamField = new JTextField(7);
-			JComboBox<Integer> markComboBox= new JComboBox<Integer>(MenuName.MARK);
-			
+			JComboBox<Integer> markComboBox = new JComboBox<Integer>(
+					MenuName.MARK);
+
 			jPanel.add(nameExamLabel, new GridBagConstraints(0, i + 4, 1, 1, 0,
 					0, GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
 					new Insets(2, 2, 2, 2), 0, 10));
@@ -122,10 +123,10 @@ public class ExamDialog {
 				0, 0, GridBagConstraints.NORTH, GridBagConstraints.HORIZONTAL,
 				new Insets(2, 2, 2, 2), 0, 10));
 
-		oKButton.addActionListener(new StudentCreator(examDialog, table, studentList,
-				firstNameField, secondNameField, thirdNameField,
-				numberGroupField, nameExamList, markList, incorrectLabel, button));
-
+		oKButton.addActionListener(new StudentCreator(examDialog, table,
+				studentList, firstNameField, secondNameField, thirdNameField,
+				numberGroupField, nameExamList, markList, incorrectLabel,
+				pageToggle));
 	}
 
 }

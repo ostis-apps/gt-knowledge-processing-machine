@@ -4,6 +4,7 @@ public final class XMLTag {
 	public static final String STUDENTS = "students";
 	public static final String STUDENT = "student";
 
+	public static final String NAME = "name";
 	public static final String FIRST_NAME = "firstName";
 	public static final String SECOND_NAME = "secondName";
 	public static final String THIRD_NAME = "thirdName";

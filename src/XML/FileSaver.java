@@ -25,7 +25,7 @@ public class FileSaver implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (jFileChooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
 			try {
-				new XMLFile(jFileChooser.getSelectedFile().getPath(),
+				new XMLWriterAndReader(jFileChooser.getSelectedFile().getPath(),
 						studentList).writeFile();
 			} catch (IOException e1) {
 				e1.printStackTrace();

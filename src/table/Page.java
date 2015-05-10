@@ -17,22 +17,27 @@ public class Page implements ActionListener {
 	private List<Student> newList = null;
 	private boolean left;
 	private boolean right;
+	private int size;
 
 	public Page(JTable table) {
 		this.table = table;
 		examTableModel = (ExamTableModel) table.getModel();
 		studentList = examTableModel.getStudentList();
+		size = studentList.size();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		numberRecords = examTableModel.getNumberRecords();
-		int size = studentList.size();
 
-		if(numberRecords > size){
-			return;
-		}	
 		int endPage = size % numberRecords;
+
+		if (numberRecords >= size) {
+			newList = studentList;
+			examTableModel.setStudentList(newList);
+			table.updateUI();
+			return;
+		}
 
 		if (endPage == 0) {
 			endPage = numberRecords;
@@ -53,7 +58,7 @@ public class Page implements ActionListener {
 			}
 			left = true;
 			currentRecord += numberRecords;
-			if (currentRecord + numberRecords > size) {
+			if (currentRecord + numberRecords >= size) {
 				currentRecord = size - numberRecords;
 				newList = studentList.subList(size - endPage, size);
 			} else {
@@ -80,10 +85,4 @@ public class Page implements ActionListener {
 		examTableModel.setStudentList(newList);
 		table.updateUI();
 	}
-
-	
-
-	
-	
-
 }

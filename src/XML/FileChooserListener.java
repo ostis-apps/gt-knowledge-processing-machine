@@ -14,15 +14,19 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 
 import student.Student;
+import table.ExamTableModel;
+import windows.PageToggle;
 
 public class FileChooserListener implements ActionListener {
 	private JFileChooser jFileChooser;
 	private List<Student> studentList;
-	private JButton button;
+	private PageToggle pageToggle;
+	private JTable table;
 
-	public FileChooserListener(List<Student> studentList, JButton button ) {
+	public FileChooserListener(List<Student> studentList, PageToggle pageToggle, JTable table) {
 		this.studentList = studentList;
-		this.button = button;
+		this.pageToggle = pageToggle;
+		this.table = table;
 		jFileChooser = new JFileChooser();
 	}
 
@@ -33,14 +37,19 @@ public class FileChooserListener implements ActionListener {
 		if (result == JFileChooser.APPROVE_OPTION) {
 			if (jFileChooser.getSelectedFile().getName().contains(".xml")) {
 
-				try {
-					new XMLFile(jFileChooser.getSelectedFile().getPath(),
-							studentList).readFile();
-				} catch (ParserConfigurationException | SAXException
-						| IOException e1) {
-					e1.printStackTrace();
-				}
-				button.doClick();
+				studentList.clear();
+					try {
+						new XMLWriterAndReader(jFileChooser.getSelectedFile().getPath(),
+								studentList).readFile();
+					} catch (SAXException | IOException
+							| ParserConfigurationException e1) {
+						e1.printStackTrace();
+					}
+				
+				ExamTableModel examTableModel = (ExamTableModel) table.getModel();
+				examTableModel.setStudentList(studentList);
+				pageToggle.addButtonActionListener(table);
+				pageToggle.getLeftStartButton().doClick();
 
 			}
 		}
