@@ -3,56 +3,56 @@ package XML;
 import java.util.ArrayList;
 import java.util.List;
 
-import constants.XMLTag;
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+
 import student.Student;
-import jdk.internal.org.xml.sax.Attributes;
-import jdk.internal.org.xml.sax.SAXException;
-import jdk.internal.org.xml.sax.helpers.DefaultHandler;
+import constants.XMLTag;
 
 public class Handler extends DefaultHandler {
 
 	private List<Student> studentList;
 	private String name;
-
 	private String firstNameStudent;
 	private String secondNameStudent;
 	private String thirdNameStudent;
 	private int numberGroup;
-	private List<String> nameExam = new ArrayList<String>();
-	private List<Integer> mark = new ArrayList<Integer>();
+	private List<String> nameExam;
+	private List<Integer> mark;
 
 	public Handler(List<Student> studentList) {
 		this.studentList = studentList;
 	}
 
 	@Override
-	public void startDocument() throws SAXException {
+	public void startElement(String uri, String localName, String qName,
+			Attributes attributes) throws SAXException {
+		name = qName;
+		if (name.equals(XMLTag.STUDENT)) {
+			nameExam = new ArrayList<String>();
+			mark = new ArrayList<Integer>();
+		}
 	}
 
 	@Override
-	public void endDocument() throws SAXException {
-	}
-
-	@Override
-	public void startElement(String arg0, String arg1, String arg2,
-			Attributes arg3) throws SAXException {
-		name = arg2;
-	}
-
-	@Override
-	public void endElement(String arg0, String arg1, String arg2)
+	public void endElement(String uri, String localName, String qName)
 			throws SAXException {
-		if (arg2.equals(XMLTag.STUDENT)) {
+		if (qName.equals(XMLTag.STUDENT)) {
 			Student student = new Student(firstNameStudent, secondNameStudent,
 					thirdNameStudent, numberGroup, nameExam, mark);
 			studentList.add(student);
-		} 
+		}
 	}
 
 	@Override
-	public void characters(char[] arg0, int arg1, int arg2) throws SAXException {
-		String value = new String(arg0, arg1, arg2);
-		
+	public void characters(char[] ch, int start, int length)
+			throws SAXException {
+		String value = new String(ch, start, length).trim();
+		if (value.equals("")) {
+			return;
+		}
+		//System.out.println(name);
 		if (name.equals(XMLTag.FIRST_NAME)) {
 			firstNameStudent = value;
 		} else if (name.equals(XMLTag.SECOND_NAME)) {
@@ -66,7 +66,5 @@ public class Handler extends DefaultHandler {
 		} else if (name.equals(XMLTag.NUMBER_GROUP)) {
 			numberGroup = Integer.parseInt(value);
 		}
-
 	}
-
 }

@@ -28,11 +28,12 @@ public class FileChooserListener implements ActionListener {
 		this.pageToggle = pageToggle;
 		this.table = table;
 		jFileChooser = new JFileChooser();
+		jFileChooser.setCurrentDirectory(new File("D:\\TestXML"));
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		jFileChooser.setCurrentDirectory(new File("E:\\MyTestFiles"));
+		
 		int result = jFileChooser.showOpenDialog(null);
 		if (result == JFileChooser.APPROVE_OPTION) {
 			if (jFileChooser.getSelectedFile().getName().contains(".xml")) {

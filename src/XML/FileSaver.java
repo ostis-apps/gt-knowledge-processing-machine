@@ -2,6 +2,7 @@ package XML;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -18,6 +19,7 @@ public class FileSaver implements ActionListener {
 	public FileSaver(List<Student> studentList) {
 		this.studentList = studentList;
 		jFileChooser = new JFileChooser();
+		jFileChooser.setCurrentDirectory(new File("D:\\TestXML"));
 
 	}
 
