@@ -16,8 +16,21 @@ scp_program -> reflexive_graphs
 			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
 			
 			=> nrel_then: .reflexive_graphs_operator7;;
+			=> nrel_else: .reflexive_graphs_operator0_1;;
+		*);;
+
+		-> .reflexive_graphs_operator0_1
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: concept_reflexive_graph;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_neg: _ara;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
+			
+			=> nrel_then: .reflexive_graphs_operator9;;//&&
 			=> nrel_else: .reflexive_graphs_operator1;;
 		*);;
+
+
 		-> .reflexive_graphs_operator1
 		(*
 			<- searchSetStr5;;
@@ -118,7 +131,17 @@ scp_program -> reflexive_graphs
 			<- eraseEl;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _vertexs;;
 			
-			=> nrel_goto: .reflexive_graphs_operator9;;
+			=> nrel_goto: .reflexive_graphs_operator9;;//&& xx2
+		*);;
+		
+		-> .reflexive_graphs_operatorxx2
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: concept_reflexive_graph;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_neg: _ara;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
+			
+			=> nrel_goto: .reflexive_graphs_operator7;;
 		*);;
 		
 		-> .reflexive_graphs_operator_return(*<-return;;*);;

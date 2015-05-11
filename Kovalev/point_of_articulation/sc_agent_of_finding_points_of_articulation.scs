@@ -1,4 +1,4 @@
-sc_agent_of_finding_points_of_articulation
+sc_agent_of_finding_points_of_articulation 
 => nrel_main_idtf:
 	[sc-агент поиска точек сочленения] (* <- lang_ru;; *);
 <- abstract_sc_agent;
@@ -28,8 +28,9 @@ sc_agent_of_finding_points_of_articulation
 		<= nrel_sc_agent_program: 
 		{
 			agent_of_finding_points_articulation;
-			find_points_of_articulation
-			//find_points_of_articulation
+			find_points_of_articulation;
+			find_the_number_of_connected_components_support;
+			find_the_connected_components_support
 		};;
 		-> sc_agent_of_finding_points_of_articulation_scp (* <- active_sc_agent;; *);;
 	*);;

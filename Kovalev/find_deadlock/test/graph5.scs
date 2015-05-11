@@ -1,0 +1,14 @@
+concept_undirected_graph-> rrel_example: test_find_deadlock_5
+(*
+	->rrel_vertex: V1;;
+	->rrel_vertex: V2;;
+	->rrel_vertex: V3;;
+	->rrel_vertex: V4;;
+	->rrel_oredge: (V1=>V2);;
+	->rrel_oredge: (V2=>V3);;
+	->rrel_oredge: (V3=>V1);;
+	->rrel_oredge: (V4=>V1);;
+	->rrel_oredge: (V4=>V2);;
+	->rrel_oredge: (V4=>V3);;
+*);;
+

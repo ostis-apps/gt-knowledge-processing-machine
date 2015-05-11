@@ -1,0 +1,10 @@
+concept_undirected_graph->graph_triangle2(*
+	->rrel_vertex: v1;;
+	->rrel_vertex: v2;;
+	->rrel_vertex: v3;;
+	->rrel_edge: ( v1 => v2 );;
+	->rrel_edge: ( v2 => v3 );;
+	->rrel_edge: ( v3 => v1 );;
+
+*);;
+

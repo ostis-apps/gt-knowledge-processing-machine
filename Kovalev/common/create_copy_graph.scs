@@ -80,7 +80,7 @@ scp_program -> create_copy_graph
                         -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs1;;
                         -> rrel_3: rrel_assign: rrel_scp_var: _arc;;
                         -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs2;;
-                        -> rrel_5: rrel_fixed: rrel_scp_const: rrel_edge;;
+                        -> rrel_5: rrel_fixed: rrel_scp_const: rrel_arc;;
 
 			-> rrel_set_3: rrel_assign: rrel_scp_var: _arcs;;
 			
@@ -106,7 +106,7 @@ scp_program -> create_copy_graph
 			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_arc;;
 			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_edge;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_arc;;
 			
 			=> nrel_goto: ..erase_arc_erase1;;
 		*);;

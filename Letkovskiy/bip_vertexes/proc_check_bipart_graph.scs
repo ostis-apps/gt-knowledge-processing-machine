@@ -111,12 +111,28 @@ scp_program -> proc_check_bipart_graph_vertexes (*
 
 
 -> ..graph_is_bipartide_2 (*
-<- genElStr5;;
+<- genElStr3;;
 -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
 -> rrel_2: rrel_assign: rrel_const: rrel_common: rrel_scp_var: _arc2;;
 -> rrel_3: rrel_fixed: rrel_scp_var: _set_A;;
--> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
--> rrel_5: rrel_fixed: rrel_scp_const: nrel_first_bip_set;;
+
+=> nrel_goto : ..graph_is_bipartide_2_0;; *);;
+
+
+-> ..graph_is_bipartide_2_0 (*
+<- genElStr3;;
+-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc3;;
+-> rrel_3: rrel_fixed: rrel_const: rrel_common: _arc2;;
+
+=> nrel_goto : ..graph_is_bipartide_3_1;; *);;
+
+
+-> ..graph_is_bipartide_3_1 (*
+<- genElStr3;;
+-> rrel_1: rrel_fixed: rrel_scp_const: nrel_first_bip_set;; //////////////////////////////////////////
+-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc3;;
+-> rrel_3: rrel_fixed: rrel_const: rrel_common: _arc2;;
 
 => nrel_goto : ..graph_is_bipartide_3_0;; *);;
 
@@ -124,28 +140,34 @@ scp_program -> proc_check_bipart_graph_vertexes (*
 -> ..graph_is_bipartide_3_0 (*
 <- genElStr3;;
 -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
--> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc3;;
--> rrel_3: rrel_fixed: rrel_scp_var: _arc2;;
-
-=> nrel_goto : ..graph_is_bipartide_3;; *);;
-
-
--> ..graph_is_bipartide_3 (*
-<- genElStr3;;
--> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
 -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
--> rrel_3: rrel_fixed: rrel_scp_var: _arc4;;
+-> rrel_3: rrel_fixed: rrel_scp_var: _arc3;;
 
 => nrel_goto : ..graph_is_bipartide_4;; *);;
 
 
 -> ..graph_is_bipartide_4 (*
-<- genElStr5;;
+<- genElStr3;;
 -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
 -> rrel_2: rrel_assign: rrel_const: rrel_common: rrel_scp_var: _arc2;;
 -> rrel_3: rrel_fixed: rrel_scp_var: _set_B;;
--> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
--> rrel_5: rrel_fixed: rrel_scp_const: nrel_second_bip_set;;
+
+=> nrel_goto : ..graph_is_bipartide_4_0;; *);;
+
+-> ..graph_is_bipartide_4_0 (*
+<- genElStr3;;
+-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+-> rrel_3: rrel_fixed: rrel_const: rrel_common: _arc2;;
+
+=> nrel_goto : ..graph_is_bipartide_5_1;; *);;
+
+
+-> ..graph_is_bipartide_5_1 (*
+<- genElStr3;;
+-> rrel_1: rrel_fixed: rrel_scp_const: nrel_second_bip_set;; //////////////////////////////////////////
+-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc3;;
+-> rrel_3: rrel_fixed: rrel_scp_var: _arc2;;
 
 => nrel_goto : ..graph_is_bipartide_5_0;; *);;
 
@@ -153,17 +175,8 @@ scp_program -> proc_check_bipart_graph_vertexes (*
 -> ..graph_is_bipartide_5_0 (*
 <- genElStr3;;
 -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
--> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc3;;
--> rrel_3: rrel_fixed: rrel_scp_var: _arc2;;
-
-=> nrel_goto : ..graph_is_bipartide_5;; *);;
-
-
--> ..graph_is_bipartide_5 (*
-<- genElStr3;;
--> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
--> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc3;;
--> rrel_3: rrel_fixed: rrel_scp_var: _arc4;;
+-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+-> rrel_3: rrel_fixed: rrel_scp_var: _arc3;;
 
 => nrel_goto : ..proc_check_bipart_graph_op_returno;; *);;
 

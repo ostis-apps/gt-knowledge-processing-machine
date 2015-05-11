@@ -1,0 +1,40 @@
+scp_program_proc_min_ostov
+=> nrel_main_idtf:
+	[Программа поиска минимального остова графа] (* <- lang_ru;; *);
+
+=> nrel_initiation_condition_and_result: (..scp_program_proc_min_ostov_initiation_condition
+					  => ..scp_program_proc_min_ostov_result);
+<= nrel_scp_program_key_sc_elements: 
+	{
+		concept_undirected_graph;
+		concept_weighted_graph;
+		rrel_vertex;
+		rrel_edge;
+		nrel_min_ostov
+	};
+
+<- key_sc_element:
+	..reflexive_graph_behavior
+	(*
+		<- sc_description_of_scp_program_behavior;;
+		<= nrel_sc_text_translation:
+		...
+		(*
+			-> rrel_example:
+				[Это программа создает узел, связанный с графом не ролевым отношением "минимальный остов*" и из которого исходят дуги принадлежности в ребра графа, которые входят в минимальный остов];;
+		*);;
+	*);;
+
+..scp_program_proc_min_ostov_initiation_condition
+= [*
+	concept_undirected_graph -> _curr_graph;;
+	concept_weighted_graph -> _curr_graph;;
+*];;
+
+
+..scp_program_proc_min_ostov_result 
+= [*
+	concept_undirected_graph -> _curr_graph;;
+	concept_weighted_graph -> _curr_graph;;
+	_curr_graph => nrel_min_ostov: _ans;;
+*];;

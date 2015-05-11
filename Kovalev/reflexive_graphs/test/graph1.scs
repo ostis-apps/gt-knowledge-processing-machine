@@ -1,0 +1,5 @@
+concept_directed_graph-> test_reflexive_graph1
+(*
+	->rrel_vertex: V1;;
+	->rrel_arc: (V1=>V1);;
+*);;

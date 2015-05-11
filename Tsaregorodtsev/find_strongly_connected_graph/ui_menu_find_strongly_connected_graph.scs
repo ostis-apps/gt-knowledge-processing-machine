@@ -1,10 +1,10 @@
 ui_menu_find_strongly_connected_graph <- ui_user_command_class_atom; ui_user_command_class_view_kb;;
 
 // Указываем русский идентификатор нашей операции в меню
-ui_menu_find_strongly_connected_graph =>nrel_main_idtf: [Запрос связности орграфа] (* <- lang_ru;; *);;
+ui_menu_find_strongly_connected_graph =>nrel_main_idtf: [Проверка орграфа на связность] (* <- lang_ru;; *);;
 
 // Указываем английский идентификатор нашей операции в меню
-ui_menu_find_strongly_connected_graph =>nrel_main_idtf: [Request connectivity of orgraph] (* <- lang_en;; *);;
+ui_menu_find_strongly_connected_graph =>nrel_main_idtf: [Check if orgraph is connectivity] (* <- lang_en;; *);;
 
 // Указываем шаблон нашей команды
 ui_menu_find_strongly_connected_graph =>ui_nrel_command_template:
@@ -18,11 +18,11 @@ ui_menu_find_strongly_connected_graph =>ui_nrel_command_template:
 *];;
 
 // Указываем текстовый шаблон команды на русском языке
-ui_menu_find_strongly_connected_graph =>ui_nrel_command_lang_template: [Запрос связности орграфа: $ui_arg_1] 
+ui_menu_find_strongly_connected_graph =>ui_nrel_command_lang_template: [Проверка орграфа на связность: $ui_arg_1] 
 (*
 	<- lang_ru;; 
 *);;
 
 // Указываем текстовый шаблон команды на английском языке
-ui_menu_find_strongly_connected_graph =>ui_nrel_command_lang_template: [Request connectivity of orgraph: $ui_arg_1]
+ui_menu_find_strongly_connected_graph =>ui_nrel_command_lang_template: [Check if orgraph is connectivity: $ui_arg_1]
 (* <- lang_en;; *);;

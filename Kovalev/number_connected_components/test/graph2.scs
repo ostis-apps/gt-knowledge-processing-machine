@@ -1,0 +1,15 @@
+concept_graph -> test_number_connected_components_graph2
+(*
+	->rrel_vertex: V1;;
+	->rrel_vertex: V2;;
+	->rrel_vertex: V3;;
+	->rrel_vertex: V4;;
+	->rrel_vertex: V5;;
+	->rrel_arc: ( V1 => V3 );;
+	->rrel_arc: ( V2 => V3 );;
+	->rrel_arc: ( V3 => V2 );;
+	->rrel_arc: ( V4 => V3 );;
+	->rrel_arc: ( V3 => V4 );;
+	->rrel_arc: ( V3 => V5 );;
+*);;
+

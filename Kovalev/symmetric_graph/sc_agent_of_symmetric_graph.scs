@@ -1,6 +1,6 @@
 sc_agent_of_finding_symmetric_graph
 => nrel_main_idtf:
-	[sc-агент поиска точек сочленения] (* <- lang_ru;; *);
+	[sc-агент проверки графа на симметричность] (* <- lang_ru;; *);
 <- abstract_sc_agent;
 => nrel_primary_initiation_condition: (sc_event_add_output_arc => question_initiated);
 => nrel_initiation_condition_and_result: (..sc_agent_of_finding_symmetric_graph_initiation_condition => ..sc_agent_of_finding_symmetric_graph_result);
@@ -18,7 +18,7 @@ sc_agent_of_finding_symmetric_graph
 		...
 		(*
 		-> rrel_example:
-			[Задачей sc-агента является нахождение точек сочленения];;
+			[Задачей sc-агента является проверка графа на симметричность];;
 		*);;
 	*);
 

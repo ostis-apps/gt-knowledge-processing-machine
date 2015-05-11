@@ -1,6 +1,6 @@
 sc_agent_finding_number_of_connected_components
 => nrel_main_idtf:
-	[sc-агент поиска точек сочленения] (* <- lang_ru;; *);
+	[sc-агент поиска количества компонентов связности] (* <- lang_ru;; *);
 <- abstract_sc_agent;
 => nrel_primary_initiation_condition: (sc_event_add_output_arc => question_initiated);
 => nrel_initiation_condition_and_result: (..sc_agent_finding_number_of_connected_components_initiation_condition => ..sc_agent_finding_number_of_connected_components_result);
@@ -18,7 +18,7 @@ sc_agent_finding_number_of_connected_components
 		...
 		(*
 		-> rrel_example:
-			[Задачей sc-агента является нахождение точек сочленения];;
+			[Задачей sc-агента поиск количества компонентов связности];;
 		*);;
 	*);
 
@@ -28,7 +28,8 @@ sc_agent_finding_number_of_connected_components
 		<= nrel_sc_agent_program: 
 		{
 			agent_finding_number_connected_components;
-			find_the_number_of_connected_components
+			find_the_number_of_connected_components;
+			find_the_connected_components
 			//find_points_of_articulation
 		};;
 		-> sc_agent_finding_number_of_connected_components_scp (* <- active_sc_agent;; *);;

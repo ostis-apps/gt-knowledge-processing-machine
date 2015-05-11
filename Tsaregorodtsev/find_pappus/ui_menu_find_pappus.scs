@@ -1,10 +1,10 @@
 ui_menu_find_pappus <- ui_user_command_class_atom; ui_user_command_class_view_kb;;
 
 // Указываем русский идентификатор нашей операции в меню
-ui_menu_find_pappus =>nrel_main_idtf: [Запрос графа Паппа] (* <- lang_ru;; *);;
+ui_menu_find_pappus =>nrel_main_idtf: [Проверка графа на то, является он графом Паппа] (* <- lang_ru;; *);;
 
 // Указываем английский идентификатор нашей операции в меню
-ui_menu_find_pappus =>nrel_main_idtf: [Request of Pappus graph] (* <- lang_en;; *);;
+ui_menu_find_pappus =>nrel_main_idtf: [Check if graph is Pappus graph] (* <- lang_en;; *);;
 
 // Указываем шаблон нашей команды
 ui_menu_find_pappus =>ui_nrel_command_template:
@@ -18,11 +18,11 @@ ui_menu_find_pappus =>ui_nrel_command_template:
 *];;
 
 // Указываем текстовый шаблон команды на русском языке
-ui_menu_find_pappus =>ui_nrel_command_lang_template: [Запрос графа Паппа: $ui_arg_1] 
+ui_menu_find_pappus =>ui_nrel_command_lang_template: [Проверка графа на то, является он графом Паппа: $ui_arg_1] 
 (*
 	<- lang_ru;; 
 *);;
 
 // Указываем текстовый шаблон команды на английском языке
-ui_menu_find_pappus =>ui_nrel_command_lang_template: [Request of Pappus graph: $ui_arg_1]
+ui_menu_find_pappus =>ui_nrel_command_lang_template: [Check if graph is Pappus graph: $ui_arg_1]
 (* <- lang_en;; *);;

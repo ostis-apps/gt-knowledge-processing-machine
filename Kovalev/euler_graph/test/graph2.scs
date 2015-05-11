@@ -1,0 +1,10 @@
+concept_directed_graph ->rrel_example: test_euler_graph2
+(*
+	-> rrel_vertex: V1;;
+	-> rrel_vertex: V2;;
+	-> rrel_vertex: V3;;
+	-> rrel_oredge: (V1=>V2);;
+	-> rrel_oredge: (V2=>V1);;
+	-> rrel_oredge: (V2=>V3);;
+	-> rrel_oredge: (V3=>V2);;		
+*);;
