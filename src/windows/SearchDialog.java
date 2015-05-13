@@ -16,6 +16,7 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
@@ -42,7 +43,6 @@ public class SearchDialog {
 	private PageToggle pageToggle;
 	private PageToggle pageToggleFirst;
 	private JPanel panel;
-	private NumberAvailableRecords numberAvailableRecords;
 
 	public SearchDialog(JFrame frame, JTable table, List<Student> studentList,
 			PageToggle pageToggleFirst) {
@@ -50,56 +50,44 @@ public class SearchDialog {
 		this.frame = frame;
 		this.studentList = studentList;
 		this.pageToggleFirst = pageToggleFirst;
-		this.panel = new PageToggle().addPanel();
-		ExamTableModel examTableModel = (ExamTableModel) table.getModel();
-
-		JLabel numberAvailableRecords = new JLabel(
-				"Number of the available records");
-		JLabel numberAvailableRecordsLabel = new JLabel(
-				String.valueOf(examTableModel.getStudentList().size()));
-
-		panel.add(numberAvailableRecords);
-		panel.add(numberAvailableRecordsLabel);
-
-		creteSearchDialog();
+		createSearchDialog();
 	}
 
-	void creteSearchDialog() {
+	void createSearchDialog() {
 		searchDialog = new JDialog(frame, "Search", false);
-		searchDialog.setSize(500, 400);
+		searchDialog.setSize(650, 400);
 		searchDialog.setLocationRelativeTo(frame);
 		searchDialog.setVisible(true);
 		searchDialog.setLayout(new BorderLayout());
-		searchDialog.setResizable(false);
-		pageToggle = new PageToggle();
-		panel = pageToggle.addPanel();
-
+		//searchDialog.setResizable(false);
+		
 		JPanel searchCriterionPanel = new JPanel();
 		JPanel searchPanel = new JPanel();
 		JPanel criterionPanel = new JPanel();
 
 		criterionPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 
-		// pagePanel.setLayout(new FlowLayout(FlowLayout.CENTER));
-		searchDialog.add(panel, BorderLayout.SOUTH);
-		searchDialog.add(searchPanel, BorderLayout.NORTH);
-
 		searchPanel.setLayout(new BorderLayout());
 		searchCriterionPanel.setLayout(new GridBagLayout());
 		searchPanel.add(searchCriterionPanel, BorderLayout.CENTER);
 		searchPanel.add(criterionPanel, BorderLayout.SOUTH);
-
-		createTable();
-
-		addCriterion(searchCriterionPanel, criterionPanel);
-		numberAvailableRecords = new NumberAvailableRecords(searchTable);
-		JPanel transitionPanel = numberAvailableRecords
-				.addNumberAvailableRecordsPanel();
-
 		
-		panel.add(transitionPanel);
+		createTable();
+		
+		pageToggle = new PageToggle();
+		panel = pageToggle.addPanel(searchTable);
+		pageToggle.getNumberRecords().setSelectedItem(pageToggleFirst.getNumberRecords().getSelectedItem());
+		
+		searchDialog.add(searchPanel, BorderLayout.NORTH);
+		searchDialog.add(panel, BorderLayout.SOUTH);
+		
+		pageToggle.addTableListener(studentList, searchTable);		
 		pageToggle.addButtonActionListener(searchTable);
 		pageToggle.getLeftStartButton().doClick();
+		
+		addCriterion(searchCriterionPanel, criterionPanel);
+		
+		
 
 	}
 
@@ -174,7 +162,7 @@ public class SearchDialog {
 				oKButton.addActionListener(searcherAndRemover);
 				criterionPanel.updateUI();
 
-				numberAvailableRecords.addTableListener(searcherAndRemover.getSearchList());
+				//numberAvailableRecords.addTableListener(searcherAndRemover.getSearchList());
 				pageToggle.getLeftStartButton().doClick();
 
 			}
@@ -195,7 +183,7 @@ public class SearchDialog {
 						pageToggleFirst);
 				oKButton.addActionListener(searcherAndRemover);
 				criterionPanel.updateUI();
-				numberAvailableRecords.addTableListener(searcherAndRemover.getSearchList());
+				//numberAvailableRecords.addTableListener(searcherAndRemover.getSearchList());
 
 				
 				
@@ -220,7 +208,7 @@ public class SearchDialog {
 				oKButton.addActionListener(searcherAndRemover);
 				criterionPanel.updateUI();
 
-				numberAvailableRecords.addTableListener(searcherAndRemover.getSearchList());
+				//numberAvailableRecords.addTableListener(searcherAndRemover.getSearchList());
 				pageToggle.getLeftStartButton().doClick();
 
 			}

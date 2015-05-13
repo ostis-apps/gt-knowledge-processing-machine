@@ -41,7 +41,6 @@ import constants.Path;
 
 public class MainWindow {
 	private JComboBox<Integer> numberExams;
-	private JComboBox<Integer> numberRecords;
 	private int numberTable = 1;
 	private JComboBox<Integer> chooseTable;
 	private ExamTableModel tableModel;
@@ -63,11 +62,10 @@ public class MainWindow {
 		frame.setVisible(true);
 
 		numberExams = new JComboBox<Integer>(MenuName.NUMBER);
-		numberRecords = new JComboBox<Integer>(MenuName.MARK);
+		numberExams.setSelectedItem(2);
 		Vector<Integer> chooseTableVector = new Vector<Integer>();
 		chooseTable = new JComboBox(chooseTableVector);
-		numberExams.setSelectedItem(2);
-		numberRecords.setSelectedItem(2);
+		
 
 		createMenu(frame);
 		createTable((Integer) numberExams.getSelectedItem(), frame,
@@ -195,13 +193,8 @@ public class MainWindow {
 		JToolBar fileToolBar = new JToolBar();
 		JToolBar peopleToolBar = new JToolBar();
 		pageToggle = new PageToggle();
-		JPanel transitionPanel = pageToggle.addPanel();
-		NumberAvailableRecords numberAvailableRecords = new NumberAvailableRecords(
-				table);
-
-		JPanel numberAvailableRecordsPanel = numberAvailableRecords
-				.addNumberAvailableRecordsPanel();
-
+		JPanel transitionPanel = pageToggle.addPanel(table);
+		
 		fileToolBar.setLayout(new FlowLayout(FlowLayout.LEFT));
 		peopleToolBar.setLayout(new BoxLayout(peopleToolBar, BoxLayout.Y_AXIS));
 
@@ -213,12 +206,12 @@ public class MainWindow {
 		frame.add(transitionPanel, BorderLayout.SOUTH);
 
 		JLabel numberExamsLabel = new JLabel("Number of Exams");
-		JLabel numberRecordsLabel = new JLabel("Number of Records");
+		//JLabel numberRecordsLabel = new JLabel("Number of Records");
 
-		Color darkGreen = new Color(17, 111, 21);
+	//	Color darkGreen = new Color(17, 111, 21);
 
-		numberExamsLabel.setForeground(darkGreen);
-		numberRecordsLabel.setForeground(darkGreen);
+	//	numberExamsLabel.setForeground(darkGreen);
+		//numberRecordsLabel.setForeground(darkGreen);
 
 		JButton newFileButton = new JButton(new ImageIcon(
 				Path.NEW_FILE_ICON.getPath()));
@@ -248,9 +241,8 @@ public class MainWindow {
 		// fileToolBar.add(chooseTable);
 		fileToolBar.add(numberExamsLabel);
 		fileToolBar.add(numberExams);
-		fileToolBar.add(numberRecordsLabel);
-		fileToolBar.add(numberRecords);
-		fileToolBar.add(numberAvailableRecordsPanel);
+		
+		
 
 		peopleToolBar.add(addPeopleButton);
 		peopleToolBar.add(deletePeopleButton);
@@ -291,13 +283,13 @@ public class MainWindow {
 			}
 		});
 
-		numberRecords.addActionListener(new ChangerRecords(table,
-				numberRecords, pageToggle));
+		
 
 		numberExams.addActionListener(new ChangerExams(tableModel,
-				numberRecords, pageToggle, numberExams, studentList, table));
+				/*numberRecords,*/ pageToggle, numberExams, studentList, table));
 
-		numberAvailableRecords.addTableListener(studentList);		
-		numberExams.setSelectedItem(2);
+		pageToggle.addTableListener(studentList, table);	
+		
+		pageToggle.getLeftStartButton().doClick();
 	}
 }

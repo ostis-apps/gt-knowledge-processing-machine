@@ -1,12 +1,23 @@
 package page;
 
+import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.event.ContainerEvent;
+import java.awt.event.ContainerListener;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 
+import student.Student;
+import table.ChangerRecords;
+import table.ExamTableModel;
+import constants.MenuName;
 import constants.Path;
 
 public class PageToggle {
@@ -15,11 +26,17 @@ public class PageToggle {
 	private JButton rightButton;
 	private JButton rightEndButton;
 	private Page page;
+	private JLabel numberAvailableRecordsLabel;
+	private JTable table;
+	private JComboBox<Integer> numberRecords;
 	/*private int currentRecord = 0;
 	private boolean left;
 	private boolean right;
 */
-	public JPanel addPanel() {
+	
+	
+	public JPanel addPanel(JTable table) {
+		ExamTableModel examTableModel = (ExamTableModel) table.getModel();
 		JPanel panel = new JPanel();
 		panel.setLayout(new FlowLayout());
 
@@ -41,10 +58,40 @@ public class PageToggle {
 		panel.add(rightButton);
 		panel.add(rightEndButton);
 
+		Color darkGreen = new Color(17, 111, 21);
+		
+		numberRecords = new JComboBox<Integer>(MenuName.MARK);;
+		numberRecords.setSelectedItem(2);
+		
+		JPanel numberAvailableRecordsPanel = new JPanel();
+		numberAvailableRecordsPanel.setLayout(new FlowLayout());
+
+		JLabel numberAvailableRecords = new JLabel(
+				"Number of the available records");
+		numberAvailableRecordsLabel = new JLabel(String.valueOf(examTableModel
+				.getStudentList().size()));
+		
+		
+		JLabel numberRecordsLabel = new JLabel("Number of Records");
+		numberRecordsLabel.setForeground(darkGreen);
+		numberAvailableRecords.setForeground(darkGreen);
+		numberAvailableRecordsLabel.setForeground(Color.BLUE);
+		numberAvailableRecordsLabel.setFont(new Font("Calibri", Font.BOLD, 20));
+
+		numberAvailableRecordsPanel.add(numberAvailableRecords);
+		numberAvailableRecordsPanel.add(numberAvailableRecordsLabel);
+		
+		panel.add(numberRecordsLabel);
+		panel.add(numberRecords);
+		panel.add(numberAvailableRecordsPanel);
+		
+		numberRecords.addActionListener(new ChangerRecords(table,
+				numberRecords, leftStartButton));
+		
+		
 		return panel;
 	}
 
-	
 
 	public void addButtonActionListener(JTable table) {
 		leftButton.removeActionListener(page);
@@ -67,12 +114,39 @@ public class PageToggle {
 	public void setCurrentRecord(int currentRecord) {
 		this.currentRecord = currentRecord;
 	}
-
+*/
 	public JButton getLeftStartButton() {
 		return leftStartButton;
 	}
 
-	public boolean isLeft() {
+	public void addTableListener(List<Student> list, JTable table) {
+		table.addContainerListener(new ContainerListener() {
+
+			@Override
+			public void componentRemoved(ContainerEvent e) {
+				/*
+				 * model = (ExamTableModel) table.getModel();
+				 * numberAvailableRecordsLabel.setText(String.valueOf(model
+				 * .getStudentList().size()));
+				 */
+				// pageToggle.addButtonActionListener(table);
+				numberAvailableRecordsLabel.setText(String.valueOf(list.size()));
+			}
+
+			@Override
+			public void componentAdded(ContainerEvent e) {
+				/*
+				 * model = (ExamTableModel) table.getModel();
+				 * numberAvailableRecordsLabel.setText(String.valueOf(model
+				 * .getStudentList().size()));
+				 */
+				// pageToggle.addButtonActionListener(table);
+				numberAvailableRecordsLabel.setText(String.valueOf(list.size()));
+			}
+		});
+	}
+	
+	/*public boolean isLeft() {
 		return left;
 	}
 
@@ -87,4 +161,8 @@ public class PageToggle {
 	public void setRight(boolean right) {
 		this.right = right;
 	}*/
+	
+	public JComboBox<Integer> getNumberRecords(){
+		return numberRecords;
+	}
 }

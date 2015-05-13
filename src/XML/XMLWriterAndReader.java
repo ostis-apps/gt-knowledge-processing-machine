@@ -66,14 +66,7 @@ public class XMLWriterAndReader {
 			thirdName.appendChild(document.createTextNode(student
 					.getThirdNameStudent()));
 			name.appendChild(thirdName);
-			/*
-			 * stud.setAttribute(XMLTag.FIRST_NAME,
-			 * student.getFirstNameStudent());
-			 * stud.setAttribute(XMLTag.SECOND_NAME,
-			 * student.getSecondNameStudent());
-			 * stud.setAttribute(XMLTag.THIRD_NAME,
-			 * student.getThirdNameStudent());
-			 */
+			
 
 			for (int iterator = 0; iterator < student.getMark().size(); iterator++) {
 				Element exam = document.createElement(XMLTag.EXAM);

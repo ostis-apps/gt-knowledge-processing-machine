@@ -21,13 +21,13 @@ public class ChangerExams implements ActionListener{
 	
 	
 	
-	public ChangerExams(ExamTableModel tableModel,
-			JComboBox<Integer> numberRecords, PageToggle pageToggle,
+	public ChangerExams(ExamTableModel tableModel/*,
+			JComboBox<Integer> numberRecords*/, PageToggle pageToggle,
 			JComboBox<Integer> numberExams, List<Student> studentList,
 			JTable table) {
 		super();
 		this.tableModel = tableModel;
-		this.numberRecords = numberRecords;
+		//this.numberRecords = numberRecords;
 		this.pageToggle = pageToggle;
 		this.numberExams = numberExams;
 		this.studentList = studentList;
@@ -46,7 +46,7 @@ public class ChangerExams implements ActionListener{
 
 		pageToggle.addButtonActionListener(table);
 
-		numberRecords.setSelectedItem(numberRecords.getSelectedItem());
+		//numberRecords.setSelectedItem(numberRecords.getSelectedItem()); ???
 	}
 
 }

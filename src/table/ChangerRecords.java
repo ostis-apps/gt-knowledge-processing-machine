@@ -3,6 +3,7 @@ package table;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 
@@ -11,15 +12,15 @@ import page.PageToggle;
 public class ChangerRecords implements ActionListener{
 	private ExamTableModel tableModel;
 	private JComboBox<Integer> numberRecords;
-	private PageToggle pageToggle;
+	private JButton button;
 	private JTable table;
 	
 	public ChangerRecords(JTable table,
-			JComboBox<Integer> numberRecords, PageToggle pageToggle) {
+			JComboBox<Integer> numberRecords, JButton button) {
 		super();
 		this.table = table;
 		this.numberRecords = numberRecords;
-		this.pageToggle = pageToggle;
+		this.button = button;
 	}
 
 	@Override
@@ -28,7 +29,7 @@ public class ChangerRecords implements ActionListener{
 		tableModel.setNumberRecords((Integer) numberRecords
 				.getSelectedItem());
 		// leftStartButton.doClick();
-		pageToggle.getLeftStartButton().doClick();
+		button.doClick();
 	}
 
 }
