@@ -18,6 +18,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
+import page.PageToggle;
 import student.Student;
 import student.StudentCreator;
 import constants.MenuName;

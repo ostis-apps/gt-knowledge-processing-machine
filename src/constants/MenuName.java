@@ -17,6 +17,6 @@ public final class MenuName {
 	public static final String SERCH_PEOPLE = "Search People";
 
 	public static final Integer[] MARK = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-	public static final Integer[] NUMBER = {1, 2, 3, 4, 5};
+	public static final Integer[] NUMBER = {0, 1, 2, 3, 4, 5};
 }
 

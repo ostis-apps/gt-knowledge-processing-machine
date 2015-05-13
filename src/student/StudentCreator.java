@@ -11,8 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
+import page.PageToggle;
 import table.ExamTableModel;
-import windows.PageToggle;
 
 public class StudentCreator implements ActionListener {
 	private JTextField firstNameField, secondNameField, thirdNameField,

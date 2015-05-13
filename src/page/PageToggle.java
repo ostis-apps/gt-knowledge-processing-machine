@@ -1,11 +1,12 @@
-package windows;
+package page;
+
+import java.awt.FlowLayout;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 
-import table.Page;
 import constants.Path;
 
 public class PageToggle {
@@ -14,8 +15,14 @@ public class PageToggle {
 	private JButton rightButton;
 	private JButton rightEndButton;
 	private Page page;
+	/*private int currentRecord = 0;
+	private boolean left;
+	private boolean right;
+*/
+	public JPanel addPanel() {
+		JPanel panel = new JPanel();
+		panel.setLayout(new FlowLayout());
 
-	public PageToggle(JPanel panel) {
 		leftButton = new JButton(new ImageIcon(Path.LEFT_ICON.getPath()));
 		leftStartButton = new JButton(new ImageIcon(
 				Path.LEFT_START_ICON.getPath()));
@@ -25,7 +32,7 @@ public class PageToggle {
 
 		leftButton.setActionCommand("Left");
 		leftStartButton.setActionCommand("Left Start");
-		
+
 		rightButton.setActionCommand("Right");
 		rightEndButton.setActionCommand("Right End");
 
@@ -33,7 +40,11 @@ public class PageToggle {
 		panel.add(leftButton);
 		panel.add(rightButton);
 		panel.add(rightEndButton);
+
+		return panel;
 	}
+
+	
 
 	public void addButtonActionListener(JTable table) {
 		leftButton.removeActionListener(page);
@@ -49,8 +60,31 @@ public class PageToggle {
 		table.requestFocusInWindow();
 	}
 
+	/*public int getCurrentRecord() {
+		return currentRecord;
+	}
+
+	public void setCurrentRecord(int currentRecord) {
+		this.currentRecord = currentRecord;
+	}
+
 	public JButton getLeftStartButton() {
 		return leftStartButton;
 	}
 
+	public boolean isLeft() {
+		return left;
+	}
+
+	public boolean isRight() {
+		return right;
+	}
+
+	public void setLeft(boolean left) {
+		this.left = left;
+	}
+
+	public void setRight(boolean right) {
+		this.right = right;
+	}*/
 }

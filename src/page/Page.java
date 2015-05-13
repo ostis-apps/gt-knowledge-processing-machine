@@ -1,4 +1,4 @@
-package table;
+package page;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,6 +7,7 @@ import java.util.List;
 import javax.swing.JTable;
 
 import student.Student;
+import table.ExamTableModel;
 
 public class Page implements ActionListener {
 	private JTable table;

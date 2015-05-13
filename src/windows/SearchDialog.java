@@ -15,6 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
@@ -22,6 +23,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.JTableHeader;
 
+import page.PageToggle;
 import student.Student;
 import table.ColumnModel;
 import table.ExamTableModel;
@@ -39,32 +41,47 @@ public class SearchDialog {
 	private ExamTableModel searchTableModel;
 	private PageToggle pageToggle;
 	private PageToggle pageToggleFirst;
+	private JPanel panel;
+	private NumberAvailableRecords numberAvailableRecords;
 
-	public SearchDialog(JFrame frame, JTable table, List<Student> studentList, PageToggle pageToggleFirst) {
+	public SearchDialog(JFrame frame, JTable table, List<Student> studentList,
+			PageToggle pageToggleFirst) {
 		this.table = table;
 		this.frame = frame;
 		this.studentList = studentList;
 		this.pageToggleFirst = pageToggleFirst;
+		this.panel = new PageToggle().addPanel();
+		ExamTableModel examTableModel = (ExamTableModel) table.getModel();
+
+		JLabel numberAvailableRecords = new JLabel(
+				"Number of the available records");
+		JLabel numberAvailableRecordsLabel = new JLabel(
+				String.valueOf(examTableModel.getStudentList().size()));
+
+		panel.add(numberAvailableRecords);
+		panel.add(numberAvailableRecordsLabel);
+
 		creteSearchDialog();
 	}
 
 	void creteSearchDialog() {
 		searchDialog = new JDialog(frame, "Search", false);
-		searchDialog.setSize(400, 400);
+		searchDialog.setSize(500, 400);
 		searchDialog.setLocationRelativeTo(frame);
 		searchDialog.setVisible(true);
 		searchDialog.setLayout(new BorderLayout());
 		searchDialog.setResizable(false);
+		pageToggle = new PageToggle();
+		panel = pageToggle.addPanel();
 
 		JPanel searchCriterionPanel = new JPanel();
 		JPanel searchPanel = new JPanel();
-		JPanel pagePanel = new JPanel();
 		JPanel criterionPanel = new JPanel();
 
 		criterionPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 
-		pagePanel.setLayout(new FlowLayout(FlowLayout.CENTER));
-		searchDialog.add(pagePanel, BorderLayout.SOUTH);
+		// pagePanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+		searchDialog.add(panel, BorderLayout.SOUTH);
 		searchDialog.add(searchPanel, BorderLayout.NORTH);
 
 		searchPanel.setLayout(new BorderLayout());
@@ -72,10 +89,15 @@ public class SearchDialog {
 		searchPanel.add(searchCriterionPanel, BorderLayout.CENTER);
 		searchPanel.add(criterionPanel, BorderLayout.SOUTH);
 
-		pageToggle = new PageToggle(pagePanel);
 		createTable();
-		addCriterion(searchCriterionPanel, criterionPanel);
 
+		addCriterion(searchCriterionPanel, criterionPanel);
+		numberAvailableRecords = new NumberAvailableRecords(searchTable);
+		JPanel transitionPanel = numberAvailableRecords
+				.addNumberAvailableRecordsPanel();
+
+		
+		panel.add(transitionPanel);
 		pageToggle.addButtonActionListener(searchTable);
 		pageToggle.getLeftStartButton().doClick();
 
@@ -86,9 +108,7 @@ public class SearchDialog {
 
 		ExamTableModel examTableModel = (ExamTableModel) table.getModel();
 		searchTableModel = new ExamTableModel(examTableModel.getNumberExams());
-		// studentList = examTableModel.getStudentList();
 		searchTableModel.setStudentList(studentList);
-		// searchTableModel.getStudentList().clear();
 
 		searchTableModel.setNumberRecords(examTableModel.getNumberRecords());
 
@@ -149,10 +169,12 @@ public class SearchDialog {
 				oKButton.setActionCommand("meanScoreName");
 				searcherAndRemover = new SearcherAndRemover(minMarkComboBox,
 						maxMarkComboBox, nameField, numberGroupField,
-						searchTable, studentList, remove, table, pageToggle, pageToggleFirst);
+						searchTable, studentList, remove, table, pageToggle,
+						pageToggleFirst);
 				oKButton.addActionListener(searcherAndRemover);
 				criterionPanel.updateUI();
-				
+
+				numberAvailableRecords.addTableListener(searcherAndRemover.getSearchList());
 				pageToggle.getLeftStartButton().doClick();
 
 			}
@@ -169,9 +191,13 @@ public class SearchDialog {
 				oKButton.setActionCommand("numberGroupName");
 				searcherAndRemover = new SearcherAndRemover(minMarkComboBox,
 						maxMarkComboBox, numberGroupField, nameField,
-						searchTable, studentList, remove, table, pageToggle, pageToggleFirst);
+						searchTable, studentList, remove, table, pageToggle,
+						pageToggleFirst);
 				oKButton.addActionListener(searcherAndRemover);
 				criterionPanel.updateUI();
+				numberAvailableRecords.addTableListener(searcherAndRemover.getSearchList());
+
+				
 				
 				pageToggle.getLeftStartButton().doClick();
 			}
@@ -189,10 +215,12 @@ public class SearchDialog {
 				oKButton.setActionCommand("nameMark");
 				searcherAndRemover = new SearcherAndRemover(minMarkComboBox,
 						maxMarkComboBox, nameField, numberGroupField,
-						searchTable, studentList, remove, table, pageToggle, pageToggleFirst);
+						searchTable, studentList, remove, table, pageToggle,
+						pageToggleFirst);
 				oKButton.addActionListener(searcherAndRemover);
 				criterionPanel.updateUI();
 
+				numberAvailableRecords.addTableListener(searcherAndRemover.getSearchList());
 				pageToggle.getLeftStartButton().doClick();
 
 			}

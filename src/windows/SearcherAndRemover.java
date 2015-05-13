@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
+import page.PageToggle;
 import student.Student;
 import table.ExamTableModel;
 
@@ -28,6 +29,7 @@ public class SearcherAndRemover implements ActionListener {
 
 	private PageToggle pageToggle;
 	private PageToggle pageToggleFirst;
+
 	public SearcherAndRemover(JComboBox<Integer> minMarkComboBox,
 			JComboBox<Integer> maxMarkComboBox, JTextField firstField,
 			JTextField secondField, JTable searchTable,
@@ -61,7 +63,7 @@ public class SearcherAndRemover implements ActionListener {
 		examTableModel.setStudentList(searchStudent);
 
 		pageToggle.addButtonActionListener(searchTable);
-		//pageToggle.addButtonActionListener(table);
+		// pageToggle.addButtonActionListener(table);
 
 		pageToggle.getLeftStartButton().doClick();
 
@@ -75,8 +77,9 @@ public class SearcherAndRemover implements ActionListener {
 			pageToggleFirst.getLeftStartButton().doClick();
 			table.updateUI();
 		}
-		
-		JOptionPane.showMessageDialog(table, "Number of found records: " + searchStudent.size());
+
+		JOptionPane.showMessageDialog(table, "Number of found records: "
+				+ searchStudent.size());
 
 	}
 
@@ -100,11 +103,14 @@ public class SearcherAndRemover implements ActionListener {
 
 	void searchNumberGroupName() {
 		for (Student student : studentList) {
-			if (Integer.parseInt(firstField.getText()) == student
-					.getNumberGroup()
-					|| secondField.getText().equals(
-							student.getFirstNameStudent())) {
-				searchStudent.add(student);
+			try {
+				if (Integer.parseInt(firstField.getText()) == student
+						.getNumberGroup()
+						|| secondField.getText().equals(
+								student.getFirstNameStudent())) {
+					searchStudent.add(student);
+				}
+			} catch (NumberFormatException e) {
 			}
 
 		}
@@ -128,6 +134,10 @@ public class SearcherAndRemover implements ActionListener {
 				searchStudent.add(student);
 			}
 		}
+	}
+	
+	public List<Student> getSearchList(){
+		return searchStudent;
 	}
 
 }

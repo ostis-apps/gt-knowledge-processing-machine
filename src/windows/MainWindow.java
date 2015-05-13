@@ -4,15 +4,11 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ContainerEvent;
-import java.awt.event.ContainerListener;
 import java.util.ArrayList;
 import java.util.List;
-
-import javafx.stage.FileChooser;
+import java.util.Vector;
 
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -25,12 +21,16 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JToolBar;
 import javax.swing.WindowConstants;
 import javax.swing.table.JTableHeader;
 
+import page.PageToggle;
 import student.Student;
+import table.ChangerExams;
+import table.ChangerRecords;
 import table.ColumnModel;
 import table.ExamTableModel;
 import table.GroupableTableHeader;
@@ -42,6 +42,8 @@ import constants.Path;
 public class MainWindow {
 	private JComboBox<Integer> numberExams;
 	private JComboBox<Integer> numberRecords;
+	private int numberTable = 1;
+	private JComboBox<Integer> chooseTable;
 	private ExamTableModel tableModel;
 	private JTable table;
 	private List<Student> studentList;
@@ -52,7 +54,7 @@ public class MainWindow {
 	public MainWindow() {
 
 		JFrame frame = new JFrame(MenuName.TITLE);
-		frame.setSize(700, 400);
+		frame.setSize(650, 400);
 		frame.setLocationRelativeTo(null);
 		// frame.setResizable(false);
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -62,11 +64,16 @@ public class MainWindow {
 
 		numberExams = new JComboBox<Integer>(MenuName.NUMBER);
 		numberRecords = new JComboBox<Integer>(MenuName.MARK);
+		Vector<Integer> chooseTableVector = new Vector<Integer>();
+		chooseTable = new JComboBox(chooseTableVector);
 		numberExams.setSelectedItem(2);
 		numberRecords.setSelectedItem(2);
+
 		createMenu(frame);
-		createTable((Integer) numberExams.getSelectedItem(), frame);
-		createToolBar(frame);
+		createTable((Integer) numberExams.getSelectedItem(), frame,
+				chooseTableVector);
+		createToolBar(frame, chooseTableVector);
+
 	}
 
 	void createMenu(JFrame frame) {
@@ -80,7 +87,7 @@ public class MainWindow {
 		addPeopleItem = new JMenuItem(MenuName.ADD_PEOPLE);
 		JMenuItem deletePeopleItem = new JMenuItem(MenuName.DELETE_PEOPLE);
 
-		//JMenuItem newFileItem = new JMenuItem(MenuName.NEW_FILE);
+		JMenuItem newFileItem = new JMenuItem(MenuName.NEW_FILE);
 		openFileItem = new JMenuItem(MenuName.OPEN_FILE);
 		JMenuItem saveFileItem = new JMenuItem(MenuName.SAVE_AS);
 		JMenuItem exitItem = new JMenuItem(MenuName.EXIT);
@@ -94,7 +101,7 @@ public class MainWindow {
 		menuBar.add(fileMenu);
 		menuBar.add(tableMenu);
 
-		//fileMenu.add(newFileItem);
+		// fileMenu.add(newFileItem);
 		fileMenu.add(openFileItem);
 		fileMenu.add(saveFileItem);
 		fileMenu.addSeparator();
@@ -128,13 +135,12 @@ public class MainWindow {
 						.startRemove(true);
 			}
 		});
-		
-		
 
 	}
 
 	@SuppressWarnings("serial")
-	void createTable(int numberExams, JFrame frame) {
+	void createTable(int numberExams, JFrame frame,
+			Vector<Integer> chooseTableVector) {
 		List<Integer> d = new ArrayList<Integer>();
 		d.add(9);
 		d.add(5);
@@ -171,7 +177,12 @@ public class MainWindow {
 			}
 		};
 
+		chooseTableVector.add(1);
+		chooseTable.setSelectedIndex(0);
+
 		new ColumnModel(table, numberExams);
+		JTabbedPane tabbedPane = new JTabbedPane();
+		tabbedPane.add(table);
 		JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.setPreferredSize(new Dimension(400, 400));
 		frame.add(scrollPane);
@@ -180,36 +191,37 @@ public class MainWindow {
 
 	}
 
-	void createToolBar(JFrame frame) {
+	void createToolBar(JFrame frame, Vector<Integer> chooseTableVector) {
 		JToolBar fileToolBar = new JToolBar();
 		JToolBar peopleToolBar = new JToolBar();
-		JPanel transitionPage = new JPanel();
+		pageToggle = new PageToggle();
+		JPanel transitionPanel = pageToggle.addPanel();
+		NumberAvailableRecords numberAvailableRecords = new NumberAvailableRecords(
+				table);
+
+		JPanel numberAvailableRecordsPanel = numberAvailableRecords
+				.addNumberAvailableRecordsPanel();
 
 		fileToolBar.setLayout(new FlowLayout(FlowLayout.LEFT));
 		peopleToolBar.setLayout(new BoxLayout(peopleToolBar, BoxLayout.Y_AXIS));
-		transitionPage.setLayout(new FlowLayout());
 
 		fileToolBar.setFloatable(false);
 		peopleToolBar.setFloatable(false);
 
 		frame.add(fileToolBar, BorderLayout.NORTH);
 		frame.add(peopleToolBar, BorderLayout.LINE_START);
-		frame.add(transitionPage, BorderLayout.SOUTH);
+		frame.add(transitionPanel, BorderLayout.SOUTH);
 
-		JLabel numberExamsLabel = new JLabel("   Number of Exams");
-		JLabel numberRecordsLabel = new JLabel("   Number of Records");
-		JLabel numberAvailableRecords = new JLabel(
-				"    Number of the available records  ");
-		JLabel numberAvailableRecordsLabel = new JLabel(
-				String.valueOf(tableModel.getStudentList().size()));
+		JLabel numberExamsLabel = new JLabel("Number of Exams");
+		JLabel numberRecordsLabel = new JLabel("Number of Records");
 
 		Color darkGreen = new Color(17, 111, 21);
-		numberAvailableRecordsLabel.setForeground(Color.BLUE);
-		numberAvailableRecordsLabel.setFont(new Font("Calibri", Font.BOLD, 20));
+
 		numberExamsLabel.setForeground(darkGreen);
 		numberRecordsLabel.setForeground(darkGreen);
-		numberAvailableRecords.setForeground(darkGreen);
 
+		JButton newFileButton = new JButton(new ImageIcon(
+				Path.NEW_FILE_ICON.getPath()));
 		JButton saveButton = new JButton(
 				new ImageIcon(Path.SAVE_ICON.getPath()));
 		JButton openFileButton = new JButton(new ImageIcon(
@@ -221,22 +233,24 @@ public class MainWindow {
 		JButton deletePeopleButton = new JButton(new ImageIcon(
 				Path.DELETE_ICON.getPath()));
 
-		pageToggle = new PageToggle(transitionPage);
+		pageToggle.addButtonActionListener(table);
 		saveButton.addActionListener(new FileSaver(studentList));
-		openFileButton.addActionListener(new FileChooserListener(studentList, pageToggle, table));
+		openFileButton.addActionListener(new FileChooserListener(studentList,
+				pageToggle, table));
 		deletePeopleButton.setActionCommand("Remove");
-		
-		
-		openFileItem.addActionListener(new FileChooserListener(studentList, pageToggle, table));
 
+		openFileItem.addActionListener(new FileChooserListener(studentList,
+				pageToggle, table));
+
+		// fileToolBar.add(newFileButton);
 		fileToolBar.add(openFileButton);
 		fileToolBar.add(saveButton);
+		// fileToolBar.add(chooseTable);
 		fileToolBar.add(numberExamsLabel);
 		fileToolBar.add(numberExams);
 		fileToolBar.add(numberRecordsLabel);
 		fileToolBar.add(numberRecords);
-		fileToolBar.add(numberAvailableRecords);
-		fileToolBar.add(numberAvailableRecordsLabel);
+		fileToolBar.add(numberAvailableRecordsPanel);
 
 		peopleToolBar.add(addPeopleButton);
 		peopleToolBar.add(deletePeopleButton);
@@ -277,60 +291,13 @@ public class MainWindow {
 			}
 		});
 
-	
-		
-		numberRecords.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				tableModel.setNumberRecords((Integer) numberRecords
-						.getSelectedItem());
-				// leftStartButton.doClick();
-				pageToggle.getLeftStartButton().doClick();
-			}
-		});
-		numberExams.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				tableModel = new ExamTableModel((Integer) numberExams
-						.getSelectedItem());
-				table.setModel(tableModel);
-				new ColumnModel(table, (Integer) numberExams.getSelectedItem());
-				tableModel.setStudentList(studentList);
+		numberRecords.addActionListener(new ChangerRecords(table,
+				numberRecords, pageToggle));
 
-				pageToggle.addButtonActionListener(table);
+		numberExams.addActionListener(new ChangerExams(tableModel,
+				numberRecords, pageToggle, numberExams, studentList, table));
 
-				numberRecords.setSelectedItem(numberRecords.getSelectedItem());
-			}
-		});
-
-		table.addContainerListener(new ContainerListener() {
-
-			private ExamTableModel model = (ExamTableModel) table.getModel();
-
-			@Override
-			public void componentRemoved(ContainerEvent e) {
-				/*
-				 * model = (ExamTableModel) table.getModel();
-				 * numberAvailableRecordsLabel.setText(String.valueOf(model
-				 * .getStudentList().size()));
-				 */
-				// pageToggle.addButtonActionListener(table);
-				numberAvailableRecordsLabel.setText(String.valueOf(studentList
-						.size()));
-			}
-
-			@Override
-			public void componentAdded(ContainerEvent e) {
-				/*
-				 * model = (ExamTableModel) table.getModel();
-				 * numberAvailableRecordsLabel.setText(String.valueOf(model
-				 * .getStudentList().size()));
-				 */
-				// pageToggle.addButtonActionListener(table);
-				numberAvailableRecordsLabel.setText(String.valueOf(studentList
-						.size()));
-			}
-		});
+		numberAvailableRecords.addTableListener(studentList);		
 		numberExams.setSelectedItem(2);
 	}
 }

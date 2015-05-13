@@ -10,10 +10,8 @@ import student.Student;
 @SuppressWarnings("serial")
 public class ExamTableModel extends AbstractTableModel {
 	private int numberExams;
-	int numberRecords = 1;
+	int numberRecords = 2;
 	private List<Student> studentList;
-
-	// private List<Student> stud;
 
 	public ExamTableModel(int numberExams) {
 		this.numberExams = numberExams;
