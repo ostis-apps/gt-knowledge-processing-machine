@@ -17,8 +17,6 @@ ui_menu_na_view_of_graph <= nrel_ui_commands_decomposition:
 	ui_menu_find_tree;
 	ui_menu_find_pappus;
 	ui_menu_find_strongly_connected_graph;
-	ui_menu_find_connected_graph;
-	ui_menu_graph_properties_definition;
-	ui_menu_find_weighted_graph
+	ui_menu_find_connected_graph
 
 };;

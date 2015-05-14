@@ -1,0 +1,15 @@
+concept_directed_graph->rrel_example: test_graph2(*
+	->rrel_vertex: V1;;
+	->rrel_vertex: V2;;
+	->rrel_vertex: V3;;
+	->rrel_oredge: ( V1 => V2 )(*=>nrel_weight:[4](*<-number;;*);;*);;
+	->rrel_oredge: ( V2 => V3 );;
+*);;
+
+concept_tree->rrel_example: test_graph1;;
+concept_directed_graph=> nrel_main_idtf: [Oрграф](*<-lang_ru;;*);;
+concept_tree=> nrel_main_idtf: [Дерево](*<-lang_ru;;*);;
+concept_graph=> nrel_inclusion: concept_directed_graph;;
+concept_graph=> nrel_inclusion: concept_tree;;
+concept_graph=> nrel_main_idtf: [Граф](*<-lang_ru;;*);;
+rrel_oredge=> nrel_main_idtf: [ребро](*<-lang_ru;;*);;
