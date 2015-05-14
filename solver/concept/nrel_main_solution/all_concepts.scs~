@@ -1,0 +1,29 @@
+concept_reflexive_graph <= nrel_main_solution:
+	...
+	(*
+		-> rrel_1: reflexive_graphs;;
+	*);;
+
+concept_transitive_graph <= nrel_main_solution:
+	...
+	(*
+		-> rrel_1: transitive_graph;;
+	*);;
+
+concept_symmetric_graph <= nrel_main_solution:
+	...
+	(*
+		-> rrel_1: symmetric_graph;;
+	*);;
+
+concept_eulerian_graph <= nrel_main_solution:
+	...
+	(*
+		-> rrel_1: euler_graph;;
+	*);;
+
+concept_eulerian_graph <= nrel_main_solution:
+	...
+	(*
+		-> rrel_1: euler_graph;;
+	*);;
