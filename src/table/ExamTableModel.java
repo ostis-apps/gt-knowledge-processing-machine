@@ -84,8 +84,8 @@ public class ExamTableModel extends AbstractTableModel {
 		return numberRecords;
 	}
 
-	public void setNumberRecords(int size) {
-		numberRecords = size;
+	public void setNumberRecords(int records) {
+		numberRecords = records;
 	}
 
 	public void setNumberExams(Integer numberExams2) {

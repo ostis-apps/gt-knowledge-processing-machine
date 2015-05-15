@@ -32,6 +32,7 @@ public class ChangerExams implements ActionListener{
 		this.numberExams = numberExams;
 		this.studentList = studentList;
 		this.table = table;
+		numberRecords = pageToggle.getNumberRecords();
 	}
 
 
@@ -43,8 +44,12 @@ public class ChangerExams implements ActionListener{
 		table.setModel(tableModel);
 		new ColumnModel(table, (Integer) numberExams.getSelectedItem());
 		tableModel.setStudentList(studentList);
+		
+		tableModel.setNumberRecords((Integer) numberRecords
+				.getSelectedItem());
 
 		pageToggle.addButtonActionListener(table);
+		pageToggle.getLeftStartButton().doClick();
 
 		//numberRecords.setSelectedItem(numberRecords.getSelectedItem()); ???
 	}

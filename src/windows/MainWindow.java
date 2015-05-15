@@ -65,7 +65,6 @@ public class MainWindow {
 		numberExams.setSelectedItem(2);
 		Vector<Integer> chooseTableVector = new Vector<Integer>();
 		chooseTable = new JComboBox(chooseTableVector);
-		
 
 		createMenu(frame);
 		createTable((Integer) numberExams.getSelectedItem(), frame,
@@ -194,7 +193,7 @@ public class MainWindow {
 		JToolBar peopleToolBar = new JToolBar();
 		pageToggle = new PageToggle();
 		JPanel transitionPanel = pageToggle.addPanel(table);
-		
+
 		fileToolBar.setLayout(new FlowLayout(FlowLayout.LEFT));
 		peopleToolBar.setLayout(new BoxLayout(peopleToolBar, BoxLayout.Y_AXIS));
 
@@ -206,12 +205,6 @@ public class MainWindow {
 		frame.add(transitionPanel, BorderLayout.SOUTH);
 
 		JLabel numberExamsLabel = new JLabel("Number of Exams");
-		//JLabel numberRecordsLabel = new JLabel("Number of Records");
-
-	//	Color darkGreen = new Color(17, 111, 21);
-
-	//	numberExamsLabel.setForeground(darkGreen);
-		//numberRecordsLabel.setForeground(darkGreen);
 
 		JButton newFileButton = new JButton(new ImageIcon(
 				Path.NEW_FILE_ICON.getPath()));
@@ -241,8 +234,6 @@ public class MainWindow {
 		// fileToolBar.add(chooseTable);
 		fileToolBar.add(numberExamsLabel);
 		fileToolBar.add(numberExams);
-		
-		
 
 		peopleToolBar.add(addPeopleButton);
 		peopleToolBar.add(deletePeopleButton);
@@ -283,13 +274,11 @@ public class MainWindow {
 			}
 		});
 
-		
-
 		numberExams.addActionListener(new ChangerExams(tableModel,
-				/*numberRecords,*/ pageToggle, numberExams, studentList, table));
+		/* numberRecords, */pageToggle, numberExams, studentList, table));
 
-		pageToggle.addTableListener(studentList, table);	
-		
+		// pageToggle.addTableListener(studentList, table);
+
 		pageToggle.getLeftStartButton().doClick();
 	}
 }

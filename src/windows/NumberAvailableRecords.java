@@ -49,23 +49,13 @@ public class NumberAvailableRecords {
 
 			@Override
 			public void componentRemoved(ContainerEvent e) {
-				/*
-				 * model = (ExamTableModel) table.getModel();
-				 * numberAvailableRecordsLabel.setText(String.valueOf(model
-				 * .getStudentList().size()));
-				 */
-				// pageToggle.addButtonActionListener(table);
+				
 				numberAvailableRecordsLabel.setText(String.valueOf(list.size()));
 			}
 
 			@Override
 			public void componentAdded(ContainerEvent e) {
-				/*
-				 * model = (ExamTableModel) table.getModel();
-				 * numberAvailableRecordsLabel.setText(String.valueOf(model
-				 * .getStudentList().size()));
-				 */
-				// pageToggle.addButtonActionListener(table);
+
 				numberAvailableRecordsLabel.setText(String.valueOf(list.size()));
 			}
 		});

@@ -1,4 +1,4 @@
-package windows;
+package student;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -62,25 +62,26 @@ public class SearcherAndRemover implements ActionListener {
 
 		examTableModel.setStudentList(searchStudent);
 
-		pageToggle.addButtonActionListener(searchTable);
 		// pageToggle.addButtonActionListener(table);
-
+		pageToggle.addButtonActionListener(searchTable);
+		pageToggle.setNumberAvailableRecords(searchStudent.size());
+		
 		pageToggle.getLeftStartButton().doClick();
 
 		searchTable.updateUI();
 
 		if (remove) {
-			ExamTableModel examTableModel = (ExamTableModel) table.getModel();
+			examTableModel = (ExamTableModel) table.getModel();
 			examTableModel.setStudentList(studentList);
 			examTableModel.deleteDate(searchStudent);
 			pageToggleFirst.addButtonActionListener(table);
 			pageToggleFirst.getLeftStartButton().doClick();
+			pageToggleFirst.setNumberAvailableRecords(studentList.size());
 			table.updateUI();
 		}
 
 		JOptionPane.showMessageDialog(table, "Number of found records: "
 				+ searchStudent.size());
-
 	}
 
 	void searchMeanScoreName() {

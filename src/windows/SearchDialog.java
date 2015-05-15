@@ -15,8 +15,6 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
@@ -25,6 +23,7 @@ import javax.swing.JTextField;
 import javax.swing.table.JTableHeader;
 
 import page.PageToggle;
+import student.SearcherAndRemover;
 import student.Student;
 import table.ColumnModel;
 import table.ExamTableModel;
@@ -37,7 +36,9 @@ public class SearchDialog {
 	private JDialog searchDialog;
 	private JFrame frame;
 	private List<Student> studentList;
+
 	private SearcherAndRemover searcherAndRemover;
+
 	private boolean remove;
 	private ExamTableModel searchTableModel;
 	private PageToggle pageToggle;
@@ -59,8 +60,8 @@ public class SearchDialog {
 		searchDialog.setLocationRelativeTo(frame);
 		searchDialog.setVisible(true);
 		searchDialog.setLayout(new BorderLayout());
-		//searchDialog.setResizable(false);
-		
+		// searchDialog.setResizable(false);
+
 		JPanel searchCriterionPanel = new JPanel();
 		JPanel searchPanel = new JPanel();
 		JPanel criterionPanel = new JPanel();
@@ -71,23 +72,22 @@ public class SearchDialog {
 		searchCriterionPanel.setLayout(new GridBagLayout());
 		searchPanel.add(searchCriterionPanel, BorderLayout.CENTER);
 		searchPanel.add(criterionPanel, BorderLayout.SOUTH);
-		
+
 		createTable();
-		
+
 		pageToggle = new PageToggle();
 		panel = pageToggle.addPanel(searchTable);
-		pageToggle.getNumberRecords().setSelectedItem(pageToggleFirst.getNumberRecords().getSelectedItem());
-		
+		pageToggle.getNumberRecords().setSelectedItem(
+				pageToggleFirst.getNumberRecords().getSelectedItem());
+
 		searchDialog.add(searchPanel, BorderLayout.NORTH);
 		searchDialog.add(panel, BorderLayout.SOUTH);
-		
-		pageToggle.addTableListener(studentList, searchTable);		
+
+		// pageToggle.addTableListener(studentList, searchTable);
 		pageToggle.addButtonActionListener(searchTable);
 		pageToggle.getLeftStartButton().doClick();
-		
+
 		addCriterion(searchCriterionPanel, criterionPanel);
-		
-		
 
 	}
 
@@ -162,7 +162,6 @@ public class SearchDialog {
 				oKButton.addActionListener(searcherAndRemover);
 				criterionPanel.updateUI();
 
-				//numberAvailableRecords.addTableListener(searcherAndRemover.getSearchList());
 				pageToggle.getLeftStartButton().doClick();
 
 			}
@@ -183,10 +182,6 @@ public class SearchDialog {
 						pageToggleFirst);
 				oKButton.addActionListener(searcherAndRemover);
 				criterionPanel.updateUI();
-				//numberAvailableRecords.addTableListener(searcherAndRemover.getSearchList());
-
-				
-				
 				pageToggle.getLeftStartButton().doClick();
 			}
 		});
@@ -208,7 +203,6 @@ public class SearchDialog {
 				oKButton.addActionListener(searcherAndRemover);
 				criterionPanel.updateUI();
 
-				//numberAvailableRecords.addTableListener(searcherAndRemover.getSearchList());
 				pageToggle.getLeftStartButton().doClick();
 
 			}
