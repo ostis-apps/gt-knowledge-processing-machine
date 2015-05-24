@@ -1,0 +1,28 @@
+ui_menu_search_operation_role_vertex_or_edge <- ui_user_command_class_atom; ui_user_command_class_view_kb;;
+
+// Указываем русский идентификатор нашей операции в меню
+ui_menu_search_operation_role_vertex_or_edge =>nrel_main_idtf: [Определение роли вершины или ребра] (* <- lang_ru;; *);;
+
+// Указываем английский идентификатор нашей операции в меню
+ui_menu_search_operation_role_vertex_or_edge =>nrel_main_idtf: [Defining the role of the vertex or edge] (* <- lang_en;; *);;
+
+// Указываем шаблон нашей команды
+ui_menu_search_operation_role_vertex_or_edge =>ui_nrel_command_template:
+[*
+	question_of_finding_role_vertex_or_edge _-> ._question_of_finding_role_vertex_or_edge_instance
+	(*
+		_-> ui_arg_1;;
+	*);;
+
+	._question_of_finding_role_vertex_or_edge_instance _<- question;;
+*];;
+
+// Указываем текстовый шаблон команды на русском языке
+ui_menu_search_operation_role_vertex_or_edge =>ui_nrel_command_lang_template: [Определение роли вершины или ребра: $ui_arg_1] 
+(*
+	<- lang_ru;; 
+*);;
+
+// Указываем текстовый шаблон команды на английском языке
+ui_menu_search_operation_role_vertex_or_edge =>ui_nrel_command_lang_template: [Defining the role of the vertex or edge: $ui_arg_1]
+(* <- lang_en;; *);;

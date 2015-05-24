@@ -77,7 +77,7 @@ scp_program -> proc_find_weighted_graph (*
 
 
 -> ..find_weighted_graph_op5 (*
-<- genElStr5
+<- genElStr5;;
 -> rrel_1: rrel_fixed: rrel_scp_const: concept_weighted_graph;;
 -> rrel_2: rrel_assign:rrel_const: rrel_pos_const_perm: rrel_scp_var: _arc1;;
 -> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
@@ -88,7 +88,7 @@ scp_program -> proc_find_weighted_graph (*
 
 
 -> ..find_weighted_graph_op6 (*
-<- genElStr3
+<- genElStr3;;
 -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
 -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
 -> rrel_3: rrel_fixed: rrel_scp_const: concept_weighted_graph;;
@@ -97,7 +97,7 @@ scp_program -> proc_find_weighted_graph (*
 
 
 -> ..find_weighted_graph_op7 (*
-<- genElStr3
+<- genElStr3;;
 -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
 -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
 -> rrel_3: rrel_fixed: rrel_scp_var: _arc1;;
@@ -106,7 +106,7 @@ scp_program -> proc_find_weighted_graph (*
 
 
 -> ..find_weighted_graph_op8 (*
-<- genElStr3
+<- genElStr3;;
 -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
 -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
 -> rrel_3: rrel_fixed: rrel_scp_const: rrel_example;;
@@ -115,7 +115,7 @@ scp_program -> proc_find_weighted_graph (*
 
 
 -> ..find_weighted_graph_op9 (*
-<- genElStr3
+<- genElStr3;;
 -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
 -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
 -> rrel_3: rrel_fixed: rrel_scp_var: _arc2;;
@@ -180,7 +180,7 @@ scp_program -> proc_find_weighted_graph (*
 
 
 -> ..find_weighted_graph_op16 (*
-<- genElStr5
+<- genElStr5;;
 -> rrel_1: rrel_fixed: rrel_scp_var: _arcinator;;
 -> rrel_2: rrel_assign: rrel_const: rrel_common: rrel_scp_var: _arc1;;
 -> rrel_3: rrel_fixed: rrel_scp_var: _defoult;;
@@ -191,7 +191,7 @@ scp_program -> proc_find_weighted_graph (*
 
 
 -> ..find_weighted_graph_op17 (*
-<- genElStr3
+<- genElStr3;;
 -> rrel_1: rrel_fixed: rrel_scp_const: number;;
 -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
 -> rrel_3: rrel_fixed: rrel_scp_var: _defoult;;

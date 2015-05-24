@@ -1,0 +1,86 @@
+test_solver => nrel_main_idtf: [тесты] (* <- lang_ru;; *);;
+test_solver => nrel_main_idtf: [tests] (* <- lang_en;; *);;
+
+test_solver -> 
+
+	test_solver_find_points_of_articulation(*
+		-> rrel_1: test_point_of_articulation_graph2;;
+		-> rrel_2: rrel_point_articulation;;		
+	*);
+
+	test_solver_find_antideadlock(*
+		-> rrel_1: test_find_antideadlock_1;;
+		-> rrel_2: rrel_antideadlock;;		
+	*);
+
+	test_solver_find_deadlock(*
+		-> rrel_1: test_find_deadlock_1;;
+		-> rrel_2: rrel_deadlock;;		
+	*);
+
+	test_solver_number_of_deleted_nodes(*
+		-> rrel_1: test_graph_num2;;
+		-> rrel_2: nrel_number_of_deleted_nodes;;		
+	*);
+
+	test_solver_check_bipart_graph_vertexes(*
+		-> rrel_1: test_graph_bip_set2;;
+		-> rrel_2: nrel_second_bip_set;;		
+	*);
+
+	test_solver_find_min_ostov(*
+		-> rrel_1: test_min_ostov2;;
+		-> rrel_2: nrel_min_ostov;;		
+	*);
+
+	test_solver_find_number_connected_components(*
+		-> rrel_1: test_number_connected_components_graph1;;
+		-> rrel_2: nrel_number_connected_components;;		
+	*);
+
+	test_solver_reflexive_graph(*
+		-> rrel_1: test_reflexive_graph1;;
+		-> rrel_2: concept_reflexive_graph;;		
+	*);
+ 
+	test_solver_transitive_graph(*
+		-> rrel_1: test_transitive_graph2;;
+		-> rrel_2: concept_transitive_graph;;		
+	*);
+	
+	test_solver_symmetric_graph(*
+		-> rrel_1: test_symmetric_graph2;;
+		-> rrel_2: concept_symmetric_graph;;		
+	*);
+
+	test_solver_euler_graph(*
+		-> rrel_1: test_euler_graph1;;
+		-> rrel_2: concept_eulerian_graph;;		
+	*);
+
+	test_solver_bigraph_graph(*
+		-> rrel_1: test_graph_bip1;;
+		-> rrel_2: concept_bigraph;;		
+	*);
+
+	test_solver_full_graph(*
+		-> rrel_1: test_graph_full1;;
+		-> rrel_2: concept_complete_graph;;		
+	*);
+
+	test_solver_berg_graph(*
+		-> rrel_1: test_graph_berg1;;
+		-> rrel_2: concept_berge_complete_graph;;		
+	*);
+
+	test_solver_multi_graph(*
+		-> rrel_1: graph_mult1;;
+		-> rrel_2: concept_multigraph;;		
+	*);
+
+	test_solver_triangle_graph(*
+		-> rrel_1: graph_triangle1;;
+		-> rrel_2: concept_triangle_graph;;		
+	*);;
+
+//костыль

@@ -1,4 +1,4 @@
-concept_undirected_graph-> rrel_example: test_find_deadlock_5
+concept_undirected_graph-> rrel_example: test_find_antideadlock_1
 (*
 	->rrel_vertex: V1;;
 	->rrel_vertex: V2;;

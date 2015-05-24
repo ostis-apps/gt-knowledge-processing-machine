@@ -37,7 +37,7 @@ scp_program -> symmetric_graph
                         -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs1;;
                         -> rrel_3: rrel_assign: rrel_scp_var: rrel_common: _ar;;
                         -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs2;;
-                        -> rrel_5: rrel_fixed: rrel_scp_const: rrel_arc;;
+                        -> rrel_5: rrel_fixed: rrel_scp_const: rrel_oredge;;
 
 			-> rrel_set_3: rrel_assign: rrel_scp_var: _arcs;;
 			

@@ -1,0 +1,31 @@
+nrel_number_of_deleted_nodes <= nrel_main_program:
+	...
+	(*
+		-> rrel_1: proc_find_num_graph_tree_nodes;;
+	*);;
+
+nrel_second_bip_set <= nrel_main_program:
+	...
+	(*
+		-> rrel_1: proc_check_bipart_graph_vertexes;;
+	*);;
+
+nrel_first_bip_set <= nrel_main_program:
+	...
+	(*
+		-> rrel_1: proc_check_bipart_graph_vertexes;;
+	*);;
+
+nrel_min_ostov <= nrel_main_program:
+	...
+	(*
+		-> rrel_1: proc_min_ostov;;
+	*);;
+
+nrel_number_connected_components <= nrel_main_program:
+	...
+	(*
+		-> rrel_1: find_the_number_of_connected_components;;
+	*);;
+
+

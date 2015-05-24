@@ -8,6 +8,7 @@ ui_menu_na_graph_theory <= nrel_ui_commands_decomposition:
 	//ui_menu_na_numerical_characteristic_graph;
 	//ui_menu_na_search_request_sets_characterizing_graph;
 	//ui_menu_na_view_of_graph
-	ui_menu_search_operation_view_graph
-	
+	ui_menu_search_operation_view_graph;
+	ui_menu_search_operation_numeric_or_set;
+	ui_menu_search_operation_role_vertex_or_edge
 };;

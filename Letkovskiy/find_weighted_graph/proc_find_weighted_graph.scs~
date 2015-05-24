@@ -77,7 +77,7 @@ scp_program -> proc_find_weighted_graph (*
 
 
 -> ..find_weighted_graph_op5 (*
-<- genElStr5
+<- genElStr5;;
 -> rrel_1: rrel_fixed: rrel_scp_const: concept_weighted_graph;;
 -> rrel_2: rrel_assign:rrel_const: rrel_pos_const_perm: rrel_scp_var: _arc1;;
 -> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
@@ -88,7 +88,7 @@ scp_program -> proc_find_weighted_graph (*
 
 
 -> ..find_weighted_graph_op6 (*
-<- genElStr3
+<- genElStr3;;
 -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
 -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
 -> rrel_3: rrel_fixed: rrel_scp_const: concept_weighted_graph;;
@@ -97,7 +97,7 @@ scp_program -> proc_find_weighted_graph (*
 
 
 -> ..find_weighted_graph_op7 (*
-<- genElStr3
+<- genElStr3;;
 -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
 -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
 -> rrel_3: rrel_fixed: rrel_scp_var: _arc1;;
@@ -106,7 +106,7 @@ scp_program -> proc_find_weighted_graph (*
 
 
 -> ..find_weighted_graph_op8 (*
-<- genElStr3
+<- genElStr3;;
 -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
 -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
 -> rrel_3: rrel_fixed: rrel_scp_const: rrel_example;;
@@ -115,7 +115,7 @@ scp_program -> proc_find_weighted_graph (*
 
 
 -> ..find_weighted_graph_op9 (*
-<- genElStr3
+<- genElStr3;;
 -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
 -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
 -> rrel_3: rrel_fixed: rrel_scp_var: _arc2;;
@@ -176,10 +176,10 @@ scp_program -> proc_find_weighted_graph (*
 -> rrel_1: rrel_fixed: rrel_scp_var: _defoult;;
 -> rrel_2: rrel_fixed: rrel_scp_const: [0];;
 
-=> nrel_goto : ..proc_find_num_graph_tree_nodes_pre_op1;; *);;
+=> nrel_goto : ..find_weighted_graph_op16;; *);;
 
 
--> ..find_weighted_graph_op14 (*
+-> ..find_weighted_graph_op16 (*
 <- genElStr5
 -> rrel_1: rrel_fixed: rrel_scp_var: _arcinator;;
 -> rrel_2: rrel_assign: rrel_const: rrel_common: rrel_scp_var: _arc1;;
@@ -187,73 +187,16 @@ scp_program -> proc_find_weighted_graph (*
 -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
 -> rrel_5: rrel_fixed: rrel_scp_const: nrel_weight;;
 
-=> nrel_goto : ..find_weighted_graph_op10;; *);;
-
-/////////////////////////////////////////////////////////////////
--> ..find_weighted_graph_op10 (*
-<- genElStr5
--> rrel_1: rrel_fixed: rrel_scp_const: concept_weighted_graph;;
--> rrel_2: rrel_assign: rrel_const: rrel_pos_const_perm: rrel_scp_var: _arc1;;
--> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
--> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
--> rrel_5: rrel_fixed: rrel_scp_const: rrel_example;;
-
-=> nrel_goto : ..find_weighted_graph_op10;; *);;
+=> nrel_goto : ..find_weighted_graph_op17;; *);;
 
 
--> ..find_weighted_graph_gen_ans1 (*
-<- searchElStr3;;
--> rrel_1 : rrel_fixed : rrel_scp_var : _answer;;
--> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
--> rrel_3 : rrel_fixed : rrel_scp_var : _property;;
-
-=> nrel_then : ..find_weighted_graph_op1;; 
-=> nrel_else : ..find_weighted_graph_gen_ans1_1;; *);;
-
-
--> ..find_weighted_graph_gen_ans1_1 (*
+-> ..find_weighted_graph_op17 (*
 <- genElStr3
--> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
--> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
--> rrel_3: rrel_fixed: rrel_scp_var: _property;;
+-> rrel_1: rrel_fixed: rrel_scp_const: number;;
+-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
+-> rrel_3: rrel_fixed: rrel_scp_var: _defoult;;
 
-=> nrel_goto : ..find_weighted_graph_gen_ans2;; *);;
-
-
--> ..find_weighted_graph_gen_ans2 (*
-<- searchElStr3;;
--> rrel_1 : rrel_fixed : rrel_scp_var : _property;;
--> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
--> rrel_3 : rrel_fixed : rrel_scp_var : _graph;;
-
-=> nrel_goto : ..find_weighted_graph_gen_ans3;; *);;
-
-
--> ..find_weighted_graph_gen_ans3 (*
-<- genElStr3
--> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
--> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
--> rrel_3: rrel_fixed: rrel_scp_var: _arc;;
-
-=> nrel_goto : ..find_weighted_graph_gen_ans4;; *);;
-
-
--> ..find_weighted_graph_gen_ans4 (*
-<- searchElStr3;;
--> rrel_1 : rrel_fixed : rrel_scp_const : rrel_example;;
--> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc1;;
--> rrel_3 : rrel_fixed : rrel_scp_var : _arc;;
-
-=> nrel_goto : ..find_weighted_graph_gen_ans5;; *);;
-
-
--> ..find_weighted_graph_gen_ans5 (*
-<- genElStr3
--> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
--> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
--> rrel_3: rrel_fixed: rrel_scp_var: _arc1;;
-
-=> nrel_goto : ..find_weighted_graph_op1;; *);;
+=> nrel_goto : ..find_weighted_graph_op11;; *);;
 
 
 -> ..find_weighted_graph_clean_up (*

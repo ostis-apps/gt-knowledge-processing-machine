@@ -1,17 +1,17 @@
-sc_node_norole_relation->nrel_main_solution;;
+sc_node_norole_relation->nrel_main_program;;
 
-nrel_main_solution=>nrel_main_idtf:
+nrel_main_program=>nrel_main_idtf:
 	[основные решения*]
 		(*<-lang_ru;;*);
-	[main solutions*]
+	[main programs*]
 		(*<-lang_en;;*);;
 
-nrel_main_solution => nrel_arity_of_relations: 2
+nrel_main_program => nrel_arity_of_relations: 2
 	(* <- number ;;*);;
 
-nrel_main_solution <- binary_relation;;
+nrel_main_program <- binary_relation;;
 
-nrel_main_solution <- rrel_key_sc_element: 
+nrel_main_program <- rrel_key_sc_element: 
      ... 
 	(*
 	<- sc_definition;;

@@ -1,0 +1,17 @@
+concept_undirected_graph ->rrel_example: test_min_ostov2
+(*
+	-> rrel_vertex: V1;;
+	-> rrel_vertex: V2;;
+	-> rrel_vertex: V3;;
+	-> rrel_vertex: V4;;
+	-> rrel_oredge: (V1=>V2) (*=>nrel_weight:[5];;*);;
+	-> rrel_oredge: (V2=>V1) (*=>nrel_weight:[5];;*);;
+	-> rrel_oredge: (V2=>V3) (*=>nrel_weight:[2];;*);;
+	-> rrel_oredge: (V3=>V2) (*=>nrel_weight:[2];;*);;
+	-> rrel_oredge: (V1=>V3) (*=>nrel_weight:[1];;*);;
+	-> rrel_oredge: (V3=>V1) (*=>nrel_weight:[1];;*);;
+	-> rrel_oredge: (V2=>V4) (*=>nrel_weight:[4];;*);;
+	-> rrel_oredge: (V4=>V2) (*=>nrel_weight:[4];;*);;
+	-> rrel_oredge: (V3=>V4) (*=>nrel_weight:[3];;*);;
+	-> rrel_oredge: (V4=>V3) (*=>nrel_weight:[3];;*);;		
+*);;

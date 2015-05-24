@@ -19,7 +19,7 @@ scp_program -> proc_add_min_tree
 			-> rrel_set_3: rrel_assign: rrel_scp_var: _set_copy;;
 		
 			=> nrel_then: ..proc_add_min_tree_operator2;;
-			=> nrel_else: ..proc_add_min_tree_operator_return;;
+			=> nrel_else: ..proc_add_min_tree_operator_return ;;
 		*);;
 		
 		-> ..proc_add_min_tree_operator2
