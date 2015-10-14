@@ -27,7 +27,7 @@ sc_agent_of_finding_euler_graph
 		<- platform_independent_abstract_sc_agent;;
 		<= nrel_sc_agent_program: 
 		{
-			euler_graph;
+			proc_euler_graph;
 			agent_of_finding_euler_graph
 		};;
 		-> sc_agent_of_finding_euler_graph_scp (* <- active_sc_agent;; *);;

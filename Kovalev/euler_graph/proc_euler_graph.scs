@@ -1,4 +1,4 @@
-scp_program -> euler_graph
+scp_program -> proc_euler_graph
 (*
 	-> rrel_params: ...
 	(*
@@ -233,7 +233,7 @@ scp_program -> euler_graph
 			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara1;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _ara;;
 			
-			=> nrel_goto: .proc_euler_graph_operator21_3;;
+			=> nrel_goto: .proc_euler_graph_return;;
 		*);;
 
 		-> .proc_euler_graph_operator21_3

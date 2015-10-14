@@ -1,0 +1,30 @@
+sc_node_not_relation -> set_used_program_on_graph
+	(*
+		//&-> proc_is_regular;;
+		//&-> proc_find_tree;;
+		//&-> proc_find_strongly_connected_graph;;
+		//bad-> proc_find_connected_graph;;
+		//nw-> proc_find_pappus;;
+		//bad-> proc_find_weighted_graph;;
+		//bad-> proc_reflexive_graphs;;
+		//bad-> transitive_graph;;
+		//bad-> symmetric_graph;;
+		-> proc_euler_graph;;
+		//bad-> proc_run_test_complite_graph;;
+		//bad-> proc_run_test_complite_graph_Ber;;
+		//bad-> proc_run_test_concept_multigraph;;
+		//bad-> proc_run_test_triangle;;
+		-> proc_find_the_number_of_connected_components;;
+		-> proc_find_num_graph_tree_nodes;;
+		//-> proc_min_ostov;;
+		//&-> proc_check_bipart_graph_vertexes;;
+		//tl-> proc_search_diameter;;
+		//tl-> proc_search_radius;;
+	*);;
+
+set_used_program_on_graph => nrel_main_idtf:
+	[множество использующихся программ на графах]
+		(*<-lang_ru;;*);
+	[set used program on graph]
+		(*<-lang_en;;*);;
+

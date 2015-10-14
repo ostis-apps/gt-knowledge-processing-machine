@@ -27,7 +27,7 @@ sc_agent_of_finding_reflexive_graphs
 		<- platform_independent_abstract_sc_agent;;
 		<= nrel_sc_agent_program: 
 		{
-			reflexive_graphs;
+			proc_reflexive_graphs;
 			agent_of_finding_reflexive_graphs
 		};;
 		-> sc_agent_of_finding_reflexive_graphs_scp (* <- active_sc_agent;; *);;

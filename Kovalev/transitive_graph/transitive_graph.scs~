@@ -196,7 +196,7 @@ scp_program -> transitive_graph
 			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara1;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _ara;;
 			
-			=> nrel_goto: .proc_transitive_graph_return;;
+			=> nrel_goto: .proc_transitive_graph_operator18_2;;
 		*);;
 
 		-> .proc_transitive_graph_operator18_2
