@@ -1,0 +1,24 @@
+ui_menu_is_regular 
+<- ui_user_command_class_atom; ui_user_command_class_view_kb;
+
+=> nrel_main_idtf: [Проверка графа на регулярность] (* <- lang_ru;; *);
+
+=> nrel_main_idtf: [Check the regularity of a graph] (* <- lang_en;; *);
+
+=> ui_nrel_command_template:
+	[*
+		question_is_regular _-> ._question_is_regular_instance
+		(*
+			_-> ui_arg_1;;
+		*);;
+
+		._question_is_regular_instance _<- question;;
+	*];
+
+=> ui_nrel_command_lang_template: [Проверка графа на регулярность: $ui_arg_1] 
+(*
+	<- lang_ru;; 
+*);
+
+=> ui_nrel_command_lang_template: [Check the regularity of a graph: $ui_arg_1]
+(* <- lang_en;; *);;

@@ -1,3 +1,15 @@
+nrel_radius <= nrel_main_program:
+	...
+	(*
+		-> rrel_1: proc_search_radius;;
+	*);;
+
+nrel_diameter <= nrel_main_program:
+	...
+	(*
+		-> rrel_1: proc_search_diameter;;
+	*);;
+
 nrel_number_of_deleted_nodes <= nrel_main_program:
 	...
 	(*

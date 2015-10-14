@@ -50,7 +50,7 @@ scp_program -> agent_of_finding_role_vertex_or_edge (*
 		  	-> rrel_3: rrel_assign: rrel_scp_var: _quest_level2;;
 
 		  	=> nrel_then: .agent_of_finding_role_vertex_or_edge_operator3;;
-		  	=> nrel_else: .agent_of_finding_role_vertex_or_edge_operator_nohassolution;;
+		  	=> nrel_else: .agent_of_finding_role_vertex_or_edge_operator_nohassolution1;;
 		*);;
 
 		-> .agent_of_finding_role_vertex_or_edge_operator3 
@@ -106,7 +106,7 @@ scp_program -> agent_of_finding_role_vertex_or_edge (*
 		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_print_idtf;;
 		        -> rrel_2: rrel_fixed: rrel_scp_const: ... 
 				(*
-					-> rrel_1: rrel_fixed: rrel_scp_var: _nrel;;
+					-> rrel_1: rrel_fixed: rrel_scp_var: _rrel;;
 				*);;
 		        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
 
@@ -192,12 +192,21 @@ scp_program -> agent_of_finding_role_vertex_or_edge (*
 			=>nrel_goto: .agent_of_finding_role_vertex_or_edge_operator_return;;
 		*);; 
 		
-		-> .agent_of_finding_role_vertex_or_edge_operator_nohassolution
+		-> .agent_of_finding_role_vertex_or_edge_operator_nohassolution1
+		(*
+		  	<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: message_solver;;
+		  	-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _message;;
+		
+		  	=> nrel_goto: .agent_of_finding_role_vertex_or_edge_operator_nohassolution2;
+		*);;
+		-> .agent_of_finding_role_vertex_or_edge_operator_nohassolution2
 		(*
 		  	<- genElStr3;;
 		  	-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
                   	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
-                  	-> rrel_3: rrel_fixed: rrel_scp_const: message_solver;;
+                  	-> rrel_3: rrel_fixed: rrel_scp_var: _message;;
 			
 		  	=> nrel_goto: .agent_of_finding_role_vertex_or_edge_operator_last;;
 		*);;

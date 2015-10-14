@@ -61,7 +61,7 @@ scp_program -> proc_find_connected_graph (*
 
 		-> ..proc_find_connected_operator5 (*
 			<- call;;
-			-> rrel_1: rrel_fixed: rrel_scp_const: proc_create_wave_1;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: proc_create_wave;;
 			-> rrel_2: rrel_fixed: rrel_scp_const: ... (*
 				-> rrel_1: rrel_fixed: rrel_scp_var: _parameter;;
 				-> rrel_2: rrel_fixed: rrel_scp_var: _new_wave;;
@@ -161,7 +161,26 @@ scp_program -> proc_find_connected_graph (*
 			<- eraseEl;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _not_checked_vertexes;;
 
-            => nrel_goto: ..proc_find_connected_operator_return;;
+            => nrel_goto: ..proc_find_connected_operator14;;
+		*);;
+
+		-> ..proc_find_connected_operator14 (*
+			<- call;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: proc_add_graph_in_ans;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: ... (*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _parameter;;
+				-> rrel_2: rrel_fixed: rrel_scp_var: _answer;;
+			*);;
+			-> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+
+			=> nrel_goto: ..proc_find_connected_operator15;;
+		*);;
+
+		-> ..proc_find_connected_operator15 (*
+			<- waitReturn;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
+
+			=> nrel_goto: ..proc_find_connected_operator_return;;
 		*);;
 
 		-> ..proc_find_connected_operator_return (*

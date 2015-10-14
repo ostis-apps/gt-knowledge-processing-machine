@@ -100,7 +100,7 @@ scp_program -> proc_find_tree (*
 			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
 			-> rrel_3: rrel_assign: rrel_scp_var: _arc;;
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_edge;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_oredge;;
 		
 			->rrel_set_3: rrel_assign: rrel_scp_var: _not_checked_arcs;;
 
@@ -198,14 +198,33 @@ scp_program -> proc_find_tree (*
 			<- eraseEl;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _not_checked_vertexes;;
 
-            => nrel_goto: ..proc_find_tree_operator_return;;
+            => nrel_goto: ..proc_add_graph_in_answer1;;
 		*);;
 
 	    -> ..proc_find_tree_operator_erase(*
 	        <-eraseEl;;
 	        ->rrel_1:rrel_fixed:rrel_erase:rrel_scp_var:_arc2;;
-	        =>nrel_goto:..proc_find_tree_operator_return;;
+	        =>nrel_goto:..proc_add_graph_in_answer1;;
 	    *);;
+
+	    -> ..proc_add_graph_in_answer1 (*
+			<- call;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: proc_add_graph_in_ans;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: ... (*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _parameter;;
+				-> rrel_2: rrel_fixed: rrel_scp_var: _answer;;
+			*);;
+			-> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+
+			=> nrel_goto: ..proc_add_graph_in_answer2;;
+		*);;
+
+		-> ..proc_add_graph_in_answer2 (*
+			<- waitReturn;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
+
+			=> nrel_goto: ..proc_find_tree_operator_return;;
+		*);;
 
 		-> ..proc_find_tree_operator_return (*
 			<- return;;

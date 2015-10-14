@@ -1,0 +1,117 @@
+scp_program -> proc_remove_common_arcs
+(*
+	-> rrel_params: ...
+	(*
+		-> rrel_1: rrel_in: _outline;;	
+	*);;
+
+	-> rrel_operators: ... 
+	(*
+		-> rrel_init: .proc_remove_common_arcs_operator1
+		(*
+			<- searchSetStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
+                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs1;;
+                        -> rrel_3: rrel_assign: rrel_scp_var: _vert;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: arc1;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _elements;;
+			
+			=> nrel_then: .proc_remove_common_arcs_operator2;;
+                	=> nrel_else: .proc_remove_common_arcs_return;;
+		*);;
+
+		-> .proc_remove_common_arcs_operator2
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _elements;;
+                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_erase;;
+                        -> rrel_3: rrel_assign: rrel_scp_var: _element;;
+			
+			=>nrel_then: .proc_remove_common_arcs_operator4;;
+			=>nrel_else: .proc_remove_common_arcs_operator7;; 	
+		*);;
+
+		-> .proc_remove_common_arcs_operator4
+		(*
+			<- searchElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
+                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+                        -> rrel_3: rrel_fixed: rrel_scp_var: _element;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+			
+			=> nrel_goto: .proc_remove_common_arcs_operator5;; 	
+		*);;
+
+		-> .proc_remove_common_arcs_operator5
+		(*
+			<- eraseEl;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc2;;
+			
+			=> nrel_goto: .proc_remove_common_arcs_operator6;;
+		*);;
+		
+		-> .proc_remove_common_arcs_operator6
+		(*
+			<- eraseEl;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc_erase;;
+			
+			=> nrel_goto: .proc_remove_common_arcs_operator2;;
+		*);;
+
+		-> .proc_remove_common_arcs_operator7
+		(*
+			<- eraseEl;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _elements;;
+			
+			=> nrel_goto: .proc_remove_common_arcs_operator8;;
+		*);;
+
+		-> .proc_remove_common_arcs_operator8
+		(*
+			<- searchSetStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
+                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs1;;
+                        -> rrel_3: rrel_assign: rrel_scp_var: rrel_common: _vert;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: arc1;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_oredge;;
+
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _elements;;
+			
+			=> nrel_then: .proc_remove_common_arcs_operator9;;
+                	=> nrel_else: .proc_remove_common_arcs_return;;
+		*);;
+
+		-> .proc_remove_common_arcs_operator9
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _elements;;
+                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_erase;;
+                        -> rrel_3: rrel_assign: rrel_scp_var: _element;;
+			
+			=>nrel_then: .proc_remove_common_arcs_operator10;;
+			=>nrel_else: .proc_remove_common_arcs_operator11;; 	
+		*);;		
+
+		-> .proc_remove_common_arcs_operator10
+		(*
+			<- eraseEl;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _element;;
+			
+			=>nrel_goto: .proc_remove_common_arcs_operator9;; 	
+		*);;		
+
+		-> .proc_remove_common_arcs_operator11
+		(*
+			<- eraseEl;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _elements;;
+			
+			=> nrel_goto: .proc_remove_common_arcs_return;;
+		*);;
+
+		-> .proc_remove_common_arcs_return(*<-return;;*);;
+	*);;
+*);;
+

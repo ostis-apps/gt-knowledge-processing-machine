@@ -1,0 +1,54 @@
+sc_agent_is_regular
+=> nrel_main_idtf:
+	[sc-агент нахождения радиуса] (* <- lang_ru;; *);
+
+<- abstract_sc_agent;
+=> nrel_primary_initiation_condition: (sc_event_add_output_arc => question_initiated);
+=> nrel_initiation_condition_and_result: (..sc_agent_is_regular_initiation_condition => ..sc_agent_is_regular_result);
+
+<= nrel_sc_agent_key_sc_elements: 
+	{
+		question_initiated;
+		question;
+		question_is_regular
+	};
+
+<- key_sc_element:
+	..sc_agent_is_regular_behavior
+	(*
+	<- sc_description_of_sc_agent_behavior;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Задачей sc-агента является нахождение радиуса графа];;
+		*);;
+	*);
+
+=> nrel_inclusion: ...
+	(*
+		<- platform_independent_abstract_sc_agent;;
+		<= nrel_sc_agent_program: 
+		{
+			agent_is_regular;
+			proc_is_regular
+		};;
+		-> sc_agent_is_regular_scp (* <- active_sc_agent;; *);;
+	*);;
+
+..sc_agent_search_diameter_initiation_condition
+= [*
+	question_is_regular _-> .._question;;
+	question_initiated _-> .._question;;
+	question _-> .._question;;
+	.._question _-> .._parameter;;
+*];;
+
+..sc_agent_search_diameter_result
+= [*
+	question_is_regular _-> .._question;;
+	question_finished _-> .._question;;
+	question _-> .._question;;
+	/*.._question _=> nrel_answer:: .._answer;;*/
+	.._question _-> .._parameter;;
+*];;                   

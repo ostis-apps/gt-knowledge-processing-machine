@@ -1,0 +1,7 @@
+sc_node_not_relation->source_graph;;
+
+source_graph => nrel_main_idtf: 
+		[исходный граф] (* <-lang_ru;; *);
+		[source graph] (* <-lang_en;; *);;
+
+
