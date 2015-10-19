@@ -47,7 +47,7 @@ scp_program -> agent_graphs_specification (*
 		-> .agent_graphs_specification_operator3
 		(*
 			<- call;;
-		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_add_common_arc;;
+		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_add_vertex_edge_attr;;
 		        -> rrel_2: rrel_fixed: rrel_scp_const: ... 
 				(*
 					-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
@@ -98,7 +98,7 @@ scp_program -> agent_graphs_specification (*
 		-> .agent_graphs_specification_operator8
 		(*
 			<- call;;
-		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_remove_common_arcs;;
+		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_remove_vertex_edge_attr;;
 		        -> rrel_2: rrel_fixed: rrel_scp_const: ... 
 				(*
 					-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;

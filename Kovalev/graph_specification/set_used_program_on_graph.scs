@@ -1,5 +1,7 @@
 sc_node_not_relation -> set_used_program_on_graph
 	(*
+		-> rrel_2: proc_euler_graph;;
+		//-> rrel_1: proc_planar_graph;;
 		//&-> proc_is_regular;;
 		//&-> proc_find_tree;;
 		//&-> proc_find_strongly_connected_graph;;
@@ -9,14 +11,13 @@ sc_node_not_relation -> set_used_program_on_graph
 		//bad-> proc_reflexive_graphs;;
 		//bad-> transitive_graph;;
 		//bad-> symmetric_graph;;
-		-> proc_euler_graph;;
 		//bad-> proc_run_test_complite_graph;;
 		//bad-> proc_run_test_complite_graph_Ber;;
 		//bad-> proc_run_test_concept_multigraph;;
 		//bad-> proc_run_test_triangle;;
-		-> proc_find_the_number_of_connected_components;;
-		-> proc_find_num_graph_tree_nodes;;
-		//-> proc_min_ostov;;
+		-> rrel_number_characteristics: proc_find_the_number_of_connected_components;;
+		-> rrel_number_characteristics: proc_find_num_graph_tree_nodes;;
+		//&-> proc_min_ostov;;
 		//&-> proc_check_bipart_graph_vertexes;;
 		//tl-> proc_search_diameter;;
 		//tl-> proc_search_radius;;
@@ -28,3 +29,4 @@ set_used_program_on_graph => nrel_main_idtf:
 	[set used program on graph]
 		(*<-lang_en;;*);;
 
+sc_node_role_relation -> rrel_number_characteristics;;
