@@ -1,0 +1,150 @@
+scp_program -> proc_find_cyclic_graph (*
+	
+	-> rrel_params: ... (*
+		-> rrel_1: rrel_in: _graph;;
+		-> rrel_2: rrel_in: _answer;;
+	*);;
+
+	-> rrel_operators: ... (*
+
+	-> rrel_init: ..start (*
+		<- searchSetStr5;;
+		-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+		-> rrel_3: rrel_assign: rrel_scp_var: _node;;
+		-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+		-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+		-> rrel_set_3 : rrel_assign : rrel_scp_var : _soUPset;;
+		
+		=> nrel_then : ..proc_find_num_graph_tree_nodes_step1;;
+		=> nrel_else : ..proc_find_num_graph_tree_nodes_op_returno;;
+		*);;
+
+
+
+-> ..proc_find_num_graph_tree_nodes_step1 (*
+<- genEl;;
+-> rrel_1: rrel_assign: rrel_node:rrel_scp_var : _marked_nodes;;
+
+=> nrel_goto : ..proc_find_num_graph_tree_nodes_step2;; *);;
+
+
+-> ..proc_find_num_graph_tree_nodes_step2 (*
+<- genEl;;
+-> rrel_1: rrel_assign: rrel_node:rrel_scp_var : _cyclic_graph;;
+
+=> nrel_goto : ..proc_find_num_graph_tree_nodes_step3;; *);;
+
+
+-> ..proc_find_num_graph_tree_nodes_step3 (*
+<- searchElStr3;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _soUPset;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
+-> rrel_3 : rrel_assign : rrel_scp_var : _new;;
+
+=> nrel_then : ..proc_find_num_graph_tree_nodes_step4;; 
+=> nrel_else : ..proc_find_num_graph_tree_nodes_step5 ;;*);;  
+
+
+-> ..proc_find_num_graph_tree_nodes_step4 (*
+<- eraseEl;;
+-> rrel_1 : rrel_fixed : rrel_pos_const_perm : rrel_erase:rrel_scp_var : _arc;;
+
+=> nrel_goto : ..ave_start_recurs;; *);;
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+-> ..ave_start_recurs (*
+<- call;;
+	-> rrel_1: rrel_fixed: rrel_scp_const: visiting_round_deep_all_dir;;
+	-> rrel_2: rrel_fixed: rrel_scp_const: ... (*
+		-> rrel_1: rrel_fixed: rrel_scp_var: _new;;
+		-> rrel_2: rrel_fixed: rrel_scp_var: _new;;
+		-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+		-> rrel_4: rrel_fixed: rrel_scp_var: _marked_nodes;;
+		-> rrel_5: rrel_fixed: rrel_scp_var: _cyclic_graph;;
+	*);;
+	-> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+
+	=> nrel_goto: ..hail_to_the_king;;
+*);;
+	
+-> ..hail_to_the_king (*
+	<- waitReturn;;
+	-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
+	
+	=> nrel_goto: ..proc_find_num_graph_tree_nodes_step3;; *);;
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+-> ..proc_find_num_graph_tree_nodes_step5 (*
+<- searchElStr3;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _cyclic_graph;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _graph;;
+
+=> nrel_then : ..good_ans;; 
+=> nrel_else : ..proc_find_num_graph_tree_nodes_del_trash1 ;;*);; ///////////////////////////////////////////////////////
+
+
+-> ..good_ans (*
+<- genElStr3;;
+-> rrel_1: rrel_fixed: rrel_scp_const: concept_cyclic_graph;;
+-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+=> nrel_goto : ..proc_find_num_graph_tree_nodes_get_ans1;; *);;
+
+
+
+-> ..proc_find_num_graph_tree_nodes_get_ans1 (*
+<- genElStr3;;
+-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+-> rrel_3: rrel_fixed: rrel_scp_const: concept_cyclic_graph;;
+
+=> nrel_goto : ..proc_find_num_graph_tree_nodes_get_ans2;; *);;
+
+
+-> ..proc_find_num_graph_tree_nodes_get_ans2 (*
+<- searchElStr3;;
+-> rrel_1: rrel_fixed: rrel_scp_const: concept_cyclic_graph;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _graph;;
+
+=> nrel_goto : ..proc_find_num_graph_tree_nodes_get_ans3;; *);;
+
+
+-> ..proc_find_num_graph_tree_nodes_get_ans3 (*
+<- genElStr3;;
+-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+-> rrel_3: rrel_fixed: rrel_scp_var: _arc;;
+
+=> nrel_goto : ..proc_find_num_graph_tree_nodes_del_trash1;; *);;
+
+
+
+-> ..proc_find_num_graph_tree_nodes_del_trash1 (*
+<- eraseEl;;
+-> rrel_1 : rrel_fixed :rrel_erase: rrel_scp_var : _marked_nodes;;
+
+=> nrel_goto : ..proc_find_num_graph_tree_nodes_del_trash2;; *);;
+
+
+-> ..proc_find_num_graph_tree_nodes_del_trash2 (*
+<- eraseEl;;
+-> rrel_1 : rrel_fixed :rrel_erase: rrel_scp_var : _cyclic_graph;;
+
+=> nrel_goto : ..proc_find_num_graph_tree_nodes_op_returno;; *);;
+
+-> ..proc_find_num_graph_tree_nodes_op_returno (*
+<- return;; *);;
+
+*);;
+*);;

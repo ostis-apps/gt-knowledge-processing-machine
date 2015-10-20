@@ -1,0 +1,169 @@
+scp_program -> proc_directivity_of_graph
+(*
+	-> rrel_params: ...
+	(*
+		-> rrel_1: rrel_in: _curr_graph;;
+		-> rrel_2: rrel_in: _answer;;
+	*);;
+
+	-> rrel_operators: ... 
+	(*
+		-> rrel_init: .proc_directivity_of_graph_operator0
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: concept_directed_graph;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
+			
+			=> nrel_then: .proc_directivity_of_graph_operator12;;
+			=> nrel_else: .proc_directivity_of_graph_operator0_1;;
+		*);;
+
+		-> .proc_directivity_of_graph_operator0_1
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: concept_undirected_graph;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
+			
+			=> nrel_then: .proc_directivity_of_graph_operator7;;
+			=> nrel_else: .proc_directivity_of_graph_operator1;;
+		*);;
+
+		-> .proc_directivity_of_graph_operator1
+		(*
+			<- searchSetStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _curr_graph;;
+                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs1;;
+                        -> rrel_3: rrel_assign: rrel_scp_var: rrel_common: _ar;;
+                        -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs2;;
+                        -> rrel_5: rrel_fixed: rrel_scp_const: rrel_oredge;;
+
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _arcs;;
+			
+			=> nrel_then: .proc_directivity_of_graph_operator2;;
+                	=> nrel_else: .proc_directivity_of_graph_operator6;;
+		*);;
+
+		-> .proc_directivity_of_graph_operator2
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _arcs;;
+                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_erase;;
+                        -> rrel_3: rrel_assign: rrel_scp_var: _curr_arc;;
+			
+			=>nrel_then: .proc_directivity_of_graph_operator3_1;;
+			=>nrel_else: .proc_directivity_of_graph_operator5;; 	
+		*);;
+		
+		-> .proc_directivity_of_graph_operator3_1
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_assign: rrel_scp_var: _levoe;;
+                        -> rrel_2: rrel_fixed: rrel_scp_var: _curr_arc;;
+                        -> rrel_3: rrel_assign: rrel_scp_var: _pravoe;;
+
+			=>nrel_then: .proc_directivity_of_graph_operator3_2;;
+			=>nrel_else: .proc_directivity_of_graph_operatorxx;; 	
+		*);;		
+
+		-> .proc_directivity_of_graph_operator3_2
+		(*
+			<- searchElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _pravoe;;
+                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc_of_vertexs1;;
+                        -> rrel_3: rrel_fixed: rrel_scp_var: _levoe;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs2;;
+			-> rrel_5: rrel_fixed: rrel_scp_var: _curr_graph;;
+
+			=>nrel_then: .proc_directivity_of_graph_operator4;;
+			=>nrel_else: .proc_directivity_of_graph_operator10;; 	
+		*);;
+		
+		-> .proc_directivity_of_graph_operator4
+		(*
+			<- eraseEl;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc_erase;;
+			
+			=> nrel_goto: .proc_directivity_of_graph_operator2;;
+		*);;
+	
+		-> .proc_directivity_of_graph_operator5
+		(*
+			<- eraseEl;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arcs;;
+			
+			=> nrel_goto: .proc_directivity_of_graph_operator6;;
+		*);;
+
+		-> .proc_directivity_of_graph_operator6
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: concept_undirected_graph;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
+			
+			=> nrel_goto: .proc_directivity_of_graph_operator7;;
+		*);;
+
+		-> .proc_directivity_of_graph_operator7
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara1;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: concept_undirected_graph;;
+			
+			=> nrel_goto: .proc_directivity_of_graph_operator8;;
+		*);;
+
+		-> .proc_directivity_of_graph_operator8
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _ara;;
+			
+			=> nrel_goto: .proc_directivity_of_graph_operator9;;
+		*);;
+
+		-> .proc_directivity_of_graph_operator9
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
+			
+			=> nrel_goto: .proc_directivity_of_graph_operator_return;;
+		*);;
+		
+		-> .proc_directivity_of_graph_operator10
+		(*
+			<- eraseEl;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arcs;;
+			
+			=> nrel_goto: .proc_directivity_of_graph_operator11;;
+		*);;
+		
+		-> .proc_directivity_of_graph_operator11
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: concept_directed_graph;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
+			
+			=> nrel_goto: .proc_directivity_of_graph_operator12;;
+		*);;
+		
+		-> .proc_directivity_of_graph_operator12
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara1;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: concept_directed_graph;;
+			
+			=> nrel_goto: .proc_directivity_of_graph_operator8;;
+		*);;		
+		-> .proc_directivity_of_graph_operator_return(*<-return;;*);;
+	*);;
+*);;
+

@@ -1,0 +1,13 @@
+concept_directed_graph->cyclic_graph2(*
+	->rrel_vertex: v1;;
+	->rrel_vertex: v2;;
+	->rrel_vertex: v3;;
+	->rrel_vertex: v4;;
+	->rrel_edge: ( v1 => v2 );;
+	->rrel_edge: ( v2 => v3 );;
+	->rrel_edge: ( v3 => v4 );;
+	->rrel_edge: ( v1 => v4 );;
+	->rrel_edge: ( v2 => v4 );;
+*);;
+
+cyclic_graph2=> nrel_main_idtf: [тестовый граф 2(ацикличный граф)](*<-lang_ru;;*);;

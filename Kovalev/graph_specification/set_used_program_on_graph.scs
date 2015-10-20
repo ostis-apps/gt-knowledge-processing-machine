@@ -1,6 +1,9 @@
 sc_node_not_relation -> set_used_program_on_graph
 	(*
-		-> rrel_2: proc_euler_graph;;
+		-> rrel_1: proc_find_cyclic_graph;;
+		-> rrel_1: proc_directivity_of_graph;;
+		-> rrel_1: proc_find_find_connected_graph1;;
+		//-> rrel_2: proc_euler_graph;;
 		//-> rrel_1: proc_planar_graph;;
 		//&-> proc_is_regular;;
 		//&-> proc_find_tree;;
