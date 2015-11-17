@@ -91,7 +91,7 @@ scp_program -> proc_point_of_articulation_b (*
         -> ..proc_find_poa_operator10 (*
         	<- genElStr5;;
 	        -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
-	        -> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc_poa_2;;
+	        -> rrel_2: rrel_assign: rrel_common: rrel_scp_var: rrel_const: _arc_poa_2;;
 	        -> rrel_3: rrel_fixed: rrel_node: rrel_scp_var: _set_point_of_articulation;;
 	        -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_poa_4;;
 	        -> rrel_5: rrel_fixed: rrel_node: rrel_const: nrel_set_point_articulation;;
@@ -140,7 +140,7 @@ scp_program -> proc_point_of_articulation_b (*
             <- genElStr3;;
             -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
             -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc5_answer;;
-            -> rrel_3: rrel_fixed: rrel_node: rrel_const: nrel_set_point_articulation;;
+            -> rrel_3: rrel_fixed: rrel_node: rrel_const: rrel_scp_const: nrel_set_point_articulation;;
 
             => nrel_goto : ..proc_find_poa_operator16;; 
         *);;
@@ -175,6 +175,7 @@ scp_program -> proc_point_of_articulation_b (*
 		        -> rrel_7: rrel_fixed: rrel_scp_const: fup_vertex;;
 		        -> rrel_8: rrel_fixed: rrel_scp_var: _node;;
 		        -> rrel_9: rrel_fixed: rrel_scp_var: _set_point_of_articulation;;
+		        -> rrel_10: rrel_fixed: rrel_scp_var: _answer;;
 	        *);;
 	        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
 

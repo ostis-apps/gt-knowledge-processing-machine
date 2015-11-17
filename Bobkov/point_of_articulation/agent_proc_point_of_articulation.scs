@@ -137,6 +137,7 @@ scp_program -> agent_proc_point_of_articulation_b (*
 
 			=> nrel_goto: .agent_proc_point_of_articulation_b_operator_last;;
 		*);;
+		
 		-> .agent_proc_point_of_articulation_b_operator_last
 		(*
 			<- genElStr5;;
