@@ -27,7 +27,7 @@ sc_agent_of_finding_symmetric_graph
 		<- platform_independent_abstract_sc_agent;;
 		<= nrel_sc_agent_program: 
 		{
-			symmetric_graph;
+			proc_symmetric_graph;
 			agent_of_finding_symmetric_graph
 		};;
 		-> sc_agent_of_finding_symmetric_graph_scp (* <- active_sc_agent;; *);;

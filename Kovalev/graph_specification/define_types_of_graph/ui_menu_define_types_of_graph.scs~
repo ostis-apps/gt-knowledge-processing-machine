@@ -15,7 +15,7 @@ ui_menu_define_types_of_graph =>ui_nrel_command_template:
 	._question_define_types_of_graph_instance _<- question;;
 *];;
 
-ui_menu_define_types_of_graph =>ui_nrel_command_lang_template: [Определить свойства графа: $ui_arg_1] 
+ui_menu_define_types_of_graph =>ui_nrel_command_lang_template: [Определить все свойства графа: $ui_arg_1] 
 (*
 	<- lang_ru;; 
 *);;

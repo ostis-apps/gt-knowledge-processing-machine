@@ -1,4 +1,4 @@
-scp_program -> visiting_round_deep_all_dir (*
+scp_program -> visiting_round_deep_2find_cyclic_graph (*
 	
 	-> rrel_params: ... (*
 		-> rrel_1: rrel_in: _current;;
@@ -80,7 +80,7 @@ scp_program -> visiting_round_deep_all_dir (*
 
 -> ..ave_recurs (*
 <- call;;
-	-> rrel_1: rrel_fixed: rrel_scp_const: visiting_round_deep_all_dir;;
+	-> rrel_1: rrel_fixed: rrel_scp_const: visiting_round_deep_2find_cyclic_graph;;
 	-> rrel_2: rrel_fixed: rrel_scp_const: ... (*
 		-> rrel_1: rrel_fixed: rrel_scp_var: _new;;
 		-> rrel_2: rrel_fixed: rrel_scp_var: _current;;

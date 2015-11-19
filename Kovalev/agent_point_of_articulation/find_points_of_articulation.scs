@@ -1,25 +1,44 @@
-scp_program -> find_points_of_articulation
+scp_program -> proc_find_points_of_articulation
 (*
-	-> rrel_params: ..find_points_of_articulation_params
+	-> rrel_params: ..proc_find_points_of_articulation_params
 	(*
 		-> rrel_1: rrel_in: _curr_graph;;
 		-> rrel_2: rrel_in: _answer;;
 	*);;
 
-	-> rrel_operators: ..find_points_of_articulation_operators 
+	-> rrel_operators: ..proc_find_points_of_articulation_operators 
 	(*
-		-> rrel_init: .find_points_of_articulation_operator0
+		-> rrel_init: .proc_find_points_of_articulation_operator0
 		(*
 			<- searchElStr5;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _curr_graph;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
-			-> rrel_3: rrel_assign: rrel_scp_var: _points_of_articulation;;
-			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_point_articulation;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc_for_answer1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: __point_artic;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_for_answer2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_set_point_articulation;;
 			
-			=> nrel_then: .find_points_of_articulation_operator1;;
-			=> nrel_else: ..gen_couter_source_takogo_nebulo;;
+			=> nrel_then: ..curr_graph_plus_points_of_articulation;;
+			=> nrel_else: ..gen_point_artic;;
 		*);; 
+
+		-> ..gen_point_artic
+		(*
+			<- genEl;;
+			-> rrel_1: rrel_assign: rrel_node: rrel_const: rrel_scp_var: _point_artic;;
+			=> nrel_goto: ..curr_graph_plus_point_artic;;
+		*);;
+	
+		-> ..curr_graph_plus_point_artic
+		(*
+			<- genElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _curr_graph;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_const: rrel_common: _arc_for_answer1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _point_artic;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_for_answer2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_set_point_articulation;;
+						
+			=> nrel_goto: ..gen_couter_source_takogo_nebulo;;
+		*);;
 
 		-> ..gen_couter_source_takogo_nebulo
 		(*
@@ -303,9 +322,9 @@ scp_program -> find_points_of_articulation
 		-> ..add_in_ans2
 		(*
 			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_const: rrel_point_articulation;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _point_artic;;
 			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_left;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _arc_main;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_vert;;
 
 			=> nrel_goto: ..return_vertex;;
 		*);;
@@ -475,99 +494,118 @@ scp_program -> find_points_of_articulation
 		
 		-> ..curr_graph_plus_points_of_articulation
 		(*
-			<- searchSetStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _curr_graph;;
+			<- searchSetStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _point_artic;;
                         -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs1;;
                         -> rrel_3: rrel_assign: rrel_scp_var: _curr_vert;;
-                        -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs2;;
-                        -> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
 
 			-> rrel_set_3: rrel_assign: rrel_scp_var: _vertexs;;
 			
-			=> nrel_then: .find_points_of_articulation_operator2;;
-                	=> nrel_else: .find_points_of_articulation_operator11;;
+			=> nrel_then: .proc_find_points_of_articulation_operator2;;
+                	=> nrel_else: .proc_find_points_of_articulation_operator11;;
 		*);;
 
-		-> .find_points_of_articulation_operator2
+		-> .proc_find_points_of_articulation_operator2
 		(*
 			<- searchElStr3;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _vertexs;;
                         -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_erase_in_arcs1;;
                         -> rrel_3: rrel_assign: rrel_scp_var: _curr_vertex;;
 			
-			=>nrel_then: .find_points_of_articulation_operator3;;
-			=>nrel_else: .find_points_of_articulation_operator10;; 	
+			=>nrel_then: .proc_find_points_of_articulation_operator3;;
+			=>nrel_else: .proc_find_points_of_articulation_operator10;; 	
 		*);;
 		
 		
-		-> .find_points_of_articulation_operator3
+		-> .proc_find_points_of_articulation_operator3
 		(*
-			<- searchElStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _curr_graph;;
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _point_artic;;
                         -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs1;;
                         -> rrel_3: rrel_fixed: rrel_scp_var: _curr_vertex;;
-                        -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs2;;
-                        -> rrel_5: rrel_fixed: rrel_scp_const: rrel_point_articulation;;
-			
-			=> nrel_then: .find_points_of_articulation_operator8;;
-                	=> nrel_else: .find_points_of_articulation_operator9;;
+                        
+			=> nrel_then: .proc_find_points_of_articulation_operator8;;
+                	=> nrel_else: .proc_find_points_of_articulation_operator9;;
 		*);;
 
-		-> .find_points_of_articulation_operator8
+		-> .proc_find_points_of_articulation_operator8
 		(*
 			<- genElStr3;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
 			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _arc_of_vertexs2;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _arc_of_vertexs1;;
 			
-			=> nrel_goto: .find_points_of_articulation_operator9;;
+			=> nrel_goto: .proc_find_points_of_articulation_operator9_1;;
 		*);;
 
-		-> .find_points_of_articulation_operator9
+		-> .proc_find_points_of_articulation_operator9_1
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_vertex;;
+			
+			=> nrel_goto: .proc_find_points_of_articulation_operator9;;
+		*);;
+
+		-> .proc_find_points_of_articulation_operator9
 		(*
 			<- eraseEl;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc_erase_in_arcs1;;
 			
-			=> nrel_goto: .find_points_of_articulation_operator2;;
+			=> nrel_goto: .proc_find_points_of_articulation_operator2;;
 		*);;
 
-		-> .find_points_of_articulation_operator10
+		-> .proc_find_points_of_articulation_operator10
 		(*
 			<- eraseEl;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _vertexs;;
 			
-			=> nrel_goto: .find_points_of_articulation_operator11;;
+			=> nrel_goto: .proc_find_points_of_articulation_operator11;;
 		*);;
 
-		-> .find_points_of_articulation_operator11
+		-> .proc_find_points_of_articulation_operator11
 		(*
 			<- genElStr3;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
 			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
-			-> rrel_3: rrel_fixed: rrel_scp_const: rrel_point_articulation;;
-			=> nrel_goto: .find_points_of_articulation_operator12;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: nrel_set_point_articulation;;
+			=> nrel_goto: .proc_find_points_of_articulation_operator12;;
+		*);;
+			
+		-> .proc_find_points_of_articulation_operator12
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
+			=> nrel_goto: .proc_find_points_of_articulation_operator13;;
 		*);;
 
-		-> .find_points_of_articulation_operator12
+		-> .proc_find_points_of_articulation_operator13
 		(*
-			<- call;;
-			-> rrel_1: rrel_fixed: rrel_scp_const: proc_add_graph_in_ans;;
-			-> rrel_2: rrel_fixed: rrel_scp_const: ... 
-			(*
-				-> rrel_1: rrel_fixed: rrel_scp_var: _curr_graph;;
-				-> rrel_2: rrel_fixed: rrel_scp_var: _answer;;
-			*);;
-
-			-> rrel_3: rrel_assign: rrel_scp_var: _descr;;
-
-			=> nrel_goto: .find_points_of_articulation_operator13;;
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _arc_for_answer1;;
+			=> nrel_goto: .proc_find_points_of_articulation_operator14;;
 		*);;
-		
-		-> .find_points_of_articulation_operator13
+			
+		-> .proc_find_points_of_articulation_operator14
 		(*
-			<- waitReturn;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _arc_for_answer2;;
+			=> nrel_goto: .proc_find_points_of_articulation_operator15;;
+		*);;
 
+		-> .proc_find_points_of_articulation_operator15
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _point_artic;;
 			=> nrel_goto: ..ret;;
 		*);;
 		->..ret(*<-return;;*);;

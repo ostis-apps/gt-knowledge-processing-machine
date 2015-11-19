@@ -43,17 +43,17 @@ scp_program -> agent_of_finding_symmetric_graph (*
 
 		-> .agent_of_finding_symmetric_graph_operator4 (*
 		  <- genEl;;
-		  -> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _set_of_points;;
+		  -> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _answer;;
 
 		  => nrel_goto: .agent_of_finding_symmetric_graph_operator5;;
 		*);;
 
 		-> .agent_of_finding_symmetric_graph_operator5 (*
 		  <- call;;
-		  -> rrel_1: rrel_fixed: rrel_scp_const: symmetric_graph;;
+		  -> rrel_1: rrel_fixed: rrel_scp_const: proc_symmetric_graph;;
 		  -> rrel_2: rrel_fixed: rrel_scp_const: .agent_of_finding_symmetric_graph_operator5_params (*
 				-> rrel_1: rrel_fixed: rrel_scp_var: _param;;
-				-> rrel_2: rrel_fixed: rrel_scp_var: _set_of_points;;
+				-> rrel_2: rrel_fixed: rrel_scp_var: _answer;;
 			*);;
 		  -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
 
@@ -67,12 +67,35 @@ scp_program -> agent_of_finding_symmetric_graph (*
 		  => nrel_goto: .agent_of_finding_symmetric_graph_operator7;;
 		*);;
 		
-		-> .agent_of_finding_symmetric_graph_operator7
+		-> ..agent_of_finding_symmetric_graph_operator7
+		(*
+			<- call;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: proc_add_graph_in_ans;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: ... 
+			(*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _param;;
+				-> rrel_2: rrel_fixed: rrel_scp_var: _answer;;
+			*);;
+
+			-> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+
+			=> nrel_goto: .agent_of_finding_symmetric_graph_operator8;;
+		*);;
+		
+		-> .agent_of_finding_symmetric_graph_operator8
+		(*
+			<- waitReturn;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
+
+			=> nrel_goto: .agent_of_finding_symmetric_graph_operator9;;
+		*);;
+
+		-> .agent_of_finding_symmetric_graph_operator9
 		(*
 			<- genElStr5;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
 			-> rrel_2: rrel_assign: rrel_const: rrel_common: rrel_scp_var: _arc;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _set_of_points;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _answer;;
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
 			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_answer;;
 

@@ -27,7 +27,7 @@ sc_agent_of_finding_transitive_graph
 		<- platform_independent_abstract_sc_agent;;
 		<= nrel_sc_agent_program: 
 		{
-			transitive_graph;
+			proc_transitive_graph;
 			agent_of_finding_transitive_graph
 		};;
 		-> sc_agent_of_finding_transitive_graph_scp (* <- active_sc_agent;; *);;

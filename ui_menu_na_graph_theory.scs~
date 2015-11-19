@@ -5,13 +5,11 @@ ui_menu_na_graph_theory => nrel_main_idtf: [Graph theory] (* <- lang_en;; *);;
 
 ui_menu_na_graph_theory <= nrel_ui_commands_decomposition:
 {
-	//ui_menu_na_numerical_characteristic_graph;
-	//ui_menu_na_search_request_sets_characterizing_graph;
-	//ui_menu_na_view_of_graph
-	//ui_menu_search_operation_view_graph;
-	//ui_menu_search_operation_numeric_or_set;
-	//ui_menu_search_operation_role_vertex_or_edge;
+	ui_menu_na_numerical_characteristic_graph;
+	ui_menu_na_search_request_sets_characterizing_graph;
+	ui_menu_na_view_of_graph;
 	ui_menu_graphs_specification;
 	ui_menu_find_number_characteristics_of_graph;
-	ui_menu_define_types_of_graph
+	ui_menu_define_types_of_graph;
+	ui_menu_find_graphs_set
 };;
