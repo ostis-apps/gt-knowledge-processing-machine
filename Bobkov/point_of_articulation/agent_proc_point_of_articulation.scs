@@ -1,50 +1,50 @@
-agent_of_finding_euler_graph
+agent_proc_point_of_articulation_b
 => nrel_main_idtf:
-	[агентная scp-программа проверки графа на эйлеровость] (* <- lang_ru;; *);
-	[agent scp-program of check graph eulerian] (* <- lang_en;; *);
+	[агентная scp-программа поиска всех точек сочленения] (* <- lang_ru;; *);
+	[agentscp-program of search all graph point of articulation] (* <- lang_en;; *);
 	<- agent_scp_program;;
 
-scp_program -> agent_of_finding_euler_graph (*
-	-> rrel_params: .agent_of_finding_euler_graph_params (*
+scp_program -> agent_proc_point_of_articulation_b (*
+	-> rrel_params: .agent_proc_point_of_articulation_b_params (*
 		-> rrel_1: rrel_in: _event;;
 		-> rrel_2: rrel_in: _input_arc;;
 	*);;
 
-	-> rrel_operators: .agent_of_finding_euler_graph_operator_set (*
+	-> rrel_operators: .agent_proc_point_of_articulation_b_operator_set (*
 
-		-> rrel_init: .agent_of_finding_euler_graph_operator1 
+		-> rrel_init: .agent_proc_point_of_articulation_b_operator1 
 		(*
 			<- searchElStr3;;
 			-> rrel_1: rrel_assign: rrel_scp_var: _temp;;
 			-> rrel_2: rrel_fixed: rrel_scp_var: _input_arc;;
 			-> rrel_3: rrel_assign: rrel_scp_var: _quest;;
 	
-			=> nrel_goto: .agent_of_finding_euler_graph_operator2;;
+			=> nrel_goto: .agent_proc_point_of_articulation_b_operator2;;
 		*);;
 
-		-> .agent_of_finding_euler_graph_operator2 
+		-> .agent_proc_point_of_articulation_b_operator2 
 		(*
 			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_const: question_of_finding_euler_graph;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: question_point_of_articulation_b;;
 			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
 
-			=> nrel_then: .agent_of_finding_euler_graph_operator2_1;;
-			=> nrel_else: .agent_of_finding_euler_graph_operator_return;;
+			=> nrel_then: .agent_proc_point_of_articulation_b_operator2_1;;
+			=> nrel_else: .agent_proc_point_of_articulation_b_operator_return;;
 		*);;
 
-		-> .agent_of_finding_euler_graph_operator2_1 
+		-> .agent_proc_point_of_articulation_b_operator2_1 
 		(*
 			<- searchElStr3;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
 			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
 			-> rrel_3: rrel_assign: rrel_scp_var: _outline;;
 
-			=> nrel_then: .agent_of_finding_euler_graph_operator3;;
-			=> nrel_else: .agent_of_finding_euler_graph_operator_return;;
+			=> nrel_then: .agent_proc_point_of_articulation_b_operator3;;
+			=> nrel_else: .agent_proc_point_of_articulation_b_operator_return;;
 		*);;
 	
-		-> .agent_of_finding_euler_graph_operator3
+		-> .agent_proc_point_of_articulation_b_operator3
 		(*
 			<- call;;
 		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_add_vertex_edge_attr;;
@@ -54,29 +54,29 @@ scp_program -> agent_of_finding_euler_graph (*
 				*);;
 		        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
 
-			=> nrel_goto: .agent_of_finding_euler_graph_operator4;;
+			=> nrel_goto: .agent_proc_point_of_articulation_b_operator4;;
 		*);;
 
-		-> .agent_of_finding_euler_graph_operator4 
+		-> .agent_proc_point_of_articulation_b_operator4 
 		(*
 			<- waitReturn;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
 
-			=> nrel_goto: .agent_of_finding_euler_graph_operator5;;
+			=> nrel_goto: .agent_proc_point_of_articulation_b_operator5;;
 		*);;		
 
-		-> .agent_of_finding_euler_graph_operator5
+		-> .agent_proc_point_of_articulation_b_operator5
 		(*
 			<- genEl;;
 			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _answer;;
 
-			=> nrel_goto: .agent_of_finding_euler_graph_operator6;;
+			=> nrel_goto: .agent_proc_point_of_articulation_b_operator6;;
 		*);;
 		
-		-> .agent_of_finding_euler_graph_operator6
+		-> .agent_proc_point_of_articulation_b_operator6
 		(*
 			<- call;;
-		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_euler_graph;;
+		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_point_of_articulation_b;;
 		        -> rrel_2: rrel_fixed: rrel_scp_const: ... 
 				(*
 					-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
@@ -84,18 +84,18 @@ scp_program -> agent_of_finding_euler_graph (*
 				*);;
 		        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
 
-			=> nrel_goto: .agent_of_finding_euler_graph_operator7;;
+			=> nrel_goto: .agent_proc_point_of_articulation_b_operator7;;
 		*);;
 
-		-> .agent_of_finding_euler_graph_operator7
+		-> .agent_proc_point_of_articulation_b_operator7
 		(*
 			<- waitReturn;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
 
-			=> nrel_goto: .agent_of_finding_euler_graph_operator8;;
+			=> nrel_goto: .agent_proc_point_of_articulation_b_operator10;;
 		*);;	
-		
-		-> .agent_of_finding_euler_graph_operator8
+	/*	
+		-> .agent_proc_point_of_articulation_b_operator8
 		(*
 			<- call;;
 		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_remove_vertex_edge_attr;;
@@ -105,18 +105,18 @@ scp_program -> agent_of_finding_euler_graph (*
 				*);;
 		        -> rrel_3: rrel_assign: rrel_scp_var: _descr2;;
 
-			=> nrel_goto: .agent_of_finding_euler_graph_operator9;;
+			=> nrel_goto: .agent_proc_point_of_articulation_b_operator9;;
 		*);;
 
-		-> .agent_of_finding_euler_graph_operator9
+		-> .agent_proc_point_of_articulation_b_operator9
 		(*
 			<- waitReturn;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _descr2;;
 
-			=> nrel_goto: .agent_of_finding_euler_graph_operator10;;
-		*);;			
-		
-		-> .agent_of_finding_euler_graph_operator10
+			=> nrel_goto: .agent_proc_point_of_articulation_b_operator10;;
+		*);;
+	*/	
+		-> .agent_proc_point_of_articulation_b_operator10
 		(*
 			<- call;;
 		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_generate_full_answer;;
@@ -127,17 +127,18 @@ scp_program -> agent_of_finding_euler_graph (*
 				*);;
 		        -> rrel_3: rrel_assign: rrel_scp_var: _descr2;;
 
-			=> nrel_goto: .agent_of_finding_euler_graph_operator11;;
+			=> nrel_goto: .agent_proc_point_of_articulation_b_operator11;;
 		*);;
 
-		-> .agent_of_finding_euler_graph_operator11
+		-> .agent_proc_point_of_articulation_b_operator11
 		(*
 			<- waitReturn;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _descr2;;
 
-			=> nrel_goto: .agent_of_finding_euler_graph_operator_last;;
+			=> nrel_goto: .agent_proc_point_of_articulation_b_operator_last;;
 		*);;
-		-> .agent_of_finding_euler_graph_operator_last
+		
+		-> .agent_proc_point_of_articulation_b_operator_last
 		(*
 			<- genElStr5;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
@@ -146,10 +147,10 @@ scp_program -> agent_of_finding_euler_graph (*
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
 			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_answer;;
 
-			=>nrel_goto: .agent_of_finding_euler_graph_operator_return;;
+			=>nrel_goto: .agent_proc_point_of_articulation_b_operator_return;;
 		*);; 
 
-		-> .agent_of_finding_euler_graph_operator_return (*
+		-> .agent_proc_point_of_articulation_b_operator_return (*
 		  <- return;;
 		*);;
 	*);;
