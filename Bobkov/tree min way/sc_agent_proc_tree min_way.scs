@@ -30,7 +30,7 @@ question_tree_min_way
 <= nrel_sc_agent_program:
 {
 agent_proc_tree_min_way;
-proc_find_shortest_path_tree
+proc_find_shortest_path_tree;
 proc_erase_shortest_path_tree
 };;
 ->sc_agent_proc_tree_min_way_scp (* <- active_sc_agent;; *);;
