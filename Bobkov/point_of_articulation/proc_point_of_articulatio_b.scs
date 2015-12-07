@@ -5,7 +5,7 @@ scp_program -> proc_point_of_articulation_b (*
 	*);;
 
 	-> rrel_operators: ... (*
-// Поиск ответа	
+// Поиск ответа	 
 		-> rrel_init: ..proc_find_poa_operator0_0 (*
         	<- searchElStr5;;
 	        -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
