@@ -15,10 +15,24 @@ scp_program -> proc_planar_graph
 			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
 			
-			=> nrel_then: .proc_planar_graph_operator15_1;;
+			=> nrel_then: 
+			.proc_planar_graph_operator15_1;;
 			=> nrel_else: .proc_planar_graph_operator0_1;;
 		*);;
 
+		-> .proc_planar_graph_operator_find_K5
+		(*
+                        <- sys_search;;
+			-> rrel_1: rrel_fixed: pattern_graph;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: ...;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: ...;;
+			-> rrel_4: rrel_fixed: rrel_scp_var: _answer;;
+
+			=>nrel_then:
+			.proc_planar_graph_operator13;;
+			=> nrel_else: .proc_planar_graph_operator15_1;;
+		*);;
+		
 		-> .proc_planar_graph_operator0_1
 		(*
 			<- searchElStr3;;
@@ -130,7 +144,7 @@ scp_program -> proc_planar_graph
                         -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs1;;
                         -> rrel_3: rrel_assign: rrel_scp_var: _vert;;
 			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs2;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_edge;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_oredge;;
 
 			-> rrel_set_3: rrel_assign: rrel_scp_var: _edges;;
 			
@@ -155,11 +169,55 @@ scp_program -> proc_planar_graph
 		  	-> rrel_1: rrel_fixed: rrel_scp_var: _vertex_amount;;
 		  	-> rrel_2: rrel_fixed: rrel_scp_const: [0];;
 
-			=>nrel_then: .proc_planar_graph_operator12;;
+			=>nrel_then: .proc_planar_graph_operator12_1;;
 			=>nrel_else: .proc_planar_graph_operator13;; 
 		*);;
 		
-		-> .proc_planar_graph_operator12
+                /* находим её начало и конец*/ 
+		-> .proc_planar_graph_operator12_1
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_assign: rrel_scp_var: _v1;;
+                        -> rrel_2: rrel_fixed: rrel_scp_var: _curr_edge;;
+                        -> rrel_3: rrel_assign: rrel_scp_var: _v2;;
+                        
+			=>nrel_then: .proc_planar_graph_operator12_2;;
+			=>nrel_else: .proc_planar_graph_return;; 
+		*);;
+                /* ищем обратную дугу в мн-ве _edges */
+                -> .proc_planar_graph_operator12_2
+		(*
+			<- searchElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _v1;;
+                        -> rrel_2: rrel_assign: rrel_scp_var: _arc_erase_1;;
+                        -> rrel_3: rrel_fixed: rrel_scp_var: _v2;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _this_arc;;
+			-> rrel_5: rrel_fixed : rrel_scp_var: _edges;;
+			=>nrel_then: .proc_planar_graph_operator12_4;;
+			=>nrel_else: .proc_planar_graph_operator12_3;; 
+		*);;
+		-> .proc_planar_graph_operator12_3
+		(*
+			<- searchElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _v2;;
+                        -> rrel_2: rrel_assign: rrel_scp_var: _arc_erase_1;;
+                        -> rrel_3: rrel_fixed: rrel_scp_var: _v1;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _this_arc;;
+			-> rrel_5: rrel_fixed : rrel_scp_var: _edges;;
+			=>nrel_then: .proc_planar_graph_operator12_4;;
+			=>nrel_else: .proc_planar_graph_operator12_1_1;; 
+		*);;
+		
+		-> .proc_planar_graph_operator12_4
+		(*
+			<- eraseEl;;
+                        -> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _this_arc;;
+                         
+			=>nrel_goto: .proc_planar_graph_operator12_2;;
+			
+		*);;
+                
+		-> .proc_planar_graph_operator12_1_0
 		(*
 			<- eraseEl;;
                         -> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase:  _arc_erase;;
@@ -168,7 +226,7 @@ scp_program -> proc_planar_graph
 			
 		*);;
                 
-                -> .proc_planar_graph_operator12_1
+                -> .proc_planar_graph_operator12_1_1
                 (*
                         <-contSub;;
                         ->rrel_1 : rrel_fixed : rrel_scp_var : rrel_link : _vertex_amount;;
@@ -222,6 +280,16 @@ scp_program -> proc_planar_graph
 			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _arc;;
 			
+			=> nrel_goto: .proc_planar_graph_operator15_3;;
+		*);;
+
+		-> .proc_planar_graph_operator15_3
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
+			
 			=> nrel_goto: .proc_planar_graph_return;;
 		*);;
 
@@ -249,6 +317,9 @@ scp_program -> proc_planar_graph
 		*);;
 		
 		-> .proc_planar_graph_return(*<-return;;*);;
+                
+                
+		
 	*);;
 *);;
 

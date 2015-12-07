@@ -1,196 +1,240 @@
 scp_program -> proc_search_radius
+(*
+    -> rrel_params: .proc_search_radius_params 
     (*
-    -> rrel_params: .proc_search_radius_params (*
         -> rrel_1: rrel_in: _parameter;;
         -> rrel_2: rrel_in: _answer;;
     *);;
 
     -> rrel_operators: .proc_search_radius_operator_set 
-        (*
+    (*
 
-        -> rrel_init: .proc_search_radius_create 
-            (*
-                <- contAssign;;
-                -> rrel_1: rrel_assign: rrel_scp_var: _radius;;
-                -> rrel_2: rrel_fixed: rrel_scp_const: [999];;
+    -> rrel_init: .proc_search_radius_create 
+    (*
+        <- contAssign;;
+        -> rrel_1: rrel_assign: rrel_scp_var: _radius;;
+        -> rrel_2: rrel_fixed: rrel_scp_const: [999];;
 
-                => nrel_goto: .proc_search_radius_operator1;;
-            *);;
-
-    	-> .proc_search_radius_operator1 
-            (*
-        		<- searchSetStr5;;
-                -> rrel_1: rrel_fixed: rrel_scp_var: _parameter;;
-        		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
-        		-> rrel_3: rrel_assign: rrel_scp_var: _el3;;
-        		-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
-        		-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
-        	
-        		-> rrel_set_3: rrel_assign: rrel_scp_var: _vertexes1;;
-
-        		=> nrel_then: .proc_search_radius_operator2;;		
-                => nrel_else: .proc_search_radius_operator8;;
-        	*);;
-
-        -> .proc_search_radius_operator2
-            (*
-                <- searchElStr3;;
-                -> rrel_1:rrel_fixed:rrel_scp_var:_vertexes1;;
-                -> rrel_2:rrel_assign:rrel_scp_var:_arc1;;
-                -> rrel_3:rrel_assign:rrel_scp_var:_elem1;;
-
-                => nrel_then: .proc_search_radius_operator3;;
-                => nrel_else: .proc_search_radius_operator9;;
-            *);;
-
-        -> .proc_search_radius_operator3
-            (*
-                <- eraseEl;;
-                -> rrel_1:rrel_fixed:rrel_erase:rrel_scp_var:_arc1;;
-
-                => nrel_goto: .proc_search_radius_operator4;;
-            *);;
-
-        -> .proc_search_radius_operator4 
-            (*
-                <- call;;
-                -> rrel_1: rrel_fixed: rrel_scp_const: proc_find_min_path;;
-                -> rrel_2: rrel_fixed: rrel_scp_const: ... (*
-                        -> rrel_1: rrel_fixed: rrel_scp_var: _parameter;;
-                        -> rrel_2: rrel_fixed: rrel_scp_var: _elem1;;
-                        -> rrel_3: rrel_assign: rrel_scp_var: _tmp_radius;;
-                *);;
-                -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
-
-                => nrel_goto: .proc_search_radius_operator5;;
-            *);;
-
-        -> .proc_search_radius_operator5 
-            (*
-                <- waitReturn;;
-                -> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
-
-                => nrel_goto: .proc_search_radius_operator5_1;;
-            *);;
-
-        -> .proc_search_radius_operator5_1 
-            (*
-                <- printEl;;
-                -> rrel_1: rrel_fixed: rrel_scp_var: _tmp_radius;;
-
-                => nrel_goto: .proc_search_radius_operator6;;
-            *);;
-
-        -> .proc_search_radius_operator6 
-            (*
-                <- ifGr;;
-                -> rrel_1: rrel_fixed: rrel_scp_var: _radius;;
-                -> rrel_2: rrel_fixed: rrel_scp_var: _tmp_radius;;
-
-                =>nrel_then: .proc_search_radius_operator7;;
-                =>nrel_else: .proc_search_radius_operator2;;
-            *);;
-
-        -> .proc_search_radius_operator7 
-            (*
-                <- contAssign;;
-                -> rrel_1: rrel_fixed: rrel_scp_var: _radius;;
-                -> rrel_2: rrel_fixed: rrel_scp_var: _tmp_radius;;
-
-                => nrel_goto: .proc_search_radius_operator2;;
-            *);;
-
-        -> .proc_search_radius_operator8
-            (*
-                <- eraseEl;;
-                -> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _vertexes1;;
-
-                => nrel_goto: .proc_search_radius_operator9;;
-            *);;
-
-        -> .proc_search_radius_operator9
-            (*
-                <- genElStr5;;
-                -> rrel_1: rrel_fixed: rrel_scp_var: _parameter;;
-                -> rrel_2: rrel_assign: rrel_common: rrel_const : rrel_scp_var: _arc2;;
-                -> rrel_3: rrel_fixed: rrel_scp_var: _radius;;
-                -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
-                -> rrel_5: rrel_fixed: rrel_scp_const: nrel_radius;;
-
-                => nrel_goto: .proc_search_radius_operator10;;
-            *);;
-
-        -> .proc_search_radius_operator10(*
-            <- genElStr3;;
-            -> rrel_1:rrel_fixed:rrel_scp_var: _answer;;
-            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc;;
-            -> rrel_3: rrel_fixed: rrel_scp_var: _parameter;;
-
-            => nrel_goto: .proc_search_radius_operator11;;
-        *);;
-
-        -> .proc_search_radius_operator11
-            (*
-                <- genElStr3;;
-                -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-                -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc;;
-                -> rrel_3: rrel_fixed: rrel_scp_var: _radius;;
-
-                =>nrel_goto: .proc_search_radius_operator12;;
-            *);;
-
-        -> .proc_search_radius_operator12
-            (*
-                <- genElStr3;;
-                -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-                -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc;;
-                -> rrel_3: rrel_fixed: rrel_scp_const: nrel_radius;;
-
-                => nrel_goto: .proc_search_radius_operator13;;
-            *);;
-
-        -> .proc_search_radius_operator13
-            (*
-                <- genElStr3;;
-                -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-                -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc;;
-                -> rrel_3: rrel_fixed: rrel_common: rrel_const : rrel_scp_var: _arc2;;
-
-                =>nrel_goto: .proc_search_radius_operator14;;
-            *);;
-
-        -> .proc_search_radius_operator14
-            (*
-                <- genElStr3;;
-                -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-                -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc;;
-                -> rrel_3: rrel_fixed: rrel_pos_const_perm: rrel_scp_var: _arc4;;
-
-                => nrel_goto: ..proc_add_graph_in_answer1;;
-            *);;
-
-        -> ..proc_add_graph_in_answer1 (*
-            <- call;;
-            -> rrel_1: rrel_fixed: rrel_scp_const: proc_add_graph_in_ans;;
-            -> rrel_2: rrel_fixed: rrel_scp_const: ... (*
-                -> rrel_1: rrel_fixed: rrel_scp_var: _parameter;;
-                -> rrel_2: rrel_fixed: rrel_scp_var: _answer;;
-            *);;
-            -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
-
-            => nrel_goto: ..proc_add_graph_in_answer2;;
-        *);;
-
-        -> ..proc_add_graph_in_answer2 (*
-            <- waitReturn;;
-            -> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
-
-            => nrel_goto: .proc_search_radius_operator_return;;
-        *);;
-
-        -> .proc_search_radius_operator_return 
-            (*
-                <- return;;
-            *);;
-        *);;
+        => nrel_goto: ..proc_add_common_arc1;;
     *);;
+
+    -> ..proc_add_common_arc1
+    (*
+        <- call;;
+        -> rrel_1: rrel_fixed: rrel_scp_const: proc_add_common_arc;;
+        -> rrel_2: rrel_fixed: rrel_scp_const: ... (*
+            -> rrel_1: rrel_fixed: rrel_scp_var: _parameter;;
+        *);;
+        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+
+        => nrel_goto: ..proc_add_common_arc2;;
+    *);;
+
+    -> ..proc_add_common_arc2 
+    (*
+        <- waitReturn;;
+        -> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
+
+        => nrel_goto: .proc_search_radius_operator1;;
+    *);;
+
+	-> .proc_search_radius_operator1 
+    (*
+		<- searchSetStr5;;
+        -> rrel_1: rrel_fixed: rrel_scp_var: _parameter;;
+		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+		-> rrel_3: rrel_assign: rrel_scp_var: _el3;;
+		-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+		-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+	
+		-> rrel_set_3: rrel_assign: rrel_scp_var: _vertexes1;;
+
+		=> nrel_then: .proc_search_radius_operator2;;		
+        => nrel_else: .proc_search_radius_operator8;;
+	*);;
+
+    -> .proc_search_radius_operator2
+    (*
+        <- searchElStr3;;
+        -> rrel_1:rrel_fixed:rrel_scp_var:_vertexes1;;
+        -> rrel_2:rrel_assign:rrel_scp_var:_arc1;;
+        -> rrel_3:rrel_assign:rrel_scp_var:_elem1;;
+
+        => nrel_then: .proc_search_radius_operator3;;
+        => nrel_else: .proc_search_radius_operator9;;
+    *);;
+
+    -> .proc_search_radius_operator3
+    (*
+        <- eraseEl;;
+        -> rrel_1:rrel_fixed:rrel_erase:rrel_scp_var:_arc1;;
+
+        => nrel_goto: .proc_search_radius_operator4;;
+    *);;
+
+    -> .proc_search_radius_operator4 
+    (*
+        <- call;;
+        -> rrel_1: rrel_fixed: rrel_scp_const: proc_find_min_path;;
+        -> rrel_2: rrel_fixed: rrel_scp_const: ... (*
+                -> rrel_1: rrel_fixed: rrel_scp_var: _parameter;;
+                -> rrel_2: rrel_fixed: rrel_scp_var: _elem1;;
+                -> rrel_3: rrel_assign: rrel_scp_var: _tmp_radius;;
+        *);;
+        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+
+        => nrel_goto: .proc_search_radius_operator5;;
+    *);;
+
+    -> .proc_search_radius_operator5 
+    (*
+        <- waitReturn;;
+        -> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
+
+        => nrel_goto: .proc_search_radius_operator5_1;;
+    *);;
+
+    -> .proc_search_radius_operator5_1 
+    (*
+        <- printEl;;
+        -> rrel_1: rrel_fixed: rrel_scp_var: _tmp_radius;;
+
+        => nrel_goto: .proc_search_radius_operator6;;
+    *);;
+
+    -> .proc_search_radius_operator6 
+    (*
+        <- ifGr;;
+        -> rrel_1: rrel_fixed: rrel_scp_var: _radius;;
+        -> rrel_2: rrel_fixed: rrel_scp_var: _tmp_radius;;
+
+        =>nrel_then: .proc_search_radius_operator7;;
+        =>nrel_else: .proc_search_radius_operator2;;
+    *);;
+
+    -> .proc_search_radius_operator7 
+    (*
+        <- contAssign;;
+        -> rrel_1: rrel_fixed: rrel_scp_var: _radius;;
+        -> rrel_2: rrel_fixed: rrel_scp_var: _tmp_radius;;
+
+        => nrel_goto: .proc_search_radius_operator2;;
+    *);;
+
+    -> .proc_search_radius_operator8
+    (*
+        <- eraseEl;;
+        -> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _vertexes1;;
+
+        => nrel_goto: .proc_search_radius_operator9;;
+    *);;
+
+    -> .proc_search_radius_operator9
+    (*
+        <- genElStr5;;
+        -> rrel_1: rrel_fixed: rrel_scp_var: _parameter;;
+        -> rrel_2: rrel_assign: rrel_common: rrel_const : rrel_scp_var: _arc2;;
+        -> rrel_3: rrel_fixed: rrel_scp_var: _radius;;
+        -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+        -> rrel_5: rrel_fixed: rrel_scp_const: nrel_radius;;
+
+        => nrel_goto: .proc_search_radius_operator10;;
+    *);;
+
+    -> .proc_search_radius_operator10
+    (*
+        <- genElStr3;;
+        -> rrel_1:rrel_fixed:rrel_scp_var: _answer;;
+        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc;;
+        -> rrel_3: rrel_fixed: rrel_scp_var: _parameter;;
+
+        => nrel_goto: .proc_search_radius_operator11;;
+    *);;
+
+    -> .proc_search_radius_operator11
+    (*
+        <- genElStr3;;
+        -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc;;
+        -> rrel_3: rrel_fixed: rrel_scp_var: _radius;;
+
+        =>nrel_goto: .proc_search_radius_operator12;;
+    *);;
+
+    -> .proc_search_radius_operator12
+    (*
+        <- genElStr3;;
+        -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc;;
+        -> rrel_3: rrel_fixed: rrel_scp_const: nrel_radius;;
+
+        => nrel_goto: .proc_search_radius_operator13;;
+    *);;
+
+    -> .proc_search_radius_operator13
+    (*
+        <- genElStr3;;
+        -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc;;
+        -> rrel_3: rrel_fixed: rrel_common: rrel_const : rrel_scp_var: _arc2;;
+
+        =>nrel_goto: .proc_search_radius_operator14;;
+    *);;
+
+    -> .proc_search_radius_operator14
+    (*
+        <- genElStr3;;
+        -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc;;
+        -> rrel_3: rrel_fixed: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+
+        => nrel_goto: ..proc_add_graph_in_answer1;;
+    *);;
+
+    -> ..proc_add_graph_in_answer1 
+    (*
+        <- call;;
+        -> rrel_1: rrel_fixed: rrel_scp_const: proc_generate_full_answer;;
+        -> rrel_2: rrel_fixed: rrel_scp_const: ... (*
+            -> rrel_1: rrel_fixed: rrel_scp_var: _parameter;;
+            -> rrel_2: rrel_fixed: rrel_scp_var: _answer;;
+        *);;
+        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+
+        => nrel_goto: ..proc_add_graph_in_answer2;;
+    *);;
+
+        -> ..proc_add_graph_in_answer2 
+    (*
+        <- waitReturn;;
+        -> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
+
+        => nrel_goto: ..proc_remove_common_arc1;;
+    *);;
+
+    -> ..proc_remove_common_arc1
+    (*
+        <- call;;
+        -> rrel_1: rrel_fixed: rrel_scp_const: proc_remove_common_arcs;;
+        -> rrel_2: rrel_fixed: rrel_scp_const: ... (*
+            -> rrel_1: rrel_fixed: rrel_scp_var: _parameter;;
+        *);;
+        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+
+        => nrel_goto: ..proc_remove_common_arc2;;
+    *);;
+
+    -> ..proc_remove_common_arc2 
+    (*
+        <- waitReturn;;
+        -> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
+
+        => nrel_goto: .proc_search_radius_operator_return;;
+    *);;
+
+    -> .proc_search_radius_operator_return 
+    (*
+        <- return;;
+    *);;
+    *);;
+*);;    

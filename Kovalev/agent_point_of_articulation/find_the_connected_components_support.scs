@@ -483,6 +483,7 @@ scp_program -> find_the_connected_components_support
 			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _new_arc2;;
 			-> rrel_5: rrel_fixed: rrel_scp_var: _attribut_vertex;;
 
+			//=> nrel_goto: ..erase_curr_comp;;
 			=> nrel_then: ..erase_arc_new_erase;;
 			=> nrel_else: ..erase_curr_comp;;
 		*);;

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<GWF version="2.0">
+    <staticSector>
+        <node type="node/const/general_node" idtf="" shapeColor="0" id="54591176" parent="80649800" x="131" y="97" haveBus="false">
+            <content type="0" mime_type="" file_name=""/>
+        </node>
+        <node type="node/const/general_node" idtf="" shapeColor="0" id="54590024" parent="80649800" x="110" y="156" haveBus="false">
+            <content type="0" mime_type="" file_name=""/>
+        </node>
+        <node type="node/const/general_node" idtf="" shapeColor="0" id="54590168" parent="80649800" x="158" y="203" haveBus="false">
+            <content type="0" mime_type="" file_name=""/>
+        </node>
+        <node type="node/const/general_node" idtf="" shapeColor="0" id="54590744" parent="80649800" x="226" y="193" haveBus="false">
+            <content type="0" mime_type="" file_name=""/>
+        </node>
+        <node type="node/const/general_node" idtf="" shapeColor="0" id="54591032" parent="80649800" x="243" y="125" haveBus="false">
+            <content type="0" mime_type="" file_name=""/>
+        </node>
+        <node type="node/const/general_node" idtf="" shapeColor="0" id="54590888" parent="80649800" x="195" y="91" haveBus="false">
+            <content type="0" mime_type="" file_name=""/>
+        </node>
+        <arc type="arc/const/pos" idtf="" shapeColor="0" id="82611320" parent="80649800" id_b="54590744" id_e="54590168" b_x="226" b_y="193" e_x="158" e_y="203" dotBBalance="0" dotEBalance="0">
+            <points/>
+        </arc>
+        <arc type="arc/const/pos" idtf="" shapeColor="0" id="82612160" parent="80649800" id_b="54591032" id_e="54590744" b_x="243" b_y="125" e_x="226" e_y="193" dotBBalance="0" dotEBalance="0">
+            <points/>
+        </arc>
+        <arc type="arc/const/pos" idtf="" shapeColor="0" id="82611824" parent="80649800" id_b="54590888" id_e="54591032" b_x="195" b_y="91" e_x="243" e_y="125" dotBBalance="0" dotEBalance="0">
+            <points/>
+        </arc>
+        <arc type="arc/const/pos" idtf="" shapeColor="0" id="82611488" parent="80649800" id_b="54591176" id_e="54590888" b_x="131" b_y="97" e_x="195" e_y="91" dotBBalance="0" dotEBalance="0">
+            <points/>
+        </arc>
+        <arc type="arc/const/pos" idtf="" shapeColor="0" id="82612664" parent="80649800" id_b="54590168" id_e="54590024" b_x="158" b_y="203" e_x="110" e_y="156" dotBBalance="0" dotEBalance="0">
+            <points/>
+        </arc>
+        <contour type="" idtf="test_leaf" shapeColor="193" id="80649800" parent="0" left="0" top="0" right="57" bottom="25" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10">
+            <points>
+                <point x="66" y="245"/>
+                <point x="62" y="58"/>
+                <point x="313" y="56"/>
+                <point x="311" y="245"/>
+            </points>
+        </contour>
+    </staticSector>
+</GWF>

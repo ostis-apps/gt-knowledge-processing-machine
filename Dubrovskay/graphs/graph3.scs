@@ -1,0 +1,17 @@
+undirected_graph->test_graph_num3(*
+	->rrel_vertex: v1;;
+	->rrel_vertex: v2;;
+	->rrel_vertex: v3;;
+	->rrel_vertex: v4;;
+	
+	
+	->rrel_edge: ( v1 => v2 );;
+	->rrel_edge: ( v2 => v3 );;
+	
+
+	->rrel_edge: ( v2 => v1 );;
+	->rrel_edge: ( v3 => v2 );;
+	
+*);;
+
+graph2a=> nrel_main_idtf: [граф2](*<-lang_ru;;*);;

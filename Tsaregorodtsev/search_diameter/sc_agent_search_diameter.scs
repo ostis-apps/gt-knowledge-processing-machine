@@ -33,17 +33,17 @@ sc_agent_search_diameter
 		-> sc_agent_search_diameter_scp (* <- active_sc_agent;; *);;
 	*);;
 
-..sc_agent_search_diameter_initiation_condition
+..sc_agent_search_radius_initiation_condition
 = [*
-	question_search_diameter _-> .._question;;
+	question_search_radius _-> .._question;;
 	question_initiated _-> .._question;;
 	question _-> .._question;;
 	.._question _-> .._parameter;;
 *];;
 
-..sc_agent_search_diameter_result
+..sc_agent_search_radius_result
 = [*
-	question_search_diameter _-> .._question;;
+	question_search_radius _-> .._question;;
 	question_finished _-> .._question;;
 	question _-> .._question;;
 	/*.._question _=> nrel_answer:: .._answer;;*/

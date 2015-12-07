@@ -35,25 +35,46 @@ scp_program -> agent_of_finding_points_articulation (*
 		  <- searchElStr3;;
 		  -> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
 		  -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
-		  -> rrel_3: rrel_assign: rrel_scp_var: _param;;
+		  -> rrel_3: rrel_assign: rrel_scp_var: _outline;;
 
-		  => nrel_then: .agent_of_finding_points_articulation_operator4;;
+		  => nrel_then: .agent_of_finding_points_articulation_operator3_1;;
 		  => nrel_else: .agent_of_finding_points_articulation_operator_return;;
+		*);;
+		
+		-> .agent_of_finding_points_articulation_operator3_1
+		(*
+			<- call;;
+		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_add_vertex_edge_attr;;
+		        -> rrel_2: rrel_fixed: rrel_scp_const: ... 
+				(*
+					-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
+				*);;
+		        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+
+			=> nrel_goto: .agent_of_finding_points_articulation_operator3_2;;
+		*);;
+
+		-> .agent_of_finding_points_articulation_operator3_2
+		(*
+			<- waitReturn;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
+
+			=> nrel_goto: .agent_of_finding_points_articulation_operator4;;
 		*);;
 
 		-> .agent_of_finding_points_articulation_operator4 (*
 		  <- genEl;;
-		  -> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _set_of_points;;
+		  -> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _answer;;
 
 		  => nrel_goto: .agent_of_finding_points_articulation_operator5;;
 		*);;
 
 		-> .agent_of_finding_points_articulation_operator5 (*
 		  <- call;;
-		  -> rrel_1: rrel_fixed: rrel_scp_const: find_points_of_articulation;;
+		  -> rrel_1: rrel_fixed: rrel_scp_const: proc_find_points_of_articulation;;
 		  -> rrel_2: rrel_fixed: rrel_scp_const: .agent_of_finding_points_articulation_operator5_params (*
-				-> rrel_1: rrel_fixed: rrel_scp_var: _param;;
-				-> rrel_2: rrel_fixed: rrel_scp_var: _set_of_points;;
+				-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
+				-> rrel_2: rrel_fixed: rrel_scp_var: _answer;;
 			*);;
 		  -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
 
@@ -64,15 +85,57 @@ scp_program -> agent_of_finding_points_articulation (*
 		  <- waitReturn;;
 		  -> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
 
-		  => nrel_goto: .agent_of_finding_points_articulation_operator7;;
+		  => nrel_goto: .agent_of_finding_points_articulation_operator7_1;;
 		*);;
+
+		-> .agent_of_finding_points_articulation_operator7_1
+		(*
+			<- call;;
+		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_remove_vertex_edge_attr;;
+		        -> rrel_2: rrel_fixed: rrel_scp_const: ... 
+				(*
+					-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
+				*);;
+		        -> rrel_3: rrel_assign: rrel_scp_var: _descr2;;
+
+			=> nrel_goto: .agent_of_finding_points_articulation_operator7_2;;
+		*);;
+
+		-> .agent_of_finding_points_articulation_operator7_2
+		(*
+			<- waitReturn;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr2;;
+
+			=> nrel_goto: .agent_of_finding_points_articulation_operator7_3;;
+		*);;			
 		
-		-> .agent_of_finding_points_articulation_operator7
+		-> .agent_of_finding_points_articulation_operator7_3
+		(*
+			<- call;;
+		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_generate_full_answer;;
+		        -> rrel_2: rrel_fixed: rrel_scp_const: ... 
+				(*
+					-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
+					-> rrel_2: rrel_fixed: rrel_scp_var: _answer;;
+				*);;
+		        -> rrel_3: rrel_assign: rrel_scp_var: _descr2;;
+
+			=> nrel_goto: .agent_of_finding_points_articulation_operator7_4;;
+		*);;
+
+		-> .agent_of_finding_points_articulation_operator7_4
+		(*
+			<- waitReturn;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr2;;
+
+			=> nrel_goto: .agent_of_finding_points_articulation_operator7_5;;
+		*);;
+		-> .agent_of_finding_points_articulation_operator7_5
 		(*
 			<- genElStr5;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
 			-> rrel_2: rrel_assign: rrel_const: rrel_common: rrel_scp_var: _arc;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _set_of_points;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _answer;;
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
 			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_answer;;
 

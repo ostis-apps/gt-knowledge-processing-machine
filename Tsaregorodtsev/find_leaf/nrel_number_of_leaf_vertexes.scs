@@ -1,0 +1,6 @@
+nrel_number_of_leaf_vertexes
+	<- sc_node_norole_relation;
+	<= nrel_main_idtf:
+		[количество висячих вершин*] (* <- lang_ru;; *);
+		[numer of leaf vertexes*] (* <- lang_en;; *)
+;;

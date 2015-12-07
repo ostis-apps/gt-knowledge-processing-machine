@@ -11,7 +11,27 @@ scp_program ->proc_search_diameter (*
         -> rrel_1: rrel_assign: rrel_scp_var: _diameter;;
         -> rrel_2: rrel_fixed: rrel_scp_const: [0];;
 
-         => nrel_goto: ..proc_search_diameter_operator1;;
+         => nrel_goto: ..proc_add_common_arc1;;
+    *);;
+
+    -> ..proc_add_common_arc1
+    (*
+        <- call;;
+        -> rrel_1: rrel_fixed: rrel_scp_const: proc_add_common_arc;;
+        -> rrel_2: rrel_fixed: rrel_scp_const: ... (*
+            -> rrel_1: rrel_fixed: rrel_scp_var: _parameter;;
+        *);;
+        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+
+        => nrel_goto: ..proc_add_common_arc2;;
+    *);;
+
+    -> ..proc_add_common_arc2 
+    (*
+        <- waitReturn;;
+        -> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
+
+        => nrel_goto: ..proc_search_diameter_operator1;;
     *);;
 
 	-> ..proc_search_diameter_operator1 (*
@@ -91,7 +111,7 @@ scp_program ->proc_search_diameter (*
         -> rrel_2: rrel_assign: rrel_common: rrel_const : rrel_scp_var: _arc2;;
         -> rrel_3: rrel_fixed: rrel_scp_var: _diameter;;
         -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
-        -> rrel_5: rrel_fixed: rrel_scp_const: nrel_diameter;;
+        -> rrel_5: rrel_fixed: rrel_scp_const: nrel_diametr;;
 
         => nrel_goto: ..proc_search_diameter_operator11;;
     *);;
@@ -118,7 +138,7 @@ scp_program ->proc_search_diameter (*
         <-genElStr3;;
         -> rrel_1:rrel_fixed:rrel_scp_var: _answer;;
         -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc;;
-        -> rrel_3: rrel_fixed: rrel_scp_const: nrel_diameter;;
+        -> rrel_3: rrel_fixed: rrel_scp_const: nrel_diametr;;
 
         =>nrel_goto:..proc_search_diameter_operator14;;
     *);;
@@ -142,25 +162,45 @@ scp_program ->proc_search_diameter (*
     *);;
 
     -> ..proc_add_graph_in_answer1 
-            (*
-                <- call;;
-                -> rrel_1: rrel_fixed: rrel_scp_const: proc_add_graph_in_ans;;
-                -> rrel_2: rrel_fixed: rrel_scp_const: ... (*
-                    -> rrel_1: rrel_fixed: rrel_scp_var: _parameter;;
-                    -> rrel_2: rrel_fixed: rrel_scp_var: _answer;;
-                *);;
-                -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+    (*
+        <- call;;
+        -> rrel_1: rrel_fixed: rrel_scp_const: proc_generate_full_answer;;
+        -> rrel_2: rrel_fixed: rrel_scp_const: ... (*
+            -> rrel_1: rrel_fixed: rrel_scp_var: _parameter;;
+            -> rrel_2: rrel_fixed: rrel_scp_var: _answer;;
+        *);;
+        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
 
-                => nrel_goto: ..proc_add_graph_in_answer2;;
-            *);;
+        => nrel_goto: ..proc_add_graph_in_answer2;;
+    *);;
 
         -> ..proc_add_graph_in_answer2 
-            (*
-                <- waitReturn;;
-                -> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
+    (*
+        <- waitReturn;;
+        -> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
 
-                => nrel_goto: ..proc_search_diameter_operator_return;;
-            *);;
+        => nrel_goto: ..proc_remove_common_arc1;;
+    *);;
+
+    -> ..proc_remove_common_arc1
+    (*
+        <- call;;
+        -> rrel_1: rrel_fixed: rrel_scp_const: proc_remove_common_arcs;;
+        -> rrel_2: rrel_fixed: rrel_scp_const: ... (*
+            -> rrel_1: rrel_fixed: rrel_scp_var: _parameter;;
+        *);;
+        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+
+        => nrel_goto: ..proc_remove_common_arc2;;
+    *);;
+
+    -> ..proc_remove_common_arc2 
+    (*
+        <- waitReturn;;
+        -> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
+
+        => nrel_goto: ..proc_search_diameter_operator_return;;
+    *);;
 
     -> ..proc_search_diameter_operator_return (*
         <- return;;
