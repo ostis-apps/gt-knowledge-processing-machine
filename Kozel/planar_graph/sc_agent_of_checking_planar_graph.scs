@@ -27,7 +27,6 @@ sc_agent_of_checking_planar_graph
 		<- platform_independent_abstract_sc_agent;;
 		<= nrel_sc_agent_program: 
 		{
-			//proc_planar_graph;
 			agent_of_checking_planar_graph
 		};;
 		-> sc_agent_of_checking_planar_graph_scp (* <- active_sc_agent;; *);;

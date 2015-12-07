@@ -17,6 +17,17 @@ scp_program -> proc_planar_graph
 			
 			=> nrel_then: 
 			.proc_planar_graph_operator15_1;;
+			=> nrel_else: .proc_planar_graph_operator0_0_1;;
+		*);;
+                ->.proc_planar_graph_operator0_0_1
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: concept_planar_graph;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_neg: _arc;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
+			
+			=> nrel_then: 
+			.proc_planar_graph_operator15_1;;
 			=> nrel_else: .proc_planar_graph_operator0_1;;
 		*);;
 
@@ -55,7 +66,7 @@ scp_program -> proc_planar_graph
                 -> .proc_planar_graph_operator2
 		(*
 			<- contAssign;;
-		  	-> rrel_1: rrel_fixed: rrel_scp_var: _vertex_amount;;
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: rrel_link : _vertex_amount;;
 		  	-> rrel_2: rrel_fixed: rrel_scp_const: [0];;
 
 			=> nrel_goto: .proc_planar_graph_operator3;;
@@ -99,8 +110,8 @@ scp_program -> proc_planar_graph
                 -> .proc_planar_graph_operator6
                 (*
                         <-contAdd;;
-                        ->rrel_1 : rrel_fixed : rrel_scp_var : _vertex_amount;;
-                        ->rrel_2 : rrel_fixed : rrel_scp_var : _vertex_amount;;
+                        ->rrel_1 : rrel_fixed : rrel_scp_var : rrel_link:  _vertex_amount;;
+                        ->rrel_2 : rrel_fixed : rrel_scp_var : rrel_link : _vertex_amount;;
                         ->rrel_3 : rrel_fixed : rrel_scp_const : [1];;
                         
                         =>nrel_goto: .proc_planar_graph_operator4;;
@@ -119,8 +130,8 @@ scp_program -> proc_planar_graph
                 -> .proc_planar_graph_operator7_1
                 (*
                         <-contMult;;
-                        ->rrel_1 : rrel_fixed : rrel_scp_var : _vertex_amount;;
-                        ->rrel_2 : rrel_fixed : rrel_scp_var : _vertex_amount;;
+                        ->rrel_1 : rrel_fixed : rrel_scp_var : rrel_link : _vertex_amount;;
+                        ->rrel_2 : rrel_fixed : rrel_scp_var : rrel_link : _vertex_amount;;
                         ->rrel_3 : rrel_fixed : rrel_scp_const : [3];;
                         
                         =>nrel_goto: .proc_planar_graph_operator8;;
@@ -131,7 +142,7 @@ scp_program -> proc_planar_graph
                 (*
                         <-contSub;;
                         ->rrel_1 : rrel_fixed : rrel_scp_var : rrel_link : _vertex_amount;;
-                        ->rrel_2 : rrel_fixed : rrel_scp_var : _vertex_amount;;
+                        ->rrel_2 : rrel_fixed : rrel_scp_var : rrel_link : _vertex_amount;;
                         ->rrel_3 : rrel_fixed : rrel_scp_const : [6];;
                         
                         =>nrel_goto: .proc_planar_graph_operator9;;
@@ -149,7 +160,7 @@ scp_program -> proc_planar_graph
 			-> rrel_set_3: rrel_assign: rrel_scp_var: _edges;;
 			
 			=> nrel_then: .proc_planar_graph_operator10;;
-                	=> nrel_else: .proc_planar_graph_return;;
+                	=> nrel_else: .proc_planar_graph_operator14;;
 		*);;
 
 		-> .proc_planar_graph_operator10
@@ -230,7 +241,7 @@ scp_program -> proc_planar_graph
                 (*
                         <-contSub;;
                         ->rrel_1 : rrel_fixed : rrel_scp_var : rrel_link : _vertex_amount;;
-                        ->rrel_2 : rrel_fixed : rrel_scp_var : _vertex_amount;;
+                        ->rrel_2 : rrel_fixed : rrel_scp_var : rrel_link : _vertex_amount;;
                         ->rrel_3 : rrel_fixed : rrel_scp_const : [1];;
                         
                         =>nrel_goto: .proc_planar_graph_operator10;;
