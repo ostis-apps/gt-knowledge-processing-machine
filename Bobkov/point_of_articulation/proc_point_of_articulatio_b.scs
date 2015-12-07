@@ -5,8 +5,123 @@ scp_program -> proc_point_of_articulation_b (*
 	*);;
 
 	-> rrel_operators: ... (*
-// Добавление всех вершин графа во множество непроверенных вершин.	
-		-> rrel_init: ..proc_find_poa_operator1 (*
+// Поиск ответа	 
+		-> rrel_init: ..proc_find_poa_operator0_0 (*
+        	<- searchElStr5;;
+	        -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+	        -> rrel_2: rrel_assign: rrel_common: rrel_scp_var: rrel_const: _arc_poa_2;;
+	        -> rrel_3: rrel_assign: rrel_node: rrel_scp_var: _set_point_of_articulation;;
+	        -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_poa_4;;
+	        -> rrel_5: rrel_fixed: rrel_node: rrel_const: nrel_set_point_articulation;;
+
+	        => nrel_then: ..proc_find_poa_operator0_1;;
+	        => nrel_else: ..proc_find_poa_operator1;;
+	    *);;
+
+// Генерация дуг от _answer 
+        -> ..proc_find_poa_operator0_1 (*
+            <- genElStr3;;
+            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1_answer;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+            => nrel_goto : ..proc_find_poa_operator0_2;; 
+        *);;
+
+        -> ..proc_find_poa_operator0_2 (*
+            <- genElStr3;;
+            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2_answer;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _arc_poa_2;;
+
+            => nrel_goto : ..proc_find_poa_operator0_3;; 
+        *);;
+
+        -> ..proc_find_poa_operator0_3 (*
+            <- genElStr3;;
+            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc3_answer;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _set_point_of_articulation;;
+
+            => nrel_goto : ..proc_find_poa_operator0_4;; 
+        *);;
+
+        -> ..proc_find_poa_operator0_4 (*
+            <- genElStr3;;
+            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4_answer;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _arc_poa_4;;
+
+            => nrel_goto : ..proc_find_poa_operator0_5;; 
+        *);;
+
+         -> ..proc_find_poa_operator0_5 (*
+            <- genElStr3;;
+            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc5_answer;;
+            -> rrel_3: rrel_fixed: rrel_node: rrel_const: rrel_scp_const: nrel_set_point_articulation;;
+
+            => nrel_goto : ..proc_find_poa_operator0_6;; 
+        *);;
+
+         -> ..proc_find_poa_operator0_6 (*
+            <- searchSetStr3;;
+	        -> rrel_1: rrel_fixed: rrel_scp_var: _set_point_of_articulation;;
+	        -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
+	        -> rrel_3: rrel_assign: rrel_node: rrel_scp_var: _el3;;
+	        -> rrel_set_3: rrel_assign: rrel_scp_var: _temp_set;;
+
+	        => nrel_then: ..proc_find_poa_operator0_7;;
+	        => nrel_else: ..proc_find_poa_operator_end ;;
+        *);;
+
+        -> ..proc_find_poa_operator0_7 (*
+            <- searchElStr3;;
+            -> rrel_1 : rrel_fixed : rrel_scp_var : _temp_set;;
+            -> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
+            -> rrel_3 : rrel_assign : rrel_scp_var : _v;;
+
+            => nrel_then : ..proc_find_poa_operator0_8;; 
+            => nrel_else : ..proc_find_poa_operator_end ;;
+        *);; 
+
+        -> ..proc_find_poa_operator0_8 (*
+            <- genElStr3;;
+            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc_step_check_point_of_articulation_0_8;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _v;;
+
+            => nrel_goto : ..proc_find_poa_operator0_9;;
+        *);;
+
+        -> ..proc_find_poa_operator0_9 (*
+            <- eraseEl;;
+            -> rrel_1 : rrel_fixed : rrel_pos_const_perm : rrel_erase: rrel_scp_var : _arc;;
+
+            => nrel_goto : ..proc_find_poa_operator0_10;; 
+        *);;
+
+        -> ..proc_find_poa_operator0_10 (*
+            <- searchElStr3;;
+            -> rrel_1 : rrel_fixed : rrel_scp_var : _set_point_of_articulation;;
+            -> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
+            -> rrel_3 : rrel_fixed : rrel_scp_var : _v;;
+
+            => nrel_then : ..proc_find_poa_operator0_11;; 
+            => nrel_else : ..proc_find_poa_operator0_7;;
+        *);;
+
+        -> ..proc_find_poa_operator0_11 (*
+            <- genElStr3;;
+            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc_step_check_point_of_articulation_0_11;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _arc;;
+
+            => nrel_goto : ..proc_find_poa_operator0_7;;
+        *);;
+
+// Добавление всех вершин графа во множество непроверенных вершин.
+		->..proc_find_poa_operator1 (*
 			 <- searchSetStr5;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
 			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
