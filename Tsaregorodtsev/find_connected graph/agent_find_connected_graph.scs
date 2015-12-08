@@ -52,8 +52,28 @@ scp_program -> agent_find_connected_graph
 		  <- genEl;;
 		  -> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: rrel_link: _answer;;
 
-		  => nrel_goto: .agent_find_connected_graph_operator5;;
+		  => nrel_goto: ..proc_add_common_arc1;;
 		*);;
+
+	-> ..proc_add_common_arc1
+    (*
+        <- call;;
+        -> rrel_1: rrel_fixed: rrel_scp_const: proc_add_common_arc;;
+        -> rrel_2: rrel_fixed: rrel_scp_const: ... (*
+            -> rrel_1: rrel_fixed: rrel_scp_var: _param;;
+        *);;
+        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+
+        => nrel_goto: ..proc_add_common_arc2;;
+    *);;
+
+    -> ..proc_add_common_arc2 
+    (*
+        <- waitReturn;;
+        -> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
+
+        => nrel_goto: .agent_find_connected_graph_operator5;;
+    *);;
 
 		-> .agent_find_connected_graph_operator5 
 		(*
@@ -74,8 +94,28 @@ scp_program -> agent_find_connected_graph
 		  <- waitReturn;;
 		  -> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
 
-		  => nrel_goto: ..print_dvoetoch;;
+		  => nrel_goto: ..proc_remove_common_arc1;;
 		*);;
+
+    -> ..proc_remove_common_arc1
+    (*
+        <- call;;
+        -> rrel_1: rrel_fixed: rrel_scp_const: proc_remove_common_arcs;;
+        -> rrel_2: rrel_fixed: rrel_scp_const: ... (*
+            -> rrel_1: rrel_fixed: rrel_scp_var: _param;;
+        *);;
+        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+
+        => nrel_goto: ..proc_remove_common_arc2;;
+    *);;
+
+    -> ..proc_remove_common_arc2 
+    (*
+        <- waitReturn;;
+        -> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
+
+        => nrel_goto: ..print_dvoetoch;;
+    *);;
 
 		->..print_dvoetoch
 		(*

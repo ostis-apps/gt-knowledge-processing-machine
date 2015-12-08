@@ -166,7 +166,29 @@ scp_program -> proc_find_deadlock
 			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
 			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _typici;;
-			=> nrel_goto: ..proc_find_deadlock_operator_return ;;
+			=> nrel_goto: ..proc_find_deadlock_operator17;;
+		*);;
+
+		-> ..proc_find_deadlock_operator17
+		(*
+			<- call;;
+		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_add_elements_of_set_to_answer;;
+		        -> rrel_2: rrel_fixed: rrel_scp_const: ... 
+				(*
+					-> rrel_1: rrel_fixed: rrel_scp_var: _typici;;
+					-> rrel_2: rrel_fixed: rrel_scp_var: _answer;;
+				*);;
+		        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+
+			=> nrel_goto: ..proc_find_deadlock_operator18;;
+		*);;
+
+		-> ..proc_find_deadlock_operator18
+		(*
+			<- waitReturn;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
+
+			=> nrel_goto: ..proc_find_deadlock_operator_return;;
 		*);;
 
 		-> ..proc_find_deadlock_operator_return 

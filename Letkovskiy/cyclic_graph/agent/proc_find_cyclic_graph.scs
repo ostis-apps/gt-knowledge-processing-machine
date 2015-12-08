@@ -1,4 +1,4 @@
-scp_program -> proc_find_cyclic_graph (*
+scp_program -> proc_find_cyclic_graph_agent (*
 	
 	-> rrel_params: ... (*
 		-> rrel_1: rrel_in: _graph;;
@@ -9,7 +9,7 @@ scp_program -> proc_find_cyclic_graph (*
 
 	-> rrel_init: ..start (*
 <- searchElStr3;;
--> rrel_1 : rrel_fixed : rrel_scp_const : concept_cylic_graph;;
+-> rrel_1 : rrel_fixed : rrel_scp_const : concept_cyclic_graph;;
 -> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
 -> rrel_3 : rrel_fixed : rrel_scp_var : _graph;;
 
@@ -116,7 +116,7 @@ scp_program -> proc_find_cyclic_graph (*
 
 -> ..graph_is_cyclic (*
 <- genElStr3;;
--> rrel_1: rrel_fixed: rrel_scp_const: concept_cylic_graph;;
+-> rrel_1: rrel_fixed: rrel_scp_const: concept_cyclic_graph;;
 -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
 -> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
 
@@ -142,16 +142,25 @@ scp_program -> proc_find_cyclic_graph (*
 <- genElStr3;;
 -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
 -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
--> rrel_3: rrel_fixed: rrel_scp_const: concept_cylic_graph;;
+-> rrel_3: rrel_fixed: rrel_scp_const: concept_cyclic_graph;;
 
 => nrel_goto : ..proc_find_cyclic_graph_is_cyclic_gen_ans2;; *);;
 
 
 -> ..proc_find_cyclic_graph_is_cyclic_gen_ans2 (*
 <- searchElStr3;;
--> rrel_1: rrel_fixed: rrel_scp_const: concept_cylic_graph;;
+-> rrel_1: rrel_fixed: rrel_scp_const: concept_cyclic_graph;;
 -> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
 -> rrel_3 : rrel_fixed : rrel_scp_var : _graph;;
+
+=> nrel_goto : ..proc_find_cyclic_graph_is_cyclic_gen_ans3_0;; *);;
+
+
+-> ..proc_find_cyclic_graph_is_cyclic_gen_ans3_0 (*
+<- genElStr3;;
+-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
 
 => nrel_goto : ..proc_find_cyclic_graph_is_cyclic_gen_ans3;; *);;
 
@@ -205,6 +214,15 @@ scp_program -> proc_find_cyclic_graph (*
 -> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
 -> rrel_3 : rrel_fixed : rrel_scp_var : _graph;;
 
+=> nrel_goto : ..proc_find_cyclic_graph_is_not_cyclic_gen_ans3_0;; *);;
+
+
+-> ..proc_find_cyclic_graph_is_not_cyclic_gen_ans3_0 (*
+<- searchElStr3;;
+-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc2;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _graph;;
+
 => nrel_goto : ..proc_find_cyclic_graph_is_not_cyclic_gen_ans3;; *);;
 
 
@@ -215,6 +233,10 @@ scp_program -> proc_find_cyclic_graph (*
 -> rrel_3: rrel_fixed: rrel_scp_var: _arc;;
 
 => nrel_goto : ..proc_find_cyclic_graph_op_returno;; *);;
+
+
+
+
 
 ////////////////////
 

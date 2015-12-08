@@ -1,6 +1,6 @@
 agent_proc_triangle =>nrel_main_idtf:
-	[агентная scp-программа проверки графа на то, является ли он мультиграфом] (* <- lang_ru;; *);
-	[agentscp-program of checking if graph is multigraph] (* <- lang_en;; *);
+	[агентная scp-программа проверки графа на то, является ли он треугольником] (* <- lang_ru;; *);
+	[agentscp-program of checking if graph is triangle] (* <- lang_en;; *);
 <- agent_scp_program;;
 
 
@@ -43,9 +43,33 @@ scp_program ->agent_proc_triangle
 			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
 			-> rrel_3: rrel_assign: rrel_scp_var: _param;;
 
-			=>nrel_then: .agent_proc_triangle_operator4;;
+			=>nrel_then: .agent_proc_triangle_operator3_1;;
 			=>nrel_else: .agent_proc_triangle_operator_return;;
 		*);;
+
+
+		-> .agent_proc_triangle_operator3_1
+		(*
+			<- call;;
+		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_add_vertex_edge_attr;;
+		        -> rrel_2: rrel_fixed: rrel_scp_const: ... 
+				(*
+					-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
+				*);;
+		        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+
+			=> nrel_goto: .agent_proc_triangle_operator3_2;;
+		*);;
+
+		-> .agent_proc_triangle_operator3_2
+		(*
+			<- waitReturn;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
+
+			=> nrel_goto: .agent_proc_triangle_operator4;;
+		*);;
+
+
 
 		-> .agent_proc_triangle_operator4 
 		(*

@@ -15,27 +15,20 @@ scp_program -> proc_search_radius
         -> rrel_1: rrel_assign: rrel_scp_var: _radius;;
         -> rrel_2: rrel_fixed: rrel_scp_const: [999];;
 
-        => nrel_goto: ..proc_add_common_arc1;;
+        => nrel_goto: .proc_search_radius_operator0;;
     *);;
 
-    -> ..proc_add_common_arc1
+    -> .proc_search_radius_operator0
     (*
-        <- call;;
-        -> rrel_1: rrel_fixed: rrel_scp_const: proc_add_common_arc;;
-        -> rrel_2: rrel_fixed: rrel_scp_const: ... (*
-            -> rrel_1: rrel_fixed: rrel_scp_var: _parameter;;
-        *);;
-        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+        <- searchElStr5;;
+        -> rrel_1: rrel_fixed: rrel_scp_var: _parameter;;
+        -> rrel_2: rrel_assign: rrel_common: rrel_const : rrel_scp_var: _arc2;;
+        -> rrel_3: rrel_assign: rrel_scp_var: _asdf;;
+        -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+        -> rrel_5: rrel_fixed: rrel_scp_const: nrel_radius;;
 
-        => nrel_goto: ..proc_add_common_arc2;;
-    *);;
-
-    -> ..proc_add_common_arc2 
-    (*
-        <- waitReturn;;
-        -> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
-
-        => nrel_goto: .proc_search_radius_operator1;;
+        => nrel_then: ..proc_add_graph_in_answer1;;
+        => nrel_else: .proc_search_radius_operator1;;
     *);;
 
 	-> .proc_search_radius_operator1 
@@ -205,26 +198,6 @@ scp_program -> proc_search_radius
     *);;
 
         -> ..proc_add_graph_in_answer2 
-    (*
-        <- waitReturn;;
-        -> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
-
-        => nrel_goto: ..proc_remove_common_arc1;;
-    *);;
-
-    -> ..proc_remove_common_arc1
-    (*
-        <- call;;
-        -> rrel_1: rrel_fixed: rrel_scp_const: proc_remove_common_arcs;;
-        -> rrel_2: rrel_fixed: rrel_scp_const: ... (*
-            -> rrel_1: rrel_fixed: rrel_scp_var: _parameter;;
-        *);;
-        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
-
-        => nrel_goto: ..proc_remove_common_arc2;;
-    *);;
-
-    -> ..proc_remove_common_arc2 
     (*
         <- waitReturn;;
         -> rrel_1: rrel_fixed: rrel_scp_var: _descr;;

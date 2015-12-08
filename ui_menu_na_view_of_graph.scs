@@ -6,13 +6,15 @@ ui_menu_na_view_of_graph => nrel_main_idtf: [Definition of the type of the graph
 ui_menu_na_view_of_graph <= nrel_ui_commands_decomposition:
 {
 	ui_menu_search_operation_planar_graph;
-	ui_menu_search_operation_euler_graph
+	ui_menu_search_operation_euler_graph;
+	ui_menu_search_operation_reflexive_graphs;
+	ui_menu_search_operation_transitive_graph;
+	ui_menu_search_operation_symmetric_graph;
+	ui_menu_search_operation_directivity_graph
+
 	//ui_menu_complite_graph;
 	//ui_menu_complite_Berge_graph;
 	//ui_menu_bipartite_graph;
-	//ui_menu_search_operation_reflexive_graphs;
-	//ui_menu_search_operation_transitive_graph;
-	//ui_menu_search_operation_symmetric_graph;
 	//ui_menu_complite_multigraph;
 	//ui_menu_triangle;
 	//ui_menu_find_tree;

@@ -1,0 +1,12 @@
+ui_menu_na_common_requests <- ui_user_command_class_noatom;;
+
+ui_menu_na_common_requests => nrel_main_idtf: [Общие запросы к графу] (* <- lang_ru;; *);;
+ui_menu_na_common_requests => nrel_main_idtf: [Common request] (* <- lang_en;; *);;
+
+ui_menu_na_common_requests <= nrel_ui_commands_decomposition:
+{
+	ui_menu_graphs_specification;
+	ui_menu_find_number_characteristics_of_graph;
+	ui_menu_define_types_of_graph;
+	ui_menu_find_graphs_set
+};;

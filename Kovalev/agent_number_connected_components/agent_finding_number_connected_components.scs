@@ -41,10 +41,31 @@ scp_program -> agent_finding_number_connected_components
 		  <- searchElStr3;;
 		  -> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
 		  -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
-		  -> rrel_3: rrel_assign: rrel_scp_var: _param;;
+		  -> rrel_3: rrel_assign: rrel_scp_var: _outline;;
 
-		  => nrel_then: .agent_finding_number_connected_components_operator4;;
+		  => nrel_then: .agent_finding_number_connected_components_operator3_1;;
 		  => nrel_else: .agent_finding_number_connected_components_operator_return;;
+		*);;
+
+		-> .agent_finding_number_connected_components_operator3_1
+		(*
+			<- call;;
+		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_add_vertex_edge_attr;;
+		        -> rrel_2: rrel_fixed: rrel_scp_const: ... 
+				(*
+					-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
+				*);;
+		        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+
+			=> nrel_goto: .agent_finding_number_connected_components_operator3_2;;
+		*);;
+
+		-> .agent_finding_number_connected_components_operator3_2
+		(*
+			<- waitReturn;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
+
+			=> nrel_goto: .agent_finding_number_connected_components_operator4;;
 		*);;
 
 		-> .agent_finding_number_connected_components_operator4 
@@ -58,10 +79,10 @@ scp_program -> agent_finding_number_connected_components
 		-> .agent_finding_number_connected_components_operator5 
 		(*
 		  <- call;;
-		  -> rrel_1: rrel_fixed: rrel_scp_const: find_the_number_of_connected_components;;
+		  -> rrel_1: rrel_fixed: rrel_scp_const: proc_find_the_number_of_connected_components;;
 		  -> rrel_2: rrel_fixed: rrel_scp_const: .agent_finding_number_connected_components_operator5_params 
 			(*
-				-> rrel_1: rrel_fixed: rrel_scp_var: _param;;
+				-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
 				-> rrel_2: rrel_fixed: rrel_scp_var: _answer;;
 			*);;
 		  -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
@@ -74,17 +95,53 @@ scp_program -> agent_finding_number_connected_components
 		  <- waitReturn;;
 		  -> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
 
-		  => nrel_goto: ..print_dvoetoch;;
-		*);;
-
-		->..print_dvoetoch
-		(*
-			<- printEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-			=> nrel_goto: .agent_finding_number_connected_components_operator7;;
+		  => nrel_goto: .agent_finding_number_connected_components_operator7_1;;
 		*);;
 			
-		-> .agent_finding_number_connected_components_operator7 
+		-> .agent_finding_number_connected_components_operator7_1
+		(*
+			<- call;;
+		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_remove_vertex_edge_attr;;
+		        -> rrel_2: rrel_fixed: rrel_scp_const: ... 
+				(*
+					-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
+				*);;
+		        -> rrel_3: rrel_assign: rrel_scp_var: _descr2;;
+
+			=> nrel_goto: .agent_finding_number_connected_components_operator7_2;;
+		*);;
+
+		-> .agent_finding_number_connected_components_operator7_2
+		(*
+			<- waitReturn;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr2;;
+
+			=> nrel_goto: .agent_finding_number_connected_components_operator7_3;;
+		*);;			
+		
+		-> .agent_finding_number_connected_components_operator7_3
+		(*
+			<- call;;
+		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_generate_full_answer;;
+		        -> rrel_2: rrel_fixed: rrel_scp_const: ... 
+				(*
+					-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
+					-> rrel_2: rrel_fixed: rrel_scp_var: _answer;;
+				*);;
+		        -> rrel_3: rrel_assign: rrel_scp_var: _descr2;;
+
+			=> nrel_goto: .agent_finding_number_connected_components_operator7_4;;
+		*);;
+
+		-> .agent_finding_number_connected_components_operator7_4
+		(*
+			<- waitReturn;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr2;;
+
+			=> nrel_goto: .agent_finding_number_connected_components_operator7_5;;
+		*);;
+
+		-> .agent_finding_number_connected_components_operator7_5 
 		(*
 			<- genElStr5;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;

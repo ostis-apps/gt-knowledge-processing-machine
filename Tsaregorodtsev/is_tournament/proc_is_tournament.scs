@@ -9,24 +9,15 @@ scp_program -> proc_is_tournament
     -> rrel_operators: .proc_is_tournament_operator_set
     (*
 
-    -> rrel_init: ..proc_add_common_arc1
+    -> rrel_init: ..proc_add_graph_in_answer00 
     (*
-        <- call;;
-        -> rrel_1: rrel_fixed: rrel_scp_const: proc_add_common_arc;;
-        -> rrel_2: rrel_fixed: rrel_scp_const: ... (*
-            -> rrel_1: rrel_fixed: rrel_scp_var: _parameter;;
-        *);;
-        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+        <- searchElStr3;;
+        -> rrel_1:rrel_fixed: rrel_scp_const: concept_tournament;;
+        -> rrel_2:rrel_assign:rrel_pos_const_perm: rrel_scp_var: _arc42;;
+        -> rrel_3:rrel_fixed: rrel_scp_var: _parameter;;
 
-        => nrel_goto: ..proc_add_common_arc2;;
-    *);;
-
-    -> ..proc_add_common_arc2 
-    (*
-        <- waitReturn;;
-        -> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
-
-        => nrel_goto: .proc_is_tournament_operator1;;
+        => nrel_then: ..proc_add_graph_in_answer1;;
+        => nrel_else: .proc_is_tournament_operator1;;
     *);;
  
     -> .proc_is_tournament_operator1
@@ -212,26 +203,6 @@ scp_program -> proc_is_tournament
     *);;
 
         -> ..proc_add_graph_in_answer2 
-    (*
-        <- waitReturn;;
-        -> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
-
-        => nrel_goto: ..proc_remove_common_arc1;;
-    *);;
-
-    -> ..proc_remove_common_arc1
-    (*
-        <- call;;
-        -> rrel_1: rrel_fixed: rrel_scp_const: proc_remove_common_arcs;;
-        -> rrel_2: rrel_fixed: rrel_scp_const: ... (*
-            -> rrel_1: rrel_fixed: rrel_scp_var: _parameter;;
-        *);;
-        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
-
-        => nrel_goto: ..proc_remove_common_arc2;;
-    *);;
-
-    -> ..proc_remove_common_arc2 
     (*
         <- waitReturn;;
         -> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
