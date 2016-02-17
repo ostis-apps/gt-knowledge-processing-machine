@@ -130,18 +130,7 @@ scp_program -> proc_point_of_articulation_b (*
 			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
 		
 			->rrel_set_3: rrel_assign: rrel_scp_var: _not_checked_vertexes;;
-			=> nrel_then: ..proc_find_poa_operator2;;		
-		 	=> nrel_else: ..proc_find_poa_operator_end;;	
-		*);;
-		
-// Нахождение первой поавшейся вершины в графе.
-		-> ..proc_find_poa_operator2 (*
-			<- searchElStr3;;
-		 	-> rrel_1: rrel_fixed: rrel_scp_var: _not_checked_vertexes;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2_op2;;
-			-> rrel_3: rrel_assign: rrel_scp_var: _beg_vertex;;
-
-		 	=> nrel_then: ..proc_find_poa_operator3;;		
+			=> nrel_then: ..proc_find_poa_operator3;;		
 		 	=> nrel_else: ..proc_find_poa_operator_end;;	
 		*);;
 
@@ -150,16 +139,9 @@ scp_program -> proc_point_of_articulation_b (*
 		    <- genEl;;
 	        -> rrel_1: rrel_assign: rrel_scp_var: rrel_node: _node;;
 
-	        => nrel_goto: ..proc_find_poa_operator4;; 
+	        => nrel_goto: ..proc_find_poa_operator5;; 
 		*);;
 
-// Удаление этой вершины из множества непроверенных		
-		-> ..proc_find_poa_operator4 (*
-			<- eraseEl;;
-		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc2_op2;;
-
-		 	=> nrel_goto: ..proc_find_poa_operator5;;	
-		*);;
 
 // Создание узла _timer
 		-> ..proc_find_poa_operator5 (*
@@ -273,8 +255,28 @@ scp_program -> proc_point_of_articulation_b (*
 		    <- genEl;;
 	        -> rrel_1: rrel_assign: rrel_node: rrel_scp_var: fup_vertex_set;;
 
-	        => nrel_goto: ..in_dfs;; 
+	        => nrel_goto: ..proc_find_poa_operator18;; 
 		*);;
+
+// Нахождение первой поавшейся вершины в графе.
+        -> ..proc_find_poa_operator18 (*
+            <- searchElStr3;;
+            -> rrel_1: rrel_fixed: rrel_scp_var: _not_checked_vertexes;;
+            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2_op2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _beg_vertex;;
+
+            => nrel_then: ..proc_find_poa_operator19;;       
+            => nrel_else: ..proc_find_poa_operator20;;    
+        *);;
+
+// Удаление этой вершины из множества непроверенных     
+        -> ..proc_find_poa_operator19 (*
+            <- eraseEl;;
+            -> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc2_op2;;
+
+            => nrel_goto: ..in_dfs;;   
+        *);;
+
 
 // Первый вызывание dfs
 		-> ..in_dfs (*
@@ -302,7 +304,7 @@ scp_program -> proc_point_of_articulation_b (*
 	        <- waitReturn;;
 	        -> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
 	
-	        => nrel_goto: ..proc_find_poa_operator20;; 
+	        => nrel_goto: ..proc_find_poa_operator18;; 
 	    *);;
 
 // удаляем _tin  

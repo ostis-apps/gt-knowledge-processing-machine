@@ -92,9 +92,9 @@ scp_program -> agent_proc_bridge (*
 			<- waitReturn;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
 
-			=> nrel_goto: .agent_proc_bridge_operator10;;
+			=> nrel_goto: .agent_proc_bridge_operator8;;
 		*);;	
-	/*	
+	
 		-> .agent_proc_bridge_operator8
 		(*
 			<- call;;
@@ -115,7 +115,7 @@ scp_program -> agent_proc_bridge (*
 
 			=> nrel_goto: .agent_proc_bridge_operator10;;
 		*);;
-	*/	
+		
 		-> .agent_proc_bridge_operator10
 		(*
 			<- call;;
