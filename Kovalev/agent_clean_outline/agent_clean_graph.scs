@@ -62,7 +62,49 @@ scp_program -> agent_clean_graph (*
 			<- waitReturn;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
 
-			=> nrel_goto: .agent_clean_graph_operator_return;;
+			=> nrel_goto: .agent_clean_graph_operator5;;
+		*);; 
+
+		-> .agent_clean_graph_operator5
+		(*
+			<- genEl;;
+			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _answer;;
+
+			=> nrel_goto: .agent_clean_graph_operator6;;
+		*);;
+
+		-> .agent_clean_graph_operator6
+		(*
+			<- call;;
+		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_add_outline_to_answer;;
+		        -> rrel_2: rrel_fixed: rrel_scp_const: ... 
+				(*
+					-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+					-> rrel_2: rrel_fixed: rrel_scp_var: _answer;;
+				*);;
+		        -> rrel_3: rrel_assign: rrel_scp_var: _descr2;;
+
+			=> nrel_goto: .agent_clean_graph_operator7;;
+		*);;
+
+		-> .agent_clean_graph_operator7
+		(*
+			<- waitReturn;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr2;;
+
+			=> nrel_goto: .agent_clean_graph_operator8;;
+		*);;
+		
+		-> .agent_clean_graph_operator8
+		(*
+			<- genElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
+			-> rrel_2: rrel_assign: rrel_const: rrel_common: rrel_scp_var: _arc;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _answer;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_answer;;
+
+			=>nrel_goto: .agent_clean_graph_operator_return;;
 		*);; 
 
 		-> .agent_clean_graph_operator_return (*
