@@ -1,0 +1,17 @@
+ui_menu_proc_find_if_graph_is_connected_agent <- ui_user_command_class_atom; ui_user_command_class_view_kb;;
+
+ui_menu_proc_find_if_graph_is_connected_agent =>nrel_main_idtf: [Является ли связным граф?] (* <- lang_ru;; *);;
+ui_menu_proc_find_if_graph_is_connected_agent =>nrel_main_idtf: [Is graph connected?] (* <- lang_en;; *);;
+
+ui_menu_proc_find_if_graph_is_connected_agent =>ui_nrel_command_template:
+[*
+	question_find_connected_graph _-> ._question_find_connected_graph_instance
+	(*
+		_-> ui_arg_1;;
+	*);;
+	._question_find_connected_graph_instance _<- question;;
+*];;
+
+ui_menu_proc_find_if_graph_is_connected_agent =>ui_nrel_command_lang_template: [Является ли связным граф: $ui_arg_1] (*<- lang_ru;; *);;
+
+ui_menu_proc_find_if_graph_is_connected_agent =>ui_nrel_command_lang_template: [Request of finding if graph is connected: $ui_arg_1] (* <- lang_en;; *);;

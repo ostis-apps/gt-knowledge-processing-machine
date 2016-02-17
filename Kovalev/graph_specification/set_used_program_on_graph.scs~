@@ -1,17 +1,24 @@
 sc_node_not_relation -> set_used_program_on_graph
 	(*
-		-> rrel_1: proc_find_cyclic_graph;;
-		-> rrel_1: proc_directivity_of_graph;;
-		-> rrel_1: proc_find_if_graph_is_connected;;
 		-> rrel_1: proc_planar_graph;;
-		-> rrel_2: proc_euler_graph;;
+		-> rrel_1: proc_directivity_of_graph;;
+		-> rrel_1: proc_find_if_graph_is_connected_agent;;
+		-> rrel_1: proc_find_cyclic_graph;;
 		-> rrel_2: proc_reflexive_graphs;;
 		-> rrel_2: proc_transitive_graph;;
 		-> rrel_2: proc_symmetric_graph;;
+		-> rrel_graphs_set: proc_find_deadlock;;
+		-> rrel_graphs_set: proc_find_antideadlock;;
+		-> rrel_graphs_set: proc_min_ostov;;
+		-> rrel_graphs_set: proc_point_of_articulation_b;;
+		-> rrel_graphs_set: proc_bridge;;
 		-> rrel_number_characteristics: proc_find_the_number_of_connected_components;;
-		-> rrel_number_characteristics: proc_find_num_graph_tree_nodes;;
-		-> rrel_graphs_set: proc_find_points_of_articulation;;		
-		//&-> proc_is_regular;;
+		
+		//-> rrel_number_characteristics: proc_search_radius;;
+		//-> rrel_number_characteristics: proc_find_num_graph_tree_nodes;;
+		//-> rrel_2: proc_euler_graph;;
+		//-> rrel_graphs_set: proc_find_points_of_articulation;;		
+        	//&-> proc_is_regular;;
 		//&-> proc_find_tree;;
 		//&-> proc_find_strongly_connected_graph;;
 		//nw-> proc_find_pappus;;
@@ -20,7 +27,6 @@ sc_node_not_relation -> set_used_program_on_graph
 		//bad-> proc_run_test_complite_graph_Ber;;
 		//bad-> proc_run_test_concept_multigraph;;
 		//bad-> proc_run_test_triangle;;
-		//&-> proc_min_ostov;;
 		//&-> proc_check_bipart_graph_vertexes;;
 		//tl-> proc_search_diameter;;
 		//tl-> proc_search_radius;;

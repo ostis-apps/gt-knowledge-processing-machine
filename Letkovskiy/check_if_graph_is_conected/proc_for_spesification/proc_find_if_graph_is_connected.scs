@@ -13,7 +13,7 @@ scp_program -> proc_find_if_graph_is_connected (*
 -> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
 -> rrel_3 : rrel_fixed : rrel_scp_var : _graph;;
 
-=> nrel_then : ..proc_find_if_graph_is_connected_graph_is_connected_gen_ans1;; 
+=> nrel_then : ..proc_find_if_graph_is_connected_op_returno;; 
 => nrel_else : ..proc_find_if_graph_is_connected_step0_0 ;;*);;  
 
 
@@ -24,7 +24,7 @@ scp_program -> proc_find_if_graph_is_connected (*
 -> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
 -> rrel_3 : rrel_fixed : rrel_scp_var : _graph;;
 
-=> nrel_then : ..proc_find_if_graph_is_connected_graph_is_not_connected_gen_ans1;; 
+=> nrel_then : ..proc_find_if_graph_is_connected_op_returno;; 
 => nrel_else : ..proc_find_if_graph_is_connected_step0 ;;*);;  
 
 
@@ -108,7 +108,7 @@ scp_program -> proc_find_if_graph_is_connected (*
 <- searchElStr3;;
 -> rrel_1 : rrel_fixed : rrel_scp_var : _marked_nodes;;
 -> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
--> rrel_3 : rrel_assign : rrel_scp_var : _new;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _new;;
 
 => nrel_then : ..proc_find_if_graph_is_connected_step5;; 
 => nrel_else : ..proc_find_if_graph_is_connected_graph_is_not_connected ;;*);; 
@@ -128,37 +128,8 @@ scp_program -> proc_find_if_graph_is_connected (*
 <- eraseEl;;
 -> rrel_1 : rrel_fixed :rrel_erase: rrel_scp_var : _marked_nodes;;
 
-=> nrel_goto : ..proc_find_if_graph_is_connected_graph_is_connected_gen_ans1;; *);;
-
-
-
--> ..proc_find_if_graph_is_connected_graph_is_connected_gen_ans1 (*
-<- genElStr3;;
--> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
--> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
--> rrel_3: rrel_fixed: rrel_scp_const: concept_connected_graph;;
-
-=> nrel_goto : ..proc_find_if_graph_is_connected_graph_is_connected_gen_ans2;; *);;
-
-
--> ..proc_find_if_graph_is_connected_graph_is_connected_gen_ans2 (*
-<- searchElStr3;;
--> rrel_1: rrel_fixed: rrel_scp_const: concept_connected_graph;;
--> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
--> rrel_3 : rrel_fixed : rrel_scp_var : _graph;;
-
-=> nrel_goto : ..proc_find_if_graph_is_connected_graph_is_connected_gen_ans3;; *);;
-
-
--> ..proc_find_if_graph_is_connected_graph_is_connected_gen_ans3 (*
-<- genElStr3;;
--> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
--> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
--> rrel_3: rrel_fixed: rrel_scp_var: _arc;;
-
 => nrel_goto : ..proc_find_if_graph_is_connected_op_returno;; *);;
 
-////////////
 
 -> ..proc_find_if_graph_is_connected_graph_is_not_connected (*
 <- genElStr3;;
@@ -174,37 +145,7 @@ scp_program -> proc_find_if_graph_is_connected (*
 <- eraseEl;;
 -> rrel_1 : rrel_fixed :rrel_erase: rrel_scp_var : _marked_nodes;;
 
-=> nrel_goto : ..proc_find_if_graph_is_connected_graph_is_not_connected_gen_ans1;; *);;
-
-
-
--> ..proc_find_if_graph_is_connected_graph_is_not_connected_gen_ans1 (*
-<- genElStr3;;
--> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
--> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
--> rrel_3: rrel_fixed: rrel_scp_const: concept_disconnected_graph;;
-
-=> nrel_goto : ..proc_find_if_graph_is_connected_graph_is_not_connected_gen_ans2;; *);;
-
-
--> ..proc_find_if_graph_is_connected_graph_is_not_connected_gen_ans2 (*
-<- searchElStr3;;
--> rrel_1: rrel_fixed: rrel_scp_const: concept_disconnected_graph;;
--> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
--> rrel_3 : rrel_fixed : rrel_scp_var : _graph;;
-
-=> nrel_goto : ..proc_find_if_graph_is_connected_graph_is_not_connected_gen_ans3;; *);;
-
-
--> ..proc_find_if_graph_is_connected_graph_is_not_connected_gen_ans3 (*
-<- genElStr3;;
--> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
--> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
--> rrel_3: rrel_fixed: rrel_scp_var: _arc;;
-
 => nrel_goto : ..proc_find_if_graph_is_connected_op_returno;; *);;
-
-////////////
 
 
 -> ..proc_find_if_graph_is_connected_op_returno (*

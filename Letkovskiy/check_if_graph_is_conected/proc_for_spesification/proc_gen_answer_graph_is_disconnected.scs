@@ -1,0 +1,41 @@
+scp_program -> proc_gen_answer_graph_is_disconnected (*
+	
+	-> rrel_params: ... (*
+		-> rrel_1: rrel_in: _graph;;
+		-> rrel_2: rrel_in: _answer;;
+	*);;
+
+	-> rrel_operators: ... (*
+
+	-> rrel_init: ..start (*
+<- genElStr3;;
+-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+-> rrel_3: rrel_fixed: rrel_scp_const: concept_disconnected_graph;;
+
+=> nrel_goto : ..proc_graph_is_disconnected_gen_ans2;; *);;
+
+
+-> ..proc_graph_is_disconnected_gen_ans2 (*
+<- searchElStr3;;
+-> rrel_1: rrel_fixed: rrel_scp_const: concept_disconnected_graph;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _graph;;
+
+=> nrel_goto : ..proc_graph_is_disconnected_gen_ans3;; *);;
+
+
+-> ..proc_graph_is_disconnected_gen_ans3 (*
+<- genElStr3;;
+-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+-> rrel_3: rrel_fixed: rrel_scp_var: _arc;;
+
+=> nrel_goto : ..proc_graph_is_disconnected_op_returno;; *);;
+
+
+-> ..proc_graph_is_disconnected_op_returno (*
+<- return;; *);;
+
+*);;
+*);;
