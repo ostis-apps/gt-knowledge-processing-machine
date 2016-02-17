@@ -18,9 +18,14 @@ scp_program -> visiting_round_deep_2find_if_graph_is_connected (*
 -> rrel_5: rrel_fixed: rrel_scp_var : _graph;;
 -> rrel_set_3 : rrel_assign : rrel_scp_var : _soUPset;;
 
+<<<<<<< HEAD:Letkovskiy/check_if_graph_is_conected/proc_for_spesification/visiting_round_deep_2find_if_graph_is_connected.scs
+=> nrel_then : ..step2;; 
+=> nrel_else : ..oper_return ;;*);;
+=======
 => nrel_goto : ..step2;; *);;
+>>>>>>> 61c9890d0551f4b83e9739ae65a9aa48d070068d:Letkovskiy/check_if_graph_is_connected/visiting_round_deep_2find_if_graph_is_connected.scs
 
-
+//kaka
 -> ..step1 (*
 <- searchSetStr5;;
 -> rrel_1: rrel_assign: rrel_scp_var: _el3;;

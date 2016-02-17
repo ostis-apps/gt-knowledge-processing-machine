@@ -1,6 +1,6 @@
 ui_menu_proc_find_if_graph_is_connected_agent <- ui_user_command_class_atom; ui_user_command_class_view_kb;;
 
-ui_menu_proc_find_if_graph_is_connected_agent =>nrel_main_idtf: [Является ли граф связным?] (* <- lang_ru;; *);;
+ui_menu_proc_find_if_graph_is_connected_agent =>nrel_main_idtf: [Является ли связным граф?] (* <- lang_ru;; *);;
 ui_menu_proc_find_if_graph_is_connected_agent =>nrel_main_idtf: [Is graph connected?] (* <- lang_en;; *);;
 
 ui_menu_proc_find_if_graph_is_connected_agent =>ui_nrel_command_template:

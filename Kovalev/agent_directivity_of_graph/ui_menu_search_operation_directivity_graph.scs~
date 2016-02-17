@@ -1,10 +1,10 @@
 ui_menu_search_operation_directivity_graph <- ui_user_command_class_atom; ui_user_command_class_view_kb;;
 
 // Указываем русский идентификатор нашей операции в меню
-ui_menu_search_operation_directivity_graph =>nrel_main_idtf: [Является ли граф ориентированным?] (* <- lang_ru;; *);;
+ui_menu_search_operation_directivity_graph =>nrel_main_idtf: [Проверка графа на ориентированность] (* <- lang_ru;; *);;
 
 // Указываем английский идентификатор нашей операции в меню
-ui_menu_search_operation_directivity_graph =>nrel_main_idtf: [Is graph directed?] (* <- lang_en;; *);;
+ui_menu_search_operation_directivity_graph =>nrel_main_idtf: [Check on the graph directivity] (* <- lang_en;; *);;
 
 // Указываем шаблон нашей команды
 ui_menu_search_operation_directivity_graph =>ui_nrel_command_template:
@@ -18,11 +18,11 @@ ui_menu_search_operation_directivity_graph =>ui_nrel_command_template:
 *];;
 
 // Указываем текстовый шаблон команды на русском языке
-ui_menu_search_operation_directivity_graph =>ui_nrel_command_lang_template: [Является ли ориентированным граф: $ui_arg_1] 
+ui_menu_search_operation_directivity_graph =>ui_nrel_command_lang_template: [Проверка графа на ориентированность: $ui_arg_1] 
 (*
 	<- lang_ru;; 
 *);;
 
 // Указываем текстовый шаблон команды на английском языке
-ui_menu_search_operation_directivity_graph =>ui_nrel_command_lang_template: [Request of finding if graph is directivity: $ui_arg_1]
+ui_menu_search_operation_directivity_graph =>ui_nrel_command_lang_template: [Check on the graph directivity: $ui_arg_1]
 (* <- lang_en;; *);;

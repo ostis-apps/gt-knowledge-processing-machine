@@ -1,7 +1,7 @@
 ui_menu_search_operation_find_antideadlock <- ui_user_command_class_atom; ui_user_command_class_view_kb;;
 
 // Указываем русский идентификатор нашей операции в меню
-ui_menu_search_operation_find_antideadlock =>nrel_main_idtf: [Какие антитупики есть в графе?] (* <- lang_ru;; *);;
+ui_menu_search_operation_find_antideadlock =>nrel_main_idtf: [Какие есть антитупики в графе?] (* <- lang_ru;; *);;
 
 // Указываем английский идентификатор нашей операции в меню
 ui_menu_search_operation_find_antideadlock =>nrel_main_idtf: [Finding antideadlock in graph] (* <- lang_en;; *);;
