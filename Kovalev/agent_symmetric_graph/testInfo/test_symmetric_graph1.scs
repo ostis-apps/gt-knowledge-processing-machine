@@ -1,8 +1,0 @@
-concept_directed_graph-> test_symmetric__graph1
-(*
-	-> rrel_vertex: V1;;
-	-> rrel_vertex: V2;;
-	-> rrel_oredge: (V1=>V2);;
-	-> rrel_oredge: (V2=>V1);;
-	-> rrel_oredge: (V1=>V1);;
-*);;
