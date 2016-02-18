@@ -1,7 +1,7 @@
 ui_menu_search_operation_min_ostov <- ui_user_command_class_atom; ui_user_command_class_view_kb;;
 
 // Указываем русский идентификатор нашей операции в меню
-ui_menu_search_operation_min_ostov =>nrel_main_idtf: [Каково минимальное остовное дерево в графе?] (* <- lang_ru;; *);;
+ui_menu_search_operation_min_ostov =>nrel_main_idtf: [Есть ли минимальное остовное дерево в графе?] (* <- lang_ru;; *);;
 
 // Указываем английский идентификатор нашей операции в меню
 ui_menu_search_operation_min_ostov =>nrel_main_idtf: [Finding minimal ostov tree] (* <- lang_en;; *);;
@@ -18,7 +18,7 @@ ui_menu_search_operation_min_ostov =>ui_nrel_command_template:
 *];;
 
 // Указываем текстовый шаблон команды на русском языке
-ui_menu_search_operation_min_ostov =>ui_nrel_command_lang_template: [Каково минимальное остовное дерево в графее: $ui_arg_1] 
+ui_menu_search_operation_min_ostov =>ui_nrel_command_lang_template: [Есть ли минимальное остовное дерево в графе: $ui_arg_1] 
 (*
 	<- lang_ru;; 
 *);;

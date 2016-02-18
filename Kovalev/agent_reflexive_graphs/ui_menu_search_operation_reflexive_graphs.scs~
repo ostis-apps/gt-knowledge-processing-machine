@@ -1,10 +1,10 @@
 ui_menu_search_operation_reflexive_graphs <- ui_user_command_class_atom; ui_user_command_class_view_kb;;
 
 // Указываем русский идентификатор нашей операции в меню
-ui_menu_search_operation_reflexive_graphs =>nrel_main_idtf: [Является ли граф рефлексивным?] (* <- lang_ru;; *);;
+ui_menu_search_operation_reflexive_graphs =>nrel_main_idtf: [Проверка графа на рефлексивность] (* <- lang_ru;; *);;
 
 // Указываем английский идентификатор нашей операции в меню
-ui_menu_search_operation_reflexive_graphs =>nrel_main_idtf: [Is graph reflexivity?] (* <- lang_en;; *);;
+ui_menu_search_operation_reflexive_graphs =>nrel_main_idtf: [Check on the graph reflexivity] (* <- lang_en;; *);;
 
 // Указываем шаблон нашей команды
 ui_menu_search_operation_reflexive_graphs =>ui_nrel_command_template:
@@ -18,7 +18,7 @@ ui_menu_search_operation_reflexive_graphs =>ui_nrel_command_template:
 *];;
 
 // Указываем текстовый шаблон команды на русском языке
-ui_menu_search_operation_reflexive_graphs =>ui_nrel_command_lang_template: [Является ли рефлексивным граф: $ui_arg_1] 
+ui_menu_search_operation_reflexive_graphs =>ui_nrel_command_lang_template: [Проверка графа на рефлексивность: $ui_arg_1] 
 (*
 	<- lang_ru;; 
 *);;

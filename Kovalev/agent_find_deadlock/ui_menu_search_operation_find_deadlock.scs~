@@ -1,7 +1,7 @@
 ui_menu_search_operation_find_deadlock <- ui_user_command_class_atom; ui_user_command_class_view_kb;;
 
 // Указываем русский идентификатор нашей операции в меню
-ui_menu_search_operation_find_deadlock =>nrel_main_idtf: [Какие тупики есть в графе?] (* <- lang_ru;; *);;
+ui_menu_search_operation_find_deadlock =>nrel_main_idtf: [Какие есть тупики в графе?] (* <- lang_ru;; *);;
 
 // Указываем английский идентификатор нашей операции в меню
 ui_menu_search_operation_find_deadlock =>nrel_main_idtf: [Finding deadlock in graph] (* <- lang_en;; *);;

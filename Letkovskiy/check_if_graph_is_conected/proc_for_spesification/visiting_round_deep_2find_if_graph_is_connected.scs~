@@ -17,9 +17,15 @@ scp_program -> visiting_round_deep_2find_if_graph_is_connected (*
 -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
 -> rrel_5: rrel_fixed: rrel_scp_var : _graph;;
 -> rrel_set_3 : rrel_assign : rrel_scp_var : _soUPset;;
+<<<<<<< HEAD
 => nrel_then : ..step2;; 
 => nrel_else : ..oper_return ;;
 *);;
+=======
+
+=> nrel_then : ..step2;; 
+=> nrel_else : ..oper_return ;;*);;
+>>>>>>> 62e9895309046e597b52fd9bcd27c812ea1ce859
 
 //kaka
 -> ..step1 (*
