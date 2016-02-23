@@ -49,7 +49,8 @@ scp_program -> visiting_round_deep_2find_cyclic_graph (*
 -> rrel_5: rrel_fixed: rrel_scp_var : _graph;;
 -> rrel_set_3 : rrel_assign : rrel_scp_var : _soUPset;;
 
-=> nrel_goto : ..step4;; *);;
+=> nrel_then : ..step4;; 
+=> nrel_else : ..oper_return ;;*);;
 
 
 -> ..step4 (*
