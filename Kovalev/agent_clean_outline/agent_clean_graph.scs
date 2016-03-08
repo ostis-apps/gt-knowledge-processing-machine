@@ -70,10 +70,10 @@ scp_program -> agent_clean_graph (*
 			<- genEl;;
 			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _answer;;
 
-			=> nrel_goto: .agent_clean_graph_operator6;;
+			=> nrel_goto: .agent_clean_graph_operator8;;
 		*);;
 
-		-> .agent_clean_graph_operator6
+		/*-> .agent_clean_graph_operator6
 		(*
 			<- call;;
 		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_add_outline_to_answer;;
@@ -93,7 +93,7 @@ scp_program -> agent_clean_graph (*
 			-> rrel_1: rrel_fixed: rrel_scp_var: _descr2;;
 
 			=> nrel_goto: .agent_clean_graph_operator8;;
-		*);;
+		*);;*/
 		
 		-> .agent_clean_graph_operator8
 		(*

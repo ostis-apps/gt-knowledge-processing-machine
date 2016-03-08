@@ -26,7 +26,7 @@ scp_program -> proc_clean_graph
 		(*
 			<- searchElStr3;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _nodes;;
-            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_erase;;
+            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_erase_1;;
             -> rrel_3: rrel_assign: rrel_scp_var: _element;;
 
 			=>nrel_then: .proc_clean_graph_operator3;;
@@ -40,53 +40,53 @@ scp_program -> proc_clean_graph
             -> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc_common_erase;;
             -> rrel_3: rrel_fixed: rrel_scp_var: _element;;
 			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_ertex2;;
-            -> rrel_5: rrel_assign: rrel_scp_var: _nrelrelation;;       
-			
-			-> rrel_set_5: rrel_assign: rrel_scp_var: _nrelrelations;;
+            -> rrel_5: rrel_assign: rrel_scp_var: _nrelrelation;;
+
+            -> rrel_set_5: rrel_assign: rrel_scp_var: _nrelrelations;;
 
 			=>nrel_then: .proc_clean_graph_operator4_1;;
 			=>nrel_else: .proc_clean_graph_operator6;; 	
 		*);;
 
-        -> .proc_clean_graph_operator4_1
+	    -> .proc_clean_graph_operator4_1
 		(*
 			<- searchElStr3;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _nrelrelations;;
-            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_erase_1;;
+            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_erase_2;;
             -> rrel_3: rrel_assign: rrel_scp_var: _nrelrelation;;
 
 			=>nrel_then: .proc_clean_graph_operator4_2;;
-			=>nrel_else: .proc_clean_graph_operator6_2;; 	 	
-		*);;
+			=>nrel_else: .proc_clean_graph_operator4_4;; 	 	
+		*);;	
 
 		-> .proc_clean_graph_operator4_2
 		(*
 			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_const: set_characteristic_graph;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: set_exceptions;;
             -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
             -> rrel_3: rrel_fixed: rrel_scp_var: _nrelrelation;;
 
 			=>nrel_then: .proc_clean_graph_operator5;;
-			=>nrel_else: .proc_clean_graph_operator6;; 	 	
+			=>nrel_else: .proc_clean_graph_operator4_3;; 	 	
 		*);;		
 
-	    -> .proc_clean_graph_operator5
+	    -> .proc_clean_graph_operator4_3
 		(*
 			<- eraseEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _element;;
-			
-			=> nrel_goto: .proc_clean_graph_operator2;;
-		*);;
-
-        -> .proc_clean_graph_operator6_1
-		(*
-			<- eraseEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc_erase_1;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc_erase_2;;
 			
 			=> nrel_goto: .proc_clean_graph_operator4_1;;
 		*);;
 
-        -> .proc_clean_graph_operator6_2
+		-> .proc_clean_graph_operator4_4
+		(*
+			<- eraseEl;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc_common_erase;;
+			
+			=> nrel_goto: .proc_clean_graph_operator5;;
+		*);;
+
+		-> .proc_clean_graph_operator5
 		(*
 			<- eraseEl;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _nrelrelations;;
@@ -97,7 +97,7 @@ scp_program -> proc_clean_graph
 		-> .proc_clean_graph_operator6
 		(*
 			<- eraseEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc_erase;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc_erase_1;;
 			
 			=> nrel_goto: .proc_clean_graph_operator2;;
 		*);;
@@ -120,7 +120,7 @@ scp_program -> proc_clean_graph
 			-> rrel_set_1: rrel_assign: rrel_scp_var: _nodes;;
 			
 			=> nrel_then: .proc_clean_graph_operator9;;
-            => nrel_else: .proc_clean_graph_operato15;;
+            => nrel_else: .proc_clean_graph_return;;
 		*);;
 
 		-> .proc_clean_graph_operator9
@@ -131,61 +131,61 @@ scp_program -> proc_clean_graph
             -> rrel_3: rrel_assign: rrel_scp_var: _element;;
 
 			=>nrel_then: .proc_clean_graph_operator10;;
-			=>nrel_else: .proc_clean_graph_operator14;; 	 	
+			=>nrel_else: .proc_clean_graph_operator13;; 	 	
 		*);;		
 
 		-> .proc_clean_graph_operator10
 		(*
 			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _element;;
-            -> rrel_2: rrel_assign: rrel_scp_var: _arc_common_erase;;
-            -> rrel_3: rrel_fixed: rrel_scp_var: _graph;; 
-			
-			=>nrel_then: .proc_clean_graph_operator11;;
-			=>nrel_else: .proc_clean_graph_operator13;; 	
-		*);;
-
-		-> .proc_clean_graph_operator11
-		(*
-			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_const: set_characteristic_graph;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: set_exceptions;;
             -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
             -> rrel_3: rrel_fixed: rrel_scp_var: _element;;
 
 			=>nrel_then: .proc_clean_graph_operator12;;
-			=>nrel_else: .proc_clean_graph_operator13;; 	 	
+			=>nrel_else: .proc_clean_graph_operator11;; 	 	
 		*);;		
 
-		/*-> .proc_clean_graph_operator12_1
+		-> .proc_clean_graph_operator11
 		(*
-			<- searchElStr5;;
+			<- searchSetStr3;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _element;;
-            -> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc1;;
-            -> rrel_3: rrel_assign: rrel_scp_var: _syst_idtf;;
-            -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
-            -> rrel_5: rrel_fixed: rrel_scp_const: nrel_system_identifier;;
+            -> rrel_2: rrel_assign: rrel_scp_var: rrel_erase: _arc3;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
 
-			=>nrel_then: .proc_clean_graph_operator12_2;;
-			=>nrel_else: .proc_clean_graph_operator12;; 	 	
-		*);;*/		
+            -> rrel_set_2: rrel_assign: rrel_scp_var: _arcs;;
 
-		-> .proc_clean_graph_operator12_1
+			=> nrel_then: .proc_clean_graph_operator11_1;;
+			=> nrel_else: .proc_clean_graph_operator12;; 	 	
+		*);;	
+
+	    -> .proc_clean_graph_operator11_1
 		(*
-			<- printEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _element;;
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _arcs;;
+            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_erase_3;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _arc;;
 
+			=>nrel_then: .proc_clean_graph_operator11_2;;
+			=>nrel_else: .proc_clean_graph_operator11_3;; 	 	
+		*);;
+
+	    -> .proc_clean_graph_operator11_2
+		(*
+			<- eraseEl;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc;;
+			
+			=> nrel_goto: .proc_clean_graph_operator11_1;;
+		*);;
+
+		-> .proc_clean_graph_operator11_3
+		(*
+			<- eraseEl;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arcs;;
+			
 			=> nrel_goto: .proc_clean_graph_operator12;;
 		*);;
 
-	    -> .proc_clean_graph_operator12
-		(*
-			<- eraseEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc_common_erase;;
-			
-			=> nrel_goto: .proc_clean_graph_operator13;;
-		*);;
-
-		-> .proc_clean_graph_operator13
+		-> .proc_clean_graph_operator12
 		(*
 			<- eraseEl;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc_erase;;
@@ -193,7 +193,7 @@ scp_program -> proc_clean_graph
 			=> nrel_goto: .proc_clean_graph_operator9;;
 		*);;
 
-		-> .proc_clean_graph_operator14
+		-> .proc_clean_graph_operator13
 		(*
 			<- eraseEl;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _nodes;;
