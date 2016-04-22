@@ -10,9 +10,9 @@ ui_menu_na_view_of_graph <= nrel_ui_commands_decomposition:
 	ui_menu_search_operation_reflexive_graphs;
 	ui_menu_search_operation_transitive_graph;
 	ui_menu_search_operation_symmetric_graph;
-	ui_menu_search_operation_directivity_graph
-	//ui_menu_proc_find_if_graph_is_connected_agent
-	//ui_menu_proc_find_cyclic_graph_agent 
+	ui_menu_search_operation_directivity_graph;
+	ui_menu_proc_find_if_graph_is_connected_agent;
+	ui_menu_proc_find_cyclic_graph_agent 
 
 	//ui_menu_complite_graph;
 	//ui_menu_complite_Berge_graph;
