@@ -1,0 +1,46 @@
+proc_symmetric_graph
+=> nrel_main_idtf:
+	[Программа проверки графа на симметричность] (* <- lang_ru;; *);
+
+=> nrel_initiation_condition_and_result: (..scp_program_proc_symmeetric_graph_initiation_condition
+					  => ..scp_program_proc_symmeetric_graph_result1);
+=> nrel_initiation_condition_and_result: (..scp_program_proc_symmeetric_graph_initiation_condition
+					  => ..scp_program_proc_symmeetric_graph_result2);
+
+<= nrel_scp_program_key_sc_elements: 
+	{
+		concept_graph;
+		concept_symmetric_graph;
+		rrel_vertex;
+		rrel_oredge
+	};
+
+<- key_sc_element:
+	..scp_program_proc_symmeetric_graph_behavior
+	(*
+		<- sc_description_of_scp_program_behavior;;
+		<= nrel_sc_text_translation:
+		...
+		(*
+			-> rrel_example:
+				[Это программа создает из понятия "симметричный граф" к графу либо дугу приндлежности, если граф симметричный, либо отрицательную дугу, если граф несимметричный];;
+		*);;
+	*);;
+
+..scp_program_proc_symmeetric_graph_initiation_condition
+= [*
+	concept_graph _-> _curr_graph;;
+*];;
+
+
+..scp_program_proc_symmeetric_graph_result1
+= [*
+	concept_graph _-> _curr_graph;;
+	concept_symmetric_graph _-> _curr_graph;;
+*];;
+
+..scp_program_proc_symmeetric_graph_result2
+= [*
+	concept_graph _-> _curr_graph;;
+	concept_symmetric_graph _-|> _curr_graph;;
+*];;
