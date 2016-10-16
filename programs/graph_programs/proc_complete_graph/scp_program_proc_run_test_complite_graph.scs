@@ -1,0 +1,46 @@
+proc_run_test_complite_graph
+=> nrel_main_idtf:
+	[Программа проверки графа на полноту] (* <- lang_ru;; *);
+
+=> nrel_initiation_condition_and_result: (..scp_program_proc_run_test_complite_graph_initiation_condition
+					  => ..scp_program_proc_run_test_complite_graph_result1);
+=> nrel_initiation_condition_and_result: (..scp_program_proc_run_test_complite_graph_initiation_condition
+					  => ..scp_program_proc_run_test_complite_graph_result2);
+
+<= nrel_scp_program_key_sc_elements: 
+	{
+		concept_graph;
+		concept_complete_graph
+		rrel_vertex;
+		rrel_oredge
+	};
+
+<- key_sc_element:
+	..scp_program_proc_run_test_complite_graph_behavior
+	(*
+		<- sc_description_of_scp_program_behavior;;
+		<= nrel_sc_text_translation:
+		...
+		(*
+			-> rrel_example:
+				[Это программа создает из понятия "полный граф" к графу либо дугу приндлежности, если граф полный, либо отрицательную дугу, если граф неполный];;
+		*);;
+	*);;
+
+..scp_program_proc_run_test_complite_graph_initiation_condition
+= [*
+	concept_graph _-> _curr_graph;;
+*];;
+
+
+..scp_program_proc_run_test_complite_graph_result1
+= [*
+	concept_graph _-> _curr_graph;;
+	concept_transitive_graph _-> _curr_graph;;
+*];;
+
+..scp_program_proc_run_test_complite_graph_result2
+= [*
+	concept_graph _-> _curr_graph;;
+	concept_transitive_graph _-|> _curr_graph;;
+*];;

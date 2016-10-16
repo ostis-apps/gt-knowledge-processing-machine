@@ -1,0 +1,37 @@
+proc_find_number_of_vertex_connectivity
+=> nrel_main_idtf:
+	[Программа поиска числа вершинной связности графа] (* <- lang_ru;; *);
+
+=> nrel_initiation_condition_and_result: (..scp_program_proc_find_number_of_vertex_connectivity_initiation_condition
+					  => ..scp_program_proc_find_number_of_vertex_connectivity_result);
+<= nrel_scp_program_key_sc_elements: 
+	{
+		concept_graph;
+		rrel_vertex;
+		rrel_oredge;
+		nrel_number_of_deleted_nodes
+	};
+
+<- key_sc_element:
+	..scp_program_proc_find_number_of_vertex_connectivity_behavior
+	(*
+		<- sc_description_of_scp_program_behavior;;
+		<= nrel_sc_text_translation:
+		...
+		(*
+			-> rrel_example:
+				[Это программа создает узел с количестов компонентов связности графа и связывает его с графом отношением "количество компонентов связности*"];;
+		*);;
+	*);;
+
+..scp_program_proc_find_number_of_vertex_connectivity_initiation_condition
+= [*
+	concept_graph _-> _curr_graph;;
+*];;
+
+
+..scp_program_proc_find_number_of_vertex_connectivity_result
+= [*
+	concept_graph _-> _curr_graph;;
+	_curr_graph _=> nrel_number_of_deleted_nodes: _counter;;
+*];;

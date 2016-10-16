@@ -1,0 +1,46 @@
+proc_run_test_complite_graph_Ber
+=> nrel_main_idtf:
+	[Программа проверки графа на то, что он является полным графом Бержа] (* <- lang_ru;; *);
+
+=> nrel_initiation_condition_and_result: (..scp_program_proc_run_test_complite_graph_Ber_initiation_condition
+					  => ..scp_program_proc_run_test_complite_graph_Ber_result1);
+=> nrel_initiation_condition_and_result: (..scp_program_proc_run_test_complite_graph_Ber_initiation_condition
+					  => ..scp_program_proc_run_test_complite_graph_Ber_result2);
+
+<= nrel_scp_program_key_sc_elements: 
+	{
+		concept_graph;
+		concept_complete_berge_graph;
+		rrel_vertex;
+		rrel_oredge
+	};
+
+<- key_sc_element:
+	..scp_program_proc_run_test_complite_graph_Ber_behavior
+	(*
+		<- sc_description_of_scp_program_behavior;;
+		<= nrel_sc_text_translation:
+		...
+		(*
+			-> rrel_example:
+				[Это программа создает из понятия "полный граф Бержа" к графу либо дугу приндлежности, если граф является полным графом Бержа, либо отрицательную дугу, если граф не является полным графом Бержа];;
+		*);;
+	*);;
+
+..scp_program_proc_run_test_complite_graph_Ber_initiation_condition
+= [*
+	concept_graph _-> _curr_graph;;
+*];;
+
+
+..scp_program_proc_run_test_complite_graph_Ber_result1
+= [*
+	concept_graph _-> _curr_graph;;
+	concept_complete_berge_graph _-> _curr_graph;;
+*];;
+
+..scp_program_proc_run_test_complite_graph_Ber_result2
+= [*
+	concept_graph _-> _curr_graph;;
+	concept_complete_berge_graph _-|> _curr_graph;;
+*];;

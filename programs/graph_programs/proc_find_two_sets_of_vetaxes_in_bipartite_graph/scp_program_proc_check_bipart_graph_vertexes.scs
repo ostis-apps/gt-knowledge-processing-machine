@@ -1,0 +1,39 @@
+proc_check_bipart_graph_vertexes
+=> nrel_main_idtf:
+	[Программа поиска двух множеств вершин двудольного графа] (* <- lang_ru;; *);
+
+=> nrel_initiation_condition_and_result: (..scp_program_proc_check_bipart_graph_vertexes_initiation_condition
+					  => ..scp_program_proc_check_bipart_graph_vertexes_result);
+<= nrel_scp_program_key_sc_elements: 
+	{
+		concept_graph;
+		rrel_vertex;
+		rrel_oredge;
+		nrel_second_bip_set;
+		nrel_first_bip_set
+	};
+
+<- key_sc_element:
+	..scp_program_proc_check_bipart_graph_vertexes_behavior
+	(*
+		<- sc_description_of_scp_program_behavior;;
+		<= nrel_sc_text_translation:
+		...
+		(*
+			-> rrel_example:
+				[Это программа создает 2 множества, на которые можно разделить вершины двудольного графа и связывает их с графом отношениеми "первое множество вершин двудольного графа*" и "второе множество вершин двудольного графа*"];;
+		*);;
+	*);;
+
+..scp_program_proc_check_bipart_graph_vertexes_initiation_condition
+= [*
+	concept_graph _-> _curr_graph;;
+*];;
+
+
+..scp_program_proc_check_bipart_graph_vertexes_result
+= [*
+	concept_graph _-> _curr_graph;;
+	_curr_graph _=> nrel_first_bip_set: _first_bip_set;;
+	_curr_graph _=> nrel_second_bip_set: _second_bip_set;;
+*];;

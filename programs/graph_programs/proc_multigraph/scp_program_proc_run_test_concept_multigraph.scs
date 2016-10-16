@@ -1,0 +1,46 @@
+proc_run_test_concept_multigraph
+=> nrel_main_idtf:
+	[Программа проверки графа на то, что он является мультиграфом] (* <- lang_ru;; *);
+
+=> nrel_initiation_condition_and_result: (..scp_program_proc_run_test_concept_multigraph_initiation_condition
+					  => ..scp_program_proc_run_test_concept_multigraph_result1);
+=> nrel_initiation_condition_and_result: (..scp_program_proc_run_test_concept_multigraph_initiation_condition
+					  => ..scp_program_proc_run_test_concept_multigraph_result2);
+
+<= nrel_scp_program_key_sc_elements: 
+	{
+		concept_graph;
+		concept_multigraph;
+		rrel_vertex;
+		rrel_oredge
+	};
+
+<- key_sc_element:
+	..scp_program_proc_run_test_concept_multigraph_behavior
+	(*
+		<- sc_description_of_scp_program_behavior;;
+		<= nrel_sc_text_translation:
+		...
+		(*
+			-> rrel_example:
+				[Это программа создает из понятия "мультиграф" к графу либо дугу приндлежности, если граф является мультиграфом, либо отрицательную дугу, если граф не является мультиграфом];;
+		*);;
+	*);;
+
+..scp_program_proc_run_test_concept_multigraph_initiation_condition
+= [*
+	concept_graph _-> _curr_graph;;
+*];;
+
+
+..scp_program_proc_run_test_concept_multigraph_result1
+= [*
+	concept_graph _-> _curr_graph;;
+	concept_multigraph _-> _curr_graph;;
+*];;
+
+..scp_program_proc_run_test_concept_multigraph_result2
+= [*
+	concept_graph _-> _curr_graph;;
+	concept_multigraph _-|> _curr_graph;;
+*];;
