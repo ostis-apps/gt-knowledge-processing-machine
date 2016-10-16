@@ -1,0 +1,54 @@
+sc_agent_proc_check_bipart_graph_vertexes_vertexes
+=>nrel_main_idtf:
+[агент нахождения нахождения двух множеств вершин, характеризующих двудольный граф] (* <- lang_ru;; *);
+[sc-agent of searching two sets of vertexes that characterise bigraph] (* <- lang_en;; *);
+<- abstract_sc_agent;
+=>nrel_primary_initiation_condition: (sc_event_add_output_arc =>question_initiated);
+=>nrel_initiation_condition_and_result: (..sc_agent_proc_check_bipart_graph_vertexes_initiation_condition =>
+..sc_agent_proc_check_bipart_graph_vertexes_result);
+<= nrel_sc_agent_key_sc_elements:
+{
+question_initiated;
+question;
+question_find_bipartite_set_vertexes
+};
+<- key_sc_element:
+...
+(*
+<- sc_description_of_sc_agent_behavior;;
+<= nrel_sc_text_translation:
+...
+(*
+->rrel_example:
+[Задачей sc-агента является проверка графа на двудольность.];;
+*);;
+*);
+=>nrel_inclusion: ...
+(*
+<- platform_independent_abstract_sc_agent;;
+<= nrel_sc_agent_program:
+{
+agent_proc_bipartite_graph_vertexes;
+proc_check_bipart_graph_vertexes ///////////////////////////////////////////////////////////////
+};;
+->sc_agent_proc_check_bipart_graph_vertexes_scp (* <- active_sc_agent;; *);;
+*);;
+// условия инициирования агента
+..sc_agent_proc_check_bipart_graph_vertexes_initiation_condition
+= [*
+question_find_bipartite_set_vertexes _-> .._question;;
+question_initiated _-> .._question;;
+question _-> .._question;;
+.._question _-> .._parameter;;
+*];;
+// описание результатов выполнения sc-агента
+..sc_agent_proc_check_bipart_graph_vertexes
+= [*
+question_find_bipartite_set_vertexes _-> .._question;;
+question_finished _-> .._question;;
+question _-> .._question;;
+.._question _=>nrel_answer:: .._answer;;
+.._question _-> .._parameter;;
+*];;
+
+

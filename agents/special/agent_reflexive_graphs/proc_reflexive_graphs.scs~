@@ -1,0 +1,150 @@
+scp_program -> proc_reflexive_graphs
+(*
+	-> rrel_params: ...
+	(*
+		-> rrel_1: rrel_in: _curr_graph;;
+		-> rrel_2: rrel_in: _answer;;
+	*);;
+
+	-> rrel_operators: ... 
+	(*
+		-> rrel_init: .proc_reflexive_graphs_operator0
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: concept_reflexive_graph;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
+			
+			=> nrel_then: .proc_reflexive_graphs_operator7;;
+			=> nrel_else: .proc_reflexive_graphs_operator0_1;;
+		*);;
+
+		-> .proc_reflexive_graphs_operator0_1
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: concept_reflexive_graph;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_neg: _ara;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
+			
+			=> nrel_then: .proc_reflexive_graphs_operator9;;//&&
+			=> nrel_else: .proc_reflexive_graphs_operator1;;
+		*);;
+
+
+		-> .proc_reflexive_graphs_operator1
+		(*
+			<- searchSetStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _curr_graph;;
+                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs1;;
+                        -> rrel_3: rrel_assign: rrel_scp_var: _vert;;
+                        -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs2;;
+                        -> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _vertexs;;
+			
+			=> nrel_then: .proc_reflexive_graphs_operator2;;
+                	=> nrel_else: .proc_reflexive_graphs_operator9;;
+		*);;
+
+		-> .proc_reflexive_graphs_operator2
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _vertexs;;
+                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_erase;;
+                        -> rrel_3: rrel_assign: rrel_scp_var: _curr_vertex;;
+			
+			=>nrel_then: .proc_reflexive_graphs_operator3;;
+			=>nrel_else: .proc_reflexive_graphs_operator5;; 	
+		*);;
+
+		-> .proc_reflexive_graphs_operator3
+		(*
+			<- searchElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _curr_vertex;;
+                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc_of_vertexs1;;
+                        -> rrel_3: rrel_fixed: rrel_scp_var: _curr_vertex;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs2;;
+			-> rrel_5: rrel_fixed: rrel_scp_var: _curr_graph;;
+
+			=>nrel_then: .proc_reflexive_graphs_operator4;;
+			=>nrel_else: .proc_reflexive_graphs_operatorxx;; 	
+		*);;
+		
+		-> .proc_reflexive_graphs_operator4
+		(*
+			<- eraseEl;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc_erase;;
+			
+			=> nrel_goto: .proc_reflexive_graphs_operator2;;
+		*);;
+	
+		-> .proc_reflexive_graphs_operator5
+		(*
+			<- eraseEl;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _vertexs;;
+			
+			=> nrel_goto: .proc_reflexive_graphs_operator6;;
+		*);;
+
+		-> .proc_reflexive_graphs_operator6
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: concept_reflexive_graph;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
+			
+			=> nrel_goto: .proc_reflexive_graphs_operator7;;
+		*);;
+
+		-> .proc_reflexive_graphs_operator7
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara1;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: concept_reflexive_graph;;
+			
+			=> nrel_goto: .proc_reflexive_graphs_operator8;;
+		*);;
+
+		-> .proc_reflexive_graphs_operator8
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _ara;;
+			
+			=> nrel_goto: .proc_reflexive_graphs_operator9;;
+		*);;
+
+		-> .proc_reflexive_graphs_operator9
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
+			
+			=> nrel_goto: .proc_reflexive_graphs_operator_return;;
+		*);;
+		
+		-> .proc_reflexive_graphs_operatorxx
+		(*
+			<- eraseEl;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _vertexs;;
+			
+			=> nrel_goto: .proc_reflexive_graphs_operatorxx2;;
+		*);;
+		
+		-> .proc_reflexive_graphs_operatorxx2
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: concept_reflexive_graph;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_neg: _ara;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
+			
+			=> nrel_goto: .proc_reflexive_graphs_operator7;;
+		*);;
+		
+		-> .proc_reflexive_graphs_operator_return(*<-return;;*);;
+	*);;
+*);;
+

@@ -1,0 +1,17 @@
+ui_menu_bridge <- ui_user_command_class_atom; ui_user_command_class_view_kb;;
+
+ui_menu_bridge =>nrel_main_idtf: [Какие мосты есть в графе?] (* <- lang_ru;; *);;
+ui_menu_bridge =>nrel_main_idtf: [Request of definition all graph bridge] (* <- lang_en;; *);;
+
+ui_menu_bridge =>ui_nrel_command_template:
+[*
+	question_bridge _-> ._question_bridge_instance
+	(*
+		_-> ui_arg_1;;
+	*);;
+	._question_bridge_instance _<- question;;
+*];;
+
+ui_menu_bridge =>ui_nrel_command_lang_template: [Какие мосты есть в графе: $ui_arg_1] (*<- lang_ru;; *);;
+
+ui_menu_bridge =>ui_nrel_command_lang_template: [Request of definition all graph bridge: $ui_arg_1] (* <- lang_en;; *);;

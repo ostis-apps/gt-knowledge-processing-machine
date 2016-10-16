@@ -1,0 +1,28 @@
+ui_menu_find_number_of_arcs <- ui_user_command_class_atom; ui_user_command_class_view_kb;;
+
+// Указываем русский идентификатор нашей операции в меню
+ui_menu_find_number_of_arcs =>nrel_main_idtf: [Поиск количества ребер] (* <- lang_ru;; *);;
+
+// Указываем английский идентификатор нашей операции в меню
+ui_menu_find_number_of_arcs =>nrel_main_idtf: [Find number of edge] (* <- lang_en;; *);;
+
+// Указываем шаблон нашей команды
+ui_menu_find_number_of_arcs =>ui_nrel_command_template:
+[*
+	question_amount_of_arcs _-> ._question_amount_of_arcs_instance
+	(*
+		_-> ui_arg_1;;
+	*);;
+
+	._question_amount_of_arcs_instance _<- question;;
+*];;
+
+// Указываем текстовый шаблон команды на русском языке
+ui_menu_find_number_of_arcs =>ui_nrel_command_lang_template: [Поиск количества ребер: $ui_arg_1] 
+(*
+	<- lang_ru;; 
+*);;
+
+// Указываем текстовый шаблон команды на английском языке
+ui_menu_find_number_of_arcs =>ui_nrel_command_lang_template: [Find number of edge: $ui_arg_1]
+(* <- lang_en;; *);;

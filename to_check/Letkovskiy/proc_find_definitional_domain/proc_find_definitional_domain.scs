@@ -1,0 +1,593 @@
+scp_program -> proc_find_definitional_domain (*
+	
+	-> rrel_params: ... (*
+		-> rrel_1: rrel_in: _parameter;;
+		-> rrel_2: rrel_in: _answer;;
+	*);;
+
+	-> rrel_operators: ... (*
+
+	-> rrel_init: ..start (*
+		<- searchSetStr3;;
+		-> rrel_1: rrel_fixed: rrel_scp_var: _parameter;;
+		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		-> rrel_3: rrel_assign: rrel_scp_var: _node;;
+		-> rrel_set_3 : rrel_assign : rrel_scp_var : _soUPset;;
+
+		=> nrel_then : ..proc_step01;;
+		=> nrel_else : ..op_rerurno;;
+		*);;
+		
+
+
+-> ..proc_step01 (*
+<- genEl;;
+-> rrel_1: rrel_assign: rrel_node:rrel_scp_var : _no_def_dom;;
+
+=> nrel_goto : ..proc_step02;; *);;
+
+
+-> ..proc_step02 (*
+<- genEl;;
+-> rrel_1: rrel_assign: rrel_node:rrel_scp_var : _no_dom;;
+
+=> nrel_goto : ..proc_step03;; *);;
+
+
+-> ..proc_step03 (*
+<- genEl;;
+-> rrel_1: rrel_assign: rrel_node:rrel_scp_var : _domains;;
+
+=> nrel_goto : ..proc_step04;; *);;
+
+
+-> ..proc_step04 (*
+<- genEl;;
+-> rrel_1: rrel_assign: rrel_node : rrel_link : rrel_scp_var : _arity;;
+
+=> nrel_goto : ..proc_step05;; *);;
+
+
+-> ..proc_step05 (*
+<- genEl;;
+-> rrel_1: rrel_assign: rrel_node : rrel_scp_var : _no_ar;;
+
+=> nrel_goto : ..proc_step1;; *);;
+
+
+-> ..proc_step1 (*
+<- searchElStr3;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _soUPset;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
+-> rrel_3 : rrel_assign : rrel_scp_var : _relation;;
+
+=> nrel_then : ..proc_step2;; 
+=> nrel_else : ..op_clean_up1 ;;*);;
+
+
+-> ..proc_step2 (*
+<- eraseEl;;
+-> rrel_1 : rrel_fixed : rrel_pos_const_perm : rrel_erase : rrel_scp_var : _arc;;
+
+=> nrel_goto : ..proc_step3_1;; *);;
+
+
+-> ..proc_step3_1 (*
+<- contAssign;;
+-> rrel_1: rrel_fixed: rrel_scp_var: _arity;;
+-> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+=> nrel_goto : ..proc_step3;; *);;
+
+
+-> ..proc_step3 (*
+<- searchElStr5;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _relation;;
+-> rrel_2 : rrel_assign : rrel_common : rrel_scp_var : _arc1;;
+-> rrel_3 : rrel_assign : rrel_scp_var : _def_domain;;
+-> rrel_4 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc2;;
+-> rrel_5 : rrel_fixed : rrel_scp_const: nrel_definitional_domain;;
+
+=> nrel_then: ..proc_dom1;; 
+=> nrel_else: ..no_def_dom;;*);;
+
+
+
+-> ..no_def_dom (*
+<- genElStr3;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _no_def_dom;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _relation;;
+
+=> nrel_goto : ..proc_dom1;; *);;
+
+
+-> ..proc_dom1 (*
+<- searchElStr5;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _relation;;
+-> rrel_2 : rrel_assign : rrel_common : rrel_scp_var : _arc1;;
+-> rrel_3 : rrel_assign : rrel_scp_var : _domain;;
+-> rrel_4 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc2;;
+-> rrel_5 : rrel_fixed : rrel_scp_const: nrel_first_domain;;  ////////////////////////
+
+=> nrel_then: ..proc_dom1_0;; 
+=> nrel_else: ..no_dom;;*);;
+
+
+-> ..proc_dom1_0 (*
+<- contAdd;;
+-> rrel_1 : rrel_fixed : rrel_scp_var: _arity;;
+-> rrel_2 : rrel_fixed : rrel_scp_var: _arity;;
+-> rrel_3 : rrel_fixed : rrel_scp_const: [1];;
+
+=> nrel_goto : ..proc_dom1_1;; *);;
+
+
+
+-> ..proc_dom1_1 (*
+<- searchElStr3;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _no_def_dom;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _relation;;
+
+=> nrel_then : ..proc_dom1_2;; 
+=> nrel_else : ..proc_dom2 ;;*);;
+
+
+-> ..proc_dom1_2 (*
+<- genElStr3;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _domains;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _domain;;
+
+=> nrel_goto : ..proc_dom2;; *);;
+
+
+-> ..proc_dom2 (*
+<- searchElStr5;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _relation;;
+-> rrel_2 : rrel_assign : rrel_common : rrel_scp_var : _arc1;;
+-> rrel_3 : rrel_assign : rrel_scp_var : _domain;;
+-> rrel_4 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc2;;
+-> rrel_5 : rrel_fixed : rrel_scp_const: nrel_second_domain;;  ////////////////////////
+
+=> nrel_then: ..proc_dom2_0;; 
+=> nrel_else: ..proc_dom3a;;*);;
+
+
+-> ..proc_dom2_0 (*
+<- contAdd;;
+-> rrel_1 : rrel_fixed : rrel_scp_var: _arity;;
+-> rrel_2 : rrel_fixed : rrel_scp_var: _arity;;
+-> rrel_3 : rrel_fixed : rrel_scp_const: [1];;
+
+=> nrel_goto : ..proc_dom2_1;; *);;
+
+
+-> ..proc_dom2_1 (*
+<- searchElStr3;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _no_def_dom;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _relation;;
+
+=> nrel_then : ..proc_dom2_2;; 
+=> nrel_else : ..proc_dom3 ;;*);;
+
+
+-> ..proc_dom2_2 (*
+<- genElStr3;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _domains;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _domain;;
+
+=> nrel_goto : ..proc_dom3;; *);;
+
+
+-> ..proc_dom3 (*
+<- searchElStr5;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _relation;;
+-> rrel_2 : rrel_assign : rrel_common : rrel_scp_var : _arc1;;
+-> rrel_3 : rrel_assign : rrel_scp_var : _domain;;
+-> rrel_4 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc2;;
+-> rrel_5 : rrel_fixed : rrel_scp_const: nrel_third_domain;;  ////////////////////////
+
+=> nrel_then: ..proc_dom3_0;; 
+=> nrel_else: ..proc_WTD;;*);;
+
+
+-> ..proc_dom3_0 (*
+<- contAdd;;
+-> rrel_1 : rrel_fixed : rrel_scp_var: _arity;;
+-> rrel_2 : rrel_fixed : rrel_scp_var: _arity;;
+-> rrel_3 : rrel_fixed : rrel_scp_const: [1];;
+
+=> nrel_goto : ..proc_dom3_1;; *);;
+
+
+-> ..proc_dom3_1 (*
+<- searchElStr3;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _no_def_dom;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _relation;;
+
+=> nrel_then : ..proc_dom3_2;; 
+=> nrel_else : ..proc_WTD ;;*);;
+
+
+-> ..proc_dom3_2 (*
+<- genElStr3;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _domains;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _domain;;
+
+=> nrel_goto : ..proc_WTD;; *);;
+
+
+-> ..proc_dom3a (*
+<- searchElStr5;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _relation;;
+-> rrel_2 : rrel_assign : rrel_common : rrel_scp_var : _arc1;;
+-> rrel_3 : rrel_assign : rrel_scp_var : _domain;;
+-> rrel_4 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc2;;
+-> rrel_5 : rrel_fixed : rrel_scp_const: nrel_third_domain;;  ////////////////////////
+
+=> nrel_then: ..no_dom;; 
+=> nrel_else: ..proc_WTD;;*);;
+
+
+-> ..proc_WTD (*
+<- searchElStr5;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _relation;;
+-> rrel_2 : rrel_assign : rrel_common : rrel_scp_var : _arc1;;
+-> rrel_3 : rrel_assign : rrel_scp_var : _ar_rel;;
+-> rrel_4 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc2;;
+-> rrel_5 : rrel_fixed : rrel_scp_const: nrel_arity_of_relation;;  ////////////////////////
+
+=> nrel_then: ..proc_WTD1;; 
+=> nrel_else: ..no_ar;;*);;
+
+
+-> ..proc_WTD1 (*
+<- searchElStr5;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _ar_rel;;
+-> rrel_2 : rrel_assign : rrel_common : rrel_scp_var : _arc1;;
+-> rrel_3 : rrel_assign : rrel_scp_var : _ar;;
+-> rrel_4 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc2;;
+-> rrel_5 : rrel_fixed : rrel_scp_const: nrel_system_identifier;;  ////////////////////////
+
+=> nrel_then: ..proc_WTD2;; 
+=> nrel_else: ..no_ar;;*);;
+
+
+-> ..proc_WTD2 (*
+<- ifEq;;
+-> rrel_1 : rrel_fixed : rrel_scp_var: _arity;;
+-> rrel_2 : rrel_fixed : rrel_scp_var: _ar;;
+
+=> nrel_then : ..proc_WTD3;; 
+=> nrel_else : ..no_dom ;;*);;
+
+
+-> ..no_ar (*
+<- genElStr3;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _no_ar;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _relation;;
+
+=> nrel_goto : ..proc_WTD3;; *);;
+
+
+-> ..proc_WTD3 (*
+<- searchElStr3;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _no_def_dom;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _relation;;
+
+=> nrel_then : ..proc_find_def_dom01;; 
+=> nrel_else : ..proc_step1 ;;*);;
+
+
+-> ..proc_find_def_dom01 (*
+<- genElStr5;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _relation;;
+-> rrel_2 : rrel_assign : rrel_common : rrel_const : rrel_scp_var : _arc1;;
+-> rrel_3 : rrel_assign : rrel_scp_var : _new;;
+-> rrel_4 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc2;;
+-> rrel_5 : rrel_fixed : rrel_scp_const : nrel_definitional_domain;;
+
+=> nrel_goto : ..proc_find_def_dom02;; *);;
+
+
+-> ..proc_find_def_dom02 (*
+<- genElStr5;;
+-> rrel_1 : rrel_assign : rrel_scp_var : _new1;;
+-> rrel_2 : rrel_assign : rrel_common : rrel_const : rrel_scp_var : _arc1;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _new;;
+-> rrel_4 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc2;;
+-> rrel_5 : rrel_fixed : rrel_scp_const : nrel_combination;;
+
+=> nrel_goto : ..proc_find_def_dom1;; *);;
+
+
+-> ..proc_find_def_dom1 (*
+<- searchElStr3;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _domains;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
+-> rrel_3 : rrel_assign : rrel_scp_var : _domain;;
+
+=> nrel_then : ..proc_find_def_dom2;; 
+=> nrel_else : ..proc_step1 ;;*);;
+
+
+-> ..proc_find_def_dom2 (*
+<- eraseEl;;
+-> rrel_1 : rrel_fixed : rrel_pos_const_perm : rrel_erase : rrel_scp_var : _arc;;
+
+=> nrel_goto : ..proc_find_def_dom3;; *);;
+
+
+-> ..proc_find_def_dom3 (*
+<- genElStr3;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _new1;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _domain;;
+
+=> nrel_goto : ..proc_find_def_dom1;; *);;///////////////////////////////////////////////////////////////////////
+
+
+
+
+
+-> ..no_dom (*
+<- genElStr3;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _no_dom;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _relation;;
+
+=> nrel_goto : ..proc_step1;; *);;///////////////////////////////////////////////////////////////////////
+
+
+-> ..op_clean_up1 (*
+<- eraseEl;;
+-> rrel_1 : rrel_fixed : rrel_erase : rrel_scp_var : _soUPset;;
+
+=> nrel_goto : ..op_sort1;; *);;
+
+
+-> ..op_sort1 (*
+<- searchSetStr3;;
+-> rrel_1: rrel_fixed: rrel_scp_var: _no_def_dom;;
+-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+-> rrel_3: rrel_assign: rrel_scp_var: _node;;
+-> rrel_set_3 : rrel_assign : rrel_scp_var : _soUPset;;
+
+=> nrel_then : ..op_sort2;;
+=> nrel_else : ..gen_ans1;;*);;
+	
+
+-> ..op_sort2 (*
+<- searchElStr3;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _soUPset;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
+-> rrel_3 : rrel_assign : rrel_scp_var : _node;;
+
+=> nrel_then : ..op_sort3;; 
+=> nrel_else : ..op_fin_sort ;;*);;
+
+
+-> ..op_sort3 (*
+<- eraseEl;;
+-> rrel_1 : rrel_fixed : rrel_pos_const_perm : rrel_erase : rrel_scp_var : _arc;;
+
+=> nrel_goto : ..op_sort4;; *);;
+
+
+-> ..op_sort4 (*
+<- searchElStr3;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _no_dom;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _node;;
+
+=> nrel_then : ..op_sort5;; 
+=> nrel_else : ..op_sort2 ;;*);;
+
+
+-> ..op_sort5 (*
+<- searchElStr3;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _no_def_dom;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _node;;
+
+=> nrel_goto : ..op_sort6 ;;*);;
+
+
+-> ..op_sort6 (*
+<- eraseEl;;
+-> rrel_1 : rrel_fixed : rrel_pos_const_perm : rrel_erase : rrel_scp_var : _arc;;
+
+=> nrel_goto : ..op_sort2;; *);;
+
+
+-> ..op_fin_sort (*
+<- eraseEl;;
+-> rrel_1 : rrel_fixed : rrel_erase : rrel_scp_var : _soUPset;;
+
+=> nrel_goto : ..gen_ans1;; *);;
+
+
+
+
+
+
+-> ..gen_ans1 (*
+<- genElStr3;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _answer;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_const : rrel_scp_var : _arc1;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _parameter;;
+
+=> nrel_goto : ..gen_ans2;; *);;
+
+
+-> ..gen_ans2 (*
+<- genElStr3;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _answer;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_const : rrel_scp_var : _arc1;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _no_def_dom;;
+
+=> nrel_goto : ..gen_ans3;; *);;
+
+
+-> ..gen_ans3 (*
+<- genElStr3;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _answer;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_const : rrel_scp_var : _arc1;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _no_dom;;
+
+=> nrel_goto : ..gen_ans4;; *);;
+
+
+-> ..gen_ans4 (*
+<- genElStr3;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _answer;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_const : rrel_scp_var : _arc1;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _no_ar;;
+
+=> nrel_goto : ..gen_ans5;; *);;
+
+
+
+-> ..gen_ans5 (*
+<- genElStr5;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _parameter;;
+-> rrel_2 : rrel_assign : rrel_common : rrel_const : rrel_scp_var : _arc1_1;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _no_def_dom;;
+-> rrel_4 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc2;;
+-> rrel_5 : rrel_fixed : rrel_scp_const : nrel_relation_with_new_definitional_domain;;
+
+=> nrel_goto : ..gen_ans6;; *);;
+
+
+-> ..gen_ans6 (*
+<- genElStr5;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _parameter;;
+-> rrel_2 : rrel_assign : rrel_common : rrel_const : rrel_scp_var : _arc1_2;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _no_dom;;
+-> rrel_4 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc3;;
+-> rrel_5 : rrel_fixed : rrel_scp_const : nrel_relation_without_domain;;
+
+=> nrel_goto : ..gen_ans7;; *);;
+
+
+
+-> ..gen_ans7 (*
+<- genElStr5;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _parameter;;
+-> rrel_2 : rrel_assign : rrel_common : rrel_const : rrel_scp_var : _arc1_3;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _no_ar;;
+-> rrel_4 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc4;;
+-> rrel_5 : rrel_fixed : rrel_scp_const : nrel_relation_without_arity;;
+
+=> nrel_goto : ..gen_ans8;; *);;
+
+
+-> ..gen_ans8 (*
+<- genElStr3;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _answer;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_const : rrel_scp_var : _arc1;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _arc1_1;;
+
+=> nrel_goto : ..gen_ans9;; *);;
+
+
+-> ..gen_ans9 (*
+<- genElStr3;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _answer;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_const : rrel_scp_var : _arc1;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _arc1_2;;
+
+=> nrel_goto : ..gen_ans10;; *);;
+
+
+-> ..gen_ans10 (*
+<- genElStr3;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _answer;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_const : rrel_scp_var : _arc1;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _arc1_3;;
+
+=> nrel_goto : ..gen_ans11;; *);;
+
+
+-> ..gen_ans11 (*
+<- genElStr3;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _answer;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_const : rrel_scp_var : _arc1;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _arc2;;
+
+=> nrel_goto : ..gen_ans12;; *);;
+
+
+-> ..gen_ans12 (*
+<- genElStr3;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _answer;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_const : rrel_scp_var : _arc1;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _arc3;;
+
+=> nrel_goto : ..gen_ans13;; *);;
+
+
+
+-> ..gen_ans13 (*
+<- genElStr3;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _answer;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_const : rrel_scp_var : _arc1;;
+-> rrel_3 : rrel_fixed : rrel_scp_var : _arc4;;
+
+=> nrel_goto : ..gen_ans14;; *);;
+
+
+-> ..gen_ans14 (*
+<- genElStr3;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _answer;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_const : rrel_scp_var : _arc1;;
+-> rrel_3 : rrel_fixed : rrel_scp_const : nrel_relation_without_arity;;
+
+=> nrel_goto : ..gen_ans15;; *);;
+
+
+-> ..gen_ans15 (*
+<- genElStr3;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _answer;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_const : rrel_scp_var : _arc1;;
+-> rrel_3 : rrel_fixed : rrel_scp_const : nrel_relation_without_domain;;
+
+=> nrel_goto : ..gen_ans16;; *);;
+
+
+-> ..gen_ans16 (*
+<- genElStr3;;
+-> rrel_1 : rrel_fixed : rrel_scp_var : _answer;;
+-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_const : rrel_scp_var : _arc1;;
+-> rrel_3 : rrel_fixed : rrel_scp_const : nrel_relation_with_new_definitional_domain;;
+
+=> nrel_goto : ..op_clean_up2;; *);;
+
+
+-> ..op_clean_up2 (*
+<- eraseEl;;
+-> rrel_1 : rrel_fixed : rrel_erase : rrel_scp_var : _domains;;
+
+=> nrel_goto : ..op_clean_up3;; *);;
+
+
+-> ..op_clean_up3 (*
+<- eraseEl;;
+-> rrel_1 : rrel_fixed : rrel_erase : rrel_scp_var : _arity;;
+
+=> nrel_goto : ..op_returno;; *);;
+
+
+-> ..op_returno (*
+<- return;; *);;
+
+*);;
+*);;

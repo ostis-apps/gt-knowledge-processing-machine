@@ -1,0 +1,28 @@
+ui_menu_search_operation_numeric_or_set <- ui_user_command_class_atom; ui_user_command_class_view_kb;;
+
+// Указываем русский идентификатор нашей операции в меню
+ui_menu_search_operation_numeric_or_set =>nrel_main_idtf: [Нахождение множества или числовой характеристики] (* <- lang_ru;; *);;
+
+// Указываем английский идентификатор нашей операции в меню
+ui_menu_search_operation_numeric_or_set =>nrel_main_idtf: [Finding set or numerical characteristics] (* <- lang_en;; *);;
+
+// Указываем шаблон нашей команды
+ui_menu_search_operation_numeric_or_set =>ui_nrel_command_template:
+[*
+	question_of_finding_numeric_or_set _-> ._question_of_finding_numeric_or_set_instance
+	(*
+		_-> ui_arg_1;;
+	*);;
+
+	._question_of_finding_numeric_or_set_instance _<- question;;
+*];;
+
+// Указываем текстовый шаблон команды на русском языке
+ui_menu_search_operation_numeric_or_set =>ui_nrel_command_lang_template: [Нахождение множества или числовой характеристики: $ui_arg_1] 
+(*
+	<- lang_ru;; 
+*);;
+
+// Указываем текстовый шаблон команды на английском языке
+ui_menu_search_operation_numeric_or_set =>ui_nrel_command_lang_template: [Finding sets or numerical characteristics: $ui_arg_1]
+(* <- lang_en;; *);;

@@ -1,0 +1,28 @@
+ui_menu_search_operation_find_antideadlock <- ui_user_command_class_atom; ui_user_command_class_view_kb;;
+
+// Указываем русский идентификатор нашей операции в меню
+ui_menu_search_operation_find_antideadlock =>nrel_main_idtf: [Какие есть антитупики в графе?] (* <- lang_ru;; *);;
+
+// Указываем английский идентификатор нашей операции в меню
+ui_menu_search_operation_find_antideadlock =>nrel_main_idtf: [Finding antideadlock in graph] (* <- lang_en;; *);;
+
+// Указываем шаблон нашей команды
+ui_menu_search_operation_find_antideadlock =>ui_nrel_command_template:
+[*
+	question_find_antideadlock _-> ._question_find_antideadlock_instance
+	(*
+		_-> ui_arg_1;;
+	*);;
+
+	._question_find_antideadlock_instance _<- question;;
+*];;
+
+// Указываем текстовый шаблон команды на русском языке
+ui_menu_search_operation_find_antideadlock =>ui_nrel_command_lang_template: [Какие есть антитупики в графе: $ui_arg_1] 
+(*
+	<- lang_ru;; 
+*);;
+
+// Указываем текстовый шаблон команды на английском языке
+ui_menu_search_operation_find_antideadlock =>ui_nrel_command_lang_template: [Finding antideadlock in graph: $ui_arg_1]
+(* <- lang_en;; *);;

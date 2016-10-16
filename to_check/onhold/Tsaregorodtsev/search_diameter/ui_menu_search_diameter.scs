@@ -1,0 +1,28 @@
+ui_menu_search_diameter <- ui_user_command_class_atom; ui_user_command_class_view_kb;;
+
+// Указываем русский идентификатор нашей операции в меню
+ui_menu_search_diameter =>nrel_main_idtf: [Запрос диаметра графа] (* <- lang_ru;; *);;
+
+// Указываем английский идентификатор нашей операции в меню
+ui_menu_search_diameter =>nrel_main_idtf: [Request of graph's diameter] (* <- lang_en;; *);;
+
+// Указываем шаблон нашей команды
+ui_menu_search_diameter =>ui_nrel_command_template:
+[*
+	question_search_diameter _-> ._question_search_diameter_instance
+	(*
+		_-> ui_arg_1;;
+	*);;
+
+	._question_search_diameter_instance _<- question;;
+*];;
+
+// Указываем текстовый шаблон команды на русском языке
+ui_menu_search_diameter =>ui_nrel_command_lang_template: [Запрос диаметра графа: $ui_arg_1] 
+(*
+	<- lang_ru;; 
+*);;
+
+// Указываем текстовый шаблон команды на английском языке
+ui_menu_search_diameter =>ui_nrel_command_lang_template: [Request of graph's diameter: $ui_arg_1]
+(* <- lang_en;; *);;

@@ -1,0 +1,37 @@
+proc_find_points_of_articulation_var2
+=> nrel_main_idtf:
+	[Программа поиска всех точек сочленения графа] (* <- lang_ru;; *);
+
+=> nrel_initiation_condition_and_result: (..scp_program_proc_find_points_of_articulation_var2_initiation_condition
+					  => ..scp_program_proc_find_points_of_articulation_var2_result);
+<= nrel_scp_program_key_sc_elements: 
+	{
+		concept_graph;
+		rrel_vertex;
+		rrel_oredge;
+		nrel_set_point_articulation
+	};
+
+<- key_sc_element:
+	..scp_program_proc_find_points_of_articulation_var2_behavior
+	(*
+		<- sc_description_of_scp_program_behavior;;
+		<= nrel_sc_text_translation:
+		...
+		(*
+			-> rrel_example:
+				[Это программа создает множество точек сочленения графа и связывает его с графом отношением "множество точек сочленения*"];;
+		*);;
+	*);;
+
+..scp_program_proc_find_points_of_articulation_var2_initiation_condition
+= [*
+	concept_graph _-> _curr_graph;;
+*];;
+
+
+..scp_program_proc_find_points_of_articulation_var2_result
+= [*
+	concept_graph _-> _curr_graph;;
+	_curr_graph _=> nrel_set_point_articulation: _set_point_of_articulation;;
+*];;

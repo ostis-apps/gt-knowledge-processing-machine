@@ -1,0 +1,15 @@
+concept_directed_graph->cyclic_graph1(*
+	->rrel_vertex: v1;;
+	->rrel_vertex: v2;;
+	->rrel_vertex: v3;;
+	->rrel_vertex: v4;;
+	->rrel_vertex: v5;;
+	->rrel_vertex: v6;;
+	->rrel_edge: ( v2 => v3 );;
+	->rrel_edge: ( v3 => v4 );;
+	->rrel_edge: ( v4 => v6 );;
+	->rrel_edge: ( v4 => v5 );;
+	->rrel_edge: ( v5 => v2 );;
+*);;
+
+cyclic_graph1=> nrel_main_idtf: [тестовый граф 1(цикличный граф)](*<-lang_ru;;*);;

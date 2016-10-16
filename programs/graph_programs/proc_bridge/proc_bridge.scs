@@ -1,0 +1,363 @@
+scp_program -> proc_bridge (*	
+	-> rrel_params: ... (*
+		-> rrel_1: rrel_in: _graph;;
+		-> rrel_2: rrel_in: _answer;;
+	*);;
+
+	-> rrel_operators: ... (*
+		-> rrel_init: ..proc_bridge_operator0_0 (*
+        	<- searchElStr5;;
+	        -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+	        -> rrel_2: rrel_assign: rrel_common: rrel_scp_var: rrel_const: _arc_br_2;;
+	        -> rrel_3: rrel_assign: rrel_node: rrel_scp_var: _set_of_bridge;;
+	        -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_br_4;;
+	        -> rrel_5: rrel_fixed: rrel_node: rrel_const: nrel_set_bridge;;
+
+	        => nrel_then: ..proc_bridge_operator0_1;;
+	        => nrel_else: ..proc_bridge_operator1;;
+	    *);;
+
+// Генерация дуг от _answer 
+        -> ..proc_bridge_operator0_1 (*
+            <- genElStr3;;
+            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1_answer;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+            => nrel_goto : ..proc_bridge_operator0_2;; 
+        *);;
+
+        -> ..proc_bridge_operator0_2 (*
+            <- genElStr3;;
+            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2_answer;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _arc_br_2;;
+
+            => nrel_goto : ..proc_bridge_operator0_3;; 
+        *);;
+
+        -> ..proc_bridge_operator0_3 (*
+            <- genElStr3;;
+            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc3_answer;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _set_of_bridge;;
+
+            => nrel_goto : ..proc_bridge_operator0_4;; 
+        *);;
+
+        -> ..proc_bridge_operator0_4 (*
+            <- genElStr3;;
+            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4_answer;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _arc_br_4;;
+
+            => nrel_goto : ..proc_bridge_operator0_5;; 
+        *);;
+
+         -> ..proc_bridge_operator0_5 (*
+            <- genElStr3;;
+            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc5_answer;;
+            -> rrel_3: rrel_fixed: rrel_node: rrel_const: rrel_scp_const: nrel_set_bridge;;
+
+            => nrel_goto : ..proc_bridge_operator0_6;; 
+        *);;
+
+         -> ..proc_bridge_operator0_6 (*
+            <- searchSetStr3;;
+	        -> rrel_1: rrel_fixed: rrel_scp_var: _set_of_bridge;;
+	        -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
+	        -> rrel_3: rrel_assign: rrel_scp_var: _el3;;
+	        -> rrel_set_3: rrel_assign: rrel_scp_var: _temp_set;;
+
+	        => nrel_then: ..proc_bridge_operator0_7;;
+	        => nrel_else: ..proc_bridge_operator_end ;;
+        *);;
+
+        -> ..proc_bridge_operator0_7 (*
+            <- searchElStr3;;
+            -> rrel_1 : rrel_fixed : rrel_scp_var : _temp_set;;
+            -> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
+            -> rrel_3 : rrel_assign : rrel_scp_var : _edge;;
+
+            => nrel_then : ..proc_bridge_operator0_8;; 
+            => nrel_else : ..proc_bridge_operator_end ;;
+        *);; 
+
+        -> ..proc_bridge_operator0_8 (*
+            <- genElStr3;;
+            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc_step_check_bridge_0_8;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _edge;;
+
+            => nrel_goto : ..proc_bridge_operator0_9;;
+        *);;
+
+        -> ..proc_bridge_operator0_9 (*
+            <- eraseEl;;
+            -> rrel_1 : rrel_fixed : rrel_pos_const_perm : rrel_erase: rrel_scp_var : _arc;;
+
+            => nrel_goto : ..proc_bridge_operator0_10;; 
+        *);;
+
+        -> ..proc_bridge_operator0_10 (*
+            <- searchElStr3;;
+            -> rrel_1 : rrel_fixed : rrel_scp_var : _set_of_bridge;;
+            -> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
+            -> rrel_3 : rrel_fixed : rrel_scp_var : _edge;;
+
+            => nrel_then : ..proc_bridge_operator0_11;; 
+            => nrel_else : ..proc_bridge_operator0_7;;
+        *);;
+
+        -> ..proc_bridge_operator0_11 (*
+            <- genElStr3;;
+            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc_step_check_bridge_0_11;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _arc;;
+
+            => nrel_goto : ..proc_bridge_operator0_7;;
+        *);;
+
+// Добавление всех вершин графа во множество непроверенных вершин.	
+		-> ..proc_bridge_operator1 (*
+			 <- searchSetStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _el3;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+		
+			->rrel_set_3: rrel_assign: rrel_scp_var: _not_checked_vertexes;;
+			=> nrel_then: ..proc_bridge_operator4;;		
+		 	=> nrel_else: ..proc_bridge_operator_end;;	
+		*);;
+		
+// У этого узла нет родителя
+        -> ..proc_bridge_operator4 (*
+            <- genEl;;
+            -> rrel_1: rrel_assign: rrel_scp_var: rrel_node: _node;;
+
+            => nrel_goto: ..proc_bridge_operator5;; 
+        *);;
+
+// Создание узла _timer
+		-> ..proc_bridge_operator5 (*
+		    <- genEl;;
+	        -> rrel_1: rrel_assign: rrel_node: rrel_link: rrel_const: rrel_scp_var: _timer;;
+
+	        => nrel_goto: ..proc_bridge_operator6;; 
+		*);;
+
+// заносим время в таймер
+        -> ..proc_bridge_operator6 (*
+            <- contAssign;;
+	        -> rrel_1: rrel_fixed: rrel_scp_var: _timer;;
+	        -> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+	        => nrel_goto: ..proc_bridge_operator7;;
+        *);;
+
+// Создание узла tin_vertex*
+		-> ..proc_bridge_operator7 (*
+		    <- genEl;;
+	        -> rrel_1: rrel_assign: rrel_node: rrel_scp_var: tin_vertex;;
+
+	        => nrel_goto: ..proc_bridge_operator8;; 
+		*);;
+
+// Создание узла fup_vertex*
+		-> ..proc_bridge_operator8 (*
+		    <- genEl;;
+	        -> rrel_1: rrel_assign: rrel_node: rrel_scp_var: fup_vertex;;
+
+	        => nrel_goto: ..proc_bridge_operator9;; 
+		*);;
+
+// Создание узла _set_of_bridge
+		-> ..proc_bridge_operator9 (*
+		    <- genEl;;
+	        -> rrel_1: rrel_assign: rrel_scp_var: rrel_node: _set_of_bridge;;
+
+	        => nrel_goto: ..proc_bridge_operator10;; 
+		*);;
+
+
+// Генерация дуги от _graph _set_of_bridge
+        -> ..proc_bridge_operator10 (*
+        	<- genElStr5;;
+	        -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+	        -> rrel_2: rrel_assign: rrel_common: rrel_scp_var: rrel_const: _arc_bridge_2;;
+	        -> rrel_3: rrel_fixed: rrel_node: rrel_scp_var: _set_of_bridge;;
+	        -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_bridge_4;;
+	        -> rrel_5: rrel_fixed: rrel_node: rrel_const: nrel_set_bridge;;
+
+	        => nrel_goto: ..proc_bridge_operator11;;
+	    *);;
+
+// Генерация дуг от _answer 
+        -> ..proc_bridge_operator11 (*
+            <- genElStr3;;
+            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1_answer;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+            => nrel_goto : ..proc_bridge_operator12;; 
+        *);;
+
+        -> ..proc_bridge_operator12 (*
+            <- genElStr3;;
+            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2_answer;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _arc_bridge_2;;
+
+            => nrel_goto : ..proc_bridge_operator13;; 
+        *);;
+
+        -> ..proc_bridge_operator13 (*
+            <- genElStr3;;
+            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc3_answer;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _set_of_bridge;;
+
+            => nrel_goto : ..proc_bridge_operator14;; 
+        *);;
+
+        -> ..proc_bridge_operator14 (*
+            <- genElStr3;;
+            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4_answer;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _arc_bridge_4;;
+
+            => nrel_goto : ..proc_bridge_operator15;; 
+        *);;
+
+         -> ..proc_bridge_operator15 (*
+            <- genElStr3;;
+            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc5_answer;;
+            -> rrel_3: rrel_fixed: rrel_node: rrel_const: rrel_scp_const: nrel_set_bridge;;
+
+            => nrel_goto : ..proc_bridge_operator16;;   
+        *);;
+
+// Нахождение первой поавшейся вершины в графе.
+        -> ..proc_bridge_operator16 (*
+            <- searchElStr3;;
+            -> rrel_1: rrel_fixed: rrel_scp_var: _not_checked_vertexes;;
+            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _beg_vertex;;
+
+            => nrel_then: ..proc_bridge_operator17;;       
+            => nrel_else: ..proc_bridge_operator20;;  
+        *);;
+
+// Удаление этой вершины из множества непроверенных     
+        -> ..proc_bridge_operator17 (*
+            <- eraseEl;;
+            -> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc2;;
+
+            => nrel_goto: ..in_dfs;; 
+        *);;
+
+
+// Первый вызывание dfs
+		-> ..in_dfs (*
+            <- call;;
+	        -> rrel_1: rrel_fixed: rrel_scp_const: proc_dfs_for_bridges;;
+	        -> rrel_2: rrel_fixed: rrel_scp_const: ... (*
+		        -> rrel_1: rrel_fixed: rrel_scp_var: _beg_vertex;;
+		        -> rrel_2: rrel_fixed: rrel_scp_var: _node;;
+		        -> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+		        -> rrel_4: rrel_fixed: rrel_scp_var: _not_checked_vertexes;;
+		        -> rrel_5: rrel_fixed: rrel_scp_var: _timer;;
+		        -> rrel_6: rrel_fixed: rrel_scp_var: _set_of_bridge;;
+		        -> rrel_7: rrel_fixed: rrel_scp_const: tin_vertex;;
+		        -> rrel_8: rrel_fixed: rrel_scp_const: fup_vertex;;
+		        -> rrel_9: rrel_fixed: rrel_scp_var: _answer;;
+	        *);;
+	        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+
+	        => nrel_goto: ..out_dfs;;
+        *);;
+
+// Ожидаем пока завершатся все предыдущии действия		
+        -> ..out_dfs (*
+	        <- waitReturn;;
+	        -> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
+	
+	        => nrel_goto: ..proc_bridge_operator16;; 
+	    *);;
+
+// удаляем _tin  
+		-> ..proc_bridge_operator20 (*
+        	<- searchElStr5;;
+	        -> rrel_1: rrel_assign: rrel_scp_var: rrel_node: rrel_const: _v_tin;;
+	        -> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc_tin_2;;
+	        -> rrel_3: rrel_assign: rrel_scp_var: rrel_link: rrel_const: _tin;;
+	        -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_tin_4;;
+	        -> rrel_5: rrel_fixed: rrel_scp_const: rrel_node: rrel_const: tin_vertex;;
+
+	        => nrel_then: ..proc_bridge_operator21;;
+	        => nrel_else: ..proc_bridge_operator22;;
+        *);;
+
+// Удаляем переменную _tin
+        -> ..proc_bridge_operator21 (*
+            <- eraseEl;;
+            -> rrel_1 : rrel_fixed : rrel_erase: rrel_scp_var : _tin;;
+
+            => nrel_goto : ..proc_bridge_operator20;; 
+        *);;
+
+// удаляем _fup 
+        -> ..proc_bridge_operator22(*
+        	<- searchElStr5;;
+	        -> rrel_1: rrel_assign: rrel_scp_var: rrel_node: rrel_const: _v_fup;;
+	        -> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc_fup_2;;
+	        -> rrel_3: rrel_assign: rrel_scp_var: rrel_link: rrel_const: _fup;;
+	        -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_fup_4;;
+	        -> rrel_5: rrel_fixed: rrel_scp_const: rrel_node: rrel_const: fup_vertex;;
+
+	        => nrel_then: ..proc_bridge_operator23;;
+	        => nrel_else: ..proc_bridge_operator24;;
+        *);;
+
+// Удаляем переменную _fup
+        -> ..proc_bridge_operator23 (*
+            <- eraseEl;;
+            -> rrel_1 : rrel_fixed : rrel_erase: rrel_scp_var : _fup;;
+
+            => nrel_goto : ..proc_bridge_operator22;; 
+        *);;
+
+// Удаляем переменную _timer
+        -> ..proc_bridge_operator24 (*
+            <- eraseEl;;
+            -> rrel_1 : rrel_fixed : rrel_erase: rrel_scp_var : _timer;;
+
+            => nrel_goto : ..proc_bridge_operator25;; 
+        *);;
+
+// Удаляем переменную _node
+        -> ..proc_bridge_operator25 (*
+            <- eraseEl;;
+            -> rrel_1 : rrel_fixed : rrel_erase: rrel_scp_var : _node;;
+
+            => nrel_goto : ..proc_bridge_operator26;; 
+        *);;
+
+// Удаляем переменную _not_checked_vertexes
+        -> ..proc_bridge_operator26 (*
+            <- eraseEl;;
+            -> rrel_1 : rrel_fixed : rrel_erase: rrel_scp_var : _not_checked_vertexes;;
+
+            => nrel_goto : ..proc_bridge_operator_end;; 
+        *);;
+
+// Завершаем программу
+	    -> ..proc_bridge_operator_end (*
+			<- return;;
+		*);;	
+	*);;
+*);;

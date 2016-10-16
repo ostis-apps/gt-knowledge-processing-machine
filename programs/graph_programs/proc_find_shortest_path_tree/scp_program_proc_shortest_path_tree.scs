@@ -1,0 +1,39 @@
+proc_find_shortest_path_tree
+=> nrel_main_idtf:
+	[&&] (* <- lang_ru;; *);
+
+=> nrel_initiation_condition_and_result: (..scp_program_proc_shortest_path_tree_initiation_condition
+					  => ..scp_program_proc_shortest_path_tree_result);
+<= nrel_scp_program_key_sc_elements: 
+	{
+		concept_graph;
+		rrel_vertex;
+		nrel_tree_minimal_way;
+		concept_tree
+	};
+
+<- key_sc_element:
+	..scp_program_proc_shortest_path_tree_behavior
+	(*
+		<- sc_description_of_scp_program_behavior;;
+		<= nrel_sc_text_translation:
+		...
+		(*
+			-> rrel_example:
+				[&&];;
+		*);;
+	*);;
+
+..scp_program_proc_shortest_path_tree_initiation_condition
+= [*
+	concept_graph _-> _graph;;
+	_graph _-> _beg_vertex;;
+*];;
+
+
+..scp_program_proc_shortest_path_tree_result
+= [*
+	concept_graph _-> _graph;;
+	_graph _=> nrel_tree_minimal_way: _shortest_path_tree;;
+	concept_tree _-> _shortest_path_tree;;
+*];;

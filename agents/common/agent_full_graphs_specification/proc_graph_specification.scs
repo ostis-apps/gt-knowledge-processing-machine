@@ -1,0 +1,76 @@
+scp_program -> proc_graph_specification
+(*
+	-> rrel_params: ...
+	(*
+		-> rrel_1: rrel_in: _outline;;
+		-> rrel_2: rrel_in: _answer;;	
+	*);;
+
+	-> rrel_operators: ... 
+	(*
+		-> rrel_init: .proc_graph_specification_operator1
+		(*
+			<- searchSetStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: set_used_program_on_graph;;
+                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs1;;
+                        -> rrel_3: rrel_assign: rrel_scp_var: _vert;;
+
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _elements;;
+			
+			=> nrel_then: .proc_graph_specification_operator2;;
+                	=> nrel_else: .proc_graph_specification_return;;
+		*);;
+
+		-> .proc_graph_specification_operator2
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _elements;;
+                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_erase;;
+                        -> rrel_3: rrel_assign: rrel_scp_var: _program_on_graph;;
+			
+			=>nrel_then: .proc_graph_specification_operator3;;
+			=>nrel_else: .proc_graph_specification_operator6;; 	
+		*);;
+
+		-> .proc_graph_specification_operator3
+		(*
+			<- call;;
+		        -> rrel_1: rrel_fixed: rrel_scp_var: _program_on_graph;;
+		        -> rrel_2: rrel_fixed: rrel_scp_const: ...
+				(*
+					-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
+					-> rrel_2: rrel_fixed: rrel_scp_var: _answer;;
+				*);;
+		        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+
+			=> nrel_goto: .proc_graph_specification_operator4;;
+		*);;
+
+		-> .proc_graph_specification_operator4
+		(*
+			<- waitReturn;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
+
+			=> nrel_goto: .proc_graph_specification_operator5;;
+		*);;		
+
+		-> .proc_graph_specification_operator5
+		(*
+			<- eraseEl;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc_erase;;
+			
+			=> nrel_goto: .proc_graph_specification_operator2;;
+		*);;
+
+		-> .proc_graph_specification_operator6
+		(*
+			<- eraseEl;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _elements;;
+			
+			=> nrel_goto: .proc_graph_specification_return;;
+		*);;
+		
+		-> .proc_graph_specification_return(*<-return;;*);;
+	*);;
+*);;
+

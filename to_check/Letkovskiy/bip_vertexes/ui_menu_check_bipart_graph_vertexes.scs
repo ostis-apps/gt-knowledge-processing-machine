@@ -1,0 +1,17 @@
+ui_menu_check_bipart_graph_vertexes <- ui_user_command_class_atom; ui_user_command_class_view_kb;;
+
+ui_menu_check_bipart_graph_vertexes =>nrel_main_idtf: [Нахождение двух множеств вершин, характеризующих двудольный граф] (* <- lang_ru;; *);;
+ui_menu_check_bipart_graph_vertexes =>nrel_main_idtf: [Searching two sets of vertexes that characterize bigraph] (* <- lang_en;; *);;
+
+ui_menu_check_bipart_graph_vertexes =>ui_nrel_command_template:
+[*
+	question_find_bipartite_set_vertexes _-> ._question_find_bipartite_set_vertexes_instance
+	(*
+		_-> ui_arg_1;;
+	*);;
+	._question_find_bipartite_set_vertexes_instance _<- question;;
+*];;
+
+ui_menu_check_bipart_graph_vertexes =>ui_nrel_command_lang_template: [Запрос нахождения двух множеств вершин, характеризующих двудольный граф: $ui_arg_1] (*<- lang_ru;; *);;
+
+ui_menu_check_bipart_graph_vertexes =>ui_nrel_command_lang_template: [Request of searching two sets of vertexes that characterize bigraph: $ui_arg_1] (* <- lang_en;; *);;

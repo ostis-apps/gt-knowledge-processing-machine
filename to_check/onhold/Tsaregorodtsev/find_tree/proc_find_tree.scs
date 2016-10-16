@@ -1,0 +1,258 @@
+scp_program -> proc_find_tree 
+(*	
+	-> rrel_params: ... 
+	(*
+		-> rrel_1: rrel_in: _parameter;;
+		-> rrel_2: rrel_in: _answer;;
+	*);;
+
+	-> rrel_operators: ... 
+	(*
+
+	-> rrel_init: ..proc_find_tree_operator0(*
+        <-searchElStr3;;
+        ->rrel_1:rrel_fixed:rrel_scp_const: concept_tree;;
+        ->rrel_2:rrel_assign:rrel_scp_var:_arc1;;
+        ->rrel_3:rrel_fixed:rrel_scp_var:_parameter;;
+
+        =>nrel_then:..proc_add_graph_in_answer1;;
+        =>nrel_else:..proc_find_tree_operator1;;
+    *);;
+
+	-> ..proc_find_tree_operator1 (*
+		<- call;;
+		-> rrel_1: rrel_fixed: rrel_scp_const: proc_if_connected;;
+		-> rrel_2: rrel_fixed: rrel_scp_const: ... (*
+			-> rrel_1: rrel_fixed: rrel_scp_var: _parameter;;
+			-> rrel_2: rrel_fixed: rrel_scp_var: _answer;;
+		*);;
+		-> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+
+		=> nrel_goto: ..proc_find_tree_operator1_1;;
+	*);;
+
+	-> ..proc_find_tree_operator1_1 (*
+		<- waitReturn;;
+		-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
+
+		=> nrel_goto: ..proc_find_tree_operator2;;
+	*);;
+
+	-> ..proc_find_tree_operator2 (*
+		<- searchElStr3;;
+	 	-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+		-> rrel_3: rrel_fixed: rrel_scp_const: concept_connected_graph;;
+
+		=> nrel_then: ..proc_find_tree_operator3_1;;
+		=> nrel_else: ..proc_find_tree_operator_erase;; 
+	*);;
+	
+    -> ..proc_find_tree_operator3_1(*
+        <-eraseEl;;
+        ->rrel_1:rrel_fixed:rrel_erase:rrel_scp_var:_arc2;;
+        =>nrel_goto:..proc_find_tree_operator3;;
+    *);;
+
+    -> ..proc_find_tree_operator3 (*
+        <- contAssign;;
+        -> rrel_1: rrel_assign: rrel_scp_var: _vertex_count;;
+        -> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+         => nrel_goto: ..proc_find_tree_operator4;;
+    *);;
+
+    -> ..proc_find_tree_operator4 (*
+        <- contAssign;;
+        -> rrel_1: rrel_assign: rrel_scp_var: _arc_count;;
+        -> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+         => nrel_goto: ..proc_find_tree_operator5;;
+    *);;
+
+	-> ..proc_find_tree_operator5 (*
+		<- searchSetStr5;;
+		-> rrel_1: rrel_fixed: rrel_scp_var: _parameter;;
+		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+		-> rrel_3: rrel_assign: rrel_scp_var: _vertex;;
+		-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+		-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+	
+		->rrel_set_3: rrel_assign: rrel_scp_var: _not_checked_vertexes;;
+
+		=> nrel_then: ..proc_find_tree_operator6;;		
+	 	=> nrel_else: ..proc_find_tree_operator_erase_not_checked_vertexes;;	
+	*);;
+
+ -> ..proc_find_tree_operator6(*
+        <-searchElStr3;;
+        ->rrel_1:rrel_fixed:rrel_scp_var:_not_checked_vertexes;;
+        ->rrel_2:rrel_assign:rrel_scp_var:_arc1;;
+        ->rrel_3:rrel_assign:rrel_scp_var:_elem1;;
+        =>nrel_then:..proc_find_tree_operator7;;
+        =>nrel_else:..proc_find_tree_operator9;;
+    *);;
+
+    -> ..proc_find_tree_operator7(*
+        <-eraseEl;;
+        ->rrel_1:rrel_fixed:rrel_erase:rrel_scp_var:_arc1;;
+        =>nrel_goto:..proc_find_tree_operator8;;
+    *);;
+
+    -> ..proc_find_tree_operator8 (*
+        <- contAdd;;
+        -> rrel_1: rrel_fixed: rrel_scp_var: _vertex_count;;
+        -> rrel_2: rrel_fixed: rrel_scp_var: _vertex_count;;
+        -> rrel_3: rrel_fixed: rrel_scp_const: [1];;
+
+        => nrel_goto: ..proc_find_tree_operator6;;
+    *);;
+
+	-> ..proc_find_tree_operator9 (*
+		<- searchSetStr5;;
+		-> rrel_1: rrel_fixed: rrel_scp_var: _parameter;;
+		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+		-> rrel_3: rrel_assign: rrel_scp_var: _arc;;
+		-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+		-> rrel_5: rrel_fixed: rrel_scp_const: rrel_oredge;;
+	
+		->rrel_set_3: rrel_assign: rrel_scp_var: _not_checked_arcs;;
+
+		=> nrel_then: ..proc_find_tree_operator10;;		
+	 	=> nrel_else: ..proc_find_tree_operator_erase_not_checked_arcs;;	
+	*);;
+
+    -> ..proc_find_tree_operator10(*
+        <-searchElStr3;;
+        ->rrel_1:rrel_fixed:rrel_scp_var:_not_checked_arcs;;
+        ->rrel_2:rrel_assign:rrel_scp_var:_arc1;;
+        ->rrel_3:rrel_assign:rrel_scp_var:_elem1;;
+        =>nrel_then:..proc_find_tree_operator11;;
+        =>nrel_else:..proc_find_tree_operator12_1;;
+    *);;
+
+    -> ..proc_find_tree_operator11(*
+        <-eraseEl;;
+        ->rrel_1:rrel_fixed:rrel_erase:rrel_scp_var:_arc1;;
+        =>nrel_goto:..proc_find_tree_operator12;;
+    *);;
+
+    -> ..proc_find_tree_operator12 (*
+        <- contAdd;;
+        -> rrel_1: rrel_fixed: rrel_scp_var: _arc_count;;
+        -> rrel_2: rrel_fixed: rrel_scp_var: _arc_count;;
+        -> rrel_3: rrel_fixed: rrel_scp_const: [1];;
+
+        => nrel_goto: ..proc_find_tree_operator10;;
+    *);;
+
+    -> ..proc_find_tree_operator12_1 (*
+        <- contAssign;;
+        -> rrel_1: rrel_assign: rrel_scp_var: _temp_count;;
+        -> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+        => nrel_goto: ..proc_find_tree_operator12_2;;
+    *);;
+
+    -> ..proc_find_tree_operator12_2(*
+        <-contDiv;;
+        ->rrel_1:rrel_fixed:rrel_scp_var: _arc_count;;
+        ->rrel_2:rrel_fixed:rrel_scp_var: _arc_count;;
+        ->rrel_3:rrel_fixed:rrel_scp_const: [2];;
+        =>nrel_goto:..proc_find_tree_operator13;;
+    *);;
+
+ 	-> ..proc_find_tree_operator13(*
+        <-contSub;;
+        ->rrel_1:rrel_fixed:rrel_scp_var: _temp_count;;
+        ->rrel_2:rrel_fixed:rrel_scp_var: _vertex_count;;
+        ->rrel_3:rrel_fixed:rrel_scp_var: _arc_count;;
+        =>nrel_goto:..proc_find_tree_operator14;;
+    *);;
+
+    -> ..proc_find_tree_operator14 (*
+        <- ifEq;;
+        -> rrel_1: rrel_fixed: rrel_scp_var: _temp_count;;
+        -> rrel_2: rrel_fixed: rrel_scp_const: [1];;
+
+        =>nrel_then:..proc_find_tree_operator15;;
+        =>nrel_else:..proc_find_tree_operator_erase_not_checked_arcs;;
+    *);;
+
+    -> ..proc_find_tree_operator17(*
+        <-genElStr5;;
+        -> rrel_1: rrel_fixed: rrel_scp_const: concept_tree;;
+		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+		-> rrel_3: rrel_fixed:rrel_scp_var: _parameter;;
+		-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+		-> rrel_5: rrel_fixed: rrel_scp_var: _answer;;
+
+
+        =>nrel_goto:..proc_find_tree_operator_erase_not_checked_arcs;;
+    *);;
+
+    -> ..proc_find_tree_operator15(*
+        <-genElStr3;;
+        -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+		-> rrel_3: rrel_fixed:rrel_scp_var: _parameter;;
+
+        =>nrel_goto:..proc_find_tree_operator16;;
+    *);;
+
+    -> ..proc_find_tree_operator16(*
+        <-genElStr3;;
+        -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+		-> rrel_3: rrel_fixed:rrel_scp_const: concept_tree;;
+
+        =>nrel_goto:..proc_find_tree_operator17;;
+    *);;
+
+	-> ..proc_find_tree_operator_erase_not_checked_arcs (*
+		<- eraseEl;;
+		-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _not_checked_arcs;;
+
+        => nrel_goto: ..proc_find_tree_operator_erase_not_checked_vertexes;;
+	*);;
+
+	-> ..proc_find_tree_operator_erase_not_checked_vertexes (*
+		<- eraseEl;;
+		-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _not_checked_vertexes;;
+
+        => nrel_goto: ..proc_add_graph_in_answer1;;
+	*);;
+
+    -> ..proc_find_tree_operator_erase(*
+        <-eraseEl;;
+        ->rrel_1:rrel_fixed:rrel_erase:rrel_scp_var:_arc2;;
+        =>nrel_goto:..proc_add_graph_in_answer1;;
+    *);;
+
+    -> ..proc_add_graph_in_answer1 
+    (*
+        <- call;;
+        -> rrel_1: rrel_fixed: rrel_scp_const: proc_generate_full_answer;;
+        -> rrel_2: rrel_fixed: rrel_scp_const: ... (*
+            -> rrel_1: rrel_fixed: rrel_scp_var: _parameter;;
+            -> rrel_2: rrel_fixed: rrel_scp_var: _answer;;
+        *);;
+        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+
+        => nrel_goto: ..proc_add_graph_in_answer2;;
+    *);;
+
+        -> ..proc_add_graph_in_answer2 
+    (*
+        <- waitReturn;;
+        -> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
+
+        => nrel_goto: ..proc_find_tree_operator_return;;
+    *);;
+
+	-> ..proc_find_tree_operator_return (*
+		<- return;;
+	*);;
+		
+	*);;
+*);;

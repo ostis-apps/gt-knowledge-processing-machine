@@ -1,0 +1,53 @@
+sc_agent_find_num_del_nodes_graph_tree
+	=>nrel_main_idtf: [агент поиска числа вершинной связности] (* <- lang_ru;; *);
+			  [sc-agent of search the number of vertex connectivity] (* <- lang_en;; *);
+	<- abstract_sc_agent;
+	=>nrel_primary_initiation_condition: (sc_event_add_output_arc =>question_initiated);
+	=>nrel_initiation_condition_and_result: (..sc_agent_find_num_del_nodes_graph_tree_initiation_condition =>
+
+	..sc_agent_find_num_del_nodes_graph_tree_result);
+<= nrel_sc_agent_key_sc_elements:
+{
+question_initiated;
+question;
+question_amount_of_nodes_you_should_delete
+};
+<- key_sc_element:
+...
+(*
+<- sc_description_of_sc_agent_behavior;;
+<= nrel_sc_text_translation:
+...
+(*
+->rrel_example:
+[Задачей sc-агента является поиск числа вершинной связности.];;
+*);;
+*);
+=>nrel_inclusion: ...
+(*
+<- platform_independent_abstract_sc_agent;;
+<= nrel_sc_agent_program:
+{
+agent_proc_find_number_of_vertex_connectivity;
+proc_find_number_of_vertex_connectivity
+};;
+->sc_agent_find_num_del_nodes_graph_tree_scp (* <- active_sc_agent;; *);;
+*);;
+// условия инициирования агента
+..sc_agent_find_num_del_nodes_graph_tree_initiation_condition
+= [*
+question_amount_of_nodes_you_should_delete _-> .._question;;
+question_initiated _-> .._question;;
+question _-> .._question;;
+.._question _-> .._parameter;;
+*];;
+// описание результатов выполнения sc-агента
+..sc_agent_find_num_del_nodes_graph_tree_result
+= [*
+question_amount_of_nodes_you_should_delete _-> .._question;;
+question_finished _-> .._question;;
+question _-> .._question;;
+.._question _=>nrel_answer:: .._answer;;
+.._question _-> .._parameter;;
+*];;
+

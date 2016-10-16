@@ -1,0 +1,28 @@
+ui_menu_find_tree <- ui_user_command_class_atom; ui_user_command_class_view_kb;;
+
+// Указываем русский идентификатор нашей операции в меню
+ui_menu_find_tree =>nrel_main_idtf: [Проверка, является ли граф деревом] (* <- lang_ru;; *);;
+
+// Указываем английский идентификатор нашей операции в меню
+ui_menu_find_tree =>nrel_main_idtf: [Check if graph is a tree] (* <- lang_en;; *);;
+
+// Указываем шаблон нашей команды
+ui_menu_find_tree =>ui_nrel_command_template:
+[*
+	question_find_tree _-> ._question_find_tree_instance
+	(*
+		_-> ui_arg_1;;
+	*);;
+
+	._question_find_tree_instance _<- question;;
+*];;
+
+// Указываем текстовый шаблон команды на русском языке
+ui_menu_find_tree =>ui_nrel_command_lang_template: [Проверка, является ли граф деревом: $ui_arg_1] 
+(*
+	<- lang_ru;; 
+*);;
+
+// Указываем текстовый шаблон команды на английском языке
+ui_menu_find_tree =>ui_nrel_command_lang_template: [Check if graph is a tree: $ui_arg_1]
+(* <- lang_en;; *);;

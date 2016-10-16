@@ -1,0 +1,130 @@
+scp_program -> visiting_round_deep (*
+	
+	-> rrel_params: ... (*
+		-> rrel_1: rrel_in: _current;;
+		-> rrel_2: rrel_in: _fin;;
+		-> rrel_3: rrel_in: rrel_scp_var: _count;;
+		-> rrel_4: rrel_in: _graph;;
+		-> rrel_5: rrel_in: _marked_nodes;;
+	*);;
+
+	-> rrel_operators: ... (*
+
+	-> rrel_init: ..start (*
+		<- searchSetStr5;;
+		-> rrel_1: rrel_fixed: rrel_scp_var: _current;;
+		-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc2;;
+		-> rrel_3: rrel_assign: rrel_scp_var: _el3;;
+		-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+		-> rrel_5: rrel_fixed: rrel_scp_var : _graph;;
+		-> rrel_set_3 : rrel_assign : rrel_scp_var : _soUPset;;
+
+		=> nrel_goto : ..step1;; 
+	*);;
+
+
+	-> ..step1 (*
+		<- searchElStr3;;
+		-> rrel_1 : rrel_fixed : rrel_scp_var : _soUPset;;
+		-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
+		-> rrel_3 : rrel_assign : rrel_scp_var : _new;;
+
+		=> nrel_then : ..step2;; 
+		=> nrel_else : ..finish ;;
+	*);;
+
+
+	-> ..step2 (*
+		<- eraseEl;;
+		-> rrel_1 : rrel_fixed : rrel_pos_const_perm : rrel_erase:rrel_scp_var : _arc;;
+
+		=> nrel_goto : ..step3;; 
+	*);;
+
+
+	-> ..step3 (*
+		<- searchElStr3;;
+		-> rrel_1 : rrel_fixed : rrel_scp_var : _marked_nodes;;
+		-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
+		-> rrel_3 : rrel_fixed : rrel_scp_var : _new;;
+
+		=> nrel_then : ..step1;;
+		=> nrel_else : ..step4;; 
+	*);;
+
+
+	-> ..step4 (*
+		<- ifCoin;;
+		-> rrel_1 : rrel_fixed : rrel_scp_var : _new;;
+		-> rrel_2 : rrel_fixed : rrel_scp_var : _fin;;
+
+		=> nrel_then: ..plus_plus;;
+		=> nrel_else: ..step5;; 
+	*);;
+
+
+	-> ..step5 (*
+		<- genElStr3;;
+		-> rrel_1 : rrel_fixed : rrel_scp_var : _marked_nodes;;
+		-> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _marked_arg;;
+		-> rrel_3 : rrel_fixed : rrel_scp_var : _new;;
+
+		=> nrel_goto : ..ave_recurs;; 
+	*);;
+
+
+	-> ..ave_recurs (*
+		<- call;;
+		-> rrel_1: rrel_fixed: rrel_scp_const: visiting_round_deep;;
+		-> rrel_2: rrel_fixed: rrel_scp_const: ... (*
+			-> rrel_1: rrel_fixed: rrel_scp_var: _new;;
+			-> rrel_2: rrel_fixed: rrel_scp_var: _fin;;
+			-> rrel_3: rrel_fixed : rrel_scp_var: _count;;
+			-> rrel_4: rrel_fixed: rrel_scp_var: _graph;;
+			-> rrel_5: rrel_fixed: rrel_scp_var: _marked_nodes;;
+		*);;
+		-> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+
+		=> nrel_goto: ..hail_to_the_king;;
+	*);;
+	
+
+	-> ..hail_to_the_king (*
+		<- waitReturn;;
+		-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
+	
+		=> nrel_goto: ..last_step;; 
+	*);;
+	
+	
+	-> ..plus_plus (*
+		<- contAdd;;
+		-> rrel_1 : rrel_fixed : rrel_scp_var: _count;;
+		-> rrel_2 : rrel_fixed : rrel_scp_var: _count;;
+		-> rrel_3 : rrel_fixed : rrel_scp_const: [1];;
+
+		=> nrel_goto : ..step5;; 
+	*);;
+
+
+
+	-> ..finish (*
+		<- eraseEl;;
+		-> rrel_1 : rrel_fixed : rrel_erase: rrel_scp_var : _soUPset;;
+
+		=> nrel_goto : ..oper_return;; 
+	*);;
+
+
+	-> ..last_step (*
+		<- eraseEl;;
+		-> rrel_1 : rrel_fixed : rrel_erase: rrel_scp_var : _marked_arg;;
+
+		=> nrel_goto : ..step1;; 
+	*);;
+
+	-> ..oper_return (*
+		<-return;; 
+	*);;
+*);;
+*);;

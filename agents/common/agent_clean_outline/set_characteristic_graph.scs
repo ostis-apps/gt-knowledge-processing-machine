@@ -1,0 +1,25 @@
+sc_node_not_relation -> set_characteristic_graph
+	(*
+		-> concept_planar_graph;;
+		-> concept_directed_graph;;
+		-> concept_undirected_graph;;
+		-> concept_connected_graph;;
+		-> concept_disconnected_graph;;
+		-> concept_reflexive_graph;;
+		-> concept_transitive_graph;;
+		-> concept_symmetric_graph;;
+		-> concept_cyclic_graph;;
+		-> nrel_set_deadlock;;
+		-> nrel_set_antideadlock;;
+		-> nrel_min_ostov;;
+		-> nrel_set_bridge;;
+		-> nrel_set_point_articulation;;
+		-> nrel_number_connected_components;;
+	*);;
+
+set_characteristic_graph => nrel_main_idtf:
+	[множество исключений]
+		(*<-lang_ru;;*);
+	[set of exception]
+		(*<-lang_en;;*);;
+
