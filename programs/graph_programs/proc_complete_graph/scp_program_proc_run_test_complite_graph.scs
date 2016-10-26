@@ -10,7 +10,7 @@ proc_run_test_complite_graph
 <= nrel_scp_program_key_sc_elements: 
 	{
 		concept_graph;
-		concept_complete_graph
+		concept_complete_graph;
 		rrel_vertex;
 		rrel_oredge
 	};
