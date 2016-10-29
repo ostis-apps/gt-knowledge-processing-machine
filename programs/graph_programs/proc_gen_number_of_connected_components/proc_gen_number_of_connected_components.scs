@@ -3,7 +3,6 @@ scp_program -> proc_gen_number_of_connected_components
 	-> rrel_params: ...
 	(*
 		->rrel_1: rrel_in: _curr_graph;;
-		->rrel_2: rrel_in: _answer;;
 	*);;
 
 	-> rrel_operators: ... 
@@ -17,7 +16,7 @@ scp_program -> proc_gen_number_of_connected_components
 			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
 			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_number_connected_components;;
 			
-			=> nrel_then: .proc_gen_number_of_connected_components_operator6;;
+			=> nrel_then: .proc_gen_number_of_connected_components_operator_return;;
 			=> nrel_else: .proc_gen_number_of_connected_components_operator2;;
 		*);; 	
 		
@@ -52,56 +51,6 @@ scp_program -> proc_gen_number_of_connected_components
 			-> rrel_3: rrel_fixed: rrel_scp_var: _counter;;
 			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
 			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_number_connected_components;;
-			
-			=> nrel_goto: .proc_gen_number_of_connected_components_operator6;;
-		*);;
-
-		->.proc_gen_number_of_connected_components_operator6
-		(*
-			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: rrel_const: _buf;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
-			
-			=> nrel_goto: .proc_gen_number_of_connected_components_operator7;;
-		*);;
-
-		->.proc_gen_number_of_connected_components_operator7
-		(*
-			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: rrel_const: _buf;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: rrel_common: rrel_const: _arc1;;
-			
-			=> nrel_goto: .proc_gen_number_of_connected_components_operator8;;
-		*);;
-
-		->.proc_gen_number_of_connected_components_operator8
-		(*
-			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: rrel_const: _buf;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _counter;;
-			
-			=> nrel_goto: .proc_gen_number_of_connected_components_operator9;;
-		*);;
-
-		->.proc_gen_number_of_connected_components_operator9
-		(*
-			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: rrel_const: _buf;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: rrel_pos_const_perm: rrel_const: _arc2;;
-			
-			=> nrel_goto: .proc_gen_number_of_connected_components_operator10;;
-		*);;
-
-		->.proc_gen_number_of_connected_components_operator10
-		(*
-			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: rrel_const: _buf;;
-			-> rrel_3: rrel_fixed: rrel_scp_const: nrel_number_connected_components;;
 			
 			=> nrel_goto: .proc_gen_number_of_connected_components_operator_return;;
 		*);;

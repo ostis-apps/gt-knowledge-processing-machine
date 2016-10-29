@@ -9,7 +9,6 @@ scp_program -> proc_dfs_for_articulation_point (*
 		-> rrel_7: rrel_in: fup_vertex;;
 		-> rrel_8: rrel_in: _node;;
 		-> rrel_9: rrel_in: _set_point_of_articulation;;
-		-> rrel_10: rrel_in: _answer;;
 	*);;
 	-> rrel_operators: ... (*
 // Увеличиваем время timer
@@ -250,7 +249,6 @@ scp_program -> proc_dfs_for_articulation_point (*
 		        -> rrel_7: rrel_fixed: rrel_scp_const: fup_vertex;;
 		        -> rrel_8: rrel_fixed: rrel_scp_var: _node;;
 		        -> rrel_9: rrel_fixed: rrel_scp_var: _set_point_of_articulation;;
-		        -> rrel_10: rrel_fixed: rrel_scp_var: _answer;;
 	        *);;
 	        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
 
@@ -399,25 +397,7 @@ scp_program -> proc_dfs_for_articulation_point (*
 	        -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc_step_check_point_of_articulation_5;;
 	        -> rrel_3: rrel_fixed: rrel_scp_var: rrel_node: rrel_const: _v;;
 
-	        => nrel_goto: ..step_check_point_of_articulation_6;;            
-        *);;
-
-        -> ..step_check_point_of_articulation_6(*
-            <- genElStr3;;
-            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc_step_check_point_of_articulation_6;;
-            -> rrel_3: rrel_fixed: rrel_scp_var: _v;;
-
-            => nrel_goto : ..step_check_point_of_articulation_7;;
-		*);;
-
-		-> ..step_check_point_of_articulation_7 (*
-            <- genElStr3;;
-            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc_step_check_point_of_articulation_7;;
-            -> rrel_3: rrel_fixed: rrel_scp_var: _arc_step_check_point_of_articulation_5;;
-
-            => nrel_goto : ..step1;;
+	        => nrel_goto: ..step1;;            
         *);;
 
 // Удаляем временное множество
@@ -466,25 +446,7 @@ scp_program -> proc_dfs_for_articulation_point (*
 	        -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc_end_root_is_poa_4;;
 	        -> rrel_3: rrel_fixed: rrel_scp_var: rrel_node: rrel_const: _v;;
 
-	        => nrel_goto: ..end_root_is_poa_5;;             
-        *);;
-
-        -> ..end_root_is_poa_5(*
-            <- genElStr3;;
-            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc_end_root_is_poa_5;;
-            -> rrel_3: rrel_fixed: rrel_scp_var: _v;;
-
-            => nrel_goto : ..end_root_is_poa_6;;
-		*);;
-
-		-> ..end_root_is_poa_6 (*
-            <- genElStr3;;
-            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc_end_root_is_poa_6;;
-            -> rrel_3: rrel_fixed: rrel_scp_var: _arc_end_root_is_poa_4;;
-
-            => nrel_goto : ..end_dfs;;
+	        => nrel_goto: ..end_dfs;;             
         *);;
 
 // Завершаем поиск в глубину

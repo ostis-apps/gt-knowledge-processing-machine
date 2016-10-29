@@ -3,7 +3,6 @@ scp_program -> proc_planar_graph
 	-> rrel_params: ...
 	(*
 		-> rrel_1: rrel_in: _graph;;
-		-> rrel_2: rrel_in: _answer;;
 	*);;
 
 	-> rrel_operators: ... 
@@ -16,7 +15,7 @@ scp_program -> proc_planar_graph
 			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
 			
-			=> nrel_then: .proc_planar_graph_operator15_1;;
+			=> nrel_then: .proc_planar_graph_return;;
 			=> nrel_else: .proc_planar_graph_operator0_0_1;;
 		*);;
                 ->.proc_planar_graph_operator0_0_1
@@ -26,7 +25,7 @@ scp_program -> proc_planar_graph
 			-> rrel_2: rrel_assign: rrel_scp_var: rrel_neg: _arc;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
 			
-			=> nrel_then: .proc_planar_graph_operator15_1;;
+			=> nrel_then: .proc_planar_graph_return;;
 			=>nrel_else: .proc_planar_graph_operator0_1;;
 		*);;
 		-> .proc_planar_graph_operator0_1
@@ -36,7 +35,7 @@ scp_program -> proc_planar_graph
 			-> rrel_2: rrel_assign: rrel_scp_var: rrel_neg: _arc;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
 			
-			=> nrel_then: .proc_planar_graph_operator15_1;;
+			=> nrel_then: .proc_planar_graph_return;;
 			=> nrel_else: .proc_planar_graph_operator_make_graph_undirected;;
 			
 		*);;
@@ -323,7 +322,7 @@ scp_program -> proc_planar_graph
 			-> rrel_2: rrel_assign: rrel_scp_var: rrel_neg: rrel_const: rrel_perm: rrel_access: _arc;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
 			
-			=> nrel_goto: .proc_planar_graph_operator15_1;;
+			=> nrel_goto: .proc_planar_graph_return;;
 		*);;
 
 		
@@ -334,60 +333,6 @@ scp_program -> proc_planar_graph
 			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: rrel_const: _arc;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
 			
-			=> nrel_goto: .proc_planar_graph_operator15_1;;
-		*);;
-	
-		
-		-> .proc_planar_graph_operator15_1
-		(*
-			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
-			-> rrel_3: rrel_fixed: rrel_scp_const: concept_planar_graph;;
-			
-			=> nrel_goto: .proc_planar_graph_operator15_2;;
-		*);;
-
-		-> .proc_planar_graph_operator15_2
-		(*
-			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _arc;;
-			
-			=> nrel_goto: .proc_planar_graph_operator15_3;;
-		*);;
-
-		-> .proc_planar_graph_operator15_3
-		(*
-			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
-			
-			=> nrel_goto: .proc_planar_graph_return;;
-		*);;
-
-		-> .proc_planar_graph_operator21_3
-		(*
-			<- call;;
-			-> rrel_1: rrel_fixed: rrel_scp_const: proc_add_graph_in_ans;;
-			-> rrel_2: rrel_fixed: rrel_scp_const: ... 
-			(*
-				-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
-				-> rrel_2: rrel_fixed: rrel_scp_var: _answer;;
-			*);;
-
-			-> rrel_3: rrel_assign: rrel_scp_var: _descr;;
-
-			=> nrel_goto: .proc_planar_graph_operator22;;
-		*);;
-		
-		-> .proc_planar_graph_operator22
-		(*
-			<- waitReturn;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
-
 			=> nrel_goto: .proc_planar_graph_return;;
 		*);;
 		

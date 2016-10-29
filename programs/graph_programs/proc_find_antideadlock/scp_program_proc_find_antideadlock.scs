@@ -32,6 +32,5 @@ proc_find_antideadlock
 
 ..scp_program_proc_find_antideadlock_result
 = [*
-	concept_graph _-> _curr_graph;;
-	_curr_graph _=> nrel_set_antideadlock: _antitypici;;
+	_curr_graph _=> nrel_set_antideadlock:: _antitypici;;
 *];;

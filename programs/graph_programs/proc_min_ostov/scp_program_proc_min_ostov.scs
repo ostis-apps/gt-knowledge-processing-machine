@@ -35,7 +35,5 @@ proc_min_ostov
 
 ..scp_program_proc_min_ostov_result 
 = [*
-	concept_undirected_graph _-> _curr_graph;;
-	concept_weighted_graph _-> _curr_graph;;
-	_curr_graph _=> nrel_min_ostov: _ans_tree;;
+	_curr_graph _=> nrel_min_ostov:: _ans_tree;;
 *];;

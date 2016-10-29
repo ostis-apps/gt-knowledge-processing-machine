@@ -3,7 +3,6 @@ scp_program -> proc_min_ostov
 	-> rrel_params: ...
 	(*
 		-> rrel_1: rrel_in: _curr_graph;;
-		-> rrel_2: rrel_in: _answer;;
 	*);;
 
 	-> rrel_operators: ... 
@@ -17,7 +16,7 @@ scp_program -> proc_min_ostov
             -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertex2;;
             -> rrel_5: rrel_fixed: rrel_scp_const: nrel_min_ostov;;
 			
-			=> nrel_then: .proc_min_ostov_operator45;;
+			=> nrel_then: .proc_min_ostov_return;;
            	=> nrel_else: .proc_min_ostov_operator3;;
 		*);;		
 		
@@ -429,58 +428,8 @@ scp_program -> proc_min_ostov
 			<- eraseEl;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _ans;;
 			
-			=> nrel_goto: .proc_min_ostov_operator45;;
-		*);;		
-		
-		-> .proc_min_ostov_operator45
-		(*
-			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara1;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
-			
-			=> nrel_goto: .proc_min_ostov_operator46;;
-		*);;
-	
-		-> .proc_min_ostov_operator46
-		(*
-			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara1;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: rrel_common: _arc_of_vertexs1;;
-			
-			=> nrel_goto: .proc_min_ostov_operator47;;
-		*);;
-
-		-> .proc_min_ostov_operator47
-		(*
-			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara1;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _ans_tree;;
-			
-			=> nrel_goto: .proc_min_ostov_operator48;;
-		*);;
-	
-		-> .proc_min_ostov_operator48
-		(*
-			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara1;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _arc_of_vertex2;;
-			
-			=> nrel_goto: .proc_min_ostov_operator49;;
-		*);;
-
-		-> .proc_min_ostov_operator49
-		(*
-			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara1;;
-			-> rrel_3: rrel_fixed: rrel_scp_const: nrel_min_ostov;;
-			
 			=> nrel_goto: .proc_min_ostov_return;;
-		*);;
+		*);;		
 
 		-> .proc_min_ostov_return(*<-return;;*);;
 	*);;

@@ -3,7 +3,6 @@ scp_program -> proc_find_antideadlock
 	-> rrel_params: ... 
 	(*
 		-> rrel_1: rrel_in: _curr_graph;;
-		-> rrel_2: rrel_in: _answer;;
 	*);;
 
 	-> rrel_operators: ... 
@@ -17,7 +16,7 @@ scp_program -> proc_find_antideadlock
 			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_for_answer2;;
 			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_set_antideadlock;;
 			
-			=> nrel_then: ..proc_find_antideadlock_operator12;;
+			=> nrel_then: ..proc_find_antideadlock_operator_return;;
 			=> nrel_else: ..proc_find_antideadlock_operator1;;
 		*);;	
 						
@@ -53,15 +52,15 @@ scp_program -> proc_find_antideadlock
 			-> rrel_set_3: rrel_assign: rrel_scp_var: _vertexs;;
 			
 			=> nrel_then: ..proc_find_antideadlock_operator4;;
-                	=> nrel_else: ..proc_find_antideadlock_operator12;;
+                	=> nrel_else: ..proc_find_antideadlock_operator_return;;
 		*);;
 
 		-> ..proc_find_antideadlock_operator4
 		(*
 			<- searchElStr3;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _vertexs;;
-                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_erase;;
-                        -> rrel_3: rrel_assign: rrel_scp_var: _curr_vert;;
+            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_erase;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _curr_vert;;
 			
 			=>nrel_then: ..proc_find_antideadlock_operator5;;
 			=>nrel_else: ..proc_find_antideadlock_operator11;; 		
@@ -71,34 +70,34 @@ scp_program -> proc_find_antideadlock
 		(*
 			<- searchElStr5;;
 			-> rrel_1: rrel_assign: rrel_scp_var: _vert;;
-                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc_of_vertexs1;;
-                        -> rrel_3: rrel_fixed: rrel_scp_var: _curr_vert;;
-                        -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs2;;
-                        -> rrel_5: rrel_fixed: rrel_scp_var: _curr_graph;;
+            -> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc_of_vertexs1;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _curr_vert;;
+            -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs2;;
+            -> rrel_5: rrel_fixed: rrel_scp_var: _curr_graph;;
 
 			=> nrel_then: ..proc_find_antideadlock_operator8;;
-                	=> nrel_else: ..proc_find_antideadlock_operator7;;
+            => nrel_else: ..proc_find_antideadlock_operator7;;
 		*);;
 				
 		-> ..proc_find_antideadlock_operator7
 		(*
 			<- searchElStr5;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _curr_vert;;
-                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc_of_vertexs1;;
-                        -> rrel_3: rrel_assign: rrel_scp_var: _vert;;
-                        -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs2;;
-                        -> rrel_5: rrel_fixed: rrel_scp_var: _curr_graph;;
+            -> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc_of_vertexs1;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _vert;;
+            -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs2;;
+            -> rrel_5: rrel_fixed: rrel_scp_var: _curr_graph;;
 			
 			=> nrel_then: ..proc_find_antideadlock_operator9;;
-                	=> nrel_else: ..proc_find_antideadlock_operator8;;
+            => nrel_else: ..proc_find_antideadlock_operator8;;
 		*);;
 
 		-> ..proc_find_antideadlock_operator9
 		(*
 			<- genElStr3;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _antitypici;;
-                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_buf;;
-                        -> rrel_3: rrel_fixed: rrel_scp_var: _curr_vert;;
+            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_buf;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _curr_vert;;
 			
 			=>nrel_goto: ..proc_find_antideadlock_operator8;; 		
 		*);;
@@ -116,80 +115,9 @@ scp_program -> proc_find_antideadlock
 			<- eraseEl;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _vertexs;;
 
-			=>nrel_goto: ..proc_find_antideadlock_operator12;;
+			=>nrel_goto: ..proc_find_antideadlock_operator_return;;
 		*);;
 		
-		-> ..proc_find_antideadlock_operator12
-		(*
-			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
-			-> rrel_3: rrel_fixed: rrel_scp_const: nrel_set_antideadlock;;
-
-			=> nrel_goto: ..proc_find_antideadlock_operator13;;
-		*);;
-			
-		-> ..proc_find_antideadlock_operator13
-		(*
-			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
-
-			=> nrel_goto: ..proc_find_antideadlock_operator14;;
-		*);;
-
-		-> ..proc_find_antideadlock_operator14
-		(*
-			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _arc_for_answer1;;
-
-			=> nrel_goto: ..proc_find_antideadlock_operator15;;
-		*);;
-			
-		-> ..proc_find_antideadlock_operator15
-		(*
-			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _arc_for_answer2;;
-
-			=> nrel_goto: ..proc_find_antideadlock_operator16;;
-		*);;
-
-		-> ..proc_find_antideadlock_operator16
-		(*
-			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _antitypici;;
-			=> nrel_goto: ..proc_find_antideadlock_operator17;;
-		*);;
-
-		-> ..proc_find_antideadlock_operator17
-		(*
-			<- call;;
-		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_add_elements_of_set_to_answer;;
-		        -> rrel_2: rrel_fixed: rrel_scp_const: ... 
-				(*
-					-> rrel_1: rrel_fixed: rrel_scp_var: _antitypici;;
-					-> rrel_2: rrel_fixed: rrel_scp_var: _answer;;
-				*);;
-		        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
-
-			=> nrel_goto: ..proc_find_antideadlock_operator18;;
-		*);;
-
-		-> ..proc_find_antideadlock_operator18
-		(*
-			<- waitReturn;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
-
-			=> nrel_goto: ..proc_find_antideadlock_operator_return;;
-		*);;
-
 		-> ..proc_find_antideadlock_operator_return 
 		(*
 			<- return;;

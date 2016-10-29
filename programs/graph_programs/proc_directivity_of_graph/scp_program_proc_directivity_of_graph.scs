@@ -3,9 +3,7 @@ proc_directivity_of_graph
 	[Программа проверки графа на ориентированность] (* <- lang_ru;; *);
 
 => nrel_initiation_condition_and_result: (..scp_program_proc_directivity_of_graph_initiation_condition
-					  => ..scp_program_proc_directivity_of_graph_result1);
-=> nrel_initiation_condition_and_result: (..scp_program_proc_directivity_of_graph_initiation_condition
-					  => ..scp_program_proc_directivity_of_graph_result2);
+					  => ..scp_program_proc_directivity_of_graph_result);
 
 <= nrel_scp_program_key_sc_elements: 
 	{
@@ -33,15 +31,17 @@ proc_directivity_of_graph
 	concept_graph _-> _curr_graph;;
 *];;
 
+..scp_program_proc_directivity_of_graph_result
+	<- nrel_conjunction;
+	-> ..scp_program_proc_directivity_of_graph_result1;
+	-> ..scp_program_proc_directivity_of_graph_result2;;
 
 ..scp_program_proc_directivity_of_graph_result1
 = [*
-	concept_graph _-> _curr_graph;;
 	concept_directed_graph _-> _curr_graph;;
 *];;
 
 ..scp_program_proc_directivity_of_graph_result2
 = [*
-	concept_graph _-> _curr_graph;;
 	concept_undirected_graph _-> _curr_graph;;
 *];;

@@ -74,7 +74,6 @@ scp_program -> agent_find_deadlock (*
 		  -> rrel_1: rrel_fixed: rrel_scp_const: proc_find_deadlock;;
 		  -> rrel_2: rrel_fixed: rrel_scp_const: .agent_find_deadlock_operator5_params (*
 				-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
-				-> rrel_2: rrel_fixed: rrel_scp_var: _answer;;
 			*);;
 		  -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
 
@@ -106,9 +105,32 @@ scp_program -> agent_find_deadlock (*
 			<- waitReturn;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _descr2;;
 
-			=> nrel_goto: .agent_find_deadlock_operator7_3;;
+			=> nrel_goto: .agent_find_deadlock_operator7_2_1;;
 		*);;			
 		
+		-> .agent_find_deadlock_operator7_2_1
+		(*
+			<- call;;
+		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_generate_answer_set_for_graph;;
+		        -> rrel_2: rrel_fixed: rrel_scp_const: ... 
+				(*
+					-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
+					-> rrel_2: rrel_fixed: rrel_scp_const: nrel_set_deadlock;;
+					-> rrel_3: rrel_fixed: rrel_scp_var: _answer;;
+				*);;
+		        -> rrel_3: rrel_assign: rrel_scp_var: _descr2;;
+
+			=> nrel_goto: .agent_find_deadlock_operator7_2_2;;
+		*);;
+
+		-> .agent_find_deadlock_operator7_2_2
+		(*
+			<- waitReturn;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr2;;
+
+			=> nrel_goto: .agent_find_deadlock_operator7_3;;
+		*);;
+
 		-> .agent_find_deadlock_operator7_3
 		(*
 			<- call;;

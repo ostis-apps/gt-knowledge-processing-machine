@@ -1,0 +1,56 @@
+scp_program -> proc_add_f_a_f_to_set
+(*
+	-> rrel_params: ...
+	(*
+		-> rrel_1: rrel_in: _f_1;;
+		-> rrel_2: rrel_in: _f_2;;	
+		-> rrel_3: rrel_in: _set;;
+	*);;
+
+	-> rrel_operators: ... 
+	(*
+
+		-> rrel_init: ..proc_add_f_a_f_to_set_operator0
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _f_1;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_for_set1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _f_2;;
+			
+			=> nrel_then: ..proc_add_f_a_f_to_set_operator1;;
+			=> nrel_else: ..proc_add_f_a_f_to_set_operator_return;;
+		*);;	
+
+		-> ..proc_add_f_a_f_to_set_operator1
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _set;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _f_1;;
+
+			=> nrel_goto: ..proc_add_f_a_f_to_set_operator2;;
+		*);;
+			
+		-> ..proc_add_f_a_f_to_set_operator2
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _set;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _f_2;;
+
+			=> nrel_goto: ..proc_add_f_a_f_to_set_operator3;;
+		*);;
+
+		-> ..proc_add_f_a_f_to_set_operator3
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _set;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _arc_for_set1;;
+
+			=> nrel_goto: ..proc_add_f_a_f_to_set_operator_return;;
+		*);;
+
+		-> ..proc_add_f_a_f_to_set_operator_return(*<-return;;*);;
+	*);;
+*);;

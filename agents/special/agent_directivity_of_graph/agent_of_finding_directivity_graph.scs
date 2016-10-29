@@ -74,7 +74,6 @@ scp_program -> agent_of_finding_directivity_graph (*
 		  -> rrel_1: rrel_fixed: rrel_scp_const: proc_directivity_of_graph;;
 		  -> rrel_2: rrel_fixed: rrel_scp_const: .agent_of_finding_directivity_graph_operator5_params (*
 				-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
-				-> rrel_2: rrel_fixed: rrel_scp_var: _answer;;
 			*);;
 		  -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
 
@@ -102,6 +101,29 @@ scp_program -> agent_of_finding_directivity_graph (*
 		*);;
 
 		-> .agent_of_finding_directivity_graph_operator7_2
+		(*
+			<- waitReturn;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr2;;
+
+			=> nrel_goto: .agent_of_finding_directivity_graph_operator7_2_1;;
+		*);;	
+
+		-> .agent_of_finding_directivity_graph_operator7_2_1
+		(*
+			<- call;;
+		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_add_f_a_f_to_set;;
+		        -> rrel_2: rrel_fixed: rrel_scp_const: ... 
+				(*
+					-> rrel_1: rrel_fixed: rrel_scp_const: concept_directed_graph;;
+					-> rrel_2: rrel_fixed: rrel_scp_var: _outline;;
+					-> rrel_3: rrel_fixed: rrel_scp_var: _answer;;
+				*);;
+		        -> rrel_3: rrel_assign: rrel_scp_var: _descr2;;
+
+			=> nrel_goto: .agent_of_finding_directivity_graph_operator7_2_2;;
+		*);;
+
+		-> .agent_of_finding_directivity_graph_operator7_2_2
 		(*
 			<- waitReturn;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _descr2;;

@@ -3,9 +3,7 @@ proc_planar_graph
 	[Программа проверки графа на планарность] (* <- lang_ru;; *);
 
 => nrel_initiation_condition_and_result: (..scp_program_proc_planar_graph_initiation_condition
-					  => ..scp_program_proc_planar_graph_result1);
-=> nrel_initiation_condition_and_result: (..scp_program_proc_planar_graph_initiation_condition
-					  => ..scp_program_proc_planar_graph_result2);
+					  => ..scp_program_proc_planar_graph_result);
 
 <= nrel_scp_program_key_sc_elements: 
 	{
@@ -29,18 +27,20 @@ proc_planar_graph
 
 ..scp_program_proc_planar_graph_initiation_condition
 = [*
-	concept_graph _-> _curr_graph;;
+	concept_graph _-> _graph;;
 *];;
 
+..scp_program_proc_planar_graph_result
+	<- nrel_conjunction;
+	-> ..scp_program_proc_planar_graph_result1;
+	-> ..scp_program_proc_planar_graph_result2;;
 
 ..scp_program_proc_planar_graph_result1
 = [*
-	concept_graph _-> _curr_graph;;
-	concept_planar_graph _-> _curr_graph;;
+	concept_planar_graph _-> _graph;;
 *];;
 
 ..scp_program_proc_planar_graph_result2
 = [*
-	concept_graph _-> _curr_graph;;
-	concept_planar_graph _-|> _curr_graph;;
+	concept_planar_graph _-|> _graph;;
 *];;

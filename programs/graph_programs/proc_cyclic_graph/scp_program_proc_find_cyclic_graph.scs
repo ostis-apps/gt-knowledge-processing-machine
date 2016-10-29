@@ -3,10 +3,7 @@ proc_find_cyclic_graph
 	[Программа проверки графа на цикличность] (* <- lang_ru;; *);
 
 => nrel_initiation_condition_and_result: (..scp_program_proc_find_cyclic_graph_initiation_condition
-					  => ..scp_program_proc_find_cyclic_graph_result1);
-=> nrel_initiation_condition_and_result: (..scp_program_proc_find_cyclic_graph_initiation_condition
-					  => ..scp_program_proc_find_cyclic_graph_result2);
-
+					  => ..scp_program_proc_find_cyclic_graph_disjunction);
 <= nrel_scp_program_key_sc_elements: 
 	{
 		concept_graph;
@@ -27,10 +24,15 @@ proc_find_cyclic_graph
 		*);;
 	*);;
 
+
+
 ..scp_program_proc_find_cyclic_graph_initiation_condition
 = [*
 	concept_graph _-> _curr_graph;;
 *];;
+
+..scp_program_proc_find_cyclic_graph_disjunction _-> ..scp_program_proc_find_cyclic_graph_result1;
+..scp_program_proc_find_cyclic_graph_result2;;
 
 
 ..scp_program_proc_find_cyclic_graph_result1

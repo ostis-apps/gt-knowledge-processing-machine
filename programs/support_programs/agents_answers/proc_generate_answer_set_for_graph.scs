@@ -1,0 +1,73 @@
+scp_program -> proc_generate_answer_set_for_graph
+(*
+	-> rrel_params: ...
+	(*
+		-> rrel_1: rrel_in: _graph;;
+		-> rrel_2: rrel_in: _nrel_set;;	
+		-> rrel_3: rrel_in: _answer;;
+	*);;
+
+	-> rrel_operators: ... 
+	(*
+
+		-> rrel_init: ..proc_generate_answer_set_for_graph_operator1
+		(*
+			<- call;;
+		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_add_f_a_a_a_f_to_set;;
+		        -> rrel_2: rrel_fixed: rrel_scp_const: ... 
+				(*
+					-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+					-> rrel_2: rrel_fixed: rrel_scp_var: _nrel_set;;
+					-> rrel_3: rrel_fixed: rrel_scp_var: _answer;;
+				*);;
+		        -> rrel_3: rrel_assign: rrel_scp_var: _descr2;;
+
+			=> nrel_goto: ..proc_generate_answer_set_for_graph_operator2;;
+		*);;
+
+		-> ..proc_generate_answer_set_for_graph_operator2
+		(*
+			<- waitReturn;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr2;;
+
+			=> nrel_goto: ..proc_generate_answer_set_for_graph_operator3;;
+		*);;
+
+		-> ..proc_generate_answer_set_for_graph_operator3
+		(*
+			<- searchElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc_for_set1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _var_node;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_for_set2;;
+			-> rrel_5: rrel_fixed: rrel_scp_var: _nrel_set;;
+			
+			=> nrel_then: ..proc_generate_answer_set_for_graph_operator4;;
+			=> nrel_else: ..proc_generate_answer_set_for_graph_operator_return;;
+		*);;
+
+		-> ..proc_generate_answer_set_for_graph_operator4
+		(*
+			<- call;;
+		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_add_elements_of_set_to_answer;;
+		        -> rrel_2: rrel_fixed: rrel_scp_const: ... 
+				(*
+					-> rrel_1: rrel_fixed: rrel_scp_var: _var_node;;
+					-> rrel_2: rrel_fixed: rrel_scp_var: _answer;;
+				*);;
+		        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+
+			=> nrel_goto: ..proc_generate_answer_set_for_graph_operator5;;
+		*);;
+
+		-> ..proc_generate_answer_set_for_graph_operator5
+		(*
+			<- waitReturn;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
+
+			=> nrel_goto: ..proc_generate_answer_set_for_graph_operator_return;;
+		*);;		
+
+		-> ..proc_generate_answer_set_for_graph_operator_return(*<-return;;*);;
+	*);;
+*);;

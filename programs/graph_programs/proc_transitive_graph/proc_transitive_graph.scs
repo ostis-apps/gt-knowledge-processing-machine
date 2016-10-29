@@ -3,7 +3,6 @@ scp_program -> proc_transitive_graph
 	-> rrel_params: ...
 	(*
 		-> rrel_1: rrel_in: _curr_graph;;
-		-> rrel_2: rrel_in: _answer;;
 	*);;
 
 	-> rrel_operators: ... 
@@ -15,7 +14,7 @@ scp_program -> proc_transitive_graph
 			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
 			
-			=> nrel_then: .proc_transitive_graph_operator18;;
+			=> nrel_then: .proc_transitive_graph_return;;
 			=> nrel_else: .proc_transitive_graph_operator0_1;;
 		*);;
 
@@ -26,7 +25,7 @@ scp_program -> proc_transitive_graph
 			-> rrel_2: rrel_assign: rrel_scp_var: rrel_neg: _ara;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
 			
-			=> nrel_then: .proc_transitive_graph_operator18;;
+			=> nrel_then: .proc_transitive_graph_return;;
 			=> nrel_else: .proc_transitive_graph_operator2;;
 		*);;
 
@@ -176,36 +175,6 @@ scp_program -> proc_transitive_graph
 			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
 			
-			=> nrel_goto: .proc_transitive_graph_operator18;;
-		*);;
-	
-		-> .proc_transitive_graph_operator18
-		(*
-			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara1;;
-			-> rrel_3: rrel_fixed: rrel_scp_const: concept_transitive_graph;;
-			
-			=> nrel_goto: .proc_transitive_graph_operator18_1;;
-		*);;
-
-		-> .proc_transitive_graph_operator18_1
-		(*
-			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara1;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _ara;;
-			
-			=> nrel_goto: .proc_transitive_graph_operator18_2;;
-		*);;
-
-		-> .proc_transitive_graph_operator18_2
-		(*
-			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara1;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
-			
 			=> nrel_goto: .proc_transitive_graph_return;;
 		*);;
 
@@ -240,7 +209,7 @@ scp_program -> proc_transitive_graph
 			-> rrel_2: rrel_assign: rrel_scp_var: rrel_neg: rrel_const: rrel_perm: rrel_access: _ara;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
 			
-			=> nrel_goto: .proc_transitive_graph_operator18;;
+			=> nrel_goto: .proc_transitive_graph_return;;
 		*);;
 	
 		-> .proc_transitive_graph_return(*<-return;;*);;

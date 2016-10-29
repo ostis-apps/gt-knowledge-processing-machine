@@ -31,6 +31,5 @@ proc_bridge
 
 ..scp_program_proc_bridge_result
 = [*
-	concept_graph _-> _graph;;
-	_graph _=> nrel_set_bridge: _set_of_bridge;;
+	_graph _=> nrel_set_bridge:: _set_of_bridge;;
 *];;

@@ -80,7 +80,6 @@ scp_program -> agent_proc_bridge (*
 		        -> rrel_2: rrel_fixed: rrel_scp_const: ... 
 				(*
 					-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
-					-> rrel_2: rrel_fixed: rrel_scp_var: _answer;;
 				*);;
 		        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
 
@@ -119,6 +118,29 @@ scp_program -> agent_proc_bridge (*
 		-> .agent_proc_bridge_operator10
 		(*
 			<- call;;
+		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_generate_answer_set_for_graph;;
+		        -> rrel_2: rrel_fixed: rrel_scp_const: ... 
+				(*
+					-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
+					-> rrel_2: rrel_fixed: rrel_scp_const: nrel_set_bridge;;
+					-> rrel_3: rrel_fixed: rrel_scp_var: _answer;;
+				*);;
+		        -> rrel_3: rrel_assign: rrel_scp_var: _descr2;;
+
+			=> nrel_goto: .agent_proc_bridge_operator11;;
+		*);;
+
+		-> .agent_proc_bridge_operator11
+		(*
+			<- waitReturn;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr2;;
+
+			=> nrel_goto: .agent_proc_bridge_operator12;;
+		*);;
+
+		-> .agent_proc_bridge_operator12
+		(*
+			<- call;;
 		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_generate_full_answer;;
 		        -> rrel_2: rrel_fixed: rrel_scp_const: ... 
 				(*
@@ -127,10 +149,10 @@ scp_program -> agent_proc_bridge (*
 				*);;
 		        -> rrel_3: rrel_assign: rrel_scp_var: _descr2;;
 
-			=> nrel_goto: .agent_proc_bridge_operator11;;
+			=> nrel_goto: .agent_proc_bridge_operator13;;
 		*);;
 
-		-> .agent_proc_bridge_operator11
+		-> .agent_proc_bridge_operator13
 		(*
 			<- waitReturn;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _descr2;;

@@ -9,7 +9,6 @@ scp_program -> proc_dfs_for_bridges (*
 		-> rrel_6: rrel_in: _set_of_bridge;;
 		-> rrel_7: rrel_in: tin_vertex;;
 		-> rrel_8: rrel_in: fup_vertex;;
-		-> rrel_9: rrel_in: _answer;;
 	*);;
 	-> rrel_operators: ... (*
 // Увеличиваем время timer
@@ -232,7 +231,6 @@ scp_program -> proc_dfs_for_bridges (*
 		        -> rrel_6: rrel_fixed: rrel_scp_var: _set_of_bridge;;
 		        -> rrel_7: rrel_fixed: rrel_scp_const: tin_vertex;;
 		        -> rrel_8: rrel_fixed: rrel_scp_const: fup_vertex;;
-		        -> rrel_9: rrel_fixed: rrel_scp_var: _answer;;
 	        *);;
 	        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
 
@@ -366,25 +364,7 @@ scp_program -> proc_dfs_for_bridges (*
 	        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_bridge_4;;
 	        -> rrel_3: rrel_fixed: rrel_scp_var: _arc_is_bridge;;
 
-	        => nrel_goto: ..step_check_bridge_5_2;;          
-        *);;
-
-        -> ..step_check_bridge_5_2(*
-            <- genElStr3;;
-            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc_step_check_bridge_6;;
-            -> rrel_3: rrel_fixed: rrel_scp_var: _arc_is_bridge;;
-
-            => nrel_goto : ..step_check_bridge_5_3;;
-		*);;
-
-		-> ..step_check_bridge_5_3 (*
-            <- genElStr3;;
-            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc_step_check_bridge_7;;
-            -> rrel_3: rrel_fixed: rrel_scp_var: _arc_bridge_4;;
-
-            => nrel_goto : ..step_check_bridge_6;;
+	        => nrel_goto: ..step_check_bridge_6;;          
         *);;
 
 // Ищем обратную дугу
@@ -418,25 +398,7 @@ scp_program -> proc_dfs_for_bridges (*
 	        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_bridge_4;;
 	        -> rrel_3: rrel_fixed: rrel_scp_var: _arc_is_bridge2;;
 
-	        => nrel_goto: ..step_check_bridge_8_2;;          
-        *);;
-
-        -> ..step_check_bridge_8_2(*
-            <- genElStr3;;
-            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc_step_check_bridge_8;;
-            -> rrel_3: rrel_fixed: rrel_scp_var: _arc_is_bridge2;;
-
-            => nrel_goto : ..step_check_bridge_8_3;;
-		*);;
-
-		-> ..step_check_bridge_8_3 (*
-            <- genElStr3;;
-            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc_step_check_bridge_9;;
-            -> rrel_3: rrel_fixed: rrel_scp_var: _arc_bridge_4;;
-
-            => nrel_goto : ..step1;;
+	        => nrel_goto: ..step1;;          
         *);;
 
 // Удаляем временное множество

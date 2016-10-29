@@ -32,6 +32,5 @@ proc_gen_number_of_connected_components
 
 ..scp_program_proc_gen_number_of_connected_components_result
 = [*
-	concept_graph _-> _curr_graph;;
-	_curr_graph _=> nrel_number_connected_components: _counter;;
+	_curr_graph _=> nrel_number_connected_components:: _counter;;
 *];;

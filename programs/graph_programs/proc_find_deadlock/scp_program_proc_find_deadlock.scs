@@ -32,6 +32,5 @@ proc_find_deadlock
 
 ..scp_program_proc_find_deadlock_result
 = [*
-	concept_graph _-> _curr_graph;;
-	_curr_graph _=> nrel_set_deadlock: _typici;;
+	_curr_graph _=> nrel_set_deadlock:: _typici;;
 *];;

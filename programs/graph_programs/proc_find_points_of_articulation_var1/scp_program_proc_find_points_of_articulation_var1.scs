@@ -32,6 +32,5 @@ proc_find_points_of_articulation_var1
 
 ..scp_program_proc_find_points_of_articulation_var1_result
 = [*
-	concept_graph _-> _curr_graph;;
-	_curr_graph _=> nrel_set_point_articulation: _point_artic;;
+	_curr_graph _=> nrel_set_point_articulation:: _point_artic;;
 *];;

@@ -3,9 +3,7 @@ proc_reflexive_graphs
 	[Программа проверки графа на рефлексивность] (* <- lang_ru;; *);
 
 => nrel_initiation_condition_and_result: (..scp_program_proc_reflexive_graphs_initiation_condition
-					  => ..scp_program_proc_reflexive_graphs_result1);
-=> nrel_initiation_condition_and_result: (..scp_program_proc_reflexive_graphs_initiation_condition
-					  => ..scp_program_proc_reflexive_graphs_result2);
+					  => ..scp_program_proc_reflexive_graphs_result);
 
 <= nrel_scp_program_key_sc_elements: 
 	{
@@ -32,15 +30,17 @@ proc_reflexive_graphs
 	concept_graph _-> _curr_graph;;
 *];;
 
+..scp_program_proc_reflexive_graphs_result
+	<- nrel_conjunction;
+	-> ..scp_program_proc_reflexive_graphs_result1;
+	-> ..scp_program_proc_reflexive_graphs_result2;;
 
 ..scp_program_proc_reflexive_graphs_result1
 = [*
-	concept_graph _-> _curr_graph;;
 	concept_reflexive_graph _-> _curr_graph;;
 *];;
 
 ..scp_program_proc_reflexive_graphs_result2
 = [*
-	concept_graph _-> _curr_graph;;
 	concept_reflexive_graph _-|> _curr_graph;;
 *];;
