@@ -1,0 +1,25 @@
+lib_component_proc_of_analogy_usage
+=> nrel_main_idtf:
+	[Компонент библиотеки. scp-программа применения аналогии]
+	(* <- lang_ru;; *);
+	[Library component. scp-program of analogy usage]
+	(* <- lang_en;; *);
+
+<- platform_independent_reusable_component_OSTIS;
+<- reusable_scp_program;
+
+-> rrel_key_sc_element: 
+	proc_of_analogy_usage;
+
+<- rrel_key_sc_element: 
+	...
+	(*
+	<- sc_explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			"file://htmls/Proc_Analogy_Usage.html" 
+				(* <- lang_ru;; *);;
+		*);;
+	*);;

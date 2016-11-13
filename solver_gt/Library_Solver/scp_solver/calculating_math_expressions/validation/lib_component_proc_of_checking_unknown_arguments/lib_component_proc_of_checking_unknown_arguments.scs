@@ -1,0 +1,25 @@
+lib_component_roc_of_checking_unknown_arguments
+=> nrel_main_idtf:
+	[Компонент библиотеки. Scp-программа проверки количества неизвестных аргументов]
+	(* <- lang_ru;; *);
+	[Library component. Scp-program of checking amount of unknown arguments]
+	(* <- lang_en;; *);
+
+<- platform_independent_reusable_component_OSTIS;
+<- reusable_scp_program;
+
+-> rrel_key_sc_element: 
+	proc_of_checking_unknown_arguments;
+
+<- rrel_key_sc_element: 
+	...
+	(*
+	<- sc_explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			"file://htmls/Proc_Of_Checking_Unknown_Arguments.html" 
+				(* <- lang_ru;; *);;
+		*);;
+	*);;

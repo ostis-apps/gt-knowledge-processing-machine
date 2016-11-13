@@ -1,0 +1,537 @@
+scp_program -> proc_of_checking_units_of_measure 
+	(*	
+	-> rrel_params: .proc_of_checking_units_of_measure_params 
+		(*
+		-> rrel_1: rrel_in: _binary_arc;;
+                -> rrel_2: rrel_in: _message;;
+		*);;
+
+       -> rrel_operators: .proc_of_checking_units_of_measure_operator_set 
+		(*
+		-> rrel_init: .proc_of_checking_units_of_measure_operator1A 
+			(*
+		 	<- genEl;;
+
+		 	-> rrel_1: rrel_node: rrel_assign: rrel_scp_var: _example;;
+
+		 	=> nrel_goto: .proc_of_checking_units_of_measure_operator1B;;
+		 	*);;
+
+		-> .proc_of_checking_units_of_measure_operator1B 
+			(*
+			<- searchElStr3;;
+
+		  	-> rrel_1: rrel_assign: rrel_scp_var: _tuple;;
+		  	-> rrel_2: rrel_fixed: rrel_common: rrel_scp_var: _binary_arc;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _finish_node;;
+
+		  	=> nrel_then: .proc_of_checking_units_of_measure_operator1C1;;
+		  	=> nrel_else: .proc_of_checking_units_of_measure_operator5B;;
+			*);; 
+
+		-> .proc_of_checking_units_of_measure_operator1C1 
+			(*
+		  	<- searchElStr5;;
+
+		  	-> rrel_1: rrel_assign: rrel_scp_var: _value;;
+		  	-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _finish_node;;
+		  	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+		  	-> rrel_5: rrel_fixed: rrel_scp_const: nrel_value;;
+
+		   	=> nrel_then: .proc_of_checking_units_of_measure_operator1D;;
+		   	=> nrel_else: .proc_of_checking_units_of_measure_operator1C2;;
+			*);;
+
+		-> .proc_of_checking_units_of_measure_operator1C2 
+			(*
+			<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: concept_quantity;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _finish_node;;
+
+		  	=> nrel_then: .proc_of_checking_units_of_measure_operator3A;;
+		  	=> nrel_else: .proc_of_checking_units_of_measure_operator5A;;
+			*);;
+
+		-> .proc_of_checking_units_of_measure_operator1D
+			(*
+		  	<- searchSetStr5;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _value;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _measure;;
+                  	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+                  	-> rrel_5: rrel_assign: rrel_scp_var: rrel_role_relation: _unit_of_measure1;;
+
+			-> rrel_set_5: rrel_assign: rrel_scp_var: _maybe_unit_of_measure_set;;
+
+		  	=> nrel_then: .proc_of_checking_units_of_measure_operator1E;;
+		  	=> nrel_else: .proc_of_checking_units_of_measure_operator5B;;
+			*);;
+
+		-> .proc_of_checking_units_of_measure_operator1E 
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _maybe_unit_of_measure_set;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _maybe_unit_of_measure;;
+
+		  	=> nrel_then: .proc_of_checking_units_of_measure_operator1F;;
+		  	=> nrel_else: .proc_of_checking_units_of_measure_operator1E_erase;;
+			*);;
+
+		-> .proc_of_checking_units_of_measure_operator1E_erase 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _maybe_unit_of_measure_set;;
+
+		 	=> nrel_goto: .proc_of_checking_units_of_measure_operator5B;;
+		 	*);;
+
+		-> .proc_of_checking_units_of_measure_operator1F 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _arc1;;
+
+		 	=> nrel_goto: .proc_of_checking_units_of_measure_operator1G;;
+		 	*);;
+
+		-> .proc_of_checking_units_of_measure_operator1G 
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: unit_of_measure;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _maybe_unit_of_measure;;
+
+		  	=> nrel_then: .proc_of_checking_units_of_measure_operator1H;;
+		  	=> nrel_else: .proc_of_checking_units_of_measure_operator5B;;
+			*);;
+
+		-> .proc_of_checking_units_of_measure_operator1H 
+			(*
+		  	<- genElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _example;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _maybe_unit_of_measure;;
+
+		  	=> nrel_goto: .proc_of_checking_units_of_measure_operator1I;;
+			*);;
+
+		-> .proc_of_checking_units_of_measure_operator1I 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _maybe_unit_of_measure_set;;
+
+		 	=> nrel_goto: .proc_of_checking_units_of_measure_operator2A1;;
+		 	*);;
+
+		-> .proc_of_checking_units_of_measure_operator2A1 
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: number;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _tuple;;
+
+		  	=> nrel_then: .proc_of_checking_units_of_measure_operator5B;;
+		  	=> nrel_else: .proc_of_checking_units_of_measure_operator2A2;;
+			*);;
+
+		-> .proc_of_checking_units_of_measure_operator2A2 
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: concept_quantity;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _tuple;;
+
+		  	=> nrel_then: .proc_of_checking_units_of_measure_operator2B;;
+		  	=> nrel_else: .proc_of_checking_units_of_measure_operator3A;;
+			*);;
+
+		-> .proc_of_checking_units_of_measure_operator2B 
+			(*
+		  	<- searchElStr5;;
+
+		  	-> rrel_1: rrel_assign: rrel_scp_var: _value;;
+		  	-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _tuple;;
+		  	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+		  	-> rrel_5: rrel_fixed: rrel_scp_const: nrel_value;;			
+
+		   	=> nrel_then: .proc_of_checking_units_of_measure_operator2C;;
+		   	=> nrel_else: .proc_of_checking_units_of_measure_operator5B;;
+			*);;
+
+		-> .proc_of_checking_units_of_measure_operator2C
+			(*
+		  	<- searchSetStr5;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _value;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _measure;;
+                  	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+                  	-> rrel_5: rrel_assign: rrel_scp_var: rrel_role_relation: _unit_of_measure2;;
+
+			-> rrel_set_5: rrel_assign: rrel_scp_var: _maybe_unit_of_measure_set2;;
+
+		  	=> nrel_then: .proc_of_checking_units_of_measure_operator2D;;
+		  	=> nrel_else: .proc_of_checking_units_of_measure_operator5B;;
+			*);;
+
+		-> .proc_of_checking_units_of_measure_operator2D
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _maybe_unit_of_measure_set2;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _maybe_unit_of_measure2;;
+
+		  	=> nrel_then: .proc_of_checking_units_of_measure_operator2E;;
+		  	=> nrel_else: .proc_of_checking_units_of_measure_operator2D_erase;;
+			*);;
+
+		-> .proc_of_checking_units_of_measure_operator2D_erase 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _maybe_unit_of_measure_set2;;
+
+		 	=> nrel_goto: .proc_of_checking_units_of_measure_operator5B;;
+		 	*);;
+
+		-> .proc_of_checking_units_of_measure_operator2E
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _arc1;;
+
+		 	=> nrel_goto: .proc_of_checking_units_of_measure_operator2F;;
+		 	*);;
+
+		-> .proc_of_checking_units_of_measure_operator2F
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: unit_of_measure;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _maybe_unit_of_measure2;;
+
+		  	=> nrel_then: .proc_of_checking_units_of_measure_operator2G;;
+		  	=> nrel_else: .proc_of_checking_units_of_measure_operator5B;;
+			*);;
+
+		-> .proc_of_checking_units_of_measure_operator2G
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _example;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _example_of_unit_of_measure;;
+
+		  	=> nrel_then: .proc_of_checking_units_of_measure_operator2H;;
+		  	=> nrel_else: .proc_of_checking_units_of_measure_operator5B;;
+			*);;
+
+		-> .proc_of_checking_units_of_measure_operator2H
+			(*
+		  	<- ifCoin;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _example_of_unit_of_measure;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_var: _maybe_unit_of_measure2;;
+
+		  	=> nrel_then: .proc_of_checking_units_of_measure_operator2I_erase1;;
+		  	=> nrel_else: .proc_of_checking_units_of_measure_operator2I_erase2;;
+			*);;
+
+		-> .proc_of_checking_units_of_measure_operator2I_erase1 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _maybe_unit_of_measure_set2;;
+
+		 	=> nrel_goto: .proc_of_checking_units_of_measure_operator5D;;
+		 	*);;
+
+		-> .proc_of_checking_units_of_measure_operator2I_erase2 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _maybe_unit_of_measure_set2;;
+
+		 	=> nrel_goto: .proc_of_checking_units_of_measure_operator5C;;
+		 	*);;
+
+		-> .proc_of_checking_units_of_measure_operator3A 
+			(*
+		  	<- searchSetStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _tuple;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _elem_of_tuple;;
+
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _set_of_params;;
+
+		  	=> nrel_then: .proc_of_checking_units_of_measure_operator3B;;
+		  	=> nrel_else: .proc_of_checking_units_of_measure_operator5B;;
+			*);;
+
+		-> .proc_of_checking_units_of_measure_operator3B 
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _set_of_params;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _param;;
+
+		  	=> nrel_then: .proc_of_checking_units_of_measure_operator3C;;
+		  	=> nrel_else: .proc_of_checking_units_of_measure_operator3B_erase;;
+			*);;
+
+		-> .proc_of_checking_units_of_measure_operator3B_erase 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _set_of_params;;
+
+		 	=> nrel_goto: .proc_of_checking_units_of_measure_operator5D;;
+		 	*);;
+
+		-> .proc_of_checking_units_of_measure_operator3C 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _arc1;;
+
+		 	=> nrel_goto: .proc_of_checking_units_of_measure_operator3D;;
+		 	*);;
+
+		-> .proc_of_checking_units_of_measure_operator3D 
+			(*
+		  	<- searchElStr5;;
+
+		  	-> rrel_1: rrel_assign: rrel_scp_var: _value2;;
+		  	-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _param;;
+		  	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+		  	-> rrel_5: rrel_fixed: rrel_scp_const: nrel_value;;			
+
+		   	=> nrel_then: .proc_of_checking_units_of_measure_operator4A;;
+		   	=> nrel_else: .proc_of_checking_units_of_measure_operator3B;;
+			*);;
+
+		-> .proc_of_checking_units_of_measure_operator4A
+			(*
+		  	<- searchSetStr5;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _value2;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _measure;;
+                  	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+                  	-> rrel_5: rrel_assign: rrel_scp_var: _unit_of_measure2;;
+
+			-> rrel_set_5: rrel_assign: rrel_scp_var: _maybe_unit_of_measure_set2;;
+
+		  	=> nrel_then: .proc_of_checking_units_of_measure_operator4B;;
+		  	=> nrel_else: .proc_of_checking_units_of_measure_operator4B_erase2;;
+			*);;
+
+		-> .proc_of_checking_units_of_measure_operator4B 
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _maybe_unit_of_measure_set2;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _maybe_unit_of_measure2;;
+
+		  	=> nrel_then: .proc_of_checking_units_of_measure_operator4C;;
+		  	=> nrel_else: .proc_of_checking_units_of_measure_operator4B_erase;;
+			*);;
+
+		-> .proc_of_checking_units_of_measure_operator4B_erase 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _maybe_unit_of_measure_set2;;
+
+		 	=> nrel_goto: .proc_of_checking_units_of_measure_operator4B_erase2;;
+		 	*);;
+
+		-> .proc_of_checking_units_of_measure_operator4B_erase2 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _set_of_params;;
+
+		 	=> nrel_goto: .proc_of_checking_units_of_measure_operator5B;;
+		 	*);;
+
+		-> .proc_of_checking_units_of_measure_operator4C
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _arc1;;
+
+		 	=> nrel_goto: .proc_of_checking_units_of_measure_operator4D;;
+		 	*);;
+
+		-> .proc_of_checking_units_of_measure_operator4D
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: unit_of_measure;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _maybe_unit_of_measure2;;
+
+		  	=> nrel_then: .proc_of_checking_units_of_measure_operator4E;;
+		  	=> nrel_else: .proc_of_checking_units_of_measure_operator5B;;
+			*);;
+
+		-> .proc_of_checking_units_of_measure_operator4E
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _example;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _example_of_unit_of_measure;;
+
+		  	=> nrel_then: .proc_of_checking_units_of_measure_operator4G;;
+		  	=> nrel_else: .proc_of_checking_units_of_measure_operator4F;;
+			*);;
+
+		-> .proc_of_checking_units_of_measure_operator4F 
+			(*
+		  	<- genElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _example;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _maybe_unit_of_measure2;;
+
+		  	=> nrel_goto: .proc_of_checking_units_of_measure_operator4I_erase1;;
+			*);;
+
+		-> .proc_of_checking_units_of_measure_operator4G
+			(*
+		  	<- ifCoin;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _example_of_unit_of_measure;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_var: _maybe_unit_of_measure2;;
+
+		  	=> nrel_then: .proc_of_checking_units_of_measure_operator4I_erase1;;
+		  	=> nrel_else: .proc_of_checking_units_of_measure_operator4H1;;
+			*);;
+
+		-> .proc_of_checking_units_of_measure_operator4H1
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _example_of_unit_of_measure;;
+		  	-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _maybe_unit_of_measure2;;
+
+		  	=> nrel_then: .proc_of_checking_units_of_measure_operator4I_erase1;;
+		  	=> nrel_else: .proc_of_checking_units_of_measure_operator4H2;;
+			*);;
+
+		-> .proc_of_checking_units_of_measure_operator4H2
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _maybe_unit_of_measure2;;
+		  	-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _example_of_unit_of_measure;;
+
+		  	=> nrel_then: .proc_of_checking_units_of_measure_operator4I_erase1;;
+		  	=> nrel_else: .proc_of_checking_units_of_measure_operator4I_erase2;;
+			*);;
+
+		-> .proc_of_checking_units_of_measure_operator4I_erase1 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _maybe_unit_of_measure_set2;;
+
+		 	=> nrel_goto: .proc_of_checking_units_of_measure_operator3B;;
+		 	*);;
+
+		-> .proc_of_checking_units_of_measure_operator4I_erase2 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _maybe_unit_of_measure_set2;;
+
+		 	=> nrel_goto: .proc_of_checking_units_of_measure_operator4H;;
+		 	*);;
+
+		-> .proc_of_checking_units_of_measure_operator4H 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _set_of_params;;
+
+		 	=> nrel_goto: .proc_of_checking_units_of_measure_operator5C;;
+		 	*);;
+
+		-> .proc_of_checking_units_of_measure_operator5A 
+			(*
+		  	<- contAssign;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _message;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: [This calculation is belong to number operations!];;
+
+		  	=> nrel_goto: .proc_of_checking_units_of_measure_operator5E;;
+			*);;
+
+		-> .proc_of_checking_units_of_measure_operator5B 
+			(*
+		  	<- contAssign;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _message;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: [Some mistakes in your calculation!];;
+
+		  	=> nrel_goto: .proc_of_checking_units_of_measure_operator5E;;
+			*);;
+
+		-> .proc_of_checking_units_of_measure_operator5C 
+			(*
+		  	<- contAssign;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _message;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: [This calculation consists of quantities with different units of measure!];;
+
+		  	=> nrel_goto: .proc_of_checking_units_of_measure_operator5E;;
+			*);;
+
+		-> .proc_of_checking_units_of_measure_operator5D 
+			(*
+		  	<- contAssign;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _message;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: [This calculation can be solved!];;
+
+		  	=> nrel_goto: .proc_of_checking_units_of_measure_operator5E;;
+			*);;
+
+		-> .proc_of_checking_units_of_measure_operator5E 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _example;;
+
+		 	=> nrel_goto: .proc_of_checking_units_of_measure_operator_return;;
+		 	*);;
+
+		-> .proc_of_checking_units_of_measure_operator_return 
+			(*
+			<- return;;
+			*);;
+		*);;
+	*);;

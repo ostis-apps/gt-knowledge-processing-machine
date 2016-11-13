@@ -1,0 +1,41 @@
+Question3 <- question;;
+Question3 -> rrel_1: Task_Pattern3;;
+
+Task_Pattern3 = [* concept_triangle -> struct_Triangle_A5_B5_C5; struct_Triangle_A6_B6_C6;;
+
+	   struct_Triangle_A5_B5_C5 => nrel_internal_angle: struct_Angle_A5; struct_Angle_B5;;
+	   concept_angle -> struct_Angle_A5; struct_Angle_B5;;
+
+	   struct_Triangle_A6_B6_C6 => nrel_internal_angle: struct_Angle_A6; struct_Angle_B6;;
+	   concept_angle -> struct_Angle_A6; struct_Angle_B6;;
+
+	   nrel_congruence -> ...
+		(* -> struct_Angle_A5; struct_Angle_A6;; *);; 
+
+	   nrel_congruence -> ...
+		(* -> struct_Angle_B5; struct_Angle_B6;; *);; 
+	 *];;  
+
+Task_Pattern3 <- atomic_formula;;
+
+Question3 -> rrel_2: Problem_Pattern3;;
+
+Problem_Pattern3 = [* nrel_similarity _-> _tuple1;;
+			_tuple1 _-> struct_Triangle_A5_B5_C5;;
+			_tuple1 _-> struct_Triangle_A6_B6_C6;;  *];;
+
+Problem_Pattern3 <- atomic_formula;;
+
+Question3 <- rrel_key_sc_element: 
+	...
+	(*
+	<- sc_explanation;;
+	<= nrel_sc_text_translation: 
+		...
+		(*
+		-> rrel_example: 
+			[Доказать, что два треугольника являются подобными, если известно, что два угла одного треугольника соотвественно равны двум углам другого треугольника?]
+			(* <- lang_ru;; *);;
+		*);;
+	*);;
+

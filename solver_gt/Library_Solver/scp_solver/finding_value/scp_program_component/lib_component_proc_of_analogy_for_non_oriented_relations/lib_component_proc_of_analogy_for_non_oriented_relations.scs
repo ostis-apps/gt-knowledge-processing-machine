@@ -1,0 +1,25 @@
+lib_component_proc_of_analogy_usage_for_non_oriented_relations
+=> nrel_main_idtf:
+	[Компонент библиотеки. scp-программа применения аналогии на неориентированных бинарных отношениях]
+	(* <- lang_ru;; *);
+	[Library component. scp-program of analogy usage of non-oriented relations]
+	(* <- lang_en;; *);
+
+<- platform_independent_reusable_component_OSTIS;
+<- reusable_scp_program;
+
+-> rrel_key_sc_element: 
+	proc_of_analogy_usage_for_non_oriented_relations;
+
+<- rrel_key_sc_element: 
+	...
+	(*
+	<- sc_explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			"file://htmls/Proс_Analogy_non_oriented.html" 
+				(* <- lang_ru;; *);;
+		*);;
+	*);;

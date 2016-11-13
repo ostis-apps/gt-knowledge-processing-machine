@@ -1,0 +1,17 @@
+ui_menu_file_for_finding_value_task <- ui_user_command_class_atom;
+
+=> nrel_main_idtf: [Поиск значения неизвестной величины] (* <- lang_ru;; *);
+=> nrel_main_idtf: [Finding value of the unknown quantity] (* <- lang_en;; *);;
+
+ui_menu_file_for_finding_value_task => ui_nrel_command_template:
+	[*
+		question_finding_value_task _-> ._question_finding_value_task_instance
+			(*
+			_-> ui_arg_1;;
+			*);;
+		._question_finding_value_task_instance _<- question;;
+	*];;
+
+ui_menu_file_for_finding_value_task => ui_nrel_command_lang_template: [Поиск значения: $ui_arg_1] (* <- lang_ru;; *);;
+ui_menu_file_for_finding_value_task => ui_nrel_command_lang_template: [Finding value of: $ui_arg_1] (* <- lang_en;; *);;
+

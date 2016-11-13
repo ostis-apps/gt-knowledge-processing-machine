@@ -1,0 +1,1581 @@
+scp_program -> proc_of_logic_deduction 
+	(*	
+	-> rrel_params: .proc_of_logic_deduction_params 
+		(*
+		-> rrel_1: rrel_in: _statement;;
+                -> rrel_2: rrel_in: _object;;
+		-> rrel_3: rrel_in: _answer;;
+                -> rrel_4: rrel_in: _message;;
+		*);;
+
+	-> rrel_operators: .proc_of_logic_deduction_operator_set 
+		(*
+		-> rrel_init: .proc_of_logic_deduction_operator7A
+			(*
+		  	<- searchSetStr3;;
+
+		  	-> rrel_1: rrel_assign: rrel_scp_var: _maybe_task_node;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _object;;
+
+                 	-> rrel_set_1: rrel_assign: rrel_scp_var: _input_nodes2;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator7B;;
+			=> nrel_else: .proc_of_logic_deduction_operator3B;;
+			*);; 
+
+		-> .proc_of_logic_deduction_operator7B 
+                 	(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _input_nodes2;;
+		  	-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _condition_graph;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator7C;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator7B_erase;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator7B_erase
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _input_nodes2;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator3B;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator7C
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc1;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator7D;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator7D 
+			(*
+		  	<- searchElStr5;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _question_node;;
+		  	-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _condition_graph;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+		  	-> rrel_5: rrel_fixed: rrel_scp_const: rrel_1;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator7E;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator7B;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator7E 
+                 	(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: question;;
+		  	-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _question_node;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator7F;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator7B;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator7F
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _input_nodes2;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator0A1_impl;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator0A1_impl 
+                 	(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: nrel_implication;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _statement;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator0B1_impl;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator0A1_eq;;
+			*);;  
+
+		-> .proc_of_logic_deduction_operator0A1_eq 
+                 	(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: nrel_equivalence;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _statement;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator0B1_eq;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator_return;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator0B1_impl 
+			(*
+		  	<- searchElStr5;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _statement;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _part1;;
+		  	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+                  	-> rrel_5: rrel_fixed: rrel_scp_const: rrel_if;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator0B2_impl;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator_return;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator0B2_impl 
+			(*
+		 	<- genEl;;
+
+		 	-> rrel_1: rrel_assign: rrel_node: rrel_scp_var: _set_of_pairs1;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator1A_impl;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator0B1_eq 
+			(*
+		  	<- searchSetStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _statement;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _parts;;
+
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _statement_parts;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator0B2_eq;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator_return;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator0B2_eq 
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _statement_parts;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _part1;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator0B3_eq;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator3D;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator0B3_eq 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc1;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator0B4_eq;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator0B4_eq 
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: atomic_existence;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _part1;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator0B6_eq;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator0B5_eq;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator0B5_eq 
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: atomic_existence_and_uniqueness;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _part1;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator0B6_eq;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator0B2_eq;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator0B6_eq 
+			(*
+		  	<- ifVarAssign;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _set_of_pairs1;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator0B7_eq;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator0B8_eq;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator0B7_eq 
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _set_of_pairs1;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _pair1;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator3A;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator1A_eq;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator0B8_eq 
+			(*
+		 	<- genEl;;
+
+		 	-> rrel_1: rrel_assign: rrel_node: rrel_scp_var: _set_of_pairs1;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator1A_eq;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator1A_impl
+			(*
+		  	<- searchSetStr3;;
+
+		  	-> rrel_1: rrel_assign: rrel_scp_var: _node;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _object;;
+
+                  	-> rrel_set_1: rrel_assign: rrel_scp_var: _input_nodes;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator1B_impl;;
+			=> nrel_else: .proc_of_logic_deduction_operator3B;;
+			*);; 
+
+		-> .proc_of_logic_deduction_operator1B_impl
+                 	(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _input_nodes;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _maybe_concept;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator1C_impl;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator1B_impl_erase;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator1B_impl_erase
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _input_nodes;;  
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator3B;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator1C_impl 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc1;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator1D_impl;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator1D_impl 
+			(*
+		  	<- ifType;;
+
+		  	-> rrel_1: rrel_fixed: rrel_not_relation: rrel_scp_var: _maybe_concept;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator1E_impl;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator1B_impl;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator1E_impl
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _part1;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _maybe_concept;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator1F_impl;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator1B_impl;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator1F_impl 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _input_nodes;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator2A;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator1A_eq
+			(*
+		  	<- searchSetStr3;;
+
+		  	-> rrel_1: rrel_assign: rrel_scp_var: _node;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _object;;
+
+                  	-> rrel_set_1: rrel_assign: rrel_scp_var: _input_nodes;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator1B_eq;;
+			=> nrel_else: .proc_of_logic_deduction_operator0B2_eq;;
+			*);; 
+
+		-> .proc_of_logic_deduction_operator1B_eq
+                 	(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _input_nodes;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _maybe_concept;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator1C_eq;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator1B_eq_erase;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator1B_eq_erase
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _input_nodes;;  
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator0B2_eq;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator1C_eq 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc1;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator1D_eq;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator1D_eq 
+			(*
+		  	<- ifType;;
+
+		  	-> rrel_1: rrel_fixed: rrel_not_relation: rrel_scp_var: _maybe_concept;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator1E_eq;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator1B_eq;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator1E_eq
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _part1;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _maybe_concept;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator1F_eq;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator1B_eq;;
+			*);;  
+
+		-> .proc_of_logic_deduction_operator1F_eq 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _input_nodes;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator2A;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator2A 
+			(*
+		  	<- searchSetStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _part1;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _node;;
+
+                 	-> rrel_set_3: rrel_assign: rrel_scp_var: _statement_vars;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator2B;;
+			=> nrel_else: .proc_of_logic_deduction_operator3B;;
+			*);; 
+
+		-> .proc_of_logic_deduction_operator2B 
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _statement_vars;;
+		  	-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _concrete_var;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator2C;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator2B_erase;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator2B_erase 
+                	(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _statement_vars;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator3B;;
+		 	*);;
+
+                -> .proc_of_logic_deduction_operator2C 
+                	(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc1;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator2D;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator2D 
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _maybe_concept;;
+		  	-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _concrete_var;;
+			
+		  	=> nrel_then: .proc_of_logic_deduction_operator2E;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator2B;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator2E 
+                	(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _statement_vars;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator2E1_print1;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator2E1_print1 
+                	(*
+		 	<- printEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: _concrete_var;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator2E2_print2;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator2E2_print2 
+                	(*
+		 	<- printEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: _object;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator2F1;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator2F1 
+                	(*
+		  	<- call;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: proc_generation_pair;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: .proc_of_logic_deduction_operator2F1_params 
+		  		(*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _concrete_var;; 
+                		-> rrel_2: rrel_fixed: rrel_scp_var: _object;; 
+                		-> rrel_3: rrel_fixed: rrel_scp_var: _set_of_pairs1;; 	
+				*);;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _descr0x;;
+
+		  	=> nrel_goto: .proc_of_logic_deduction_operator2F2;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator2F2 
+			(*
+		  	<- waitReturn;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _descr0x;;
+
+		  	=> nrel_goto: .proc_of_logic_deduction_operator2G1;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator2G1 
+			(*
+		  	<- searchSetStr5;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _maybe_concept;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _objects_nodes;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+		  	-> rrel_5: rrel_fixed: rrel_scp_var: _condition_graph;;
+
+                 	-> rrel_set_3: rrel_assign: rrel_scp_var: _condition_objects;;
+
+		  	=> nrel_goto: .proc_of_logic_deduction_operator2G2;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator2G2
+                 	(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _condition_objects;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _condition_object;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator2G3;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator2G2_erase;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator2G2_erase
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _condition_objects;;  
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator3A;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator2G3 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc1;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator2G4;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator2G4 
+			(*
+		  	<- ifCoin;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _object;;
+			-> rrel_2: rrel_fixed: rrel_scp_var: _condition_object;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator2G2;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator2H1;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator2H1 
+			(*
+		  	<- searchSetStr5;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _maybe_concept;;
+		  	-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _pattern_vars;;
+			-> rrel_4: rrel_assign: rrel_scp_var: _arc2;;
+		  	-> rrel_5: rrel_fixed: rrel_scp_var: _part1;;
+
+                 	-> rrel_set_3: rrel_assign: rrel_scp_var: _pattern_objects;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator2H2;;
+			=> nrel_else: .proc_of_logic_deduction_operator2G2;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator2H2
+                 	(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _pattern_objects;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _pattern_object;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator2H3;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator2H2_erase;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator2H2_erase
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _pattern_objects;;  
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator2G2;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator2H3 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc1;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator2H4;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator2H4 
+			(*
+		  	<- ifCoin;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _concrete_var;;
+			-> rrel_2: rrel_fixed: rrel_scp_var: _pattern_object;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator2H2;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator2H5;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator2H5 
+                	(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _pattern_objects;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator2H6;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator2H6 
+                	(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _condition_objects;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator2H6_print1;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator2H6_print1 
+                	(*
+		 	<- printEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: _pattern_object;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator2H6_print2;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator2H6_print2 
+                	(*
+		 	<- printEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: _condition_object;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator2H7;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator2H7 
+                	(*
+		  	<- call;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: proc_generation_pair;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: .proc_of_logic_deduction_operator2H7_params 
+		  		(*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _pattern_object;; 
+                		-> rrel_2: rrel_fixed: rrel_scp_var: _condition_object;; 
+                		-> rrel_3: rrel_fixed: rrel_scp_var: _set_of_pairs1;; 	
+				*);;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _descr0y;;
+
+		  	=> nrel_goto: .proc_of_logic_deduction_operator2H8;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator2H8 
+			(*
+		  	<- waitReturn;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _descr0y;;
+
+		  	=> nrel_goto: .proc_of_logic_deduction_operator3A;;
+			*);;
+                
+		-> .proc_of_logic_deduction_operator3A 
+                 	(*
+			<- sys_search;;
+
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: _part1;;
+		 	-> rrel_2: rrel_assign: rrel_scp_var: _tree;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _set_of_pairs1;; 
+
+                 	=> nrel_then: .proc_of_logic_deduction_operator4A1;;
+                 	=> nrel_else: .proc_of_logic_deduction_operator3B;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator3B
+            		(*
+            		<- ifVarAssign;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _statement_parts;;
+
+            		=> nrel_then: .proc_of_logic_deduction_operator3C;;
+			=> nrel_else: .proc_of_logic_deduction_operator3E;;
+            		*);;
+
+		-> .proc_of_logic_deduction_operator3C
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _statement_parts;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _statement_part;;
+
+            		=> nrel_then: .proc_of_logic_deduction_operator0B2_eq;;
+			=> nrel_else: .proc_of_logic_deduction_operator3D;;
+            		*);;
+
+		-> .proc_of_logic_deduction_operator3D 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _statement_parts;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator3E;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator3E 
+                 	(*
+		  	<- contAssign;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _message;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: [Can't use this statement!];;
+		  
+		  	=> nrel_goto: .proc_of_logic_deduction_operator_return;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator4A1
+            		(*
+            		<- ifVarAssign;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _statement_parts;;
+
+            		=> nrel_then: .proc_of_logic_deduction_operator4A2;;
+			=> nrel_else: .proc_of_logic_deduction_operator4B_impl;;
+            		*);;
+
+		-> .proc_of_logic_deduction_operator4A2 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _statement_parts;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator4B_eq;;
+		 	*);;
+               
+		-> .proc_of_logic_deduction_operator4B_impl 
+                 	(*
+		  	<- searchElStr5;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _statement;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _part2;;
+                  	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+		  	-> rrel_5: rrel_fixed: rrel_scp_const: rrel_then;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator5A;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator4B_eq;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator4B_eq
+			(*
+		  	<- searchSetStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _statement;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _element;;
+
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _statement_parts2;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator4C_eq;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator_return;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator4C_eq 
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _statement_parts2;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _part2;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator4D_eq;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator4C_eq_erase;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator4C_eq_erase 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _statement_parts2;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator3B;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator4D_eq 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc1;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator4E_eq;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator4E_eq 
+			(*
+		  	<- ifCoin;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _part2;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_var: _part1;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator4C_eq;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator4F_eq;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator4F_eq 
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: atomic_existence;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _part2;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator4H_eq;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator4G_eq;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator4G_eq 
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: atomic_existence_and_uniqueness;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _part2;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator4H_eq;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator4C_eq;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator4H_eq
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _statement_parts2;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator5A;;
+		 	*);;
+
+                -> .proc_of_logic_deduction_operator5A 
+                	(*
+		 	<- genEl;;
+
+		 	-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _connection_vars;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator5A_print1;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator5A_print1 
+                	(*
+		 	<- printEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: _part1;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator5A_print2;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator5A_print2 
+                	(*
+		 	<- printEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: _part2;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator5B;;
+		 	*);;
+                
+                -> .proc_of_logic_deduction_operator5B 
+                	(*
+		  	<- call;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: proc_equivalent_elements;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: .proc_of_logic_deduction_operator5B_params 
+		  		(*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _part1;;
+                                -> rrel_2: rrel_fixed: rrel_scp_var: _part2;;
+                                -> rrel_3: rrel_fixed: rrel_scp_var: _connection_vars;;
+				*);;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _descr1;;
+
+		  	=> nrel_goto: .proc_of_logic_deduction_operator5C;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator5C 
+			(*
+		  	<- waitReturn;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _descr1;;
+
+		  	=> nrel_goto: .proc_of_logic_deduction_operator6A;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator6A 
+			(*
+		 	<- genEl;;
+
+		 	-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _set_of_pairs;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator6A2;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator6A2 
+			(*
+		 	<- genEl;;
+
+		 	-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _vars_for_sysgen;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator6B;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator6B 
+			(*
+		  	<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _connection_vars;;
+		  	-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _concrete_connection_var;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator6C;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator6M;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator6C
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc1;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator6D;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator6D
+			(*
+		 	<- ifType;;
+
+		 	-> rrel_1: rrel_fixed: rrel_not_relation: rrel_scp_var: _concrete_connection_var;;
+
+		 	=> nrel_then: .proc_of_logic_deduction_operator6B;;
+			=> nrel_else: .proc_of_logic_deduction_operator6E1;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator6E1
+			(*
+		 	<- ifVarAssign;;
+
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: _tree_part;;
+
+		 	=> nrel_then: .proc_of_logic_deduction_operator6E2;;
+		 	=> nrel_else: .proc_of_logic_deduction_operator6E3;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator6E2
+			(*
+		 	<- ifVarAssign;;
+
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: _tree_leaf;;
+
+		 	=> nrel_then: .proc_of_logic_deduction_operator6F1;;
+		 	=> nrel_else: .proc_of_logic_deduction_operator6F2;;
+		 	*);; 
+                 	
+		-> .proc_of_logic_deduction_operator6E3 
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _tree;;
+		  	-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _tree_part;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator6E4;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator_return;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator6E4 
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _tree_part;;
+		  	-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _tree_leaf;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator6F1;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator6F2;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator6F1 
+			(*
+		  	<- searchSetStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _tree_part;;
+		  	-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _leaf;;
+
+                  	-> rrel_set_3: rrel_assign: rrel_scp_var: _set_of_sys_search_binaries;; 
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator6F_print;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator3B;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator6F2 
+			(*
+		  	<- searchSetStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _tree;;
+		  	-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _leaf;;
+
+                  	-> rrel_set_3: rrel_assign: rrel_scp_var: _set_of_sys_search_binaries;; 
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator6F_print;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator3B;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator6F_print
+			(*
+		 	<- printEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: _set_of_sys_search_binaries;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator6G;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator6G
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _set_of_sys_search_binaries;;
+		  	-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _binary_arc;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator6H;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator6G_erase;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator6G_erase
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _set_of_sys_search_binaries;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator6M;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator6H
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc1;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator6I;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator6I 
+                 	(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_assign: rrel_scp_var: _start_node;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_var: _binary_arc;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _finish_node;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator6K;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator6G;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator6K
+			(*
+		 	<- ifCoin;;
+
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: _start_node;;
+                 	-> rrel_2: rrel_fixed: rrel_scp_var: _concrete_connection_var;;
+
+		 	=> nrel_then: .proc_of_logic_deduction_operator6L1;;
+		 	=> nrel_else: .proc_of_logic_deduction_operator6G;;
+		 	*);; 
+
+		-> .proc_of_logic_deduction_operator6L1 
+                	(*
+		  	<- call;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: proc_generation_pair;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: .proc_of_logic_deduction_operator6L1_params 
+		  		(*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _start_node;; 
+                		-> rrel_2: rrel_fixed: rrel_scp_var: _finish_node;; 
+                		-> rrel_3: rrel_fixed: rrel_scp_var: _set_of_pairs;; 	
+				*);;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _descr2;;
+
+		  	=> nrel_goto: .proc_of_logic_deduction_operator6L2;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator6L2 
+			(*
+		  	<- waitReturn;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _descr2;;
+
+		  	=> nrel_goto: .proc_of_logic_deduction_operator6L3;;
+			*);;    
+
+		-> .proc_of_logic_deduction_operator6L3 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _set_of_sys_search_binaries;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator6L4;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator6L4
+			(*
+		  	<- genElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _vars_for_sysgen;;
+		  	-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _concrete_connection_var;;
+
+		  	=> nrel_goto: .proc_of_logic_deduction_operator6B;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator6M
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _connection_vars;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator8A_pr;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator8A_pr
+			(*
+		 	<- printEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: _vars_for_sysgen;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator8A;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator8A
+			(*
+		 	<- genEl;;
+
+		 	-> rrel_1: rrel_assign: rrel_node: rrel_const: rrel_scp_var: _visited_vertexes;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator8B;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator8B
+			(*
+		 	<- genEl;;
+
+		 	-> rrel_1: rrel_assign: rrel_node: rrel_const: rrel_scp_var: _define_nodes;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator8C1;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator8C1 
+                 	(*
+		  	<- genElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _define_nodes;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _object;;
+		  
+		  	=> nrel_goto: .proc_of_logic_deduction_operator8C2;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator8C2
+            		(*
+            		<- ifVarAssign;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _condition_object;;
+
+            		=> nrel_then: .proc_of_logic_deduction_operator8C3;;
+			=> nrel_else: .proc_of_logic_deduction_operator8D;;
+            		*);;
+
+		-> .proc_of_logic_deduction_operator8C3 
+                 	(*
+		  	<- genElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _define_nodes;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _condition_object;;
+		  
+		  	=> nrel_goto: .proc_of_logic_deduction_operator8D;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator8D
+			(*
+		  	<- searchSetStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _vars_for_sysgen;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _element;;
+
+                 	-> rrel_set_3: rrel_fixed: rrel_scp_var: _define_nodes;;
+
+		  	=> nrel_goto: .proc_of_logic_deduction_operator8E1;;
+			*);; 
+
+		-> .proc_of_logic_deduction_operator8E1 
+                	(*
+		  	<- call;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: proc_of_marking_statement;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: .proc_of_logic_deduction_operator8E1_params 
+		  		(*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _vars_for_sysgen;; 
+                		-> rrel_2: rrel_fixed: rrel_scp_var: _part2;; 
+                		-> rrel_3: rrel_fixed: rrel_scp_var: _object;; 
+				-> rrel_4: rrel_fixed: rrel_scp_var: _condition_graph;; 
+				-> rrel_5: rrel_fixed: rrel_scp_var: _set_of_pairs;; 
+				-> rrel_6: rrel_fixed: rrel_scp_var: _visited_vertexes;; 
+				-> rrel_7: rrel_fixed: rrel_scp_var: _define_nodes;;
+				*);;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _descr3;;
+
+		  	=> nrel_goto: .proc_of_logic_deduction_operator8E2;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator8E2 
+			(*
+		  	<- waitReturn;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _descr3;;
+
+		  	=> nrel_goto: .proc_of_logic_deduction_operator8F;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator8F
+			(*
+			<- eraseElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _define_nodes;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_erase: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _element;;
+			
+			=> nrel_goto: .proc_of_logic_deduction_operator8G;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator8G
+			(*
+			<- eraseElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _visited_vertexes;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_erase: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _element2;;
+			
+			=> nrel_goto: .proc_of_logic_deduction_operator8H;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator8H
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _define_nodes;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator8I;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator8I
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _visited_vertexes;;
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator9A;;
+		 	*);;
+                                
+		-> .proc_of_logic_deduction_operator9A
+			(*
+		 	<- sys_gen;;
+
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: _part2;;
+		 	-> rrel_2: rrel_assign: rrel_scp_var: _tree2;;
+                 	-> rrel_3: rrel_fixed: rrel_scp_var: _set_of_pairs;;
+                 	-> rrel_4: rrel_fixed: rrel_scp_var: _answer;;
+
+                 	=> nrel_goto: .proc_of_logic_deduction_operator9B;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator9B 
+			(*
+		  	<- searchSetStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _part2;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: rrel_const: rrel_norole_relation: _elem2;;
+
+                 	-> rrel_set_3: rrel_fixed: rrel_scp_var: _answer;;
+
+		  	=> nrel_goto: .proc_of_logic_deduction_operator9C;;
+			*);; 
+
+		-> .proc_of_logic_deduction_operator9C 
+			(*
+		  	<- searchSetStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _part2;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: rrel_const: rrel_not_relation: _elem2;;
+
+                 	-> rrel_set_3: rrel_fixed: rrel_scp_var: _answer;;
+
+		  	=> nrel_goto: .proc_of_logic_deduction_operator9C_print;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator9C_print 
+			(*
+		  	<- printEl;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+
+		  	=> nrel_goto: .proc_of_logic_deduction_operator_check_math1;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator_check_math1 
+			(*
+		  	<- searchSetStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _elem;;
+
+                 	-> rrel_set_3: rrel_assign: rrel_scp_var: _answer2;;
+
+		  	=> nrel_goto: .proc_of_logic_deduction_operator_check_math2;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator_check_math2 
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _answer2;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _maybe_math;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator_check_math3;;
+			=> nrel_else: .proc_of_logic_deduction_operator_check_math52;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator_check_math3 
+			(*
+		  	<- eraseEl;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc1;;
+
+		  	=> nrel_goto: .proc_of_logic_deduction_operator_check_math4;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator_check_math4 
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: ariphmetic_operation;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _maybe_math;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator_check_math51;;
+			=> nrel_else: .proc_of_logic_deduction_operator_check_math2;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator_check_math51 
+                 	(*
+		  	<- contAssign;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _message;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: [It must be solved by manager!];;
+		  
+		  	=> nrel_goto: .proc_of_logic_deduction_operator_check_math6;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator_check_math52 
+                 	(*
+		  	<- contAssign;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _message;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: [This statement will be included in solution decomposition!];;
+		  
+		  	=> nrel_goto: .proc_of_logic_deduction_operator_check_math53;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator_check_math53 
+			(*
+		  	<- genElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+		  	-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _object;;
+
+		  	=> nrel_goto: .proc_of_logic_deduction_operator_check_math54;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator_check_math54
+            		(*
+            		<- ifVarAssign;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _condition_object;;
+
+            		=> nrel_then: .proc_of_logic_deduction_operator_check_math55;;
+			=> nrel_else: .proc_of_logic_deduction_operator_check_math6;;
+            		*);;
+
+		-> .proc_of_logic_deduction_operator_check_math55 
+                 	(*
+		  	<- genElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _condition_object;;
+		  
+		  	=> nrel_goto: .proc_of_logic_deduction_operator_check_math6;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator_check_math6 
+			(*
+		  	<- eraseEl;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _answer2;;
+
+		  	=> nrel_goto: .proc_of_logic_deduction_operator10A;;
+			*);;
+                 
+		-> .proc_of_logic_deduction_operator10A 
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _tree;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _tree_part;;
+
+                  	=> nrel_then: .proc_of_logic_deduction_operator10B;;
+		  	=> nrel_else: .proc_of_logic_deduction_operator10E;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator10B 
+			(*
+		  	<- eraseEl;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc1;;
+
+		  	=> nrel_goto: .proc_of_logic_deduction_operator10C;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator10C 
+			(*
+		  	<- eraseSetStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _tree_part;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_erase: rrel_scp_var: _smth;;
+
+		  	=> nrel_goto: .proc_of_logic_deduction_operator10D;;
+			*);; 
+
+		-> .proc_of_logic_deduction_operator10D
+			(*
+		  	<- eraseEl;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _tree_part;;
+
+		  	=> nrel_goto: .proc_of_logic_deduction_operator10A;;
+			*);; 
+
+		-> .proc_of_logic_deduction_operator10E 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _tree;;  
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator11A;;
+		 	*);; 
+
+		-> .proc_of_logic_deduction_operator11A 
+                 	(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _set_of_pairs;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _clear_elem;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator11B;;
+			=> nrel_else: .proc_of_logic_deduction_operator11F;;
+			*);; 
+
+		-> .proc_of_logic_deduction_operator11B
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _arc1;;  
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator11C;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator11C
+                 	(*
+		  	<- eraseElStr5;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _clear_elem;;
+		  	-> rrel_2: rrel_assign: rrel_erase: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _start;;
+			-> rrel_4: rrel_assign: rrel_erase: rrel_scp_var: _arc2;;
+		  	-> rrel_5: rrel_fixed: rrel_scp_const: rrel_fixed;;
+
+		  	=> nrel_goto: .proc_of_logic_deduction_operator11D;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator11D
+                 	(*
+		  	<- eraseElStr5;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _clear_elem;;
+		  	-> rrel_2: rrel_assign: rrel_erase: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _finish;;
+			-> rrel_4: rrel_assign: rrel_erase: rrel_scp_var: _arc2;;
+		  	-> rrel_5: rrel_fixed: rrel_scp_const: rrel_fixed;;
+
+		  	=> nrel_goto: .proc_of_logic_deduction_operator11E;;
+			*);;
+
+		-> .proc_of_logic_deduction_operator11E
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _clear_elem;;  
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator11A;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator11F
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _set_of_pairs;;  
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator12A;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator12A
+            		(*
+            		<- ifVarAssign;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _tree2;;
+
+            		=> nrel_then: .proc_of_logic_deduction_operator12B;;
+			=> nrel_else: .proc_of_logic_deduction_operator_return;;
+            		*);;
+
+		-> .proc_of_logic_deduction_operator12B
+                 	(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _tree2;;
+		  	-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _connect;;
+
+		  	=> nrel_then: .proc_of_logic_deduction_operator12C;;
+			=> nrel_else: .proc_of_logic_deduction_operator12D;;
+			*);; 
+
+		-> .proc_of_logic_deduction_operator12C 
+                 	(*
+		  	<- eraseSetStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _tree2;;
+		  	-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_erase: rrel_scp_var: _connection;;
+
+		  	=> nrel_goto: .proc_of_logic_deduction_operator12D;;
+			*);; 
+
+		-> .proc_of_logic_deduction_operator12D
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _tree2;;  
+
+		 	=> nrel_goto: .proc_of_logic_deduction_operator_return;;
+		 	*);;
+
+		-> .proc_of_logic_deduction_operator_return 
+			(*
+			<- return;;
+			*);;
+		*);;
+	*);;

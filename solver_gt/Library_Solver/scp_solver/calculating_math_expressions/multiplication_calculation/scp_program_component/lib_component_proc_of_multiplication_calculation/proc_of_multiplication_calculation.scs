@@ -1,0 +1,787 @@
+scp_program -> proc_of_multiplication_calculation
+	(*	
+	-> rrel_params: .proc_of_multiplication_calculation_params 
+		(*
+		-> rrel_1: rrel_in: _binary_arc;;
+        	-> rrel_2: rrel_in: _unknown;;	
+		*);;
+
+	-> rrel_operators: .proc_of_multiplication_calculation_operator_set 
+    		(*
+		-> rrel_init: .proc_of_multiplication_calculation_operator1A1
+			(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _tuple;;
+			-> rrel_2: rrel_fixed: rrel_common: rrel_scp_var: _binary_arc;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _finish_node;;
+
+			=> nrel_then: .proc_of_multiplication_calculation_operator1B1;;
+			=> nrel_else: .proc_of_multiplication_calculation_return;;
+			*);;	 
+
+		-> .proc_of_multiplication_calculation_operator1B1
+			(*
+		 	<- genEl;;
+
+		 	-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _units_of_measure;;
+
+		 	=> nrel_goto: .proc_of_multiplication_calculation_operator1B2;;
+		 	*);;
+
+		-> .proc_of_multiplication_calculation_operator1B2
+			(*
+		 	<- genEl;;
+
+		 	-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _units_of_measure2;;
+
+		 	=> nrel_goto: .proc_of_multiplication_calculation_operator1C1;;
+		 	*);;
+
+        	-> .proc_of_multiplication_calculation_operator1C1 
+			(*
+		 	<- genEl;;
+
+		 	-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _sc_link;;
+
+		 	=> nrel_goto: .proc_of_multiplication_calculation_operator1C2;;
+		 	*);;
+
+		-> .proc_of_multiplication_calculation_operator1C2 
+			(*
+		 	<- genEl;;
+
+		 	-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _sc_link2;;
+
+		 	=> nrel_goto: .proc_of_multiplication_calculation_operator1D;;
+		 	*);;
+
+		-> .proc_of_multiplication_calculation_operator1D 
+			(*
+		 	<- genEl;;
+
+		 	-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _tuple_node;;
+
+		 	=> nrel_goto: .proc_of_multiplication_calculation_operator1E;;
+		 	*);;
+
+		-> .proc_of_multiplication_calculation_operator1E
+	    		(*
+			<- contAssign;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _degree_coefficient;; 
+			-> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+			=> nrel_goto: .proc_of_multiplication_calculation_operator2A1;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator2A1 
+			(*
+		  	<- searchElStr5;;
+
+		  	-> rrel_1: rrel_assign: rrel_scp_var: _value;;
+		  	-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _finish_node;;
+                  	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+                  	-> rrel_5: rrel_fixed: rrel_scp_const: nrel_value;;
+
+		  	=> nrel_then: .proc_of_multiplication_calculation_operator2B1;;
+		  	=> nrel_else: .proc_of_multiplication_calculation_operator2A2;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator2A2
+			(*
+		  	<- searchElStr5;;
+
+		  	-> rrel_1: rrel_assign: rrel_scp_var: _identification;;
+		  	-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _finish_node;;
+                  	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+                  	-> rrel_5: rrel_fixed: rrel_scp_const: nrel_identification;;
+
+		  	=> nrel_then: .proc_of_multiplication_calculation_operator2B1;;
+		  	=> nrel_else: .proc_of_multiplication_calculation_operator2A3;; 
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator2A3 
+			(*
+		  	<- genElStr5;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _unknown;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _finish_node;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+		  	-> rrel_5: rrel_fixed: rrel_scp_const: rrel_result;;
+			
+			=> nrel_goto: .proc_of_multiplication_calculation_operator2A4;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator2A4 
+	    		(*
+			<- contAssign;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _result;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [1];;
+
+			=> nrel_goto: .proc_of_multiplication_calculation_operator3A;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator2B1
+			(*
+		  	<- call;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: proc_getting_value;; 
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: .proc_of_multiplication_calculation_operator2B1_params 
+		  		(*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _finish_node;;
+                		-> rrel_2: rrel_fixed: rrel_scp_var: _units_of_measure;; 
+             			-> rrel_3: rrel_fixed: rrel_scp_var: _sc_link;;   
+				*);;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _descr1x;;
+
+		  	=> nrel_goto: .proc_of_multiplication_calculation_operator2B2;;
+			*);;
+
+        	-> .proc_of_multiplication_calculation_operator2B2
+        		(*
+		  	<- waitReturn;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _descr1x;;
+
+		  	=> nrel_goto: .proc_of_multiplication_calculation_operator2B3;;
+		 	*);;
+
+		-> .proc_of_multiplication_calculation_operator2B3 
+	    		(*
+			<- searchElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _sc_link;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _link1;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_2;;
+
+			=> nrel_then: .proc_of_multiplication_calculation_operator2B4;;
+			=> nrel_else: .proc_of_multiplication_calculation_operator5C1;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator2B4
+	    		(*
+			<- contAssign;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _result;; 
+			-> rrel_2: rrel_fixed: rrel_scp_var: _link1;;
+
+			=> nrel_goto: .proc_of_multiplication_calculation_operator2B5;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator2B5 
+	    		(*
+	        	<- contAdd;;
+
+	        	-> rrel_1: rrel_fixed: rrel_scp_var: _degree_coefficient;;
+	        	-> rrel_2: rrel_fixed: rrel_scp_var: _degree_coefficient;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: [1];;
+	                    	
+	        	=> nrel_goto: .proc_of_multiplication_calculation_operator3A;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator3A 
+			(*
+			<- searchSetStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _tuple;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;; 
+			-> rrel_3: rrel_assign: rrel_scp_var: _element_of_tuple;;
+			
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _set_of_multipliers;;   
+
+			=> nrel_then: .proc_of_multiplication_calculation_operator3B;;
+			=> nrel_else: .proc_of_multiplication_calculation_operator5C1;;
+			*);;
+	                      
+		-> .proc_of_multiplication_calculation_operator3B 
+			(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _set_of_multipliers;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;; 
+			-> rrel_3: rrel_assign: rrel_scp_var: _multiplier;;
+
+			=> nrel_then: .proc_of_multiplication_calculation_operator3C;;
+			=> nrel_else: .proc_of_multiplication_calculation_operator3B_erase;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator3B_erase 
+	    		(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _set_of_multipliers;;
+
+			=> nrel_goto: .proc_of_multiplication_calculation_operator4A;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator3C 
+	    		(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _arc1;;
+
+			=> nrel_goto: .proc_of_multiplication_calculation_operator3D1;;
+			*);;
+
+	    	-> .proc_of_multiplication_calculation_operator3D1
+	    		(*
+			<- searchElStr5;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _value;;
+			-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _multiplier;;
+	        	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+	        	-> rrel_5: rrel_fixed: rrel_scp_const: nrel_value;;
+
+			=> nrel_then: .proc_of_multiplication_calculation_operator3D1_check;;
+			=> nrel_else: .proc_of_multiplication_calculation_operator3D2;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator3D1_check 
+	    		(*
+	        	<- contAdd;;
+
+	        	-> rrel_1: rrel_fixed: rrel_scp_var: _degree_coefficient;;
+	        	-> rrel_2: rrel_fixed: rrel_scp_var: _degree_coefficient;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: [1];;
+	                    	
+	        	=> nrel_goto: .proc_of_multiplication_calculation_operator3E1;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator3D2 
+	    		(*
+			<- searchElStr5;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _identification;;
+			-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _multiplier;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_identification;;
+
+			=> nrel_then: .proc_of_multiplication_calculation_operator3E1;;
+			=> nrel_else: .proc_of_multiplication_calculation_operator3D3;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator3D3 
+			(*
+		  	<- genElStr5;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _unknown;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _multiplier;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+		  	-> rrel_5: rrel_fixed: rrel_scp_const: rrel_multiplier;;
+			
+			=> nrel_goto: .proc_of_multiplication_calculation_operator3B;;
+			*);;
+
+	    	-> .proc_of_multiplication_calculation_operator3E1 
+	    		(*
+			<- call;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: proc_getting_value;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: .proc_of_multiplication_calculation_operator3E1_params 
+				(*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _multiplier;;
+	            		-> rrel_2: rrel_fixed: rrel_scp_var: _units_of_measure2;;
+				-> rrel_3: rrel_fixed: rrel_scp_var: _sc_link2;;                   
+				*);;
+			-> rrel_3: rrel_assign: rrel_scp_var: _descr2x;;
+
+			=> nrel_goto: .proc_of_multiplication_calculation_operator3E2;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator3E2 
+			(*
+			<- waitReturn;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr2x;;
+
+			=> nrel_goto: .proc_of_multiplication_calculation_operator3E3;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator3E3 
+	    		(*
+			<- searchElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _sc_link2;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _link2;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_2;;
+
+			=> nrel_then: .proc_of_multiplication_calculation_operator3E4;;
+			=> nrel_else: .proc_of_multiplication_calculation_operator5C1;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator3E4 
+	    		(*
+			<- searchElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _unknown;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _unknown_param;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_result;;
+
+			=> nrel_then: .proc_of_multiplication_calculation_operator3F1;;
+			=> nrel_else: .proc_of_multiplication_calculation_operator3F2;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator3F1 
+			(*
+	        	<- contMult;;
+
+	        	-> rrel_1: rrel_fixed: rrel_scp_var: _result;;
+	        	-> rrel_2: rrel_fixed: rrel_scp_var: _result;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _link2;;
+	         		
+	        	=> nrel_goto: .proc_of_multiplication_calculation_operator3F1_print;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator3F1_print 
+			(*
+			<- printNl;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _result;;
+
+			=> nrel_goto: .proc_of_multiplication_calculation_operator3G1;;
+			*);;
+
+	    	-> .proc_of_multiplication_calculation_operator3F2 
+	    		(*
+	        	<- contDiv;;
+
+	        	-> rrel_1: rrel_fixed: rrel_scp_var: _result;;
+	        	-> rrel_2: rrel_fixed: rrel_scp_var: _result;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _link2;;
+	                    	
+	        	=> nrel_goto: .proc_of_multiplication_calculation_operator3F2_print;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator3F2_print 
+			(*
+			<- printNl;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _result;;
+
+			=> nrel_goto: .proc_of_multiplication_calculation_operator3G2;;
+			*);;
+		
+		-> .proc_of_multiplication_calculation_operator3G1 
+			(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _unknown;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _unknown_param;;
+
+			=> nrel_then: .proc_of_multiplication_calculation_operator3H1;;
+			=> nrel_else: .proc_of_multiplication_calculation_operator3B;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator3H1 
+			(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _units_of_measure;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_erase: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _first_unit;;
+
+			=> nrel_then: .proc_of_multiplication_calculation_operator3B;;
+			=> nrel_else: .proc_of_multiplication_calculation_operator3I1;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator3I1 
+			(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: number;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _unknown_param;;
+
+			=> nrel_then: .proc_of_multiplication_calculation_operator3L1;;
+			=> nrel_else: .proc_of_multiplication_calculation_operator3J1;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator3J1 
+			(*
+			<- searchElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _units_of_measure2;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _first_unit;;
+	        	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+	        	-> rrel_5: rrel_fixed: rrel_scp_const: rrel_1;;
+
+			=> nrel_then: .proc_of_multiplication_calculation_operator3K1;;
+			=> nrel_else: .proc_of_multiplication_calculation_operator3B;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator3K1 
+			(*
+			<- genElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _units_of_measure;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _first_unit;;
+	        	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+	        	-> rrel_5: rrel_fixed: rrel_scp_const: rrel_1;;
+
+			=> nrel_goto: .proc_of_multiplication_calculation_operator3L1;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator3L1
+	    		(*
+			<- searchElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _units_of_measure2;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_erase: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _second_unit;;
+	        	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_erase: rrel_scp_var: _arc2;;
+	        	-> rrel_5: rrel_fixed: rrel_scp_const: rrel_2;;
+
+			=> nrel_then: .proc_of_multiplication_calculation_operator3M1;;
+			=> nrel_else: .proc_of_multiplication_calculation_operator5C1;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator3M1 
+			(*
+			<- genElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _units_of_measure;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _second_unit;;
+	        	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+	        	-> rrel_5: rrel_fixed: rrel_scp_const: rrel_2;;
+
+			=> nrel_goto: .proc_of_multiplication_calculation_operator3G2;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator3G2 
+			(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: number;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _multiplier;;
+
+			=> nrel_then: .proc_of_multiplication_calculation_operator3J2;;
+			=> nrel_else: .proc_of_multiplication_calculation_operator3H2;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator3H2
+	    		(*
+			<- eraseElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _units_of_measure2;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_erase: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _first_unit1;;
+	        	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_erase: rrel_scp_var: _arc2;;
+	        	-> rrel_5: rrel_fixed: rrel_scp_const: rrel_1;;
+
+			=> nrel_goto: .proc_of_multiplication_calculation_operator3I2;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator3I2
+	    		(*
+			<- eraseElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _sc_link2;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_erase: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _first_unit2;;
+	        	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_erase: rrel_scp_var: _arc2;;
+	        	-> rrel_5: rrel_fixed: rrel_scp_const: rrel_1;;
+
+			=> nrel_goto: .proc_of_multiplication_calculation_operator3J2;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator3J2
+	    		(*
+			<- eraseElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _units_of_measure2;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_erase: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _second_unit;;
+	        	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_erase: rrel_scp_var: _arc2;;
+	        	-> rrel_5: rrel_fixed: rrel_scp_const: rrel_2;;
+
+			=> nrel_goto: .proc_of_multiplication_calculation_operator3K2;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator3K2
+	    		(*
+			<- eraseElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _sc_link2;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_erase: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _link2;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_erase: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_2;;
+
+			=> nrel_goto: .proc_of_multiplication_calculation_operator3B;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator4A 
+	    		(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _unknown;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1x;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _unknown_param;;
+
+			=> nrel_then: .proc_of_multiplication_calculation_operator4B1;;
+			=> nrel_else: .proc_of_multiplication_calculation_operator5C1;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator4B1
+			(*
+		  	<- call;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: proc_generation_chain;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: .proc_of_multiplication_calculation_operator4B1_params 
+		  		(*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _unknown_param;;
+                		-> rrel_2: rrel_fixed: rrel_scp_var: _units_of_measure;;
+				-> rrel_3: rrel_fixed: rrel_scp_var: _tuple_node;;            
+				*);;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _descr1y;;
+
+		  	=> nrel_goto: .proc_of_multiplication_calculation_operator4B2;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator4B2
+			(*
+		  	<- waitReturn;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _descr1y;;
+
+		  	=> nrel_goto: .proc_of_multiplication_calculation_operator4C;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator4C 
+			(*
+		  	<- searchElStr5;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _units_of_measure;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _attr;;
+                  	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+                  	-> rrel_5: rrel_fixed: rrel_scp_const: rrel_2;;
+
+		  	=> nrel_then: .proc_of_multiplication_calculation_operator4D;;
+		  	=> nrel_else: .proc_of_multiplication_calculation_operator5C1;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator4D
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: number;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _unknown_param;;
+
+		  	=> nrel_then: .proc_of_multiplication_calculation_operator5A;;
+		  	=> nrel_else: .proc_of_multiplication_calculation_operator4E;; 
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator4E
+			(*
+		  	<- contAssign;;
+
+		  	-> rrel_1: rrel_assign: rrel_scp_var: _message;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: [Necessary information will be here!];;
+
+		  	=> nrel_goto: .proc_of_multiplication_calculation_operator4F;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator4F 
+	    		(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: rrel_result;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: rrel_pos_const_perm: _arc1x;;
+
+			=> nrel_then: .proc_of_multiplication_calculation_operator4G1;;
+			=> nrel_else: .proc_of_multiplication_calculation_operator4G2;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator4G1 
+	    		(*
+	        	<- contMult;;
+
+	        	-> rrel_1: rrel_assign: rrel_scp_var: _exponent;;
+	        	-> rrel_2: rrel_fixed: rrel_scp_const: [1];;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _degree_coefficient;;
+	                    	
+	        	=> nrel_goto: .proc_of_multiplication_calculation_operator4H1;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator4G2 
+	    		(*
+	        	<- contDiv;;
+
+	        	-> rrel_1: rrel_assign: rrel_scp_var: _exponent;;
+	        	-> rrel_2: rrel_fixed: rrel_scp_const: [1];;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _degree_coefficient;;
+	                    	
+	        	=> nrel_goto: .proc_of_multiplication_calculation_operator4H1;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator4H1
+			(*
+		  	<- call;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: proc_of_increase_or_decrease_degree;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: .proc_of_multiplication_calculation_operator4H1_params 
+		  		(*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _tuple_node;;
+                		-> rrel_2: rrel_fixed: rrel_scp_var: _exponent;;
+				-> rrel_3: rrel_fixed: rrel_scp_var: _message;;            
+				*);;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _descr2y;;
+
+		  	=> nrel_goto: .proc_of_multiplication_calculation_operator4H2;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator4H2
+			(*
+		  	<- waitReturn;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _descr2y;;
+
+		  	=> nrel_goto: .proc_of_multiplication_calculation_operator4I1;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator4I1
+			(*
+		  	<- stringIfEq;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _message;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: [Quantity was successfully decreased!];;
+
+		  	=> nrel_then: .proc_of_multiplication_calculation_operator5A;;
+			=> nrel_else: .proc_of_multiplication_calculation_operator4I2;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator4I2
+			(*
+		  	<- stringIfEq;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _message;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: [Quantity was successfully increased!];;
+
+		  	=> nrel_then: .proc_of_multiplication_calculation_operator5A;;
+			=> nrel_else: .proc_of_multiplication_calculation_operator5C1;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator5A
+			(*
+		  	<- searchElStr5;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _tuple_node;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _node1;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_2;;
+			
+			=> nrel_then: .proc_of_multiplication_calculation_operator5B;;
+			=> nrel_else: .proc_of_multiplication_calculation_operator5C1;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator5B 
+			(*
+		  	<- genElStr5;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _node1;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _result;;
+		  	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+		  	-> rrel_5: rrel_fixed: rrel_scp_var: _attr;;
+			
+			=> nrel_goto: .proc_of_multiplication_calculation_operator5C1;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator5C1 
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _unknown;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _unknown_element;;
+
+		  	=> nrel_then: .proc_of_multiplication_calculation_operator5C2;;
+			=> nrel_else: .proc_of_multiplication_calculation_operator5D1;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator5C2 
+			(*
+		  	<- eraseElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _unknown;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_erase: rrel_scp_var: _arc2;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _unknown_element;;
+
+		  	=> nrel_goto: .proc_of_multiplication_calculation_operator5D1;;
+			*);;
+
+		-> .proc_of_multiplication_calculation_operator5D1
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _units_of_measure;;
+
+		 	=> nrel_goto: .proc_of_multiplication_calculation_operator5D2;;
+		 	*);;
+
+		-> .proc_of_multiplication_calculation_operator5D2
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _units_of_measure2;;
+
+		 	=> nrel_goto: .proc_of_multiplication_calculation_operator5E1;;
+		 	*);;
+
+        	-> .proc_of_multiplication_calculation_operator5E1 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _sc_link;;
+
+		 	=> nrel_goto: .proc_of_multiplication_calculation_operator5E2;;
+		 	*);;
+
+		-> .proc_of_multiplication_calculation_operator5E2 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _sc_link2;;
+
+		 	=> nrel_goto: .proc_of_multiplication_calculation_operator5F;;
+		 	*);;
+
+		-> .proc_of_multiplication_calculation_operator5F 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _tuple_node;;
+
+		 	=> nrel_goto: .proc_of_multiplication_calculation_operator_return;;
+		 	*);;
+
+		-> .proc_of_multiplication_calculation_operator_return
+			(*
+			<- return;;
+			*);;
+		*);;
+	*);;
+

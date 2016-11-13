@@ -1,0 +1,364 @@
+agent_of_sum_calculation
+=> nrel_main_idtf:
+	[агентная scp-программа сложения и вычитания величин и чисел] (* <- lang_ru;; *);
+	[agent scp-program of addition and subtraction quantities and numbers] (* <- lang_en;; *);
+	<- agent_scp_program;;
+
+scp_program -> agent_of_sum_calculation 
+	(*
+	-> rrel_params: .agent_of_sum_calculation_params 
+		(*
+		-> rrel_1: rrel_in: _event;;
+		-> rrel_2: rrel_in: _input_arc;;
+		*);;
+
+	-> rrel_operators: .agent_of_sum_calculation_operator_set 
+		(*
+		-> rrel_init: .agent_of_sum_calculation_operator1A
+			(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _temp;;
+			-> rrel_2: rrel_fixed: rrel_scp_var: _input_arc;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _quest;;
+
+			=> nrel_goto: .agent_of_sum_calculation_operator1B;;
+			*);;
+                 
+		-> .agent_of_sum_calculation_operator1B 
+			(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: question_calc;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
+
+			=> nrel_then: .agent_of_sum_calculation_operator1C;;
+			=> nrel_else: .agent_of_sum_calculation_operator_return;;
+			*);;
+
+		-> .agent_of_sum_calculation_operator1C
+    			(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: rrel_common: _binary_arc;;
+
+        		=> nrel_then: .agent_of_sum_calculation_operator1D1;;
+			=> nrel_else: .agent_of_sum_calculation_operator_return;;
+        		*);;
+
+		-> .agent_of_sum_calculation_operator1D1
+			(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: nrel_sum_numbers;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _binary_arc;;
+
+			=> nrel_then: .agent_of_sum_calculation_operator1E;;
+			=> nrel_else: .agent_of_sum_calculation_operator1D2;;
+			*);;  
+
+		-> .agent_of_sum_calculation_operator1D2
+			(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: nrel_sum_quantities;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _binary_arc;;
+
+			=> nrel_then: .agent_of_sum_calculation_operator1E;;
+			=> nrel_else: .agent_of_sum_calculation_operator_return;;
+			*);;
+
+		-> .agent_of_sum_calculation_operator1E 
+             		(*
+		 	<- contAssign;;
+
+		 	-> rrel_1: rrel_assign: rrel_scp_var: _message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [Nessecary information will be here!];;
+
+		 	=> nrel_goto: .agent_of_sum_calculation_operator2A;;
+		 	*);;
+
+		-> .agent_of_sum_calculation_operator2A
+			(*
+		  	<- call;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: proc_of_checking_known_arguments;; 
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: .agent_of_sum_calculation_operator2A_params 
+		  		(*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _binary_arc;;
+                		-> rrel_2: rrel_fixed: rrel_scp_var: _message;;  
+				*);;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _descr1;;
+
+		  	=> nrel_goto: .agent_of_sum_calculation_operator2B;;
+			*);;
+
+        	-> .agent_of_sum_calculation_operator2B
+        		(*
+		  	<- waitReturn;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _descr1;;
+
+		  	=> nrel_goto: .agent_of_sum_calculation_operator2C1;;
+		 	*);;
+
+		-> .agent_of_sum_calculation_operator2C1
+			(*
+			<- stringIfEq;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [All parameters were known!];;
+
+			=> nrel_then: .agent_of_sum_calculation_operator5F1;;
+			=> nrel_else: .agent_of_sum_calculation_operator2C2;;
+			*);;
+
+		-> .agent_of_sum_calculation_operator2C2
+			(*
+			<- stringIfEq;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [More than one unknown parameter! This calculation can't be solved!];;
+
+			=> nrel_then: .agent_of_sum_calculation_operator5F2;;
+			=> nrel_else: .agent_of_sum_calculation_operator2C3;;
+			*);;
+
+		-> .agent_of_sum_calculation_operator2C3
+			(*
+			<- stringIfEq;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [Congratulations! This calculation can be solved!];;
+
+			=> nrel_then: .agent_of_sum_calculation_operator3A;;
+			=> nrel_else: .agent_of_sum_calculation_operator5F2;;
+			*);;
+
+		-> .agent_of_sum_calculation_operator3A
+			(*
+		  	<- call;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: proc_of_checking_units_of_measure;; 
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: .agent_of_sum_calculation_operator3A_params 
+		  		(*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _binary_arc;;
+                		-> rrel_2: rrel_fixed: rrel_scp_var: _message;;  
+				*);;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _descr2;;
+
+		  	=> nrel_goto: .agent_of_sum_calculation_operator3B;;
+			*);;
+
+        	-> .agent_of_sum_calculation_operator3B
+        		(*
+		  	<- waitReturn;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _descr2;;
+
+		  	=> nrel_goto: .agent_of_sum_calculation_operator3C1;;
+		 	*);;
+
+		-> .agent_of_sum_calculation_operator3C1
+			(*
+			<- stringIfEq;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [This calculation is belong to number operations!];;
+
+			=> nrel_then: .agent_of_sum_calculation_operator4A;;
+			=> nrel_else: .agent_of_sum_calculation_operator3C2;;
+			*);;
+
+		-> .agent_of_sum_calculation_operator3C2
+			(*
+			<- stringIfEq;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [Some mistakes in your calculation!];;
+
+			=> nrel_then: .agent_of_sum_calculation_operator5F2;;
+			=> nrel_else: .agent_of_sum_calculation_operator3C3;;
+			*);;
+
+		-> .agent_of_sum_calculation_operator3C3
+			(*
+			<- stringIfEq;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [This calculation consists of quantities with different units of measure!];;
+
+			=> nrel_then: .agent_of_sum_calculation_operator5F2;;
+			=> nrel_else: .agent_of_sum_calculation_operator3C4;;
+			*);;
+
+		-> .agent_of_sum_calculation_operator3C4
+			(*
+			<- stringIfEq;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [This calculation can be solved!];;
+
+			=> nrel_then: .agent_of_sum_calculation_operator4A;;
+			=> nrel_else: .agent_of_sum_calculation_operator5F2;;
+			*);;
+
+		-> .agent_of_sum_calculation_operator4A 
+			(*
+			<- genEl;;
+
+			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _unknown;;
+
+			=> nrel_goto: .agent_of_sum_calculation_operator4B1;;
+			*);;
+
+		-> .agent_of_sum_calculation_operator4B1 
+			(*
+			<- call;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: proc_of_sum_calculation;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: .agent_of_sum_calculation_operator4B1_params 
+				(*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _binary_arc;;
+				-> rrel_2: rrel_fixed: rrel_scp_var: _unknown;;
+				*);;
+			-> rrel_3: rrel_assign: rrel_scp_var: _descr3;;
+
+			=> nrel_goto: .agent_of_sum_calculation_operator4B2;;
+			*);;
+
+		-> .agent_of_sum_calculation_operator4B2 
+			(*
+			<- waitReturn;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr3;;
+
+			=> nrel_goto: .agent_of_sum_calculation_operator5A1;;
+			*);;   
+
+		-> .agent_of_sum_calculation_operator5A1 
+                 	(*
+                   	<- searchElStr5;;
+
+                     	-> rrel_1: rrel_fixed: rrel_scp_var: _unknown;;
+                     	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+                     	-> rrel_3: rrel_assign: rrel_scp_var: _unknown_param;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+                     	-> rrel_5: rrel_fixed: rrel_scp_const: rrel_result;;
+
+                  	=> nrel_then: .agent_of_sum_calculation_operator5B;;
+                  	=> nrel_else: .agent_of_sum_calculation_operator5A2;;
+               		*);;
+
+		-> .agent_of_sum_calculation_operator5A2 
+                 	(*
+                   	<- searchElStr5;;
+
+                     	-> rrel_1: rrel_fixed: rrel_scp_var: _unknown;;
+                     	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+                     	-> rrel_3: rrel_assign: rrel_scp_var: _unknown_param;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+                     	-> rrel_5: rrel_fixed: rrel_scp_const: rrel_addendum;;
+
+                  	=> nrel_then: .agent_of_sum_calculation_operator5B;;
+                  	=> nrel_else: .agent_of_sum_calculation_operator5A2_erase;;
+               		*);;
+
+		-> .agent_of_sum_calculation_operator5A2_erase 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _unknown;;
+
+		 	=> nrel_goto: .agent_of_sum_calculation_operator5F2;;
+		 	*);;   
+
+		-> .agent_of_sum_calculation_operator5B 
+			(*
+		 	<- genEl;;
+
+		 	-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_struct: rrel_scp_var: _answer;;
+
+		 	=> nrel_goto: .agent_of_sum_calculation_operator5C1;;
+		 	*);;
+
+		-> .agent_of_sum_calculation_operator5C1 
+			(*
+		  	<- call;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: proc_finding_value;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: .agent_of_sum_calculation_operator5C1_params 
+		  		(*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _unknown_param;;
+				-> rrel_2: rrel_fixed: rrel_scp_var: _answer;;
+				*);;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _descr4;;
+
+		  	=> nrel_goto: .agent_of_sum_calculation_operator5C2;;
+			*);;
+
+		-> .agent_of_sum_calculation_operator5C2 
+			(*
+		  	<- waitReturn;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _descr4;;
+
+		  	=> nrel_goto: .agent_of_sum_calculation_operator5D;;
+			*);;
+
+		-> .agent_of_sum_calculation_operator5D 
+			(*
+		  	<- genElStr5;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _answer;;
+		  	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+		  	-> rrel_5: rrel_fixed: rrel_scp_const: rrel_step;;
+
+		  	=> nrel_goto: .agent_of_sum_calculation_operator5E;;
+			*);;
+
+		-> .agent_of_sum_calculation_operator5E 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _unknown;;
+
+		 	=> nrel_goto: .agent_of_sum_calculation_operator5F1;;
+		 	*);; 
+
+		-> .agent_of_sum_calculation_operator5F1 
+                  	(*
+		  	<- genElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: question_finished_successfully;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
+
+		  	=> nrel_goto: .agent_of_sum_calculation_operator_return;;
+			*);;  
+
+		-> .agent_of_sum_calculation_operator5F2 
+                 	(*
+		  	<- genElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: question_finished_unsuccessfully;; 
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
+
+		  	=> nrel_goto: .agent_of_sum_calculation_operator_return;;
+			*);;  
+                                                                               			
+		-> .agent_of_sum_calculation_operator_return 
+			(*
+			<- return;;
+			*);;
+
+		*);;
+	*);;

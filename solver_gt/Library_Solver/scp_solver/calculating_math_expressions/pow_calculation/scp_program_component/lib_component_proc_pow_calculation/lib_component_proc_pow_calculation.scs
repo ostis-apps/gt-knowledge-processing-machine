@@ -1,0 +1,25 @@
+lib_proc_pow_calculation
+=> nrel_main_idtf:
+	[Компонент библиотеки. Scp-программа возведения в степень, извлечения корня и нахождения натурального логарифма]
+	(* <- lang_ru;; *);
+	[Library component. Scp-program of exponentiation, root extraction and finding the natural logarithm]
+	(* <- lang_en;; *);
+
+<- platform_independent_reusable_component_OSTIS;
+<- reusable_scp_program;
+
+-> rrel_key_sc_element: 
+	proc_pow_calculation;
+
+<- rrel_key_sc_element: 
+	...
+	(*
+	<- sc_explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			"file://htmls/Proc_Pow_Calculation.html" 
+				(* <- lang_ru;; *);;
+		*);;
+	*);;

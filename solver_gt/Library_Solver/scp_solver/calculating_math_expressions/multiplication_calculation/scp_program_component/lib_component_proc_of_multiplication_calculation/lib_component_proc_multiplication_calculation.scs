@@ -1,0 +1,23 @@
+lib_component_proc_of_multiplication_calculation
+=> nrel_main_idtf:
+	[Компонент библиотеки. Scp-программа произведения и деления величин и чисел] (* <- lang_ru;; *);
+	[Library component. Scp-program of multiplication and division quantities and numbers] (* <- lang_en;; *);
+
+<- platform_independent_reusable_component_OSTIS;
+<- reusable_scp_program;
+
+-> rrel_key_sc_element: 
+	proc_of_multiplication_calculation;
+
+<- rrel_key_sc_element: 
+	...
+	(*
+	<- sc_explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			"file://htmls/Proc_Of_Multiplication_Calculation.html" 
+				(* <- lang_ru;; *);;
+		*);;
+	*);;

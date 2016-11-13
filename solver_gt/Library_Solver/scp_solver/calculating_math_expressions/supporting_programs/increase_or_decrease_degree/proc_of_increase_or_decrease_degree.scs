@@ -1,0 +1,265 @@
+scp_program -> proc_of_increase_or_decrease_degree
+	(*
+	-> rrel_params: .proc_of_increase_or_decrease_degree_params 
+		(*
+		-> rrel_1: rrel_in: _connection_node;;
+		-> rrel_2: rrel_in: _exponent;;
+		-> rrel_3: rrel_in: _message;;
+		*);;
+
+	-> rrel_operators: .proc_of_increase_or_decrease_degree_operator_set 
+		(*
+		-> rrel_init: .proc_of_increase_or_decrease_degree_operator1A 
+			(*
+		  	<- searchElStr5;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _connection_node;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _arc_for_unit_of_measure;;
+                  	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+                  	-> rrel_5: rrel_fixed: rrel_scp_const: rrel_1;;
+
+		  	=> nrel_then: .proc_of_increase_or_decrease_degree_operator1B;;
+		  	=> nrel_else: .proc_of_increase_or_decrease_degree_operator3B1;;
+			*);;
+
+		-> .proc_of_increase_or_decrease_degree_operator1B 
+			(*
+		  	<- searchSetStr3;;
+
+		  	-> rrel_1: rrel_assign: rrel_scp_var: _some_attr;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _arc_for_unit_of_measure;;
+   
+			-> rrel_set_1: rrel_assign: rrel_scp_var: _maybe_units_of_measure;;
+
+		  	=> nrel_then: .proc_of_increase_or_decrease_degree_operator1C;;
+		  	=> nrel_else: .proc_of_increase_or_decrease_degree_operator3B1;;
+			*);;
+
+		-> .proc_of_increase_or_decrease_degree_operator1C 
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _maybe_units_of_measure;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _maybe_unit_of_measure;;
+
+		  	=> nrel_then: .proc_of_increase_or_decrease_degree_operator1D;;
+		  	=> nrel_else: .proc_of_increase_or_decrease_degree_operator1C_erase;;
+			*);;
+
+		-> .proc_of_increase_or_decrease_degree_operator1C_erase
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _maybe_units_of_measure;;
+
+		 	=> nrel_goto: .proc_of_increase_or_decrease_degree_operator3B1;;
+		 	*);;
+
+		-> .proc_of_increase_or_decrease_degree_operator1D
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc1;;
+
+		 	=> nrel_goto: .proc_of_increase_or_decrease_degree_operator1E;;
+		 	*);;
+
+		-> .proc_of_increase_or_decrease_degree_operator1E
+			(*
+		  	<- ifType;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_role_relation: _maybe_unit_of_measure;;
+
+		  	=> nrel_then: .proc_of_increase_or_decrease_degree_operator1F1;;
+		  	=> nrel_else: .proc_of_increase_or_decrease_degree_operator1C;;
+			*);;
+
+		-> .proc_of_increase_or_decrease_degree_operator1F1 
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _maybe_unit_of_measure;;
+		  	-> rrel_2: rrel_erase: rrel_assign: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _arc_for_unit_of_measure;;
+
+		  	=> nrel_then: .proc_of_increase_or_decrease_degree_operator1F2;;
+			=> nrel_else: .proc_of_increase_or_decrease_degree_operator1C;;
+			*);;
+
+		-> .proc_of_increase_or_decrease_degree_operator1F2
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc1;;
+
+		 	=> nrel_goto: .proc_of_increase_or_decrease_degree_operator1G;;
+		 	*);;
+
+		-> .proc_of_increase_or_decrease_degree_operator1G
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _maybe_units_of_measure;;
+
+		 	=> nrel_goto: .proc_of_increase_or_decrease_degree_operator2A1;;
+		 	*);;
+
+		-> .proc_of_increase_or_decrease_degree_operator2A1
+			(*
+		  	<- ifEq;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _exponent;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [2];;
+
+		  	=> nrel_then: .proc_of_increase_or_decrease_degree_operator2B1;;
+			=> nrel_else: .proc_of_increase_or_decrease_degree_operator2A2;;
+			*);;
+
+		-> .proc_of_increase_or_decrease_degree_operator2B1 
+			(*
+		  	<- searchElStr5;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _maybe_unit_of_measure;;
+		  	-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _sq_attr;;
+                  	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+                  	-> rrel_5: rrel_fixed: rrel_scp_const: nrel_square_unit_of_measure;;
+
+		  	=> nrel_then: .proc_of_increase_or_decrease_degree_operator2C1;;
+		  	=> nrel_else: .proc_of_increase_or_decrease_degree_operator3B1;;
+			*);;
+
+		-> .proc_of_increase_or_decrease_degree_operator2C1 
+			(*
+		  	<- genElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _sq_attr;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _arc_for_unit_of_measure;;
+
+		  	=> nrel_goto: .proc_of_increase_or_decrease_degree_operator3A1;;
+			*);;
+
+		-> .proc_of_increase_or_decrease_degree_operator2A2
+			(*
+		  	<- ifEq;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _exponent;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [3];;
+
+		  	=> nrel_then: .proc_of_increase_or_decrease_degree_operator2B2;;
+			=> nrel_else: .proc_of_increase_or_decrease_degree_operator2B3;;
+			*);;
+
+		-> .proc_of_increase_or_decrease_degree_operator2B2 
+			(*
+		  	<- searchElStr5;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _maybe_unit_of_measure;;
+		  	-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _cube_attr;;
+                  	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+                  	-> rrel_5: rrel_fixed: rrel_scp_const: nrel_cube_unit_of_measure;;
+
+		  	=> nrel_then: .proc_of_increase_or_decrease_degree_operator2C2;;
+		  	=> nrel_else: .proc_of_increase_or_decrease_degree_operator3B1;;
+			*);;
+
+		-> .proc_of_increase_or_decrease_degree_operator2C2 
+			(*
+		  	<- genElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _cube_attr;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _arc_for_unit_of_measure;;
+
+		  	=> nrel_goto: .proc_of_increase_or_decrease_degree_operator3A1;;
+			*);;
+
+		-> .proc_of_increase_or_decrease_degree_operator2A3
+			(*
+		  	<- ifEq;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _exponent;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [0,5];;
+
+		  	=> nrel_then: .proc_of_increase_or_decrease_degree_operator2B3;;
+			=> nrel_else: .proc_of_increase_or_decrease_degree_operator3B2;;
+			*);;
+
+		-> .proc_of_increase_or_decrease_degree_operator2B3 
+			(*
+		  	<- searchElStr5;;
+
+		  	-> rrel_1: rrel_assign: rrel_scp_var: _sq_attr;;
+		  	-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _maybe_unit_of_measure;;
+                  	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+                  	-> rrel_5: rrel_fixed: rrel_scp_const: nrel_square_unit_of_measure;;
+
+		  	=> nrel_then: .proc_of_increase_or_decrease_degree_operator2C3;;
+		  	=> nrel_else: .proc_of_increase_or_decrease_degree_operator3B2;;
+			*);;
+
+		-> .proc_of_increase_or_decrease_degree_operator2C3 
+			(*
+		  	<- genElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _sq_attr;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _arc_for_unit_of_measure;;
+
+		  	=> nrel_goto: .proc_of_increase_or_decrease_degree_operator3A2;;
+			*);;
+
+		-> .proc_of_increase_or_decrease_degree_operator3A1
+			(*
+		  	<- contAssign;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [Quantity was successfully increased!];;
+
+		  	=> nrel_goto: .proc_of_increase_or_decrease_degree_operator_return;;
+			*);;
+
+		-> .proc_of_increase_or_decrease_degree_operator3A2
+			(*
+		  	<- contAssign;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [Quantity was successfully decreased!];;
+
+		  	=> nrel_goto: .proc_of_increase_or_decrease_degree_operator_return;;
+			*);;
+
+		-> .proc_of_increase_or_decrease_degree_operator3B1
+			(*
+		  	<- contAssign;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [Quantity wasn't successfully increased!];;
+
+		  	=> nrel_goto: .proc_of_increase_or_decrease_degree_operator_return;;
+			*);;
+
+		-> .proc_of_increase_or_decrease_degree_operator3B2
+			(*
+		  	<- contAssign;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [Quantity wasn't successfully decreased!];;
+
+		  	=> nrel_goto: .proc_of_increase_or_decrease_degree_operator_return;;
+			*);;
+
+		-> .proc_of_increase_or_decrease_degree_operator_return 
+			(*
+			<- return;;
+			*);;
+		*);;
+	*);;
+
+		

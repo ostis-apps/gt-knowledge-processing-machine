@@ -1,0 +1,256 @@
+scp_program -> proc_getting_value 
+	(*	
+	-> rrel_params: .proc_getting_value_params 
+		(*
+		-> rrel_1: rrel_in: _param;;
+		-> rrel_2: rrel_in: _features;;
+		-> rrel_3: rrel_in: _features2;;
+		*);;
+	
+	-> rrel_operators: .proc_getting_value_operator_set 
+		(*                              
+
+		-> rrel_init: .proc_getting_value_operator1A
+			(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: concept_quantity;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _param;;
+
+			=> nrel_then: .proc_getting_value_operator1B;;
+			=> nrel_else: .proc_getting_value_operator2A2;;
+			*);;
+
+		-> .proc_getting_value_operator1B 
+			(*
+			<- searchElStr5;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _connection;;
+			-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _param;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;; 
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_value;;
+
+			=> nrel_then: .proc_getting_value_operator1C;;
+			=> nrel_else: .proc_getting_value_operator_return;;
+			*);; 
+
+		-> .proc_getting_value_operator1C 
+			(*
+			<- searchSetStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _connection;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1x;; 
+			-> rrel_3: rrel_assign: rrel_scp_var: _number;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;; 
+			-> rrel_5: rrel_assign: rrel_scp_var: _unit_of_measure;;
+
+			-> rrel_set_5: rrel_assign: rrel_scp_var: _maybe_units_of_measure;;
+
+			=> nrel_then: .proc_getting_value_operator1D;;
+			=> nrel_else: .proc_getting_value_operator_return;;
+			*);;
+
+		-> .proc_getting_value_operator1D
+			(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _maybe_units_of_measure;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _unit_of_measure;;
+
+			=> nrel_then: .proc_getting_value_operator1E;;
+			=> nrel_else: .proc_getting_value_operator1D_erase;;
+			*);;
+
+		-> .proc_getting_value_operator1D_erase 
+ 			(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _maybe_units_of_measure;;
+
+			=> nrel_goto: .proc_getting_value_operator_return;;
+			*);;
+
+		-> .proc_getting_value_operator1E 
+ 			(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc1;;
+
+			=> nrel_goto: .proc_getting_value_operator1F;;
+			*);;
+
+		-> .proc_getting_value_operator1F
+			(*
+			<- ifType;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_role_relation: _unit_of_measure;;
+
+			=> nrel_then: .proc_getting_value_operator1G;;
+			=> nrel_else: .proc_getting_value_operator1D;;
+			*);;
+
+		-> .proc_getting_value_operator1G
+ 			(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _maybe_units_of_measure;;
+
+			=> nrel_goto: .proc_getting_value_operator1H1;;
+			*);;
+
+		-> .proc_getting_value_operator1H1  
+	 		(*
+			<- genElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _features;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _unit_of_measure;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_1;;
+
+			=> nrel_goto: .proc_getting_value_operator1H2;;
+			*);;
+
+		-> .proc_getting_value_operator1H2  
+	 		(*
+			<- genElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _features2;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _arc1x;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_1;;
+
+			=> nrel_goto: .proc_getting_value_operator2A1;;
+			*);;	
+           	
+		-> .proc_getting_value_operator2A1
+			(*
+			<- searchElStr5;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _connection2;;
+			-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _number;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;; 
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_identification;;
+
+			=> nrel_then: .proc_getting_value_operator2B;;
+			=> nrel_else: .proc_getting_value_operator_return;;
+			*);;
+
+		-> .proc_getting_value_operator2A2
+			(*
+			<- searchElStr5;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _connection2;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _param;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_identification;;
+
+			=> nrel_then: .proc_getting_value_operator2B;;
+			=> nrel_else: .proc_getting_value_operator_return;;
+			*);;
+
+		-> .proc_getting_value_operator2B 
+			(*
+			<- searchSetStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _connection2;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc7414;; 
+			-> rrel_3: rrel_assign: rrel_scp_var: _link;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc54;; 
+			-> rrel_5: rrel_assign: rrel_scp_var: _decimal_number;;
+
+			-> rrel_set_5: rrel_assign: rrel_scp_var: _maybe_units_of_measure2;;
+
+			=> nrel_then: .proc_getting_value_operator2C;;
+			=> nrel_else: .proc_getting_value_operator_message_error;;
+			*);;
+
+		-> .proc_getting_value_operator2C
+			(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _maybe_units_of_measure2;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _unit_of_measure2;;
+
+			=> nrel_then: .proc_getting_value_operator2D;;
+			=> nrel_else: .proc_getting_value_operator2C_erase;;
+			*);;
+
+		-> .proc_getting_value_operator2C_erase 
+ 			(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _maybe_units_of_measure2;;
+
+			=> nrel_goto: .proc_getting_value_operator_return;;
+			*);;
+
+		-> .proc_getting_value_operator2D 
+ 			(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc1;;
+
+			=> nrel_goto: .proc_getting_value_operator2E;;
+			*);;
+
+		-> .proc_getting_value_operator2E
+			(*
+			<- ifType;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_role_relation: _unit_of_measure2;;
+
+			=> nrel_then: .proc_getting_value_operator2F;;
+			=> nrel_else: .proc_getting_value_operator2C;;
+			*);;
+
+		-> .proc_getting_value_operator2F
+ 			(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _maybe_units_of_measure2;;
+
+			=> nrel_goto: .proc_getting_value_operator2G1;;
+			*);;
+	
+ 		-> .proc_getting_value_operator2G1 
+ 			(*
+			<- genElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _features;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _unit_of_measure2;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_2;;
+
+			=> nrel_goto: .proc_getting_value_operator2G2;;
+			*);;
+
+		-> .proc_getting_value_operator2G2 
+ 			(*
+			<- genElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _features2;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _link;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_2;;
+
+			=> nrel_goto: .proc_getting_value_operator_return;;
+			*);;
+           
+		-> .proc_getting_value_operator_return 
+	    		(*
+		  	<- return;;
+			*);;
+		*);;
+	*);;                                
+
+

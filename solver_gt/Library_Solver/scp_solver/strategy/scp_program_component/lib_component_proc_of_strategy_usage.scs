@@ -1,0 +1,26 @@
+lib_component_proc_of_marking_statement
+=> nrel_main_idtf:
+	[Компонент библиотеки. Scp-программа применения стратегий решения задач]
+	(* <- lang_ru;; *);
+	[Library component. Scp-program of solving task strategy usage]
+	(* <- lang_en;; *);
+
+<- platform_independent_reusable_component_OSTIS;
+<- reusable_scp_program;
+
+-> rrel_key_sc_element: 
+	proc_of_strategy_usage;
+
+<- rrel_key_sc_element: 
+	...
+	(*
+	<- sc_explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			"file://htmls/Proc_Of_Strategy_Usage.html" 
+				(* <- lang_ru;; *);;
+		*);;
+	*);;
+

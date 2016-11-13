@@ -1,0 +1,28 @@
+ui_menu_file_for_finding_hypertext <- ui_user_command_class_atom; ui_user_command_class_view_kb;;
+
+ui_menu_file_for_finding_hypertext => nrel_main_idtf: 
+	[Команда поиска трансляции гипертекста] 
+	(* <- lang_ru;; *);;
+
+ui_menu_file_for_finding_hypertext => nrel_main_idtf: 
+	[Request of finding hypertext translation] 
+	(* <- lang_en;; *);;
+
+ui_menu_file_for_finding_hypertext => ui_nrel_command_template:
+	[*
+		question_of_finding_hypertext _-> ._question_of_finding_hypertext_instance
+			(*
+			_-> rrel_1:: ui_arg_1;;
+			_-> rrel_2:: ui_arg_2;;
+			*);;
+		._question_of_finding_hypertext_instance _<- question;;
+	*];;
+
+ui_menu_file_for_finding_hypertext => ui_nrel_command_lang_template: 
+	[Команда поиска трансляции гипертекста: $ui_arg_1] 
+	(* <- lang_ru;; *);;
+
+ui_menu_file_for_finding_hypertext => ui_nrel_command_lang_template: 
+	[Request of finding hypertext translation: $ui_arg_1] 
+	(* <- lang_en;; *);;
+

@@ -1,0 +1,56 @@
+Question1 <- question;;
+Question1 -> rrel_1: 
+	[* concept_rectangular_triangle -> struct_Rectangular_Triangle_XYZ;;
+
+	   struct_Rectangular_Triangle_XYZ => nrel_cathetus: struct_Segment_XY;;
+	   struct_Rectangular_Triangle_XYZ => nrel_hypotenuse: struct_Segment_YZ;;
+
+	   concept_segment -> struct_Segment_XY; struct_Segment_YZ;;
+
+	   struct_Segment_XY => nrel_length: Length_XY;;
+	   struct_Segment_YZ => nrel_length: Length_YZ;;
+
+	   Length_XY <= nrel_value: ...
+		(* 
+		-> rrel_sm: n_6;;
+		*);;
+
+	   Length_YZ <= nrel_value: ...
+		(* 
+		-> rrel_sm: n_10;;
+		*);;
+
+	   concept_quantity -> Length_XY; Length_YZ; XYZ_Area;;
+	   number -> n_6; n_10;;
+
+	   struct_Rectangular_Triangle_XYZ => nrel_area: XYZ_Area;; 
+	 *] (* <- atomic_formula;; *);;
+
+Question1 -> rrel_2: XYZ_Area;;
+
+Question1 <- rrel_key_sc_element: 
+	explanation
+	(*
+	<- sc_explanation;;
+	<= nrel_sc_text_translation: 
+		...
+		(*
+		-> rrel_example: 
+			[Какова площадь прямоугольного треугольника XYZ, если известно, что длина одного из катетов, XY, равна 6 см, а длина гипотенузы YZ равна 10 см?]
+			(* <- lang_ru;; *);;
+		*);;
+	*);;
+
+n_6 <= nrel_identification: ...
+	(* -> rrel_decimal: [6];; *);;
+
+n_10 <= nrel_identification: ...
+	(* -> rrel_decimal: [10];; *);;
+
+n_2 <= nrel_identification: ...
+	(* -> rrel_decimal: [2];; *);;
+
+
+
+
+

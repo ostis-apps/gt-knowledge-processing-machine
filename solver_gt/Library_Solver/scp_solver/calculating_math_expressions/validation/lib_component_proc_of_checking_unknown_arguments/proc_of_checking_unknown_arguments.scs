@@ -1,0 +1,279 @@
+scp_program -> proc_of_checking_unknown_arguments 
+	(*	
+	-> rrel_params: .proc_of_checking_unknown_arguments_params 
+		(*
+		-> rrel_1: rrel_in: _binary_arc;;
+		-> rrel_2: rrel_in: _message;;
+		*);;
+
+	-> rrel_operators: .proc_of_checking_unknown_arguments_operator_set 
+		(*		
+		-> rrel_init: .proc_of_checking_unknown_arguments_operator1A 
+			(*
+		 	<- genEl;;
+
+		 	-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _unknown_variables;;
+
+		 	=> nrel_goto: .proc_of_checking_unknown_arguments_operator1B;;
+		 	*);;
+
+		-> .proc_of_checking_unknown_arguments_operator1B 
+			(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _start_node;;
+		  	-> rrel_2: rrel_fixed: rrel_common: rrel_scp_var: _binary_arc;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _finish_node;;
+                
+                  	=> nrel_then: .proc_of_checking_unknown_arguments_operator1C;;
+		  	=> nrel_else: .proc_of_checking_unknown_arguments_operator_return;;
+			*);;
+
+		-> .proc_of_checking_unknown_arguments_operator1C 
+			(*
+			<- searchSetStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _start_node;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _simple_nodes;;
+
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _set_of_params;;
+                
+                  	=> nrel_then: .proc_of_checking_unknown_arguments_operator1D_print;;
+		  	=> nrel_else: .proc_of_checking_unknown_arguments_operator2A1;;
+			*);;
+
+		-> .proc_of_checking_unknown_arguments_operator1D_print 
+			(*
+		 	<- printEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: _binary_arc;;
+
+		 	=> nrel_goto: .proc_of_checking_unknown_arguments_operator1D;;
+		 	*);;
+
+		-> .proc_of_checking_unknown_arguments_operator1D
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _set_of_params;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;; 
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _param;;
+
+		  	=> nrel_then: .proc_of_checking_unknown_arguments_operator1E;;
+		  	=> nrel_else: .proc_of_checking_unknown_arguments_operator1D_erase;;
+			*);;
+
+		-> .proc_of_checking_unknown_arguments_operator1D_erase 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _set_of_params;;
+
+		 	=> nrel_goto: .proc_of_checking_unknown_arguments_operator2C1;;
+		 	*);;
+
+		-> .proc_of_checking_unknown_arguments_operator1E 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _arc1;;
+
+		 	=> nrel_goto: .proc_of_checking_unknown_arguments_operator1F1;;
+		 	*);;
+
+		-> .proc_of_checking_unknown_arguments_operator1F1 
+			(*
+		  	<- searchElStr5;;
+
+		  	-> rrel_1: rrel_assign: rrel_scp_var: _value;;
+		  	-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _param;;
+                  	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+                  	-> rrel_5: rrel_fixed: rrel_scp_const: nrel_value;;
+
+		  	=> nrel_then: .proc_of_checking_unknown_arguments_operator1D;;
+		  	=> nrel_else: .proc_of_checking_unknown_arguments_operator1F2;;
+			*);;
+
+		-> .proc_of_checking_unknown_arguments_operator1F2 
+			(*
+		  	<- searchElStr5;;
+
+		  	-> rrel_1: rrel_assign: rrel_scp_var: _identification;;
+		  	-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _param;;
+		  	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+		  	-> rrel_5: rrel_fixed: rrel_scp_const: nrel_identification;;
+
+		   	=> nrel_then: .proc_of_checking_unknown_arguments_operator1D;;
+		  	=> nrel_else: .proc_of_checking_unknown_arguments_operator1G;;
+			*);;
+
+		-> .proc_of_checking_unknown_arguments_operator1G 
+			(*
+		  	<- genElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _unknown_variables;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _param;;
+
+		  	=> nrel_goto: .proc_of_checking_unknown_arguments_operator1D;;
+			*);; 
+
+		-> .proc_of_checking_unknown_arguments_operator2A1 
+			(*
+		  	<- searchElStr5;;
+
+		  	-> rrel_1: rrel_assign: rrel_scp_var: _value;;
+		  	-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _start_node;;
+                  	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+                  	-> rrel_5: rrel_fixed: rrel_scp_const: nrel_value;;
+
+		  	=> nrel_then: .proc_of_checking_unknown_arguments_operator2C1;;
+		  	=> nrel_else: .proc_of_checking_unknown_arguments_operator2A2;;
+			*);; 
+
+		-> .proc_of_checking_unknown_arguments_operator2A2 
+			(*
+		  	<- searchElStr5;;
+
+		  	-> rrel_1: rrel_assign: rrel_scp_var: _identification;;
+		  	-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _start_node;;
+		  	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+		  	-> rrel_5: rrel_fixed: rrel_scp_const: nrel_identification;;
+
+		   	=> nrel_then: .proc_of_checking_unknown_arguments_operator2C1;;
+		  	=> nrel_else: .proc_of_checking_unknown_arguments_operator2B;;
+			*);;
+
+		-> .proc_of_checking_unknown_arguments_operator2B 
+			(*
+		  	<- genElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _unknown_variables;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _start_node;;
+
+		  	=> nrel_goto: .proc_of_checking_unknown_arguments_operator2C1;;
+			*);;
+
+		-> .proc_of_checking_unknown_arguments_operator2C1 
+			(*
+		  	<- searchElStr5;;
+
+		  	-> rrel_1: rrel_assign: rrel_scp_var: _value2;;
+		  	-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _finish_node;;
+                  	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+                  	-> rrel_5: rrel_fixed: rrel_scp_const: nrel_value;;
+
+		  	=> nrel_then: .proc_of_checking_unknown_arguments_operator3A;;
+		  	=> nrel_else: .proc_of_checking_unknown_arguments_operator2C2;;
+			*);; 
+
+		-> .proc_of_checking_unknown_arguments_operator2C2 
+			(*
+		  	<- searchElStr5;;
+
+		  	-> rrel_1: rrel_assign: rrel_scp_var: _identification2;;
+		  	-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _finish_node;;
+		  	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+		  	-> rrel_5: rrel_fixed: rrel_scp_const: nrel_identification;;
+
+		   	=> nrel_then: .proc_of_checking_unknown_arguments_operator3A;;
+		  	=> nrel_else: .proc_of_checking_unknown_arguments_operator2D;;
+			*);;
+
+		-> .proc_of_checking_unknown_arguments_operator2D 
+			(*
+		  	<- genElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _unknown_variables;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _finish_node;;
+
+		  	=> nrel_goto: .proc_of_checking_unknown_arguments_operator3A;;
+			*);;
+		
+		-> .proc_of_checking_unknown_arguments_operator3A 
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _unknown_variables;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;; 
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _first_variable;;
+
+		  	=> nrel_then: .proc_of_checking_unknown_arguments_operator3B;;
+		  	=> nrel_else: .proc_of_checking_unknown_arguments_operator4A;;
+			*);;
+
+		-> .proc_of_checking_unknown_arguments_operator3B
+			(*
+		 	<- eraseEl;;
+
+			-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _arc1;;
+
+		 	=> nrel_goto: .proc_of_checking_unknown_arguments_operator3C;;
+		 	*);;
+
+		-> .proc_of_checking_unknown_arguments_operator3C
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _unknown_variables;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;; 
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _second_variable;;
+
+		  	=> nrel_then: .proc_of_checking_unknown_arguments_operator4B;;
+		  	=> nrel_else: .proc_of_checking_unknown_arguments_operator4C;;
+			*);;
+
+		-> .proc_of_checking_unknown_arguments_operator4A 
+			(*
+		  	<- contAssign;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _message;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: [All parameters were known!];;
+
+		  	=> nrel_goto: .proc_of_checking_unknown_arguments_operator4D;;
+			*);; 
+
+		 -> .proc_of_checking_unknown_arguments_operator4B 
+			(*
+		  	<- contAssign;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _message;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: [More than one unknown parameter! This calculation can't be solved!];;
+
+		  	=> nrel_goto: .proc_of_checking_unknown_arguments_operator4D;;
+			*);;
+
+		-> .proc_of_checking_unknown_arguments_operator4C 
+			(*
+		  	<- contAssign;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _message;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: [Congratulations! This calculation can be solved!];;
+
+		  	=> nrel_goto: .proc_of_checking_unknown_arguments_operator4D;;
+			*);;
+
+		-> .proc_of_checking_unknown_arguments_operator4D
+			(*
+		 	<- eraseEl;;
+
+			-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _unknown_variables;;
+
+		 	=> nrel_goto: .proc_of_checking_unknown_arguments_operator_return;;
+		 	*);;
+
+		-> .proc_of_checking_unknown_arguments_operator_return 
+			(*
+			<- return;;
+			*);;
+		*);;
+	*);;

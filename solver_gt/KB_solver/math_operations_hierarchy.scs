@@ -1,0 +1,88 @@
+sc_node_not_relation -> ariphmetic_operation; 
+			trigonometric_operation;
+			number_operation;
+			quantity_operation;;
+
+sc_node_norole_relation -> nrel_sin; nrel_cos; nrel_tan;
+			   nrel_sum_quantities; nrel_sum_numbers; 
+			   nrel_multiplication_quantities; nrel_multiplication_numbers; 
+			   nrel_pow_quantities; nrel_pow_numbers;
+			   nrel_be_more_quantities; nrel_be_more_numbers;;
+
+nrel_sin => nrel_main_idtf: [синус*] (* <- lang_ru;; *);
+			    [sinus*] (* <- lang_en;; *);;
+
+nrel_cos => nrel_main_idtf: [косинус*] (* <- lang_ru;; *);
+			    [cosine*] (* <- lang_en;; *);;
+
+nrel_tan => nrel_main_idtf: [тангенс*] (* <- lang_ru;; *);
+		            [tangent*] (* <- lang_en;; *);;
+
+nrel_sum_quantities => nrel_main_idtf: [сумма величин*] (* <- lang_ru;; *);
+				       [sum quantities*] (* <- lang_en;; *);;
+
+nrel_multiplication_quantities => nrel_main_idtf: [произведение величин*] (* <- lang_ru;; *);
+						  [multipliplication quantities*] (* <- lang_en;; *);;
+
+nrel_pow_quantities => nrel_main_idtf: [возведение величины в степень*] (* <- lang_ru;; *);
+				       [exponentiation quantities*] (* <- lang_en;; *);;
+
+nrel_be_more_quantities => nrel_main_idtf: [большая величина*] (* <- lang_ru;; *);
+				        [greater quantity*] (* <- lang_en;; *);;
+
+nrel_sum_numbers => nrel_main_idtf: [сумма чисел*] (* <- lang_ru;; *);
+				    [sum of the numbers*] (* <- lang_en;; *);;
+
+nrel_multiplication_numbers => nrel_main_idtf: [произведение чисел*] (* <- lang_ru;; *);
+					       [multipliplication of the numbers*] (* <- lang_en;; *);;
+
+nrel_pow_numbers => nrel_main_idtf: [возведение числа в степень*] (* <- lang_ru;; *);
+				    [exponentiation of the numbers*] (* <- lang_en;; *);;
+
+nrel_be_more_numbers => nrel_main_idtf: [большее число*] (* <- lang_ru;; *);
+				        [greater number*] (* <- lang_en;; *);;
+
+ariphmetic_operation => nrel_main_idtf: [арифметическая операция] (* <- lang_ru;; *);
+				        [ariphmetic operation] (* <- lang_en;; *);;
+
+trigonometric_operation => nrel_main_idtf: [тригонометрическая операция] (* <- lang_ru;; *);
+				           [trigonometric operation] (* <- lang_en;; *);;
+
+number_operation => nrel_main_idtf: [операция над числами] (* <- lang_ru;; *);
+				    [operation on numbers] (* <- lang_en;; *);;
+
+quantity_operation => nrel_main_idtf: [операция над величинами] (* <- lang_ru;; *);
+				      [operation on quantities] (* <- lang_en;; *);;
+
+number_operation -> nrel_sum_numbers; 
+		    nrel_multiplication_numbers; 
+		    nrel_pow_numbers;
+		    nrel_be_more_numbers;;
+
+quantity_operation -> nrel_sum_quantities; 
+		      nrel_multiplication_quantities; 
+		      nrel_pow_quantities;
+		      nrel_be_more_quantities;;
+
+ariphmetic_operation -> nrel_sum_quantities; 
+		       nrel_sum_numbers; 
+		       nrel_multiplication_quantities; 
+		       nrel_multiplication_numbers; 
+		       nrel_pow_quantities; 
+		       nrel_pow_numbers;
+		       nrel_be_more_quantities;
+                       nrel_be_more_numbers;;
+
+trigonometric_operation -> nrel_sin; 
+			   nrel_cos; 
+			   nrel_tan;;
+
+sc_relation -> nrel_sin; nrel_cos; nrel_tan;
+	       nrel_sum_quantities; nrel_sum_numbers; 
+	       nrel_multiplication_quantities; nrel_multiplication_numbers; 
+	       nrel_pow_quantities; nrel_pow_numbers;
+	       nrel_be_more_quantities; nrel_be_more_numbers;;
+
+
+
+

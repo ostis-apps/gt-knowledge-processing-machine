@@ -1,0 +1,848 @@
+agent_of_finding_proof_task
+=> nrel_main_idtf:
+	[агентная scp-программа проверки истинности утверждения] (* <- lang_ru;; *);
+	[agent scp-program of checking the truth of statement] (* <- lang_en;; *);
+	<- agent_scp_program;;
+
+scp_program -> agent_of_finding_proof_task 
+	(*
+	-> rrel_params: .agent_of_finding_proof_task_params 
+		(*
+		-> rrel_1: rrel_in: _event;;
+		-> rrel_2: rrel_in: _input_arc;;
+		*);;
+
+	-> rrel_operators: .agent_of_finding_proof_task_operator_set
+		(*
+		-> rrel_init: .agent_of_finding_proof_task_operator1A 
+			(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _temp;;
+			-> rrel_2: rrel_fixed: rrel_scp_var: _input_arc;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _quest;;
+	
+			=> nrel_goto: .agent_of_finding_proof_task_operator1B;;
+			*);;
+		
+		-> .agent_of_finding_proof_task_operator1B
+			(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: question_finding_proof_task;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
+
+			=> nrel_then: .agent_of_finding_proof_task_operator1C;;
+			=> nrel_else: .agent_of_finding_proof_task_operator_return;;
+			*);;
+		
+		-> .agent_of_finding_proof_task_operator1C 
+			(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: rrel_false;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _arc1;;
+
+			=> nrel_then: .agent_of_finding_proof_task_operator_return;;
+			=> nrel_else: .agent_of_finding_proof_task_operator1D;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator1D
+			(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _param;;
+
+			=> nrel_then: .agent_of_finding_proof_task_operator1E1;;
+			=> nrel_else: .agent_of_finding_proof_task_operator_return;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator1E1
+			(*
+			<- genEl;;
+
+			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _answer;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator1E2;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator1E2 
+			(*
+			<- genElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _param;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator1F1;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator1F1
+			(*
+			<- searchSetStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: atomic_formula;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _param;;
+
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _answer;;
+
+			=> nrel_then: .agent_of_finding_proof_task_operator1F2;;
+			=> nrel_else: .agent_of_finding_proof_task_operator1F1_error_message;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator1F1_error_message
+			(*
+			<- contAssign;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [Invalid input parameter! Try again with correct data.];;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator1G1;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator1F2
+			(*
+			<- searchSetStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _param;;
+			-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _elem1;;
+
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _answer;;
+			-> rrel_set_3: rrel_fixed: rrel_scp_var: _answer;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator1F3;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator1F3 
+			(*
+			<- genElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: atomic_formula;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator2A1;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator1G1 
+			(*
+			<- genEl;;
+
+			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _task_node;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator1G2;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator1G2
+			(*
+			<- genElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _task_node;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _param;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator1G3;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator1G3
+			(*
+			<- genElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _task_node;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator1G4;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator1G4 
+			(*
+			<- searchSetStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _task_node;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _param;;
+
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _answer;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator2E1;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator2A1 
+			(*
+			<- searchSetStr5;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _task;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _param;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_2;;
+
+			-> rrel_set_1: rrel_assign: rrel_scp_var: _task_nodes;;
+
+			=> nrel_then: .agent_of_finding_proof_task_operator2A2;;
+			=> nrel_else: .agent_of_finding_proof_task_operator2A1_error_message;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator2A1_error_message
+			(*
+			<- contAssign;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [Input parameter wasn't connected with task node! Please, correct your task construction.];;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator1G1;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator2A2
+			(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _task_nodes;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _task_node;;
+
+			=> nrel_then: .agent_of_finding_proof_task_operator2A3;;
+			=> nrel_else: .agent_of_finding_proof_task_operator2A2_error_message;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator2A2_error_message
+			(*
+			<- contAssign;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [Task node wasn't found! Please, correct your task construction.];;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator1G2;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator2A3
+			(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc1;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator2A4;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator2A4
+			(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: question;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _task_node;;
+
+			=> nrel_then: .agent_of_finding_proof_task_operator2A5;;
+			=> nrel_else: .agent_of_finding_proof_task_operator2A2;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator2A5 
+			(*
+			<- searchSetStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _task_node;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _param;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_2;;
+
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _answer;;
+			-> rrel_set_4: rrel_fixed: rrel_scp_var: _answer;;
+
+			=> nrel_then: .agent_of_finding_proof_task_operator2A6;;
+			=> nrel_else: .agent_of_finding_proof_task_operator2A_error_message;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator2A6
+			(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _task_nodes;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator2B1;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator2B1 
+			(*
+			<- genElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: rrel_2;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator2B2;; 
+			*);;
+
+		-> .agent_of_finding_proof_task_operator2B2 
+			(*
+			<- genElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _task_node;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator2B3;; 
+			*);;
+
+		-> .agent_of_finding_proof_task_operator2B3
+			(*
+			<- searchElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _task_node;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _condition_graph;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_1;;
+
+			=> nrel_then: .agent_of_finding_proof_task_operator2B4;;
+			=> nrel_else: .agent_of_finding_proof_task_operator2B3_error_message;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator2B3_error_message
+			(*
+			<- contAssign;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [Condition graph wasn't found! Please, correct your task construction.];;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator2E1;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator2B4
+			(*
+			<- searchSetStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _condition_graph;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _elem1;;
+
+			=> nrel_then: .agent_of_finding_proof_task_operator2B5;;
+			=> nrel_else: .agent_of_finding_proof_task_operator2B4_error_message;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator2B4_error_message
+			(*
+			<- contAssign;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [Your condition graph is empty! Please, correct your task construction.];;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator2E1;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator2B5 
+			(*
+			<- call;;
+
+                        -> rrel_1: rrel_fixed: rrel_scp_const: proc_of_erasing_comment;;
+                        -> rrel_2: rrel_fixed: rrel_scp_const: .agent_of_finding_proof_task_operator2B5_params
+				(*
+                                -> rrel_1: rrel_fixed: rrel_scp_var: _task_node;;        		 
+                          	*);;
+			-> rrel_3: rrel_assign: rrel_scp_var: _descr1;;
+
+                        => nrel_goto: .agent_of_finding_proof_task_operator2B6;;
+                   	*);;
+
+		-> .agent_of_finding_proof_task_operator2B6 
+			(*
+			<- waitReturn;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr1;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator2C1;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator2C1
+			(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: question_finding_proof;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _task_node;;
+
+			=> nrel_then: .agent_of_finding_proof_task_operator2C3;;
+			=> nrel_else: .agent_of_finding_proof_task_operator2C2;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator2C2 
+			(*
+			<- genElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: question_finding_proof;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _task_node;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator2C3;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator2C3
+			(*
+			<- searchSetStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: question_finding_proof;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _task_node;;
+
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _answer;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator2C4;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator2C4
+			(*
+			<- genElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: question_finding_proof;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator3A1;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator2D1
+			(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: question_finished_successfully;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _task_node;;
+
+			=> nrel_then: .agent_of_finding_proof_task_operator2D3;;
+			=> nrel_else: .agent_of_finding_proof_task_operator2D2;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator2D2
+			(*
+			<- genElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: question_finished_successfully;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _task_node;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator2D3;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator2D3
+			(*
+			<- searchSetStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: question_finished_successfully;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _task_node;;
+
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _answer;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator2D4;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator2D4
+			(*
+			<- genElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: question_finished_successfully;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator4A1;; 
+			*);;
+
+		-> .agent_of_finding_proof_task_operator2E1
+			(*
+			<- genElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: question_finished_unsuccessfully;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _task_node;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator2E2;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator2E2
+			(*
+			<- searchSetStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: question_finished_unsuccessfully;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _task_node;;
+
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _answer;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator2E3;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator2E3
+			(*
+			<- genElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: question_finished_unsuccessfully;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator4A1;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator3A1 
+                 	(*
+		 	<- sys_search;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _param;;
+		 	-> rrel_2: rrel_fixed: rrel_scp_const: ...;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: ...;;
+			-> rrel_4: rrel_assign: rrel_scp_var: _answer2;;
+				
+           		=> nrel_then: .agent_of_finding_proof_task_operator3A2;;
+           		=> nrel_else: .agent_of_finding_proof_task_operator5A;;
+		 	*);;
+
+		-> .agent_of_finding_proof_task_operator3A2 
+			(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _answer2;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator3A3;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator3A3
+			(*
+			<- contAssign;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [Proof not required. It is the fact from the knowledge base.];;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator2D1;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator4A1 
+			(*
+			<- call;;
+
+                        -> rrel_1: rrel_fixed: rrel_scp_const: proc_of_generating_comment;;
+                        -> rrel_2: rrel_fixed: rrel_scp_const: .agent_of_finding_proof_task_operator4A1_params
+				(*
+                                -> rrel_1: rrel_fixed: rrel_scp_var: _task_node;;
+                                -> rrel_2: rrel_fixed: rrel_scp_var: _message;;
+                                -> rrel_3: rrel_fixed: rrel_scp_var: _answer;;         		 
+                          	*);;
+			-> rrel_3: rrel_assign: rrel_scp_var: _descr2;;
+
+                        => nrel_goto: .agent_of_finding_proof_task_operator4A2;;
+                   	*);;
+
+		-> .agent_of_finding_proof_task_operator4A2 
+			(*
+			<- waitReturn;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr2;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_gen_answer;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator5A 
+			(*
+		  	<- searchSetStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _param;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: rrel_node: rrel_const: _node1;;
+
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _const_nodes;;
+
+		  	=> nrel_then: .agent_of_finding_proof_task_operator5B;;
+		  	=> nrel_else: .agent_of_finding_proof_task_operator2B3_error_message;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator5B 
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _const_nodes;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _example;;
+
+		  	=> nrel_then: .agent_of_finding_proof_task_operator5C;;
+		  	=> nrel_else: .agent_of_finding_proof_task_operator5B_erase;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator5B_erase
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _const_nodes;;
+
+		 	=> nrel_goto: .agent_of_finding_proof_task_operator2B3_error_message;;
+		 	*);;
+
+		-> .agent_of_finding_proof_task_operator5C
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc1;;
+
+		 	=> nrel_goto: .agent_of_finding_proof_task_operator5D1;;
+		 	*);;
+
+		-> .agent_of_finding_proof_task_operator5D1
+			(*
+		  	<- ifType;;
+
+		  	-> rrel_1: rrel_fixed: rrel_not_relation: rrel_scp_var: _example;;
+
+		  	=> nrel_then: .agent_of_finding_proof_task_operator5B;;
+		  	=> nrel_else: .agent_of_finding_proof_task_operator5D2;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator5D2
+			(*
+		  	<- ifType;;
+
+		  	-> rrel_1: rrel_fixed: rrel_norole_relation: rrel_scp_var: _example;;
+
+		  	=> nrel_then: .agent_of_finding_proof_task_operator5B;;
+		  	=> nrel_else: .agent_of_finding_proof_task_operator5D3;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator5D3
+			(*
+		  	<- ifType;;
+
+		  	-> rrel_1: rrel_fixed: rrel_role_relation: rrel_scp_var: _example;;
+
+		  	=> nrel_then: .agent_of_finding_proof_task_operator5B;;
+		  	=> nrel_else: .agent_of_finding_proof_task_operator5E;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator5E
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _const_nodes;;
+
+		 	=> nrel_goto: .agent_of_finding_proof_task_operator6A;;
+		 	*);;
+
+		-> .agent_of_finding_proof_task_operator6A 
+			(*
+			<- eraseElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: question_initiated;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_erase: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator6B;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator6B 
+			(*
+			<- eraseElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: question_finding_proof_task;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_erase: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator6C;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator6C
+			(*
+			<- genElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: question_finding_proof_task;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_false;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator6D;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator6D 
+			(*
+			<- eraseElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_erase: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _param;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator6E;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator6E 
+			(*
+			<- genElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _example;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator6F;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator6F
+			(*
+			<- genElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: question_initiated;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator6G1;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator6G1 
+			(*                                       
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: question_finished_successfully;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
+
+			=> nrel_then: .agent_of_finding_proof_task_operator6H;;  
+			=> nrel_else: .agent_of_finding_proof_task_operator6G2;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator6G2 
+			(*                                       
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: question_finished_unsuccessfully;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
+
+			=> nrel_then: .agent_of_finding_proof_task_operator6H;;  
+			=> nrel_else: .agent_of_finding_proof_task_operator6G3;;
+			*);;
+		
+		-> .agent_of_finding_proof_task_operator6G3 
+			(*
+			<- sys_wait;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: sc_event_add_input_arc;;
+			-> rrel_2: rrel_fixed: rrel_scp_var: _quest;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator6G1;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator6H
+			(*                                       
+			<- eraseElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: question_initiated;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_erase: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator6I1;;  
+			*);;
+
+		-> .agent_of_finding_proof_task_operator6I1 
+			(*
+			<- searchElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
+                 	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+                 	-> rrel_3: rrel_assign: rrel_scp_var: _decomp;;
+		 	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+                 	-> rrel_5: rrel_fixed: rrel_scp_const: rrel_decomposition;;
+
+			=> nrel_then: .agent_of_finding_proof_task_operator7A;;
+			=> nrel_else: .agent_of_finding_proof_task_operator6I2;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator6I2 
+			(*
+			<- searchElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _message;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_comment;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator2E1;;
+			=> nrel_goto: .agent_of_finding_proof_task_operator6I3;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator6I3
+			(*
+			<- contAssign;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [Answer wasn't found. It is not enough information in the current version of the knowledge base.];;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator2E1;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator7A
+			(*
+			<- genEl;;
+
+			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _solution;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator7B;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator7B
+			(*
+			<- genElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _task_node;;
+			-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: rrel_const: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _solution;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: rrel_const: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_solution;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator7C;;
+			*);;
+
+		-> .agent_of_finding_proof_task_operator7C
+			(*
+			<- genElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _decomp;;
+			-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: rrel_const: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _solution;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: rrel_const: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_decomposition_of_sc_action;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator7D;; 
+			*);;
+
+		-> .agent_of_finding_proof_task_operator7D
+			(*
+			<- contAssign;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [Proof has been successfully produced by means of the solver.];;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator2D1;; 
+			*);;
+		
+		-> .agent_of_finding_proof_task_gen_answer 
+			(*
+			<- genElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
+			-> rrel_2: rrel_assign: rrel_const: rrel_common: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _answer;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_answer;;
+
+			=> nrel_goto: .agent_of_finding_proof_task_operator_return;;
+			*);;
+					
+		-> .agent_of_finding_proof_task_operator_return 
+			(*
+			<- return;;
+			*);;
+		*);;
+	*);;
+
+

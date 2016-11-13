@@ -1,0 +1,26 @@
+lib_component_proc_of_increase_or_decrease_degree
+=> nrel_main_idtf:
+	[Компонент библиотеки. Scp-программа повышения или понижения степени величины]
+	(* <- lang_ru;; *);
+	[Library component. Scp-program of increase or decrease the degree of quantity]
+	(* <- lang_en;; *);
+
+<- platform_independent_reusable_component_OSTIS;
+<- reusable_scp_program;
+
+-> rrel_key_sc_element: 
+	proc_of_increase_or_decrease_degree;
+
+<- rrel_key_sc_element: 
+	...
+	(*
+	<- sc_explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			"file://htmls/Proc_Of_Increase_Or_Decrease_Degree.html" 
+				(* <- lang_ru;; *);;
+		*);;
+	*);;
+

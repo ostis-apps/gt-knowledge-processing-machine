@@ -1,0 +1,17 @@
+ui_menu_file_for_logic_deduction <- ui_user_command_class_atom; ui_user_command_class_view_kb;;
+
+ui_menu_file_for_logic_deduction => nrel_main_idtf: [Команда выполнения логического вывода] (* <- lang_ru;; *);;
+ui_menu_file_for_logic_deduction => nrel_main_idtf: [Command of logic deduction execution] (* <- lang_en;; *);;
+	
+ui_menu_file_for_logic_deduction => ui_nrel_command_template:
+	[*
+		question_of_logic_deduction _-> ._question_of_logic_deduction_instance
+			(*
+				_-> rrel_1:: ui_arg_1;;	
+                                _-> rrel_2:: ui_arg_2;;			
+			*);;
+		._question_of_logic_deduction_instance _<- question;;
+	*];;
+
+ui_menu_file_for_logic_deduction => ui_nrel_command_lang_template: [Команда логического вывода для: $ui_arg_1 c использованием: $ui_arg_2] (* <- lang_ru;; *);;
+ui_menu_file_for_logic_deduction => ui_nrel_command_lang_template: [Command of logic deduction for: $ui_arg_1 with the usage of: $ui_arg_2] (* <- lang_en;; *);;

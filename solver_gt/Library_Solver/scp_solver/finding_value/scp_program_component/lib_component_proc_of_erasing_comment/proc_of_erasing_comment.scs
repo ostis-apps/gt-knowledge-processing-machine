@@ -1,0 +1,178 @@
+scp_program -> proc_of_erasing_comment
+	(*
+  	-> rrel_params: .proc_of_erasing_comment_params 
+		(*
+		-> rrel_1: rrel_in: _quest_node;;
+    		*);;
+
+	-> rrel_operators: .proc_of_erasing_comment_operator_set
+    		(*
+    		-> rrel_init: .proc_of_erasing_comment_operator1A 
+			(*
+			<- searchSetStr5;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _comment;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _quest_node;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_key_sc_element;;
+
+			-> rrel_set_1: rrel_assign: rrel_scp_var: _maybe_comments;;
+
+			=> nrel_then: .proc_of_erasing_comment_operator1B;;
+			=> nrel_else: .proc_of_erasing_comment_operator_return;;
+			*);;
+
+		-> .proc_of_erasing_comment_operator1B 
+			(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _maybe_comments;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _key_element;;
+
+			=> nrel_then: .proc_of_erasing_comment_operator1C;;
+			=> nrel_else: .proc_of_erasing_comment_operator1B_erase;;
+			*);;
+
+		-> .proc_of_erasing_comment_operator1B_erase 
+			(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _maybe_comments;;
+
+			=> nrel_goto: .proc_of_erasing_comment_operator_return;;
+			*);;
+
+		-> .proc_of_erasing_comment_operator1C 
+			(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc1;;
+
+			=> nrel_goto: .proc_of_erasing_comment_operator1D;;
+			*);;
+
+		-> .proc_of_erasing_comment_operator1D 
+			(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: sc_comment;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _key_element;;
+
+			=> nrel_then: .proc_of_erasing_comment_operator2A;;
+			=> nrel_else: .proc_of_erasing_comment_operator1B;;
+			*);;
+
+		-> .proc_of_erasing_comment_operator2A 
+			(*
+			<- eraseElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _key_element;;
+			-> rrel_2: rrel_assign: rrel_erase: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _quest_node;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_erase: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_key_sc_element;;
+
+			=> nrel_goto: .proc_of_erasing_comment_operator2B1;;
+			*);;
+
+		-> .proc_of_erasing_comment_operator2B1 
+			(*
+			<- searchElStr5;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _translation_node;;
+			-> rrel_2: rrel_assign: rrel_erase: rrel_common: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _key_element;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_erase: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_sc_text_translation;;
+
+			=> nrel_then: .proc_of_erasing_comment_operator2B2;;
+			=> nrel_else: .proc_of_erasing_comment_operator_return;;
+			*);;
+
+		-> .proc_of_erasing_comment_operator2B2 
+			(*
+			<- eraseElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _translation_node;;
+			-> rrel_2: rrel_assign: rrel_erase: rrel_common: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _key_element;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_erase: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_sc_text_translation;;
+
+			=> nrel_goto: .proc_of_erasing_comment_operator2C1;;
+			*);;
+
+		-> .proc_of_erasing_comment_operator2C1 
+			(*
+			<- searchElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _translation_node;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _link;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_example;;
+
+			=> nrel_then: .proc_of_erasing_comment_operator2C2;;
+			=> nrel_else: .proc_of_erasing_comment_operator_return;;
+			*);;
+
+		-> .proc_of_erasing_comment_operator2C2 
+			(*
+			<- eraseElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _translation_node;;
+			-> rrel_2: rrel_assign: rrel_erase: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _link;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_erase: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_example;;
+
+			=> nrel_goto: .proc_of_erasing_comment_operator2D;;
+			*);;
+
+		-> .proc_of_erasing_comment_operator2D 
+			(*
+			<- eraseElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: lang_en;;
+			-> rrel_2: rrel_assign: rrel_erase: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _link;;
+
+			=> nrel_goto: .proc_of_erasing_comment_operator2E;;
+			*);;
+
+		-> .proc_of_erasing_comment_operator2E 
+			(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _key_element;;
+
+			=> nrel_goto: .proc_of_erasing_comment_operator2F;;
+			*);;
+
+		-> .proc_of_erasing_comment_operator2F 
+			(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _translation_node;;
+
+			=> nrel_goto: .proc_of_erasing_comment_operator2G;;
+			*);;
+
+		-> .proc_of_erasing_comment_operator2G
+			(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _link;;
+
+			=> nrel_goto: .proc_of_erasing_comment_operator1B;;
+			*);;
+
+		-> .proc_of_erasing_comment_operator_return 
+			(*
+			<- return;;
+			*);;
+		*);;
+	*);;

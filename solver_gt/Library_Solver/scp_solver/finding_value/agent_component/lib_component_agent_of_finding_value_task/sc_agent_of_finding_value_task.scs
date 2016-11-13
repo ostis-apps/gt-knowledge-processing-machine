@@ -1,0 +1,69 @@
+sc_agent_of_finding_value_task
+=> nrel_main_idtf:
+	[sc-агент поиска значения неизвестной величины или идентификации числа] (* <- lang_ru;; *);
+	[sc-agent of finding value of the unknown quantity or number identification] (* <- lang_en;;*);
+
+<- abstract_sc_agent;
+
+=> nrel_primary_initiation_condition: 
+	(sc_event_add_output_arc => question_initiated);
+
+=> nrel_initiation_condition_and_result: 
+	(..sc_agent_of_finding_value_task_condition => ..sc_agent_of_finding_value_task_result);
+
+<= nrel_sc_agent_key_sc_elements: 
+	{
+	question_initiated;
+	question;
+	question_finding_value_task
+	};
+	
+<- rrel_key_sc_element:
+	...
+	(*
+	<- sc_description_of_sc_agent_behavior;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			"file://htmls/Agent_Finding_Value.html";;
+		*);;
+	*);
+
+
+=> nrel_inclusion:
+	.platform_independent_realization_of_sc_agent_of_finding_value_task
+	(*
+	<- platform_independent_abstract_sc_agent;;
+	<= nrel_sc_agent_program: 
+		{
+		agent_of_finding_value_task;
+		proc_of_generating_comment;
+		proc_of_erasing_comment;
+		proc_finding_value;
+		proc_generation_chain;
+		proc_analogy_usage;
+		proc_analogy_similarity;
+		proc_analogy_for_non_oriented_relations
+		};;
+
+	-> sc_agent_of_finding_value_task_scp   
+		(* <- active_sc_agent;; *);;
+	*);;
+
+..sc_agent_for_finding_proof_task_condition
+= [*
+	question_finding_value_task _-> .._question;;
+	question_initiated _-> .._question;;
+	question _-> .._question;;
+	.._question _-> .._parameter;;
+*];;
+
+..sc_agent_for_finding_proof_task_result
+= [*
+	question_finding_value_task _-> .._question;;
+	question_finished _-> .._question;;
+	question _-> .._question;;
+	.._question _=> nrel_answer:: .._answer;;
+	.._question _-> .._parameter;;
+*];;

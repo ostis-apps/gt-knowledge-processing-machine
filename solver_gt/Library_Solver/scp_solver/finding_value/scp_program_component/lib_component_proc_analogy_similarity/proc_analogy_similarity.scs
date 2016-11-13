@@ -1,0 +1,1127 @@
+scp_program -> proc_analogy_similarity
+	(*	
+	-> rrel_params: .proc_analogy_similarity_params 
+		(*
+		-> rrel_1: rrel_in: _param;;
+		-> rrel_2: rrel_in: _figure;;
+		-> rrel_3: rrel_in: _base_figure;;
+		-> rrel_4: rrel_in: _relation_message;;
+		-> rrel_5: rrel_in: _step1;;
+		-> rrel_6: rrel_in: _step2;;
+		-> rrel_7: rrel_in: _step3;;
+		-> rrel_8: rrel_in: _step4;;
+		-> rrel_9: rrel_in: _message;;
+		-> rrel_10: rrel_in: _relation_marker;;
+		*);;
+	
+	-> rrel_operators: .proc_analogy_similarity_operator_set 
+		(*
+		-> rrel_init: .proc_analogy_similarity_operator1A 
+			(*
+			<- searchSetStr5;;
+			
+			-> rrel_1: rrel_assign: rrel_scp_var: _some_tuple;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _figure;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_1;;
+		
+			-> rrel_set_1: rrel_assign: rrel_scp_var: _set_of_tuples;;
+		
+			=> nrel_then: .proc_analogy_similarity_operator1B;;
+			=> nrel_else: .proc_analogy_similarity_operator2A;;                    
+			*);;
+
+		-> .proc_analogy_similarity_operator1B 
+			(*
+			<- searchElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _set_of_tuples;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _some_tuple;;
+
+			=> nrel_then: .proc_analogy_similarity_operator1C;;
+			=> nrel_else: .proc_analogy_similarity_operator1B_erase;;
+			*);;
+
+		-> .proc_analogy_similarity_operator1B_erase 
+			(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _set_of_tuples;;
+				
+			=> nrel_goto: .proc_analogy_similarity_operator2A;;
+		  	*);;
+			
+		-> .proc_analogy_similarity_operator1C 
+			(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _arc1;;
+				
+			=> nrel_goto: .proc_analogy_similarity_operator1C_print;;
+		  	*);;
+
+		-> .proc_analogy_similarity_operator1C_print 
+			(*
+			<- printEl;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _some_tuple;;
+				
+			=> nrel_goto: .proc_analogy_similarity_operator1C_print2;;
+		  	*);;
+
+		-> .proc_analogy_similarity_operator1C_print2 
+			(*
+			<- printEl;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _relation_marker;;
+				
+			=> nrel_goto: .proc_analogy_similarity_operator1D;;
+		  	*);;
+			
+		-> .proc_analogy_similarity_operator1D 
+			(*
+			<- searchElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _relation_marker;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _some_tuple;;
+
+			=> nrel_then: .proc_analogy_similarity_operator1E;;
+			=> nrel_else: .proc_analogy_similarity_operator1B;;
+			*);;	
+
+		-> .proc_analogy_similarity_operator1E 
+			(*
+			<- searchSetStr5;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _some_tuple;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _base_figure;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_2;;
+
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _step1;;
+			-> rrel_set_4: rrel_fixed: rrel_scp_var: _step1;;
+
+			=> nrel_then: .proc_analogy_similarity_operator1F;;
+			=> nrel_else: .proc_analogy_similarity_operator1B;;
+			*);;
+
+		-> .proc_analogy_similarity_operator1F
+			(*
+			<- genElStr3;;
+		
+			-> rrel_1: rrel_fixed: rrel_scp_var: _step1;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: rrel_2;; 
+
+			=> nrel_goto: .proc_analogy_similarity_operator1G;;
+			*);;
+
+		-> .proc_analogy_similarity_operator1G 
+			(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _set_of_tuples;;
+				
+			=> nrel_goto: .proc_analogy_similarity_operator1H;;
+		  	*);;
+
+		-> .proc_analogy_similarity_operator1H
+			(*
+			<- contAssign;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _similarity_marker;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [Unknown first parameter];;
+
+			=> nrel_goto: .proc_analogy_similarity_operator3A;;
+			*);;
+
+		-> .proc_analogy_similarity_operator2A 
+			(*
+			<- searchSetStr5;;
+			
+			-> rrel_1: rrel_assign: rrel_scp_var: _some_tuple;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _figure;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_2;;
+		
+			-> rrel_set_1: rrel_assign: rrel_scp_var: _set_of_tuples;;
+		
+			=> nrel_then: .proc_analogy_similarity_operator2B;;
+			=> nrel_else: .proc_analogy_similarity_operator_return;;                    
+			*);;
+
+		-> .proc_analogy_similarity_operator2B 
+			(*
+			<- searchElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _set_of_tuples;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _some_tuple;;
+
+			=> nrel_then: .proc_analogy_similarity_operator2C;;
+			=> nrel_else: .proc_analogy_similarity_operator2B_erase;;
+			*);;
+
+		-> .proc_analogy_similarity_operator2B_erase 
+			(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _set_of_tuples;;
+				
+			=> nrel_goto: .proc_analogy_similarity_operator_return;;
+		  	*);;
+			
+		-> .proc_analogy_similarity_operator2C 
+			(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _arc1;;
+				
+			=> nrel_goto: .proc_analogy_similarity_operator2D;;
+		  	*);;
+			
+		-> .proc_analogy_similarity_operator2D 
+			(*
+			<- searchElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _relation_marker;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _some_tuple;;
+
+			=> nrel_then: .proc_analogy_similarity_operator2E;;
+			=> nrel_else: .proc_analogy_similarity_operator2B;;
+			*);;	
+
+		-> .proc_analogy_similarity_operator2E 
+			(*
+			<- searchSetStr5;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _some_tuple;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _base_figure;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_1;;
+
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _step1;;
+			-> rrel_set_4: rrel_fixed: rrel_scp_var: _step1;;
+
+			=> nrel_then: .proc_analogy_similarity_operator2F;;
+			=> nrel_else: .proc_analogy_similarity_operator2B;;
+			*);;
+
+		-> .proc_analogy_similarity_operator2F
+			(*
+			<- genElStr3;;
+		
+			-> rrel_1: rrel_fixed: rrel_scp_var: _step1;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: rrel_1;; 
+
+			=> nrel_goto: .proc_analogy_similarity_operator2G;;
+			*);;
+
+		-> .proc_analogy_similarity_operator2G 
+			(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _set_of_tuples;;
+				
+			=> nrel_goto: .proc_analogy_similarity_operator2H;;
+		  	*);;
+
+		-> .proc_analogy_similarity_operator2H
+			(*
+			<- contAssign;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _similarity_marker;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [Unknown second parameter];;
+
+			=> nrel_goto: .proc_analogy_similarity_operator3A;;
+			*);;
+		  
+		-> .proc_analogy_similarity_operator3A 
+			(*
+			<- searchSetStr5;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _some_tuple;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _figure;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+			-> rrel_5: rrel_assign: rrel_scp_var: rrel_role_relation: _order_attr;;
+
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _step1;;
+			-> rrel_set_4: rrel_fixed: rrel_scp_var: _step1;;
+			-> rrel_set_5: rrel_fixed: rrel_scp_var: _step1;;
+
+			=> nrel_then: .proc_analogy_similarity_operator3B;;
+			=> nrel_else: .proc_analogy_similarity_operator_return;;
+			*);;
+
+		->.proc_analogy_similarity_operator3B
+			(*
+			<- searchSetStr3;;
+		
+			-> rrel_1: rrel_assign: rrel_scp_var: rrel_norole_relation: _ordinary_relation;; 
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _some_tuple;; 
+		  
+			-> rrel_set_1: rrel_fixed: rrel_scp_var: _step3;;
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _step3;;
+		
+			=> nrel_then: .proc_analogy_similarity_operator3C;;
+			=> nrel_else: .proc_analogy_similarity_operator_return;;                    
+			*);;
+
+		-> .proc_analogy_similarity_operator3C
+			(*
+			<- genElStr3;;
+		
+			-> rrel_1: rrel_fixed: rrel_scp_var: _step1;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _some_tuple;; 
+
+			=> nrel_goto: .proc_analogy_similarity_operator3D1;;
+			*);;
+
+		-> .proc_analogy_similarity_operator3D1
+			(*
+			<- genElStr3;;
+		
+			-> rrel_1: rrel_fixed: rrel_scp_var: _step1;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _figure;; 
+
+			=> nrel_goto: .proc_analogy_similarity_operator3D2;;
+			*);;
+
+		-> .proc_analogy_similarity_operator3D2
+			(*
+			<- searchSetStr3;;
+		  
+			-> rrel_1: rrel_assign: rrel_not_relation: rrel_scp_var: _some_absolute_node;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _figure;;
+			
+			-> rrel_set_1: rrel_fixed: rrel_scp_var: _step1;;
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _step1;;
+
+			=> nrel_goto: .proc_analogy_similarity_operator3E1;;         
+			*);;
+
+		-> .proc_analogy_similarity_operator3E1
+			(*
+			<- genElStr3;;
+		
+			-> rrel_1: rrel_fixed: rrel_scp_var: _step1;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _base_figure;; 
+
+			=> nrel_goto: .proc_analogy_similarity_operator3E2;;
+			*);;
+
+		-> .proc_analogy_similarity_operator3E2
+			(*
+			<- searchSetStr3;;
+		  
+			-> rrel_1: rrel_assign: rrel_not_relation: rrel_scp_var: _some_base_absolute_node;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _base_figure;;
+			
+			-> rrel_set_1: rrel_fixed: rrel_scp_var: _step1;;
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _step1;;
+
+			=> nrel_goto: .proc_analogy_similarity_operator3F1;;         
+			*);;
+
+		-> .proc_analogy_similarity_operator3F1 
+			(*
+			<- genElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _step1;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: nrel_coefficient_of_similarity;; 
+
+			=> nrel_goto: .proc_analogy_similarity_operator3F2;;
+			*);;
+		
+		-> .proc_analogy_similarity_operator3F2
+			(*
+			<- searchSetStr5;;
+		  
+			-> rrel_1: rrel_fixed: rrel_scp_var: _some_tuple;;
+			-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _coeff;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_coefficient_of_similarity;;
+			
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _step1;;
+			-> rrel_set_3: rrel_fixed: rrel_scp_var: _step1;;
+			-> rrel_set_4: rrel_fixed: rrel_scp_var: _step1;;
+			
+			=> nrel_then: .proc_analogy_similarity_operator3F3;;
+			=> nrel_else: .proc_analogy_similarity_operator_return;;         
+			*);;
+
+		-> .proc_analogy_similarity_operator3F3
+			(*
+			<- searchSetStr3;;
+		  
+			-> rrel_1: rrel_assign: rrel_not_relation: rrel_scp_var: _some_coeff_absolute_node;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _coeff;;
+			
+			-> rrel_set_1: rrel_fixed: rrel_scp_var: _step1;;
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _step1;;
+
+			=> nrel_then: .proc_analogy_similarity_operator4A1;;
+			=> nrel_else: .proc_analogy_similarity_operator_return;;         
+			*);;
+
+		-> .proc_analogy_similarity_operator4A1 
+			(*
+			<- genEl;;
+			
+			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _unit_of_measure1;;
+			
+			=> nrel_goto: .proc_analogy_similarity_operator4A2;;
+			*);;
+		
+		-> .proc_analogy_similarity_operator4A2 
+			(*
+			<- genEl;;
+			
+			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _sc_link1;;
+			
+			=> nrel_goto: .proc_analogy_similarity_operator4B1;;
+			*);;
+
+		-> .proc_analogy_similarity_operator4B1
+			(*
+			<- call;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: proc_getting_value;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: .proc_analogy_similarity_operator4B1_params
+				(*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _coeff;;
+				-> rrel_2: rrel_fixed: rrel_scp_var: _unit_of_measure1;;
+				-> rrel_3: rrel_fixed: rrel_scp_var: _sc_link1;; 
+				*);;
+			-> rrel_3: rrel_assign: rrel_scp_var: _descr1;;
+
+			=> nrel_goto: .proc_analogy_similarity_operator4B2;;
+			*);;
+		
+		-> .proc_analogy_similarity_operator4B2
+			(*
+			<- waitReturn;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr1;;
+
+			=> nrel_goto: .proc_analogy_similarity_operator4C;;
+			*);;
+
+		-> .proc_analogy_similarity_operator4C 
+			(*
+			<- searchElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _sc_link1;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _link_value;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_2;;
+
+			=> nrel_then: .proc_analogy_similarity_operator5A;;
+			=> nrel_else: .proc_analogy_similarity_operator_return;;
+			*);;
+
+		-> .proc_analogy_similarity_operator5A
+			(*
+			<- stringIfEq;;
+	
+			-> rrel_1: rrel_fixed: rrel_scp_var: _relation_message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [area];;
+		
+			=> nrel_then: .proc_analogy_similarity_operator5B;;
+			=> nrel_else: .proc_analogy_similarity_operator6A1;;
+		  	*);;
+
+		-> .proc_analogy_similarity_operator5B 
+			(*
+			<- contPow;;
+			
+			-> rrel_1: rrel_assign: rrel_scp_var: _changed_link;;
+			-> rrel_2: rrel_fixed: rrel_scp_var: _link_value;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: [2];;
+			
+			=> nrel_goto: .proc_analogy_similarity_operator5C1;;
+			*);;
+
+		-> .proc_analogy_similarity_operator5C1
+			(*
+			<- stringIfEq;;
+	
+			-> rrel_1: rrel_fixed: rrel_scp_var: _similarity_marker;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [Unknown first parameter];;
+		
+			=> nrel_then: .proc_analogy_similarity_operator5E1;;
+			=> nrel_else: .proc_analogy_similarity_operator5C2;;
+		  	*);;
+
+		-> .proc_analogy_similarity_operator5C2
+			(*
+			<- stringIfEq;;
+	
+			-> rrel_1: rrel_fixed: rrel_scp_var: _similarity_marker;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [Unknown second parameter];;
+		
+			=> nrel_then: .proc_analogy_similarity_operator5D;;
+			=> nrel_else: .proc_analogy_similarity_operator_return;;
+		  	*);;
+
+		-> .proc_analogy_similarity_operator5D 
+			(*
+			<- contDiv;;
+			  
+			-> rrel_1: rrel_fixed: rrel_scp_var: _changed_link;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [1];;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _changed_link;;
+
+			=> nrel_goto: .proc_analogy_similarity_operator5E1;;
+			*);;
+			
+		-> .proc_analogy_similarity_operator5E1 
+			(*
+			<- searchSetStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _base_figure;;
+			-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _base_param;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_area;;
+
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _step3;;
+			-> rrel_set_3: rrel_fixed: rrel_scp_var: _step3;;
+			-> rrel_set_4: rrel_fixed: rrel_scp_var: _step3;;
+
+			=> nrel_then: .proc_analogy_similarity_operator5E2;;
+			=> nrel_else: .proc_analogy_similarity_operator_return;;
+			*);;
+
+		-> .proc_analogy_similarity_operator5E2 
+			(*
+			<- genElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _step3;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: nrel_area;; 
+
+			=> nrel_goto: .proc_analogy_similarity_operator5E3;;
+			*);;
+
+		-> .proc_analogy_similarity_operator5E3
+			(*
+			<- searchSetStr3;;
+		  
+			-> rrel_1: rrel_assign: rrel_not_relation: rrel_scp_var: _absolute_node;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _base_param;;
+			
+			-> rrel_set_1: rrel_fixed: rrel_scp_var: _step3;;
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _step3;;
+
+			=> nrel_goto: .proc_analogy_similarity_operator8A1;;       
+			*);;
+			
+		-> .proc_analogy_similarity_operator6A1
+			(*
+			<- stringIfEq;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _relation_message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [perimeter];;
+		
+			=> nrel_then: .proc_analogy_similarity_operator6B1;;
+			=> nrel_else: .proc_analogy_similarity_operator6A2;;
+		  	*);;
+			
+		-> .proc_analogy_similarity_operator6B1
+			(*
+			<- searchSetStr5;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _base_figure;;
+			-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _base_param;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_perimeter;;
+
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _step3;;
+			-> rrel_set_3: rrel_fixed: rrel_scp_var: _step3;;
+			-> rrel_set_4: rrel_fixed: rrel_scp_var: _step3;;
+
+			=> nrel_then: .proc_analogy_similarity_operator6C1;;
+			=> nrel_else: .proc_analogy_similarity_operator_return;;
+			*);;
+
+		-> .proc_analogy_similarity_operator6C1 
+			(*
+			<- genElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _step3;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: nrel_perimeter;; 
+
+			=> nrel_goto: .proc_analogy_similarity_operator6D1;;
+			*);;
+
+		-> .proc_analogy_similarity_operator6D1
+			(*
+			<- searchSetStr3;;
+		  
+			-> rrel_1: rrel_assign: rrel_not_relation: rrel_scp_var: _absolute_node;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _base_param;;
+			
+			-> rrel_set_1: rrel_fixed: rrel_scp_var: _step3;;
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _step3;;
+
+			=> nrel_goto: .proc_analogy_similarity_operator7A1;;       
+			*);;
+			
+		-> .proc_analogy_similarity_operator6A2
+			(*
+			<- stringIfEq;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _relation_message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [length];;
+		
+			=> nrel_then: .proc_analogy_similarity_operator6B2;;
+			=> nrel_else: .proc_analogy_similarity_operator_return;;
+		  	*);;
+	
+		-> .proc_analogy_similarity_operator6B2 
+			(*
+			<- searchSetStr5;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _base_figure;;
+			-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arca6;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _base_param;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arca7;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_length;;
+
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _step3;;
+			-> rrel_set_3: rrel_fixed: rrel_scp_var: _step3;;
+			-> rrel_set_4: rrel_fixed: rrel_scp_var: _step3;;
+
+			=> nrel_then: .proc_analogy_similarity_operator6C2;;
+			=> nrel_else: .proc_analogy_similarity_operator_return;;
+			*);;
+
+		-> .proc_analogy_similarity_operator6C2 
+			(*
+			<- genElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _step3;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: nrel_length;; 
+
+			=> nrel_goto: .proc_analogy_similarity_operator6D2;;
+			*);;
+
+		-> .proc_analogy_similarity_operator6D2
+			(*
+			<- searchSetStr3;;
+		  
+			-> rrel_1: rrel_assign: rrel_not_relation: rrel_scp_var: _absolute_node;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _base_param;;
+			
+			-> rrel_set_1: rrel_fixed: rrel_scp_var: _step3;;
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _step3;;
+
+			=> nrel_goto: .proc_analogy_similarity_operator7A1;;       
+			*);;
+
+		-> .proc_analogy_similarity_operator7A1
+			(*
+			<- stringIfEq;;
+	
+			-> rrel_1: rrel_fixed: rrel_scp_var: _similarity_marker;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [Unknown first parameter];;
+		
+			=> nrel_then: .proc_analogy_similarity_operator7C;;
+			=> nrel_else: .proc_analogy_similarity_operator7A2;;
+		  	*);;
+
+		-> .proc_analogy_similarity_operator7A2
+			(*
+			<- stringIfEq;;
+	
+			-> rrel_1: rrel_fixed: rrel_scp_var: _similarity_marker;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [Unknown second parameter];;
+		
+			=> nrel_then: .proc_analogy_similarity_operator7B;;
+			=> nrel_else: .proc_analogy_similarity_operator_return;;
+		  	*);;
+
+		-> .proc_analogy_similarity_operator7B 
+			(*
+			<- contDiv;;
+			  
+			-> rrel_1: rrel_assign: rrel_scp_var: _changed_link;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [1];;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _link_value;;
+
+			=> nrel_goto: .proc_analogy_similarity_operator8A1;;
+			*);;
+
+		-> .proc_analogy_similarity_operator7C 
+			(*
+			<- contAssign;;
+			  
+			-> rrel_1: rrel_assign: rrel_scp_var: _changed_link;;
+			-> rrel_2: rrel_fixed: rrel_scp_var: _link_value;;
+
+			=> nrel_goto: .proc_analogy_similarity_operator8A1;;
+			*);;
+
+		-> .proc_analogy_similarity_operator8A1 
+			(*
+			<- genEl;;
+			
+			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _unit_of_measure2;;
+			
+			=> nrel_goto: .proc_analogy_similarity_operator8A2;;
+			*);;
+		
+		-> .proc_analogy_similarity_operator8A2 
+			(*
+			<- genEl;;
+			
+			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _sc_link2;;
+			
+			=> nrel_goto: .proc_analogy_similarity_operator8B1;;
+			*);;
+
+		-> .proc_analogy_similarity_operator8B1
+			(*
+			<- call;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: proc_getting_value;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: .proc_analogy_similarity_operator8B1_params
+				(*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _base_param;;
+				-> rrel_2: rrel_fixed: rrel_scp_var: _unit_of_measure2;;
+				-> rrel_3: rrel_fixed: rrel_scp_var: _sc_link2;; 
+				*);;
+			-> rrel_3: rrel_assign: rrel_scp_var: _descr2;;
+
+			=> nrel_goto: .proc_analogy_similarity_operator8B2;;
+			*);;
+		
+		-> .proc_analogy_similarity_operator8B2
+			(*
+			<- waitReturn;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr2;;
+
+			=> nrel_goto: .proc_analogy_similarity_operator8B3;;
+			*);;
+
+		-> .proc_analogy_similarity_operator8B3 
+			(*
+			<- searchElStr5;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _sc_link2;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _link_value2;;		  
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;		  
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_2;;		  
+		  
+			=> nrel_then: .proc_analogy_similarity_operator8C;;
+			=> nrel_else: .proc_analogy_similarity_operator_return;;
+			*);;
+
+		-> .proc_analogy_similarity_operator8C 
+			(*
+			<- genEl;;
+			
+			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _connection_node;;
+			
+			=> nrel_goto: .proc_analogy_similarity_operator8D1;;
+			*);;
+
+		-> .proc_analogy_similarity_operator8D1 
+			(* 
+			<- call;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_const: proc_generation_chain;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: .proc_analogy_similarity_operator8D1_params 
+				(*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _param;;
+				-> rrel_2: rrel_fixed: rrel_scp_var: _unit_of_measure2;;
+				-> rrel_3: rrel_fixed: rrel_scp_var: _connection_node;;
+				*);;
+			-> rrel_3: rrel_assign: rrel_scp_var: _descr3;;
+
+		  	=> nrel_goto: .proc_analogy_similarity_operator8D2;;
+			*);;
+
+		-> .proc_analogy_similarity_operator8D2
+			(*
+			<- waitReturn;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr3;;
+
+			=> nrel_goto: .proc_analogy_similarity_operator8E1;;
+			*);;
+
+		-> .proc_analogy_similarity_operator8E1 
+			(*
+			<- searchElStr5;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _connection_node;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _identification_node;;		  
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;		  
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_2;;		  
+		  
+			=> nrel_then: .proc_analogy_similarity_operator8E2;;
+			=> nrel_else: .proc_analogy_similarity_operator_return;;
+			*);;
+
+		-> .proc_analogy_similarity_operator8E2
+			(*
+			<- searchElStr5;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _unit_of_measure2;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _attr2;;		  
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;		  
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_2;;		  
+		  
+			=> nrel_then: .proc_analogy_similarity_operator8E3;;
+			=> nrel_else: .proc_analogy_similarity_operator_return;;
+			*);;
+
+		-> .proc_analogy_similarity_operator8E3
+			(*
+			<- contMult;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _changed_link;;
+			-> rrel_2: rrel_fixed: rrel_scp_var: _changed_link;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _link_value2;;
+			
+			=> nrel_goto: .proc_analogy_similarity_operator8E4;;
+			*);;
+
+		-> .proc_analogy_similarity_operator8E4
+			(*
+			<- genElStr5;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _identification_node;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_rez1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _changed_link;;		  
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_rez2;;		  
+			-> rrel_5: rrel_fixed: rrel_scp_var: _attr2;;		  
+	
+			=> nrel_goto: .proc_analogy_similarity_operator9A;;
+			*);;
+
+		-> .proc_analogy_similarity_operator9A 
+			(*
+			<- searchSetStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _step1;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _step1_part;;
+
+			-> rrel_set_3: rrel_fixed: rrel_scp_var: _step3;;
+		  
+			=> nrel_then: .proc_analogy_similarity_operator9B1;;
+			=> nrel_else: .proc_analogy_similarity_operator_return;;
+			*);;
+		    
+		-> .proc_analogy_similarity_operator9B1 
+			(*
+			<- searchSetStr5;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _figure;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _param;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+			-> rrel_5: rrel_assign: rrel_norole_relation: rrel_scp_var: _relation;;
+		  
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _step3;;
+			-> rrel_set_4: rrel_fixed: rrel_scp_var: _step3;;
+		
+			=> nrel_then: .proc_analogy_similarity_operator9B2;;
+			=> nrel_else: .proc_analogy_similarity_operator_return;;                    
+			*);;
+
+		-> .proc_analogy_similarity_operator9B2
+			(*
+			<- searchSetStr3;;
+		  
+			-> rrel_1: rrel_assign: rrel_not_relation: rrel_scp_var: _absolute_node;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _param;;
+			
+			-> rrel_set_1: rrel_fixed: rrel_scp_var: _step3;;
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _step3;;
+
+			=> nrel_goto: .proc_analogy_similarity_operator9B3;;       
+			*);;
+
+		-> .proc_analogy_similarity_operator9B3 
+			(*
+			<- genElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _step3;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _param;; 
+
+			=> nrel_goto: .proc_analogy_similarity_operator9C1;;
+			*);;
+
+		-> .proc_analogy_similarity_operator9C1 
+			(*
+			<- stringIfEq;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _relation_message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [area];;
+		
+			=> nrel_then: .proc_analogy_similarity_operator9D1;;
+			=> nrel_else: .proc_analogy_similarity_operator9C2;;
+		  	*);;
+
+		-> .proc_analogy_similarity_operator9D1
+			(*
+			<- sys_gen;;
+
+		   	-> rrel_1: rrel_fixed: rrel_scp_const:
+				[* 
+				_mult_tuple _=> nrel_multiplication_quantities:: _param1;; 
+				_mult_tuple _-> _base_param1;;
+				_mult_tuple _-> _coeffpow;;
+				_pow_tuple _=> nrel_pow_numbers:: _coeffpow;;
+				_pow_tuple _-> rrel_exponent_of_power:: n_2;;
+				_pow_tuple _-> rrel_base_of_power:: _coeffper;;
+				number _-> _coeffpow;; 
+				*];;
+			-> rrel_2: rrel_assign: rrel_scp_var: _no_pairs;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: ... 
+				(* -> ... 
+					(*  -> rrel_1: rrel_fixed: rrel_scp_const: _param1;;
+					    -> rrel_2: rrel_fixed: rrel_scp_var: _param;; 
+					*);; 
+				   -> ...
+					 (* -> rrel_1: rrel_fixed: rrel_scp_const: _base_param1;;
+					    -> rrel_2: rrel_fixed: rrel_scp_var: _base_param;; 
+					 *);;
+				   -> ...
+					 (* -> rrel_1: rrel_fixed: rrel_scp_const: _coeffper;;
+					    -> rrel_2: rrel_fixed: rrel_scp_var: _coeff;; 
+					 *);;
+				*);;
+			-> rrel_4: rrel_fixed: rrel_scp_var: _step3;;
+			
+			=> nrel_goto: .proc_analogy_similarity_operator9E1;;
+			*);;
+
+		-> .proc_analogy_similarity_operator9E1 
+			(*
+			<- genElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _step3;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: nrel_pow_numbers;; 
+
+			=> nrel_goto: .proc_analogy_similarity_operator9G1;;
+			*);;
+
+		-> .proc_analogy_similarity_operator9G1 
+			(*
+			<- genElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _step3;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: n_2;; 
+
+			=> nrel_goto: .proc_analogy_similarity_operator9H1;;
+			*);;
+
+		-> .proc_analogy_similarity_operator9H1 
+			(*
+			<- genElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _step3;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: rrel_base_of_power;; 
+
+			=> nrel_goto: .proc_analogy_similarity_operator9I1;;
+			*);;
+
+		-> .proc_analogy_similarity_operator9I1 
+			(*
+			<- genElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _step3;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: rrel_exponent_of_power;; 
+
+			=> nrel_goto: .proc_analogy_similarity_operator9E2;;
+			*);;
+
+		-> .proc_analogy_similarity_operator9C2 
+			(*
+			<- stringIfEq;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _relation_message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [perimeter];;
+		
+			=> nrel_then: .proc_analogy_similarity_operator9D2;;
+			=> nrel_else: .proc_analogy_similarity_operator9C3;;
+		  	*);;
+
+		-> .proc_analogy_similarity_operator9C3 
+			(*
+			<- stringIfEq;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _relation_message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [length];;
+		
+			=> nrel_then: .proc_analogy_similarity_operator9D2;;
+			=> nrel_else: .proc_analogy_similarity_operator_return;;
+		  	*);;
+
+		-> .proc_analogy_similarity_operator9D2
+			(*
+			<- sys_gen;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: 
+				[* 
+				_mult_tuple _=> nrel_multiplication_quantities:: _param1;; 
+				_mult_tuple _-> _base_param1;;
+				_mult_tuple _-> _coeffper;;
+				*];;
+			-> rrel_2: rrel_assign: rrel_scp_var: _no_pairs;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: ... 
+				(* -> ... 
+					 (* -> rrel_1: rrel_fixed: rrel_scp_const: _param1;;
+					    -> rrel_2: rrel_fixed: rrel_scp_var: _param;; 
+					 *);; 
+				   -> ...	
+					 (* -> rrel_1: rrel_fixed: rrel_scp_const: _base_param1;;
+					    -> rrel_2: rrel_fixed: rrel_scp_var: _base_param;; 
+					 *);;
+				   -> ...
+					 (* -> rrel_1: rrel_fixed: rrel_scp_const: _coeffper;;
+					    -> rrel_2: rrel_fixed: rrel_scp_var: _coeff;; 
+					 *);;
+				 *);;
+			-> rrel_4: rrel_fixed: rrel_scp_var: _step3;;
+			
+			=> nrel_goto: .proc_analogy_similarity_operator9E2;;
+			*);;
+
+		-> .proc_analogy_similarity_operator9E2
+			(*
+			<- genElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _step3;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: nrel_multiplication_quantities;; 
+
+			=> nrel_goto: .proc_analogy_similarity_operator10A1;;
+			*);;
+
+		-> .proc_analogy_similarity_operator10A1
+			(*
+			<- call;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: proc_finding_value;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: .proc_analogy_similarity_operator10A1_params 
+				(*		  
+				-> rrel_1: rrel_fixed: rrel_scp_var: _base_param;;
+				-> rrel_2: rrel_fixed: rrel_scp_var: _step2;; 
+				*);;
+			-> rrel_3: rrel_assign: rrel_scp_var: _descr4;;
+
+			=> nrel_goto: .proc_analogy_similarity_operator10A2;;
+			*);;
+		
+		-> .proc_analogy_similarity_operator10A2
+			(*
+			<- waitReturn;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr4;;
+
+			=> nrel_goto: .proc_analogy_similarity_operator10B1;;
+			*);;
+			
+		-> .proc_analogy_similarity_operator10B1 
+			(*
+			<- call;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: proc_finding_value;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: .proc_analogy_similarity_operator10B1_params 
+				(*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _param;;
+				-> rrel_2: rrel_fixed: rrel_scp_var: _step4;;
+				*);;
+			-> rrel_3: rrel_assign: rrel_scp_var: _descr5;;
+
+			=> nrel_goto: .proc_analogy_similarity_operator10B2;;
+			*);;
+		
+		-> .proc_analogy_similarity_operator10B2
+			(*
+			<- waitReturn;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr5;;
+
+			=> nrel_goto: .proc_analogy_similarity_operator10C;;
+			*);;
+			
+		-> .proc_analogy_similarity_operator10C
+			(*
+			<- contAssign;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [Analogy for similarity was successfully finished!];;
+
+			=> nrel_goto: .proc_analogy_similarity_operator10D;;
+			*);;
+
+		-> .proc_analogy_similarity_operator10D 
+			(*
+			<- eraseElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _no_pairs;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_assign: rrel_erase: rrel_scp_var: _some_pair;; 
+
+			=> nrel_goto: .proc_analogy_similarity_operator10E;;
+			*);;
+
+		-> .proc_analogy_similarity_operator10E 
+			(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _no_pairs;;
+				
+			=> nrel_goto: .proc_analogy_similarity_operator_return;;
+		  	*);;
+			
+		-> .proc_analogy_similarity_operator_return 
+			(*
+			<-return;;
+			*);;
+		*);;
+	*);;
+			
+			

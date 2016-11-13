@@ -1,0 +1,143 @@
+stat_Pythagorean_theorem -> rrel_if: [* concept_rectangular_triangle _-> _tr1;; *] (* <- atomic_existence;; *);;
+stat_Pythagorean_theorem -> rrel_then: [* _tr1 _=> nrel_cathetus:: _cat1; _cat2;;
+					  _tr1 _=> nrel_hypotenuse:: _hyp1;;
+					  _cat1 _=> nrel_length:: _len1;;
+					  _cat2 _=> nrel_length:: _len2;;
+					  _hyp1 _=> nrel_length:: _len3;;
+					  concept_segment _-> _cat1; _cat2; _hyp1;;
+					  concept_quantity _-> _len1; _len2; _len3; _pow1; _pow2; _pow3;;
+					  number -> n_2;;
+					  _con1 _=> nrel_pow_quantities:: _pow1;;
+					  _con1 _-> rrel_base_of_power:: _len1;;
+					  _con1 _-> rrel_exponent_of_power:: n_2;;
+					  _con2 _=> nrel_pow_quantities:: _pow2;;
+					  _con2 _-> rrel_base_of_power:: _len2;;
+					  _con2 _-> rrel_exponent_of_power:: n_2;;
+					  _con3 _=> nrel_pow_quantities:: _pow3;;
+					  _con3 _-> rrel_base_of_power:: _len3;;
+					  _con3 _-> rrel_exponent_of_power:: n_2;;
+					  _con4 _=> nrel_sum_quantities:: _pow3;;
+					  _con4 _-> _pow1; _pow2;;
+					  *] (* <- atomic_existence;; *);;
+stat_Pythagorean_theorem <- nrel_implication;;
+//stat_Pythagorean_theorem <- sc_statement;;
+
+concept_rectangular_triangle <- rrel_key_sc_element: stat_keynode1;;
+
+stat_keynode1 <- sc_statement_for_solver;;
+
+stat_keynode1 -> rrel_main_key_sc_element: stat_Pythagorean_theorem;;
+
+rrel_example <- sc_relation;;
+
+rrel_base_of_power <- sc_node_role_relation;;
+
+rrel_base_of_power => nrel_main_idtf: [основание степени'] (* <- lang_ru;; *);;
+
+rrel_exponent_of_power <- sc_node_role_relation;;
+
+rrel_exponent_of_power => nrel_main_idtf: [показатель степени'] (* <- lang_ru;; *);;
+
+nrel_result <- sc_node_norole_relation;;
+
+nrel_result => nrel_main_idtf: [результат*] (* <- lang_ru;; *);;
+
+sc_definition <- sc_node_not_relation;;
+
+sc_definition => nrel_main_idtf: [sc-определение] (* <- lang_ru;; *);;
+
+/* ................................................... */
+
+d_concept_rectangular_triangle -> l_part_d_concept_rectangular_triangle;;
+
+l_part_d_concept_rectangular_triangle = [* concept_rectangular_triangle _-> _tr11;; *];;
+
+d_concept_rectangular_triangle -> r_part_d_concept_rectangular_triangle;;
+
+r_part_d_concept_rectangular_triangle = [* _tr11 _=> nrel_internal_angle:: _angle1;;
+			    		   _angle1 _<- concept_right_angle;; 
+			    		   _tr11 _<- concept_triangle;; *];;
+
+d_concept_rectangular_triangle <- nrel_equivalence;;
+
+def_concept_rectangular_triangle <- sc_statement_for_solver;;
+
+atomic_existence -> l_part_d_concept_rectangular_triangle; r_part_d_concept_rectangular_triangle;;
+
+concept_triangle <- rrel_key_sc_element: def_concept_rectangular_triangle;;
+
+def_concept_rectangular_triangle -> rrel_main_key_sc_element: d_concept_rectangular_triangle;;
+
+/* ................................................... */
+
+d_concept_isosceles_triangle -> l_part_d_concept_isosceles_triangle;;
+
+l_part_d_concept_isosceles_triangle = [* concept_isosceles_triangle _-> _tr12;; *];;
+
+d_concept_isosceles_triangle -> r_part_d_concept_isosceles_triangle;;
+
+r_part_d_concept_isosceles_triangle = [* concept_triangle _-> _tr12;;
+					_tr12 _=> nrel_side:: _segm1; _segm2;;
+			    		 concept_segment _-> _segm1; _segm2;; 
+			    		 _tup1 _-> _segm1; _segm2;;
+					 nrel_congruence _-> _tup1;;  *];;
+
+d_concept_isosceles_triangle <- nrel_equivalence;;
+
+def_concept_isosceles_triangle <- sc_statement_for_solver;;
+
+atomic_existence -> l_part_d_concept_isosceles_triangle; r_part_d_concept_isosceles_triangle;;
+
+concept_triangle <- rrel_key_sc_element: def_concept_isosceles_triangle;;
+
+def_concept_isosceles_triangle -> rrel_main_key_sc_element: d_concept_isosceles_triangle;;
+
+/* ................................................... */
+
+Task_Pattern2 = [* Tri_L1_L2_L3 <- concept_triangle;;
+Tri_L1_L2_L3 => nrel_internal_angle: Right_Angle_L1_L2;;
+Right_Angle_L1_L2 <- concept_right_angle;;
+Tri_L1_L2_L3 => nrel_side: Seg_L1; Seg_L2;;
+concept_segment -> Seg_L1; Seg_L2;;
+nrel_congruence -> ... (* -> Seg_L1; Seg_L2;; *);; *];;
+
+Problem_Pattern1 = [* concept_rectangular_triangle _-> Tri_L1_L2_L3;;
+		      concept_isosceles_triangle _-> Tri_L1_L2_L3;; *];;
+Problem_Pattern1 <- atomic_formula;;
+Task_Pattern2 <- atomic_formula;;
+
+Question2 -> rrel_1: Task_Pattern2;;
+Question2 -> rrel_2: Problem_Pattern1;;
+Question2 <- question; sc_node_struct;;
+
+nrel_comment <- sc_node_norole_relation;;
+
+nrel_comment => nrel_main_idtf: [комментарий*] (* <- lang_ru;; *);;
+
+nrel_identification <- sc_node_norole_relation;;
+
+nrel_identification => nrel_main_idtf: [идентификация*] (* <- lang_ru;; *);;
+
+nrel_value <- sc_node_norole_relation;;
+
+nrel_value => nrel_main_idtf: [значение*] (* <- lang_ru;; *);;
+
+question_finding_value <- sc_node_not_relation;;
+
+question_finding_value => nrel_main_idtf: [Вопросная конструкция, соответствующая поиску значения неизвестной величины] (* <- lang_ru;; *);;
+
+concept_quantity <- sc_node_not_relation;;
+
+concept_quantity => nrel_main_idtf: [величина] (* <- lang_ru;; *);;
+
+sc_node_not_relation -> number;;
+
+rrel_decimal <- sc_node_role_relation;;
+
+rrel_decimal => nrel_main_idtf: [десятичное число'] (* <- lang_ru;; *);;
+
+rrel_sm <- sc_node_role_relation;;
+
+rrel_sm => nrel_main_idtf: [сантиметр'] (* <- lang_ru;; *);;
+
+

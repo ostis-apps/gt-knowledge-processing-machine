@@ -1,0 +1,19 @@
+sc_node_not_relation -> sc_action; ariphmetic_sc_action; logic_sc_action;;
+
+sc_action => nrel_main_idtf: 
+	[действие] (* <- lang_ru;; *);
+	[action] (* <- lang_en;; *);;
+
+logic_sc_action => nrel_main_idtf: 
+	[логическое действие] (* <- lang_ru;; *);
+	[logic action] (* <- lang_en;; *);;
+
+ariphmetic_sc_action => nrel_main_idtf: 
+	[арифметическое действие] (* <- lang_ru;; *);
+	[ariphmetic action] (* <- lang_en;; *);;
+
+sc_action <= nrel_subdividing: ...
+	(*
+	=> nrel_main_idtf: [Разбиение по признаку типа действия] (* <- lang_ru;; *);;
+	-> ariphmetic_sc_action; logic_sc_action;;
+	*);;

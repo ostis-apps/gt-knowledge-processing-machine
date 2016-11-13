@@ -1,0 +1,1893 @@
+scp_program -> proc_of_marking_statement 
+	(*	
+	-> rrel_params: .proc_of_marking_statement_params 
+		(*
+		-> rrel_1: rrel_in: _connection_vars;; 
+                -> rrel_2: rrel_in: _then_part;; 
+                -> rrel_3: rrel_in: _object;; 
+		-> rrel_4: rrel_in: _condition_graph;; 
+		-> rrel_5: rrel_in: _set_of_pairs;;
+		-> rrel_6: rrel_in: _visited_vertexes;;
+		-> rrel_7: rrel_in: _define_nodes;;
+		*);;
+
+	 -> rrel_operators: .proc_of_marking_statement_operator_set 
+		(*
+		-> rrel_init: .proc_of_marking_statement_operator1A 
+			(*
+			<- searchSetStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _connection_vars;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _node1;;
+
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _temp_connection_vars;; 
+
+			=> nrel_then: .proc_of_marking_statement_operator1B;;
+			=> nrel_else: .proc_of_marking_statement_operator_return;;	
+			*);;
+
+		-> .proc_of_marking_statement_operator1B 
+		  	(*
+		   	<- searchElStr3;;
+
+		   	-> rrel_1: rrel_fixed: rrel_scp_var: _temp_connection_vars;;
+		   	-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+		   	-> rrel_3: rrel_assign: rrel_scp_var: _var1;;
+
+		   	=> nrel_then: .proc_of_marking_statement_operator1C;;
+		   	=> nrel_else: .proc_of_marking_statement_operator1B_erase;; 
+		   	*);;
+
+		-> .proc_of_marking_statement_operator1B_erase 
+            		(*
+            		<- eraseEl;;
+
+            		-> rrel_1: rrel_erase: rrel_scp_var: rrel_fixed: _temp_connection_vars;;
+
+            		=> nrel_goto: .proc_of_marking_statement_operator_return;;  
+			*);;
+
+		-> .proc_of_marking_statement_operator1C 
+			(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_pos_const_perm: rrel_erase: _arc1;;
+
+			=>nrel_goto: .proc_of_marking_statement_operator1D;;
+			*);;
+
+		-> .proc_of_marking_statement_operator1D 
+			(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _visited_vertexes;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _var1;;
+
+			=> nrel_then: .proc_of_marking_statement_operator1B;;
+			=> nrel_else: .proc_of_marking_statement_operator1D2;;
+			*);;
+
+		-> .proc_of_marking_statement_operator1D2 
+			(*
+			<- ifType;;
+
+			-> rrel_1: rrel_fixed: rrel_not_relation: rrel_scp_var: _var1;;
+
+			=> nrel_then: .proc_of_marking_statement_operator1B;;
+			=> nrel_else: .proc_of_marking_statement_operator1E;;
+			*);;
+
+		-> .proc_of_marking_statement_operator1E 
+			(*
+			<- genElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _visited_vertexes;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _var1;;
+
+			=>nrel_goto: .proc_of_marking_statement_operator1F1;;
+			*);;
+
+		-> .proc_of_marking_statement_operator1F1 
+            		(*
+			<- searchSetStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _var1;;
+			-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _node1;;
+			-> rrel_4: rrel_assign: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_var: _then_part;;
+
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _output_nodes;;
+
+			=> nrel_then: .proc_of_marking_statement_operator1F1_print;;
+			=> nrel_else: .proc_of_marking_statement_operator6A1;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1F1_print 
+            		(*
+            		<- printEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_scp_var: _output_nodes;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator1F2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1F2 
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _output_nodes;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+            		-> rrel_3: rrel_assign: rrel_scp_var: _node1;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator1F3;;
+			=> nrel_else: .proc_of_marking_statement_operator1F2_erase;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1F2_erase 
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _output_nodes;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator6A1;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1F3 
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_pos_const_perm: rrel_erase: rrel_scp_var: _arc1;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator1F4;;
+            		*);;
+		
+		-> .proc_of_marking_statement_operator1F4 
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _then_part;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _node1;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator1F5;;
+			=> nrel_else: .proc_of_marking_statement_operator1F2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1F5 
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _define_nodes;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _node1;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator1F2;;
+			=> nrel_else: .proc_of_marking_statement_operator1G1;;
+            		*);;
+
+        	-> .proc_of_marking_statement_operator1G1 
+            		(*
+            		<- searchSetStr5;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _var1;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _node1;;
+            		-> rrel_4: rrel_assign: rrel_scp_var: _arc2;;
+            		-> rrel_5: rrel_assign: rrel_scp_var: _node2;;
+
+			-> rrel_set_5: rrel_assign: rrel_scp_var: _rel_and_attr_set1;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator1G2;;
+            		=> nrel_else: .proc_of_marking_statement_operator1G5;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1G2 
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _rel_and_attr_set1;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+            		-> rrel_3: rrel_assign: rrel_scp_var: _rel_example;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator1G3;;
+			=> nrel_else: .proc_of_marking_statement_operator1G5;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1G3 
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc1;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator1G41;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1G41 
+            		(*
+            		<- ifType;;
+
+            		-> rrel_1: rrel_fixed: rrel_norole_relation: rrel_scp_var: _rel_example;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator1G6;;
+			=> nrel_else: .proc_of_marking_statement_operator1G42;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1G42 
+            		(*
+            		<- ifType;;
+
+            		-> rrel_1: rrel_fixed: rrel_role_relation: rrel_scp_var: _rel_example;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator1G6;;
+			=> nrel_else: .proc_of_marking_statement_operator1G2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1G5
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _var1;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc1x;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _node1;;
+
+			=> nrel_goto: .proc_of_marking_statement_operator1G7;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1G6 
+            		(*
+            		<- searchElStr5;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _var1;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc1x;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _node1;;
+			-> rrel_4: rrel_assign: rrel_scp_var: _arc2x;;
+            		-> rrel_5: rrel_fixed: rrel_scp_var: _rel_example;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator1G7;;
+			=> nrel_else: .proc_of_marking_statement_operator1G2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1G7
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _rel_and_attr_set1;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator1H1;;
+            		*);;
+
+        	-> .proc_of_marking_statement_operator1H1 
+            		(*
+            		<- searchSetStr5;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _object;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+            		-> rrel_3: rrel_assign: rrel_scp_var: _node3;;
+			-> rrel_4: rrel_assign: rrel_scp_var: _arc2;;
+            		-> rrel_5: rrel_fixed: rrel_scp_var: _condition_graph;;
+
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _output_nodes2;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator1H2;;
+            		=> nrel_else: .proc_of_marking_statement_operator1F2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1H2
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _output_nodes2;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+            		-> rrel_3: rrel_assign: rrel_scp_var: _alt1;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator1H3;;
+			=> nrel_else: .proc_of_marking_statement_operator1H2_erase;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1H2_erase
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _output_nodes2;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator1F2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1H3
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc1;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator1H4;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1H4
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _define_nodes;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _alt1;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator1H2;;
+			=> nrel_else: .proc_of_marking_statement_operator1H5;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1H5
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _condition_graph;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _alt1;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator1H6;;
+			=> nrel_else: .proc_of_marking_statement_operator1H2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1H6
+            		(*
+            		<- ifVarAssign;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _rel_example;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator1H7;;
+			=> nrel_else: .proc_of_marking_statement_operator1I1;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1H7 
+            		(*
+            		<- searchElStr5;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _object;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc3x;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _alt1;;
+			-> rrel_4: rrel_assign: rrel_scp_var: _arc4x;;
+            		-> rrel_5: rrel_fixed: rrel_scp_var: _rel_example;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator1K1;;
+            		=> nrel_else: .proc_of_marking_statement_operator1H2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1I1 
+            		(*
+            		<- searchSetStr5;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _object;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _alt1;;
+			-> rrel_4: rrel_assign: rrel_scp_var: _arc2;;
+            		-> rrel_5: rrel_assign: rrel_scp_var: _relation_node;;
+
+			-> rrel_set_5: rrel_assign: rrel_scp_var: _rel_and_attr_set2;;
+
+            		=> nrel_goto: .proc_of_marking_statement_operator1I2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1I2
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _rel_and_attr_set2;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+            		-> rrel_3: rrel_assign: rrel_scp_var: _rel;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator1I3;;
+			=> nrel_else: .proc_of_marking_statement_operator1I2_erase;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1I2_erase
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _rel_and_attr_set2;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator1I6;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1I3
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc1;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator1I41;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1I41
+            		(*
+            		<- ifType;;
+
+            		-> rrel_1: rrel_fixed: rrel_norole_relation: rrel_scp_var: _rel;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator1I5;;
+			=> nrel_else: .proc_of_marking_statement_operator1I42;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1I42
+            		(*
+            		<- ifType;;
+
+            		-> rrel_1: rrel_fixed: rrel_norole_relation: rrel_scp_var: _rel;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator1I5;;
+			=> nrel_else: .proc_of_marking_statement_operator1I2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1I5
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _rel_and_attr_set2;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator1H2;;
+            		*);;	
+
+		-> .proc_of_marking_statement_operator1I6
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _object;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc3x;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _alt1;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator1K1;;
+			=> nrel_else: .proc_of_marking_statement_operator1H2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1K1
+            		(*
+            		<- searchSetStr3;;
+
+            		-> rrel_1: rrel_assign: rrel_scp_var: _neighbour_node;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _node1;;
+
+			-> rrel_set_1: rrel_assign: rrel_scp_var: _neighbours_set;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator1K2;;
+			=> nrel_else: .proc_of_marking_statement_operator1H2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1K2
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _neighbours_set;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+            		-> rrel_3: rrel_assign: rrel_scp_var: _neighbour;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator1K3;;
+			=> nrel_else: .proc_of_marking_statement_operator1K2_erase;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1K2_erase
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _neighbours_set;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator2A;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1K3
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc1;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator1K4;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1K4
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _condition_graph;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _neighbour;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator1K5;;
+			=> nrel_else: .proc_of_marking_statement_operator1K2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1K5
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _define_nodes;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _neighbour;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator1K2;;
+			=> nrel_else: .proc_of_marking_statement_operator1K6;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1K6
+            		(*
+            		<- ifCoin;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _neighbour;;
+            		-> rrel_2: rrel_fixed: rrel_scp_var: _var1;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator1K2;;
+			=> nrel_else: .proc_of_marking_statement_operator1K7;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1K7
+            		(*
+            		<- ifType;;
+
+            		-> rrel_1: rrel_fixed: rrel_not_relation: rrel_scp_var: _neighbour;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator1K2;;
+			=> nrel_else: .proc_of_marking_statement_operator1K8;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator1K8
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _neighbours_set;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator4A;;
+            		*);;
+        
+        	-> .proc_of_marking_statement_operator2A 
+             		(*
+             		<- genElStr3;;
+
+             		-> rrel_1: rrel_fixed: rrel_scp_var: _define_nodes;;
+             		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+             		-> rrel_3: rrel_fixed: rrel_scp_var: _alt1;;
+
+             		=> nrel_goto: .proc_of_marking_statement_operator2B;;
+             		*);;
+
+		->  .proc_of_marking_statement_operator2B 
+             		(*
+             		<- genElStr3;;
+
+             		-> rrel_1: rrel_fixed: rrel_scp_var: _define_nodes;;
+             		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+             		-> rrel_3: rrel_fixed: rrel_scp_var: _node1;;
+
+             		=> nrel_goto: .proc_of_marking_statement_operator3A_print1;;
+             		*);;
+
+		-> .proc_of_marking_statement_operator3A_print1
+            		(*
+            		<- printEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_scp_var: _node1;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator3A_print2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator3A_print2
+            		(*
+            		<- printEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_scp_var: _alt1;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator3A;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator3A 
+                	(*
+		  	<- call;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: proc_generation_pair;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: .proc_of_marking_statement_operator3A_params 
+		  		(*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _node1;; 
+                		-> rrel_2: rrel_fixed: rrel_scp_var: _alt1;; 
+                		-> rrel_3: rrel_fixed: rrel_scp_var: _set_of_pairs;; 	
+				*);;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _descr1x;;
+
+		  	=> nrel_goto: .proc_of_marking_statement_operator3B;;
+			*);;
+
+		-> .proc_of_marking_statement_operator3B 
+			(*
+		  	<- waitReturn;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _descr1x;;
+
+		  	=> nrel_goto: .proc_of_marking_statement_operator4A;;
+			*);;
+
+		-> .proc_of_marking_statement_operator4A
+            		(*
+            		<- printEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_scp_var: _arc1x;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator4Apr1;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator4Apr1
+            		(*
+            		<- printEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_scp_var: _arc3x;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator4Apr2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator4Apr2
+                	(*
+		  	<- call;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: proc_generation_pair;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: .proc_of_marking_statement_operator4Apr2_params 
+		  		(*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _arc1x;; 
+                		-> rrel_2: rrel_fixed: rrel_scp_var: _arc3x;; 
+                		-> rrel_3: rrel_fixed: rrel_scp_var: _set_of_pairs;; 	
+				*);;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _descr2x;;
+
+		  	=> nrel_goto: .proc_of_marking_statement_operator4B;;
+			*);;
+
+		-> .proc_of_marking_statement_operator4B
+			(*
+		  	<- waitReturn;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _descr2x;;
+
+		  	=> nrel_goto: .proc_of_marking_statement_operator4C;;
+			*);;
+
+		-> .proc_of_marking_statement_operator4C 
+			(*
+            		<- ifVarAssign;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _rel_example;;
+            		
+		  	=> nrel_then: .proc_of_marking_statement_operator5A;;
+			=> nrel_else: .proc_of_marking_statement_operator1H2_erase;;
+			*);;
+
+		-> .proc_of_marking_statement_operator5A
+                	(*
+		  	<- call;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: proc_generation_pair;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: .proc_of_marking_statement_operator5A_params 
+		  		(*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _arc2x;; 
+                		-> rrel_2: rrel_fixed: rrel_scp_var: _arc4x;; 
+                		-> rrel_3: rrel_fixed: rrel_scp_var: _set_of_pairs;; 	
+				*);;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _descr3x;;
+
+		  	=> nrel_goto: .proc_of_marking_statement_operator5B;;
+			*);;
+
+		-> .proc_of_marking_statement_operator5B 
+			(*
+		  	<- waitReturn;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _descr3x;;
+
+		  	=> nrel_goto: .proc_of_marking_statement_operator1H2_erase;;
+			*);;
+
+		-> .proc_of_marking_statement_operator6A1 
+            		(*
+			<- searchSetStr5;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _node1;;
+			-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _var1;;
+			-> rrel_4: rrel_assign: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_var: _then_part;;
+
+			-> rrel_set_1: rrel_assign: rrel_scp_var: _input_nodes;;
+
+			=> nrel_then: .proc_of_marking_statement_operator6A1_print;;
+			=> nrel_else: .proc_of_marking_statement_operator11A;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6A1_print
+            		(*
+            		<- printEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_scp_var: _input_nodes;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator6A2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6A2 
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _input_nodes;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+            		-> rrel_3: rrel_assign: rrel_scp_var: _node1;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator6A3;;
+			=> nrel_else: .proc_of_marking_statement_operator6A2_erase;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6A2_erase
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _input_nodes;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator11A;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6A3 
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_pos_const_perm: rrel_erase: rrel_scp_var: _arc1;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator6A4_print;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6A4_print 
+            		(*
+            		<- printEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_scp_var: _node1;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator6A4;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6A4 
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _then_part;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _node1;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator6A5;;
+			=> nrel_else: .proc_of_marking_statement_operator6A2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6A5 
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _define_nodes;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _node1;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator6A2;;
+			=> nrel_else: .proc_of_marking_statement_operator6B1;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6B1 
+            		(*
+            		<- searchSetStr5;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _node1;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _var1;;
+            		-> rrel_4: rrel_assign: rrel_scp_var: _arc2;;
+            		-> rrel_5: rrel_assign: rrel_scp_var: _node2;;
+
+			-> rrel_set_5: rrel_assign: rrel_scp_var: _rel_and_attr_set3;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator6B2;;
+            		=> nrel_else: .proc_of_marking_statement_operator6B5;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6B2
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _rel_and_attr_set3;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+            		-> rrel_3: rrel_assign: rrel_scp_var: _rel_example;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator6B3;;
+			=> nrel_else: .proc_of_marking_statement_operator6B2_erase;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6B2_erase
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _rel_and_attr_set3;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator6B9;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6B3 
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc1;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator6B4;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6B4
+            		(*
+            		<- ifType;;
+
+            		-> rrel_1: rrel_fixed: rrel_norole_relation: rrel_scp_var: _rel_example;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator6B6;;
+			=> nrel_else: .proc_of_marking_statement_operator6B5;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6B5
+            		(*
+            		<- ifType;;
+
+            		-> rrel_1: rrel_fixed: rrel_role_relation: rrel_scp_var: _rel_example;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator6B6;;
+			=> nrel_else: .proc_of_marking_statement_operator6B2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6B6
+            		(*
+            		<- searchElStr5;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _node1;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc1x;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _var1;;
+			-> rrel_4: rrel_assign: rrel_scp_var: _arc2x;;
+            		-> rrel_5: rrel_fixed: rrel_scp_var: _rel_example;;
+
+			=> nrel_goto: .proc_of_marking_statement_operator6B7;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6B7
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _rel_and_attr_set3;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator6B8;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6B8
+            		(*
+            		<- searchSetStr3;;
+
+            		-> rrel_1: rrel_assign: rrel_scp_var: rrel_norole_relation: _some_quasybinary_relation;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _node1;;
+
+			-> rrel_set_1: rrel_assign: rrel_scp_var: _quasybinary_relations;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator6B14;;
+			=> nrel_else: .proc_of_marking_statement_operator6B13;;
+            		*);;
+		
+		-> .proc_of_marking_statement_operator6B9
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _node1;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc1x;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _var1;;
+
+			=> nrel_goto: .proc_of_marking_statement_operator6B10;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6B10
+            		(*
+            		<- ifType;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: rrel_not_relation: _node1;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator6B11;;
+			=> nrel_else: .proc_of_marking_statement_operator6B12_print;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6B11 
+            		(*
+            		<- genEl;;
+
+		    	-> rrel_1: rrel_assign: rrel_node: rrel_const: rrel_scp_var: _attention;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator6C1;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6B12_print 
+            		(*
+            		<- printEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_scp_var: _node1;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator6B12;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6B12
+            		(*
+            		<- searchSetStr5;;
+
+            		-> rrel_1: rrel_assign: rrel_norole_relation: rrel_scp_var: _quasy_relation;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _node1;;
+			-> rrel_4: rrel_assign: rrel_scp_var: _arc2;;
+            		-> rrel_5: rrel_fixed: rrel_scp_var: _then_part;;
+
+			-> rrel_set_1: rrel_assign: rrel_scp_var: _quasybinary_relations;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator6B14;;
+			=> nrel_else: .proc_of_marking_statement_operator6B13;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6B13
+            		(*
+            		<- searchSetStr5;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _node1;;
+            		-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+            		-> rrel_3: rrel_assign: rrel_scp_var: _result_node;;
+			-> rrel_4: rrel_assign: rrel_scp_var: _arc2;;
+            		-> rrel_5: rrel_assign: rrel_norole_relation: rrel_scp_var: _some_quasybinary_relation;;
+
+			-> rrel_set_5: rrel_assign: rrel_scp_var: _quasybinary_relations;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator6B14;;
+			=> nrel_else: .proc_of_marking_statement_operator6C1;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6B14
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _quasybinary_relations;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+            		-> rrel_3: rrel_assign: rrel_scp_var: _some_relation;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator6B15;;
+			=> nrel_else: .proc_of_marking_statement_operator6B14_erase;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6B14_erase
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _quasybinary_relations;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator6C1;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6B15
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc1;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator6B16;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6B16
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _then_part;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _some_relation;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator6B17;;
+			=> nrel_else: .proc_of_marking_statement_operator6B14;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6B17
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _quasybinary_relations;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator6B18;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6B18
+            		(*
+            		<- ifVarAssign;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _rel_example;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator6B19;;
+			=> nrel_else: .proc_of_marking_statement_operator6B20;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6B19 
+            		(*
+            		<- genEl;;
+
+		    	-> rrel_1: rrel_assign: rrel_node: rrel_const: rrel_scp_var: _tuple_of_relation3;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator6C1;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6B20
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: rrel_norole_relation: _some_relation;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _node1;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator6B21;;
+			=> nrel_else: .proc_of_marking_statement_operator6B22;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6B21 
+            		(*
+            		<- genEl;;
+
+		    	-> rrel_1: rrel_assign: rrel_node: rrel_const: rrel_scp_var: _tuple_of_relation;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator6C1;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6B22
+            		(*
+            		<- searchElStr5;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _node1;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+            		-> rrel_3: rrel_assign: rrel_scp_var: _result_node;;
+			-> rrel_4: rrel_assign: rrel_scp_var: _arc2;;
+            		-> rrel_5: rrel_fixed: rrel_scp_var: rrel_norole_relation: _some_relation;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator6B23;;
+			=> nrel_else: .proc_of_marking_statement_operator6C1;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6B23 
+            		(*
+            		<- genEl;;
+
+		    	-> rrel_1: rrel_assign: rrel_node: rrel_const: rrel_scp_var: _tuple_of_relation2;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator6C1;;
+            		*);;
+
+        	-> .proc_of_marking_statement_operator6C1 
+            		(*
+            		<- searchSetStr5;;
+
+            		-> rrel_1: rrel_assign: rrel_scp_var: _node3;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _object;;
+			-> rrel_4: rrel_assign: rrel_scp_var: _arc2;;
+            		-> rrel_5: rrel_fixed: rrel_scp_var: _condition_graph;;
+
+			-> rrel_set_1: rrel_assign: rrel_scp_var: _input_nodes2;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator6C2;;
+            		=> nrel_else: .proc_of_marking_statement_operator6A2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6C2
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _input_nodes2;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+            		-> rrel_3: rrel_assign: rrel_scp_var: _alt1;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator6C3;;
+			=> nrel_else: .proc_of_marking_statement_operator6C2_erase;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6C2_erase
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _input_nodes2;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator6A2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6C3
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc1;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator6C4;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6C4
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _define_nodes;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _alt1;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator6C2;;
+			=> nrel_else: .proc_of_marking_statement_operator6C5;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6C5
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _condition_graph;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _alt1;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator6C6;;
+			=> nrel_else: .proc_of_marking_statement_operator6C2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6C6
+            		(*
+            		<- ifVarAssign;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _rel_example;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator6C7;;
+			=> nrel_else: .proc_of_marking_statement_operator6D1;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6C7 
+            		(*
+            		<- searchElStr5;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _alt1;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc3x;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _object;;
+			-> rrel_4: rrel_assign: rrel_scp_var: _arc4x;;
+            		-> rrel_5: rrel_fixed: rrel_scp_var: _rel_example;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator6C8;;
+            		=> nrel_else: .proc_of_marking_statement_operator6C2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6C8
+            		(*
+            		<- ifVarAssign;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _tuple_of_relation3;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator6C9;;
+			=> nrel_else: .proc_of_marking_statement_operator7A;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6C9
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: rrel_norole_relation: _some_relation;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _alt1;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator9A;; 
+			=> nrel_else: .proc_of_marking_statement_operator6C2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6D1 
+            		(*
+            		<- searchSetStr5;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _alt1;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _object;;
+			-> rrel_4: rrel_assign: rrel_scp_var: _arc2;;
+            		-> rrel_5: rrel_assign: rrel_scp_var: _relation_node;;
+
+			-> rrel_set_5: rrel_assign: rrel_scp_var: _rel_and_attr_set4;;
+
+            		=> nrel_goto: .proc_of_marking_statement_operator6D2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6D2
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _rel_and_attr_set4;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+            		-> rrel_3: rrel_assign: rrel_scp_var: _rel;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator6D3;;
+			=> nrel_else: .proc_of_marking_statement_operator6D2_erase;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6D2_erase
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _rel_and_attr_set4;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator6D7;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6D3
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc1;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator6D4;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6D4
+            		(*
+            		<- ifType;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: rrel_norole_relation: _rel;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator6D6;;
+			=> nrel_else: .proc_of_marking_statement_operator6D5;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6D5
+            		(*
+            		<- ifType;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: rrel_role_relation: _rel;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator6D6;;
+			=> nrel_else: .proc_of_marking_statement_operator6D2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6D6
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _rel_and_attr_set4;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator6C2;;
+            		*);;	
+
+		-> .proc_of_marking_statement_operator6D7
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _alt1;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc3x;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _object;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator6D8;;
+			=> nrel_else: .proc_of_marking_statement_operator6C2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6D8 
+			(*
+            		<- ifVarAssign;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _attention;;
+            		
+		  	=> nrel_then: .proc_of_marking_statement_operator6D9;;
+			=> nrel_else: .proc_of_marking_statement_operator6D12;;
+			*);;
+
+		-> .proc_of_marking_statement_operator6D9
+            		(*
+            		<- ifType;;
+
+            		-> rrel_1: rrel_fixed: rrel_not_relation: rrel_scp_var: _alt1;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator6D10;;
+			=> nrel_else: .proc_of_marking_statement_operator6C2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6D10 
+            		(*
+            		<- ifCoin;;
+
+		    	-> rrel_1: rrel_fixed: rrel_scp_var: _alt1;;
+			-> rrel_2: rrel_fixed: rrel_scp_var: _node1;;
+			
+		    	=> nrel_then: .proc_of_marking_statement_operator6D11;;
+			=> nrel_else: .proc_of_marking_statement_operator6C2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6D11 
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _attention;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator9A;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6D12 
+			(*
+            		<- ifVarAssign;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _tuple_of_relation;;
+            		
+		  	=> nrel_then: .proc_of_marking_statement_operator6D13;;
+			=> nrel_else: .proc_of_marking_statement_operator6D14;;
+			*);;
+
+		-> .proc_of_marking_statement_operator6D13
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: rrel_norole_relation: _some_relation;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _alt1;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator9A;; 
+			=> nrel_else: .proc_of_marking_statement_operator6C2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator6D14 
+			(*
+            		<- ifVarAssign;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _tuple_of_relation2;;
+            		
+		  	=> nrel_then: .proc_of_marking_statement_operator6D15;;
+			=> nrel_else: .proc_of_marking_statement_operator7A;;
+			*);;
+
+		-> .proc_of_marking_statement_operator6D15
+            		(*
+            		<- searchElStr5;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _alt1;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc1;;
+            		-> rrel_3: rrel_assign: rrel_scp_var: _result_node;;
+			-> rrel_4: rrel_assign: rrel_scp_var:  _arc2;;
+            		-> rrel_5: rrel_fixed: rrel_scp_var: _some_relation;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator9A;;
+			=> nrel_else: .proc_of_marking_statement_operator6C2;;
+            		*);;
+        
+        	-> .proc_of_marking_statement_operator7A 
+             		(*
+             		<- genElStr3;;
+
+             		-> rrel_1: rrel_fixed: rrel_scp_var: _define_nodes;;
+             		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+             		-> rrel_3: rrel_fixed: rrel_scp_var: _alt1;;
+
+             		=> nrel_goto: .proc_of_marking_statement_operator7B;;
+             		*);;
+
+		-> .proc_of_marking_statement_operator7B 
+             		(*
+             		<- genElStr3;;
+
+             		-> rrel_1: rrel_fixed: rrel_scp_var: _define_nodes;;
+             		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+             		-> rrel_3: rrel_fixed: rrel_scp_var: _node1;;
+
+             		=> nrel_goto: .proc_of_marking_statement_operator7B_print1;;
+             		*);;
+
+		-> .proc_of_marking_statement_operator7B_print1
+            		(*
+            		<- printEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_scp_var: _node1;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator7B_print2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator7B_print2
+            		(*
+            		<- printEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_scp_var: _alt1;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator8A;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator8A
+                	(*
+		  	<- call;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: proc_generation_pair;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: .proc_of_marking_statement_operator8A_params 
+		  		(*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _node1;; 
+                		-> rrel_2: rrel_fixed: rrel_scp_var: _alt1;; 
+                		-> rrel_3: rrel_fixed: rrel_scp_var: _set_of_pairs;; 	
+				*);;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _descr1y;;
+
+		  	=> nrel_goto: .proc_of_marking_statement_operator8B;;
+			*);;
+
+		-> .proc_of_marking_statement_operator8B 
+			(*
+		  	<- waitReturn;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _descr1y;;
+
+		  	=> nrel_goto: .proc_of_marking_statement_operator8C;;
+			*);;
+
+		-> .proc_of_marking_statement_operator8C 
+			(*
+            		<- ifVarAssign;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _tuple_of_relation2;;
+            		
+		  	=> nrel_then: .proc_of_marking_statement_operator8D;;
+			=> nrel_else: .proc_of_marking_statement_operator9A;;
+			*);;
+
+		-> .proc_of_marking_statement_operator8D
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _tuple_of_relation2;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator6C2_erase;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator9A
+            		(*
+            		<- printEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_scp_var: _arc1x;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator9Apr1;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator9Apr1
+            		(*
+            		<- printEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_scp_var: _arc3x;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator9Apr2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator9Apr2
+                	(*
+		  	<- call;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: proc_generation_pair;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: .proc_of_marking_statement_operator9Apr2_params 
+		  		(*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _arc1x;; 
+                		-> rrel_2: rrel_fixed: rrel_scp_var: _arc3x;; 
+                		-> rrel_3: rrel_fixed: rrel_scp_var: _set_of_pairs;; 	
+				*);;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _descr2y;;
+
+		  	=> nrel_goto: .proc_of_marking_statement_operator9B;;
+			*);;
+
+		-> .proc_of_marking_statement_operator9B 
+			(*
+		  	<- waitReturn;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _descr2y;;
+
+		  	=> nrel_goto: .proc_of_marking_statement_operator9C;;
+			*);;
+
+		-> .proc_of_marking_statement_operator9C 
+			(*
+            		<- ifVarAssign;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _rel_example;;
+            		
+		  	=> nrel_then: .proc_of_marking_statement_operator10A;;
+			=> nrel_else: .proc_of_marking_statement_operator9D1;;  
+			*);;
+
+		-> .proc_of_marking_statement_operator9D1 
+			(*
+            		<- ifVarAssign;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _tuple_of_relation;;
+            		
+		  	=> nrel_then: .proc_of_marking_statement_operator9E1;;
+			=> nrel_else: .proc_of_marking_statement_operator9D2;;
+			*);;
+
+		-> .proc_of_marking_statement_operator9E1
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _tuple_of_relation;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator9F1;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator9F1 
+            		(*
+            		<- searchSetStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _alt1;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+            		-> rrel_3: rrel_assign: rrel_scp_var: _tuple_object;;
+
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _tuple_objects;;
+
+            		=> nrel_goto: .proc_of_marking_statement_operator9G1;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator9G1 
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _tuple_objects;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+            		-> rrel_3: rrel_assign: rrel_scp_var: _some_object;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator9H1;;
+			=> nrel_else: .proc_of_marking_statement_operator9G1_erase;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator9G1_erase
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _tuple_objects;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator9K1;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator9H1
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc1;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator9I1;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator9I1 
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _define_nodes;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _some_object;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator9G1;;
+			=> nrel_else: .proc_of_marking_statement_operator9J1;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator9J1 
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _condition_graph;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _some_object;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator9M1;;
+			=> nrel_else: .proc_of_marking_statement_operator9G1;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator9K1 
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _some_quasybinary_relation;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc1x;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _node1;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator9K1;;
+			=> nrel_else: .proc_of_marking_statement_operator6C2_erase;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator9L1 
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _some_quasybinary_relation;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc3x;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _alt1;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator7A;; 
+			=> nrel_else: .proc_of_marking_statement_operator6C2_erase;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator9M1
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _tuple_objects;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator6C2_erase;; 
+            		*);;
+
+		-> .proc_of_marking_statement_operator9D2 
+			(*
+            		<- ifVarAssign;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _tuple_of_relation2;;
+            		
+		  	=> nrel_then: .proc_of_marking_statement_operator9E2;;
+			=> nrel_else: .proc_of_marking_statement_operator6C2_erase;;
+			*);;
+
+		-> .proc_of_marking_statement_operator9E2 
+            		(*
+            		<- searchSetStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _alt1;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+            		-> rrel_3: rrel_assign: rrel_scp_var: _tuple_object;;
+
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _tuple_objects2;;
+
+            		=> nrel_goto: .proc_of_marking_statement_operator9F2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator9F2 
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _tuple_objects2;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+            		-> rrel_3: rrel_assign: rrel_scp_var: _some_object;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator9G2;;
+			=> nrel_else: .proc_of_marking_statement_operator9F2_erase;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator9F2_erase
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _tuple_objects2;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator7A;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator9G2
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc1;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator9H2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator9H2
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _define_nodes;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _some_object;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator9F2;;
+			=> nrel_else: .proc_of_marking_statement_operator9I2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator9I2
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _condition_graph;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _some_object;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator9J2;;
+			=> nrel_else: .proc_of_marking_statement_operator9F2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator9J2
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _tuple_of_relation2;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator9K2;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator9K2
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _tuple_objects2;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator6C2_erase;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator10A 
+                	(*
+		  	<- call;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: proc_generation_pair;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: .proc_of_marking_statement_operator10A_params 
+		  		(*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _arc2x;; 
+                		-> rrel_2: rrel_fixed: rrel_scp_var: _arc4x;; 
+                		-> rrel_3: rrel_fixed: rrel_scp_var: _set_of_pairs;; 	
+				*);;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _descr3y;;
+
+		  	=> nrel_goto: .proc_of_marking_statement_operator10B;;
+			*);;
+
+		-> .proc_of_marking_statement_operator10B 
+			(*
+		  	<- waitReturn;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _descr3y;;
+
+		  	=> nrel_goto: .proc_of_marking_statement_operator10C;;
+			*);;
+
+		-> .proc_of_marking_statement_operator10C 
+			(*
+            		<- ifVarAssign;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _tuple_of_relation3;;
+            		
+		  	=> nrel_then: .proc_of_marking_statement_operator10D;;
+			=> nrel_else: .proc_of_marking_statement_operator6C2_erase;;
+			*);;
+
+		-> .proc_of_marking_statement_operator10D
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _tuple_of_relation3;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator10E;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator10E 
+            		(*
+            		<- searchSetStr5;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _alt1;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+            		-> rrel_3: rrel_assign: rrel_scp_var: _tuple_object;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+            		-> rrel_5: rrel_assign: rrel_scp_var: rrel_role_relation: _ternary_attr;;
+
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _tuple_objects;;
+
+            		=> nrel_goto: .proc_of_marking_statement_operator9G1;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator11A 
+            		(*
+            		<- searchSetStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _define_nodes;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+            		-> rrel_3: rrel_assign: rrel_scp_var: rrel_var: _node3;;
+
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _new_connection_vars;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator11B;;
+            		=> nrel_else: .proc_of_marking_statement_operator1B;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator11B 
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _new_connection_vars;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+            		-> rrel_3: rrel_assign: rrel_scp_var: _var2;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator11C;;
+            		=> nrel_else: .proc_of_marking_statement_operator11B_erase;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator11B_erase
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _new_connection_vars;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator1B;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator11C
+            		(*
+            		<- eraseEl;;
+
+		    	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc1;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator11D;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator11D 
+            		(*
+            		<- searchElStr3;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _visited_vertexes;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _var2;;
+
+            		=> nrel_then: .proc_of_marking_statement_operator11B;;
+			=> nrel_else: .proc_of_marking_statement_operator11E;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator11E 
+            		(*
+            		<- searchElStr5;;
+
+            		-> rrel_1: rrel_assign: rrel_scp_var: _tuple;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _var2;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+            		-> rrel_5: rrel_fixed: rrel_scp_const: rrel_fixed;;
+
+            		=> nrel_goto: .proc_of_marking_statement_operator11F;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator11F 
+            		(*
+            		<- searchElStr5;;
+
+            		-> rrel_1: rrel_fixed: rrel_scp_var: _tuple;;
+            		-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+            		-> rrel_3: rrel_assign: rrel_scp_var: _new_object;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+            		-> rrel_5: rrel_fixed: rrel_scp_const: rrel_2;;
+
+            		=> nrel_goto: .proc_of_marking_statement_operator11G;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator11G
+            		(*
+            		<- genEl;;
+
+		    	-> rrel_1: rrel_assign: rrel_scp_var: rrel_node: _var_set;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator11H;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator11H
+            		(*
+            		<- genElStr3;;
+
+		    	-> rrel_1: rrel_fixed: rrel_scp_var: _var_set;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+            		-> rrel_3: rrel_fixed: rrel_scp_var: _var2;;
+
+		    	=> nrel_goto: .proc_of_marking_statement_operator12A;;
+            		*);;
+
+		-> .proc_of_marking_statement_operator12A 
+                	(*
+		  	<- call;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: proc_of_marking_statement;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: .proc_of_marking_statement_operator12A_params 
+		  		(*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _var_set;; 
+                		-> rrel_2: rrel_fixed: rrel_scp_var: _then_part;; 
+                		-> rrel_3: rrel_fixed: rrel_scp_var: _new_object;; 
+				-> rrel_4: rrel_fixed: rrel_scp_var: _condition_graph;; 
+				-> rrel_5: rrel_fixed: rrel_scp_var: _set_of_pairs;; 
+				-> rrel_6: rrel_fixed: rrel_scp_var: _visited_vertexes;;
+				-> rrel_7: rrel_fixed: rrel_scp_var: _define_nodes;;		
+				*);;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _descr1z;;
+
+		  	=> nrel_goto: .proc_of_marking_statement_operator12B;;
+			*);;
+
+		-> .proc_of_marking_statement_operator12B 
+			(*
+		  	<- waitReturn;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _descr1z;;
+
+		  	=> nrel_goto: .proc_of_marking_statement_operator11B;;
+			*);;
+
+		-> .proc_of_marking_statement_operator_return
+        		(*
+        		<- return;;
+        		*);;  
+		*);;
+	*);;

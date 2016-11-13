@@ -1,0 +1,25 @@
+lib_component_proc_of_calculating_math_expressions
+=> nrel_main_idtf:
+	[Компонент библиотеки. Scp-программа вычисления математических выражений]
+	(* <- lang_ru;; *);
+	[Library component. Scp-program of calculating math expressions]
+	(* <- lang_en;; *);
+
+<- platform_independent_reusable_component_OSTIS;
+<- reusable_scp_program;
+
+-> rrel_key_sc_element: 
+	proc_of_calculating_math_expressions;
+
+<- rrel_key_sc_element: 
+	...
+	(*
+	<- sc_explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			"file://htmls/Proc_Of_Calculating_Math_Expressions.html" 
+				(* <- lang_ru;; *);;
+		*);;
+	*);;

@@ -1,0 +1,478 @@
+scp_program -> proc_analogy_for_non_oriented_relations
+	(*	
+	-> rrel_params: .proc_analogy_for_non_oriented_relations_params 
+		(*
+		-> rrel_1: rrel_in: _param;;
+		-> rrel_2: rrel_in: _figure;;
+		-> rrel_3: rrel_in: _base_figure;;
+		-> rrel_4: rrel_in: _relaton_message;;
+		-> rrel_5: rrel_in: _step1;;
+		-> rrel_6: rrel_in: _step2;;
+		-> rrel_7: rrel_in: _step3;;
+		-> rrel_8: rrel_in: _step4;;
+		-> rrel_9: rrel_in: _message;;
+		-> rrel_10: rrel_in: _relation_marker;;
+		*);;
+	
+	-> rrel_operators: .proc_analogy_for_non_oriented_relations_operator_set 
+		(*
+		-> rrel_init: .proc_analogy_for_non_oriented_relations_operator1A 
+			(*
+			<- searchSetStr3;;
+			
+			-> rrel_1: rrel_assign: rrel_scp_var: _tuple;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _figure;;
+
+			-> rrel_set_1: rrel_assign: rrel_scp_var: _set_of_tuples;;
+		  
+			=> nrel_then: .proc_analogy_for_non_oriented_relations_operator1B;;
+			=> nrel_else: .proc_analogy_for_non_oriented_relations_return;;
+			*);;
+			
+		
+		-> .proc_analogy_for_non_oriented_relations_operator1B 
+			(*
+			<- searchElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _set_of_tuples;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _some_tuple;;
+
+			=> nrel_then: .proc_analogy_for_non_oriented_relations_operator1C;;
+			=> nrel_else: .proc_analogy_for_non_oriented_relations_operator1B_erase;;
+			*);;
+
+
+		-> .proc_analogy_for_non_oriented_relations_operator1B_erase 
+			(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _set_of_tuples;;
+				
+			=> nrel_goto: .proc_analogy_for_non_oriented_relations_operator_return;;
+		  	*);;
+			
+		-> .proc_analogy_for_non_oriented_relations_operator1C 
+			(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _arc1;;
+				
+			=> nrel_goto: .proc_analogy_for_non_oriented_relations_operator1D;;
+		  	*);;
+			
+		-> .proc_analogy_for_non_oriented_relations_operator1D 
+			(*
+			<- searchElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _relation_marker;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _some_tuple;;
+
+			=> nrel_then: .proc_analogy_for_non_oriented_relations_operator1E;;
+			=> nrel_else: .proc_analogy_for_non_oriented_relations_operator1B;;
+			*);;	
+
+		-> .proc_analogy_for_non_oriented_relations_operator1E 
+			(*
+			<- searchSetStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _some_tuple;;
+			-> rrel_2: rrel_assign: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _base_figure;;
+
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _step1;;
+
+			=> nrel_then: .proc_analogy_for_non_oriented_relations_operator1F;;
+			=> nrel_else: .proc_analogy_for_non_oriented_relations_operator1B;;
+			*);;
+
+		-> .proc_analogy_for_non_oriented_relations_operator1F 
+			(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _set_of_tuples;;
+				
+			=> nrel_goto: .proc_analogy_for_non_oriented_relations_operator2A;;
+		  	*);;
+	
+		-> .proc_analogy_for_non_oriented_relations_operator2A
+			(*
+			<- genElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _step1;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _some_tuple;;
+
+			=> nrel_goto: .proc_analogy_for_non_oriented_relations_operator2B;;
+			*);;
+
+		-> .proc_analogy_for_non_oriented_relations_operator2B
+			(*
+			<- genElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _step1;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _figure;;
+
+			=> nrel_goto: .proc_analogy_for_non_oriented_relations_operator2C;;
+			*);;
+
+		-> .proc_analogy_for_non_oriented_relations_operator2C
+			(*
+			<- genElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _step1;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _base_figure;;
+
+			=> nrel_goto: .proc_analogy_for_non_oriented_relations_operator2D;;
+			*);;
+			
+		-> .proc_analogy_for_non_oriented_relations_operator2D
+			(*
+			<- searchSetStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _some_tuple;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _figure;;
+		  
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _step1;;
+		 
+			=> nrel_then: .proc_analogy_for_non_oriented_relations_operator2E;;
+			=> nrel_else: .proc_analogy_for_non_oriented_relations_return;;
+			*);;			
+			
+		-> .proc_analogy_for_non_oriented_relations_operator2E 
+			(*
+			<- searchSetStr3;;
+			
+			-> rrel_1: rrel_assign: rrel_scp_var: rrel_norole_relation: _relation_node;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _some_tuple;;
+		  
+			-> rrel_set_1: rrel_fixed: rrel_scp_var: _step1;;
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _step1;;
+
+			=> nrel_then: .proc_analogy_for_non_oriented_relations_operator3A1;;
+			=> nrel_else: .proc_analogy_for_non_oriented_relations_operator_return;;
+			*);;
+			
+		-> .proc_analogy_for_non_oriented_relations_operator3A1
+			(*
+			<- stringIfEq;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _relaton_message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [area];;
+		
+			=> nrel_then: .proc_analogy_for_non_oriented_relations_operator3B1;;
+			=> nrel_else: .proc_analogy_for_non_oriented_relations_operator3A2;;
+		  	*);;
+			
+		-> .proc_analogy_for_non_oriented_relations_operator3B1
+			(*
+			<- searchElStr5;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _base_figure;;
+			-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _base_param;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_area;;
+
+			=> nrel_then: .proc_analogy_for_non_oriented_relations_operator4A;;
+			=> nrel_else: .proc_analogy_for_non_oriented_relations_operator_return;;
+			*);;
+			
+		-> .proc_analogy_for_non_oriented_relations_operator3A2
+			(*
+			<- stringIfEq;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _relaton_message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [perimeter];;
+		
+			=> nrel_then: .proc_analogy_for_non_oriented_relations_operator3B2;;
+			=> nrel_else: .proc_analogy_for_non_oriented_relations_operator3A3;;
+		  	*);;
+			
+		-> .proc_analogy_for_non_oriented_relations_operator3B2 
+			(*
+			<- searchElStr5;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _base_figure;;
+			-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arca6;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _base_param;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arca7;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_perimeter;;
+
+			=> nrel_then: .proc_analogy_for_non_oriented_relations_operator4A;;
+			=> nrel_else: .proc_analogy_for_non_oriented_relations_operator_return;;
+			*);;
+			
+		-> .proc_analogy_for_non_oriented_relations_operator3A3 
+			(*
+			<- stringIfEq;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _relaton_message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [length];;
+		
+			=> nrel_then: .proc_analogy_for_non_oriented_relations_operator3B3;;
+			=> nrel_else: .proc_analogy_for_non_oriented_relations_operator_return;; 
+		  	*);;
+			
+		-> .proc_analogy_for_non_oriented_relations_operator3B3 
+			(*
+			<- searchElStr5;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _base_figure;;
+			-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arca6;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _base_param;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arca7;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_length;;	
+			
+			=> nrel_then: .proc_analogy_for_non_oriented_relations_operator4A;;
+			=> nrel_else: .proc_analogy_for_non_oriented_relations_operator_return;;
+			*);;
+
+		-> .proc_analogy_for_non_oriented_relations_operator4A 
+			(*
+			<- genElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _step3;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _base_figure;;
+
+			=> nrel_goto: .proc_analogy_for_non_oriented_relations_operator4B;;			
+			*);;
+			
+		-> .proc_analogy_for_non_oriented_relations_operator4B
+			(*
+			<- genElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _step3;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _figure;;
+
+			=> nrel_goto: .proc_analogy_for_non_oriented_relations_operator4C;;
+			*);;
+			
+		-> .proc_analogy_for_non_oriented_relations_operator4C 
+			(*
+			<- genEl;;
+			
+			-> rrel_1: rrel_assign: rrel_scp_var: rrel_node: _tuple_node;;
+
+			=> nrel_goto: .proc_analogy_for_non_oriented_relations_operator4D1;;
+			*);;
+			
+		-> .proc_analogy_for_non_oriented_relations_operator4D1 
+			(*
+			<- genElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _tuple_node;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _base_param;;
+
+			=> nrel_goto: .proc_analogy_for_non_oriented_relations_operator4D2;;
+			*);;
+			
+		-> .proc_analogy_for_non_oriented_relations_operator4D2 
+			(*
+			<- genElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _tuple_node;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _param;;
+
+			=> nrel_goto: .proc_analogy_for_non_oriented_relations_operator4D3;;
+			*);;
+		
+		-> .proc_analogy_for_non_oriented_relations_operator4D3 
+			(*
+			<- genElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_const: nrel_equal_quantities;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _tuple_node;;
+
+			=> nrel_goto: .proc_analogy_for_non_oriented_relations_operator4E1;;
+			*);;
+			
+		-> .proc_analogy_for_non_oriented_relations_operator4E1 
+			(*
+			<- genElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _step3;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: nrel_equal_quantities;;
+
+			=> nrel_goto: .proc_analogy_for_non_oriented_relations_operator4E2;;
+			*);;
+			
+		-> .proc_analogy_for_non_oriented_relations_operator4E2 
+			(*
+			<- genElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _step3;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _tuple_node;;
+
+			=> nrel_goto: .proc_analogy_for_non_oriented_relations_operator4E3;;
+			*);;
+			
+		-> .proc_analogy_for_non_oriented_relations_operator4E3
+			(*
+			<- searchSetStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_const: nrel_equal_quantities;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _tuple_node;;
+		
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _step3;;
+		
+			=> nrel_then: .proc_analogy_for_non_oriented_relations_operator4F1;;
+			=> nrel_else: .proc_analogy_for_non_oriented_relations_operator_return;;
+			*);;
+			
+		-> .proc_analogy_for_non_oriented_relations_operator4F1 
+			(*
+			<- searchSetStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _tuple_node;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _tuple_part;;
+		
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _step3;;
+			-> rrel_set_3: rrel_fixed: rrel_scp_var: _step3;;
+		
+			=> nrel_then: .proc_analogy_for_non_oriented_relations_operator4F2;;
+			=> nrel_else: .proc_analogy_for_non_oriented_relations_operator_return;;
+			*);;	
+			
+		-> .proc_analogy_for_non_oriented_relations_operator4F2
+			(*
+			<- searchSetStr5;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _figure;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _param;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+			-> rrel_5: rrel_assign: rrel_scp_var: rrel_norole_relation: _this_relation;;
+		
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _step3;;
+			-> rrel_set_4: rrel_fixed: rrel_scp_var: _step3;;
+			-> rrel_set_5: rrel_fixed: rrel_scp_var: _step3;;
+		
+			=> nrel_then: .proc_analogy_for_non_oriented_relations_operator4F3;;
+			=> nrel_else: .proc_analogy_for_non_oriented_relations_return;;
+			*);;
+			
+		-> .proc_analogy_for_non_oriented_relations_operator4F3 
+			(*
+			<- searchSetStr5;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _base_figure;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _base_param;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_var: rrel_norole_relation: _this_relation;;
+		
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _step3;;
+			-> rrel_set_4: rrel_fixed: rrel_scp_var: _step3;;
+		
+			=> nrel_then: .proc_analogy_for_non_oriented_relations_operator5A1;;
+			=> nrel_else: .proc_analogy_for_non_oriented_relations_return;;			
+			*);;
+			
+		-> .proc_analogy_for_non_oriented_relations_operator5A1 
+			(*
+			<- call;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: proc_finding_value;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: .proc_analogy_for_non_oriented_relations_operator5A1_params
+				
+				(*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _base_param;;
+				-> rrel_2: rrel_fixed: rrel_scp_var: _step2;; 
+				*);;
+				
+			-> rrel_3: rrel_assign: rrel_scp_var: _descr1;;
+
+			=> nrel_goto: .proc_analogy_for_non_oriented_relations_operator5A2;;
+			*);;
+		
+		-> .proc_analogy_for_non_oriented_relations_operator5A2 
+			(*
+			<- waitReturn;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr1;;
+
+			=> nrel_goto: .proc_analogy_for_non_oriented_relations_operator5B;;
+			*);;
+
+		-> .proc_analogy_for_non_oriented_relations_operator5B 
+			(*
+			<- searchElStr5;;
+			
+			-> rrel_1: rrel_assign: rrel_scp_var: _base_value;;
+			-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _base_param;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_value;;
+
+			=> nrel_goto: .proc_analogy_for_non_oriented_relations_operator5C;;
+			*);; 
+			
+		-> .proc_analogy_for_non_oriented_relations_operator5C 
+			(*
+			<- genElStr5;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _base_value;;
+			-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _param;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_value;;
+
+			=> nrel_goto: .proc_analogy_for_non_oriented_relations_operator5D1;;
+			*);; 
+		
+		-> .proc_analogy_for_non_oriented_relations_operator5D1 
+			(*
+			<- call;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: proc_finding_value;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: .proc_analogy_for_non_oriented_relations_operator5D1_params 
+				(*		  
+				-> rrel_1: rrel_fixed: rrel_scp_var: _base_param;;
+				-> rrel_2: rrel_fixed: rrel_scp_var: _step4;; 
+				*);;
+				
+			-> rrel_3: rrel_assign: rrel_scp_var: _descr2;;
+
+			=> nrel_goto: .proc_analogy_for_non_oriented_relations_operator5D2;;
+			*);;
+		
+		-> .proc_analogy_for_non_oriented_relations_operator5D2 
+			(*
+			<- waitReturn;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr2;;
+
+			=> nrel_goto: .proc_analogy_for_non_oriented_relations_operator5E;;
+			*);; 
+			
+		-> .proc_analogy_for_non_oriented_relations_operator5E
+			(*
+			<- contAssign;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [Analogy for non oriented relation was successfully finished!];;
+
+			=> nrel_goto: .proc_analogy_for_non_oriented_relations_operator_return;;
+			*);;
+			
+		-> .proc_analogy_for_non_oriented_relations_operator_return 
+			(*
+			<-return;;
+			*);;	
+		*);;
+	*);;

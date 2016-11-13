@@ -1,0 +1,594 @@
+scp_program -> proc_of_analogy_usage 
+	(*	
+	-> rrel_params: .proc_of_analogy_usage_params 
+		(*
+		-> rrel_1: rrel_in: _param;;
+		-> rrel_2: rrel_in: _final_message;;
+		-> rrel_3: rrel_in: _decomp;;
+		*);;
+	
+	-> rrel_operators: .proc_of_analogy_usage_operator_set 
+		(*
+		-> rrel_init: .proc_of_analogy_usage_operator1A
+             		(*
+		 	<- genEl;;
+
+		 	-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _set_for_relation;;
+
+		 	=> nrel_goto: .proc_of_analogy_usage_operator2A;;
+		 	*);;
+
+		-> .proc_of_analogy_usage_operator2A
+                 	(*
+			<- sys_search;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: [* _tuple _-> _figure1;; 
+								  _tuple _-> _figure2;;
+								  _figure2 _=> _nrel_rel1:: _param2;;
+								  _param2 _<= nrel_value:: _val;;
+								  _tuple _<- nrel_congruence;;
+								  _param1 _<= _nrel_rel1:: _figure1;;  *];;
+		 	-> rrel_2: rrel_fixed: rrel_scp_const: ...
+				(* -> ... 
+					(* -> rrel_1: rrel_fixed: rrel_scp_const: _figure1;;
+                                           -> rrel_2: rrel_assign: rrel_scp_var: _unknown_figure;; 
+					*);;
+				   -> ... 
+					(* -> rrel_1: rrel_fixed: rrel_scp_const: _figure2;;
+                                           -> rrel_2: rrel_assign: rrel_scp_var: _known_figure;; 
+					*);;  
+				   -> ... 
+					(* -> rrel_1: rrel_fixed: rrel_scp_const: _nrel_rel1;;
+                                           -> rrel_2: rrel_fixed: rrel_set: rrel_scp_var: _set_for_relation;; 
+					*);;
+				*);;
+			-> rrel_3: rrel_fixed: rrel_scp_const: ... 
+				(* -> ... 
+					(* -> rrel_1: rrel_fixed: rrel_scp_const: _param1;;
+                                           -> rrel_2: rrel_fixed: rrel_scp_var: _param;; 
+					*);;  
+				*);;
+
+                 	=> nrel_then: .proc_of_analogy_usage_operator2B;;
+			=> nrel_else: .proc_of_analogy_usage_operator3A;;
+		 	*);;
+
+		-> .proc_of_analogy_usage_operator2B
+             		(*
+		 	<- varAssign;;
+
+		 	-> rrel_1: rrel_assign: rrel_scp_var: _relation_marker;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: nrel_congruence;;
+
+		 	=> nrel_goto: .proc_of_analogy_usage_operator5A;;
+		 	*);;
+
+		-> .proc_of_analogy_usage_operator3A
+                 	(*
+			<- sys_search;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: [* _tuple2 _-> _figure3;; 
+								  _tuple2 _-> _figure4;;
+								  _figure4 _=> _nrel_rel3:: _param4;;
+								  _param4 _<= nrel_value:: _val2;;
+								  _tuple2 _<- nrel_equal_sized;;
+								  _param3 _<= _nrel_rel3:: _figure3;;  *];;
+		 	-> rrel_2: rrel_fixed: rrel_scp_const: ...
+				(* -> ... 
+					(* -> rrel_1: rrel_fixed: rrel_scp_const: _figure3;;
+                                           -> rrel_2: rrel_assign: rrel_scp_var: _unknown_figure;; 
+					*);;
+				   -> ... 
+					(* -> rrel_1: rrel_fixed: rrel_scp_const: _figure4;;
+                                           -> rrel_2: rrel_assign: rrel_scp_var: _known_figure;; 
+					*);;
+					-> ... 
+					(* -> rrel_1: rrel_fixed: rrel_scp_const: _nrel_rel3;;
+                                           -> rrel_2: rrel_fixed: rrel_set: rrel_scp_var: _set_for_relation;; 
+					*);;  
+				*);;
+			-> rrel_3: rrel_fixed: rrel_scp_const: ... 
+				(* -> ... 
+					(* -> rrel_1: rrel_fixed: rrel_scp_const: _param3;;
+                                           -> rrel_2: rrel_fixed: rrel_scp_var: _param;; 
+					*);;  
+				*);;
+
+                 	=> nrel_then: .proc_of_analogy_usage_operator3B;;
+			=> nrel_else: .proc_of_analogy_usage_operator4A;;
+		 	*);;
+
+		-> .proc_of_analogy_usage_operator3B
+             		(*
+		 	<- varAssign;;
+
+		 	-> rrel_1: rrel_assign: rrel_scp_var: _relation_marker;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: nrel_equal_sized;;
+
+		 	=> nrel_goto: .proc_of_analogy_usage_operator5A;;
+		 	*);;
+
+		-> .proc_of_analogy_usage_operator4A
+                 	(*
+			<- sys_search;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: [* _tuple3 _-> _figure5;; 
+								  _tuple3 _-> _figure6;;
+								  _figure6 _=> _nrel_rel2:: _param6;;
+								  _param6 _<= nrel_value:: _val3;;
+								  _tuple3 _<- nrel_similarity;;
+								  _param5 _<= _nrel_rel2:: _figure5;;
+								  _tuple3 _=> nrel_coefficient_of_similarity:: _coeff;;
+								  _coeff _<- number;;
+								  _coeff _<= nrel_identification:: _num_ident;;  *];;
+		 	-> rrel_2: rrel_fixed: rrel_scp_const: ...
+				(* -> ... 
+					(* -> rrel_1: rrel_fixed: rrel_scp_const: _figure5;;
+                                           -> rrel_2: rrel_assign: rrel_scp_var: _unknown_figure;; 
+					*);;
+				   -> ... 
+					(* -> rrel_1: rrel_fixed: rrel_scp_const: _figure6;;
+                                           -> rrel_2: rrel_assign: rrel_scp_var: _known_figure;; 
+					*);;  
+				   -> ... 
+					(* -> rrel_1: rrel_fixed: rrel_scp_const: _nrel_rel2;;
+                                           -> rrel_2: rrel_fixed: rrel_set: rrel_scp_var: _set_for_relation;; 
+					*);;
+				*);;
+			-> rrel_3: rrel_fixed: rrel_scp_const: ... 
+				(* -> ... 
+					(* -> rrel_1: rrel_fixed: rrel_scp_const: _param5;;
+                                           -> rrel_2: rrel_fixed: rrel_scp_var: _param;; 
+					*);;  
+				*);;
+
+                 	=> nrel_then: .proc_of_analogy_usage_operator4B;;
+			=> nrel_else: .proc_of_analogy_usage_operator_return;;
+		 	*);;
+
+		-> .proc_of_analogy_usage_operator4B
+             		(*
+		 	<- varAssign;;
+
+		 	-> rrel_1: rrel_assign: rrel_scp_var: _relation_marker;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: nrel_similarity;;
+
+		 	=> nrel_goto: .proc_of_analogy_usage_operator5A;;
+		 	*);;
+
+		-> .proc_of_analogy_usage_operator5A 
+             		(*
+		 	<- searchElStr3;;
+
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: _set_for_relation;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: rrel_norole_relation: _some_relation;;
+
+		 	=> nrel_then: .proc_of_analogy_usage_operator5B;;
+			=> nrel_else: .proc_of_analogy_usage_operator3A;;
+		 	*);;
+
+		-> .proc_of_analogy_usage_operator5B
+             		(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _set_for_relation;;
+
+		 	=> nrel_goto: .proc_of_analogy_usage_operator5C1;;
+		 	*);;
+
+		-> .proc_of_analogy_usage_operator5C1
+             		(*
+		 	<- ifCoin;;
+
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: _some_relation;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: nrel_length;;
+
+		 	=> nrel_then: .proc_of_analogy_usage_operator5D1;;
+			=> nrel_else: .proc_of_analogy_usage_operator5C2;;
+		 	*);;
+
+		-> .proc_of_analogy_usage_operator5D1
+             		(*
+		 	<- contAssign;;
+
+		 	-> rrel_1: rrel_assign: rrel_scp_var: _relation_message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [length];;
+
+		 	=> nrel_goto: .proc_of_analogy_usage_operator6A;;
+		 	*);;
+
+		-> .proc_of_analogy_usage_operator5C2
+             		(*
+		 	<- ifCoin;;
+
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: _some_relation;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: nrel_perimeter;;
+
+		 	=> nrel_then: .proc_of_analogy_usage_operator5D2;;
+			=> nrel_else: .proc_of_analogy_usage_operator5C3;;
+		 	*);;
+
+		-> .proc_of_analogy_usage_operator5D2
+             		(*
+		 	<- contAssign;;
+
+		 	-> rrel_1: rrel_assign: rrel_scp_var: _relation_message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [perimeter];;
+
+		 	=> nrel_goto: .proc_of_analogy_usage_operator6A;;
+		 	*);;
+
+		-> .proc_of_analogy_usage_operator5C3
+             		(*
+		 	<- ifCoin;;
+
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: _some_relation;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: nrel_area;;
+
+		 	=> nrel_then: .proc_of_analogy_usage_operator5D3;;
+			=> nrel_else: .proc_of_analogy_usage_operator5E1;;
+		 	*);;
+
+		-> .proc_of_analogy_usage_operator5D3
+             		(*
+		 	<- contAssign;;
+
+		 	-> rrel_1: rrel_assign: rrel_scp_var: _relation_message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [area];;
+
+		 	=> nrel_goto: .proc_of_analogy_usage_operator6A;;
+		 	*);;
+
+		-> .proc_of_analogy_usage_operator5E1
+             		(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _set_of_known_figures;;
+
+		 	=> nrel_goto: .proc_of_analogy_usage_operator5E2;;
+		 	*);;
+
+		-> .proc_of_analogy_usage_operator5E2
+             		(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _set_of_unknown_figures;;
+
+		 	=> nrel_goto: .proc_of_analogy_usage_operator_return;;
+		 	*);;
+
+		-> .proc_of_analogy_usage_operator6A
+                 	(*
+			<- sys_gen;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: [* _decomp1 _-> _step1; _step2; _step3; _step4;;
+								  logic_sc_action _-> _step1; _step2; _step4;;
+								  ariphmetic_sc_action _-> _step3;;
+								  sc_action _-> _step1; _step2; _step3; _step4;;
+								  _step1 _=> nrel_sequence_of_actions:: _step3;;
+								  _step3 _=> nrel_sequence_of_actions:: _step4;;
+								  _step2 _=> nrel_sequence_of_actions:: _step4;;
+								  _step1 _-> rrel_1:: _group1;;
+								  _step1 _-> rrel_2:: _rel1;;
+								  _step2 _-> rrel_1:: _object1;;
+								  _step2 _-> rrel_2:: _rel2;;
+								  _step3 _-> rrel_1:: _group1;;
+								  _step3 _-> rrel_2:: _rel1;;
+								  _step4 _-> rrel_1:: _object2;;
+								  _step4 _-> rrel_2:: _rel2;;
+								  _group1 _-> _object1; _object2;;
+						  		*];;
+
+		 	-> rrel_2: rrel_fixed: rrel_scp_const: ...
+				(* -> ... 
+					(* -> rrel_1: rrel_fixed: rrel_scp_const: _step1;;
+                                           -> rrel_2: rrel_assign: rrel_scp_var: _action1;; 
+					*);;
+				   -> ... 
+					(* -> rrel_1: rrel_fixed: rrel_scp_const: _step2;;
+                                           -> rrel_2: rrel_assign: rrel_scp_var: _action2;; 
+					*);;  
+				   -> ... 
+					(* -> rrel_1: rrel_fixed: rrel_scp_const: _step3;;
+                                           -> rrel_2: rrel_assign: rrel_scp_var: _action3;; 
+					*);;
+				   -> ... 
+					(* -> rrel_1: rrel_fixed: rrel_scp_const: _step4;;
+                                           -> rrel_2: rrel_assign: rrel_scp_var: _action4;; 
+					*);;
+				*);;
+
+			-> rrel_3: rrel_fixed: rrel_scp_const: ... 
+				(* -> ... 
+					(* -> rrel_1: rrel_fixed: rrel_scp_const: _object1;;
+                                           -> rrel_2: rrel_fixed: rrel_scp_var: _known_figure;; 
+					*);;
+				   -> ... 
+					(* -> rrel_1: rrel_fixed: rrel_scp_const: _object2;;
+                                           -> rrel_2: rrel_fixed: rrel_scp_var: _unknown_figure;; 
+					*);;
+				   -> ... 
+					(* -> rrel_1: rrel_fixed: rrel_scp_const: _rel1;;
+                                           -> rrel_2: rrel_fixed: rrel_scp_var: _relation_marker;; 
+					*);; 
+				   -> ... 
+					(* -> rrel_1: rrel_fixed: rrel_scp_const: _rel2;;
+                                           -> rrel_2: rrel_fixed: rrel_scp_var: _some_relation;; 
+					*);;
+				   -> ... 
+					(* -> rrel_1: rrel_fixed: rrel_scp_const: _decomp1;;
+                                           -> rrel_2: rrel_fixed: rrel_scp_var: _decomp;; 
+					*);; 
+				*);;
+
+                 	=> nrel_goto: .proc_of_analogy_usage_operator6B1;;
+		 	*);;
+
+		-> .proc_of_analogy_usage_operator6B1 
+             		(*
+		 	<- genEl;;
+
+		 	-> rrel_1: rrel_assign: rrel_node: rrel_struct: rrel_scp_var: _result1;;
+
+		 	=> nrel_goto: .proc_of_analogy_usage_operator6B2;;
+		 	*);;
+
+		-> .proc_of_analogy_usage_operator6B2 
+             		(*
+		 	<- genEl;;
+
+		 	-> rrel_1: rrel_assign: rrel_node: rrel_struct: rrel_scp_var: _result2;;
+
+		 	=> nrel_goto: .proc_of_analogy_usage_operator6B3;;
+		 	*);;
+
+		-> .proc_of_analogy_usage_operator6B3 
+             		(*
+		 	<- genEl;;
+
+		 	-> rrel_1: rrel_assign: rrel_node: rrel_struct: rrel_scp_var: _result3;;
+
+		 	=> nrel_goto: .proc_of_analogy_usage_operator6B4;;
+		 	*);;
+
+		-> .proc_of_analogy_usage_operator6B4 
+             		(*
+		 	<- genEl;;
+
+		 	-> rrel_1: rrel_assign: rrel_node: rrel_struct: rrel_scp_var: _result4;;
+
+		 	=> nrel_goto: .proc_of_analogy_usage_operator6C1;;
+		 	*);;
+
+		-> .proc_of_analogy_usage_operator6C1 
+			(*
+			<- genElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _action1;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_const: rrel_common: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _result1;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_const: rrel_pos_const_perm: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_result;;
+
+			=> nrel_goto: .proc_of_analogy_usage_operator6C2;;
+			*);;
+
+		-> .proc_of_analogy_usage_operator6C2 
+			(*
+			<- genElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _action2;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_const: rrel_common: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _result2;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_const: rrel_pos_const_perm: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_result;;
+
+			=> nrel_goto: .proc_of_analogy_usage_operator6C3;;
+			*);;
+
+		-> .proc_of_analogy_usage_operator6C3 
+			(*
+			<- genElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _action3;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_const: rrel_common: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _result3;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_const: rrel_pos_const_perm: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_result;;
+
+			=> nrel_goto: .proc_of_analogy_usage_operator6C4;;
+			*);;
+
+		-> .proc_of_analogy_usage_operator6C4 
+			(*
+			<- genElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _action4;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_const: rrel_common: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _result4;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_const: rrel_pos_const_perm: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_result;;
+
+			=> nrel_goto: .proc_of_analogy_usage_operator6D1;;
+			*);;
+
+		-> .proc_of_analogy_usage_operator6D1 
+			(*
+			<- genElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: atomic_formula;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_const: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _result1;;
+
+			=> nrel_goto: .proc_of_analogy_usage_operator6D2;;
+			*);;
+
+		-> .proc_of_analogy_usage_operator6D2
+			(*
+			<- genElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: atomic_formula;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_const: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _result2;;
+
+			=> nrel_goto: .proc_of_analogy_usage_operator6D3;;
+			*);;
+
+		-> .proc_of_analogy_usage_operator6D3 
+			(*
+			<- genElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: atomic_formula;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_const: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _result3;;
+
+			=> nrel_goto: .proc_of_analogy_usage_operator6D4;;
+			*);;
+
+		-> .proc_of_analogy_usage_operator6D4 
+			(*
+			<- genElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: atomic_formula;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_const: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _result4;;
+
+			=> nrel_goto: .proc_of_analogy_usage_operator7A1;;
+			*);;
+
+		-> .proc_of_analogy_usage_operator7A1
+             		(*
+		 	<- ifCoin;;
+
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: _relation_marker;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: nrel_congruence;;
+
+		 	=> nrel_then: .proc_of_analogy_usage_operator7B1;;
+			=> nrel_else: .proc_of_analogy_usage_operator7A2;;
+		 	*);;
+
+		-> .proc_of_analogy_usage_operator7A2
+             		(*
+		 	<- ifCoin;;
+
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: _relation_marker;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: nrel_equal_sized;;
+
+		 	=> nrel_then: .proc_of_analogy_usage_operator7B1;;
+			=> nrel_else: .proc_of_analogy_usage_operator8A;;
+		 	*);;
+
+		-> .proc_of_analogy_usage_operator7B1
+			(*
+			<- call;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: proc_analogy_for_non_oriented_relations;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: .proc_of_analogy_usage_operator7B1_params
+				(*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _param;;
+				-> rrel_2: rrel_fixed: rrel_scp_var: _unknown_figure;;
+				-> rrel_3: rrel_fixed: rrel_scp_var: _known_figure;;
+				-> rrel_4: rrel_fixed: rrel_scp_var: _relation_message;;
+				-> rrel_5: rrel_fixed: rrel_scp_var: _result1;;
+				-> rrel_6: rrel_fixed: rrel_scp_var: _result2;;
+				-> rrel_7: rrel_fixed: rrel_scp_var: _result3;;
+				-> rrel_8: rrel_fixed: rrel_scp_var: _result4;;
+				-> rrel_9: rrel_fixed: rrel_scp_var: _final_message;;
+				-> rrel_10: rrel_fixed: rrel_scp_var: _relation_marker;;
+				*);;
+			-> rrel_3: rrel_assign: rrel_scp_var: _descr1;;
+
+			=> nrel_goto: .proc_of_analogy_usage_operator7B2;;
+			*);;
+
+		-> .proc_of_analogy_usage_operator7B2
+			(*
+			<- waitReturn;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr1;;
+
+			=> nrel_goto: .proc_of_analogy_usage_operator7C;;
+			*);;
+	
+		-> .proc_of_analogy_usage_operator7C
+             		(*
+		 	<- stringIfEq;;
+
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: _final_message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [Analogy for non oriented relation was successfully finished!];;
+
+		 	=> nrel_then: .proc_of_analogy_usage_operator9A;;
+			=> nrel_else: .proc_of_analogy_usage_operator_return;;
+		 	*);;
+
+		-> .proc_of_analogy_usage_operator8A
+             		(*
+		 	<- ifCoin;;
+
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: _relation_marker;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: nrel_similarity;;
+
+		 	=> nrel_then: .proc_of_analogy_usage_operator8B1;;
+			=> nrel_else: .proc_of_analogy_usage_operator_return;;
+		 	*);;
+
+		-> .proc_of_analogy_usage_operator8B1
+			(*
+			<- call;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: proc_analogy_similarity;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: .proc_of_analogy_usage_operator8B1_params
+				(*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _param;;
+				-> rrel_2: rrel_fixed: rrel_scp_var: _unknown_figure;;
+				-> rrel_3: rrel_fixed: rrel_scp_var: _known_figure;;
+				-> rrel_4: rrel_fixed: rrel_scp_var: _relation_message;;
+				-> rrel_5: rrel_fixed: rrel_scp_var: _result1;;
+				-> rrel_6: rrel_fixed: rrel_scp_var: _result2;;
+				-> rrel_7: rrel_fixed: rrel_scp_var: _result3;;
+				-> rrel_8: rrel_fixed: rrel_scp_var: _result4;;
+				-> rrel_9: rrel_fixed: rrel_scp_var: _final_message;;
+				-> rrel_10: rrel_fixed: rrel_scp_var: _relation_marker;;
+				*);;
+			-> rrel_3: rrel_assign: rrel_scp_var: _descr2;;
+
+			=> nrel_goto: .proc_of_analogy_usage_operator8B2;;
+			*);;
+
+		-> .proc_of_analogy_usage_operator8B2
+			(*
+			<- waitReturn;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr2;;
+
+			=> nrel_goto: .proc_of_analogy_usage_operator8C;;
+			*);;
+	
+		-> .proc_of_analogy_usage_operator8C
+             		(*
+		 	<- stringIfEq;;
+
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: _final_message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [Analogy for similarity was successfully finished!];;
+
+		 	=> nrel_then: .proc_of_analogy_usage_operator9A;;
+			=> nrel_else: .proc_of_analogy_usage_operator_return;;
+		 	*);;
+
+		-> .proc_of_analogy_usage_operator9A
+			(*
+			<- contAssign;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _final_message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [The value set by the user was found by the analogy usage.];;
+
+			=> nrel_goto: .proc_of_analogy_usage_operator_return;;
+			*);;
+		
+		-> .proc_of_analogy_usage_operator_return 
+			(*
+			<- return;;
+			*);;
+		*);;
+	*);;

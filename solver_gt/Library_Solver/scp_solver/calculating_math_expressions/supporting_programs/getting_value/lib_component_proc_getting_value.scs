@@ -1,0 +1,25 @@
+lib_component_proc_getting_value
+=> nrel_main_idtf:
+	[Компонент библиотеки. scp-программа получения информации о величине или числе]
+	(* <- lang_ru;; *);
+	[Library component. scp-program of getting information about quantity or number]
+	(* <- lang_en;; *);
+
+<- platform_independent_reusable_component_OSTIS;
+<- reusable_scp_program;
+
+-> rrel_key_sc_element: 
+	proc_getting_value;
+
+<- rrel_key_sc_element: 
+	...
+	(*
+	<- sc_explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			"file://htmls/Proc_Getting_Value.html" 
+				(* <- lang_ru;; *);;
+		*);;
+	*);;

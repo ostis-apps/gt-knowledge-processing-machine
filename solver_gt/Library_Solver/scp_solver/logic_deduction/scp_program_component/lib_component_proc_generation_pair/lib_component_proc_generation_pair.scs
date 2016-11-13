@@ -1,0 +1,26 @@
+lib_component_proc_generation_pair
+=> nrel_main_idtf:
+	[Компонент библиотеки. scp-программа генерации пары соответствия]
+	(* <- lang_ru;; *);
+	[Library component. scp-program generation pair]
+	(* <- lang_en;; *);
+
+<- platform_independent_reusable_component_OSTIS;
+<- reusable_scp_program;
+
+-> rrel_key_sc_element: 
+	proc_generation_pair;
+
+<- rrel_key_sc_element: 
+	...
+	(*
+	<- sc_explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			"file://htmls/Proc_Generation_Pair.html" 
+				(* <- lang_ru;; *);;
+		*);;
+	*);;
+

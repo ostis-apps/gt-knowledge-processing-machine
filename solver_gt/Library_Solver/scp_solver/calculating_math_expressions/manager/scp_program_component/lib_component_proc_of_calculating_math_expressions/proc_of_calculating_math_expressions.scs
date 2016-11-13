@@ -1,0 +1,504 @@
+scp_program -> proc_of_calculating_math_expressions 
+	(*	
+	-> rrel_params: .proc_of_calculating_math_expressions_params 
+		(*
+		-> rrel_1: rrel_in: _pattern;; 
+		-> rrel_2: rrel_in: _final;; 
+		*);;
+	
+	-> rrel_operators: .proc_of_calculating_math_expressions_operator_set 
+		(*
+		-> rrel_init: .proc_of_calculating_math_expressions_operator0A 
+	    		(*
+			<- contAssign;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _message;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [Nessecary information will be here.];;
+
+			=> nrel_goto: .proc_of_calculating_math_expressions_operator0B1_print;;
+			*);; 
+
+		-> .proc_of_calculating_math_expressions_operator0B1_print 
+             		(*
+		 	<- printEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: _pattern;;
+
+		 	=> nrel_goto: .proc_of_calculating_math_expressions_operator1A;;
+		 	*);;
+
+		-> .proc_of_calculating_math_expressions_operator0B1
+			(*
+		  	<- call;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: proc_validation_arithmetic_bunch;; 
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: .proc_of_calculating_math_expressions_operator0B1_params 
+		  		(*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _pattern;;
+                		-> rrel_2: rrel_fixed: rrel_scp_var: _message;; 
+				*);;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _descr1;;
+
+		  	=> nrel_goto: .proc_of_calculating_math_expressions_operator0B2;;
+			*);;
+
+        	-> .proc_of_calculating_math_expressions_operator0B2
+        		(*
+		  	<- waitReturn;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _descr1;;
+
+		  	=> nrel_goto: .proc_of_calculating_math_expressions_operator1A;;
+		 	*);;
+
+		-> .proc_of_calculating_math_expressions_operator1A 
+                 	(*  
+		 	<- genEl;;
+
+		 	-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _solved_binaries;;
+ 
+		 	=> nrel_goto: .proc_of_calculating_math_expressions_operator1B;;
+		 	*);;
+
+		-> .proc_of_calculating_math_expressions_operator1B 
+             		(*
+		 	<- genEl;;
+
+		 	-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _checked_binaries;;
+
+		 	=> nrel_goto: .proc_of_calculating_math_expressions_operator1C;;
+		 	*);;
+
+		-> .proc_of_calculating_math_expressions_operator1C 
+             		(*
+		 	<- genEl;;
+
+		 	-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _set_of_binaries;;
+
+		 	=> nrel_goto: .proc_of_calculating_math_expressions_operator2A;;
+		 	*);;
+
+		-> .proc_of_calculating_math_expressions_operator2A 
+                 	(*
+			<- sys_search;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: [* _struct _-> _bin_arc;; 
+								  _bin_arc _<- _rel;;
+								  _rel _<- ariphmetic_operation;; *];;
+		 	-> rrel_2: rrel_fixed: rrel_scp_const: ...
+				(* -> ... 
+					(* -> rrel_1: rrel_fixed: rrel_scp_const: _bin_arc;;
+                                           -> rrel_2: rrel_fixed: rrel_set: rrel_scp_var: _set_of_binaries;; 
+					*);;  
+				*);;
+			-> rrel_3: rrel_fixed: rrel_scp_const: ... 
+				(* -> ... 
+					(* -> rrel_1: rrel_fixed: rrel_scp_const: _struct;;
+                                           -> rrel_2: rrel_fixed: rrel_scp_var: _pattern;; 
+					*);;  
+				*);;
+
+                 	=> nrel_goto: .proc_of_calculating_math_expressions_operator2B;;
+		 	*);;
+
+		-> .proc_of_calculating_math_expressions_operator2B 
+                 	(*
+			<- sys_search;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: [* _struct _-> _bin_arc;; 
+								  _bin_arc _<- _rel;;
+								  _rel _<- trigonometric_operation;; *];;
+		 	-> rrel_2: rrel_fixed: rrel_scp_const: ...
+				(* -> ... 
+					(* -> rrel_1: rrel_fixed: rrel_scp_const: _bin_arc;;
+                                           -> rrel_2: rrel_fixed: rrel_set: rrel_scp_var: _set_of_binaries;; 
+					*);;  
+				*);;
+			-> rrel_3: rrel_fixed: rrel_scp_const: ... 
+				(* -> ... 
+					(* -> rrel_1: rrel_fixed: rrel_scp_const: _struct;;
+                                           -> rrel_2: rrel_fixed: rrel_scp_var: _pattern;; 
+					*);;  
+				*);;
+
+                 	=> nrel_goto: .proc_of_calculating_math_expressions_operator3A1;;
+		 	*);;
+
+		-> .proc_of_calculating_math_expressions_operator3A1 
+			(*                                       
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _set_of_binaries;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _binary_arc;; 
+
+		  	=> nrel_then: .proc_of_calculating_math_expressions_operator3B;;
+		  	=> nrel_else: .proc_of_calculating_math_expressions_operator3A2;;  
+			*);;
+
+		-> .proc_of_calculating_math_expressions_operator3A2 
+			(*                                       
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _checked_binaries;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _checked_binary1;; 
+
+		  	=> nrel_then: .proc_of_calculating_math_expressions_operator3F;;
+		  	=> nrel_else: .proc_of_calculating_math_expressions_operator6A;;  
+			*);;
+
+		-> .proc_of_calculating_math_expressions_operator3B 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _arc1;;
+
+		 	=> nrel_goto: .proc_of_calculating_math_expressions_operator3C;;
+		 	*);;
+
+		-> .proc_of_calculating_math_expressions_operator3C 
+			(*                                       
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _solved_binaries;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _binary_arc;;
+
+		  	=> nrel_then: .proc_of_calculating_math_expressions_operator3A1;;
+		  	=> nrel_else: .proc_of_calculating_math_expressions_operator3D;;
+			*);;   
+
+		-> .proc_of_calculating_math_expressions_operator3D 
+			(*                                       
+		  	<- genElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _checked_binaries;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _binary_arc;;
+
+		  	=> nrel_goto: .proc_of_calculating_math_expressions_operator3E;;
+			*);;                                          
+
+		-> .proc_of_calculating_math_expressions_operator3E 
+			(*                                       
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_assign: rrel_scp_var: _tuple;;
+		  	-> rrel_2: rrel_fixed: rrel_common: rrel_scp_var: _binary_arc;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _result;;
+
+		  	=> nrel_then: .proc_of_calculating_math_expressions_operator4A;;
+		  	=> nrel_else: .proc_of_calculating_math_expressions_operator3A1;;
+			*);;
+
+		-> .proc_of_calculating_math_expressions_operator3F 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _set_of_binaries;;
+
+		 	=> nrel_goto: .proc_of_calculating_math_expressions_operator5A;;
+		 	*);;
+ 				
+		-> .proc_of_calculating_math_expressions_operator4A 
+			(*
+		 	<- genEl;;
+
+		 	-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _quest;;
+
+		 	=> nrel_goto: .proc_of_calculating_math_expressions_operator4B;;
+		 	*);;
+
+		-> .proc_of_calculating_math_expressions_operator4B
+			(*                                       
+		  	<- genElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _binary_arc;;
+
+		  	=> nrel_goto: .proc_of_calculating_math_expressions_operator4C;;	
+			*);;
+		
+		-> .proc_of_calculating_math_expressions_operator4C 
+			(*                                       
+		  	<- genElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: question_calc;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
+
+		  	=> nrel_goto: .proc_of_calculating_math_expressions_operator4D;;		
+			*);;
+		
+		-> .proc_of_calculating_math_expressions_operator4D 
+		  	(*                                       
+		  	<- genElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: question_initiated;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
+
+		  	=> nrel_goto: .proc_of_calculating_math_expressions_operator4E1;;
+			*);;
+
+		-> .proc_of_calculating_math_expressions_operator4E1
+			(*                                       
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: question_finished_unsuccessfully;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
+
+		  	=> nrel_then: .proc_of_calculating_math_expressions_operator4E2;;
+		  	=> nrel_else: .proc_of_calculating_math_expressions_operator4F1;;
+			*);;
+
+		-> .proc_of_calculating_math_expressions_operator4E2
+			(*                                       
+		  	<- genElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _checked_binaries;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _binary_arc;;
+
+		  	=> nrel_goto: .proc_of_calculating_math_expressions_operator4F8;;
+			*);;
+
+		-> .proc_of_calculating_math_expressions_operator4F1
+			(*                                       
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: question_finished_successfully;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
+
+		  	=> nrel_then: .proc_of_calculating_math_expressions_operator4F2;;
+		  	=> nrel_else: .proc_of_calculating_math_expressions_operator4G;;
+			*);;
+
+		-> .proc_of_calculating_math_expressions_operator4F2
+			(*                                       
+		  	<- genElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _solved_binaries;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _binary_arc;;
+
+		  	=> nrel_goto: .proc_of_calculating_math_expressions_operator4F3;;
+			*);;
+
+		-> .proc_of_calculating_math_expressions_operator4F3
+			(*                                       
+		  	<- genElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _checked_binaries;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _binary_arc;;
+
+		  	=> nrel_goto: .proc_of_calculating_math_expressions_operator4F4;;
+			*);;
+
+		-> .proc_of_calculating_math_expressions_operator4F4 
+			(*                                       
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _final;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _smth;;
+
+		  	=> nrel_then: .proc_of_calculating_math_expressions_operator4F5;;
+		  	=> nrel_else: .proc_of_calculating_math_expressions_operator4F6;;
+			*);;
+
+		-> .proc_of_calculating_math_expressions_operator4F5 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc1;;
+
+		 	=> nrel_goto: .proc_of_calculating_math_expressions_operator4F6;;
+		 	*);;
+
+		-> .proc_of_calculating_math_expressions_operator4F6
+			(*                                       
+		  	<- searchElStr5;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _inst;;
+		  	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+		  	-> rrel_5: rrel_fixed: rrel_scp_const: rrel_step;;
+
+		  	=> nrel_then: .proc_of_calculating_math_expressions_operator4F7;;
+		  	=> nrel_else: .proc_of_calculating_math_expressions_operator4F8;;
+			*);;
+
+		-> .proc_of_calculating_math_expressions_operator4F7
+                 	(*                                       
+		  	<- genElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _final;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _inst;;
+
+		  	=> nrel_goto: .proc_of_calculating_math_expressions_operator4F8;;
+			*);;
+
+		-> .proc_of_calculating_math_expressions_operator4F8 
+			(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_node: rrel_scp_var: _quest;;
+
+		 	=> nrel_goto: .proc_of_calculating_math_expressions_operator3A1;; 
+		 	*);;
+
+		-> .proc_of_calculating_math_expressions_operator4G 
+			(*
+		 	<- sys_wait;;
+
+		 	-> rrel_1: rrel_fixed: rrel_scp_const: sc_event_add_input_arc;;
+                 	-> rrel_2: rrel_fixed: rrel_scp_var: _quest;;
+
+		 	=> nrel_goto: .proc_of_calculating_math_expressions_operator4E1;;
+		 	*);;
+
+		-> .proc_of_calculating_math_expressions_operator5A 
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _checked_binaries;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;; 
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _check_binary2;;
+		 
+		  	=> nrel_then: .proc_of_calculating_math_expressions_operator5B;;
+		  	=> nrel_else: .proc_of_calculating_math_expressions_operator6D;;
+			*);;
+
+		-> .proc_of_calculating_math_expressions_operator5B 
+                 	(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _arc1;; 
+
+		 	=> nrel_goto: .proc_of_calculating_math_expressions_operator5C;;
+		 	*);;
+		
+		-> .proc_of_calculating_math_expressions_operator5C 
+			(*                                       
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _solved_binaries;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;; 
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _check_binary2;;
+
+		  	=> nrel_then: .proc_of_calculating_math_expressions_operator5D;;
+		  	=> nrel_else: .proc_of_calculating_math_expressions_operator5A;;
+			*);;
+
+		-> .proc_of_calculating_math_expressions_operator5D 
+                 	(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _checked_binaries;;
+
+		 	=> nrel_goto: .proc_of_calculating_math_expressions_operator1B;;
+		 	*);;
+
+		-> .proc_of_calculating_math_expressions_operator6A 
+                 	(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _solved_binaries;;
+
+		 	=> nrel_goto: .proc_of_calculating_math_expressions_operator6B;;
+		 	*);;
+
+		-> .proc_of_calculating_math_expressions_operator6B 
+                 	(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _checked_binaries;;
+
+		 	=> nrel_goto: .proc_of_calculating_math_expressions_operator6C;;
+		 	*);;
+
+		-> .proc_of_calculating_math_expressions_operator6C 
+                 	(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _set_of_binaries;;
+
+		 	=> nrel_goto: .proc_of_calculating_math_expressions_operator6D;;
+		 	*);;
+
+		-> .proc_of_calculating_math_expressions_operator6D 
+                 	(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _pattern;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _pattern_part;;
+
+		  	=> nrel_then: .proc_of_calculating_math_expressions_operator6E;;
+                  	=> nrel_else: .proc_of_calculating_math_expressions_operator6H;;
+			*);;
+
+		-> .proc_of_calculating_math_expressions_operator6E
+                 	(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _arc1;;
+
+		 	=> nrel_goto: .proc_of_calculating_math_expressions_operator6F1;;
+		 	*);;
+
+		-> .proc_of_calculating_math_expressions_operator6F1 
+                 	(*
+		  	<- ifType;;
+
+		  	-> rrel_1: rrel_fixed: rrel_norole_relation: rrel_scp_var: _pattern_part;;
+
+		  	=> nrel_then: .proc_of_calculating_math_expressions_operator6D;;
+                  	=> nrel_else: .proc_of_calculating_math_expressions_operator6F2;;
+			*);;
+
+		-> .proc_of_calculating_math_expressions_operator6F2 
+                 	(*
+		  	<- ifType;;
+
+		  	-> rrel_1: rrel_fixed: rrel_not_relation: rrel_scp_var: _pattern_part;;
+
+		  	=> nrel_then: .proc_of_calculating_math_expressions_operator6D;;
+                  	=> nrel_else: .proc_of_calculating_math_expressions_operator6G;;
+			*);;
+
+		-> .proc_of_calculating_math_expressions_operator6G 
+                 	(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _pattern_part;;
+
+		 	=> nrel_goto: .proc_of_calculating_math_expressions_operator6D;;
+		 	*);;
+
+		-> .proc_of_calculating_math_expressions_operator6H 
+                 	(*
+		 	<- eraseEl;;
+
+		 	-> rrel_1: rrel_erase: rrel_fixed: rrel_scp_var: _pattern;;
+
+		 	=> nrel_goto: .proc_of_calculating_math_expressions_operator_return;;
+		 	*);;
+
+		-> .proc_of_calculating_math_expressions_operator_return 
+			(*
+		  	<- return;;
+			*);;
+		*);;
+	*);;                                
+		
+
+

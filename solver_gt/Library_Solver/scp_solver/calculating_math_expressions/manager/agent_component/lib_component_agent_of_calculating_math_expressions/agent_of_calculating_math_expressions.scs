@@ -1,0 +1,187 @@
+agent_of_calculating_math_expressions
+=> nrel_main_idtf:
+	[агентная scp-программа вычисления математических выражений] (* <- lang_ru;; *);
+	[agent scp-program of calculating math expressions] (* <- lang_en;; *);
+	<- agent_scp_program;;
+
+scp_program -> agent_of_calculating_math_expressions 
+	(*
+	-> rrel_params: .agent_of_calculating_math_expressions_params 
+		(*
+		-> rrel_1: rrel_in: _event;;
+		-> rrel_2: rrel_in: _input_arc;;
+		*);;
+
+	-> rrel_operators: .agent_of_calculating_math_expressions_operator_set 
+		(*
+		-> rrel_init: .agent_of_calculating_math_expressions_operator1A
+			(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_assign: rrel_scp_var: _temp;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_var: _input_arc;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _quest;;
+
+		  	=> nrel_goto: .agent_of_calculating_math_expressions_operator1B;;
+			*);;
+                
+		-> .agent_of_calculating_math_expressions_operator1B 
+		 	(*
+		  	<- searchElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: question_of_calculating_math_expressions;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
+
+		  	=> nrel_then: .agent_of_calculating_math_expressions_operator1C;;
+		  	=> nrel_else: .agent_of_calculating_math_expressions_operator_return;;
+			*);;
+
+		-> .agent_of_calculating_math_expressions_operator1C
+			(*
+		 	<- searchElStr3;;
+
+		 	-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
+		 	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _block;;
+
+                	=> nrel_then: .agent_of_calculating_math_expressions_operator1D;;
+			=> nrel_else: .agent_of_calculating_math_expressions_operator_return;;
+                 	*);; 
+
+		-> .agent_of_calculating_math_expressions_operator1D 
+			(*
+		 	<- genEl;;
+
+		 	-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _final;;
+
+		 	=> nrel_goto: .agent_of_calculating_math_expressions_operator2A;;
+		 	*);;
+	
+	        -> .agent_of_calculating_math_expressions_operator2A 
+	        	(*
+		  	<- call;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: proc_of_calculating_math_expressions;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: .agent_of_calculating_math_expressions_operator2A_params 
+		  		(*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _block;;
+				-> rrel_2: rrel_fixed: rrel_scp_var: _final;;
+				*);;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: _descr1;;
+
+		  	=> nrel_goto: .agent_of_calculating_math_expressions_operator2B;;
+			*);;
+
+		-> .agent_of_calculating_math_expressions_operator2B 
+			(*
+		  	<- waitReturn;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _descr1;;
+
+		  	=> nrel_goto: .agent_of_calculating_math_expressions_operator2C1;;
+			*);;      
+
+		-> .agent_of_calculating_math_expressions_operator2C1 
+                 	(*
+                   	<- searchElStr3;;
+
+                     	-> rrel_1: rrel_fixed: rrel_scp_var: _final;;
+                     	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+                     	-> rrel_3: rrel_assign: rrel_scp_var: _result;;
+
+                  	=> nrel_then: .agent_of_calculating_math_expressions_operator2D1;;
+                  	=> nrel_else: .agent_of_calculating_math_expressions_operator2C2;;
+               		*);;
+
+		-> .agent_of_calculating_math_expressions_operator2C2 
+                 	(*
+		  	<- genElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: question_finished_unsuccessfully;; 
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
+
+		  	=> nrel_goto: .agent_of_calculating_math_expressions_operator_return;;
+			*);;   
+
+		-> .agent_of_calculating_math_expressions_operator2D1 
+			(*
+		  	<- genElStr5;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
+		  	-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _result;;
+		  	-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+		  	-> rrel_5: rrel_fixed: rrel_scp_const: nrel_result;;
+
+		  	=> nrel_goto: .agent_of_calculating_math_expressions_operator2D2;;
+			*);; 
+
+		-> .agent_of_calculating_math_expressions_operator2D2 
+                  	(*
+		  	<- genElStr3;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_const: question_finished_successfully;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc3;;
+		  	-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
+
+		  	=> nrel_goto: .agent_of_calculating_math_expressions_operator_return;;
+			*);;    
+	
+		-> .agent_of_calculating_math_expressions_operator_return 
+		 	(*
+		  	<- return;;
+			*);;
+		*);;
+	*);;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

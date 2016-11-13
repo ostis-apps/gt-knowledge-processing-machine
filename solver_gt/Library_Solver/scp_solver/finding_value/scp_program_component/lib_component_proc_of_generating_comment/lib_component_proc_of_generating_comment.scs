@@ -1,0 +1,25 @@
+lib_component_proc_of_generating_comment
+=> nrel_main_idtf:
+	[Компонент библиотеки. scp-программа добавления комментария]
+	(* <- lang_ru;; *);
+	[Library component. scp-program of generating comment]
+	(* <- lang_en;; *);
+
+<- platform_independent_reusable_component_OSTIS;
+<- reusable_scp_program;
+
+-> rrel_key_sc_element: 
+	proc_of_generating_comment;
+
+<- rrel_key_sc_element: 
+	...
+	(*
+	<- sc_explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			"file://htmls/Proc_Gen_Comment.html" 
+				(* <- lang_ru;; *);;
+		*);;
+	*);;
