@@ -1,0 +1,209 @@
+scp_program -> proc_find_graph_info
+(*
+	-> rrel_params: ...
+	(*
+		-> rrel_1: rrel_in: _current_graph;;
+		-> rrel_2: rrel_in: _key_element;;
+		-> rrel_3: rrel_in: _used_programs;;
+		-> rrel_4: rrel_in: _used_key_elements;;
+		-> rrel_5: rrel_in: _solution_tree;;
+	*);;
+
+	-> rrel_operators: ... 
+	(*
+		-> rrel_init: .proc_find_graph_info_operator01
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _used_key_elements;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _key_element;;
+			
+			=> nrel_goto: .proc_find_graph_info_operator0;;
+		*);;
+
+		-> .proc_find_graph_info_operator0
+		(*
+			<- call;;
+		    -> rrel_1: rrel_fixed: rrel_scp_const: proc_nodes_is_connected;;
+		    -> rrel_2: rrel_fixed: rrel_scp_const: ... 
+				(*
+					-> rrel_1: rrel_fixed: rrel_scp_var: _current_graph;;
+					-> rrel_2: rrel_fixed: rrel_scp_var: _key_element;;
+					-> rrel_3: rrel_assign: rrel_scp_var: _isConnected;;
+				*);;
+		    -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+
+			=> nrel_goto: .proc_find_graph_info_operator1;;
+		*);;
+
+		-> .proc_find_graph_info_operator1
+		(*
+			<- waitReturn;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
+
+			=> nrel_goto: .proc_find_graph_info_operator2;;
+		*);;
+
+        -> .proc_find_graph_info_operator2
+		(*
+			<- ifCoin;;
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _isConnected;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: [true];;
+
+			=> nrel_then: .proc_find_graph_info_operator_return;;
+			=> nrel_else: .proc_find_graph_info_operator3;;
+		*);;
+
+        -> .proc_find_graph_info_operator3
+		(*
+			<- searchSetStr5;;
+
+    		-> rrel_1: rrel_assign: rrel_scp_var: _program;;
+    		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+    		-> rrel_3: rrel_fixed: rrel_scp_var: _key_element;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+    		-> rrel_5: rrel_fixed: rrel_scp_const: rrel_key_sc_element;;
+
+			-> rrel_set_1: rrel_assign: rrel_scp_var: _programs_set;;
+
+			=> nrel_then: .proc_find_graph_info_operator4;;
+			=> nrel_else: .proc_find_graph_info_operator_return;;
+		*);;
+
+		-> .proc_find_graph_info_operator4
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _programs_set;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc_erase_1;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _current_program;;
+			
+			=> nrel_then: .proc_find_graph_info_operator6;;
+			=> nrel_else: .proc_find_graph_info_operator5;;
+		*);;
+
+		-> .proc_find_graph_info_operator5
+		(*
+			<- eraseEl;;
+            -> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _programs_set;;
+
+			=> nrel_goto: .proc_find_graph_info_operator_return;;//&&
+		*);;
+		
+		-> .proc_find_graph_info_operator6
+		(*
+			<- eraseEl;;
+			-> rrel_1: rrel_fixed: rrel_erase: rrel_pos_const_perm: rrel_scp_var: _arc_erase_1;;
+                        
+			=> nrel_goto: .proc_find_graph_info_operator6_1;;
+		*);;
+
+		-> .proc_find_graph_info_operator6_1
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _used_programs;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _current_program;;
+			
+			=> nrel_then: .proc_find_graph_info_operator4;;
+			=> nrel_else: .proc_find_graph_info_operator7;;
+		*);;
+
+		-> .proc_find_graph_info_operator7
+		(*
+			<- searchElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _current_program;;
+			-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _condition_arc;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_initiation_condition_and_result;;
+
+			=> nrel_then: .proc_find_graph_info_operator8;;
+			=> nrel_else: .proc_find_graph_info_operator4;;
+		*);;
+
+		-> .proc_find_graph_info_operator8
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_assign: rrel_scp_var: _init_stuct;;
+			-> rrel_2: rrel_fixed: rrel_common: rrel_scp_var: _condition_arc;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _result_struct;;
+		
+			=> nrel_then: .proc_find_graph_info_operator9;;
+			=> nrel_else: .proc_find_graph_info_operator4;;
+		*);;
+
+		-> .proc_find_graph_info_operator9
+		(*
+			<- sys_search;;	
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _init_stuct;;
+		 	-> rrel_2: rrel_fixed: rrel_scp_const: ...;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: ... 
+				(* -> ... 
+					(* -> rrel_1: rrel_fixed: rrel_scp_const: _graph;;
+                       -> rrel_2: rrel_fixed: rrel_scp_var: _current_graph;; 
+					*);;
+				*);;
+
+			=> nrel_then: .proc_find_graph_info_operator10;;
+			=> nrel_else: .proc_find_graph_info_operator_return;;
+		*);;
+
+		-> .proc_find_graph_info_operator10
+		(*
+			<- call;;
+		    -> rrel_1: rrel_fixed: rrel_scp_var: _current_program;;
+		    -> rrel_2: rrel_fixed: rrel_scp_const: ... 
+				(*
+					-> rrel_1: rrel_fixed: rrel_scp_var: _current_graph;;
+				*);;
+		    -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+
+			=> nrel_goto: .proc_find_graph_info_operator11;;
+		*);;
+
+		-> .proc_find_graph_info_operator11
+		(*
+			<- waitReturn;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
+			
+			=> nrel_goto: .proc_find_graph_info_operator12;;
+		*);;
+
+		-> .proc_find_graph_info_operator12
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _used_programs;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _program;;
+
+			=> nrel_goto: .proc_find_graph_info_operator13;;
+		*);;
+
+		-> .proc_find_graph_info_operator13
+		(*
+			<- genElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _solution_tree;;
+			-> rrel_2: rrel_assign: rrel_const: rrel_pos_const_perm: rrel_scp_var: _arc;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _key_element;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_1;;
+
+			=> nrel_goto: .proc_find_graph_info_operator14;;
+		*);;
+
+		-> .proc_find_graph_info_operator14
+		(*
+			<- genElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _solution_tree;;
+			-> rrel_2: rrel_assign: rrel_const: rrel_pos_const_perm: rrel_scp_var: _arc;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _current_program;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_2;;
+
+			=> nrel_goto: .proc_find_graph_info_operator5;;
+		*);;
+
+		-> .proc_find_graph_info_operator_return(*<-return;;*);;
+	*);;
+*);;

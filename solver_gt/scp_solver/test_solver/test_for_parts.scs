@@ -1,0 +1,34 @@
+concept_graph -> the_best_graph;;
+the_best_graph
+-> rrel_vertex: vertex1;
+-> rrel_vertex: vertex2;
+-> rrel_vertex: vertex3;
+-> rrel_vertex: vertex4;
+-> rrel_vertex: vertex5;
+
+-> rrel_oredge: (vertex1 => vertex2);
+-> rrel_oredge: (vertex1 => vertex3);
+-> rrel_oredge: (vertex1 => vertex4);
+-> rrel_oredge: (vertex1 => vertex5);
+
+-> rrel_oredge: (vertex2 => vertex1);
+-> rrel_oredge: (vertex2 => vertex3);
+-> rrel_oredge: (vertex2 => vertex4);
+-> rrel_oredge: (vertex2 => vertex5);
+
+-> rrel_oredge: (vertex3 => vertex2);
+-> rrel_oredge: (vertex3 => vertex1);
+-> rrel_oredge: (vertex3 => vertex4);
+-> rrel_oredge: (vertex3 => vertex5);
+
+-> rrel_oredge: (vertex4 => vertex2);
+-> rrel_oredge: (vertex4 => vertex3);
+-> rrel_oredge: (vertex4 => vertex1);
+-> rrel_oredge: (vertex4 => vertex5);
+
+-> rrel_oredge: (vertex5 => vertex2);
+-> rrel_oredge: (vertex5 => vertex3);
+-> rrel_oredge: (vertex5 => vertex4);
+-> rrel_oredge: (vertex5 => vertex1);;
+
+aaaa_test->the_best_graph;concept_planar_graph;;

@@ -13,6 +13,8 @@ proc_planar_graph
 		rrel_oredge
 	};
 
+-> rrel_key_sc_element: concept_planar_graph;
+
 <- key_sc_element:
 	..scp_program_proc_planar_graph_behavior
 	(*
