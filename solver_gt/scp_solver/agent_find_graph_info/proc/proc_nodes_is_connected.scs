@@ -39,7 +39,7 @@ scp_program -> proc_nodes_is_connected
 		(*
 			<- searchElStr3;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _node2;;
-            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc;;
+            -> rrel_2: rrel_assign: rrel_scp_var: _arc;;
             -> rrel_3: rrel_fixed: rrel_scp_var: _node1;;
 			
 			=>nrel_then: .proc_nodes_is_connected_operator_last;;

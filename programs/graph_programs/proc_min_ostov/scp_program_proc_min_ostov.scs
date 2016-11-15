@@ -35,5 +35,5 @@ proc_min_ostov
 
 ..scp_program_proc_min_ostov_result 
 = [*
-	_curr_graph _=> nrel_min_ostov:: _ans_tree;;
+	_curr_graph _=> nrel_min_ostov:: _ans_tiree;;
 *];;

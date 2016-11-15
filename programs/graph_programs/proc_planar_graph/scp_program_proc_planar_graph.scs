@@ -2,18 +2,8 @@ proc_planar_graph
 => nrel_main_idtf:
 	[Программа проверки графа на планарность] (* <- lang_ru;; *);
 
-=> nrel_initiation_condition_and_result: (..scp_program_proc_planar_graph_initiation_condition
-					  => ..scp_program_proc_planar_graph_result);
-
-<= nrel_scp_program_key_sc_elements: 
-	{
-		concept_graph;
-		concept_planar_graph;
-		rrel_vertex;
-		rrel_oredge
-	};
-
--> rrel_key_sc_element: concept_planar_graph;
+-> rrel_key_sc_element: concept_graph; rrel_vertex; rrel_oredge;
+-> rrel_main_key_sc_element: concept_planar_graph;
 
 <- key_sc_element:
 	..scp_program_proc_planar_graph_behavior
@@ -25,17 +15,20 @@ proc_planar_graph
 			-> rrel_example:
 				[Это программа создает из понятия "планарный граф" к графу либо дугу приндлежности, если граф планарный, либо отрицательную дугу, если граф непланарный];;
 		*);;
-	*);;
+	*);
 
-..scp_program_proc_planar_graph_initiation_condition
+-> rrel_if: ..scp_program_proc_planar_graph_initiation_condition
 = [*
 	concept_graph _-> _graph;;
-*];;
+*];
 
-..scp_program_proc_planar_graph_result
-	<- nrel_conjunction;
-	-> ..scp_program_proc_planar_graph_result1;
+-> rrel_then: ..scp_program_proc_planar_graph_result
+(*
+	<- nrel_conjunction;;
+	-> ..scp_program_proc_planar_graph_result1;;
 	-> ..scp_program_proc_planar_graph_result2;;
+*);;
+	
 
 ..scp_program_proc_planar_graph_result1
 = [*
