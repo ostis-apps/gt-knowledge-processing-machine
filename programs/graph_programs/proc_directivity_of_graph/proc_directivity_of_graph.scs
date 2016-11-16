@@ -120,7 +120,7 @@ scp_program -> proc_directivity_of_graph
 			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
 			
-			=> nrel_goto: .proc_directivity_of_graph_operator12;;
+			=> nrel_goto: .proc_directivity_of_graph_operator_return;;
 		*);;
 			
 		-> .proc_directivity_of_graph_operator_return(*<-return;;*);;
