@@ -257,7 +257,27 @@ scp_program -> proc_find_graph_info
 			=> nrel_else: .proc_find_graph_info_operator20;;
 		*);;
 
-		-> .proc_find_graph_info_operator20
+        -> .proc_find_graph_info_operator20
+		(*
+			<- genEl;;
+			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _solution_new_branch;;
+
+			=> nrel_goto: .agent_find_graph_info_operator20_1;;
+		*);;
+
+		-> .proc_find_graph_info_operator20_1
+		(*
+			<- genElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _solution_new_branch;;
+			-> rrel_2: rrel_assign: rrel_const: rrel_common: rrel_scp_var: _arc;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _solution_tree;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_goto;;
+			
+			=> nrel_goto: .agent_find_graph_info_operator20_2;;
+		*);;
+
+		-> .proc_find_graph_info_operator20_2
 		(*
 			<- searchElStr3;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _used_key_elements;;
@@ -278,7 +298,7 @@ scp_program -> proc_find_graph_info
 					-> rrel_2: rrel_fixed: rrel_scp_var: _init_stuct_element;;
 					-> rrel_3: rrel_fixed: rrel_scp_var: _used_solver_elements;;
 					-> rrel_4: rrel_fixed: rrel_scp_var: _used_key_elements;;
-					-> rrel_5: rrel_fixed: rrel_scp_var: _solution_tree;;
+					-> rrel_5: rrel_fixed: rrel_scp_var: _solution_new_branch;;
 				*);;
 		    -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
 
@@ -307,7 +327,7 @@ scp_program -> proc_find_graph_info
 		    -> rrel_1: rrel_fixed: rrel_scp_const: proc_remove_current_solution_branch;;
 		    -> rrel_2: rrel_fixed: rrel_scp_const: ... 
 				(*
-					-> rrel_1: rrel_fixed: rrel_scp_var: _solution_tree;;
+					-> rrel_1: rrel_fixed: rrel_scp_var: _solution_new_branch;;
 				*);;
 		    -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
 
