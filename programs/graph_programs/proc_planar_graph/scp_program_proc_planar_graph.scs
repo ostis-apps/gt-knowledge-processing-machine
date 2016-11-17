@@ -2,7 +2,7 @@ proc_planar_graph
 => nrel_main_idtf:
 	[Программа проверки графа на планарность] (* <- lang_ru;; *);
 
--> rrel_key_sc_element: concept_graph; rrel_vertex; rrel_oredge;
+-> rrel_key_sc_element: concept_graph;
 -> rrel_main_key_sc_element: concept_planar_graph;
 
 <- key_sc_element:
@@ -17,10 +17,7 @@ proc_planar_graph
 		*);;
 	*);
 
--> rrel_if: ..scp_program_proc_planar_graph_initiation_condition
-= [*
-	concept_graph _-> _graph;;
-*];
+-> rrel_if: ..scp_program_proc_planar_graph_initiation_condition;
 
 -> rrel_then: ..scp_program_proc_planar_graph_result
 (*
@@ -29,6 +26,9 @@ proc_planar_graph
 	-> ..scp_program_proc_planar_graph_result2;;
 *);;
 	
+..scp_program_proc_planar_graph_initiation_condition = [*
+	concept_graph _-> _graph;;
+*];;
 
 ..scp_program_proc_planar_graph_result1
 = [*
