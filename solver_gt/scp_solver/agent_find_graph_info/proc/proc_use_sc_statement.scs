@@ -16,7 +16,7 @@ scp_program -> proc_use_sc_statement
 			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
 			-> rrel_3: rrel_assign: rrel_scp_var: _init_stuct;;
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_if;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_then;;
 
 			=> nrel_then: .proc_use_sc_statement_operator1;;
 			=> nrel_else: .proc_use_sc_statement_operator_return;;

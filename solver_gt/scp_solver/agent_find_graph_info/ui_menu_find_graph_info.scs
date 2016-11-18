@@ -1,8 +1,8 @@
 ui_menu_find_graph_info <- ui_user_command_class_atom; ui_user_command_class_view_kb;;
 
-ui_menu_find_graph_info =>nrel_main_idtf: [Поиск информации о графе] (* <- lang_ru;; *);;
+ui_menu_find_graph_info =>nrel_main_idtf: [Решение задачи] (* <- lang_ru;; *);;
 
-ui_menu_find_graph_info =>nrel_main_idtf: [Finding inforamtion for graph] (* <- lang_en;; *);;
+ui_menu_find_graph_info =>nrel_main_idtf: [Task solution] (* <- lang_en;; *);;
 
 // Указываем шаблон нашей команды
 ui_menu_find_graph_info =>ui_nrel_command_template:
@@ -16,10 +16,10 @@ ui_menu_find_graph_info =>ui_nrel_command_template:
 	._question_find_graph_info_instance _<- question;;
 *];;
 
-ui_menu_find_graph_info =>ui_nrel_command_lang_template: [Какие свойства у графа: $ui_arg_1] 
+ui_menu_find_graph_info =>ui_nrel_command_lang_template: [Решение задачи: $ui_arg_1] 
 (*
 	<- lang_ru;; 
 *);;
 
-ui_menu_find_graph_info =>ui_nrel_command_lang_template: [Define types of graph: $ui_arg_1]
+ui_menu_find_graph_info =>ui_nrel_command_lang_template: [Task solution: $ui_arg_1]
 (* <- lang_en;; *);;

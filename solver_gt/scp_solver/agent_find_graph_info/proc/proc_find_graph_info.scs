@@ -11,7 +11,7 @@ scp_program -> proc_find_graph_info
 
 	-> rrel_operators: ... 
 	(*
-		-> rrel_init: .proc_find_graph_info_operator001
+		-> .proc_find_graph_info_operator001
 		(*
 			<- call;;
 		    -> rrel_1: rrel_fixed: rrel_scp_const: proc_print_idtf;;
@@ -53,7 +53,7 @@ scp_program -> proc_find_graph_info
 			=> nrel_goto: .proc_find_graph_info_operator01;;
 		*);;
 
-		-> .proc_find_graph_info_operator01
+		-> rrel_init: .proc_find_graph_info_operator01
 		(*
 			<- genElStr3;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _used_key_elements;;
@@ -262,29 +262,8 @@ scp_program -> proc_find_graph_info
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
     		-> rrel_5: rrel_fixed: rrel_scp_const: rrel_key_sc_element;;
 			
-			=> nrel_then: .proc_find_graph_info_operator17_test;;
+			=> nrel_then: .proc_find_graph_info_operator17;;
 			=> nrel_else: .proc_find_graph_info_operator13;;
-		*);;
-
-		-> .proc_find_graph_info_operator17_test
-		(*
-			<- call;;
-		    -> rrel_1: rrel_fixed: rrel_scp_const: proc_print_idtf;;
-		    -> rrel_2: rrel_fixed: rrel_scp_const: ... 
-				(*
-					-> rrel_1: rrel_fixed: rrel_scp_var: _init_stuct_element;;
-				*);;
-		    -> rrel_3: rrel_assign: rrel_scp_var: _descr1;;
-
-			=> nrel_goto: .proc_find_graph_info_operator17_test_wait;;
-		*);;
-
-		-> .proc_find_graph_info_operator17_test_wait
-		(*
-			<- waitReturn;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _descr1;;
-
-			=> nrel_goto: .proc_find_graph_info_operator17;;
 		*);;
 
 		-> .proc_find_graph_info_operator17

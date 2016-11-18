@@ -58,12 +58,12 @@ scp_program -> proc_find_connected_graph (*
 
 		-> .proc_find_connected_operator5
 		(*
-			<- ifCoin;;
+			<- ifEq;;
 		  	-> rrel_1: rrel_fixed: rrel_scp_var: _counter;;
 		  	-> rrel_2: rrel_fixed: rrel_scp_const: [1];;
 
-			=> nrel_then: .proc_find_graph_info_operator6;;
-			=> nrel_else: .proc_find_graph_info_operator7;;
+			=> nrel_then: .proc_find_connected_operator6;;
+			=> nrel_else: .proc_find_connected_operator7;;
 		*);;
 		
 		-> .proc_find_connected_operator6 (*
