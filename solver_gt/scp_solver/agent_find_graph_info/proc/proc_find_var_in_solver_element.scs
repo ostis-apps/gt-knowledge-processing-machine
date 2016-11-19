@@ -1,0 +1,137 @@
+scp_program -> proc_find_var_in_solver_element
+(*
+	-> rrel_params: ...
+	(*
+		-> rrel_1: rrel_in: _solver_element;;
+		-> rrel_2: rrel_out: _var_from_solver_element;;
+	*);;
+
+	-> rrel_operators: ... 
+	(*
+		-> rrel_init: .proc_find_var_in_solver_element_operator1
+		(*
+			<- searchElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _solver_element;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _init_struct;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_if;;
+
+			=> nrel_then: .proc_find_var_in_solver_element_operator2;;
+			=> nrel_else: .proc_find_var_in_solver_element_operator_return;;
+		*);;
+
+		-> .proc_find_var_in_solver_element_operator2
+		(*
+			<- searchElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _solver_element;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _result_struct;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_then;;
+
+			=> nrel_then: .proc_find_var_in_solver_element_operator3;;
+			=> nrel_else: .proc_find_var_in_solver_element_operator_return;;
+		*);;
+
+		-> .proc_find_var_in_solver_element_operator3
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: nrel_disjunction;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _result_struct;;
+			
+			=> nrel_then: .proc_find_var_in_solver_element_operator4;;
+			=> nrel_else: .proc_find_var_in_solver_element_operator6;;
+		*);;
+
+		-> .proc_find_var_in_solver_element_operator4
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _result_struct;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _result_struct_new;;
+
+			=> nrel_then: .proc_find_var_in_solver_element_operator5;;
+			=> nrel_else: .proc_find_var_in_solver_element_operator_return;;
+		*);;
+
+		-> .proc_find_var_in_solver_element_operator5
+		(*
+			<- varAssign;;
+			-> rrel_1: rrel_assign: rrel_scp_var: _result_struct;;
+			-> rrel_2: rrel_fixed: rrel_scp_var: _result_struct_new;;
+
+			=> nrel_goto: .proc_find_var_in_solver_element_operator6;;
+		*);;
+
+		-> .proc_find_var_in_solver_element_operator6
+		(*
+			<- searchSetStr3;;
+    		-> rrel_1: rrel_fixed: rrel_scp_var: _init_struct;;
+    		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+    		-> rrel_3: rrel_assign: rrel_scp_var: rrel_var: _init_struct_element;;
+
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _init_struct_copy;;
+
+			=> nrel_then: .proc_find_var_in_solver_element_operator7;;
+			=> nrel_else: .proc_find_var_in_solver_element_operator_return;;
+		*);;
+
+		-> .proc_find_var_in_solver_element_operator7
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _init_struct_copy;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc_erase_3;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _init_struct_element;;
+			
+			=> nrel_then: .proc_find_var_in_solver_element_operator9;;
+			=> nrel_else: .proc_find_var_in_solver_element_operator8;;
+		*);;
+
+		-> .proc_find_var_in_solver_element_operator8
+		(*
+			<- eraseEl;;
+            -> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _init_struct_copy;;
+
+			=> nrel_goto: .proc_find_var_in_solver_element_operator_return;;
+		*);;
+		
+		-> .proc_find_var_in_solver_element_operator9
+		(*
+			<- eraseEl;;
+			-> rrel_1: rrel_fixed: rrel_erase: rrel_pos_const_perm: rrel_scp_var: _arc_erase_3;;
+                        
+			=> nrel_goto: .proc_find_var_in_solver_element_operator10;;
+		*);;
+		-> .proc_find_var_in_solver_element_operator10
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _result_struct;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _init_struct_element;;
+			
+			=> nrel_then: .proc_find_var_in_solver_element_operator11;;
+			=> nrel_else: .proc_find_var_in_solver_element_operator7;;
+		*);;
+
+		-> .proc_find_var_in_solver_element_operator11
+		(*
+			<- eraseEl;;
+            -> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _init_struct_copy;;
+
+			=> nrel_goto: .proc_find_var_in_solver_element_operator12;;
+		*);;
+
+		-> .proc_find_var_in_solver_element_operator12
+		(*
+			<- varAssign;;
+			-> rrel_1: rrel_assign: rrel_scp_var: _var_from_solver_element;;
+			-> rrel_2: rrel_fixed: rrel_scp_var: _init_struct_element;;
+
+			=> nrel_goto: .proc_find_var_in_solver_element_operator_return;;
+		*);;
+
+		-> .proc_find_var_in_solver_element_operator_return(*<-return;;*);;
+	*);;
+*);;

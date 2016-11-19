@@ -26,7 +26,7 @@ proc_reflexive_graphs
 *];;
 
 ..scp_program_proc_reflexive_graphs_result
-	<- nrel_conjunction;
+	<- nrel_disjunction;
 	-> ..scp_program_proc_reflexive_graphs_result1;
 	-> ..scp_program_proc_reflexive_graphs_result2;;
 
