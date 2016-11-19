@@ -2,14 +2,8 @@ proc_bridge
 => nrel_main_idtf:
 	[Программа поиска всех мостов графа] (* <- lang_ru;; *);
 
-=> nrel_initiation_condition_and_result: (..scp_program_proc_bridge_initiation_condition
-					  => ..scp_program_proc_bridge_result);
-<= nrel_scp_program_key_sc_elements: 
-	{
-		concept_graph;
-		rrel_vertex;
-		nrel_set_bridge
-	};
+-> rrel_key_sc_element: concept_graph;
+-> rrel_main_key_sc_element: nrel_set_bridge;
 
 <- key_sc_element:
 	..scp_program_proc_bridge_behavior
@@ -21,13 +15,15 @@ proc_bridge
 			-> rrel_example:
 				[Это программа создает множество мостов графа и связывает его с графом отношением "множество мостов*"];;
 		*);;
-	*);;
+	*);
+
+-> rrel_if: ..scp_program_proc_bridge_initiation_condition;
+-> rrel_then: ..scp_program_proc_bridge_result;;
 
 ..scp_program_proc_bridge_initiation_condition
 = [*
 	concept_graph _-> _graph;;
 *];;
-
 
 ..scp_program_proc_bridge_result
 = [*

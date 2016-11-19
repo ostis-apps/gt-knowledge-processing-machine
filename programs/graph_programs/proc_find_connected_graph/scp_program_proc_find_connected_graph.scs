@@ -1,0 +1,40 @@
+proc_find_connected_graph
+=> nrel_main_idtf:
+	[Программа проверки графа на связность] (* <- lang_ru;; *);
+
+-> rrel_key_sc_element: concept_graph;
+-> rrel_main_key_sc_element: concept_connected_graph; concept_disconnected_graph;
+
+<- key_sc_element:
+	..scp_program_proc_find_connected_graph_behavior
+	(*
+		<- sc_description_of_scp_program_behavior;;
+		<= nrel_sc_text_translation:
+		...
+		(*
+			-> rrel_example:
+				[Это программа создает из понятия "связный граф" к графу либо дугу приндлежности, если граф связный, либо отрицательную дугу, если граф несвязный];;
+		*);;
+	*);
+
+-> rrel_if: ..scp_program_proc_find_connected_graph_initiation_condition;
+-> rrel_then: ..scp_program_proc_find_connected_graph_result;;
+	
+..scp_program_proc_find_connected_graph_initiation_condition = [*
+	concept_graph _-> _graph;;
+*];;
+
+..scp_program_proc_find_connected_graph_result
+	<- nrel_conjunction;
+	-> ..scp_program_proc_find_connected_graph_result1;
+	-> ..scp_program_proc_find_connected_graph_result2;;
+
+..scp_program_proc_find_connected_graph_result1
+= [*
+	concept_connected_graph _-> _graph;;
+*];;
+
+..scp_program_proc_find_connected_graph_result2
+= [*
+	concept_disconnected_graph _-> _graph;;
+*];;

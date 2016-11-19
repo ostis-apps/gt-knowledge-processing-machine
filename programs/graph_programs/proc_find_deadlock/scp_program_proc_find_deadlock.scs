@@ -2,15 +2,8 @@ proc_find_deadlock
 => nrel_main_idtf:
 	[Программа поиска всех тупиков графа] (* <- lang_ru;; *);
 
-=> nrel_initiation_condition_and_result: (..scp_program_proc_find_deadlock_initiation_condition
-					  => ..scp_program_proc_find_deadlock_result);
-<= nrel_scp_program_key_sc_elements: 
-	{
-		concept_graph;
-		rrel_vertex;
-		rrel_oredge;
-		nrel_set_deadlock
-	};
+-> rrel_key_sc_element: concept_graph;
+-> rrel_main_key_sc_element: nrel_set_deadlock;
 
 <- key_sc_element:
 	..scp_program_proc_find_deadlock_behavior
@@ -22,7 +15,10 @@ proc_find_deadlock
 			-> rrel_example:
 				[Это программа создает множество тупиков графа и связывает его с графом отношением "множество тупиков*"];;
 		*);;
-	*);;
+	*);
+
+-> rrel_if: ..scp_program_proc_find_deadlock_initiation_condition;
+-> rrel_then: ..scp_program_proc_find_deadlock_result;;
 
 ..scp_program_proc_find_deadlock_initiation_condition
 = [*
