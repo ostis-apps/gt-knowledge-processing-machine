@@ -18,17 +18,16 @@ proc_find_connected_graph
 	*);
 
 -> rrel_if: ..scp_program_proc_find_connected_graph_initiation_condition;
-
--> rrel_then: ..scp_program_proc_find_connected_graph_result
-(*
-	<- nrel_conjunction;;
-	-> ..scp_program_proc_find_connected_graph_result1;;
-	-> ..scp_program_proc_find_connected_graph_result2;;
-*);;
+-> rrel_then: ..scp_program_proc_find_connected_graph_result;;
 	
 ..scp_program_proc_find_connected_graph_initiation_condition = [*
 	concept_graph _-> _graph;;
 *];;
+
+..scp_program_proc_find_connected_graph_result
+	<- nrel_conjunction;
+	-> ..scp_program_proc_find_connected_graph_result1;
+	-> ..scp_program_proc_find_connected_graph_result2;;
 
 ..scp_program_proc_find_connected_graph_result1
 = [*

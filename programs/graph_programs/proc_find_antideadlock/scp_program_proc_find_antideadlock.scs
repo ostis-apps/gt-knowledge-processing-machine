@@ -2,15 +2,8 @@ proc_find_antideadlock
 => nrel_main_idtf:
 	[Программа поиска всех антитупиков графа] (* <- lang_ru;; *);
 
-=> nrel_initiation_condition_and_result: (..scp_program_proc_find_antideadlock_initiation_condition
-					  => ..scp_program_proc_find_antideadlock_result);
-<= nrel_scp_program_key_sc_elements: 
-	{
-		concept_graph;
-		rrel_vertex;
-		rrel_oredge;
-		nrel_set_antideadlock
-	};
+-> rrel_key_sc_element: concept_graph;
+-> rrel_main_key_sc_element: nrel_set_antideadlock;
 
 <- key_sc_element:
 	..scp_program_proc_find_antideadlock_behavior
@@ -22,7 +15,10 @@ proc_find_antideadlock
 			-> rrel_example:
 				[Это программа создает множество антитупиков графа и связывает его с графом отношением "множество антитупиков*"];;
 		*);;
-	*);;
+	*);
+
+-> rrel_if: ..scp_program_proc_find_antideadlock_initiation_condition;
+-> rrel_then: ..scp_program_proc_find_antideadlock_result;;
 
 ..scp_program_proc_find_antideadlock_initiation_condition
 = [*

@@ -84,3 +84,7 @@ sc_statement_graph_tree
 = [*
 	concept_tree _-> _graph;;
 *];;
+
+solver_no_solution => nrel_main_idtf: 
+	[Решение не найдено] (* <- lang_ru;; *);
+	[Solution not found] (* <- lang_en;; *);;
