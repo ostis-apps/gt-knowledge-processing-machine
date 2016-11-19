@@ -25,7 +25,7 @@ proc_find_connected_graph
 *];;
 
 ..scp_program_proc_find_connected_graph_result
-	<- nrel_conjunction;
+	<- nrel_disjunction;
 	-> ..scp_program_proc_find_connected_graph_result1;
 	-> ..scp_program_proc_find_connected_graph_result2;;
 

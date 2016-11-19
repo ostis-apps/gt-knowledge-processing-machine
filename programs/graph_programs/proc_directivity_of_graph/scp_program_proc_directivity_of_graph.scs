@@ -26,7 +26,7 @@ proc_directivity_of_graph
 *];;
 
 ..scp_program_proc_directivity_of_graph_result
-	<- nrel_conjunction;
+	<- nrel_disjunction;
 	-> ..scp_program_proc_directivity_of_graph_result1;
 	-> ..scp_program_proc_directivity_of_graph_result2;;
 

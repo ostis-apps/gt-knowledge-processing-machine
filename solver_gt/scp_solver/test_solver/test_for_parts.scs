@@ -75,14 +75,14 @@ sc_statement_graph_tree
 -> rrel_then: ..sc_statement_graph_tree_result;;
 	
 ..sc_statement_graph_tree_initiation_condition = [*
-	concept_graph _-> _graph;;
-	concept_acyclic_graph _-> _graph;;
-	concept_connected_graph _-> _graph;;
+	concept_graph _-> _graph_koval;;
+	concept_acyclic_graph _-> _graph_koval;;
+	concept_connected_graph _-> _graph_koval;;
 *];;
 
 ..sc_statement_graph_tree_result
 = [*
-	concept_tree _-> _graph;;
+	concept_tree _-> _graph_koval;;
 *];;
 
 solver_no_solution => nrel_main_idtf: 
