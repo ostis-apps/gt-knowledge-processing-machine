@@ -1,0 +1,32 @@
+proc_find_number_of_vertexes
+=> nrel_main_idtf:
+	[Программа подсчёта вершин графа] (* <- lang_ru;; *);
+
+-> rrel_key_sc_element: concept_graph;
+-> rrel_main_key_sc_element: nrel_number_of_vertexes;
+
+<- key_sc_element:
+	..scp_program_proc_find_number_of_vertexes_behavior
+	(*
+		<- sc_description_of_scp_program_behavior;;
+		<= nrel_sc_text_translation:
+		...
+		(*
+			-> rrel_example:
+				[Это программа создает ссылку, в которой хранит значение количества вершин графа и связывает его с графом отношением "количество вершин*"];;
+		*);;
+	*);
+
+-> rrel_if: ..scp_program_proc_find_number_of_vertexes_initiation_condition;
+-> rrel_then: ..scp_program_proc_find_number_of_vertexes_result;;
+
+..scp_program_proc_find_number_of_vertexes_initiation_condition
+= [*
+	concept_graph _-> _curr_graph;;
+*];;
+
+
+..scp_program_proc_find_number_of_vertexes_result
+= [*
+	_curr_graph _=> nrel_number_of_vertexes:: _kolichestvo;;
+*];;
