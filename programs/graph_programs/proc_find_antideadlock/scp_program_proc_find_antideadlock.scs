@@ -5,7 +5,7 @@ proc_find_antideadlock
 -> rrel_key_sc_element: concept_graph;
 -> rrel_main_key_sc_element: nrel_set_antideadlock;
 
-<- key_sc_element:
+<- rrel_key_sc_element:
 	..scp_program_proc_find_antideadlock_behavior
 	(*
 		<- sc_description_of_scp_program_behavior;;

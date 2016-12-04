@@ -5,7 +5,7 @@ proc_find_points_of_articulation_var1
 -> rrel_key_sc_element: concept_graph;
 //TODO: add main key sc element
 
-<- key_sc_element:
+<- rrel_key_sc_element:
 	..scp_program_proc_find_points_of_articulation_var1_behavior
 	(*
 		<- sc_description_of_scp_program_behavior;;

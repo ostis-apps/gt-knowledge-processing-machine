@@ -4,7 +4,7 @@ proc_find_shortest_path_tree
 
 //TODO: add main key sc element
 
-<- key_sc_element:
+<- rrel_key_sc_element:
 	..scp_program_proc_shortest_path_tree_behavior
 	(*
 		<- sc_description_of_scp_program_behavior;;

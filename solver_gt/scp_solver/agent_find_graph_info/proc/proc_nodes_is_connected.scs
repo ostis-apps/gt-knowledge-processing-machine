@@ -9,6 +9,48 @@ scp_program -> proc_nodes_is_connected
 
 	-> rrel_operators: ... 
 	(*
+		-> .proc_nodes_is_connected_operator001
+		(*
+			<- call;;
+		    -> rrel_1: rrel_fixed: rrel_scp_const: proc_print_idtf;;
+		    -> rrel_2: rrel_fixed: rrel_scp_const: ... 
+				(*
+					-> rrel_1: rrel_fixed: rrel_scp_var: _node1;;
+				*);;
+		    -> rrel_3: rrel_assign: rrel_scp_var: _descr1;;
+
+			=> nrel_goto: .proc_nodes_is_connected_operator002;;
+		*);;
+
+		-> .proc_nodes_is_connected_operator002
+		(*
+			<- waitReturn;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr1;;
+
+			=> nrel_goto: .proc_nodes_is_connected_operator003;;
+		*);;
+
+		-> .proc_nodes_is_connected_operator003
+		(*
+			<- call;;
+		    -> rrel_1: rrel_fixed: rrel_scp_const: proc_print_idtf;;
+		    -> rrel_2: rrel_fixed: rrel_scp_const: ... 
+				(*
+					-> rrel_1: rrel_fixed: rrel_scp_var: _node2;;
+				*);;
+		    -> rrel_3: rrel_assign: rrel_scp_var: _descr1;;
+
+			=> nrel_goto: .proc_nodes_is_connected_operator004;;
+		*);;
+
+		-> .proc_nodes_is_connected_operator004
+		(*
+			<- waitReturn;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr1;;
+
+			=> nrel_goto: .proc_nodes_is_connected_operator0;;
+		*);;
+
 		-> rrel_init: .proc_nodes_is_connected_operator0
 		(*
 			<- genEl;;
@@ -57,50 +99,27 @@ scp_program -> proc_nodes_is_connected
 			=>nrel_else: .proc_nodes_is_connected_operator_return;; 	
 		*);;
 
-
 		-> .proc_nodes_is_connected_operator4
-		(*
-			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_const: sc_node_norole_relation;;
-            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc;;
-            -> rrel_3: rrel_fixed: rrel_scp_var: _node2;;
-			
-			=> nrel_then: .proc_nodes_is_connected_operator5;;
-            => nrel_else: .proc_nodes_is_connected_operator6;;	
-		*);;
-
-		-> .proc_nodes_is_connected_operator5
 		(*
 			<- searchElStr5;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _node1;;
             -> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc1;;
             -> rrel_3: rrel_assign: rrel_scp_var: _node3;;
             -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
-            -> rrel_1: rrel_fixed: rrel_scp_var: _node2;;
+            -> rrel_5: rrel_fixed: rrel_scp_var: _node2;;
 			
 			=>nrel_then: .proc_nodes_is_connected_operator_last;;
-			=>nrel_else: .proc_nodes_is_connected_operator_return;; 	
+			=>nrel_else: .proc_nodes_is_connected_operator5;; 	
 		*);;
 
-		-> .proc_nodes_is_connected_operator6
-		(*
-			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_const: sc_node_role_relation;;
-            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc;;
-            -> rrel_3: rrel_fixed: rrel_scp_var: _node2;;  
-			
-			=> nrel_then: .proc_nodes_is_connected_operator7;;
-            => nrel_else: .proc_nodes_is_connected_operator_return;;	
-		*);;
-
-		-> .proc_nodes_is_connected_operator7
+		-> .proc_nodes_is_connected_operator5
 		(*
 			<- searchElStr5;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _node1;;
             -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
             -> rrel_3: rrel_assign: rrel_scp_var: _node3;;
             -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
-            -> rrel_1: rrel_fixed: rrel_scp_var: _node2;;
+            -> rrel_5: rrel_fixed: rrel_scp_var: _node2;;
 			
 			=>nrel_then: .proc_nodes_is_connected_operator_last;;
 			=>nrel_else: .proc_nodes_is_connected_operator_return;; 	

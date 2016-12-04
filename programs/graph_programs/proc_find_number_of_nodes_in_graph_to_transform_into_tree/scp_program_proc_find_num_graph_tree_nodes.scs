@@ -12,7 +12,7 @@ proc_find_num_graph_tree_nodes
 		nrel_number_of_deleted_nodes
 	};
 
-<- key_sc_element:
+<- rrel_key_sc_element:
 	..scp_program_proc_find_num_graph_tree_nodes_behavior
 	(*
 		<- sc_description_of_scp_program_behavior;;

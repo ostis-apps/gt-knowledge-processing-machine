@@ -15,7 +15,7 @@ proc_run_test_triangle
 		rrel_oredge
 	};
 
-<- key_sc_element:
+<- rrel_key_sc_element:
 	..scp_program_proc_run_test_triangle_behavior
 	(*
 		<- sc_description_of_scp_program_behavior;;

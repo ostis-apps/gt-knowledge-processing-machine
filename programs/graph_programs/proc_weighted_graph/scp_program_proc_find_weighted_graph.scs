@@ -15,7 +15,7 @@ proc_find_weighted_graph
 		rrel_oredge
 	};
 
-<- key_sc_element:
+<- rrel_key_sc_element:
 	..scp_program_proc_find_weighted_graph_behavior
 	(*
 		<- sc_description_of_scp_program_behavior;;

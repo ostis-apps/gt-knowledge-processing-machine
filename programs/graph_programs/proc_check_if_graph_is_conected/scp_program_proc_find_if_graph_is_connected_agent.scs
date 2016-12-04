@@ -15,7 +15,7 @@ proc_find_if_graph_is_connected_agent
 		rrel_oredge
 	};
 
-<- key_sc_element:
+<- rrel_key_sc_element:
 	..scp_program_proc_find_if_graph_is_connected_agent_behavior
 	(*
 		<- sc_description_of_scp_program_behavior;;

@@ -15,7 +15,7 @@ proc_run_test_complite_graph_Ber
 		rrel_oredge
 	};
 
-<- key_sc_element:
+<- rrel_key_sc_element:
 	..scp_program_proc_run_test_complite_graph_Ber_behavior
 	(*
 		<- sc_description_of_scp_program_behavior;;
