@@ -274,7 +274,23 @@ scp_program -> proc_find_graph_info
 			<- eraseEl;;
             -> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _init_struct_copy;;
 
-			=> nrel_goto: .proc_find_graph_info_operator9;;
+			=> nrel_goto: .proc_find_graph_info_operator14_1;;
+		*);;
+
+		-> .proc_find_graph_info_operator14_1
+		(*
+			<- sys_search;;	
+			-> rrel_1: rrel_fixed: rrel_scp_var: _init_struct;;
+		 	-> rrel_2: rrel_fixed: rrel_scp_const: ...;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: ... 
+				(* -> ... 
+					(* -> rrel_1: rrel_fixed: rrel_scp_var: _var_from_solver_element;;
+                       -> rrel_2: rrel_fixed: rrel_scp_var: _solver_object;; 
+					*);;
+				*);;
+
+			=> nrel_then: .proc_find_graph_info_operator9;;
+			=> nrel_else: .proc_find_graph_info_operator24;;
 		*);;
 		
 		-> .proc_find_graph_info_operator15
