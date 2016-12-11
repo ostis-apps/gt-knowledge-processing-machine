@@ -19,7 +19,7 @@ scp_program -> proc_find_connected_graph (*
 			<- searchElStr3;;
     		-> rrel_1: rrel_fixed: rrel_scp_const: concept_disconnected_graph;;
 			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
-			-> rrel_3: rrel_fixed:rrel_scp_var: _graph;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
 
 			=> nrel_then: .proc_find_connected_operator_return;;		
 		 	=> nrel_else: .proc_find_connected_operator2;;	

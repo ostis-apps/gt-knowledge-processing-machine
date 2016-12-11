@@ -18,6 +18,7 @@ scp_program -> proc_add_solver_solution_to_outline
 
 			=> nrel_goto: .proc_add_solver_solution_to_outline_operator2;;
 		*);;
+
 		-> .proc_add_solver_solution_to_outline_operator2
 		(*
 			<- searchSetStr5;;
@@ -25,14 +26,13 @@ scp_program -> proc_add_solver_solution_to_outline
 			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
 			-> rrel_3: rrel_assign: rrel_scp_var: _node;;
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_1;;
+			-> rrel_5: rrel_fixed: rrel_scp_const:  rrel_previous_solution_action;;
 
 			-> rrel_set_2: rrel_fixed: rrel_scp_var: _outline;;
             -> rrel_set_3: rrel_fixed: rrel_scp_var: _outline;;
             -> rrel_set_4: rrel_fixed: rrel_scp_var: _outline;;
 
-			=> nrel_then: .proc_add_solver_solution_to_outline_operator3;;
-			=> nrel_else: .proc_add_solver_solution_to_outline_operator10;;
+			=> nrel_goto: .proc_add_solver_solution_to_outline_operator3;;
 		*);;
 
 		-> .proc_add_solver_solution_to_outline_operator3
@@ -40,7 +40,7 @@ scp_program -> proc_add_solver_solution_to_outline
 			<- genElStr3;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
 			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
-			-> rrel_3: rrel_fixed: rrel_scp_const: rrel_1;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: rrel_previous_solution_action;;
 
 			=> nrel_goto: .proc_add_solver_solution_to_outline_operator4;;
 		*);;
@@ -49,17 +49,17 @@ scp_program -> proc_add_solver_solution_to_outline
 		(*
 			<- searchSetStr5;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _solution_root_node;;
-			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
 			-> rrel_3: rrel_assign: rrel_scp_var: _node;;
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const:  nrel_solution_argument_1;;
 
 			-> rrel_set_2: rrel_fixed: rrel_scp_var: _outline;;
             -> rrel_set_3: rrel_fixed: rrel_scp_var: _outline;;
             -> rrel_set_4: rrel_fixed: rrel_scp_var: _outline;;
 
-			=> nrel_then: .proc_add_solver_solution_to_outline_operator5;;
-			=> nrel_else: .proc_add_solver_solution_to_outline_operator10;;
+
+			=> nrel_goto: .proc_add_solver_solution_to_outline_operator5;;
 		*);;
 
 		-> .proc_add_solver_solution_to_outline_operator5
@@ -67,7 +67,34 @@ scp_program -> proc_add_solver_solution_to_outline
 			<- genElStr3;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
 			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
-			-> rrel_3: rrel_fixed: rrel_scp_const: rrel_2;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: nrel_solution_argument_1;;
+
+			=> nrel_goto: .proc_add_solver_solution_to_outline_operator6;;
+		*);;
+
+		-> .proc_add_solver_solution_to_outline_operator6
+		(*
+			<- searchSetStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _solution_root_node;;
+			-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _node;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const:  nrel_solution_action_goal;;
+
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _outline;;
+            -> rrel_set_3: rrel_fixed: rrel_scp_var: _outline;;
+            -> rrel_set_4: rrel_fixed: rrel_scp_var: _outline;;
+
+
+			=> nrel_goto: .proc_add_solver_solution_to_outline_operator7;;
+		*);;
+
+		-> .proc_add_solver_solution_to_outline_operator7
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: nrel_solution_action_goal;;
 
 			=> nrel_goto: .proc_add_solver_solution_to_outline_operator8;;
 		*);;
@@ -75,18 +102,16 @@ scp_program -> proc_add_solver_solution_to_outline
 		-> .proc_add_solver_solution_to_outline_operator8
 		(*
 			<- searchSetStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _solution_root_node;;
-			-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
-			-> rrel_3: rrel_assign: rrel_scp_var: _node;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: solution_tree_node;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _solution_root_node;;
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_goto;;
+			-> rrel_5: rrel_fixed: rrel_scp_const:  rrel_solution_tree_root;;
 
-            -> rrel_set_2: rrel_fixed: rrel_scp_var: _outline;;
-            -> rrel_set_3: rrel_fixed: rrel_scp_var: _outline;;
+			-> rrel_set_2: rrel_fixed: rrel_scp_var: _outline;;
             -> rrel_set_4: rrel_fixed: rrel_scp_var: _outline;;
-			
-			=> nrel_then: .proc_add_solver_solution_to_outline_operator9;;
-			=> nrel_else: .proc_add_solver_solution_to_outline_operator_return;;
+
+			=> nrel_goto: .proc_add_solver_solution_to_outline_operator9;;
 		*);;
 
 		-> .proc_add_solver_solution_to_outline_operator9
@@ -94,62 +119,21 @@ scp_program -> proc_add_solver_solution_to_outline
 			<- genElStr3;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
 			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
-			-> rrel_3: rrel_fixed: rrel_scp_const: nrel_goto;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: solution_tree_node;;
 
-			=> nrel_goto: .proc_add_solver_solution_to_outline_operator_return;;
+			=> nrel_goto: .proc_add_solver_solution_to_outline_operator10;;
 		*);;
 
 		-> .proc_add_solver_solution_to_outline_operator10
 		(*
-			<- genElStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _solution_root_node;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_common: rrel_const: _ara1;;
-			-> rrel_3: rrel_fixed: rrel_scp_const: solver_no_solution;;
-			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara2;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_result;;
-
-			=> nrel_goto: .proc_add_solver_solution_to_outline_operator11;;
-		*);;
-
-		-> .proc_add_solver_solution_to_outline_operator11
-		(*
 			<- genElStr3;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
 			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
-			-> rrel_3: rrel_fixed: rrel_scp_const: solver_no_solution;;
-
-			=> nrel_goto: .proc_add_solver_solution_to_outline_operator12;;
-		*);;
-
-		-> .proc_add_solver_solution_to_outline_operator12
-		(*
-			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _ara1;;
-
-			=> nrel_goto: .proc_add_solver_solution_to_outline_operator13;;
-		*);;
-
-        -> .proc_add_solver_solution_to_outline_operator13
-		(*
-			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _ara2;;
-
-			=> nrel_goto: .proc_add_solver_solution_to_outline_operator14;;
-		*);;
-
-		-> .proc_add_solver_solution_to_outline_operator14
-		(*
-			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
-			-> rrel_3: rrel_fixed: rrel_scp_const: nrel_result;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: rrel_solution_tree_root;;
 
 			=> nrel_goto: .proc_add_solver_solution_to_outline_operator_return;;
 		*);;
+
 		-> .proc_add_solver_solution_to_outline_operator_return(*<-return;;*);;
 	*);;
 *);;

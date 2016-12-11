@@ -1,0 +1,39 @@
+sc_node_not_relation -> sc_statement;;
+sc_statement => nrel_main_idtf:
+	[sc-утверждение] (* <- lang_ru;; *);
+	[sc-statement] (* <- lang_en;; *);; 
+
+sc_node_not_relation -> solution_tree_node;;
+solution_tree_node => nrel_main_idtf:
+	[узел дерева решения] (* <- lang_ru;; *);
+	[solution tree node] (* <- lang_en;; *);;
+
+sc_node_not_relation -> solution_tree_node_used;;
+solution_tree_node_used => nrel_main_idtf:
+	[применённый узел дерева решения] (* <- lang_ru;; *);
+	[used solution tree node] (* <- lang_en;; *);;
+
+sc_node_norole_relation -> nrel_solution_action_goal;;
+nrel_solution_action_goal => nrel_main_idtf:
+	[цель действия решения*] (* <- lang_ru;; *);
+	[solution action goal*] (* <- lang_en;; *);;
+
+sc_node_norole_relation -> nrel_solution_argument_1;;
+nrel_solution_argument_1 => nrel_main_idtf:
+	[первый аргумент решения*] (* <- lang_ru;; *);
+	[first solution argument*] (* <- lang_en;; *);;
+
+sc_node_norole_relation -> nrel_solution_action;;
+nrel_solution_action => nrel_main_idtf:
+	[действие решения*] (* <- lang_ru;; *);
+	[solution action] (* <- lang_en;; *);;
+
+sc_node_role_relation -> rrel_previous_solution_action;;
+rrel_previous_solution_action => nrel_main_idtf:
+	[предшествующее действие решения'] (* <- lang_ru;; *);
+	[previous solution action'] (* <- lang_en;; *);;
+
+sc_node_role_relation -> rrel_solution_tree_root;;
+rrel_solution_tree_root => nrel_main_idtf:
+	[корень дерева решения'] (* <- lang_ru;; *);
+	[root of solution tree'] (* <- lang_en;; *);;

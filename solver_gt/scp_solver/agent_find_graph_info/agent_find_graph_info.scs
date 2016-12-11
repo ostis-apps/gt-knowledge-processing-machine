@@ -85,8 +85,36 @@ scp_program -> agent_find_graph_info (*
 
 		-> .agent_find_graph_info_operator9
 		(*
-			<- genEl;;
-			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _solution_tree;;
+			<- genElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: solution_tree_node;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _solution_tree_root;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara1;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_solution_tree_root;;
+			
+			=> nrel_goto: .agent_find_graph_info_operator9_1;;
+		*);;
+
+		-> .agent_find_graph_info_operator9_1
+		(*
+			<- genElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _solution_tree_root;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_common: rrel_const: _arc;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _param2;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_solution_action_goal;;
+
+			=> nrel_goto: .agent_find_graph_info_operator9_2;;
+		*);;
+
+		-> .agent_find_graph_info_operator9_2
+		(*
+			<- genElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _solution_tree_root;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_common: rrel_const: _arc;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _param1;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_solution_argument_1;;
 
 			=> nrel_goto: .agent_find_graph_info_operator10;;
 		*);;
@@ -101,7 +129,7 @@ scp_program -> agent_find_graph_info (*
 					-> rrel_2: rrel_fixed: rrel_scp_var: _param2;;
 					-> rrel_3: rrel_fixed: rrel_scp_var: _used_solver_elements;;
 					-> rrel_4: rrel_fixed: rrel_scp_var: _used_key_elements;;
-					-> rrel_5: rrel_fixed: rrel_scp_var: _solution_tree;;
+					-> rrel_5: rrel_fixed: rrel_scp_var: _solution_tree_root;;
 				*);;
 		        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
 
@@ -122,7 +150,7 @@ scp_program -> agent_find_graph_info (*
 		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_add_solver_solution_to_outline;;
 		        -> rrel_2: rrel_fixed: rrel_scp_const: ... 
 				(*
-					-> rrel_1: rrel_fixed: rrel_scp_var: _solution_tree;;
+					-> rrel_1: rrel_fixed: rrel_scp_var: _solution_tree_root;;
 					-> rrel_2: rrel_fixed: rrel_scp_var: _answer;;
 				*);;
 		        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;

@@ -1,0 +1,62 @@
+scp_program -> proc_create_new_solution_node
+(*
+	-> rrel_params: ...
+	(*
+		-> rrel_1: rrel_in: _solution_node;;
+		-> rrel_2: rrel_in: _key_element;;
+		-> rrel_3: rrel_in: _solver_element;;
+		-> rrel_4: rrel_out: _new_solution_node;;
+	*);;
+
+	-> rrel_operators: ... 
+	(*
+		-> rrel_init: .proc_create_new_solution_node_operator0
+		(*
+			<- genElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _solution_node;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _new_solution_node;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara1;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_previous_solution_action;;
+
+			=> nrel_goto: .proc_create_new_solution_node_operator1;;
+		*);;
+
+		-> .proc_create_new_solution_node_operator1
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: solution_tree_node;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _new_solution_node;;
+
+			=> nrel_goto: .proc_create_new_solution_node_operator2;;
+		*);;
+
+		-> .proc_create_new_solution_node_operator2
+		(*
+			<- genElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _new_solution_node;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_common: rrel_const: _arc;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _key_element;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_solution_action_goal;;
+
+			=> nrel_goto: .proc_create_new_solution_node_operator3;;
+		*);;
+
+		-> .proc_create_new_solution_node_operator3
+		(*
+			<- genElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _new_solution_node;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_common: rrel_const: _arc;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _solver_element;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_solution_action;;
+
+			=> nrel_goto: .proc_create_new_solution_node_operator_return;;
+		*);;
+
+		-> .proc_create_new_solution_node_operator_return(*<-return;;*);;
+	*);;
+*);;
+

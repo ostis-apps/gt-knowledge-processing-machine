@@ -1,0 +1,39 @@
+sc_statement -> sc_statement_graph_not_tree_1;;
+sc_statement_graph_not_tree_1
+=> nrel_main_idtf:
+	[Утв.(О графе-дерево 1)] (* <- lang_ru;; *);
+=> nrel_main_idtf:
+	[Statment.(About graph-tree 1)] (* <- lang_en;; *);
+
+-> rrel_key_sc_element: concept_graph; concept_cyclic_graph; 
+-> rrel_main_key_sc_element: concept_tree;
+
+-> rrel_key_sc_element: 
+        ... 
+		(*
+		<- sc_definition;;
+		=> nrel_main_idtf: [Утверждение: О граф-дерево] (* <- lang_ru;; *);;
+		=> nrel_main_idtf: [Statment: About graph-tree] (* <- lang_en;; *);;
+		<= nrel_sc_text_translation: ...
+			(*
+			-> rrel_example: 
+				[Если граф цикличный, то он не является деревом](*<- lang_ru;;*);;
+			-> rrel_example: 
+				[If graph is cyclic than it is not tree](*<- lang_en;;*);;
+		*);;
+*);
+
+-> rrel_if: ..sc_statement_graph_not_tree_1_initiation_condition;
+
+-> rrel_then: ..sc_statement_graph_not_tree_1_result;;
+	
+..sc_statement_graph_not_tree_1_initiation_condition = [*
+	concept_graph _-> _graph;;
+	concept_cyclic_graph _-> _graph;;
+*];;
+
+..sc_statement_graph_not_tree_1_result
+= [*
+	concept_tree _-|> _graph;;
+*];;
+
