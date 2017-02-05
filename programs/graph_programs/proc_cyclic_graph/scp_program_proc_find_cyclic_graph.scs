@@ -2,8 +2,11 @@ proc_find_cyclic_graph
 => nrel_main_idtf:
 	[Программа проверки графа на цикличность] (* <- lang_ru;; *);
 
+=> nrel_initiation_condition_and_result: (..scp_program_proc_find_cyclic_graph_initiation_condition
+					  => ..scp_program_proc_find_cyclic_graph_result);
+
 -> rrel_key_sc_element: concept_graph;
--> rrel_main_key_sc_element: concept_cyclic_graph; concept_acyclic_graph;
+-> rrel_solver_key_sc_element: concept_cyclic_graph; concept_acyclic_graph;
 
 <- rrel_key_sc_element:
 	..scp_program_proc_find_cyclic_graph_behavior
@@ -15,10 +18,7 @@ proc_find_cyclic_graph
 			-> rrel_example:
 				[Это программа создает из понятия "цикличный граф" к графу либо дугу приндлежности, если граф цикличный, либо отрицательную дугу, если граф нецикличный];;
 		*);;
-	*);
-
--> rrel_if: ..scp_program_proc_find_cyclic_graph_initiation_condition;
--> rrel_then: ..scp_program_proc_find_cyclic_graph_result;;
+	*);;
 	
 ..scp_program_proc_find_cyclic_graph_initiation_condition 
 = [*

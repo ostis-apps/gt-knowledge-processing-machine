@@ -18,7 +18,7 @@ proc_find_points_of_articulation_var2
 			-> rrel_example:
 				[Это программа создает множество точек сочленения графа и связывает его с графом отношением "множество точек сочленения*"];;
 		*);;
-	*);
+	*);;
 
 ..scp_program_proc_find_points_of_articulation_var2_initiation_condition
 = [*

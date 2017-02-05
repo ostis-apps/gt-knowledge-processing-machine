@@ -1,0 +1,250 @@
+scp_program -> proc_extract_init_and_result_sturct
+(*
+	-> rrel_params: ...
+	(*
+		-> rrel_1: rrel_in: _solver_element;;
+		-> rrel_2: rrel_in: _key_element;;
+		-> rrel_3: rrel_out: _init_struct;;
+		-> rrel_4: rrel_out: _result_struct;;
+	*);;
+
+	-> rrel_operators: ... 
+	(*
+
+        -> rrel_init: .proc_extract_init_and_result_sturct_operator0
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: scp_program;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _solver_element;;
+			
+			=> nrel_then: .proc_extract_init_and_result_sturct_operator1;;
+			=> nrel_else: .proc_extract_init_and_result_sturct_operator3;;
+		*);;
+
+		-> .proc_extract_init_and_result_sturct_operator1
+		(*
+			<- searchElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _solver_element;;
+            -> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _init_result_arc;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+    		-> rrel_5: rrel_fixed: rrel_scp_const: nrel_initiation_condition_and_result;;
+			
+			=> nrel_then: .proc_extract_init_and_result_sturct_operator2;;
+			=> nrel_else: .proc_extract_init_and_result_sturct_operator_return;;
+		*);;
+
+		-> .proc_extract_init_and_result_sturct_operator2
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_assign: rrel_scp_var: _init_struct;;
+            -> rrel_2: rrel_fixed: rrel_scp_var: _init_result_arc;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _result_struct;;
+			
+			=> nrel_goto: .proc_extract_init_and_result_sturct_operator_return;;
+		*);;
+
+		-> .proc_extract_init_and_result_sturct_operator3
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: sc_statement;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _solver_element;;
+			
+			=> nrel_then: .proc_extract_init_and_result_sturct_operator4;;
+			=> nrel_else: .proc_extract_init_and_result_sturct_operator_return;;
+		*);;
+
+		-> .proc_extract_init_and_result_sturct_operator4
+		(*
+			<- searchElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _solver_element;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _init_result_rel;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+    		-> rrel_5: rrel_fixed: rrel_scp_const: rrel_main_key_sc_element;;
+			
+			=> nrel_then: .proc_extract_init_and_result_sturct_operator5_1;;
+			=> nrel_else: .proc_extract_init_and_result_sturct_operator_return;;
+		*);;
+
+		 -> .proc_extract_init_and_result_sturct_operator5_1
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: rrel_arc;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _init_result_rel;;
+			
+			=> nrel_then: .proc_extract_init_and_result_sturct_operator5_2;;
+			=> nrel_else: .proc_extract_init_and_result_sturct_operator6;;
+		*);;
+
+         -> .proc_extract_init_and_result_sturct_operator5_2
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_assign: rrel_scp_var: _init_struct;;
+            -> rrel_2: rrel_fixed: rrel_scp_var: _init_result_rel;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _result_struct;;
+			
+			=> nrel_then: .proc_extract_init_and_result_sturct_operator_return;;
+			=> nrel_else: .proc_extract_init_and_result_sturct_operator6;;
+		*);;
+
+		-> .proc_extract_init_and_result_sturct_operator6
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: nrel_implication;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _init_result_rel;;
+			
+			=> nrel_then: .proc_extract_init_and_result_sturct_operator7;;
+			=> nrel_else: .proc_extract_init_and_result_sturct_operator9;;
+		*);;
+
+        -> .proc_extract_init_and_result_sturct_operator7
+		(*
+			<- searchElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _init_result_rel;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _init_struct;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+    		-> rrel_5: rrel_fixed: rrel_scp_const: rrel_if;;
+			
+			=> nrel_then: .proc_extract_init_and_result_sturct_operator8;;
+			=> nrel_else: .proc_extract_init_and_result_sturct_operator_return;;
+		*);;
+
+		-> .proc_extract_init_and_result_sturct_operator8
+		(*
+			<- searchElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _init_result_rel;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _result_struct;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+    		-> rrel_5: rrel_fixed: rrel_scp_const: rrel_then;;
+			
+			=> nrel_goto: .proc_extract_init_and_result_sturct_operator_return;;
+		*);;
+
+		-> .proc_extract_init_and_result_sturct_operator9
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: nrel_equivalence;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _init_result_rel;;
+			
+			=> nrel_then: .proc_extract_init_and_result_sturct_operator10;;
+			=> nrel_else: .proc_extract_init_and_result_sturct_operator_return;;
+		*);;
+		
+		-> .proc_extract_init_and_result_sturct_operator10
+		(*
+			<- searchSetStr3;;
+    		-> rrel_1: rrel_fixed: rrel_scp_var: _init_result_rel;;
+    		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+    		-> rrel_3: rrel_assign: rrel_scp_var: _init_result_element;;
+
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _init_result_rel_copy;;
+
+			=> nrel_then: .proc_extract_init_and_result_sturct_operator11;;
+			=> nrel_else: .proc_extract_init_and_result_sturct_operator_return;;
+		*);;
+
+		-> .proc_extract_init_and_result_sturct_operator11
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _init_result_rel_copy;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc_erase;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _init_result_element1;;
+			
+			=> nrel_then: .proc_extract_init_and_result_sturct_operator12;;
+			=> nrel_else: .proc_extract_init_and_result_sturct_operator_return;;
+		*);;
+
+		-> .proc_extract_init_and_result_sturct_operator12
+		(*
+			<- eraseEl;;
+			-> rrel_1: rrel_fixed: rrel_erase: rrel_pos_const_perm: rrel_scp_var: _arc_erase;;
+                        
+			=> nrel_goto: .proc_extract_init_and_result_sturct_operator13;;
+		*);;
+
+		-> .proc_extract_init_and_result_sturct_operator13
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _init_result_rel_copy;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc_erase;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _init_result_element2;;
+			
+			=> nrel_then: .proc_extract_init_and_result_sturct_operator14;;
+			=> nrel_else: .proc_extract_init_and_result_sturct_operator_return;;
+		*);;
+
+		-> .proc_extract_init_and_result_sturct_operator14
+		(*
+			<- eraseEl;;
+			-> rrel_1: rrel_fixed: rrel_erase: rrel_pos_const_perm: rrel_scp_var: _arc_erase;;
+                        
+			=> nrel_goto: .proc_extract_init_and_result_sturct_operator15;;
+		*);;
+
+		-> .proc_extract_init_and_result_sturct_operator15
+		(*
+			<- eraseEl;;
+            -> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _init_result_rel_copy;;
+
+			=> nrel_goto: .proc_extract_init_and_result_sturct_operator16;;
+		*);;
+		
+		-> .proc_extract_init_and_result_sturct_operator16
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _init_result_element1;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _key_element;;
+			
+			=> nrel_then: .proc_extract_init_and_result_sturct_operator17;;
+			=> nrel_else: .proc_extract_init_and_result_sturct_operator19;;
+		*);;
+
+		-> .proc_extract_init_and_result_sturct_operator17
+		(*
+			<- varAssign;;
+			-> rrel_1: rrel_assign: rrel_scp_var: _result_struct;;
+			-> rrel_2: rrel_fixed: rrel_scp_var: _init_result_element1;;
+
+			=> nrel_goto: .proc_extract_init_and_result_sturct_operator18;;
+		*);;
+
+		-> .proc_extract_init_and_result_sturct_operator18
+		(*
+			<- varAssign;;
+			-> rrel_1: rrel_assign: rrel_scp_var: _init_struct;;
+			-> rrel_2: rrel_fixed: rrel_scp_var: _init_result_element2;;
+
+			=> nrel_goto: .proc_extract_init_and_result_sturct_operator19;;
+		*);;
+
+        -> .proc_extract_init_and_result_sturct_operator19
+		(*
+			<- varAssign;;
+			-> rrel_1: rrel_assign: rrel_scp_var: _result_struct;;
+			-> rrel_2: rrel_fixed: rrel_scp_var: _init_result_element2;;
+
+			=> nrel_goto: .proc_extract_init_and_result_sturct_operator20;;
+		*);;
+
+		-> .proc_extract_init_and_result_sturct_operator20
+		(*
+			<- varAssign;;
+			-> rrel_1: rrel_assign: rrel_scp_var: _init_struct;;
+			-> rrel_2: rrel_fixed: rrel_scp_var: _init_result_element1;;
+
+			=> nrel_goto: .proc_extract_init_and_result_sturct_operator_return;;
+		*);;
+
+		-> .proc_extract_init_and_result_sturct_operator_return(*<-return;;*);;
+	*);;
+*);;
+
