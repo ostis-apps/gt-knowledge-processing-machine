@@ -2,7 +2,11 @@ proc_check_if_graph
 => nrel_main_idtf:
 	[Программа определяющая, является ли узел графом] (* <- lang_ru;; *);
 
--> rrel_main_key_sc_element: concept_graph;
+=> nrel_initiation_condition_and_result: (..scp_program_proc_find_connected_graph_initiation_condition
+					  => ..scp_program_proc_check_if_graph_result);
+
+-> rrel_key_sc_element: concept_graph;			  
+-> rrel_solver_key_sc_element: concept_graph;
 
 <- rrel_key_sc_element:
 	..scp_program_proc_check_if_graph_behavior
@@ -14,10 +18,8 @@ proc_check_if_graph
 			-> rrel_example:
 				[Это программа создает дугу принадлежности от понятия граф к узлу, если он граф, иначе отрицательную дугу принадлежности.];;
 		*);;
-	*);
+	*);;
 
--> rrel_if: ..scp_program_proc_check_if_graph_initiation_condition;
--> rrel_then: ..scp_program_proc_check_if_graph_result;;
 
 ..scp_program_proc_check_if_graph_initiation_condition
 = [*

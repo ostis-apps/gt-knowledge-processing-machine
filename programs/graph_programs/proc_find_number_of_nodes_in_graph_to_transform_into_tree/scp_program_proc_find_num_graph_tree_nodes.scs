@@ -4,13 +4,9 @@ proc_find_num_graph_tree_nodes
 
 => nrel_initiation_condition_and_result: (..scp_program_proc_find_num_graph_tree_nodes_initiation_condition
 					  => ..scp_program_proc_find_num_graph_tree_nodes_result);
-<= nrel_scp_program_key_sc_elements: 
-	{
-		concept_graph;
-		rrel_vertex;
-		rrel_oredge;
-		nrel_number_of_deleted_nodes
-	};
+					  
+-> rrel_key_sc_element: concept_graph; nrel_number_of_deleted_nodes;
+-> rrel_solver_key_sc_element: nrel_number_of_deleted_nodes;
 
 <- rrel_key_sc_element:
 	..scp_program_proc_find_num_graph_tree_nodes_behavior
@@ -32,6 +28,5 @@ proc_find_num_graph_tree_nodes
 
 ..scp_program_proc_find_num_graph_tree_nodes_result
 = [*
-	concept_graph _-> _curr_graph;;
 	_curr_graph _=> nrel_number_of_deleted_nodes: _num_of_del_nodes;;
 *];;

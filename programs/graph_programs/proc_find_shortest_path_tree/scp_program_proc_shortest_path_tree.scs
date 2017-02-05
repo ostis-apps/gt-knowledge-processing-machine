@@ -2,7 +2,11 @@ proc_find_shortest_path_tree
 => nrel_main_idtf:
 	[&&] (* <- lang_ru;; *);
 
-//TODO: add main key sc element
+=> nrel_initiation_condition_and_result: (..scp_program_proc_shortest_path_tree_initiation_condition
+					  => ..scp_program_proc_shortest_path_tree_result);
+
+-> rrel_key_sc_element: concept_graph; nrel_tree_minimal_way; concept_tree;
+-> rrel_solver_key_sc_element: nrel_tree_minimal_way; concept_tree;
 
 <- rrel_key_sc_element:
 	..scp_program_proc_shortest_path_tree_behavior

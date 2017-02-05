@@ -2,8 +2,11 @@ proc_reflexive_graphs
 => nrel_main_idtf:
 	[Программа проверки графа на рефлексивность] (* <- lang_ru;; *);
 
--> rrel_key_sc_element: concept_graph;
--> rrel_main_key_sc_element: concept_reflexive_graph;
+=> nrel_initiation_condition_and_result: (..scp_program_proc_reflexive_graphs_initiation_condition
+					  => ..scp_program_proc_reflexive_graphs_result);
+
+-> rrel_key_sc_element: concept_graph; concept_reflexive_graph;
+-> rrel_solver_key_sc_element: concept_reflexive_graph;
 
 <- rrel_key_sc_element:
 	..scp_program_proc_reflexive_graphs_behavior
@@ -15,10 +18,7 @@ proc_reflexive_graphs
 			-> rrel_example:
 				[Это программа создает из понятия "рефлексивный граф" к графу либо дугу приндлежности, если граф рефлексивный, либо отрицательную дугу, если граф нерефлексивный];;
 		*);;
-	*);
-
--> rrel_if: ..scp_program_proc_reflexive_graphs_initiation_condition;
--> rrel_then: ..scp_program_proc_reflexive_graphs_result;;
+	*);;
 
 ..scp_program_proc_reflexive_graphs_initiation_condition
 = [*
