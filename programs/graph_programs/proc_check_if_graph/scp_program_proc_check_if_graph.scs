@@ -1,5 +1,6 @@
 proc_check_if_graph
-=> nrel_main_idtf: [Программа определяющая, является ли узел графом](*<- lang_ru;;*);
+=> nrel_main_idtf:
+	[Программа определяющая, является ли узел графом] (* <- lang_ru;; *);
 
 => nrel_initiation_condition_and_result: (..scp_program_proc_find_connected_graph_initiation_condition
 					  => ..scp_program_proc_check_if_graph_result);
@@ -20,7 +21,10 @@ proc_check_if_graph
 	*);;
 
 
-..scp_program_proc_check_if_graph_initiation_condition -> _curr_graph;;
+..scp_program_proc_check_if_graph_initiation_condition
+= [*
+ _curr_graph;;
+*];;
 
 ..scp_program_proc_check_if_graph_result 
 = [*
