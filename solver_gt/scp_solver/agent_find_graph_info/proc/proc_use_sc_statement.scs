@@ -4,32 +4,23 @@ scp_program -> proc_use_sc_statement
 	(*
 		-> rrel_1: rrel_in: _statement;;
 		-> rrel_2: rrel_in: _solver_object;;
+		-> rrel_3: rrel_in: _init_struct;;
+		-> rrel_4: rrel_in: _result_struct;;
 	*);;
 
 	-> rrel_operators: ... 
 	(*
 
-		-> rrel_init: .proc_use_sc_statement_operator0
-		(*
-			<- searchElStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _statement;;
-			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
-			-> rrel_3: rrel_assign: rrel_scp_var: _init_stuct;;
-			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_then;;
-
-			=> nrel_then: .proc_use_sc_statement_operator1;;
-			=> nrel_else: .proc_use_sc_statement_operator_return;;
-		*);;
-
-		-> .proc_use_sc_statement_operator1
+		-> rrel_init: .proc_use_sc_statement_operator1
 		(*
 			<- call;;
 		    -> rrel_1: rrel_fixed: rrel_scp_const: proc_find_var_in_solver_element;;
 		    -> rrel_2: rrel_fixed: rrel_scp_const: ... 
 				(*
 					-> rrel_1: rrel_fixed: rrel_scp_var: _statement;;
-					-> rrel_2: rrel_assign: rrel_scp_var: _var_from_solver_element;;
+					-> rrel_2: rrel_fixed: rrel_scp_var: _init_struct;;
+					-> rrel_3: rrel_fixed: rrel_scp_var: _result_struct;;
+					-> rrel_4: rrel_assign: rrel_scp_var: _var_from_solver_element;;
 				*);;
 		    -> rrel_3: rrel_assign: rrel_scp_var: _descr1;;
 
@@ -57,7 +48,7 @@ scp_program -> proc_use_sc_statement
 		(*
 			<- sys_gen;;	
 			
-			-> rrel_1: rrel_fixed: rrel_scp_var: _init_stuct;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _init_struct;;
 		 	-> rrel_2: rrel_fixed: rrel_scp_const: ...;;
 			-> rrel_3: rrel_fixed: rrel_scp_const: ... 
 				(* -> ... 
