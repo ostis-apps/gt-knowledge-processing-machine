@@ -20,8 +20,7 @@ proc_find_weighted_graph
 		*);;
 	*);;
 
-..scp_program_proc_find_weighted_graph_initiation_condition
-= [*
+..scp_program_proc_find_weighted_graph_initiation_condition = [*
 	concept_graph _-> _curr_graph;;
 *];;
 

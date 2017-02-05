@@ -2,8 +2,11 @@ proc_transitive_graph
 => nrel_main_idtf:
 	[Программа проверки графа на транзитивность] (* <- lang_ru;; *);
 
--> rrel_key_sc_element: concept_graph;
--> rrel_main_key_sc_element: concept_transitive_graph;
+=> nrel_initiation_condition_and_result: (..scp_program_proc_transitive_graph_initiation_condition
+					  => ..scp_program_proc_transitive_graph_result);
+
+-> rrel_key_sc_element: concept_graph; concept_transitive_graph;
+-> rrel_solver_key_sc_element: concept_transitive_graph;
 
 <- rrel_key_sc_element:
 	..scp_program_proc_transitive_graph_behavior
@@ -15,10 +18,7 @@ proc_transitive_graph
 			-> rrel_example:
 				[Это программа создает из понятия "транзитивный граф" к графу либо дугу приндлежности, если граф транзитивный, либо отрицательную дугу, если граф нетранзитивный];;
 		*);;
-	*);
-
--> rrel_if: ..scp_program_proc_transitive_graph_initiation_condition;
--> rrel_then: ..scp_program_proc_transitive_graph_result;;
+	*);;
 
 ..scp_program_proc_transitive_graph_initiation_condition
 = [*

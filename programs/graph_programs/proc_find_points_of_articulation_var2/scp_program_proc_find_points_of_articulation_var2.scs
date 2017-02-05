@@ -6,7 +6,7 @@ proc_find_points_of_articulation_var2
 					  => ..scp_program_proc_find_points_of_articulation_var2_result);
 
 -> rrel_key_sc_element: concept_graph; nrel_set_point_articulation;
--> rrel_main_key_sc_element: nrel_set_point_articulation;
+-> rrel_solver_key_sc_element: nrel_set_point_articulation;
 
 <- rrel_key_sc_element:
 	..scp_program_proc_find_points_of_articulation_var2_behavior

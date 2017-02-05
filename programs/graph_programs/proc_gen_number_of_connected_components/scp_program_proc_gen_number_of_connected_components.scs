@@ -2,8 +2,11 @@ proc_gen_number_of_connected_components
 => nrel_main_idtf:
 	[Программа поиска количестав компонентов связности графа] (* <- lang_ru;; *);
 
--> rrel_key_sc_element: concept_graph;
--> rrel_main_key_sc_element: nrel_number_connected_components;
+=> nrel_initiation_condition_and_result: (..scp_program_proc_gen_number_of_connected_components_initiation_condition
+					  => ..scp_program_proc_gen_number_of_connected_components_result);
+
+-> rrel_key_sc_element: concept_graph; nrel_number_connected_components;
+-> rrel_solver_key_sc_element: nrel_number_connected_components;
 
 <- rrel_key_sc_element:
 	..scp_program_proc_gen_number_of_connected_components_behavior
@@ -15,10 +18,7 @@ proc_gen_number_of_connected_components
 			-> rrel_example:
 				[Это программа создает узел с количестов компонентов связности графа и связывает его с графом отношением "количество компонентов связности*"];;
 		*);;
-	*);
-
--> rrel_if: ..scp_program_proc_gen_number_of_connected_components_initiation_condition;
--> rrel_then: ..scp_program_proc_gen_number_of_connected_components_result;;
+	*);;
 
 ..scp_program_proc_gen_number_of_connected_components_initiation_condition
 = [*

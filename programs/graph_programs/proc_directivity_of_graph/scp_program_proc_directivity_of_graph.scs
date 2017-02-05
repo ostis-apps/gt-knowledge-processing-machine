@@ -2,8 +2,11 @@ proc_directivity_of_graph
 => nrel_main_idtf:
 	[Программа проверки графа на ориентированность] (* <- lang_ru;; *);
 
--> rrel_key_sc_element: concept_graph;
--> rrel_main_key_sc_element: concept_undirected_graph; concept_directed_graph;
+=> nrel_initiation_condition_and_result: (..scp_program_proc_directivity_of_graph_initiation_condition
+					  => ..scp_program_proc_directivity_of_graph_result);
+					  
+-> rrel_key_sc_element: concept_graph;concept_undirected_graph; concept_directed_graph;
+-> rrel_solver_key_sc_element: concept_undirected_graph; concept_directed_graph;
 
 <- rrel_key_sc_element:
 	..scp_program_proc_directivity_of_graph_behavior
@@ -15,13 +18,9 @@ proc_directivity_of_graph
 			-> rrel_example:
 				[Это программа создает дугу приндлежности к графу либо из понятия "ориентированный граф", если граф ориентированный, либо из понятия "неориентированный граф", если граф неориентированный];;
 		*);;
-	*);
+	*);;
 
--> rrel_if: ..scp_program_proc_directivity_of_graph_initiation_condition;
--> rrel_then: ..scp_program_proc_directivity_of_graph_result;;
-
-..scp_program_proc_directivity_of_graph_initiation_condition
-= [*
+..scp_program_proc_directivity_of_graph_initiation_condition = [*
 	concept_graph _-> _curr_graph;;
 *];;
 

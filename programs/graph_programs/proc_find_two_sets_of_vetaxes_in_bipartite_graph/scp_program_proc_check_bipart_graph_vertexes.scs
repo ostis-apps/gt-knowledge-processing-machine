@@ -4,14 +4,9 @@ proc_check_bipart_graph_vertexes
 
 => nrel_initiation_condition_and_result: (..scp_program_proc_check_bipart_graph_vertexes_initiation_condition
 					  => ..scp_program_proc_check_bipart_graph_vertexes_result);
-<= nrel_scp_program_key_sc_elements: 
-	{
-		concept_graph;
-		rrel_vertex;
-		rrel_oredge;
-		nrel_second_bip_set;
-		nrel_first_bip_set
-	};
+	
+-> rrel_key_sc_element: concept_graph; nrel_second_bip_set; nrel_first_bip_set;
+-> rrel_solver_key_sc_element: nrel_second_bip_set; nrel_first_bip_set;
 
 <- key_sc_element:
 	..scp_program_proc_check_bipart_graph_vertexes_behavior
@@ -33,7 +28,6 @@ proc_check_bipart_graph_vertexes
 
 ..scp_program_proc_check_bipart_graph_vertexes_result
 = [*
-	concept_graph _-> _curr_graph;;
 	_curr_graph _=> nrel_first_bip_set: _first_bip_set;;
 	_curr_graph _=> nrel_second_bip_set: _second_bip_set;;
 *];;

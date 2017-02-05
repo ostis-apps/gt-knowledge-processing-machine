@@ -4,13 +4,9 @@ proc_find_number_of_vertex_connectivity
 
 => nrel_initiation_condition_and_result: (..scp_program_proc_find_number_of_vertex_connectivity_initiation_condition
 					  => ..scp_program_proc_find_number_of_vertex_connectivity_result);
-<= nrel_scp_program_key_sc_elements: 
-	{
-		concept_graph;
-		rrel_vertex;
-		rrel_oredge;
-		nrel_number_of_deleted_nodes
-	};
+
+-> rrel_key_sc_element: concept_graph; nrel_number_of_deleted_nodes;
+-> rrel_solver_key_sc_element: nrel_number_of_deleted_nodes;
 
 <- rrel_key_sc_element:
 	..scp_program_proc_find_number_of_vertex_connectivity_behavior
