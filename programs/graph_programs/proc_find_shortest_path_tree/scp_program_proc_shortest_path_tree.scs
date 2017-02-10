@@ -1,6 +1,6 @@
 proc_find_shortest_path_tree
 => nrel_main_idtf:
-	[&&] (* <- lang_ru;; *);
+	[Программа поиска дерева кротчайших путей] (* <- lang_ru;; *);
 
 => nrel_initiation_condition_and_result: (..scp_program_proc_shortest_path_tree_initiation_condition
 					  => ..scp_program_proc_shortest_path_tree_result);
@@ -16,7 +16,7 @@ proc_find_shortest_path_tree
 		...
 		(*
 			-> rrel_example:
-				[&&];;
+				[Это программа создает множество кротчайших путей графа для данной вершины , и связывает его с графом отношением "дерево кротчайших путей*",а также создает из понятия "дерево" к множеству дугу приндлежности];;
 		*);;
 	*);;
 
@@ -29,7 +29,6 @@ proc_find_shortest_path_tree
 
 ..scp_program_proc_shortest_path_tree_result
 = [*
-	concept_graph _-> _graph;;
 	_graph _=> nrel_tree_minimal_way: _shortest_path_tree;;
 	concept_tree _-> _shortest_path_tree;;
 *];;
