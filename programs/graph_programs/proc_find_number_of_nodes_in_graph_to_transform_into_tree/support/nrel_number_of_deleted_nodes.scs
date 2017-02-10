@@ -22,7 +22,7 @@ nrel_number_of_deleted_nodes
 <= nrel_using_constants:
 	{
 		concept_graph;
-		consept_tree;
+		concept_tree;
 		rrel_edge;
 		nrel_cycle
 	};;	
