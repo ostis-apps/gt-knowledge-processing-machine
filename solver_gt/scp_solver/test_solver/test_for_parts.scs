@@ -43,8 +43,10 @@ the_best_graph1
 -> rrel_vertex: vertex1;
 -> rrel_vertex: vertex2;
 -> rrel_vertex: vertex3;
+-> rrel_vertex: vertex4;
 
 -> rrel_oredge: (vertex1 => vertex2);
 -> rrel_oredge: (vertex1 => vertex3);
--> rrel_oredge: (vertex2 => vertex1);
--> rrel_oredge: (vertex3 => vertex1);;
+-> rrel_oredge: (vertex1 => vertex4);
+-> rrel_oredge: (vertex2 => vertex3);
+-> rrel_oredge: (vertex4 => vertex2);;
