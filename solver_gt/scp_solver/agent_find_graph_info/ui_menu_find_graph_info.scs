@@ -1,8 +1,8 @@
 ui_menu_find_graph_info <- ui_user_command_class_atom; ui_user_command_class_view_kb;;
 
-ui_menu_find_graph_info =>nrel_main_idtf: [Решение задачи] (* <- lang_ru;; *);;
+ui_menu_find_graph_info =>nrel_main_idtf: [Каково решение задачи?] (* <- lang_ru;; *);;
 
-ui_menu_find_graph_info =>nrel_main_idtf: [Task solution] (* <- lang_en;; *);;
+ui_menu_find_graph_info =>nrel_main_idtf: [What is task solution?] (* <- lang_en;; *);;
 
 // Указываем шаблон нашей команды
 ui_menu_find_graph_info =>ui_nrel_command_template:
