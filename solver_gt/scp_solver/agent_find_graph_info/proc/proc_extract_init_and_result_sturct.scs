@@ -11,6 +11,27 @@ scp_program -> proc_extract_init_and_result_sturct
 	-> rrel_operators: ... 
 	(*
 
+		-> .proc_extract_init_and_result_sturct_operator01
+		(*
+			<- call;;
+		    -> rrel_1: rrel_fixed: rrel_scp_const: proc_print_idtf;;
+		    -> rrel_2: rrel_fixed: rrel_scp_const: ... 
+				(*
+					-> rrel_1: rrel_fixed: rrel_scp_var: _solver_element;;
+				*);;
+		    -> rrel_3: rrel_assign: rrel_scp_var: _descr1;;
+
+			=> nrel_goto: .proc_extract_init_and_result_sturct_operator02;;
+		*);;
+
+		-> .proc_extract_init_and_result_sturct_operator02
+		(*
+			<- waitReturn;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr1;;
+
+			=> nrel_goto: .proc_extract_init_and_result_sturct_operator0;;
+		*);;
+
         -> rrel_init: .proc_extract_init_and_result_sturct_operator0
 		(*
 			<- searchElStr3;;
