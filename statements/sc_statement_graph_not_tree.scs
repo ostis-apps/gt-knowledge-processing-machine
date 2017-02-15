@@ -26,8 +26,8 @@ sc_statement_graph_not_tree_1
 -> rrel_main_key_sc_element: ..sc_statement_graph_not_tree_1_equivalence
 	(*
 		<- nrel_implication;;
-		-> ..sc_statement_graph_not_tree_1_equivalence_element1;;
-		-> ..sc_statement_graph_not_tree_1_equivalence_element2;;
+		-> rrel_if: ..sc_statement_graph_not_tree_1_equivalence_element1;;
+		-> rrel_then: ..sc_statement_graph_not_tree_1_equivalence_element2;;
 	*);;
 	
 ..sc_statement_graph_not_tree_1_equivalence_element1 = [*
