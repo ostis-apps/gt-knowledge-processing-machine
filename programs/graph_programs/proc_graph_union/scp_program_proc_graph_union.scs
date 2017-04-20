@@ -1,0 +1,38 @@
+proc_graph_union
+=> nrel_main_idtf:
+	[Программа gпоиска объединения 2-х графов] (* <- lang_ru;; *);
+
+=> nrel_initiation_condition_and_result: (..scp_program_proc_graph_union_initiation_condition
+					  => ..scp_program_proc_graph_union_result);
+
+-> rrel_key_sc_element: concept_graph; nrel_graph_union;
+-> rrel_solver_key_sc_element: nrel_graph_union;
+
+<- rrel_key_sc_element:
+	..scp_program_proc_graph_union_behavior
+	(*
+		<- sc_description_of_scp_program_behavior;;
+		<= nrel_sc_text_translation:
+		...
+		(*
+			-> rrel_example:
+				[Это программа создает узел-связку ,которой принадлежат исходные графы,и потом связывает пересечение этох графов с помощью отношения "объединение графов*" ];;
+		*);;
+	*);;
+
+..scp_program_proc_graph_union_initiation_condition
+= [*
+	concept_graph _-> _graph1;;
+	concept_graph _-> _graph2;;
+*];;
+
+
+..scp_program_proc_graph_union_result
+= [*
+	concept_graph _-> _graph_union;;
+	_graph_intersection<= nrel_graph_union:
+        {
+        	_graph1;
+        	_graph2
+        };;
+*];;
