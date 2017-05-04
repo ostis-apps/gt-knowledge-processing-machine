@@ -1,6 +1,6 @@
 proc_graph_intersection
 => nrel_main_idtf:
-	[Программа gпоиска пересечения 2-х графов] (* <- lang_ru;; *);
+	[Программа поиска пересечения 2-х графов] (* <- lang_ru;; *);
 
 => nrel_initiation_condition_and_result: (..scp_program_proc_graph_intersection_initiation_condition
 					  => ..scp_program_proc_graph_intersection_result);
