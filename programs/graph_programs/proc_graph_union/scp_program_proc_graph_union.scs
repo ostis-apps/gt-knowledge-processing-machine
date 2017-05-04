@@ -1,6 +1,6 @@
 proc_graph_union
 => nrel_main_idtf:
-	[Программа gпоиска объединения 2-х графов] (* <- lang_ru;; *);
+	[Программа поиска объединения 2-х графов] (* <- lang_ru;; *);
 
 => nrel_initiation_condition_and_result: (..scp_program_proc_graph_union_initiation_condition
 					  => ..scp_program_proc_graph_union_result);
