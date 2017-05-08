@@ -1,39 +1,39 @@
-agent_find_graph_info
+agent_solving_simple_task
 => nrel_main_idtf:
-	[агентная scp-программа поиска информации о графе] (* <- lang_ru;; *);
-	[agent scp-program of define types of graph] (* <- lang_en;; *);
+	[агентная scp-программа решения простой задачи] (* <- lang_ru;; *);
+	[agent scp-program of solving simple task] (* <- lang_en;; *);
 	<- agent_scp_program;;
 
-scp_program -> agent_find_graph_info (*
-	-> rrel_params: .agent_find_graph_info_params (*
+scp_program -> agent_solving_simple_task (*
+	-> rrel_params: .agent_solving_simple_task_params (*
 		-> rrel_1: rrel_in: _event;;
 		-> rrel_2: rrel_in: _input_arc;;
 	*);;
 
-	-> rrel_operators: .agent_find_graph_info_operator_set (*
+	-> rrel_operators: .agent_solving_simple_task_operator_set (*
 
-		-> rrel_init: .agent_find_graph_info_operator0 
+		-> rrel_init: .agent_solving_simple_task_operator0 
 		(*
 			<- searchElStr3;;
 			-> rrel_1: rrel_assign: rrel_scp_var: _temp;;
 			-> rrel_2: rrel_fixed: rrel_scp_var: _input_arc;;
 			-> rrel_3: rrel_assign: rrel_scp_var: _quest;;
 	
-			=> nrel_goto: .agent_find_graph_info_operator1;;
+			=> nrel_goto: .agent_solving_simple_task_operator1;;
 		*);;
 
-		-> .agent_find_graph_info_operator1
+		-> .agent_solving_simple_task_operator1
 		(*
 			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_const: question_find_graph_info;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: question_finding_relation_of_sc_element_with_kb_element;;
 			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
 
-			=> nrel_then: .agent_find_graph_info_operator2;;
-			=> nrel_else: .agent_find_graph_info_operator_return;;
+			=> nrel_then: .agent_solving_simple_task_operator2;;
+			=> nrel_else: .agent_solving_simple_task_operator_return;;
 		*);;
 
-		-> .agent_find_graph_info_operator2
+		-> .agent_solving_simple_task_operator2
 		(*
 			<- searchElStr5;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
@@ -42,11 +42,11 @@ scp_program -> agent_find_graph_info (*
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
 			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_1;;
 
-			=> nrel_then: .agent_find_graph_info_operator3;;
-			=> nrel_else: .agent_find_graph_info_operator_return;;
+			=> nrel_then: .agent_solving_simple_task_operator3;;
+			=> nrel_else: .agent_solving_simple_task_operator_return;;
 		*);;
 	
-		-> .agent_find_graph_info_operator3
+		-> .agent_solving_simple_task_operator3
 		(*
 			<- searchElStr5;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
@@ -55,45 +55,45 @@ scp_program -> agent_find_graph_info (*
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
 			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_2;;
 
-			=> nrel_then: .agent_find_graph_info_operator4;;
-			=> nrel_else: .agent_find_graph_info_operator_return;;
+			=> nrel_then: .agent_solving_simple_task_operator4;;
+			=> nrel_else: .agent_solving_simple_task_operator_return;;
 		*);;
 
-		-> .agent_find_graph_info_operator4
+		-> .agent_solving_simple_task_operator4
 		(*
 			<- genEl;;
 			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _answer;;
 
-			=> nrel_goto: .agent_find_graph_info_operator7;;
+			=> nrel_goto: .agent_solving_simple_task_operator7;;
 		*);;
 
-		-> .agent_find_graph_info_operator7
+		-> .agent_solving_simple_task_operator7
 		(*
 			<- genEl;;
 			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _used_solver_elements;;
 
-			=> nrel_goto: .agent_find_graph_info_operator8;;
+			=> nrel_goto: .agent_solving_simple_task_operator8;;
 		*);;
 
-		-> .agent_find_graph_info_operator8
+		-> .agent_solving_simple_task_operator8
 		(*
 			<- genEl;;
 			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _used_key_elements;;
 
-			=> nrel_goto: .agent_find_graph_info_operator9;;
+			=> nrel_goto: .agent_solving_simple_task_operator9;;
 		*);;
 
-		-> .agent_find_graph_info_operator9
+		-> .agent_solving_simple_task_operator9
 		(*
 			<- genElStr3;;
 			-> rrel_1: rrel_fixed: rrel_scp_const: solution_tree_node;;
 			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
 			-> rrel_3: rrel_assign: rrel_scp_var: rrel_node: rrel_const: _solution_tree_root;;
 
-			=> nrel_goto: .agent_find_graph_info_operator9_1;;
+			=> nrel_goto: .agent_solving_simple_task_operator9_1;;
 		*);;
 
-		-> .agent_find_graph_info_operator9_1
+		-> .agent_solving_simple_task_operator9_1
 		(*
 			<- genElStr5;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _solution_tree_root;;
@@ -102,10 +102,10 @@ scp_program -> agent_find_graph_info (*
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
 			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_solution_action_goal;;
 
-			=> nrel_goto: .agent_find_graph_info_operator9_2;;
+			=> nrel_goto: .agent_solving_simple_task_operator9_2;;
 		*);;
 
-		-> .agent_find_graph_info_operator9_2
+		-> .agent_solving_simple_task_operator9_2
 		(*
 			<- genElStr5;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _solution_tree_root;;
@@ -114,13 +114,13 @@ scp_program -> agent_find_graph_info (*
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
 			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_solution_argument_1;;
 
-			=> nrel_goto: .agent_find_graph_info_operator10;;
+			=> nrel_goto: .agent_solving_simple_task_operator10;;
 		*);;
 
-		-> .agent_find_graph_info_operator10
+		-> .agent_solving_simple_task_operator10
 		(*
 			<- call;;
-		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_find_graph_info;;
+		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_find_sc_element_kb_element_relation;;
 		        -> rrel_2: rrel_fixed: rrel_scp_const: ... 
 				(*
 					-> rrel_1: rrel_fixed: rrel_scp_var: _param1;;
@@ -131,18 +131,18 @@ scp_program -> agent_find_graph_info (*
 				*);;
 		        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
 
-			=> nrel_goto: .agent_find_graph_info_operator11;;
+			=> nrel_goto: .agent_solving_simple_task_operator11;;
 		*);;
 
-		-> .agent_find_graph_info_operator11
+		-> .agent_solving_simple_task_operator11
 		(*
 			<- waitReturn;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
 
-			=> nrel_goto: .agent_find_graph_info_operator12;;
+			=> nrel_goto: .agent_solving_simple_task_operator12;;
 		*);;		
 
-		-> .agent_find_graph_info_operator12
+		-> .agent_solving_simple_task_operator12
 		(*
 			<- call;;
 		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_add_solver_solution_to_outline;;
@@ -153,18 +153,18 @@ scp_program -> agent_find_graph_info (*
 				*);;
 		        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
 
-			=> nrel_goto: .agent_find_graph_info_operator13;;
+			=> nrel_goto: .agent_solving_simple_task_operator13;;
 		*);;
 
-		-> .agent_find_graph_info_operator13
+		-> .agent_solving_simple_task_operator13
 		(*
 			<- waitReturn;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
 
-			=> nrel_goto: .agent_find_graph_info_operator_last;;
+			=> nrel_goto: .agent_solving_simple_task_operator_last;;
 		*);;	
 		
-		-> .agent_find_graph_info_operator_last
+		-> .agent_solving_simple_task_operator_last
 		(*
 			<- genElStr5;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
@@ -173,10 +173,10 @@ scp_program -> agent_find_graph_info (*
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
 			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_answer;;
 
-			=>nrel_goto: .agent_find_graph_info_operator_return;;
+			=>nrel_goto: .agent_solving_simple_task_operator_return;;
 		*);; 
 
-		-> .agent_find_graph_info_operator_return (*
+		-> .agent_solving_simple_task_operator_return (*
 		  <- return;;
 		*);;
 	*);;
