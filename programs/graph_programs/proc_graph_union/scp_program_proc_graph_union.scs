@@ -22,17 +22,16 @@ proc_graph_union
 
 ..scp_program_proc_graph_union_initiation_condition
 = [*
-	concept_graph _-> _graph1;;
-	concept_graph _-> _graph2;;
+	concept_graph _-> _graph_union1;;
+	concept_graph _-> _graph_union2;;
 *];;
 
 
 ..scp_program_proc_graph_union_result
 = [*
 	concept_graph _-> _graph_union;;
-	_graph_intersection<= nrel_graph_union:
-        {
-        	_graph1;
-        	_graph2
-        };;
+	_graph_union<= nrel_graph_union:_...(*
+							->_graph_union1;;
+        						->_graph_union2;;
+							*);;
 *];;

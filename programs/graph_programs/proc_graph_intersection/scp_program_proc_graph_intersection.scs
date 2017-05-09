@@ -22,17 +22,16 @@ proc_graph_intersection
 
 ..scp_program_proc_graph_intersection_initiation_condition
 = [*
-	concept_graph _-> _graph1;;
-	concept_graph _-> _graph2;;
+	concept_graph _-> _graph_intersection1;;
+	concept_graph _-> _graph_intersection2;;
 *];;
 
 
 ..scp_program_proc_graph_intersection_result
 = [*
 	concept_graph _-> _graph_intersection;;
-	_graph_intersection<= nrel_graph_intersection:
-        {
-        	_graph1;
-        	_graph2
-        };;
+	_graph_intersection<= nrel_graph_intersection:_...(*
+							->_graph_intersection1;;
+        						->_graph_intersection2;;
+							*);;
 *];;
