@@ -30,7 +30,7 @@ proc_graph_union
 ..scp_program_proc_graph_union_result
 = [*
 	concept_graph _-> _graph_union;;
-	_graph_intersection<= nrel_graph_union:
+	_graph_union <= nrel_graph_union:
         {
         	_graph1;
         	_graph2
