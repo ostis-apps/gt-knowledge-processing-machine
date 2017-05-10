@@ -1,0 +1,54 @@
+sc_agent_using_binary_operation
+=> nrel_main_idtf:
+	[sc-агент выполнения бинарной операции] (* <- lang_ru;; *);
+<- abstract_sc_agent;
+=> nrel_primary_initiation_condition: (sc_event_add_output_arc => question_initiated);
+=> nrel_initiation_condition_and_result: (..sc_agent_using_binary_operation_initiation_condition => ..sc_agent_using_binary_operation_result);
+<= nrel_sc_agent_key_sc_elements: 
+	{
+		question_initiated;
+		question;
+		question_using_binary_operation
+	};
+<- key_sc_element:
+	..sc_agent_using_binary_operation_behavior
+	(*
+	<- sc_description_of_sc_agent_behavior;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Задачей sc-агента является выполнение бинарной операции];;
+		*);;
+	*);
+
+=> nrel_inclusion: ...
+	(*
+		<- platform_independent_abstract_sc_agent;;
+		<= nrel_sc_agent_program: 
+		{
+			agent_using_binary_operation
+		};;
+		-> sc_agent_using_binary_operation_scp (* <- active_sc_agent;; *);;
+	*);;
+
+..sc_agent_using_binary_operation_initiation_condition
+= [*
+	question_using_binary_operation _-> .._question;;
+	question_initiated _-> .._question;;
+	question _-> .._question;;
+	.._question _-> rrel_1:: .._parameter1;;
+	.._question _-> rrel_2:: .._parameter2;;
+	.._question _-> rrel_3:: .._parameter3;;
+*];;
+
+..sc_agent_using_binary_operation_result
+= [*
+	question_using_binary_operation _-> .._question;;
+	question_finished _-> .._question;;
+	question _-> .._question;;
+	/*.._question _=> nrel_answer:: .._answer;;*/
+	.._question _-> rrel_1:: .._parameter1;;
+	.._question _-> rrel_2:: .._parameter2;;
+	.._question _-> rrel_3:: .._parameter3;;
+*];;                   

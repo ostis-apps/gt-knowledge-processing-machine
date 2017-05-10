@@ -1,39 +1,39 @@
-agent_finding_relation_of_sc_element_with_kb_element
+agent_using_binary_operation
 => nrel_main_idtf:
 	[агентная scp-программа  поиска связи заданного sc-элемента с заданным понятием] (* <- lang_ru;; *);
 	[agent scp-program of finding relation of sc-element with kb element] (* <- lang_en;; *);
 	<- agent_scp_program;;
 
-scp_program -> agent_finding_relation_of_sc_element_with_kb_element (*
-	-> rrel_params: .agent_finding_relation_of_sc_element_with_kb_element_params (*
+scp_program -> agent_using_binary_operation (*
+	-> rrel_params: .agent_using_binary_operation_params (*
 		-> rrel_1: rrel_in: _event;;
 		-> rrel_2: rrel_in: _input_arc;;
 	*);;
 
-	-> rrel_operators: .agent_finding_relation_of_sc_element_with_kb_element_operator_set (*
+	-> rrel_operators: .agent_using_binary_operation_operator_set (*
 
-		-> rrel_init: .agent_finding_relation_of_sc_element_with_kb_element_operator0 
+		-> rrel_init: .agent_using_binary_operation_operator0 
 		(*
 			<- searchElStr3;;
 			-> rrel_1: rrel_assign: rrel_scp_var: _temp;;
 			-> rrel_2: rrel_fixed: rrel_scp_var: _input_arc;;
 			-> rrel_3: rrel_assign: rrel_scp_var: _quest;;
 	
-			=> nrel_goto: .agent_finding_relation_of_sc_element_with_kb_element_operator1;;
+			=> nrel_goto: .agent_using_binary_operation_operator1;;
 		*);;
 
-		-> .agent_finding_relation_of_sc_element_with_kb_element_operator1
+		-> .agent_using_binary_operation_operator1
 		(*
 			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_const: question_find_sc_element_kb_element_relation;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: question_using_binary_operation;;
 			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
 
-			=> nrel_then: .agent_finding_relation_of_sc_element_with_kb_element_operator2;;
-			=> nrel_else: .agent_finding_relation_of_sc_element_with_kb_element_operator_unsuccess;;
+			=> nrel_then: .agent_using_binary_operation_operator2;;
+			=> nrel_else: .agent_using_binary_operation_operator_unsuccess;;
 		*);;
 
-		-> .agent_finding_relation_of_sc_element_with_kb_element_operator2
+		-> .agent_using_binary_operation_operator2
 		(*
 			<- searchElStr5;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
@@ -42,11 +42,11 @@ scp_program -> agent_finding_relation_of_sc_element_with_kb_element (*
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
 			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_1;;
 
-			=> nrel_then: .agent_finding_relation_of_sc_element_with_kb_element_operator3;;
-			=> nrel_else: .agent_finding_relation_of_sc_element_with_kb_element_operator_unsuccess;;
+			=> nrel_then: .agent_using_binary_operation_operator3;;
+			=> nrel_else: .agent_using_binary_operation_operator_unsuccess;;
 		*);;
 	
-		-> .agent_finding_relation_of_sc_element_with_kb_element_operator3
+		-> .agent_using_binary_operation_operator3
 		(*
 			<- searchElStr5;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
@@ -55,45 +55,42 @@ scp_program -> agent_finding_relation_of_sc_element_with_kb_element (*
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
 			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_2;;
 
-			=> nrel_then: .agent_finding_relation_of_sc_element_with_kb_element_operator4;;
-			=> nrel_else: .agent_finding_relation_of_sc_element_with_kb_element_operator_unsuccess;;
+			=> nrel_then: .agent_using_binary_operation_operator3_1;;
+			=> nrel_else: .agent_using_binary_operation_operator_unsuccess;;
 		*);;
 
-		-> .agent_finding_relation_of_sc_element_with_kb_element_operator4
+		-> .agent_using_binary_operation_operator3_1
+		(*
+			<- searchElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _param3;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_3;;
+
+			=> nrel_then: .agent_using_binary_operation_operator4;;
+			=> nrel_else: .agent_using_binary_operation_operator_unsuccess;;
+		*);;
+
+		-> .agent_using_binary_operation_operator4
 		(*
 			<- genEl;;
 			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _answer;;
 
-			=> nrel_goto: .agent_finding_relation_of_sc_element_with_kb_element_operator7;;
+			=> nrel_goto: .agent_using_binary_operation_operator5;;
 		*);;
 
-		-> .agent_finding_relation_of_sc_element_with_kb_element_operator7
-		(*
-			<- genEl;;
-			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _used_solver_elements;;
-
-			=> nrel_goto: .agent_finding_relation_of_sc_element_with_kb_element_operator8;;
-		*);;
-
-		-> .agent_finding_relation_of_sc_element_with_kb_element_operator8
-		(*
-			<- genEl;;
-			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _used_key_elements;;
-
-			=> nrel_goto: .agent_finding_relation_of_sc_element_with_kb_element_operator9;;
-		*);;
-
-		-> .agent_finding_relation_of_sc_element_with_kb_element_operator9
+		-> .agent_using_binary_operation_operator5
 		(*
 			<- genElStr3;;
 			-> rrel_1: rrel_fixed: rrel_scp_const: solution_tree_node;;
 			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
 			-> rrel_3: rrel_assign: rrel_scp_var: rrel_node: rrel_const: _solution_tree_root;;
 
-			=> nrel_goto: .agent_finding_relation_of_sc_element_with_kb_element_operator9_1;;
+			=> nrel_goto: .agent_using_binary_operation_operator6;;
 		*);;
 
-		-> .agent_finding_relation_of_sc_element_with_kb_element_operator9_1
+		-> .agent_using_binary_operation_operator6
 		(*
 			<- genElStr5;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _solution_tree_root;;
@@ -102,10 +99,10 @@ scp_program -> agent_finding_relation_of_sc_element_with_kb_element (*
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
 			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_solution_action_goal;;
 
-			=> nrel_goto: .agent_finding_relation_of_sc_element_with_kb_element_operator9_2;;
+			=> nrel_goto: .agent_using_binary_operation_operator7;;
 		*);;
 
-		-> .agent_finding_relation_of_sc_element_with_kb_element_operator9_2
+		-> .agent_using_binary_operation_operator7
 		(*
 			<- genElStr5;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _solution_tree_root;;
@@ -114,35 +111,46 @@ scp_program -> agent_finding_relation_of_sc_element_with_kb_element (*
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
 			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_solution_argument_1;;
 
-			=> nrel_goto: .agent_finding_relation_of_sc_element_with_kb_element_operator10;;
+			=> nrel_goto: .agent_using_binary_operation_operator8;;
 		*);;
 
-		-> .agent_finding_relation_of_sc_element_with_kb_element_operator10
+		-> .agent_using_binary_operation_operator8
+		(*
+			<- genElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _solution_tree_root;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_common: rrel_const: _arc;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _param3;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_solution_argument_2;;
+
+			=> nrel_goto: .agent_using_binary_operation_operator9;;
+		*);;
+
+		-> .agent_using_binary_operation_operator9
 		(*
 			<- call;;
-		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_find_sc_element_kb_element_relation;;
+		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_find_and_use_binary_operation;;
 		        -> rrel_2: rrel_fixed: rrel_scp_const: ... 
 				(*
 					-> rrel_1: rrel_fixed: rrel_scp_var: _param1;;
 					-> rrel_2: rrel_fixed: rrel_scp_var: _param2;;
-					-> rrel_3: rrel_fixed: rrel_scp_var: _used_solver_elements;;
-					-> rrel_4: rrel_fixed: rrel_scp_var: _used_key_elements;;
-					-> rrel_5: rrel_fixed: rrel_scp_var: _solution_tree_root;;
+					-> rrel_3: rrel_fixed: rrel_scp_var: _param3;;
+					-> rrel_4: rrel_fixed: rrel_scp_var: _solution_tree_root;;
 				*);;
 		        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
 
-			=> nrel_goto: .agent_finding_relation_of_sc_element_with_kb_element_operator11;;
+			=> nrel_goto: .agent_using_binary_operation_operator11;;
 		*);;
 
-		-> .agent_finding_relation_of_sc_element_with_kb_element_operator11
+		-> .agent_using_binary_operation_operator11
 		(*
 			<- waitReturn;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
 
-			=> nrel_goto: .agent_finding_relation_of_sc_element_with_kb_element_operator12;;
+			=> nrel_goto: .agent_using_binary_operation_operator12;;
 		*);;		
 
-		-> .agent_finding_relation_of_sc_element_with_kb_element_operator12
+		-> .agent_using_binary_operation_operator12
 		(*
 			<- call;;
 		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_add_solver_solution_to_outline;;
@@ -153,28 +161,28 @@ scp_program -> agent_finding_relation_of_sc_element_with_kb_element (*
 				*);;
 		        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
 
-			=> nrel_goto: .agent_finding_relation_of_sc_element_with_kb_element_operator13;;
+			=> nrel_goto: .agent_using_binary_operation_operator13;;
 		*);;
 
-		-> .agent_finding_relation_of_sc_element_with_kb_element_operator13
+		-> .agent_using_binary_operation_operator13
 		(*
 			<- waitReturn;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
 
-			=> nrel_goto: .agent_finding_relation_of_sc_element_with_kb_element_operator14;;
+			=> nrel_goto: .agent_using_binary_operation_operator14;;
 		*);;
 
-		-> .agent_finding_relation_of_sc_element_with_kb_element_operator14
+		-> .agent_using_binary_operation_operator14
 		(*
 			<- genElStr3;;
 			-> rrel_1: rrel_fixed: rrel_scp_const: question_finished_successfully;;
 			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
 
-			=> nrel_goto: .agent_finding_relation_of_sc_element_with_kb_element_operator_last;;
+			=> nrel_goto: .agent_using_binary_operation_operator_last;;
 		*);;
 		
-		-> .agent_finding_relation_of_sc_element_with_kb_element_operator_last
+		-> .agent_using_binary_operation_operator_last
 		(*
 			<- genElStr5;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
@@ -183,20 +191,20 @@ scp_program -> agent_finding_relation_of_sc_element_with_kb_element (*
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
 			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_answer;;
 
-			=>nrel_goto: .agent_finding_relation_of_sc_element_with_kb_element_operator_return;;
+			=>nrel_goto: .agent_using_binary_operation_operator_return;;
 		*);;
 		
-		-> .agent_finding_relation_of_sc_element_with_kb_element_operator_unsuccess 
+		-> .agent_using_binary_operation_operator_unsuccess 
 		(*
 			<- genElStr3;;
 			-> rrel_1: rrel_fixed: rrel_scp_const: question_finished_unsuccessfully;;
 			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
 
-			=> nrel_goto: .agent_finding_relation_of_sc_element_with_kb_element_operator_return;;
+			=> nrel_goto: .agent_using_binary_operation_operator_return;;
 		*);;
 
-		-> .agent_finding_relation_of_sc_element_with_kb_element_operator_return (*
+		-> .agent_using_binary_operation_operator_return (*
 		  <- return;;
 		*);;
 	*);;

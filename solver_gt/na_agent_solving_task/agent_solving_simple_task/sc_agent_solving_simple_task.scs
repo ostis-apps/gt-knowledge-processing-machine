@@ -27,7 +27,7 @@ sc_agent_solving_simple_task
 		<- platform_independent_abstract_sc_agent;;
 		<= nrel_sc_agent_program: 
 		{
-			agent_finding_relation_of_sc_element_with_kb_element
+			agent_solving_simple_task
 		};;
 		-> sc_agent_solving_simple_task_scp (* <- active_sc_agent;; *);;
 	*);;
@@ -38,7 +38,6 @@ sc_agent_solving_simple_task
 	question_initiated _-> .._question;;
 	question _-> .._question;;
 	.._question _-> rrel_1:: .._parameter1;;
-	.._question _-> rrel_2:: .._parameter2;;
 *];;
 
 ..sc_agent_solving_simple_task_result
@@ -48,5 +47,4 @@ sc_agent_solving_simple_task
 	question _-> .._question;;
 	/*.._question _=> nrel_answer:: .._answer;;*/
 	.._question _-> rrel_1:: .._parameter1;;
-	.._question _-> rrel_2:: .._parameter2;;
 *];;                   
