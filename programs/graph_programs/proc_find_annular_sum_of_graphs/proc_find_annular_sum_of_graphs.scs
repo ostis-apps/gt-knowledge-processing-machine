@@ -1,0 +1,272 @@
+scp_program -> proc_find_annular_sum_of_graphs (*
+	
+	-> rrel_params: ... (*
+		-> rrel_1: rrel_in: _graph1;;
+		-> rrel_2: rrel_in: _graph2;;
+		-> rrel_3: rrel_out: _result;;
+	*);;
+
+	-> rrel_operators: ... (*
+
+
+//---gen answer set------------------------------------------------------------------------------
+		->rrel_init:  ..gen_result_set1 (*
+			<- genElStr3;; 
+			-> rrel_1: rrel_assign: rrel_scp_var: _axilary_node;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _axilary_arc_1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _graph1;;
+
+			=> nrel_goto: ..gen_result_set2;;
+		*);;
+
+		-> ..gen_result_set2 (*
+			<- genElStr3;; 
+			-> rrel_1: rrel_fixed: rrel_scp_var: _axilary_node;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _axilary_arc_2;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _graph2;;
+
+			=> nrel_goto: ..gen_result_set3;;
+		*);;
+
+	    -> ..gen_result_set3 (*
+		 <- genElStr5;; 
+			-> rrel_1: rrel_fixed: rrel_scp_var: _axilary_node;;
+			-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: rrel_const: _arc2;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _result;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_annular_sum_of_graphs;;
+
+			=> nrel_goto: ..add_vrtex1;;
+		*);;
+
+//-------------------находим вершины------------------------------------------------------------------------
+	     -> ..add_vrtex1 (*
+			 <- searchSetStr5;; //находим вершины
+			-> rrel_1: rrel_fixed: rrel_scp_var: _graph1;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: rrel_const: _arc2;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _node;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: rrel_const: _arc4;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+		
+			->rrel_set_3: rrel_assign: rrel_scp_var: _nodes_of_first_graph;;
+			=> nrel_then: ..add_vrtex2;;		
+		 	=> nrel_else: ..add_vrtex5;;	//!!!! 
+		*);;
+
+
+		-> ..add_vrtex2 (*
+            <- searchElStr3;; //берем первую смежную вершину
+            -> rrel_1: rrel_fixed: rrel_scp_var: _nodes_of_first_graph;;
+            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _next_node;;
+
+            => nrel_then: ..add_vrtex3;;       
+            => nrel_else: ..add_vrtex5;;   //!!!! 
+        *);;
+
+
+        -> ..add_vrtex3 (*
+            <- eraseEl;;
+            -> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc2;;
+
+            => nrel_goto: ..add_vrtex4;;   
+        *);;
+
+
+	    -> ..add_vrtex4 (*
+		 <- genElStr5;; 
+			-> rrel_1: rrel_fixed: rrel_scp_var: _result;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _next_node;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+
+			=> nrel_goto: ..add_vrtex2;;
+		*);;
+
+
+		-> ..add_vrtex5 (*
+			 <- searchSetStr5;; //находим смежные вершины
+			-> rrel_1: rrel_fixed: rrel_scp_var: _graph2;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: rrel_const: _arc2;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _node;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: rrel_const: _arc4;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+		
+			->rrel_set_3: rrel_assign: rrel_scp_var: _nodes_of_second_graph;;
+			=> nrel_then: ..add_vrtex6;;		
+		 	=> nrel_else: ..add_arc1;;	//!!!! 
+		*);;
+
+
+		-> ..add_vrtex6 (*
+            <- searchElStr3;; //берем первую смежную вершину
+            -> rrel_1: rrel_fixed: rrel_scp_var: _nodes_of_second_graph;;
+            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _next_node;;
+
+            => nrel_then: ..add_vrtex7;;       
+            => nrel_else: ..add_arc1;;   //!!!! 
+        *);;
+
+
+        -> ..add_vrtex7 (*
+            <- eraseEl;;
+            -> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc2;;
+
+            => nrel_goto: ..add_vrtex8;;   
+        *);;
+
+
+		-> ..add_vrtex8 (*
+			 <- searchElStr5;; 
+			-> rrel_1: rrel_fixed: rrel_scp_var: _result;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: rrel_const: _arc2;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _next_node;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: rrel_const: _arc4;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+		
+			=> nrel_then: ..add_vrtex6;;		
+		 	=> nrel_else: ..add_vrtex9;;	//!!!! 
+		*);;
+
+	    -> ..add_vrtex9 (*
+		 <- genElStr5;; 
+			-> rrel_1: rrel_fixed: rrel_scp_var: _result;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _next_node;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+
+			=> nrel_goto: ..add_vrtex6;;
+		*);;
+
+
+//---------------------------------------------------------------------------------------------------
+
+
+ -> ..add_arc1 (*
+			 <- searchSetStr5;; 
+			-> rrel_1: rrel_fixed: rrel_scp_var: _graph1;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: rrel_const: _arc2;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _arc;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: rrel_const: _arc4;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_edge;;
+		
+			->rrel_set_3: rrel_assign: rrel_scp_var: _arcs_of_first_graph;;
+			=> nrel_then: ..add_arc2;;		
+		 	=> nrel_else: ..add_second_arc1;;	//!!!! 
+		*);;
+
+
+		-> ..add_arc2 (*
+            <- searchElStr3;; //берем первую смежную дугу
+            -> rrel_1: rrel_fixed: rrel_scp_var: _arcs_of_first_graph;;
+            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _next_arc;;
+
+            => nrel_then: ..add_arc3;;       
+            => nrel_else: ..add_second_arc1;;   //!!!! 
+        *);;
+
+
+        -> ..add_arc3 (*
+            <- eraseEl;;
+            -> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc2;;
+
+            => nrel_goto: ..add_arc4;;   
+        *);;
+
+
+		-> ..add_arc4 (*
+			 <- searchElStr5;; 
+			-> rrel_1: rrel_fixed: rrel_scp_var: _graph2;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: rrel_const: _arc2;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _next_arc;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: rrel_const: _arc4;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_edge;;
+		
+			=> nrel_then: ..add_arc2;;		
+		 	=> nrel_else: ..add_arc5;;	 
+		*);;
+
+
+	    -> ..add_arc5 (*
+		 <- genElStr5;; 
+			-> rrel_1: rrel_fixed: rrel_scp_var: _result;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _next_arc;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_edge;;
+
+			=> nrel_goto: ..add_arc2;;
+		*);;
+
+//----------------------------------------------------------------------------------------------------------------------
+
+	-> ..add_second_arc1 (*
+			 <- searchSetStr5;; //находим вершины
+			-> rrel_1: rrel_fixed: rrel_scp_var: _graph2;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: rrel_const: _arc2;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _arc;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: rrel_const: _arc4;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_edge;;
+		
+			->rrel_set_3: rrel_assign: rrel_scp_var: _arcs_of_second_graph;;
+			=> nrel_then: ..add_second_arc2;;		
+		 	=> nrel_else: ..proc_run_testcase_operator_return;;	//!!!! 
+		*);;
+
+
+		-> ..add_second_arc2 (*
+            <- searchElStr3;; //берем первую смежную дугу
+            -> rrel_1: rrel_fixed: rrel_scp_var: _arcs_of_second_graph;;
+            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _next_arc;;
+
+            => nrel_then: ..add_second_arc3;;       
+            => nrel_else: ..proc_run_testcase_operator_return;;   //!!!! 
+        *);;
+
+
+        -> ..add_second_arc3 (*
+            <- eraseEl;;
+            -> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc2;;
+
+            => nrel_goto: ..add_second_arc4;;   
+        *);;
+
+		-> ..add_second_arc4 (*
+			 <- searchElStr5;; //находим смежные вершины
+			-> rrel_1: rrel_fixed: rrel_scp_var: _graph1;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: rrel_const: _arc2;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _next_arc;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: rrel_const: _arc4;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_edge;;
+	
+			=> nrel_then: ..add_second_arc2;;		
+		 	=> nrel_else: ..add_second_arc5;;	 
+		*);;
+
+
+	    -> ..add_second_arc5 (*
+		 <- genElStr5;; 
+			-> rrel_1: rrel_fixed: rrel_scp_var: _result;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _next_arc;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_edge;;
+
+			=> nrel_goto: ..add_second_arc2;;
+		*);;
+
+
+//----------------------------------------------------------------------------------------------------
+
+
+		-> ..proc_run_testcase_operator_return (*
+			<- return;;
+		*);;
+	*);;
+*);;
+
