@@ -10,6 +10,14 @@ scp_program -> proc_graph_intersection(*
 		
 	-> rrel_operators: ... (*
 
+	-> rrel_init: ..proc_graph_intersection_operator0
+	(*
+		<- genEl;;
+		-> rrel_1: rrel_assign: rrel_struct: rrel_const: rrel_node: rrel_scp_var: _per;;
+
+		=> nrel_goto: ..proc_graph_intersection_operator1;;
+	*);;	
+
 	-> rrel_init: ..proc_graph_intersection_operator1(*
 			<- searchSetStr5;;
 			
