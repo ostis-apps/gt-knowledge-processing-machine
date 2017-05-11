@@ -23,6 +23,11 @@ nrel_solution_argument_1 => nrel_main_idtf:
 	[первый аргумент решения*] (* <- lang_ru;; *);
 	[first solution argument*] (* <- lang_en;; *);;
 
+sc_node_norole_relation -> nrel_solution_argument_2;;
+nrel_solution_argument_2 => nrel_main_idtf:
+	[второй аргумент решения*] (* <- lang_ru;; *);
+	[second solution argument*] (* <- lang_en;; *);;
+
 sc_node_norole_relation -> nrel_solution_action;;
 nrel_solution_action => nrel_main_idtf:
 	[действие решения*] (* <- lang_ru;; *);

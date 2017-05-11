@@ -12,6 +12,14 @@ scp_program -> agent_using_binary_operation (*
 
 	-> rrel_operators: .agent_using_binary_operation_operator_set (*
 
+		-> .agent_using_binary_operation_operator_debug
+		(*
+			<- printNl;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: [Start work agent_using_binary_operation];;
+
+			=> nrel_goto: .agent_using_binary_operation_operator1_1;;
+		*);;
+
 		-> rrel_init: .agent_using_binary_operation_operator0 
 		(*
 			<- searchElStr3;;
@@ -29,6 +37,17 @@ scp_program -> agent_using_binary_operation (*
 			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
 
+			=> nrel_then: .agent_using_binary_operation_operator_debug;;
+			=> nrel_else: .agent_using_binary_operation_operator_unsuccess;;
+		*);;
+
+		-> .agent_using_binary_operation_operator1_1
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _params;;
+
 			=> nrel_then: .agent_using_binary_operation_operator2;;
 			=> nrel_else: .agent_using_binary_operation_operator_unsuccess;;
 		*);;
@@ -36,7 +55,7 @@ scp_program -> agent_using_binary_operation (*
 		-> .agent_using_binary_operation_operator2
 		(*
 			<- searchElStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _params;;
 			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
 			-> rrel_3: rrel_assign: rrel_scp_var: _param1;;
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
@@ -49,7 +68,7 @@ scp_program -> agent_using_binary_operation (*
 		-> .agent_using_binary_operation_operator3
 		(*
 			<- searchElStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _params;;
 			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
 			-> rrel_3: rrel_assign: rrel_scp_var: _param2;;
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
@@ -62,7 +81,7 @@ scp_program -> agent_using_binary_operation (*
 		-> .agent_using_binary_operation_operator3_1
 		(*
 			<- searchElStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _params;;
 			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
 			-> rrel_3: rrel_assign: rrel_scp_var: _param3;;
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
@@ -133,8 +152,8 @@ scp_program -> agent_using_binary_operation (*
 		        -> rrel_2: rrel_fixed: rrel_scp_const: ... 
 				(*
 					-> rrel_1: rrel_fixed: rrel_scp_var: _param1;;
-					-> rrel_2: rrel_fixed: rrel_scp_var: _param2;;
-					-> rrel_3: rrel_fixed: rrel_scp_var: _param3;;
+					-> rrel_2: rrel_fixed: rrel_scp_var: _param3;;
+					-> rrel_3: rrel_fixed: rrel_scp_var: _param2;;
 					-> rrel_4: rrel_fixed: rrel_scp_var: _solution_tree_root;;
 				*);;
 		        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
@@ -169,16 +188,6 @@ scp_program -> agent_using_binary_operation (*
 			<- waitReturn;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
 
-			=> nrel_goto: .agent_using_binary_operation_operator14;;
-		*);;
-
-		-> .agent_using_binary_operation_operator14
-		(*
-			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_const: question_finished_successfully;;
-			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
-
 			=> nrel_goto: .agent_using_binary_operation_operator_last;;
 		*);;
 		
@@ -191,7 +200,17 @@ scp_program -> agent_using_binary_operation (*
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
 			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_answer;;
 
-			=>nrel_goto: .agent_using_binary_operation_operator_return;;
+			=>nrel_goto: .agent_using_binary_operation_operator_success;;
+		*);;
+
+		-> .agent_using_binary_operation_operator_success
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: question_finished_successfully;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
+
+			=> nrel_goto: .agent_using_binary_operation_operator_return;;
 		*);;
 		
 		-> .agent_using_binary_operation_operator_unsuccess 

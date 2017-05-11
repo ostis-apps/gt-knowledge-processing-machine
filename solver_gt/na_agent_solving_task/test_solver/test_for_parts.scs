@@ -4,6 +4,15 @@ solver_no_solution => nrel_main_idtf:
 
 aaaa_test->the_best_graph1;concept_tree;;
 aaaa_test1->the_best_graph1;concept_connected_graph;;
+aaaa_test2
+	-> rrel_1: the_best_graph;
+	-> rrel_3: the_best_graph1;
+	-> rrel_2: nrel_graph_intersection;;
+
+aaaa_test3
+	-> rrel_1: the_best_graph;
+	-> rrel_3: the_best_graph1;
+	-> rrel_2: nrel_graph_union;;
 
 concept_graph -> the_best_graph;;
 the_best_graph

@@ -12,7 +12,15 @@ scp_program -> agent_solving_simple_task (*
 
 	-> rrel_operators: .agent_solving_simple_task_operator_set (*
 
-		-> rrel_init: .agent_solving_simple_task_operator0 
+		-> .agent_solving_simple_task_operator_debug
+		(*
+			<- printNl;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: [Start work agent_solving_simple_task];;
+
+			=> nrel_goto: .agent_solving_simple_task_operator2;;
+		*);;
+
+		->rrel_init: .agent_solving_simple_task_operator0 
 		(*
 			<- searchElStr3;;
 			-> rrel_1: rrel_assign: rrel_scp_var: _temp;;
@@ -29,7 +37,7 @@ scp_program -> agent_solving_simple_task (*
 			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
 
-			=> nrel_then: .agent_solving_simple_task_operator2;;
+			=> nrel_then: .agent_solving_simple_task_operator_debug;;
 			=> nrel_else: .agent_solving_simple_task_operator_return;;
 		*);;
 

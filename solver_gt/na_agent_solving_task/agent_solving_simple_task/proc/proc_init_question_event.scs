@@ -42,7 +42,7 @@ scp_program -> proc_init_question_event
 			<- genElStr3;;
 			-> rrel_1: rrel_fixed: rrel_scp_const: question_initiated;;
 			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc_init;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _question_name;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
 
 			=> nrel_goto: .proc_init_question_event_operator4;;
 		*);;
@@ -63,7 +63,7 @@ scp_program -> proc_init_question_event
 			<- searchElStr3;;
 			-> rrel_1: rrel_fixed: rrel_scp_const: question_finished_successfully;;
 			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc_result;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _question_name;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
 
 			=> nrel_then: .proc_init_question_event_operator7;;
 			=> nrel_else: .proc_init_question_event_operator6;;
