@@ -2,8 +2,14 @@ solver_no_solution => nrel_main_idtf:
 	[Решение не найдено] (* <- lang_ru;; *);
 	[Solution not found] (* <- lang_en;; *);;
 
-aaaa_test->the_best_graph1;concept_tree;;
-aaaa_test1->the_best_graph1;concept_connected_graph;;
+aaaa_test
+	-> rrel_1: the_best_graph1;
+	-> rrel_2: concept_tree;;
+
+aaaa_test1
+	-> rrel_1: the_best_graph1;
+	-> rrel_2: concept_connected_graph;;
+
 aaaa_test2
 	-> rrel_1: the_best_graph;
 	-> rrel_3: the_best_graph1;

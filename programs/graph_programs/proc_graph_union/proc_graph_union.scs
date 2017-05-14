@@ -130,8 +130,6 @@ scp_program -> proc_graph_union(*
 		
 		*);;
 		
-	
-		
 	->..proc_graph_union_operator11
 		(*
 			<- searchSetStr5;;
@@ -234,8 +232,7 @@ scp_program -> proc_graph_union(*
 		*);;
 		->..proc_graph_union_operator20
 		(*
-			<- genElStr5;;
-			
+			<- genElStr5;;	
 			-> rrel_1: rrel_fixed: rrel_scp_var: _rez_graph;;
 			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _v;;
@@ -245,16 +242,10 @@ scp_program -> proc_graph_union(*
 			=> nrel_goto: ..proc_graph_union_operator17;;
 		
 		*);;
-		
-		
-		
-		
-		
-		
+
 		->..proc_graph_union_return
 		(*
 			<- genEl;;
-			
 			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _comp;;
 
 			=> nrel_goto: ..proc_graph_union_return1;;
