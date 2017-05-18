@@ -37,7 +37,7 @@ scp_program -> agent_finding_relation_of_sc_element_with_kb_element (*
 			-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
 
 			=> nrel_then: .agent_finding_relation_of_sc_element_with_kb_element_operator_debug;;
-			=> nrel_else: .agent_finding_relation_of_sc_element_with_kb_element_operator_unsuccess;;
+			=> nrel_else: .agent_finding_relation_of_sc_element_with_kb_element_operator_return;;
 		*);;
 
 		-> .agent_finding_relation_of_sc_element_with_kb_element_operator1_1
@@ -207,7 +207,7 @@ scp_program -> agent_finding_relation_of_sc_element_with_kb_element (*
 		-> .agent_finding_relation_of_sc_element_with_kb_element_operator_unsuccess 
 		(*
 			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_const: question_finished;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: question_finished_unsuccessfully;;
 			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
 

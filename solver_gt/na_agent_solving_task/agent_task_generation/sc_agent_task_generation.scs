@@ -1,0 +1,50 @@
+sc_agent_task_generation
+=> nrel_main_idtf:
+	[sc-агент решения состовной задачи] (* <- lang_ru;; *);
+<- abstract_sc_agent;
+=> nrel_primary_initiation_condition: (sc_event_add_output_arc => question_initiated);
+=> nrel_initiation_condition_and_result: (..sc_agent_task_generation_initiation_condition => ..sc_agent_task_generation_result);
+<= nrel_sc_agent_key_sc_elements: 
+	{
+		question_initiated;
+		question;
+		question_generate_task
+	};
+<- key_sc_element:
+	..sc_agent_task_generation_behavior
+	(*
+	<- sc_description_of_sc_agent_behavior;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Задачей sc-агента является решение состовной задачи];;
+		*);;
+	*);
+
+=> nrel_inclusion: ...
+	(*
+		<- platform_independent_abstract_sc_agent;;
+		<= nrel_sc_agent_program: 
+		{
+			agent_solving_simple_task
+		};;
+		-> sc_agent_task_generation_scp (* <- active_sc_agent;; *);;
+	*);;
+
+..sc_agent_task_generation_initiation_condition
+= [*
+	question_generate_task _-> .._question;;
+	question_initiated _-> .._question;;
+	question _-> .._question;;
+	.._question _-> rrel_1:: .._parameter1;;
+*];;
+
+..sc_agent_task_generation_result
+= [*
+	question_generate_task _-> .._question;;
+	question_finished _-> .._question;;
+	question _-> .._question;;
+	/*.._question _=> nrel_answer:: .._answer;;*/
+	.._question _-> rrel_1:: .._parameter1;;
+*];;                   
