@@ -1,6 +1,6 @@
 sc_agent_task_generation
 => nrel_main_idtf:
-	[sc-агент решения состовной задачи] (* <- lang_ru;; *);
+	[sc-агент генерации условия задачи по шаблону] (* <- lang_ru;; *);
 <- abstract_sc_agent;
 => nrel_primary_initiation_condition: (sc_event_add_output_arc => question_initiated);
 => nrel_initiation_condition_and_result: (..sc_agent_task_generation_initiation_condition => ..sc_agent_task_generation_result);
@@ -18,7 +18,7 @@ sc_agent_task_generation
 		...
 		(*
 		-> rrel_example:
-			[Задачей sc-агента является решение состовной задачи];;
+			[Задачей sc-агента является генерация условия задачи по шаблону];;
 		*);;
 	*);
 

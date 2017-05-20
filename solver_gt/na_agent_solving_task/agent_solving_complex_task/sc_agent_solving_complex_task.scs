@@ -1,24 +1,24 @@
-sc_agent_solving_simple_task
+sc_agent_solving_complex_task
 => nrel_main_idtf:
-	[sc-агент решения простой задачи] (* <- lang_ru;; *);
+	[sc-агент решения составной задачи] (* <- lang_ru;; *);
 <- abstract_sc_agent;
 => nrel_primary_initiation_condition: (sc_event_add_output_arc => question_initiated);
-=> nrel_initiation_condition_and_result: (..sc_agent_solving_simple_task_initiation_condition => ..sc_agent_solving_simple_task_result);
+=> nrel_initiation_condition_and_result: (..sc_agent_solving_complex_task_initiation_condition => ..sc_agent_solving_complex_task_result);
 <= nrel_sc_agent_key_sc_elements: 
 	{
 		question_initiated;
 		question;
-		question_solving_simple_task
+		question_solving_complex_task
 	};
 <- key_sc_element:
-	..sc_agent_solving_simple_task_behavior
+	..sc_agent_solving_complex_task_behavior
 	(*
 	<- sc_description_of_sc_agent_behavior;;
 	<= nrel_sc_text_translation:
 		...
 		(*
 		-> rrel_example:
-			[Задачей sc-агента является решение простой задачи];;
+			[Задачей sc-агента является решение составной задачи];;
 		*);;
 	*);
 
@@ -27,22 +27,22 @@ sc_agent_solving_simple_task
 		<- platform_independent_abstract_sc_agent;;
 		<= nrel_sc_agent_program: 
 		{
-			agent_solving_simple_task
+			agent_solving_complex_task
 		};;
-		-> sc_agent_solving_simple_task_scp (* <- active_sc_agent;; *);;
+		-> sc_agent_solving_complex_task_scp (* <- active_sc_agent;; *);;
 	*);;
 
-..sc_agent_solving_simple_task_initiation_condition
+..sc_agent_solving_complex_task_initiation_condition
 = [*
-	question_solving_simple_task _-> .._question;;
+	question_solving_complex_task _-> .._question;;
 	question_initiated _-> .._question;;
 	question _-> .._question;;
 	.._question _-> rrel_1:: .._parameter1;;
 *];;
 
-..sc_agent_solving_simple_task_result
+..sc_agent_solving_complex_task_result
 = [*
-	question_solving_simple_task _-> .._question;;
+	question_solving_complex_task _-> .._question;;
 	question_finished _-> .._question;;
 	question _-> .._question;;
 	/*.._question _=> nrel_answer:: .._answer;;*/

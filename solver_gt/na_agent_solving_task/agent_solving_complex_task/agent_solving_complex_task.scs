@@ -1,0 +1,133 @@
+agent_solving_complex_task
+=> nrel_main_idtf:
+	[агентная scp-программа решения составной задачи] (* <- lang_ru;; *);
+	[agent scp-program of solving complex task] (* <- lang_en;; *);
+	<- agent_scp_program;;
+
+scp_program -> agent_solving_complex_task (*
+	-> rrel_params: .agent_solving_complex_task_params (*
+		-> rrel_1: rrel_in: _event;;
+		-> rrel_2: rrel_in: _input_arc;;
+	*);;
+
+	-> rrel_operators: .agent_solving_complex_task_operator_set (*
+
+		-> .agent_solving_complex_task_operator_debug
+		(*
+			<- printNl;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: [Start work agent_solving_complex_task];;
+
+			=> nrel_goto: .agent_solving_complex_task_operator2;;
+		*);;
+
+		->rrel_init: .agent_solving_complex_task_operator0 
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_assign: rrel_scp_var: _temp;;
+			-> rrel_2: rrel_fixed: rrel_scp_var: _input_arc;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _quest;;
+	
+			=> nrel_goto: .agent_solving_complex_task_operator1;;
+		*);;
+
+		-> .agent_solving_complex_task_operator1
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: question_solving_complex_task;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
+
+			=> nrel_then: .agent_solving_complex_task_operator_debug;;
+			=> nrel_else: .agent_solving_complex_task_operator_return;;
+		*);;
+
+		-> .agent_solving_complex_task_operator3
+		(*
+			<- call;;
+		    -> rrel_1: rrel_fixed: rrel_scp_const: proc_solve_complex_task;;
+		    -> rrel_2: rrel_fixed: rrel_scp_const: ... 
+				(*
+					-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
+					-> rrel_2: rrel_assign: rrel_scp_var: _solution_tree_root;;
+				*);;
+		    -> rrel_3: rrel_assign: rrel_scp_var: _descr1;;
+
+			=> nrel_goto: .agent_solving_complex_task_operator4;;
+		*);;
+
+		-> .agent_solving_complex_task_operator4
+		(*
+			<- waitReturn;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr1;;
+
+			=> nrel_goto: .agent_solving_complex_task_operator5;;
+		*);;
+
+        -> .agent_solving_complex_task_operator5
+		(*
+			<- ifVarAssign;;
+		  	-> rrel_1: rrel_scp_var: _solution_tree_root;;
+
+			=> nrel_then: .agent_solving_complex_task_operator6;;
+			=> nrel_else: .agent_solving_complex_task_operator_unsuccess;;
+		*);;
+
+		-> .agent_solving_complex_task_operator6
+		(*
+			<- call;;
+		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_add_solver_solution_to_outline;;
+		        -> rrel_2: rrel_fixed: rrel_scp_const: ... 
+				(*
+					-> rrel_1: rrel_fixed: rrel_scp_var: _solution_tree_root;;
+					-> rrel_2: rrel_fixed: rrel_scp_var: _answer;;
+				*);;
+		        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+
+			=> nrel_goto: .agent_solving_complex_task_operator7;;
+		*);;
+
+		-> .agent_solving_complex_task_operator7
+		(*
+			<- waitReturn;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
+
+			=> nrel_goto: .agent_solving_complex_task_operator_last;;
+		*);;
+
+		-> .agent_solving_complex_task_operator_last
+		(*
+			<- genElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
+			-> rrel_2: rrel_assign: rrel_const: rrel_common: rrel_scp_var: _arc;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _answer;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_answer;;
+
+			=>nrel_goto: .agent_solving_complex_task_operator_success;;
+		*);; 
+
+		-> .agent_solving_complex_task_operator_success
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: question_finished_successfully;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
+
+			=> nrel_goto: .agent_solving_complex_task_operator_return;;
+		*);;
+		
+		-> .agent_solving_complex_task_operator_unsuccess 
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: question_finished_unsuccessfully;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
+
+			=> nrel_goto: .agent_solving_complex_task_operator_return;;
+		*);;
+
+		-> .agent_solving_complex_task_operator_return (*
+		  <- return;;
+		*);;
+	*);;
+*);;
