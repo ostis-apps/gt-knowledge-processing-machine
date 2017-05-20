@@ -5,5 +5,5 @@ ui_menu_na_graph_theory => nrel_main_idtf: [Graph theory] (* <- lang_en;; *);;
 
 ui_menu_na_graph_theory <= nrel_ui_commands_decomposition:
 {
-    ui_menu_solving_simple_task
+    ui_menu_task_generation
 };;

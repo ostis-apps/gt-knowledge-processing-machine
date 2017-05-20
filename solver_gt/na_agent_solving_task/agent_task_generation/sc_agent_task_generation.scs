@@ -27,7 +27,7 @@ sc_agent_task_generation
 		<- platform_independent_abstract_sc_agent;;
 		<= nrel_sc_agent_program: 
 		{
-			agent_solving_simple_task
+			agent_task_generation
 		};;
 		-> sc_agent_task_generation_scp (* <- active_sc_agent;; *);;
 	*);;
