@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GWF version="2.0">
     <staticSector>
+        <node type="node/const/attribute" idtf="rrel_input" shapeColor="0" id="23370848" parent="21220656" left="0" top="0" right="79.0312" bottom="23" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="535" y="732" haveBus="false" idtf_pos="0">
+            <content type="0" mime_type="" content_visibility="false" file_name=""/>
+        </node>
+        <node type="node/const/attribute" idtf="rrel_solution_goal" shapeColor="0" id="24249008" parent="21220656" left="0" top="0" right="137.703" bottom="23" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="214.5" y="729.481" haveBus="false" idtf_pos="0">
+            <content type="0" mime_type="" content_visibility="false" file_name=""/>
+        </node>
         <node type="node/var/general_node" idtf="" shapeColor="0" id="24283968" parent="21220656" x="398.5" y="765.481" haveBus="false" idtf_pos="0">
             <content type="0" mime_type="" content_visibility="false" file_name=""/>
         </node>
@@ -8,9 +14,6 @@
             <content type="0" mime_type="" content_visibility="false" file_name=""/>
         </node>
         <node type="node/const/relation" idtf="nrel_graph_union" shapeColor="0" id="24287424" parent="21220656" left="0" top="0" right="134.062" bottom="23" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="460.5" y="911.481" haveBus="false" idtf_pos="0">
-            <content type="0" mime_type="" content_visibility="false" file_name=""/>
-        </node>
-        <node type="node/const/attribute" idtf="rrel_solution_goal" shapeColor="0" id="24249008" parent="21220656" left="0" top="0" right="137.703" bottom="23" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="214.5" y="729.481" haveBus="false" idtf_pos="0">
             <content type="0" mime_type="" content_visibility="false" file_name=""/>
         </node>
         <node type="node/var/general_node" idtf="_input_graph_2" shapeColor="0" id="25457968" parent="21220656" left="0" top="0" right="118" bottom="23" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="557.5" y="803.481" haveBus="false" idtf_pos="0">
@@ -31,6 +34,12 @@
         <node type="node/const/group" idtf="question_find_sc_element_value" shapeColor="0" id="20327248" parent="21220656" left="0" top="0" right="241.625" bottom="23" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="461" y="748.981" haveBus="false" idtf_pos="0">
             <content type="0" mime_type="" content_visibility="false" file_name=""/>
         </node>
+        <arc type="arc/var/pos" idtf="" shapeColor="0" id="21843680" parent="21220656" id_b="23370848" id_e="21209872" b_x="535" b_y="732" e_x="85.5" e_y="549.481" dotBBalance="0" dotEBalance="0.603127">
+            <points/>
+        </arc>
+        <arc type="arc/var/pos" idtf="" shapeColor="0" id="23458064" parent="21220656" id_b="23370848" id_e="21195312" b_x="535" b_y="732" e_x="85.5" e_y="549.481" dotBBalance="0" dotEBalance="0.268564">
+            <points/>
+        </arc>
         <arc type="arc/var/pos" idtf="" shapeColor="0" id="21206752" parent="21220656" id_b="24249008" id_e="21401520" b_x="214.5" b_y="729.481" e_x="427" e_y="860.981" dotBBalance="0" dotEBalance="0.511642">
             <points/>
         </arc>
