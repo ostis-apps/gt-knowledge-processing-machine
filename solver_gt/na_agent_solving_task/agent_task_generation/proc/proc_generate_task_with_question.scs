@@ -180,21 +180,9 @@ scp_program -> proc_generate_task_with_question
 			<- sys_gen;;	
 			
 			-> rrel_1: rrel_fixed: rrel_scp_var: _task_template;;
-		 	-> rrel_2: rrel_fixed: rrel_scp_const: ...;;
+		 	-> rrel_2: rrel_assign: rrel_scp_var: _O;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _generation_params;;
 			-> rrel_4: rrel_assign: rrel_scp_var: _generated_task;;
-
-			=> nrel_goto: .proc_generate_task_with_question_operator17;;
-		*);;
-		
-		-> .proc_generate_task_with_question_operator17
-		(*
-			<- genElStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _task_question_node;;
-			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _generated_task;;
-			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_1;;
 
 			=> nrel_goto: .proc_generate_task_with_question_operator_return;;
 		*);;

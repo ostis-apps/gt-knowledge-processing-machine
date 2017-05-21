@@ -19,7 +19,7 @@ scp_program -> proc_find_and_use_binary_operation
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
 			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_solver_key_sc_element;;
 
-			=> nrel_then: .proc_find_and_use_binary_operation_operator1;;
+			=> nrel_then: .proc_find_and_use_binary_operation_operator5;;
 			=> nrel_else: .proc_find_and_use_binary_operation_operator_return;;
 		*);;
 
@@ -72,8 +72,8 @@ scp_program -> proc_find_and_use_binary_operation
 			-> rrel_1: rrel_fixed: rrel_scp_var: _operation_program;;
 			-> rrel_2: rrel_fixed: rrel_scp_const: ... 
 				(*
-					-> rrel_1: rrel_fixed: rrel_scp_var: _graph1;;
-					-> rrel_2: rrel_fixed: rrel_scp_var: _graph2;;
+					-> rrel_1: rrel_fixed: rrel_scp_var: _operand1;;
+					-> rrel_2: rrel_fixed: rrel_scp_var: _operand2;;
 					-> rrel_3: rrel_assign: rrel_scp_var: _operation_result;;
 				*);;
 			-> rrel_3: rrel_assign: rrel_scp_var: _descr;;
