@@ -446,6 +446,14 @@ scp_program -> proc_find_sc_element_kb_element_relation
 			=> nrel_goto: .proc_find_sc_element_kb_element_relation_operator4;;
 		*);;
 
-		-> .proc_find_sc_element_kb_element_relation_operator_return(*<-return;;*);;
+		-> .proc_find_sc_element_kb_element_relation_operator_return
+		(*
+			<- printNl;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: [Finish work proc_find_sc_element_kb_element_relation];;
+
+			=> nrel_goto: .proc_find_sc_element_kb_element_relation_operator_shadow_return;;
+		*);;
+
+		-> .proc_find_sc_element_kb_element_relation_operator_shadow_return(*<-return;;*);;
 	*);;
 *);;

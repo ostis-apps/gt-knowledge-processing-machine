@@ -114,7 +114,16 @@ scp_program -> proc_init_question_event
 			=> nrel_goto: .proc_init_question_event_operator_return;;
 		*);;
 
-		-> .proc_init_question_event_operator_return(*<-return;;*);;
+		-> .proc_init_question_event_operator_return
+		(*
+			<- printNl;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: [Finish work proc_init_question_event];;
+
+			=> nrel_goto: .proc_init_question_event_operator_shadow_return;;
+		*);;
+
+
+		-> .proc_init_question_event_operator_shadow_return(*<-return;;*);;
 	*);;
 *);;
 

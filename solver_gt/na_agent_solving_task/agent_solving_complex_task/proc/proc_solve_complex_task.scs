@@ -2,7 +2,7 @@ scp_program -> proc_solve_complex_task
 (*
 	-> rrel_params: ...
 	(*
-		-> rrel_1: rrel_in: _quest;;
+		-> rrel_1: rrel_in: _quest_params;;
 		-> rrel_2: rrel_out: _solution_tree_root;;
 	*);;
 
@@ -11,13 +11,26 @@ scp_program -> proc_solve_complex_task
 		-> rrel_init: .proc_solve_complex_task_operator1
 		(*
 			<- searchElStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _quest_params;;
 			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
 			-> rrel_3: rrel_assign: rrel_scp_var: _solution_goal;;
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
 			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_solution_goal;;
 
-			=> nrel_then: .proc_solve_complex_task_operator2;;
+			=> nrel_then: .proc_solve_complex_task_operator1_1;;
+			=> nrel_else: .proc_solve_complex_task_operator_return;;
+		*);;
+
+		-> .proc_solve_complex_task_operator1_1
+		(*
+			<- searchElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _quest_params;;
+			-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _task;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_task;;
+
+			=> nrel_then: .proc_solve_complex_task_operator3;;
 			=> nrel_else: .proc_solve_complex_task_operator_return;;
 		*);;
 
@@ -28,7 +41,7 @@ scp_program -> proc_solve_complex_task
 			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _solution_goal;;
 
-			=> nrel_then: .proc_solve_complex_task_operator3;;
+			=> nrel_then: .proc_solve_complex_task_operator4;;
 			=> nrel_else: .proc_solve_complex_task_operator14;;
 		*);;
 
@@ -39,21 +52,23 @@ scp_program -> proc_solve_complex_task
 			-> rrel_2: rrel_fixed: rrel_scp_var: _solution_goal;;
 			-> rrel_3: rrel_assign: rrel_scp_var: _task_element;;
 
-			=> nrel_goto: .proc_solve_complex_task_operator4;;
+			=> nrel_then: .proc_solve_complex_task_operator4;;
+			=> nrel_else: .proc_solve_complex_task_operator14;;
 		*);;
 
 		-> .proc_solve_complex_task_operator4
 		(*
 			<- call;;
-		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_find_task_element_value;;
-		        -> rrel_2: rrel_fixed: rrel_scp_const: ... 
+				-> rrel_1: rrel_fixed: rrel_scp_const: proc_find_task_element_value;;
+				-> rrel_2: rrel_fixed: rrel_scp_const: ... 
 				(*
 					-> rrel_1: rrel_fixed: rrel_scp_var: _task_element;;
-					-> rrel_2: rrel_fixed: rrel_scp_var: _quest;;
-					-> rrel_3: rrel_assign: rrel_scp_var: _task_element_value;;
-					-> rrel_4: rrel_assign: rrel_scp_var: _solution_tree_node;;
+					-> rrel_2: rrel_fixed: rrel_scp_var: _quest_params;;
+					-> rrel_3: rrel_fixed: rrel_scp_var: _task;;
+					-> rrel_4: rrel_assign: rrel_scp_var: _task_element_value;;
+					-> rrel_5: rrel_assign: rrel_scp_var: _solution_tree_node;;
 				*);;
-		        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+				-> rrel_3: rrel_assign: rrel_scp_var: _descr;;
 
 			=> nrel_goto: .proc_solve_complex_task_operator5;;
 		*);;
@@ -75,7 +90,7 @@ scp_program -> proc_solve_complex_task
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
 			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_1;;
 
-			=> nrel_goto: .proc_solve_complex_task_operator7;;
+			=> nrel_goto: .proc_solve_complex_task_operator8;;
 		*);;
 
 		-> .proc_solve_complex_task_operator8
@@ -93,14 +108,14 @@ scp_program -> proc_solve_complex_task
 		-> .proc_solve_complex_task_operator9
 		(*
 			<- call;;
-		    -> rrel_1: rrel_fixed: rrel_scp_const: proc_init_question_event;;
-		    -> rrel_2: rrel_fixed: rrel_scp_const: ... 
+			-> rrel_1: rrel_fixed: rrel_scp_const: proc_init_question_event;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: ... 
 				(*
 					-> rrel_1: rrel_fixed: rrel_scp_const: question_find_sc_element_kb_element_relation;;
 					-> rrel_2: rrel_fixed: rrel_scp_var: _params;;
 					-> rrel_3: rrel_assign: rrel_scp_var: _agent_answer;;
 				*);;
-		    -> rrel_3: rrel_assign: rrel_scp_var: _descr1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _descr1;;
 
 			=> nrel_goto: .proc_solve_complex_task_operator10;;
 		*);;
@@ -117,19 +132,19 @@ scp_program -> proc_solve_complex_task
 		(*
 			<- searchElStr5;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _agent_answer;;
-			-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _solution_result;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _solution_tree_node_result;;
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_solution_result;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_2;;
 
-			=> nrel_then: .proc_solve_complex_task_operator2;;
+			=> nrel_then: .proc_solve_complex_task_operator11;;
 			=> nrel_else: .proc_solve_complex_task_operator_return;;
 		*);;
 
 		-> .proc_solve_complex_task_operator11
 		(*
 			<- ifVarAssign;;
-		  	-> rrel_1: rrel_scp_var: _solution_tree_node;;
+			-> rrel_1: rrel_scp_var: _solution_tree_node;;
 
 			=> nrel_then: .proc_solve_complex_task_operator12;;
 			=> nrel_else: .proc_solve_complex_task_operator13;;
@@ -140,7 +155,7 @@ scp_program -> proc_solve_complex_task
 			<- genElStr5;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _solution_tree_node;;
 			-> rrel_2: rrel_assign: rrel_common: rrel_const: rrel_scp_var: _arc1;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _solution_result;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _solution_tree_node_result;;
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
 			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_next_solution_action;;
 
@@ -151,7 +166,7 @@ scp_program -> proc_solve_complex_task
 		(*
 			<- varAssign;;
 			-> rrel_1: rrel_assign: rrel_scp_var: _solution_tree_node;;
-			-> rrel_2: rrel_fixed: rrel_scp_var: _solution_result;;
+			-> rrel_2: rrel_fixed: rrel_scp_var: _solution_tree_node_result;;
 
 			=> nrel_goto: .proc_solve_complex_task_operator18;;
 		*);;	
@@ -159,15 +174,16 @@ scp_program -> proc_solve_complex_task
 		-> .proc_solve_complex_task_operator14
 		(*
 			<- call;;
-		        -> rrel_1: rrel_fixed: rrel_scp_const: proc_find_task_element_value;;
-		        -> rrel_2: rrel_fixed: rrel_scp_const: ... 
+				-> rrel_1: rrel_fixed: rrel_scp_const: proc_find_task_element_value;;
+				-> rrel_2: rrel_fixed: rrel_scp_const: ... 
 				(*
 					-> rrel_1: rrel_fixed: rrel_scp_var: _solution_goal;;
-					-> rrel_2: rrel_fixed: rrel_scp_var: _quest;;
-					-> rrel_3: rrel_assign: rrel_scp_var: _task_element_value;;
-					-> rrel_4: rrel_assign: rrel_scp_var: _solution_tree_node;;
+					-> rrel_2: rrel_fixed: rrel_scp_var: _quest_params;;
+					-> rrel_3: rrel_fixed: rrel_scp_var: _task;;
+					-> rrel_4: rrel_assign: rrel_scp_var: _task_element_value;;
+					-> rrel_5: rrel_assign: rrel_scp_var: _solution_tree_node;;
 				*);;
-		        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+				-> rrel_3: rrel_assign: rrel_scp_var: _descr;;
 
 			=> nrel_goto: .proc_solve_complex_task_operator15;;
 		*);;
@@ -183,10 +199,10 @@ scp_program -> proc_solve_complex_task
 		-> .proc_solve_complex_task_operator16
 		(*
 			<- ifVarAssign;;
-		  	-> rrel_1: rrel_scp_var: _solution_tree_node;;
+			-> rrel_1: rrel_scp_var: _solution_tree_node;;
 
-			=> nrel_then: .proc_solve_complex_task_operator17;;
-			=> nrel_else: .proc_solve_complex_task_operator18;;
+			=> nrel_then: .proc_solve_complex_task_operator18;;
+			=> nrel_else: .proc_solve_complex_task_operator17;;
 		*);;
 
 		-> .proc_solve_complex_task_operator17
@@ -194,7 +210,7 @@ scp_program -> proc_solve_complex_task
 			<- genEl;;
 			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _solution_tree_node;;
 
-			=> nrel_goto: .proc_solve_complex_task_operator18;;
+			=> nrel_goto: .proc_solve_complex_task_operator_return;;
 		*);;	
 
 		-> .proc_solve_complex_task_operator18
@@ -207,7 +223,7 @@ scp_program -> proc_solve_complex_task
 			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_action_result;;
 
 			=> nrel_then: .proc_solve_complex_task_operator19;;
-			=> nrel_else: .proc_solve_complex_task_operator_return;;
+			=> nrel_else: .proc_solve_complex_task_operator20;;
 		*);;
 
 		-> .proc_solve_complex_task_operator19
@@ -222,6 +238,18 @@ scp_program -> proc_solve_complex_task
 			=> nrel_goto: .proc_solve_complex_task_operator21;;
 		*);;
 
+		-> .proc_solve_complex_task_operator20
+		(*
+			<- genElStr5;;
+			-> rrel_1: rrel_assign: rrel_scp_var: _solution_tree_root;;
+			-> rrel_2: rrel_assign: rrel_common: rrel_const: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _solution_tree_node;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_task_solution;;
+
+			=> nrel_goto: .proc_solve_complex_task_operator_return;;
+		*);;
+
 		-> .proc_solve_complex_task_operator21
 		(*
 			<- genElStr5;;
@@ -234,7 +262,16 @@ scp_program -> proc_solve_complex_task
 			=> nrel_goto: .proc_solve_complex_task_operator_return;;
 		*);;
 
-		-> .proc_solve_complex_task_operator_return(*<-return;;*);;
+		-> .proc_solve_complex_task_operator_return
+		(*
+			<- printNl;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: [Finish work proc_solve_complex_task];;
+
+			=> nrel_goto: .proc_solve_complex_task_operator_shadow_return;;
+		*);;
+
+
+		-> .proc_solve_complex_task_operator_shadow_return(*<-return;;*);;
 	*);;
 *);;
 

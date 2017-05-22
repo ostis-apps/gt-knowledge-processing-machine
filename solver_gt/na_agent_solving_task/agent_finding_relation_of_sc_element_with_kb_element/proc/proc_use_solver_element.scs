@@ -129,7 +129,7 @@ scp_program -> proc_use_solver_element
 			-> rrel_2: rrel_assign: rrel_scp_var: rrel_const: rrel_common: _arc;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _nodes_relation;;
 			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_solution_result;; 
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_action_result;; 
 
 			=> nrel_goto: .proc_use_solver_element_operator_return;;
 		*);;

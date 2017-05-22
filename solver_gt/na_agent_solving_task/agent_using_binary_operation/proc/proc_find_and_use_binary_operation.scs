@@ -96,7 +96,7 @@ scp_program -> proc_find_and_use_binary_operation
 			-> rrel_2: rrel_assign: rrel_const: rrel_common: rrel_scp_var: _arc;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _operation_result;;
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_solution_result;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_action_result;;
 
 			=> nrel_goto: .proc_find_and_use_binary_operation_operator_return;;
 		*);;
