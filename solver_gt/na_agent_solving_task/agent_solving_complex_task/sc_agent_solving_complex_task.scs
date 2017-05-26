@@ -37,7 +37,9 @@ sc_agent_solving_complex_task
 	question_solving_complex_task _-> .._question;;
 	question_initiated _-> .._question;;
 	question _-> .._question;;
-	.._question _-> rrel_1:: .._parameter1;;
+	.._question _-> .._parameter;;
+	.._parameter _=> nrel_task:: _task;;
+	.._parameter _-> rrel_solution_goal:: _solution_goal;;
 *];;
 
 ..sc_agent_solving_complex_task_result
@@ -45,6 +47,5 @@ sc_agent_solving_complex_task
 	question_solving_complex_task _-> .._question;;
 	question_finished _-> .._question;;
 	question _-> .._question;;
-	/*.._question _=> nrel_answer:: .._answer;;*/
-	.._question _-> rrel_1:: .._parameter1;;
+	.._question _=> nrel_answer:: .._answer;;
 *];;                   

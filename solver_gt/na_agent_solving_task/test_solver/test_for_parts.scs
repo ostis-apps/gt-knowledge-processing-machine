@@ -26,7 +26,6 @@ the_best_graph
 -> rrel_vertex: vertex2;
 -> rrel_vertex: vertex3;
 -> rrel_vertex: vertex4;
--> rrel_vertex: vertex5;
 
 -> rrel_oredge: (vertex1 => vertex2);
 -> rrel_oredge: (vertex1 => vertex3);
