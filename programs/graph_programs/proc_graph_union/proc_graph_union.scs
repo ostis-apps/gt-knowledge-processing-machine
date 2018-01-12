@@ -3,37 +3,37 @@ scp_program -> proc_graph_union(*
 	-> rrel_params: ...(*
 		-> rrel_1: rrel_in: _graph1;;
 		-> rrel_2: rrel_in: _graph2;;
+		-> rrel_3: rrel_out: _rez_graph;;	
+	*);;
+	-> rrel_operators: ... 
+	(*
+
+	
+	-> rrel_init: ..proc_graph_union_operator0
+	(*
+		<- genEl;;
+		-> rrel_1: rrel_assign: rrel_struct: rrel_const: rrel_node: rrel_scp_var: _rez_graph;;
+
+		=> nrel_goto: ..proc_graph_union_operator1;;
+	*);;		
+
+	-> ..proc_graph_union_operator1
+	(*
+		<- searchSetStr5;;	
+		-> rrel_1: rrel_fixed: rrel_scp_var: _graph1;;
+		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+		-> rrel_3: rrel_assign: rrel_scp_var: _el3;;
+		-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+		-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+			
+		->rrel_set_3: rrel_assign: rrel_scp_var: _allvertex;;
+			
+		=> nrel_then: ..proc_graph_union_operator2;;
+		=> nrel_else: ..proc_graph_union_return_end;;
+		
 	*);;
 	
-		
-	-> rrel_operators: ... (*
-
-	-> rrel_init: ..proc_graph_union_operator0
-		(*
-			<- genEl;;
-			
-			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: rez_graph;;
-
-			=> nrel_goto: ..proc_graph_union_operator1;;
-		*);;
-	
-		->..proc_graph_union_operator1
-		(*
-			<- searchSetStr5;;
-			
-			-> rrel_1: rrel_fixed: rrel_scp_var: _graph1;;
-			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
-			-> rrel_3: rrel_assign: rrel_scp_var: _el3;;
-			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
-			
-			->rrel_set_3: rrel_assign: rrel_scp_var: _allvertex;;
-			
-			=> nrel_then: ..proc_graph_union_operator2;;
-			=> nrel_else: ..proc_graph_union_return_end;;
-		
-		*);;
-		-> ..proc_graph_union_operator2 (*
+	-> ..proc_graph_union_operator2 (*
 			<- searchElStr3;;
 			
 			-> rrel_1:  rrel_fixed: rrel_scp_var: _allvertex;;
@@ -57,7 +57,7 @@ scp_program -> proc_graph_union(*
 		(*
 			<- genElStr5;;
 			
-			-> rrel_1: rrel_fixed: rrel_scp_var: rez_graph;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _rez_graph;;
 			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _v;;
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
@@ -120,7 +120,7 @@ scp_program -> proc_graph_union(*
 		(*
 			<- genElStr5;;
 			
-			-> rrel_1: rrel_fixed: rrel_scp_var: rez_graph;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _rez_graph;;
 			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _v;;
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
@@ -129,8 +129,6 @@ scp_program -> proc_graph_union(*
 			=> nrel_goto: ..proc_graph_union_operator7;;
 		
 		*);;
-		
-	
 		
 	->..proc_graph_union_operator11
 		(*
@@ -172,7 +170,7 @@ scp_program -> proc_graph_union(*
 		(*
 			<- genElStr5;;
 			
-			-> rrel_1: rrel_fixed: rrel_scp_var: rez_graph;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _rez_graph;;
 			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _v;;
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
@@ -234,9 +232,8 @@ scp_program -> proc_graph_union(*
 		*);;
 		->..proc_graph_union_operator20
 		(*
-			<- genElStr5;;
-			
-			-> rrel_1: rrel_fixed: rrel_scp_var: rez_graph;;
+			<- genElStr5;;	
+			-> rrel_1: rrel_fixed: rrel_scp_var: _rez_graph;;
 			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _v;;
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
@@ -245,17 +242,11 @@ scp_program -> proc_graph_union(*
 			=> nrel_goto: ..proc_graph_union_operator17;;
 		
 		*);;
-		
-		
-		
-		
-		
-		
+
 		->..proc_graph_union_return
 		(*
 			<- genEl;;
-			
-			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: comp;;
+			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _comp;;
 
 			=> nrel_goto: ..proc_graph_union_return1;;
 		*);;
@@ -264,11 +255,11 @@ scp_program -> proc_graph_union(*
 			
 			<- genElStr5;;
 			
-			-> rrel_1: rrel_fixed: rrel_scp_var: comp;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _comp;;
 			-> rrel_2: rrel_assign: rrel_common: rrel_const:rrel_scp_var: _arc1;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: rez_graph;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _rez_graph;;
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_graph_intersection;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_graph_union;;
 
 			=> nrel_goto: ..proc_graph_union_return2;;
 		
@@ -278,7 +269,7 @@ scp_program -> proc_graph_union(*
 			
 			<- genElStr3;;
 			
-			-> rrel_1: rrel_fixed: rrel_scp_var: comp;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _comp;;
 			-> rrel_2:  rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _graph1;;
 
@@ -291,7 +282,7 @@ scp_program -> proc_graph_union(*
 			
 			<- genElStr3;;
 			
-			-> rrel_1: rrel_fixed: rrel_scp_var: comp;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _comp;;
 			-> rrel_2:  rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _graph2;;
 
@@ -305,7 +296,7 @@ scp_program -> proc_graph_union(*
 			
 			-> rrel_1: rrel_fixed: rrel_scp_const: concept_graph;;
 			-> rrel_2:  rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: rez_graph;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _rez_graph;;
 
 			=> nrel_goto: ..proc_graph_union_return_end;;
 		

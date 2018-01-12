@@ -2,8 +2,23 @@ solver_no_solution => nrel_main_idtf:
 	[Решение не найдено] (* <- lang_ru;; *);
 	[Solution not found] (* <- lang_en;; *);;
 
-aaaa_test->the_best_graph1;concept_tree;;
-aaaa_test1->the_best_graph1;concept_connected_graph;;
+aaaa_test
+	-> rrel_1: the_best_graph1;
+	-> rrel_2: concept_tree;;
+
+aaaa_test1
+	-> rrel_1: the_best_graph1;
+	-> rrel_2: concept_connected_graph;;
+
+aaaa_test2
+	-> rrel_1: the_best_graph;
+	-> rrel_3: the_best_graph1;
+	-> rrel_2: nrel_graph_intersection;;
+
+aaaa_test3
+	-> rrel_1: the_best_graph;
+	-> rrel_3: the_best_graph1;
+	-> rrel_2: nrel_graph_union;;
 
 concept_graph -> the_best_graph;;
 the_best_graph
@@ -11,7 +26,6 @@ the_best_graph
 -> rrel_vertex: vertex2;
 -> rrel_vertex: vertex3;
 -> rrel_vertex: vertex4;
--> rrel_vertex: vertex5;
 
 -> rrel_oredge: (vertex1 => vertex2);
 -> rrel_oredge: (vertex1 => vertex3);
@@ -38,15 +52,29 @@ the_best_graph
 -> rrel_oredge: (vertex5 => vertex4);
 -> rrel_oredge: (vertex5 => vertex1);;
 
-concept_graph -> the_best_graph1;;
-the_best_graph1
--> rrel_vertex: vertex1;
--> rrel_vertex: vertex2;
--> rrel_vertex: vertex3;
--> rrel_vertex: vertex4;
--> rrel_vertex: vertex5;
 
--> rrel_oredge: (vertex1 => vertex2);
--> rrel_oredge: (vertex2 => vertex3);
--> rrel_oredge: (vertex3 => vertex4);
--> rrel_oredge: (vertex3 => vertex5);;
+
+concept_graph -> test_graph1;;
+test_graph1
+-> rrel_vertex: v1;
+-> rrel_vertex: v2;
+-> rrel_vertex: v3;
+-> rrel_vertex: v4;
+-> rrel_vertex: v5;
+
+-> rrel_oredge: (v1 => v2);
+-> rrel_oredge: (v2 => v3);
+-> rrel_oredge: (v3 => v5);
+-> rrel_oredge: (v3 => v4);;
+
+concept_graph -> test_graph2;;
+test_graph2
+-> rrel_vertex: v1;
+-> rrel_vertex: v2;
+-> rrel_vertex: v6;
+-> rrel_vertex: v7;
+-> rrel_vertex: v8;
+
+-> rrel_oredge: (v1 => v7);
+-> rrel_oredge: (v7 => v8);
+-> rrel_oredge: (v6 => v8);;

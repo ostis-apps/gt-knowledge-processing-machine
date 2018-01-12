@@ -3,22 +3,22 @@ scp_program -> proc_graph_intersection(*
 	-> rrel_params: ...(*
 		-> rrel_1: rrel_in: _graph1;;
 		-> rrel_2: rrel_in: _graph2;;
+		-> rrel_3: rrel_out: _per;;
+
 	*);;
 	
 		
 	-> rrel_operators: ... (*
 
 	-> rrel_init: ..proc_graph_intersection_operator0
-		(*
-			<- genEl;;
-			
-			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: per;;
+	(*
+		<- genEl;;
+		-> rrel_1: rrel_assign: rrel_struct: rrel_const: rrel_node: rrel_scp_var: _per;;
 
-			=> nrel_goto: ..proc_graph_intersection_operator1;;
-		*);;
-	
-		->..proc_graph_intersection_operator1
-		(*
+		=> nrel_goto: ..proc_graph_intersection_operator1;;
+	*);;	
+
+	-> rrel_init: ..proc_graph_intersection_operator1(*
 			<- searchSetStr5;;
 			
 			-> rrel_1: rrel_fixed: rrel_scp_var: _graph1;;
@@ -71,7 +71,7 @@ scp_program -> proc_graph_intersection(*
 			
 			<- genElStr5;;
 			
-			-> rrel_1: rrel_fixed: rrel_scp_var: per;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _per;;
 			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _v;;
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
@@ -135,7 +135,7 @@ scp_program -> proc_graph_intersection(*
 			
 			<- genElStr5;;
 			
-			-> rrel_1: rrel_fixed: rrel_scp_var: per;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _per;;
 			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _A;;
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
@@ -158,9 +158,9 @@ scp_program -> proc_graph_intersection(*
 			
 			<- genElStr5;;
 			
-			-> rrel_1: rrel_fixed: rrel_scp_var: comp;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _comp;;
 			-> rrel_2: rrel_assign: rrel_common: rrel_const:rrel_scp_var: _arc1;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: per;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _per;;
 			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
 			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_graph_intersection;;
 
@@ -172,7 +172,7 @@ scp_program -> proc_graph_intersection(*
 			
 			<- genElStr3;;
 			
-			-> rrel_1: rrel_fixed: rrel_scp_var: comp;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _comp;;
 			-> rrel_2:  rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _graph1;;
 
@@ -185,7 +185,7 @@ scp_program -> proc_graph_intersection(*
 			
 			<- genElStr3;;
 			
-			-> rrel_1: rrel_fixed: rrel_scp_var: comp;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _comp;;
 			-> rrel_2:  rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _graph2;;
 
@@ -199,7 +199,7 @@ scp_program -> proc_graph_intersection(*
 			
 			-> rrel_1: rrel_fixed: rrel_scp_const: concept_graph;;
 			-> rrel_2:  rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: per;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _per;;
 
 			=> nrel_goto: ..proc_graph_intersection_return_end;;
 		

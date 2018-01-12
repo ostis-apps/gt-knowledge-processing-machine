@@ -1,0 +1,23 @@
+ui_menu_solving_complex_task <- ui_user_command_class_atom; ui_user_command_class_view_kb;;
+
+ui_menu_solving_complex_task =>nrel_main_idtf: [Каково решение состовной задачи?] (* <- lang_ru;; *);;
+
+ui_menu_solving_complex_task =>nrel_main_idtf: [What is complex task solution?] (* <- lang_en;; *);;
+
+ui_menu_solving_complex_task => ui_nrel_command_template:
+[*
+	question_solving_complex_task _-> ._question_solving_complex_task_instance
+	(*
+		_-> rrel_1:: ui_arg_1;;
+	*);;
+
+	._question_solving_complex_task_instance _<- question;;
+*];;
+
+ui_menu_solving_complex_task =>ui_nrel_command_lang_template: [Решение состовной задачи: $ui_arg_1] 
+(*
+	<- lang_ru;; 
+*);;
+
+ui_menu_solving_complex_task =>ui_nrel_command_lang_template: [Task complex solution: $ui_arg_1]
+(* <- lang_en;; *);;

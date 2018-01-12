@@ -1,0 +1,232 @@
+scp_program -> proc_generate_task_with_question
+(*
+	-> rrel_params: ...
+	(*
+		-> rrel_1: rrel_in: _task_template;;
+		-> rrel_2: rrel_in: _params;;
+		-> rrel_3: rrel_out: _task_question_node;;
+	*);;
+
+	-> rrel_operators: ... 
+	(*
+
+		-> rrel_init: .proc_generate_task_with_question_operator1
+		(*
+			<- searchSetStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _params;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _param;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_5: rrel_assign: rrel_scp_var: _index;;
+
+			-> rrel_set_5: rrel_assign: rrel_scp_var: _indexes;;
+
+			=> nrel_then: .proc_generate_task_with_question_operator2;;
+			=> nrel_else: .proc_generate_task_with_question_operator_return;;
+		*);;
+
+		-> .proc_generate_task_with_question_operator2
+		(*
+			<- genEl;;
+			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _generation_params;;
+
+			=> nrel_goto: .proc_generate_task_with_question_operator3;;
+		*);;	
+
+		-> .proc_generate_task_with_question_operator3
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _indexes;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc_erase_1;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _index;;
+			
+			=> nrel_then: .proc_generate_task_with_question_operator5;;
+			=> nrel_else: .proc_generate_task_with_question_operator4;;
+		*);;
+
+		-> .proc_generate_task_with_question_operator4
+		(*
+			<- eraseEl;;
+            -> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _indexes;;
+
+			=> nrel_goto: .proc_generate_task_with_question_operator11;;
+		*);;
+		
+		-> .proc_generate_task_with_question_operator5
+		(*
+			<- eraseEl;;
+			-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc_erase_1;;
+                        
+			=> nrel_goto: .proc_generate_task_with_question_operator6;;
+		*);;
+
+		-> .proc_generate_task_with_question_operator6
+		(*
+			<- searchElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _params;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _param;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_5: rrel_fixed: rrel_scp_var: _index;;
+
+			=> nrel_then: .proc_generate_task_with_question_operator7;;
+			=> nrel_else: .proc_generate_task_with_question_operator5;;
+		*);;
+
+		-> .proc_generate_task_with_question_operator7
+		(*
+			<- searchElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _task_template;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _template_var;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_5: rrel_fixed: rrel_scp_var: _index;;
+
+			=> nrel_then: .proc_generate_task_with_question_operator8;;
+			=> nrel_else: .proc_generate_task_with_question_operator5;;
+		*);;
+
+		-> .proc_generate_task_with_question_operator8
+		(*
+			<- genElStr5;;
+			-> rrel_1: rrel_assign: rrel_scp_var: _generation_param;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _template_var;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_1;;
+
+			=> nrel_goto: .proc_generate_task_with_question_operator9;;
+		*);;
+
+		-> .proc_generate_task_with_question_operator9
+		(*
+			<- genElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _generation_param;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _param;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_2;;
+
+			=> nrel_goto: .proc_generate_task_with_question_operator10;;
+		*);;
+
+		-> .proc_generate_task_with_question_operator10
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _generation_params;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _generation_param;;
+
+			=> nrel_goto: .proc_generate_task_with_question_operator3;;
+		*);;
+
+		-> .proc_generate_task_with_question_operator11
+		(*
+			<- searchElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _task_template;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _quest_node_var;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_question_node;;
+
+			=> nrel_then: .proc_generate_task_with_question_operator12;;
+			=> nrel_else: .proc_generate_task_with_question_operator_return;;
+		*);;
+
+		-> .proc_generate_task_with_question_operator12
+		(*
+			<- genEl;;
+			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _task_question_node;;
+
+			=> nrel_goto: .proc_generate_task_with_question_operator13;;
+		*);;
+
+		-> .proc_generate_task_with_question_operator13
+		(*
+			<- genElStr5;;
+			-> rrel_1: rrel_assign: rrel_scp_var: _generation_param;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _quest_node_var;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_1;;
+
+			=> nrel_goto: .proc_generate_task_with_question_operator14;;
+		*);;
+
+		-> .proc_generate_task_with_question_operator14
+		(*
+			<- genElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _generation_param;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _task_question_node;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_2;;
+
+			=> nrel_goto: .proc_generate_task_with_question_operator15;;
+		*);;
+
+		-> .proc_generate_task_with_question_operator15
+		(*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _generation_params;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _generation_param;;
+
+			=> nrel_goto: .proc_generate_task_with_question_operator16;;
+		*);;
+
+		-> .proc_generate_task_with_question_operator16
+		(*
+			<- sys_gen;;	
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _task_template;;
+		 	-> rrel_2: rrel_assign: rrel_scp_var: _O;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _generation_params;;
+			-> rrel_4: rrel_assign: rrel_scp_var: _generated_task;;
+
+			=> nrel_goto: .proc_generate_task_with_question_operator17;;
+		*);;
+
+		-> .proc_generate_task_with_question_operator17
+		(*
+			<- eraseEl;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _O;;
+
+			=> nrel_goto: .proc_generate_task_with_question_operator18;;
+		*);;
+
+		-> .proc_generate_task_with_question_operator18
+		(*
+			<- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _task_question_node;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _task_question_params;;
+
+			=> nrel_then: .proc_generate_task_with_question_operator19;;
+			=> nrel_else: .proc_generate_task_with_question_operator_return;;
+		*);;
+
+		-> .proc_generate_task_with_question_operator19
+		(*
+			<- genElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _task_question_params;;
+			-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _generated_task;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_task;;
+
+			=> nrel_goto: .proc_generate_task_with_question_operator_return;;
+		*);;
+
+		-> .proc_generate_task_with_question_operator_return
+		(*
+			<- printNl;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: [Finish work proc_generate_task_with_question];;
+
+			=> nrel_goto: .proc_generate_task_with_question_operator_shadow_return;;
+		*);;
+
+		-> .proc_generate_task_with_question_operator_shadow_return(*<-return;;*);;
+	*);;
+*);;
+

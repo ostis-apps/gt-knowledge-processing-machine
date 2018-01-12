@@ -1,0 +1,37 @@
+proc_find_annular_sum_of_graphs
+=> nrel_main_idtf:
+	[Программа поиска кольцевой суммы 2-х графов] (* <- lang_ru;; *);
+
+=> nrel_initiation_condition_and_result: (..scp_program_proc_find_annular_sum_of_graphs_initiation_condition
+					  => ..scp_program_proc_find_annular_sum_of_graphs_result);
+
+-> rrel_key_sc_element: concept_graph; nrel_annular_sum_of_graphs;
+-> rrel_solver_key_sc_element: nrel_annular_sum_of_graphs;
+
+<- rrel_key_sc_element:
+	..scp_program_proc_find_annular_sum_of_graphs_behavior
+	(*
+		<- sc_description_of_scp_program_behavior;;
+		<= nrel_sc_text_translation:
+		...
+		(*
+			-> rrel_example:
+				[Это программа создает узел-связку ,которой принадлежат исходные графы,и потом связывает пересечение этох графов с помощью отношения "кольцевая сумма графов*" ];;
+		*);;
+	*);;
+
+..scp_program_proc_find_annular_sum_of_graphs_initiation_condition
+= [*
+	concept_graph _-> _graph_annular_sum_of_graphs1;;
+	concept_graph _-> _graph_annular_sum_of_graphs2;;
+*];;
+
+
+..scp_program_proc_find_annular_sum_of_graphs_result
+= [*
+	concept_graph _-> _graph_union;;
+	_graph_union<= nrel_annular_sum_of_graphs:_...(*
+							->_graph_annular_sum_of_graphs1;;
+        						->_graph_annular_sum_of_graphs2;;
+							*);;
+*];;

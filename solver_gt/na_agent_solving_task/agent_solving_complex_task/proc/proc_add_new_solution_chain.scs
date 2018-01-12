@@ -1,0 +1,58 @@
+scp_program -> proc_add_new_solution_chain
+(*
+	-> rrel_params: ...
+	(*
+		-> rrel_1: rrel_in: _solution_node;;
+		-> rrel_2: rrel_in: _new_solution_node;;
+	*);;
+
+	-> rrel_operators: ... 
+	(*
+
+		-> rrel_init: .proc_add_new_solution_chain_operator0
+		(*
+			<- varAssign;;
+			-> rrel_1: rrel_assign: rrel_scp_var: _node1;;
+			-> rrel_2: rrel_fixed: rrel_scp_var: _new_solution_node;;
+
+			=> nrel_goto: .proc_add_new_solution_chain_operator1;;
+		*);;
+
+		-> .proc_add_new_solution_chain_operator1
+		(*
+			<- searchElStr5;;
+			-> rrel_1: rrel_assign: rrel_scp_var: _node2;;
+			-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _node1;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const:  rrel_next_solution_action;;
+
+			=> nrel_then: .proc_add_new_solution_chain_operator2;;
+			=> nrel_else: .proc_add_new_solution_chain_operator3;;
+		*);;
+
+		-> .proc_add_new_solution_chain_operator2
+		(*
+			<- varAssign;;
+			-> rrel_1: rrel_assign: rrel_scp_var: _node1;;
+			-> rrel_2: rrel_fixed: rrel_scp_var: _node2;;
+
+			=> nrel_goto: .proc_add_new_solution_chain_operator1;;
+		*);;
+
+		-> .proc_add_new_solution_chain_operator3
+		(*
+			<- genElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _solution_node;;
+			-> rrel_2: rrel_assign: rrel_common: rrel_const: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _node1;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_next_solution_action;;
+
+			=> nrel_goto: .proc_add_new_solution_chain_operator_return;;
+		*);;
+
+		-> .proc_add_new_solution_chain_operator_return(*<-return;;*);;
+	*);;
+*);;
+
