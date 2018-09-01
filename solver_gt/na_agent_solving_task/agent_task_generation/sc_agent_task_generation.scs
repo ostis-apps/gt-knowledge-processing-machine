@@ -38,6 +38,7 @@ sc_agent_task_generation
 	question_initiated _-> .._question;;
 	question _-> .._question;;
 	.._question _-> rrel_1:: .._parameter1;;
+	.._question _-> rrel_2:: .._parameter2;;
 *];;
 
 ..sc_agent_task_generation_result
@@ -47,4 +48,5 @@ sc_agent_task_generation
 	question _-> .._question;;
 	/*.._question _=> nrel_answer:: .._answer;;*/
 	.._question _-> rrel_1:: .._parameter1;;
-*];;                   
+	.._question _-> rrel_2:: .._parameter2;;
+*];;
