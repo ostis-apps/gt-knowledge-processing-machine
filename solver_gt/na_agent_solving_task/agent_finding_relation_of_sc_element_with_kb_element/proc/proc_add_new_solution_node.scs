@@ -9,16 +9,7 @@ scp_program -> proc_add_new_solution_node
 	-> rrel_operators: ... 
 	(*
 
-		-> rrel_init: .proc_add_new_solution_node_operator0
-		(*
-			<- varAssign;;
-			-> rrel_1: rrel_assign: rrel_scp_var: _node;;
-			-> rrel_2: rrel_fixed: rrel_scp_var: _solution_node;;
-
-			=> nrel_goto: .proc_add_new_solution_node_operator1;;
-		*);;
-
-		-> .proc_add_new_solution_node_operator1
+		-> rrel_init: .proc_add_new_solution_node_operator1
 		(*
 			<- searchElStr5;;
 			-> rrel_1: rrel_fixed: rrel_scp_var: _solution_node;;

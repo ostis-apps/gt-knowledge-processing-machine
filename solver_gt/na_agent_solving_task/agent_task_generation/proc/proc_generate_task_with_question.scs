@@ -70,7 +70,7 @@ scp_program -> proc_generate_task_with_question
 			-> rrel_5: rrel_fixed: rrel_scp_var: _index;;
 
 			=> nrel_then: .proc_generate_task_with_question_operator7;;
-			=> nrel_else: .proc_generate_task_with_question_operator5;;
+			=> nrel_else: .proc_generate_task_with_question_operator3;;
 		*);;
 
 		-> .proc_generate_task_with_question_operator7
@@ -83,7 +83,7 @@ scp_program -> proc_generate_task_with_question
 			-> rrel_5: rrel_fixed: rrel_scp_var: _index;;
 
 			=> nrel_then: .proc_generate_task_with_question_operator8;;
-			=> nrel_else: .proc_generate_task_with_question_operator5;;
+			=> nrel_else: .proc_generate_task_with_question_operator3;;
 		*);;
 
 		-> .proc_generate_task_with_question_operator8
