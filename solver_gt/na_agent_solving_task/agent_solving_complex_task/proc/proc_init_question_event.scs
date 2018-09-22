@@ -54,7 +54,7 @@ scp_program -> proc_init_question_event
 			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc_result;;
 			-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
 
-			=> nrel_then: .proc_init_question_event_operator8;;
+			=> nrel_then: .proc_init_question_event_operator7_1;;
 			=> nrel_else: .proc_init_question_event_operator5;;
 		*);;
 
@@ -86,6 +86,14 @@ scp_program -> proc_init_question_event
 			=> nrel_goto: .proc_init_question_event_operator4;;
 		*);;
 
+		-> .proc_init_question_event_operator7_1
+		(*
+			<- genEl;;
+			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _agent_answer;;
+
+			=> nrel_goto: .proc_init_question_event_operator8;;
+		*);;
+
 		-> .proc_init_question_event_operator7
 		(*
 			<- searchElStr5;;
@@ -96,7 +104,7 @@ scp_program -> proc_init_question_event
 			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_answer;;
 
 			=>nrel_goto: .proc_init_question_event_operator8;;
-		*);; 
+		*);;
 
 		-> .proc_init_question_event_operator8
 		(*

@@ -19,7 +19,7 @@ scp_program -> proc_check_if_graph (*
 
 	-> ..check_if_graph_op1_2 
 	(*
-	<- searchElStr3;;
+	    <- searchElStr3;;
 		-> rrel_1: rrel_fixed: rrel_scp_const: concept_graph;;
 		-> rrel_2: rrel_assign: rrel_scp_var: rrel_neg: rrel_const: rrel_perm: rrel_access: _arc2;;
 		-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
@@ -28,23 +28,22 @@ scp_program -> proc_check_if_graph (*
 		=> nrel_else: ..check_if_graph_op1 ;;
 	*);;
 
-
 	-> ..check_if_graph_op1 
 	(*
-	<- searchSetStr3;;
+	    <- searchSetStr3;;
 		-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
 		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
 		-> rrel_3: rrel_assign: rrel_scp_var: _node;;
+
 		-> rrel_set_3: rrel_assign: rrel_scp_var: _soUPset;;
 		
 		=> nrel_then: ..check_if_graph_op2;;
-		=> nrel_else: ..check_if_graph_op7;;
+		=> nrel_else: ..check_if_graph_op8;;
 	*);;
-
 
 	-> ..check_if_graph_op2 
 	(*
-	<- searchElStr3;;
+	    <- searchElStr3;;
 		-> rrel_1: rrel_fixed: rrel_scp_var: _soUPset;;
 		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
 		-> rrel_3: rrel_assign: rrel_scp_var: _vert;;
@@ -53,7 +52,6 @@ scp_program -> proc_check_if_graph (*
 		=> nrel_else: ..check_if_graph_op6 ;;
 	*);; 
 
-
 	-> ..check_if_graph_op3 
 	(*
 		<- eraseEl;;
@@ -61,7 +59,6 @@ scp_program -> proc_check_if_graph (*
 
 		=> nrel_goto: ..check_if_graph_op4;; 
 	*);;
-
 
 	-> ..check_if_graph_op4 
 	(*
@@ -74,10 +71,9 @@ scp_program -> proc_check_if_graph (*
 
 		=> nrel_then: ..check_if_graph_op2;; 
 		=> nrel_else: ..check_if_graph_op5 ;;
-	*);; 
+	*);;
 
-
-	-> ..check_if_graph_op5 
+	-> ..check_if_graph_op5
 	(*
 	<- searchElStr5;;
 		-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
@@ -89,7 +85,6 @@ scp_program -> proc_check_if_graph (*
 		=> nrel_then: ..check_if_graph_op5_1;; 
 		=> nrel_else: ..check_if_graph_op7;;
 	*);;
-
 
 	-> ..check_if_graph_op5_1 (*
 	<- searchElStr3;;
@@ -123,7 +118,6 @@ scp_program -> proc_check_if_graph (*
 		=> nrel_else: ..check_if_graph_op7;;
 	*);;
 
-
 	-> ..check_if_graph_op6 
 	(*
 	<- genElStr3;;
@@ -134,26 +128,23 @@ scp_program -> proc_check_if_graph (*
 		=> nrel_goto: ..check_if_graph_op8;; 
 	*);;
 
+	-> ..check_if_graph_op7
+	(*
+	<- eraseEl;;
+	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _soUPset;;
 
-	-> ..check_if_graph_op7 
+	=> nrel_goto: ..check_if_graph_op8;;
+	*);;
+
+	-> ..check_if_graph_op8
 	(*
 	<- genElStr3;;
 		-> rrel_1: rrel_fixed: rrel_scp_const: concept_graph;;
 		-> rrel_2: rrel_assign: rrel_scp_var: rrel_neg: rrel_const: rrel_perm: rrel_access: _arc2;;
 		-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
 
-		=> nrel_goto: ..check_if_graph_op8;; 
+		=> nrel_goto: ..check_if_graph_return;;
 	*);;
-
-
-	-> ..check_if_graph_op8 
-	(*
-	<- eraseEl;;
-	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _soUPset;;
-
-	=> nrel_goto: ..check_if_graph_return;; 
-	*);;
-
 
 	-> ..check_if_graph_return 
 	(*

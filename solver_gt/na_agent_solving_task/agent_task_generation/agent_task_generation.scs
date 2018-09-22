@@ -159,7 +159,7 @@ scp_program -> agent_task_generation (*
 			=>nrel_goto: .agent_task_generation_operator_return;;
 		*);; 
 
-		-> .agent_task_generation_operator_return
+		-> .agent_task_generation_operator_return_debug
 		(*
 			<- printNl;;
 			-> rrel_1: rrel_fixed: rrel_scp_const: [Finish work agent_task_generation];;
@@ -167,7 +167,7 @@ scp_program -> agent_task_generation (*
 			=> nrel_goto: .agent_task_generation_operator_shadow_return;;
 		*);;
 
-		-> .agent_task_generation_operator_shadow_return (*
+		-> .agent_task_generation_operator_return (*
 		  <- return;;
 		*);;
 	*);;
