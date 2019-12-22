@@ -1,0 +1,158 @@
+procedure proc_find_condensation_dfs1($graph, $current, $used, $queue) {
+    if3 !($used; auto{_a_p}; $current) {
+        genElStr3($used, auto{_a_p}, $current);
+
+        for5($current; auto{_a_c}; new $elem; auto{_a_p}; $graph) {
+            searchElStr5($current{_f}, new $arc{_a, _a_c}, $elem{_f}, auto{_a_p}, $graph{_f});
+
+            if5($graph; auto{_a_p}; $arc; auto{_a_p}; rrel_oredge)
+                proc_find_condensation_dfs1($graph, $elem, $used, $queue);
+        }
+
+        proc_find_condensation_add_vertex_to_queue($queue, $current);
+    }
+
+    return;
+}
+
+procedure proc_find_condensation_dfs2($graph, $current, $used, $scc, $condensation) {
+    if3 !($used; auto{_a_p}; $current) {
+        genElStr3($used, auto{_a_p}, $current);
+        genElStr5($condensation, auto{_a_p}, $current, auto{_a_p}, $scc);
+
+        for5(new $elem; auto{_a_c}; $current; auto{_a_p}; $graph)[new $unused{rrel_set_1}] {
+            searchElStr5($elem{_f}, new $arc{_a, _a_c}, $current{_f}, auto{_a_p}, $graph{_f});
+
+            if5($graph; auto{_a_p}; $arc; auto{_a_p}; rrel_oredge)
+                proc_find_condensation_dfs2($graph, $elem, $used, $scc, $condensation);
+        }
+    }
+
+    return;
+}
+
+procedure proc_find_condensation_dfs3($graph, $current, $used, $scc, $condensation, $con_graph) {
+    if3 !($used; auto{_a_p}; $current) {
+        searchElStr5($condensation, auto{_a_p}, $current, auto{_a_p}, new $current_scc{_a});
+
+        ife($scc; $current_scc) {
+            genElStr3($used, auto{_a_p}, $current);
+
+            //from original scc - just propagate dfs
+            for5($current; auto{_a_c}; new $elem; auto{_a_p}; $graph) {
+                searchElStr5($current{_f}, new $arc{_a, _a_c}, $elem{_f}, auto{_a_p}, $graph{_f});
+
+                if5($graph; auto{_a_p}; $arc; auto{_a_p}; rrel_oredge)
+                    proc_find_condensation_dfs3($graph, $elem, $used, $scc, $condensation, $con_graph);
+            }
+        } else {
+            //from another scc - add arc
+            new $v1;
+            new $v2;
+
+            searchElStr5($scc{_f}, auto{_a_p}, $v1{_a}, auto{_a_p}, rrel_representation);
+            searchElStr5($current_scc{_f}, auto{_a_p}, $v2{_a}, auto{_a_p}, rrel_representation);
+
+            if3 !($v1; auto{_a_c}; $v2) {
+                genElStr3($v1{_f}, new $new_arc{_a_c, _a}, $v2{_f});
+                genElStr5($con_graph, auto{_a_p}, $new_arc{_f}, auto{_a_p}, rrel_oredge);
+            }
+        }
+    }
+
+    return;
+}
+
+procedure proc_find_condensation($graph) {
+    if5 !($graph; auto{_a_c}; new $another_graph; auto{_a_p}; nrel_condensation_of_the_digraph) {
+        new $used = ...;
+        new $queue = ...;
+
+        //make a queue
+        for5 ($graph; auto{_a_p}; new $vertex; auto{_a_p}; rrel_vertex)
+            proc_find_condensation_dfs1($graph, $vertex, $used, $queue);
+
+        //initialize stage two
+        new $condensation = ...;
+        new $scc_aggregator = ...;
+        new $condensation_graph = ...;
+
+        genElStr5($graph, auto{_a_c}, $condensation_graph{_f}, auto{_a_p}, nrel_condensation_of_the_digraph);
+        genElStr3(concept_graph, auto{_a_p}, $condensation_graph{_f});
+        
+        eraseEl($used{rrel_erase, _f});
+        $used = ...;
+
+        //stage two - determine SCCs
+        new $current_element = $queue;
+
+        for5($queue; auto{_a_p}; new $element; auto{_a_p}; rrel_queue_element) {
+            searchElStr5($current_element{_f}, auto{_a_p}, $current_element{_a}, auto{_a_p}, rrel_next_queue_element);
+            searchElStr5($current_element{_f}, auto{_a_p}, new $vertex{_a}, auto{_a_p}, rrel_queue_element_value);
+
+            //now we have another vertex in $vertex
+            if3 !($used; auto{_a_p}; $vertex) {
+                new $scc = ...;
+                proc_find_condensation_dfs2($graph, $vertex, $used, $scc, $condensation);
+
+                //add scc to scc aggregator
+                genElStr3($scc_aggregator{_f}, auto{_a_p}, $scc{_f});
+
+                //make vertex of representation in condensation graph
+                genElStr5($scc{_f}, auto{_a_p}, new $cg_vertex{_e, _a}, auto{_a_p}, rrel_representation);
+
+                //add $cg_vertex to nodes of condensation graph
+                genElStr5($condensation_graph{_f}, auto{_a_p}, $cg_vertex{_f}, auto{_a_p}, rrel_vertex);
+            }
+        }
+
+        eraseEl($used{rrel_erase, _f});
+        $used = ...;
+
+        //stage three - let's make some arcs
+        for3($scc_aggregator; auto{_a_p}; new $scc) {
+            searchElStr5($condensation{_f}, auto{_a_p}, new $vertex{_a}, auto{_a_p}, $scc{_f});
+
+            proc_find_condensation_dfs3($graph, $vertex, $used, $scc, $condensation, $condensation_graph);
+        }
+
+        //freeing
+        eraseEl($used{rrel_erase, _f});
+        eraseEl($condensation{rrel_erase, _f});
+
+        //queue
+        for5+($queue; auto{_a_p}; new $elem; auto{_a_p}; rrel_queue_element)
+            eraseEl($elem{rrel_erase, _f});
+
+        eraseEl($queue{rrel_erase, _f});
+
+        //SCCs
+        for3+($scc_aggregator; auto{_a_p}; new $scc)
+            eraseEl($scc{rrel_erase, _f});
+
+        eraseEl($scc_aggregator{rrel_erase, _f});
+    }
+
+    return;
+}
+
+procedure proc_find_condensation_add_vertex_to_queue($queue, $vertex) {
+    new $node = ...;
+
+    //get first element
+    if5($queue; new $beg_to_first_arc{_a_p}; new $last_element; auto{_a_p}; rrel_next_queue_element) {
+        eraseEl($beg_to_first_arc{rrel_erase, _f});
+
+        //connect new element with old first one
+        genElStr5($node{_f}, auto{_a_p}, $last_element{_e, _f}, auto{_a_p}, rrel_next_queue_element);
+    }
+
+    //connect the beginning of queue with new element
+    genElStr5($queue, auto{_a_p}, $node{_f}, auto{_a_p}, rrel_next_queue_element);
+    genElStr5($node{_f}, auto{_a_p}, $vertex, auto{_a_p}, rrel_queue_element_value);
+
+    //add element to queue elements
+    genElStr5($queue, auto{_a_p}, $node{_f}, auto{_a_p}, rrel_queue_element);
+
+    return;
+}
