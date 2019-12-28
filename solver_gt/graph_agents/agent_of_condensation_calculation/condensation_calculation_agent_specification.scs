@@ -1,9 +1,3 @@
-agent_of_condensation_calculation
-    => nrel_main_idtf:
-        [Агентная scp-программа вычисления графа конденсации для заданного графа] (* <- lang_ru;; *);
-        [Agent scp-program of condensation calculation for agiven graph] (* <- lang_en;; *);
-    <- agent_scp_program;;
-
 sc_agent_of_condensation_calculation
 
     => nrel_main_idtf:
