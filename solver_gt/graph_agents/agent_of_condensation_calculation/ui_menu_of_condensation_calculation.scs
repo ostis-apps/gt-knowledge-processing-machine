@@ -1,0 +1,22 @@
+ui_menu_file_of_condensation_calculation <- ui_user_command_class_atom;
+    ui_user_command_class_view_kb;;
+
+ui_menu_file_of_condensation_calculation => nrel_main_idtf:
+    [Вычислить граф конденсации для графа](* <- lang_ru;; *);;
+    
+ui_menu_file_of_condensation_calculation => nrel_main_idtf:
+    [Calculate condensation of a graph](* <- lang_en;; *);;
+
+ui_menu_file_of_condensation_calculation => ui_nrel_command_template: [*
+    question_of_condensation_calculation _-> ._question_of_condensation_calculation_instance(*
+        _-> ui_arg_1;;
+    *);;
+    
+    ._question_of_condensation_calculation_instance _<- question;;
+*];;
+
+ui_menu_file_of_condensation_calculation => ui_nrel_command_lang_template:
+    [Вычисление конденсации для данного графа: $ui_arg_1](* <- lang_ru;; *);;
+
+ui_menu_file_of_condensation_calculation => ui_nrel_command_lang_template:
+    [Calculation of condesation of a given graph: $ui_arg_1](* <- lang_en;; *);;
