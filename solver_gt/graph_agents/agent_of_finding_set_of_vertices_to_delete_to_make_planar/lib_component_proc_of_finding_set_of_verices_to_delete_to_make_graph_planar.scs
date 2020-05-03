@@ -1,0 +1,16 @@
+lib_component_proc_of_finding_set_of_vertices_to_delete_to_make_graph_planar
+=> nrel_main_idtf:
+	[Компонент библиотеки. scp-программа нахождения мощности множества]
+	(* <- lang_ru;; *);
+	[Library component. scp-program of buildings power]
+	(* <- lang_en;; *);
+
+<- platform_independent_reusable_component_OSTIS;
+<- reusable_scp_program;
+
+-> rrel_key_sc_element: 
+	proc_find_set_of_vertices_to_delete_to_make_graph_planar
+;;
+
+lib_component_proc_of_building_incidency_graph = [*^"file://proc_find_set_of_vertices_to_delete_to_make_graph_planar.scs"*];;
+

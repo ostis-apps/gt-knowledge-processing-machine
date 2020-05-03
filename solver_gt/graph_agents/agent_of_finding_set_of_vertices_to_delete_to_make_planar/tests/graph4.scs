@@ -1,0 +1,21 @@
+undirected_graph -> graph4 (*
+	-> rrel_vertex: V1_4s;;
+	-> rrel_vertex: V2_4s;;
+	-> rrel_vertex: V3_4s;;
+	-> rrel_vertex: V4_4s;;
+	-> rrel_vertex: V5_4s;;
+	-> rrel_vertex: V6_4s;;
+
+	-> rrel_edge: (V1_4s <=> V2_4s) ;;
+	-> rrel_edge: (V1_4s <=> V4_4s) ;;
+	-> rrel_edge: (V1_4s <=> V6_4s) ;;
+	
+	-> rrel_edge: (V2_4s <=> V3_4s) ;;
+	-> rrel_edge: (V2_4s <=> V5_4s) ;;
+
+	-> rrel_edge: (V4_4s <=> V3_4s) ;;
+	-> rrel_edge: (V4_4s <=> V5_4s) ;;
+
+	-> rrel_edge: (V6_4s <=> V3_4s) ;;
+	-> rrel_edge: (V6_4s <=> V5_4s) ;;
+*);;

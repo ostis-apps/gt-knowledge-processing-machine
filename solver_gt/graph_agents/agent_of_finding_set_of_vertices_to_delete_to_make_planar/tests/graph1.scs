@@ -1,0 +1,48 @@
+undirected_graph -> graph1 (*
+	-> rrel_vertex: V1_1s;;
+	-> rrel_vertex: V2_1s;;
+	-> rrel_vertex: V3_1s;;
+	-> rrel_vertex: V4_1s;;
+	-> rrel_vertex: V5_1s;;
+	-> rrel_vertex: V6_1s;;
+	-> rrel_vertex: V7_1s;;
+	-> rrel_vertex: V8_1s;;
+	-> rrel_vertex: V9_1s;;
+	-> rrel_vertex: V10_1s;;
+	-> rrel_vertex: V11_1s;;
+	
+	
+	-> rrel_edge: (V2_1s <=> V1_1s);;
+	-> rrel_edge: (V2_1s <=> V3_1s);;
+	-> rrel_edge: (V2_1s <=> V4_1s);;
+	-> rrel_edge: (V2_1s <=> V5_1s);;
+
+	-> rrel_edge: (V3_1s <=> V1_1s);;
+
+	-> rrel_edge: (V1_1s <=> V4_1s);;
+	-> rrel_edge: (V1_1s <=> V5_1s);;
+
+	-> rrel_edge: (V3_1s <=> V4_1s);;
+	-> rrel_edge: (V3_1s <=> V5_1s);;
+
+	-> rrel_edge: (V4_1s <=> V5_1s);;
+	
+	-> rrel_edge: (V11_1s <=> V6_1s);;
+	-> rrel_edge: (V11_1s <=> V8_1s);;
+	-> rrel_edge: (V11_1s <=> V10_1s);;
+	
+	-> rrel_edge: (V7_1s <=> V6_1s);;
+	-> rrel_edge: (V7_1s <=> V8_1s);;
+	-> rrel_edge: (V7_1s <=> V10_1s);;
+
+	-> rrel_edge: (V9_1s <=> V6_1s);;
+	-> rrel_edge: (V9_1s <=> V8_1s);;
+	-> rrel_edge: (V9_1s <=> V10_1s);;
+
+	-> rrel_edge: (V1_1s <=> V11_1s);;
+
+
+
+	
+
+*);;
