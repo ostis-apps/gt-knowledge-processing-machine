@@ -1,0 +1,13 @@
+directed_graph -> graph2 (*
+	-> rrel_vertex: V1_s2;;
+	-> rrel_vertex: V2;;
+	-> rrel_vertex: V3;;
+	-> rrel_vertex: V4;;
+
+	-> rrel_edge: (V1_s2 <=> V2_s2);;
+	-> rrel_edge: (V2_s2 <=> V3_s2);;
+	-> rrel_edge: (V3_s2 <=> V1_s2);;
+	-> rrel_edge: (V1_s2 <=> V4_s2);;
+	-> rrel_edge: (V4_s2 <=> V3_s2);;
+	-> rrel_edge: (V4_s2 <=> V2_s2);;
+*);;
