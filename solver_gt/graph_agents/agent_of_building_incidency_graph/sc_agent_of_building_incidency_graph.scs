@@ -1,0 +1,50 @@
+sc_agent_of_building_incidency_graph
+=> nrel_main_idtf:
+	[sc-агент построения графа инциденций] 
+	(* <- lang_ru;; *);
+	[sc-agent of building incidency graph] 
+	(* <- lang_en;; *);
+
+<- abstract_sc_agent;
+
+=> nrel_primary_initiation_condition: 
+		(sc_event_add_output_arc => question_initiated);
+
+=> nrel_initiation_condition_and_result: 
+		(..sc_agent_of_finding_buildings_condition_power => ..sc_agent_of_finding_buildings_result);
+
+<= nrel_sc_agent_key_sc_elements:
+	{
+	question_initiated;
+	question;
+	question_building_incidency_graph
+	};
+
+=> nrel_inclusion: 
+	.platform_independent_realization_of_sc_agent_of_building_incidency_graph
+	(*
+	<- platform_independent_abstract_sc_agent;;
+	<= nrel_sc_agent_program: 
+		{
+		agent_of_building_incidency_graph;
+		proc_of_building_incidency_graph
+		};;
+	-> sc_agent_of_building_incidency_graph_scp (* <- active_sc_agent;; *);;
+	*);;
+
+..sc_agent_of_finding_buildings_condition_power
+= [*
+	question_building_incidency_graph _-> .._question;;
+	question_initiated _-> .._question;;
+	question _-> .._question;;
+	.._question _-> .._parameter;;
+*];;
+
+..sc_agent_of_finding_buildings_result
+= [*
+	question_building_incidency_graph _-> .._question;;
+	question_finished _-> .._question;;
+	question _-> .._question;;
+	.._question _=> nrel_answer:: .._answer;;
+	.._question _-> .._parameter;;
+*];;

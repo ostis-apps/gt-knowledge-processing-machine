@@ -1,0 +1,250 @@
+scp_program -> proc_of_building_incidency_graph 
+	(*
+		-> rrel_params: ...
+			(*
+    			-> rrel_1: rrel_in: _graph;;
+	   			-> rrel_2: rrel_out: _i;;
+  			*);;
+	-> rrel_operators: ... (*
+
+		//Initialise graph storage
+		//
+        -> rrel_init: ..proc_init_graph_storage (*
+			<- genEl;;
+			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _i;;
+
+			=> nrel_goto: ..proc_find_arcs_set;;
+		*);;
+
+		// Get graph edges
+		//			
+		-> ..proc_find_arcs_set (*
+			<- searchSetStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var:  _arc2;;
+			-> rrel_3: rrel_assign: rrel_edge: rrel_scp_var: _temp_edge;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var:  _arc4;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_edge;;			
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _edges_set;;
+
+			=> nrel_goto: ..proc_iterate_throw_edges;;
+		*);;
+
+        //Iteration block
+		//---------------------------------------
+		//  Init iteration
+		//
+		-> ..proc_iterate_throw_edges (*
+			<-searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _edges_set;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_3: rrel_assign: rrel_edge: rrel_scp_var: _cur_edge;;
+			
+			=> nrel_then: ..proc_erase_visited;;
+			=> nrel_else: ..proc_find_vetexes_set;;					
+		*);;
+
+		//Delete visited edges connector
+		//
+		-> ..proc_erase_visited (*
+			<- eraseEl;;
+			-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc2;;
+			
+			=> nrel_goto: ..proc_get_new_edge_vertexes;;		
+		*);;
+		//Iteration block end
+		//---------------------------------------
+
+		//---------------------------------------
+		//Generation block
+
+		//Get edge vertexes
+		//
+		-> ..proc_get_new_edge_vertexes (*
+			<- call;;
+			-> rrel_1: rrel_fixed: rrel_scp_const: proc_get_edge_vertexes;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: ... (*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _cur_edge;;
+				-> rrel_2: rrel_assign: rrel_scp_var: _v1;;
+				-> rrel_3: rrel_assign: rrel_scp_var: _v2;;
+			*);;
+			-> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+
+			=> nrel_goto: ..proc_wait_return_1;;
+		*);;
+
+		//Wait return
+		//
+		-> ..proc_wait_return_1 (*
+			<- waitReturn;;
+			-> rrel_1: rrel_fixed: rrel_scpt_var: _descr;;
+
+			=> nrel_goto: ..proc_gen_new_vertex;;
+		*);;
+
+		//Generate v1v2 vertexe
+		//
+		-> ..proc_gen_new_vertex (*
+			<- genEl;;
+			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _v1v2;;
+
+			=> nrel_goto: ..proc_connect_v1_v1v2;;
+		*);;
+
+		//Connects v1 and v1v2
+		//
+		-> ..proc_connect_v1_v1v2 (*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _v1;;
+			-> rrel_2: rrel_assign: rrel_const: rrel_edge: rrel_scp_var: _v1_v1v2_edge;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _v1v2;;
+
+			=> nrel_goto: ..proc_connect_v2_v1v2;;
+		*);;
+
+		//Connects v2 and v1v2
+		//
+		-> ..proc_connect_v2_v1v2 (*
+			<- genElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _v2;;
+			-> rrel_2: rrel_assign: rrel_const: rrel_edge: rrel_scp_var: _v2_v1v2_edge;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _v1v2;;
+
+			=> nrel_goto: ..proc_add_to_the_i_first_edge;;
+		*);;
+		//Generation block end
+		//---------------------------------------
+
+		//Addition to the graph block
+		//---------------------------------------
+
+		//Adds v1 -- v1v2 edge to the _i_edges
+		//
+		-> ..proc_add_to_the_i_first_edge (*
+			<- genElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _i;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var:  _arc6;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _v1_v1v2_edge;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var:  _arc7;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_edge;;
+
+			=> nrel_goto: ..proc_add_to_the_i_second_edge;;
+		*);;
+
+		//Adds v2 -- v1v2 edge to the _i_edges
+		//
+		-> ..proc_add_to_the_i_second_edge (*
+			<- genElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _i;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var:  _arc6;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _v2_v1v2_edge;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var:  _arc7;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_edge;;
+
+			//=> nrel_goto: ..proc_add_to_the_i_v1;;
+			=> nrel_goto: ..proc_add_to_the_i_v1v2;;
+		*);;
+
+		//Adds v1 to the _i_nodes
+		//
+		-> ..proc_add_to_the_i_v1 (*
+			<- genElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _i;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var:  _arc8;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _v1;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var:  _arc9;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+
+			=> nrel_goto: ..proc_add_to_the_i_v2;;
+		*);;
+
+		//Adds v2 to the _i_nodes
+		//
+		-> ..proc_add_to_the_i_v2 (*
+			<- genElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _i;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var:  _arc8;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _v2;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var:  _arc9;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+
+			=> nrel_goto: ..proc_add_to_the_i_v1v2;;
+		*);;
+
+		//Adds v1v2 to the _i_nodes
+		//
+		-> ..proc_add_to_the_i_v1v2 (*
+			<- genElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _i;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var:  _arc8;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _v1v2;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var:  _arc9;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+
+			=> nrel_goto: ..proc_iterate_throw_edges;;
+		*);;
+		//Addition to the graph block end
+		//---------------------------------------
+
+		//---------------------------------------
+		//Vertexes block
+
+		//Get input graph vertexies
+		//
+		-> ..proc_find_vetexes_set (*
+			<- searchSetStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var:  _arc2;;
+			-> rrel_3: rrel_assign: rrel_vertex: rrel_scp_var: _temp_node;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var:  _arc4;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;			
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _vertexes_set;;
+
+			=> nrel_goto: ..proc_iterate_throw_vertexes;;
+		*);;
+
+        //Iteration block
+		//---------------------------------------
+		//  Init iteration
+		//
+		-> ..proc_iterate_throw_vertexes (*
+			<-searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _vertexes_set;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_3: rrel_assign: rrel_vertex: rrel_scp_var: _cur_vert;;
+			
+			=> nrel_then: ..proc_erase_visited_vert;;
+			=> nrel_else: ..proc_build_i_return;;					
+		*);;
+
+		//Delete visited vertexes connector
+		//
+		-> ..proc_erase_visited_vert (*
+			<- eraseEl;;
+			-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc2;;
+			
+			=> nrel_goto: ..proc_add_to_the_i_vertex;;		
+		*);;
+
+		//Add cur vertex to the output graph
+		//
+		-> ..proc_add_to_the_i_vertex (*
+			<- genElStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _i;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var:  _arc8;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _cur_vert;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var:  _arc9;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+
+			=> nrel_goto: ..proc_iterate_throw_vertexes;;
+		*);;
+		//Vertexes block end
+		//---------------------------------------
+
+		//Return
+		//
+		-> ..proc_build_i_return (*
+			<- return;;
+		*);;	
+	*);;
+*);;

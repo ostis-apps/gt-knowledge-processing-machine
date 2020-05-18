@@ -1,0 +1,19 @@
+ui_menu_file_for_building_incidency_graph 
+	<- 	ui_user_command_class_atom; 
+		ui_user_command_class_view_kb;
+	=> nrel_main_idtf: 
+		[Посторить граф инциденций для этого графа] (* <- lang_ru;; *);
+		[Build incidency graph for this graph] (* <- lang_en;; *);
+	=> ui_nrel_command_template:
+		[*
+		question_building_incidency_graph _-> ._question_building_incidency_graph_instance
+			(*
+				_-> ui_arg_1;;
+			*);;
+		._question_building_incidency_graph_instance _<- question;;
+		*];
+	=> ui_nrel_command_lang_template: 
+		[Запрос построения графа инциденций: $ui_arg_1] 
+		(* <- lang_ru;; *);
+		[Request for building incidency graph $ui_arg_1] 
+		(* <- lang_en;; *);;
