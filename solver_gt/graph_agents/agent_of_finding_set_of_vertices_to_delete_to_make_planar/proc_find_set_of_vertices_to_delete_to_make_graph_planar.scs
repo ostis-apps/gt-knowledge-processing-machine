@@ -1,0 +1,210 @@
+scp_program -> proc_find_set_of_vertices_to_delete_to_make_graph_planar (*
+	-> rrel_params: ... (*
+	
+		-> rrel_1: rrel_in: _graph;;
+
+		-> rrel_2: rrel_out:_set_to_delete;;
+	*);;
+
+	-> rrel_operators: ... (*
+		-> rrel_init: ..gen_set_of_k5(*
+			<-genEl;;
+			->rrel_1:rrel_assign:rrel_scp_var:rrel_node:_set_of_k5;;
+			=>nrel_goto: ..gen_set_of_k33;;
+		*);;
+
+		->..gen_set_of_k33(*
+			<-genEl;;
+			->rrel_1:rrel_assign:rrel_scp_var:rrel_node:_set_of_k33;;
+			=>nrel_goto: ..create_set_vertexes_of_graph;;
+		*);;
+
+	
+		-> ..create_set_vertexes_of_graph (*
+			<- searchSetStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1_6;;
+			-> rrel_3: rrel_assign: rrel_node: rrel_scp_var: _vertex_of_graph;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _set_vertexes_graph;;
+
+			=> nrel_then: ..go_through_vertexes;;
+				
+		*);;
+
+		-> ..go_through_vertexes (*
+			<-searchElStr3;;
+			->rrel_1:rrel_fixed: rrel_scp_var: _set_vertexes_graph;;
+			->rrel_2:rrel_assign: rrel_pos_const_prem: rrel_scp_var: _arc1;;
+			->rrel_3:rrel_assign: rrel_scp_var: _current_vertex;;
+
+			=>nrel_then: ..call_find_connected_vertexes;;
+			=>nrel_else: ..check_set_k33;;
+		*);;
+
+		-> ..call_find_connected_vertexes(*
+			<-call;;
+			->rrel_1:rrel_fixed:rrel_scp_const:proc_find_connected_vertexes;;
+			->rrel_2:rrel_fixed:rrel_scp_const:...(*
+				->rrel_1:rrel_fixed:rrel_scp_var: _current_vertex;;
+				->rrel_2:rrel_fixed:rrel_scp_var: _graph;;
+				->rrel_3:rrel_assign:rrel_scp_var: _connected_vertexes;;
+			*);;
+			-> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+
+			=>nrel_goto: ..wait_find_connected_vertexes;;
+		*);;
+
+		-> ..wait_find_connected_vertexes (*
+			<- waitReturn;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
+			=> nrel_goto: ..call_find_k5;;
+		*);;
+
+			-> ..call_find_k5(*
+			<-call;;
+			->rrel_1:rrel_fixed:rrel_scp_const:proc_find_k5;;
+			->rrel_2: rrel_fixed:rrel_scp_const:...(*
+				->rrel_1:rrel_fixed:rrel_scp_var: _connected_vertexes;;
+				->rrel_2:rrel_fixed:rrel_scp_var: _graph;;
+				->rrel_3:rrel_fixed:rrel_scp_var:_current_vertex;;
+				->rrel_4:rrel_assign:rrel_node: rrel_scp_var: _node_to_k5;;
+			*);;
+			-> rrel_3: rrel_assign: rrel_scp_var: _descr3;;
+
+			=>nrel_goto: ..wait_find_k5;;
+		*);;
+			
+		-> ..wait_find_k5 (*
+			<- waitReturn;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr3;;
+			=> nrel_goto: ..go_to_k5;;
+		*);;
+
+
+		-> ..go_to_k5(*
+			<-searchElStr3;;
+			->rrel_1:rrel_fixed:rrel_node: rrel_scp_var: _node_to_k5;;
+			->rrel_2:rrel_assign: rrel_pos_const_prem: rrel_scp_var: _arc_k5_1;;
+			->rrel_3:rrel_assign: rrel_scp_var: _k5;;
+
+			=>nrel_then: ..add_to_set_of_k5;;
+			=>nrel_else: ..call_find_k33;;
+		*);;		
+		
+		->..add_to_set_of_k5(*
+			<-genElStr3;;
+			-> rrel_1: rrel_fixed:rrel_node: rrel_scp_var:_set_of_k5 ;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm:rrel_scp_var: _arc_add_3_23;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _k5 ;;
+			=> nrel_goto: ..call_find_k33;;
+		*);;
+
+		->..call_find_k33(*
+			<-call;;
+			->rrel_1:rrel_fixed:rrel_scp_const:proc_find_k33;;
+			->rrel_2: rrel_fixed:rrel_scp_const:...(*
+				->rrel_1:rrel_fixed:rrel_scp_var: _connected_vertexes;;
+				->rrel_2:rrel_fixed:rrel_scp_var: _graph;;
+				->rrel_3:rrel_fixed:rrel_scp_var:_current_vertex;;
+				->rrel_4:rrel_assign:rrel_node: rrel_scp_var: _node_to_k33;;
+			*);;
+			-> rrel_3: rrel_assign: rrel_scp_var: _descr2;;
+
+			=>nrel_goto: ..wait_find_k33;;
+		*);;
+			
+		-> ..wait_find_k33 (*
+			<- waitReturn;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr2;;
+			=> nrel_goto: ..check_node_to_k33;;
+		*);;
+
+		->..check_node_to_k33(*
+			 <-printEl;;
+			->rrel_1:rrel_fixed:rrel_scp_var:_node_to_k33;;
+			=>nrel_goto: ..go_to_k33;;
+		*);;
+
+		-> ..go_to_k33(*
+			<-searchElStr3;;
+			->rrel_1:rrel_fixed:rrel_node: rrel_scp_var: _node_to_k33;;
+			->rrel_2:rrel_assign: rrel_pos_const_prem: rrel_scp_var: _arc_k3_1;;
+			->rrel_3:rrel_assign: rrel_scp_var: _k33;;
+
+			=>nrel_then: ..add_to_set_of_k33;;
+			=>nrel_else: ..mark_vertex;;
+
+		*);;	
+
+		->..add_to_set_of_k33(*
+			<-genElStr3;;
+			-> rrel_1: rrel_fixed:rrel_node: rrel_scp_var:_set_of_k33 ;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm:rrel_scp_var: _arc_add_3_24;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _k33 ;;
+			=> nrel_goto: ..mark_vertex;;
+		*);;	
+
+
+		->..mark_vertex(*
+        <- eraseEl;;  
+        -> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc1;;  
+        => nrel_goto: ..go_through_vertexes;;
+     *);;
+
+
+	 ->..check_set_k33(*
+		   <-printEl;;
+			->rrel_1:rrel_fixed:rrel_scp_var:_set_of_k33;;
+			=>nrel_goto: ..call_find_set_to_delete;;
+	 *);;
+
+
+		->..call_find_set_to_delete(*
+			<-call;;
+			->rrel_1:rrel_fixed:rrel_scp_const:proc_find_set_to_delete;;
+			->rrel_2: rrel_fixed:rrel_scp_const:...(*
+				->rrel_1:rrel_fixed:rrel_scp_var: _set_of_k5;;
+				->rrel_2:rrel_fixed:rrel_scp_var: _set_of_k33;;
+				->rrel_3:rrel_assign:rrel_scp_var:_set_to_delete;;
+			*);;
+			-> rrel_3: rrel_assign: rrel_scp_var: _descr4;;
+
+			=>nrel_goto: ..wait_find_set_to_delete;;
+		*);;
+
+		-> ..wait_find_set_to_delete (*
+			<- waitReturn;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descr4;;
+			=> nrel_goto: ..cehck_set_to_delete;;
+		*);;
+
+
+		->..cehck_set_to_delete(*
+			<-searchElStr3;;
+				->rrel_1:rrel_fixed: rrel_scp_var: _set_to_delete;;
+				->rrel_2:rrel_assign: rrel_pos_const_prem: rrel_scp_var: _arc_k3_1;;
+				->rrel_3:rrel_assign: rrel_scp_var: _k33;;
+
+			=>nrel_then: ..print_set_to_delete;;
+			=>nrel_else: ..print_no;;
+		*);;
+
+		->..print_set_to_delete(*
+			<-printEl;;
+			->rrel_1:rrel_fixed:rrel_scp_var:_set_to_delete;;
+			=>nrel_goto: ..return;;
+		*);;
+
+		->..print_no(*
+			<-printNl;;
+			->rrel_1:rrel_fixed:rrel_scp_const:[Нечего удалять];;
+			=>nrel_goto: ..return;;
+		*);;
+
+		-> ..return (*
+			<- return;;
+		*);;
+	*);;
+*);;

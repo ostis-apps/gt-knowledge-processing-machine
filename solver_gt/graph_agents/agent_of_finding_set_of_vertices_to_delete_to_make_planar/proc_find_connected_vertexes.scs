@@ -1,0 +1,98 @@
+scp_program -> proc_find_connected_vertexes(*	
+	-> rrel_params: ... (*
+		-> rrel_1: rrel_in: _cur_vertex;;
+        -> rrel_2: rrel_in: _graph;;
+		-> rrel_3: rrel_out: _set_of_connected;;
+    *);;
+
+->rrel_operators:...(*
+
+    ->rrel_init:..gen_set_of_connected(*
+            <-genEl;;
+			->rrel_1:rrel_assign:rrel_scp_var:rrel_node:_set_of_connected;;
+			=>nrel_goto: ..copy_create_set_vertexes_of_graph;;
+  	  *);;
+
+		// ->..check_vertex(*
+		// 	<-printEl;;
+		// 	->rrel_1:rrel_fixed:rrel_scp_const:_cur_vertex;;
+		// 	=>nrel_goto:..call_return;;				
+			
+		// *);;
+    
+
+		-> ..copy_create_set_vertexes_of_graph (*
+			<- searchSetStr5;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var:  _arc2;;
+			-> rrel_3: rrel_assign: rrel_node: rrel_scp_var: _temp_vertex;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var:  _arc4;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;			
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _vertexes_set;;
+
+			=> nrel_goto: ..go_through_vertexes;;
+		*);;
+
+
+    
+    ->..go_through_vertexes(*
+        <- searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _vertexes_set;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_3: rrel_assign:rrel_node:rrel_scp_var: _vertex_of_graph;;
+
+			=> nrel_then: ..check_arc_operator2;;
+            => nrel_else: ..call_return;;
+    *);;
+
+		 ->..check_arc_operator2(*
+			<-searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _cur_vertex;;
+			-> rrel_2: rrel_assign:  rrel_scp_var: _arc_3;;
+			-> rrel_3: rrel_fixed :rrel_scp_var: _vertex_of_graph;;
+
+
+			=> nrel_then: ..add_vertex_to_set_of_connected_1;; 
+			=> nrel_else: ..check_arc_operator3;; 
+    	*);;   
+
+		 ->..check_arc_operator3(*
+			<-searchElStr3;;
+			-> rrel_1: rrel_fixed: rrel_scp_var: _vertex_of_graph;;
+			-> rrel_2: rrel_assign:  rrel_scp_var: _arc_3;;
+			-> rrel_3: rrel_fixed :rrel_scp_var: _cur_vertex;;
+
+
+			=> nrel_then: ..add_vertex_to_set_of_connected_1;; 
+			=> nrel_else: ..mark_this_arc;; 
+    	*);;   
+
+     ->..add_vertex_to_set_of_connected_1(*
+        <- genElStr3;;
+			-> rrel_1: rrel_fixed:rrel_node: rrel_scp_var:_set_of_connected ;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm:rrel_scp_var: _arc_add;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _vertex_of_graph ;;
+			=> nrel_goto: ..mark_this_arc;;
+    *);;   
+
+
+     ->..mark_this_arc(*
+        <- eraseEl;;  
+        -> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc2;;  
+
+        => nrel_goto: ..go_through_vertexes;;
+     *);;
+
+	// ->..check_vertexes(*
+	// 	<-printEl;;
+	// 	->rrel_1: rrel_fixed:rrel_scp_var: _set_of_connected;;
+	// 	=>nrel_goto: ..check_vertex;;
+	// *);;
+    
+
+
+    ->..call_return(*
+        <-return;;
+    *);;
+*);;
+*);;
