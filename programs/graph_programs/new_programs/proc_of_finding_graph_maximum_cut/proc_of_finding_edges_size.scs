@@ -1,0 +1,82 @@
+scp_program -> proc_of_finding_edges_size
+(*
+    -> rrel_params: ...
+    (*
+        -> rrel_1: rrel_in: _edges_set;;
+        -> rrel_2: rrel_out: _size;;
+    *);;
+
+    -> rrel_operators: ...
+    (*
+        -> rrel_init: ..proc_of_finding_edges_size_operator1
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _size;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+            => nrel_goto: ..proc_of_finding_edges_size_operator2;;
+        *);;
+        
+        -> ..proc_of_finding_edges_size_operator2
+        (*
+            <- searchSetStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _edges_set;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _edge;;
+
+            -> rrel_set_3: rrel_assign: rrel_scp_var: _copy_edges_set;;
+
+            => nrel_then: ..proc_of_finding_edges_size_operator3;;
+            => nrel_else: ..proc_of_finding_edges_size_operator_return;;
+        *);;
+
+        -> ..proc_of_finding_edges_size_operator3
+        (*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _copy_edges_set;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _some_edge;;
+
+            => nrel_then: ..proc_of_finding_edges_size_operator4;;
+            => nrel_else: ..proc_of_finding_edges_size_operator_return;;
+        *);;
+
+        -> ..proc_of_finding_edges_size_operator4
+        (*
+            <- eraseEl;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc2;;
+
+            => nrel_goto: ..proc_of_finding_edges_size_operator5;;
+        *);;
+
+        -> ..proc_of_finding_edges_size_operator5
+        (*
+            <- contAdd;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _temp;;
+            -> rrel_2: rrel_fixed: rrel_scp_var: _size;;
+            -> rrel_3: rrel_fixed: rrel_scp_const: [1];;
+
+            => nrel_goto: ..proc_of_finding_edges_size_operator6;;
+        *);;
+
+        -> ..proc_of_finding_edges_size_operator6
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _size;;
+            -> rrel_2: rrel_fixed: rrel_scp_var: _temp;;
+
+            => nrel_goto: ..proc_of_finding_edges_size_operator3;;
+        *);;
+        
+        -> ..proc_of_finding_edges_size_operator_return
+        (*
+            <- return;;
+        *);;
+    *);;
+*);;

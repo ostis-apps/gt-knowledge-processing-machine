@@ -1,0 +1,36 @@
+proc_of_disconnected_graph_decomposing
+=> nrel_main_idtf:
+	[Программа разложения несвязного графа на множество компонент связности] (* <- lang_ru;; *);
+		
+=> nrel_initiation_condition_and_result: (..scp_proc_of_disconnected_graph_decomposing_initiation_condition
+					  => ..scp_proc_of_disconnected_graph_decomposing_result);
+					  
+-> rrel_key_sc_element: 
+concept_graph;
+concept_disconnected_graph;
+nrel_disconnected_graph_decomposing;
+
+-> rrel_solver_key_sc_element:
+nrel_disconnected_graph_decomposing;
+
+<- rrel_key_sc_element:
+	..scp_proc_of_disconnected_graph_decomposing_behavior
+	(*
+		<- sc_description_of_scp_program_behavior;;
+		<= nrel_sc_text_translation:
+		...
+		(*
+			-> rrel_example:
+				[ Программа находит множество компонент связности графа и генерирует дугу принадлежности от относительного 				понятия "nrel_disconnected_graph_decomposing" к связке сущности "_graph" и найденного множества 					его компонент связности. ];;
+		*);;
+	*);;
+
+
+..scp_proc_of_disconnected_graph_decomposing_initiation_condition = [*
+	concept_graph _-> _graph;;
+*];;
+
+..scp_proc_of_disconnected_graph_decomposing_result
+= [*
+	_graph _=> nrel_disconnected_graph_decomposing:: _graph_set;;
+*];;

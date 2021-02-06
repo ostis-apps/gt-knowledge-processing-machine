@@ -1,0 +1,76 @@
+scp_program -> proc_of_terminal_chosing
+(*
+    -> rrel_params: ..proc_of_terminal_chosing_params
+    (*
+        -> rrel_1: rrel_in: _graph;;
+        -> rrel_2: rrel_out: _tree;;
+    *);;
+    
+    -> rrel_operators: ..proc_of_terminal_chosing_operators 
+    (*
+    	-> rrel_init: ..proc_of_terminal_chosing_operator1
+        (*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_const: concept_disconnected_graph;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+            => nrel_then: ..proc_of_terminal_chosing_operator2;;
+            => nrel_else: ..proc_of_terminal_chosing_operator4;;
+        *);;
+        
+        -> ..proc_of_terminal_chosing_operator2
+        (*
+            <- call;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_const: proc_of_disconnected_graph_decomposing;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: ...
+            (*
+            	-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+            	-> rrel_2: rrel_assign: rrel_scp_var: _tree;;
+            *);;
+            -> rrel_3: rrel_assign: rrel_scp_var: _descriptor;;
+           
+            => nrel_goto: ..proc_of_terminal_chosing_operator3;;
+        *);;
+        
+        -> ..proc_of_terminal_chosing_operator3
+        (*
+            <- waitReturn;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _descriptor;;
+
+            => nrel_goto: ..proc_of_terminal_chosing_operator_return;;
+        *);;
+        
+         -> ..proc_of_terminal_chosing_operator4
+        (*
+            <- call;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_const: proc_of_finding_minimum_spanning_tree;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: ...
+            (*
+            	-> rrel_1: rrel_fixed: rrel_scp_var: _current_subgraph;;
+            	-> rrel_2: rrel_assign: rrel_scp_var: _tree;;
+            *);;
+            -> rrel_3: rrel_assign: rrel_scp_var: _descriptor;;
+           
+            => nrel_goto: ..proc_of_terminal_chosing_operator5;;
+        *);;
+        
+        -> ..proc_of_terminal_chosing_operator5
+        (*
+            <- waitReturn;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _descriptor;;
+
+            => nrel_goto: ..proc_of_terminal_chosing_operator_return;;
+        *);;
+        
+        -> ..proc_of_terminal_chosing_operator_return
+        (*
+            <- return;;
+        *);;
+    *);;
+*);;

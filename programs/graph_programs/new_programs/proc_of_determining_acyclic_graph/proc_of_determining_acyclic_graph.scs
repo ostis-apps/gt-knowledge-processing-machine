@@ -1,0 +1,153 @@
+scp_program -> proc_of_determining_acyclic_graph 
+(*
+		
+    -> rrel_params: ... 
+    (*
+	 -> rrel_1: rrel_in: _graph;;
+    *);;
+
+    -> rrel_operators: ... 
+    (*
+
+    	-> rrel_init: ..check_if_graph_acyclic
+    	(*
+		<- searchElStr3;;
+
+		-> rrel_1: rrel_fixed: rrel_scp_const: concept_acyclic_graph;;
+		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _null_sc_var_2;;
+		-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+		=> nrel_then: ..stop_program_execution;;
+		=> nrel_else: ..check_if_graph_not_acyclic;;
+	*);;
+
+	-> ..check_if_graph_not_acyclic
+	(*
+		<- searchElStr3;;
+
+		-> rrel_1: rrel_fixed: rrel_scp_const: concept_acyclic_graph;;
+		-> rrel_2: rrel_assign: rrel_neg_const_perm: rrel_scp_var: _null_sc_var_2;;
+		-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+		=> nrel_then: ..stop_program_execution;;
+		=> nrel_else: ..get_vertices_set;;
+	*);;
+
+	-> ..get_vertices_set
+	(*
+		<- searchSetStr5;;
+		
+		-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _null_sc_var_2;;
+		-> rrel_3: rrel_assign: rrel_scp_var: _vertex;;
+		-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _null_sc_var_4;;
+		-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+		
+		-> rrel_set_3: rrel_assign: rrel_scp_var: _graph_vertices;;
+
+		=> nrel_then: ..get_arcs_set;;
+		=> nrel_else: ..stop_program_execution;;
+	*);;
+
+	-> ..get_arcs_set
+	(*
+		<- searchSetStr5;;
+		
+		-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _null_sc_var_2;;
+		-> rrel_3: rrel_assign: rrel_scp_var: _arc;;
+		-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _null_sc_var_4;;
+		-> rrel_5: rrel_fixed: rrel_scp_const: rrel_oredge;;
+		
+		-> rrel_set_3: rrel_assign: rrel_scp_var: _graph_arcs;;
+
+		=> nrel_then: ..iterate_over_graph_vertices;;
+		=> nrel_else: ..stop_program_execution;;
+	*);;
+
+	-> ..iterate_over_graph_vertices
+	(*
+		<- searchElStr3;;
+
+		-> rrel_1: rrel_fixed: rrel_scp_var: _graph_vertices;;
+		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc_to_current_iterated_vertex;;
+		-> rrel_3: rrel_assign: rrel_scp_var: _current_vertex;;
+		
+		=> nrel_then: ..erase_arc_to_current_iterated_vertex;;
+		=> nrel_else: ..set_graph_as_acyclic_and_return;;
+	*);;
+
+	-> ..erase_arc_to_current_iterated_vertex
+	(*
+		<- eraseEl;;
+
+		-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc_to_current_iterated_vertex;;
+
+		=> nrel_goto: ..create_empty_path;;
+	*);; 
+
+	-> ..create_empty_path
+	(*
+		<- genEl;;
+
+		-> rrel_1: rrel_assign: rrel_node: rrel_scp_var: _empty_path;;
+
+		=> nrel_goto: ..perform_depth_search;;
+	*);;
+
+	-> ..perform_depth_search
+	(*
+		<- call;;
+
+		-> rrel_1: rrel_fixed: rrel_scp_const: proc_of_determining_acyclic_graph_helper;;
+		-> rrel_2: rrel_fixed: rrel_scp_const: ..call_params
+		(*
+			-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+			-> rrel_2: rrel_fixed: rrel_scp_var: _empty_path;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _current_vertex;;
+		*);;
+		-> rrel_3: rrel_assign: rrel_scp_var: _recursion_call_descriptor;;
+
+		=> nrel_goto: ..wait_recursion_return;;
+	*);;
+
+	-> ..wait_recursion_return
+	(*
+		<- waitReturn;;
+
+		-> rrel_1: rrel_fixed: rrel_scp_var: _recursion_call_descriptor;;
+
+		=> nrel_goto: ..check_if_graph_already_not_acyclic;;
+	*);;
+
+	-> ..check_if_graph_already_not_acyclic
+	(*
+		<- searchElStr3;;
+
+		-> rrel_1: rrel_fixed: rrel_scp_const: concept_acyclic_graph;;
+		-> rrel_2: rrel_assign: rrel_neg_const_perm: rrel_scp_var: _null_sc_var_2;;
+		-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+		=> nrel_then: ..stop_program_execution;;
+		=> nrel_else: ..iterate_over_graph_vertices;;
+	*);;
+
+	-> ..set_graph_as_acyclic_and_return
+	(*
+		<- genElStr3;;
+
+    		-> rrel_1: rrel_fixed: rrel_scp_const: concept_acyclic_graph;;
+    		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _null_sc_var_2;;
+    		-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+    		=> nrel_goto: ..stop_program_execution;;
+	*);;
+
+	-> ..stop_program_execution
+	(*
+		<- return;;
+	*);;
+
+    *);;
+
+*);;

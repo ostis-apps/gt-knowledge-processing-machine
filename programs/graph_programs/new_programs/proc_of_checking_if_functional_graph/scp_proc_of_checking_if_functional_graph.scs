@@ -1,0 +1,55 @@
+proc_of_checking_if_functional_graph
+=> nrel_main_idtf:
+	[Программа проверки графа на функциональность] (* <- lang_ru;; *);
+		
+=> nrel_initiation_condition_and_result: (..scp_proc_of_checking_if_functional_graph_initiation_condition
+					  => ..scp_proc_of_checking_if_functional_graph_result);
+					  
+-> rrel_key_sc_element: 
+concept_graph;
+concept_functional_graph;
+concept_particle_functional_graph;
+concept_contrfunctional_graph;
+
+-> rrel_solver_key_sc_element:
+concept_functional_graph;
+concept_particle_functional_graph;
+concept_contrfunctional_graph;
+
+<- rrel_key_sc_element:
+	..scp_proc_of_checking_if_functional_graph_behavior
+	(*
+		<- sc_description_of_scp_program_behavior;;
+		<= nrel_sc_text_translation:
+		...
+		(*
+			-> rrel_example:
+				[Это программа проверяет исходный граф на функциональность. В случае функциональности графа генерируется 					позитивная дуга принадлежности от абсолютного понятия "concept_functional_graph" к сущности "_graph", в 					случае частичной функциональности - создаётся дуга принадлежности от абсолютного понятия 					"concept_particle_functional_graph", в случае контруфункциональности - создаётся дуга принадлежности от 					абсолютного понятия "concept_contrfunctional_graph".];;
+		*);;
+	*);;
+
+
+..scp_proc_of_checking_if_functional_graph_initiation_condition = [*
+	concept_graph _-> _graph;;
+*];;
+
+..scp_proc_of_checking_if_functional_graph_result
+	<- nrel_disjunction;
+	-> ..scp_proc_of_checking_if_functional_graph_result_one;
+	-> ..scp_proc_of_checking_if_functional_graph_result_two;
+	-> ..scp_proc_of_checking_if_functional_graph_result_three;;
+
+..scp_proc_of_checking_if_functional_graph_result_one
+= [*
+	concept_functional_graph _-> _graph;;
+*];;
+
+..scp_proc_of_checking_if_functional_graph_result_two
+= [*
+	concept_particle_functional_graph _-> _graph;;
+*];;
+
+..scp_proc_of_checking_if_functional_graph_result_three
+= [*
+	concept_contrfunctional_graph _-> _graph;;
+*];;

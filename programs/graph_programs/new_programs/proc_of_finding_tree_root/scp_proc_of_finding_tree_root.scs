@@ -1,0 +1,39 @@
+proc_of_finding_tree_root
+=> nrel_main_idtf:
+	[Программа нахождения корня в дереве] (* <- lang_ru;; *);
+		
+=> nrel_initiation_condition_and_result: (..scp_proc_of_finding_tree_root_initiation_condition
+					  => ..scp_proc_of_finding_tree_root_result);
+					  
+-> rrel_key_sc_element: 
+concept_graph;
+concept_tree;
+rrel_root;
+
+-> rrel_solver_key_sc_element:
+concept_tree;
+rrel_root;
+
+<- rrel_key_sc_element:
+	..scp_proc_of_finding_tree_root_behavior
+	(*
+		<- sc_description_of_scp_program_behavior;;
+		<= nrel_sc_text_translation:
+		...
+		(*
+			-> rrel_example:
+				[ Программа находит корень в дереве и генерирует дугу принадлежности от относительного понятия 					"rrel_root" к дуги принадлжености от графа к найденному корню. ];;
+		*);;
+	*);;
+
+
+..scp_proc_of_finding_tree_root_initiation_condition = [*
+	concept_graph _-> _graph;;
+	concept_tree _-> _graph;;
+*];;
+
+..scp_proc_of_finding_tree_root_result
+= [*
+	_graph _-> rrel_root:: _tree_root;;
+*];;
+

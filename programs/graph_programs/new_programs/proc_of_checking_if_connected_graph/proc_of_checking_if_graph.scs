@@ -1,0 +1,150 @@
+scp_program -> proc_of_checking_if_graph
+(*
+    -> rrel_params:...
+    (*
+        -> rrel_1: rrel_in: _graph;;
+    *);;
+    -> rrel_operators: ...
+    (*
+        -> rrel_init: ..proc_of_checking_if_graph_operator0
+        (*            
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_const: concept_graph;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+            => nrel_then: ..proc_of_checking_if_graph_operatorreturn;;
+            => nrel_else: ..proc_of_checking_if_graph_operator1;;
+        *);;
+
+        ->  ..proc_of_checking_if_graph_operator1
+        (*            
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_const: concept_graph;;
+            -> rrel_2: rrel_assign: rrel_scp_var: rrel_neg: rrel_const: rrel_perm: _arc2;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+            => nrel_then: ..proc_of_checking_if_graph_operatorreturn;;
+            => nrel_else: ..proc_of_checking_if_graph_operator2;;
+        *);;
+
+        -> ..proc_of_checking_if_graph_operator2
+        (*
+            <- searchSetStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+            -> rrel_2: rrel_assign: rrel_scp_var: _arc1_trash;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _node3;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2_trash;;
+            -> rrel_5: rrel_fixed: rrel_node: rrel_scp_const: rrel_vertex;;
+
+            -> rrel_set_3: rrel_assign: rrel_scp_var: _set_of_nodes;;
+
+            => nrel_then: ..proc_of_checking_if_graph_operator3;;
+            => nrel_else: ..proc_of_checking_if_graph_operatornot_graph;;
+        *);;
+		
+        -> ..proc_of_checking_if_graph_operator3
+        (*
+            <- searchSetStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1_trash;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _node4;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2_trash;;
+            -> rrel_5: rrel_fixed: rrel_scp_const: rrel_oredge;;
+
+            -> rrel_set_3: rrel_assign: rrel_scp_var: _set_of_oredges;;
+
+            => nrel_then: ..proc_of_checking_if_graph_operator4;;
+            => nrel_else: ..proc_of_checking_if_graph_operatorreturn;;
+        *);;
+
+        -> ..proc_of_checking_if_graph_operator4
+        (*            
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _set_of_oredges;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1_to_delete;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _edge_in_graph;;
+
+            => nrel_then: ..proc_of_checking_if_graph_operator5;;
+            => nrel_else: ..proc_of_checking_if_graph_operatorgraph;;
+        *);;
+
+        -> ..proc_of_checking_if_graph_operator5
+        (*
+            <- eraseEl;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc1_to_delete;;
+
+            => nrel_goto: ..proc_of_checking_if_graph_operator6;;
+        *);;
+
+        -> ..proc_of_checking_if_graph_operator6
+        (*            
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _node1_in_graph;;
+            -> rrel_2: rrel_fixed: rrel_pos_const_perm: rrel_scp_var: _edge_in_graph;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _node2_in_graph;;
+
+            => nrel_then: ..proc_of_checking_if_graph_operator7;;
+            => nrel_else: ..proc_of_checking_if_graph_operatornot_graph;;
+        *);;
+
+        -> ..proc_of_checking_if_graph_operator7
+        (*            
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _set_of_nodes;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _node1_in_graph;;
+
+            => nrel_then: ..proc_of_checking_if_graph_operator8;;
+            => nrel_else: ..proc_of_checking_if_graph_operatornot_graph;;
+        *);;
+
+        -> ..proc_of_checking_if_graph_operator8
+        (*            
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _set_of_nodes;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _node2_in_graph;;
+
+            => nrel_then: ..proc_of_checking_if_graph_operator4;;
+            => nrel_else: ..proc_of_checking_if_graph_operatornot_graph;;
+        *);;
+
+        -> ..proc_of_checking_if_graph_operatorgraph
+        (*
+            <- genElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_const: concept_graph;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+            => nrel_goto: ..proc_of_checking_if_graph_operatorreturn;;
+        *);;
+
+        -> ..proc_of_checking_if_graph_operatornot_graph
+        (*
+            <- genElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_const: concept_graph;;
+            -> rrel_2:  rrel_assign: rrel_scp_var: rrel_neg: rrel_const: rrel_perm: _arc1;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+            => nrel_goto: ..proc_of_checking_if_graph_operatorreturn;;
+        *);;
+
+        -> ..proc_of_checking_if_graph_operatorreturn
+        (*
+            <- return;;
+        *);;
+    *);;
+
+*);;

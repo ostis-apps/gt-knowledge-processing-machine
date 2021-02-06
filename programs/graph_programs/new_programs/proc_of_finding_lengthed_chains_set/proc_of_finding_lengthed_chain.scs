@@ -1,0 +1,446 @@
+scp_program -> proc_of_finding_lengthed_chain
+(*
+    -> rrel_params: ...
+    (*
+        -> rrel_1: rrel_in: _vertex;;
+        -> rrel_2: rrel_in: _edges_set;;
+        -> rrel_3: rrel_in: _chain;;
+        -> rrel_4: rrel_in: _chains_set;;
+        -> rrel_5: rrel_in: _current_length;;
+        -> rrel_6: rrel_in: _chain_length;;
+        -> rrel_7: rrel_out: _is_needed_chain;;
+        -> rrel_8: rrel_in: _preves_vertex;;
+        -> rrel_9: rrel_in: _first_vertex;;
+    *);;
+
+    -> rrel_operators: ...
+    (*
+        -> rrel_init: ..proc_of_finding_lengthed_chain_operator0
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _is_needed_chain;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+            => nrel_goto: ..proc_of_finding_lengthed_chain_operator1;;
+        *);;
+        
+        -> ..proc_of_finding_lengthed_chain_operator1
+        (*
+            <- searchSetStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _vertex;;
+            -> rrel_2: rrel_assign: rrel_scp_var: _some_edge;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _some_vertex;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_var: _edges_set;;
+
+            -> rrel_set_3: rrel_assign: rrel_scp_var: _inc_vertices;;
+
+            => nrel_then: ..proc_of_finding_lengthed_chain_operator2;;
+            => nrel_else: ..proc_of_finding_lengthed_chain_operator3;;
+        *);;    
+           
+      	-> ..proc_of_finding_lengthed_chain_operator2
+        (*
+            <- searchSetStr5;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _some_vertex;;
+            -> rrel_2: rrel_assign: rrel_scp_var: _some_edge;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _vertex;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_var: _edges_set;;
+
+            -> rrel_set_1: rrel_fixed: rrel_scp_var: _inc_vertices;;
+
+            => nrel_then: ..proc_of_finding_lengthed_chain_operator4;;
+            => nrel_else: ..proc_of_finding_lengthed_chain_operator4;;
+        *);;
+	    
+        -> ..proc_of_finding_lengthed_chain_operator3
+        (*
+            <- searchSetStr5;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _some_vertex;;
+            -> rrel_2: rrel_assign: rrel_scp_var: _some_edge;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _vertex;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_var: _edges_set;;
+
+            -> rrel_set_1: rrel_assign: rrel_scp_var: _inc_vertices;;
+
+            => nrel_then: ..proc_of_finding_lengthed_chain_operator4;;
+            => nrel_else: ..proc_of_finding_lengthed_chain_operator_return;;
+        *);;
+        
+        -> ..proc_of_finding_lengthed_chain_operator4
+        (*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _inc_vertices;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _some_vertex;;
+
+            => nrel_then: ..proc_of_finding_lengthed_chain_operator5;;
+            => nrel_else: ..proc_of_finding_lengthed_chain_operator_erase;;
+        *);;
+      
+      	-> ..proc_of_finding_lengthed_chain_operator5
+        (*
+            <- eraseEl;;
+
+            -> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc2;;
+
+            => nrel_goto: ..proc_of_finding_lengthed_chain_operator6_0;;
+        *);;
+        
+        -> ..proc_of_finding_lengthed_chain_operator6_0
+        (*
+            <- ifCoin;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _some_vertex;;
+            -> rrel_2: rrel_fixed: rrel_scp_var: _preves_vertex;;
+
+            => nrel_then: ..proc_of_finding_lengthed_chain_operator4;;
+            => nrel_else: ..proc_of_finding_lengthed_chain_operator6_1;;
+        *);;
+        
+        -> ..proc_of_finding_lengthed_chain_operator6_1
+        (*
+            <- ifCoin;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _some_vertex;;
+            -> rrel_2: rrel_fixed: rrel_scp_var: _first_vertex;;
+
+            => nrel_then: ..proc_of_finding_lengthed_chain_operator4;;
+            => nrel_else: ..proc_of_finding_lengthed_chain_operator6;;
+        *);;
+
+        -> ..proc_of_finding_lengthed_chain_operator6
+        (*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _vertex;;
+            -> rrel_2: rrel_assign: rrel_scp_var: _some_edge;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _some_vertex;;
+
+            => nrel_then: ..proc_of_finding_lengthed_chain_operator7;;
+            => nrel_else: ..proc_of_finding_lengthed_chain_operator7_1;;
+        *);;
+        
+        -> ..proc_of_finding_lengthed_chain_operator7_1
+        (*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _some_vertex;;
+            -> rrel_2: rrel_assign: rrel_scp_var: _some_edge;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _vertex;;
+
+            => nrel_then: ..proc_of_finding_lengthed_chain_operator7;;
+            => nrel_else: ..proc_of_finding_lengthed_chain_operator4;;
+        *);;
+	
+        -> ..proc_of_finding_lengthed_chain_operator7
+        (*
+            <- searchSetStr3;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _possible_weigth;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _some_edge;;
+
+            -> rrel_set_1: rrel_assign: rrel_scp_var: _set_with_weigth;;
+
+            => nrel_then: ..proc_of_finding_lengthed_chain_operator8;;
+            => nrel_else: ..proc_of_finding_lengthed_chain_operator4;;
+        *);;
+
+        -> ..proc_of_finding_lengthed_chain_operator8
+        (*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _set_with_weigth;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _edge_weigth;;
+
+            => nrel_then: ..proc_of_finding_lengthed_chain_operator9;;
+            => nrel_else: ..proc_of_finding_lengthed_chain_operator11_1;;
+        *);;
+
+        -> ..proc_of_finding_lengthed_chain_operator9
+        (*
+            <- eraseEl;;
+
+            -> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc2;;
+
+            => nrel_goto: ..proc_of_finding_lengthed_chain_operator10;;
+        *);;
+
+        -> ..proc_of_finding_lengthed_chain_operator10
+        (*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_const: concept_weigth;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _edge_weigth;;
+
+            => nrel_then: ..proc_of_finding_lengthed_chain_operator11_1;;
+            => nrel_else: ..proc_of_finding_lengthed_chain_operator8;;
+        *);;
+
+        -> ..proc_of_finding_lengthed_chain_operator11_1
+        (*
+            <- searchElStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _edge_weigth;;
+            -> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _weigth_value;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_const: nrel_system_identifier;;
+
+            => nrel_then: ..proc_of_finding_lengthed_chain_operator11_2;;
+            => nrel_else: ..proc_of_finding_lengthed_chain_operator4;;
+        *);;
+        
+        -> ..proc_of_finding_lengthed_chain_operator11_2
+        (*
+            <- eraseEl;;
+
+            -> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _set_with_weigth;;
+
+            => nrel_goto: ..proc_of_finding_lengthed_chain_operator12;;
+        *);;
+
+        -> ..proc_of_finding_lengthed_chain_operator12
+        (*
+            <- contAdd;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _sum;;
+            -> rrel_2: rrel_fixed: rrel_scp_var: _weigth_value;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _current_length;;
+
+            => nrel_goto: ..proc_of_finding_lengthed_chain_operator13_1;;
+        *);;
+
+        -> ..proc_of_finding_lengthed_chain_operator13_1
+        (*
+            <- ifGr;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _sum;;
+            -> rrel_2: rrel_fixed: rrel_scp_var: _chain_length;;
+
+            => nrel_then: ..proc_of_finding_lengthed_chain_operator4;;
+            => nrel_else: ..proc_of_finding_lengthed_chain_operator13_2;;
+        *);;
+
+        -> ..proc_of_finding_lengthed_chain_operator13_2
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _is_needed_chain;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+            => nrel_goto: ..proc_of_finding_lengthed_chain_operator13_3;;
+        *);;
+
+        -> ..proc_of_finding_lengthed_chain_operator13_3
+        (*
+            <- ifGr;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _chain_length;;
+            -> rrel_2: rrel_fixed: rrel_scp_var: _sum;;
+
+            => nrel_then: ..proc_of_finding_lengthed_chain_operator14;;
+            => nrel_else: ..proc_of_finding_lengthed_chain_operator20;;
+        *);;
+
+        -> ..proc_of_finding_lengthed_chain_operator14
+        (*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _chain;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _some_vertex;;
+
+            => nrel_then: ..proc_of_finding_lengthed_chain_operator4;;
+            => nrel_else: ..proc_of_finding_lengthed_chain_operator15;;
+        *);;
+
+        -> ..proc_of_finding_lengthed_chain_operator15
+        (*
+            <- call;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_const: proc_of_finding_lengthed_chain;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: ...
+            (*
+                -> rrel_1: rrel_fixed: rrel_scp_var: _some_vertex;;
+                -> rrel_2: rrel_fixed: rrel_scp_var: _edges_set;;
+                -> rrel_3: rrel_fixed: rrel_scp_var: _chain;;
+                -> rrel_4: rrel_fixed: rrel_scp_var: _chains_set;;
+                -> rrel_5: rrel_fixed: rrel_scp_var: _sum;;
+                -> rrel_6: rrel_fixed: rrel_scp_var: _chain_length;;
+                -> rrel_7: rrel_assign: rrel_scp_var: _is_needed_chain;;
+                -> rrel_8: rrel_fixed: rrel_scp_var: _vertex;; 
+                -> rrel_9: rrel_fixed: rrel_scp_var: _first_vertex;;
+            *);;
+            -> rrel_3: rrel_assign: rrel_scp_var: _descriptor;;
+
+            => nrel_goto: ..proc_of_finding_lengthed_chain_operator16;;
+        *);;
+
+        -> ..proc_of_finding_lengthed_chain_operator16
+        (*
+            <- waitReturn;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _descriptor;;
+
+            => nrel_goto: ..proc_of_finding_lengthed_chain_operator17;;
+        *);;
+
+        -> ..proc_of_finding_lengthed_chain_operator17
+        (*
+            <- ifEq;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _is_needed_chain;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [1];;
+
+            => nrel_then: ..proc_of_finding_lengthed_chain_operator18_0;;
+            => nrel_else: ..proc_of_finding_lengthed_chain_operator20;;
+        *);;
+
+	-> ..proc_of_finding_lengthed_chain_operator18_0
+        (*
+            <- searchElStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _chain;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _some_vertex;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+
+            => nrel_then: ..proc_of_finding_lengthed_chain_operator18_1;;
+            => nrel_else: ..proc_of_finding_lengthed_chain_operator18;;
+        *);;
+        
+        -> ..proc_of_finding_lengthed_chain_operator18_1
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _is_needed_chain;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+            => nrel_goto: ..proc_of_finding_lengthed_chain_operator_erase;;
+        *);;
+
+         -> ..proc_of_finding_lengthed_chain_operator18
+        (*
+            <- genElStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _chain;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _some_vertex;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+
+            => nrel_goto: ..proc_of_finding_lengthed_chain_operator19;;
+        *);;
+
+        -> ..proc_of_finding_lengthed_chain_operator19
+        (*
+            <- genElStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _chain;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _some_edge;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_const: rrel_oredge;;
+
+            => nrel_goto: ..proc_of_finding_lengthed_chain_operator_erase;;
+        *);;
+
+        -> ..proc_of_finding_lengthed_chain_operator20
+        (*
+            <- ifEq;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _chain_length;;
+            -> rrel_2: rrel_fixed: rrel_scp_var: _sum;;
+
+            => nrel_then: ..proc_of_finding_lengthed_chain_operator21;;
+            => nrel_else: ..proc_of_finding_lengthed_chain_operator4;;
+        *);;
+        
+        -> ..proc_of_finding_lengthed_chain_operator21
+        (*
+            <- genElStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _chain;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _some_vertex;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+
+            => nrel_goto: ..proc_of_finding_lengthed_chain_operator22;;
+        *);;
+
+        -> ..proc_of_finding_lengthed_chain_operator22
+        (*
+            <- genElStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _chain;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _some_edge;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_const: rrel_oredge;;
+
+            => nrel_goto: ..proc_of_finding_lengthed_chain_operator23;;
+        *);;
+
+        -> ..proc_of_finding_lengthed_chain_operator23
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _is_needed_chain;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [1];;
+
+            => nrel_goto: ..proc_of_finding_lengthed_chain_operator25;;
+        *);;
+
+        -> ..proc_of_finding_lengthed_chain_operator25
+        (*
+            <- searchElStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _first_vertex;;
+            -> rrel_2: rrel_assign: rrel_scp_var: _edge;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _con_vertex;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_var: _chain;;
+
+            => nrel_then: ..proc_of_finding_lengthed_chain_operator26;;
+            => nrel_else: ..proc_of_finding_lengthed_chain_operator_erase;;
+        *);;
+
+        -> ..proc_of_finding_lengthed_chain_operator26
+        (*
+            <- genElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _chains_set;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: arc2;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _chain;;
+
+            => nrel_goto: ..proc_of_finding_lengthed_chain_operator_erase;;
+        *);;
+        
+        -> ..proc_of_finding_lengthed_chain_operator_erase
+        (*
+            <- eraseEl;;
+
+            -> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _inc_vertices;;
+
+            => nrel_goto: ..proc_of_finding_lengthed_chain_operator_return;;
+        *);;
+        
+        -> ..proc_of_finding_lengthed_chain_operator_return
+        (*
+            <- return;;
+        *);;
+    *);;
+*);;

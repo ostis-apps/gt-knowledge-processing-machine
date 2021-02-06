@@ -1,0 +1,379 @@
+scp_program -> proc_of_checking_if_binary_tree 
+(*
+	
+	-> rrel_params: ... 
+	(*
+		-> rrel_1: rrel_in: _graph;;
+	*);;
+
+	-> rrel_operators: ... 
+	(*
+
+		-> rrel_init: ..proc_of_checking_if_binary_tree_operator0 
+		(*
+			<- searchElStr3;;
+
+    			-> rrel_1: rrel_fixed: rrel_scp_const: concept_binary_tree;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+			=> nrel_then: ..proc_of_checking_if_binary_tree_operator_return;;		
+		 	=> nrel_else: ..proc_of_checking_if_binary_tree_operator1;;	
+		*);;
+
+		-> ..proc_of_checking_if_binary_tree_operator1
+		(*
+			<- searchElStr3;;
+
+    			-> rrel_1: rrel_fixed: rrel_scp_const: concept_binary_tree;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_neg_const_perm: _arc2;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+			=> nrel_then: ..proc_of_checking_if_binary_tree_operator_return;;		
+		 	=> nrel_else: ..proc_of_checking_if_binary_tree_operator2;;	
+		*);;
+
+		-> ..proc_of_checking_if_binary_tree_operator2
+		(*
+			<- genEl;;
+
+			-> rrel_1: rrel_assign: rrel_node: rrel_link: rrel_const: rrel_scp_var: _counter;;
+			
+			=> nrel_goto: ..proc_of_checking_if_binary_tree_operator3;;
+		*);; 
+
+		-> ..proc_of_checking_if_binary_tree_operator3 
+		(*
+		  	<- contAssign;;
+		  	
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _counter;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+		    	=> nrel_goto: ..proc_of_checking_if_binary_tree_operator3_1;;
+		*);;
+
+		-> ..proc_of_checking_if_binary_tree_operator3_1
+		(*
+			<- genEl;;
+
+			-> rrel_1: rrel_assign: rrel_node: rrel_link: rrel_const: rrel_scp_var: _counter2;;
+			
+			=> nrel_goto: ..proc_of_checking_if_binary_tree_operator3_2;;
+		*);; 
+
+		-> ..proc_of_checking_if_binary_tree_operator3_2
+		(*
+		  	<- contAssign;;
+		  	
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _counter2;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+		    	=> nrel_goto: ..proc_of_checking_if_binary_tree_operator4;;
+		*);;
+
+		-> ..proc_of_checking_if_binary_tree_operator4 
+		(*
+			<- searchSetStr5;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc3;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _vertex;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+			
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _not_checked_vertexes1;;
+				
+			=> nrel_then: ..proc_of_checking_if_binary_tree_operator4_1;;		
+			=> nrel_else: ..proc_of_checking_if_binary_tree_operator_failure;;
+		*);;
+		
+		-> ..proc_of_checking_if_binary_tree_operator4_1
+		(*
+			<- searchSetStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _not_checked_vertexes1;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc6;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _node2;;
+
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _not_checked_vertexes2;;
+				
+			=> nrel_then: ..proc_of_checking_if_binary_tree_operator5;;		
+			=> nrel_else: ..proc_of_checking_if_binary_tree_operator_failure;;
+		*);;
+
+		-> ..proc_of_checking_if_binary_tree_operator5 
+		(*
+			<- searchSetStr5;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc7;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _edge;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc8;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_oredge;;
+			
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _oredges_set;;
+				
+			=> nrel_then: ..proc_of_checking_if_binary_tree_operator5_1;;		
+			=> nrel_else: ..proc_of_checking_if_binary_tree_operator_failure;;
+		*);;
+
+		-> ..proc_of_checking_if_binary_tree_operator5_1
+		(*
+			<- searchSetStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _oredges_set;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc10;;
+			-> rrel_3: rrel_assign: rrel_scp_common: rrel_scp_var: _arc61;;
+
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _not_checked_arcs1;;
+				
+			=> nrel_then: ..proc_of_checking_if_binary_tree_operator5_2;;		
+			=> nrel_else: ..proc_of_checking_if_binary_tree_operator_failure;;
+		*);;
+		
+		-> ..proc_of_checking_if_binary_tree_operator5_2
+		(*
+			<- searchSetStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _oredges_set;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc10;;
+			-> rrel_3: rrel_assign: rrel_scp_common: rrel_scp_var: _arc61;;
+
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _not_checked_arcs2;;
+				
+			=> nrel_then: ..proc_of_checking_if_binary_tree_operator6;;		
+			=> nrel_else: ..proc_of_checking_if_binary_tree_operator_failure;;
+		*);;
+
+		-> ..proc_of_checking_if_binary_tree_operator6
+		(*
+			<- searchSetStr5;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc11;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _edge;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc12;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_oredge;;
+			
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _set_arcs;;
+			
+			=> nrel_then: ..proc_of_checking_if_binary_tree_operator7;;		
+			=> nrel_else: ..proc_of_checking_if_binary_tree_operator_failure;;
+		*);;
+
+		-> ..proc_of_checking_if_binary_tree_operator7 
+		(*
+			<- searchElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _not_checked_vertexes1;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc13;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _node3;;
+			
+			=> nrel_then: ..proc_of_checking_if_binary_tree_operator8;;
+			=> nrel_else: ..proc_of_checking_if_binary_tree_operator9;;
+		*);;
+
+		-> ..proc_of_checking_if_binary_tree_operator8
+		(*
+			<- searchElStr5;;
+				
+			-> rrel_1: rrel_fixed: rrel_scp_var: _node3;;
+			-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc14;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _sec_node1;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc15;;
+			-> rrel_5: rrel_fixed: rrel_scp_var: _not_checked_arcs1;;
+			
+			=> nrel_then: ..proc_of_checking_if_binary_tree_operator8_1;;		
+			=> nrel_else: ..proc_of_checking_if_binary_tree_operator8_1_1;;
+		*);;
+
+		-> ..proc_of_checking_if_binary_tree_operator8_1 
+		(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_pos_const_perm: rrel_erase: _arc15;;
+			
+			=> nrel_goto: ..proc_of_checking_if_binary_tree_operator8_2;;
+		*);;
+
+		-> ..proc_of_checking_if_binary_tree_operator8_2 
+		(*
+			<- contAdd;;
+
+			-> rrel_1 : rrel_fixed : rrel_scp_var: _counter;;
+			-> rrel_2 : rrel_fixed : rrel_scp_var: _counter;;
+			-> rrel_3 : rrel_fixed : rrel_scp_const: [1];;
+			
+			=> nrel_goto: ..proc_of_checking_if_binary_tree_operator8_3;;
+		*);;
+
+		-> ..proc_of_checking_if_binary_tree_operator8_3
+		(*
+			<- ifEq;;
+
+			-> rrel_1 : rrel_fixed : rrel_scp_var: _counter;;
+			-> rrel_2 : rrel_fixed : rrel_scp_const: [3];;
+			
+			=> nrel_then: ..proc_of_checking_if_binary_tree_operator_failure;;		
+			=> nrel_else: ..proc_of_checking_if_binary_tree_operator8;;
+		*);;
+
+		-> ..proc_of_checking_if_binary_tree_operator8_1_1 
+		(*
+			<- eraseEl;;
+			
+			-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc13;;
+			
+			=> nrel_goto: ..proc_of_checking_if_binary_tree_operator8_1_2;;
+		*);;
+
+		-> ..proc_of_checking_if_binary_tree_operator8_1_2
+		(*
+			<- contAdd;;		
+			
+			-> rrel_1 : rrel_fixed : rrel_scp_var: _counter;;
+			-> rrel_2 : rrel_fixed : rrel_scp_const: [0];;
+			-> rrel_3 : rrel_fixed : rrel_scp_const: [0];;
+			
+			=> nrel_goto: ..proc_of_checking_if_binary_tree_operator7;;
+		*);;
+
+		-> ..proc_of_checking_if_binary_tree_operator9
+		(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _not_checked_vertexes2;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc16;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _sec_node;;
+			
+			=> nrel_then: ..proc_of_checking_if_binary_tree_operator10;;
+			=> nrel_else: ..proc_of_checking_if_binary_tree_operator_success;;
+		*);;
+
+		-> ..proc_of_checking_if_binary_tree_operator10
+		(*
+			<- searchElStr5;;
+				
+			-> rrel_1: rrel_assign: rrel_scp_var: _node4;;
+			-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc17;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _sec_node;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc18;;
+			-> rrel_5: rrel_fixed: rrel_scp_var: _not_checked_arcs2;;
+			
+			=> nrel_then: ..proc_of_checking_if_binary_tree_operator10_1;;		
+			=> nrel_else: ..proc_of_checking_if_binary_tree_operator10_1_1;;
+		*);;
+
+		-> ..proc_of_checking_if_binary_tree_operator10_1 
+		(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_fixed: rrel_pos_const_perm: rrel_erase: rrel_scp_var: _arc18;;
+			
+			=> nrel_goto: ..proc_of_checking_if_binary_tree_operator10_2;;
+		*);;
+
+		-> ..proc_of_checking_if_binary_tree_operator10_2 
+		(*
+			<- contAdd;;
+
+			-> rrel_1 : rrel_fixed : rrel_scp_var: _counter;;
+			-> rrel_2 : rrel_fixed : rrel_scp_var: _counter;;
+			-> rrel_3 : rrel_fixed : rrel_scp_const: [1];;
+			
+			=> nrel_goto: ..proc_of_checking_if_binary_tree_operator10_3;;
+		*);;
+
+		-> ..proc_of_checking_if_binary_tree_operator10_3
+		(*
+			<- ifEq;;
+
+			-> rrel_1 : rrel_fixed : rrel_scp_var: _counter;;
+			-> rrel_2 : rrel_fixed : rrel_scp_const: [2];;
+			
+			=> nrel_then: ..proc_of_checking_if_binary_tree_operator_failure;;		
+			=> nrel_else: ..proc_of_checking_if_binary_tree_operator10;;
+		*);;
+
+		-> ..proc_of_checking_if_binary_tree_operator10_1_1 
+		(*
+			<- eraseEl;;
+			
+			-> rrel_1: rrel_fixed: rrel_pos_const_perm: rrel_erase: rrel_scp_var: _arc16;;
+			
+			=> nrel_goto: ..proc_of_checking_if_binary_tree_operator10_1_2;;
+		*);;
+
+		-> ..proc_of_checking_if_binary_tree_operator10_1_2
+		(*
+			<- ifEq;;
+
+			-> rrel_1 : rrel_fixed : rrel_scp_var: _counter;;
+			-> rrel_2 : rrel_fixed : rrel_scp_const: [1];;
+			
+			=> nrel_then: ..proc_of_checking_if_binary_tree_operator10_1_5;;		
+			=> nrel_else: ..proc_of_checking_if_binary_tree_operator10_1_3;;
+		*);;
+
+		-> ..proc_of_checking_if_binary_tree_operator10_1_3
+		(*
+			<- contAdd;;
+
+			-> rrel_1 : rrel_fixed : rrel_scp_var: _counter2;;
+			-> rrel_2 : rrel_fixed : rrel_scp_var: _counter2;;
+			-> rrel_3 : rrel_fixed : rrel_scp_const: [1];;
+			
+			=> nrel_goto: ..proc_of_checking_if_binary_tree_operator10_1_4;;
+		*);;
+
+		-> ..proc_of_checking_if_binary_tree_operator10_1_4
+		(*
+			<- ifEq;;
+
+			-> rrel_1 : rrel_fixed : rrel_scp_var: _counter2;;
+			-> rrel_2 : rrel_fixed : rrel_scp_const: [2];;
+			
+			=> nrel_then: ..proc_of_checking_if_binary_tree_operator_failure;;		
+			=> nrel_else: ..proc_of_checking_if_binary_tree_operator10_1_5;;
+		*);;
+
+		-> ..proc_of_checking_if_binary_tree_operator10_1_5
+		(*
+			<- contAdd;;
+
+			-> rrel_1 : rrel_fixed : rrel_scp_var: _counter;;
+			-> rrel_2 : rrel_fixed : rrel_scp_const: [0];;
+			-> rrel_3 : rrel_fixed : rrel_scp_const: [0];;
+			
+			=> nrel_goto: ..proc_of_checking_if_binary_tree_operator9;;
+		*);;
+
+		-> ..proc_of_checking_if_binary_tree_operator_success
+		(*
+			<- genElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_const: concept_binary_tree;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_success;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+					
+			=> nrel_goto: ..proc_of_checking_if_binary_tree_operator_return;;
+		*);;
+
+		-> ..proc_of_checking_if_binary_tree_operator_failure
+		(*
+			<- genElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_const: concept_binary_tree;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_neg_const_perm: _arc_failure;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+					
+			=> nrel_goto: ..proc_of_checking_if_binary_tree_operator_return;;
+		*);;
+
+		-> ..proc_of_checking_if_binary_tree_operator_return
+		(*
+			<- return;;
+		*);;
+
+	*);;
+*);;

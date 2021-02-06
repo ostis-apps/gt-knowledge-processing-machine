@@ -1,0 +1,334 @@
+scp_program -> proc_of_checking_if_connected_graph
+(*
+    -> rrel_params:...
+    (*
+        -> rrel_1: rrel_in: _graph;;
+    *);;
+
+    -> rrel_operators:...
+    (*	
+        -> rrel_init: ..proc_of_checking_if_connected_graph_operator0
+        (*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_const: concept_graph;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+            => nrel_then: ..proc_of_checking_if_connected_graph_operator4;;
+            => nrel_else: ..proc_of_checking_if_connected_graph_operator1;;
+        *);;
+
+        -> ..proc_of_checking_if_connected_graph_operator1
+        (*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_const: concept_graph;;
+            -> rrel_2: rrel_assign: rrel_neg: rrel_const: rrel_perm: rrel_scp_var: _arc1;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+            => nrel_then: ..proc_of_checking_if_connected_graph_operator_return;;
+            => nrel_else: ..proc_of_checking_if_connected_graph_operator2;;
+        *);;
+        
+        -> ..proc_of_checking_if_connected_graph_operator2
+        (*
+            <- call;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_const: proc_of_checking_if_graph;;
+            -> rrel_2: rrel_fixed:  rrel_scp_const: ..proc_of_checking_if_graph_params
+            (*
+                -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+            *);;
+            -> rrel_3: rrel_assign: rrel_scp_var: _descr_check;;
+
+            => nrel_goto: ..proc_of_checking_if_connected_graph_operator3;;
+        *);;
+
+        -> ..proc_of_checking_if_connected_graph_operator3
+        (*
+            <- waitReturn;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _descr_check;;
+
+            => nrel_goto: ..proc_of_checking_if_connected_graph_operator0;;
+        *);;
+        
+        -> ..proc_of_checking_if_connected_graph_operator4
+        (*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_const: concept_connected_graph;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+            => nrel_then: ..proc_of_checking_if_connected_graph_operator_return;;
+            => nrel_else: ..proc_of_checking_if_connected_graph_operator5;;
+        *);;
+        
+        -> ..proc_of_checking_if_connected_graph_operator5
+        (*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_const: concept_disconnected_graph;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+            => nrel_then: ..proc_of_checking_if_connected_graph_operator_return;;
+            => nrel_else: ..proc_of_checking_if_connected_graph_operator6;;
+        *);;
+
+        -> ..proc_of_checking_if_connected_graph_operator6
+        (*
+            <- searchSetStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+            -> rrel_2: rrel_assign: rrel_scp_var: _arc1_trash;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _set_of_nodes;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2_trash;;
+            -> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+
+            -> rrel_set_3: rrel_assign: rrel_scp_var: _not_checked_vertices;;
+
+            => nrel_then: ..proc_of_checking_if_connected_graph_operator8;;
+            => nrel_else: ..proc_of_checking_if_connected_graph_operatorconnected;;
+        *);;
+		
+        -> ..proc_of_checking_if_connected_graph_operator8
+        (*
+            <- searchSetStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1_trash;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _set_of_oredges;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2_trash;;
+            -> rrel_5: rrel_fixed: rrel_scp_const: rrel_oredge;;
+
+            -> rrel_set_3: rrel_assign: rrel_scp_var: _not_checked_edges;;
+
+            => nrel_then: ..proc_of_checking_if_connected_graph_operator10;;
+            => nrel_else: ..proc_of_checking_if_connected_graph_operator_return;;
+        *);;
+
+	-> ..proc_of_checking_if_connected_graph_operator10
+        (*
+            <- genEl;;
+
+            -> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _new_set;;
+
+            => nrel_goto: ..proc_of_checking_if_connected_graph_operator11;;
+        *);;
+
+	-> ..proc_of_checking_if_connected_graph_operator11
+        (*
+            <- genEl;;
+
+            -> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _current_set;;
+
+            => nrel_goto: ..proc_of_checking_if_connected_graph_operator12;;
+        *);;
+		
+        -> ..proc_of_checking_if_connected_graph_operator12
+        (*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _not_checked_vertices;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _current_vert;;
+
+            => nrel_then: ..proc_of_checking_if_connected_graph_operator13;;
+            => nrel_else: ..proc_of_checking_if_connected_graph_operatorconnected;;
+        *);;
+
+        -> ..proc_of_checking_if_connected_graph_operator13
+        (*
+            <- eraseEl;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc1;;
+
+            => nrel_goto: ..proc_of_checking_if_connected_graph_operator14;;
+        *);;
+
+        -> ..proc_of_checking_if_connected_graph_operator14
+        (*
+            <- genElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _current_set;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _current_vert;;
+
+            => nrel_goto: ..proc_of_checking_if_connected_graph_operator15;;
+        *);;
+
+        -> ..proc_of_checking_if_connected_graph_operator15
+        (*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _current_set;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1_between_curs_curv;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _current_vert;;
+
+            => nrel_then: ..proc_of_checking_if_connected_graph_operator16;;
+            => nrel_else: ..proc_of_checking_if_connected_graph_operator22;;
+        *);;
+
+        -> ..proc_of_checking_if_connected_graph_operator16
+        (*
+            <- searchElStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _current_vert;;
+            -> rrel_2: rrel_assign: rrel_scp_var: _arc1_trash;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _new_vertex;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_5: rrel_fixed: rrel_scp_var: _not_checked_edges;;
+
+            => nrel_then: ..proc_of_checking_if_connected_graph_operator18;;
+            => nrel_else: ..proc_of_checking_if_connected_graph_operator16_1;;
+        *);;
+
+        -> ..proc_of_checking_if_connected_graph_operator16_1
+        (*
+            <- searchElStr5;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _new_vertex;;
+            -> rrel_2: rrel_assign: rrel_scp_var: _arc1_trash;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _current_vert;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_5: rrel_fixed: rrel_scp_var: _not_checked_edges;;
+
+            => nrel_then: ..proc_of_checking_if_connected_graph_operator18;;
+            => nrel_else: ..proc_of_checking_if_connected_graph_operator17;;
+        *);;
+
+        -> ..proc_of_checking_if_connected_graph_operator17
+        (*
+            <- eraseEl;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc1_between_curs_curv;;
+
+            => nrel_goto: ..proc_of_checking_if_connected_graph_operator15;;
+        *);;
+		
+        -> ..proc_of_checking_if_connected_graph_operator18
+        (*
+            <- eraseEl;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc2;;
+
+            => nrel_goto: ..proc_of_checking_if_connected_graph_operator19;;
+        *);;
+
+        -> ..proc_of_checking_if_connected_graph_operator19
+        (*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _not_checked_vertices;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _new_vertex;;
+
+            => nrel_then: ..proc_of_checking_if_connected_graph_operator20;;
+            => nrel_else: ..proc_of_checking_if_connected_graph_operator16;;
+        *);;
+		
+        -> ..proc_of_checking_if_connected_graph_operator20
+        (*
+            <- eraseEl;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc1;;
+
+            => nrel_goto: ..proc_of_checking_if_connected_graph_operator21;;
+        *);;
+
+        -> ..proc_of_checking_if_connected_graph_operator21
+        (*
+            <- genElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _new_set;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _new_vertex;;
+
+            => nrel_goto: ..proc_of_checking_if_connected_graph_operator15;;
+        *);;
+
+        -> ..proc_of_checking_if_connected_graph_operator22
+        (*
+            <- searchSetStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _new_set;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2_trash;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _node3;;
+
+            -> rrel_set_3: rrel_assign: rrel_scp_var: _future_current_set;;
+
+            => nrel_then: ..proc_of_checking_if_connected_graph_operator23;;
+            => nrel_else: ..proc_of_checking_if_connected_graph_operator25;;
+        *);;
+
+        -> ..proc_of_checking_if_connected_graph_operator23
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _current_set;;
+            -> rrel_2: rrel_fixed: rrel_scp_var: _future_current_set;;
+
+            => nrel_goto: ..proc_of_checking_if_connected_graph_operator24;;
+        *);;
+        
+        -> ..proc_of_checking_if_connected_graph_operator24
+        (*
+            <- eraseEl;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _new_set;;
+
+            => nrel_goto: ..proc_of_checking_if_connected_graph_operator24_1;;
+        *);;
+        
+        -> ..proc_of_checking_if_connected_graph_operator24_1
+        (*
+            <- genEl;;
+
+            -> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var:  _new_set;;
+
+            => nrel_goto: ..proc_of_checking_if_connected_graph_operator15;;
+        *);;
+
+        -> ..proc_of_checking_if_connected_graph_operator25
+        (*
+            <- searchElStr3;;
+            
+            -> rrel_1: rrel_fixed: rrel_scp_var: _not_checked_vertices;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _vert;;
+
+            => nrel_then: ..proc_of_checking_if_connected_graph_operatornot_connected;;
+            => nrel_else: ..proc_of_checking_if_connected_graph_operatorconnected;;
+        *);;
+
+        -> ..proc_of_checking_if_connected_graph_operatorconnected
+        (*
+            <- genElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_const: concept_connected_graph;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+            => nrel_goto: ..proc_of_checking_if_connected_graph_operator_return;;
+        *);;
+
+        -> ..proc_of_checking_if_connected_graph_operatornot_connected
+        (*
+            <- genElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_const: concept_disconnected_graph;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+            => nrel_goto: ..proc_of_checking_if_connected_graph_operator_return;;
+        *);;
+
+        -> ..proc_of_checking_if_connected_graph_operator_return
+        (*
+            <- return;;
+        *);;
+    *);;
+*);;
