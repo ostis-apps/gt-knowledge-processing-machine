@@ -1,0 +1,35 @@
+proc_of_finding_lengthed_chains_set
+=> nrel_main_idtf:
+	[Программа нахождения множества цепей заданной длины в взвешенном графе] (* <- lang_ru;; *);
+		
+=> nrel_initiation_condition_and_result: (..scp_proc_of_finding_lengthed_chains_set_initiation_condition
+					  => ..scp_proc_of_finding_lengthed_chains_set_result);
+					  
+-> rrel_key_sc_element: 
+concept_graph;
+nrel_chains_set;
+
+-> rrel_solver_key_sc_element:
+nrel_chains_set;
+
+<- rrel_key_sc_element:
+	..scp_proc_of_finding_lengthed_chains_set_behavior
+	(*
+		<- sc_description_of_scp_program_behavior;;
+		<= nrel_sc_text_translation:
+		...
+		(*
+			-> rrel_example:
+				[ Программа находит множество цепей заданной длины в графе и генерирует дугу принадлежности от 					относительного понятия "nrel_chains_set" к графу и множеству его цепей заданной длины. ];;
+		*);;
+	*);;
+
+
+..scp_proc_of_finding_lengthed_chains_set_initiation_condition = [*
+	concept_graph _-> _graph;;
+*];;
+
+..scp_proc_of_finding_lengthed_chains_set_result
+= [*
+	_graph _=> nrel_chains_set:: _chains_set;;
+*];;

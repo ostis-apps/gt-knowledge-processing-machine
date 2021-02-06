@@ -1,0 +1,38 @@
+proc_of_finding_graphs_composition
+=> nrel_main_idtf:
+	[Программа нахождения композиции двух неориентированных графов] (* <- lang_ru;; *);
+		
+=> nrel_initiation_condition_and_result: (..scp_proc_of_finding_graphs_composition_initiation_condition
+					  => ..scp_proc_of_finding_graphs_composition_result);
+					  
+-> rrel_key_sc_element: 
+concept_graph;
+nrel_graphs_composition;
+
+-> rrel_solver_key_sc_element:
+nrel_graphs_composition;
+
+<- rrel_key_sc_element:
+	..scp_proc_of_finding_graphs_composition_behavior
+	(*
+		<- sc_description_of_scp_program_behavior;;
+		<= nrel_sc_text_translation:
+		...
+		(*
+			-> rrel_example:
+				[ Программа находит композицию двух графов и генерирует дугу принадлежности от относительного 					понятия "nrel_graphs_composition" ко множеству двух исходных графов и их композиции. ];;
+		*);;
+	*);;
+
+
+..scp_proc_of_finding_graphs_composition_initiation_condition = [*
+	concept_graph _-> _first_graph;;
+	concept_graph _-> _second_graph;;
+*];;
+
+..scp_proc_of_finding_graphs_composition_result
+= [*
+	_graph_set _-> _first_graph;;
+	_graph_set _-> _second_graph;;
+	_graph_set _=> nrel_graphs_composition:: _graphs_composition;;
+*];;

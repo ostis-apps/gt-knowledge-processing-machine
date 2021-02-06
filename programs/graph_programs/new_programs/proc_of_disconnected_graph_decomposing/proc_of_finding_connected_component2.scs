@@ -1,0 +1,229 @@
+scp_program -> proc_of_finding_connected_component2
+(*
+	
+    -> rrel_params: ... 
+    (*
+        -> rrel_1: rrel_in: _graph;;
+        -> rrel_2: rrel_in: _current_vertex;;
+        -> rrel_3: rrel_in: _not_checked_vertices;;
+        -> rrel_4: rrel_in: _current_subgraph;;
+    *);;
+
+    -> rrel_operators: ... 
+    (*
+	-> rrel_init: ..proc_of_finding_connected_component2_operator0
+        (*
+            <- printNl;;
+            
+            -> rrel_1: rrel_fixed: rrel_scp_const: [----------------------------------------------------];;
+            
+            => nrel_goto: ..proc_of_finding_connected_component2_operator1;;
+        *);;
+        
+	-> ..proc_of_finding_connected_component2_operator1
+	(*
+	     <- searchElStr3;;
+	    
+	     -> rrel_1: rrel_fixed: rrel_scp_var: _not_checked_vertices;;
+	     -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+	     -> rrel_3: rrel_fixed: rrel_scp_var: _current_vertex;;
+
+	     => nrel_then: ..proc_of_finding_connected_component2_operator2;;
+	     => nrel_else: ..proc_of_finding_connected_component2_operator_return;;
+	*);;
+
+        -> ..proc_of_finding_connected_component2_operator2
+        (*
+             <- eraseEl;;
+
+             -> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc2;;
+
+             => nrel_goto: ..proc_of_finding_connected_component2_operator3;;
+        *);;
+
+	-> ..proc_of_finding_connected_component2_operator3
+	(*
+	     <- genElStr5;;
+	    
+	     -> rrel_1: rrel_fixed: rrel_scp_var: _current_subgraph;;
+	     -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+	     -> rrel_3: rrel_fixed: rrel_scp_var: _current_vertex;;
+	     -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+	     -> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+	     
+	     => nrel_goto: ..proc_of_finding_connected_component2_operator4;;
+	*);;
+
+	-> ..proc_of_finding_connected_component2_operator4
+	(*
+	     <- searchSetStr5;;
+	    
+	     -> rrel_1: rrel_assign: rrel_scp_var: _some_vertex;;
+	     -> rrel_2: rrel_assign: rrel_scp_var: _edge;;
+	     -> rrel_3: rrel_fixed: rrel_scp_var: _current_vertex;;
+	     -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+	     -> rrel_5: rrel_fixed: rrel_scp_var: _graph;;
+	     
+	     -> rrel_set_1: rrel_assign: rrel_scp_var: _vertices;;
+
+	     => nrel_then: ..proc_of_finding_connected_component2_operator5_1;;
+	     => nrel_else: ..proc_of_finding_connected_component2_operator5_2;;
+	*);;
+	
+	-> ..proc_of_finding_connected_component2_operator5_1
+	(*
+	     <- searchSetStr5;;
+	    
+	     -> rrel_1: rrel_fixed: rrel_scp_var: _current_vertex;;
+	     -> rrel_2: rrel_assign: rrel_scp_var: _edge;;
+	     -> rrel_3: rrel_assign: rrel_scp_var: _some_vertex;;
+	     -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+	     -> rrel_5: rrel_fixed: rrel_scp_var: _graph;;
+	     
+	     -> rrel_set_3: rrel_fixed: rrel_scp_var: _vertices;;
+
+	     => nrel_then: ..proc_of_finding_connected_component2_operator6;;
+	     => nrel_else: ..proc_of_finding_connected_component2_operator6;;
+	*);;
+	
+	-> ..proc_of_finding_connected_component2_operator5_2
+	(*
+	     <- searchSetStr5;;
+	    
+	     -> rrel_1: rrel_fixed: rrel_scp_var: _current_vertex;;
+	     -> rrel_2: rrel_assign: rrel_scp_var: _edge;;
+	     -> rrel_3: rrel_assign: rrel_scp_var: _some_vertex;;
+	     -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+	     -> rrel_5: rrel_fixed: rrel_scp_var: _graph;;
+	     
+	     -> rrel_set_3: rrel_assign: rrel_scp_var: _vertices;;
+
+	     => nrel_then: ..proc_of_finding_connected_component2_operator6;;
+	     => nrel_else: ..proc_of_finding_connected_component2_operator_return;;
+	*);;
+	
+	-> ..proc_of_finding_connected_component2_operator6
+	(*
+	     <- searchElStr3;;
+	    
+	     -> rrel_1: rrel_fixed: rrel_scp_var: _vertices;;
+	     -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+	     -> rrel_3: rrel_assign: rrel_scp_var: _some_vertex;;
+
+	     => nrel_then: ..proc_of_finding_connected_component2_operator7;;
+	     => nrel_else: ..proc_of_finding_connected_component2_operator_return;;
+	*);;
+	
+	-> ..proc_of_finding_connected_component2_operator7
+        (*
+             <- eraseEl;;
+
+             -> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc2;;
+
+             => nrel_goto: ..proc_of_finding_connected_component2_operator8;;
+        *);;
+
+	-> ..proc_of_finding_connected_component2_operator8
+	(*
+	     <- searchElStr3;;
+	    
+	     -> rrel_1: rrel_fixed: rrel_scp_var: _not_checked_vertices;;
+	     -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+	     -> rrel_3: rrel_fixed: rrel_scp_var: _some_vertex;;
+
+	     => nrel_then: ..proc_of_finding_connected_component2_operator9;;
+	     => nrel_else: ..proc_of_finding_connected_component2_operator6;;
+	*);;
+	
+	-> ..proc_of_finding_connected_component2_operator9
+	(*
+	     <- searchElStr3;;
+	    
+	     -> rrel_1: rrel_fixed: rrel_scp_var: _current_vertex;;
+	     -> rrel_2: rrel_assign: rrel_scp_var: _current_edge;;
+	     -> rrel_3: rrel_fixed: rrel_scp_var: _some_vertex;;
+
+	     => nrel_then: ..proc_of_finding_connected_component2_operator10;;
+	     => nrel_else: ..proc_of_finding_connected_component2_operator11;;
+	*);;
+	
+	-> ..proc_of_finding_connected_component2_operator10
+	(*
+	     <- genElStr5;;
+	    
+	     -> rrel_1: rrel_fixed: rrel_scp_var: _current_subgraph;;
+	     -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+	     -> rrel_3: rrel_fixed: rrel_scp_var: _current_edge;;
+	     -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+	     -> rrel_5: rrel_fixed: rrel_scp_const: rrel_oredge;;
+	     
+	     => nrel_goto: ..proc_of_finding_connected_component2_operator11;;
+	*);;
+		
+	-> ..proc_of_finding_connected_component2_operator11
+	(*
+	     <- searchElStr3;;
+	    
+	     -> rrel_1: rrel_fixed: rrel_scp_var: _some_vertex;;
+	     -> rrel_2: rrel_assign: rrel_scp_var: _current_edge;;
+	     -> rrel_3: rrel_fixed: rrel_scp_var: _current_vertex;;
+
+	     => nrel_then: ..proc_of_finding_connected_component2_operator12;;
+	     => nrel_else: ..proc_of_finding_connected_component2_operator13;;
+	*);;
+	
+	-> ..proc_of_finding_connected_component2_operator12
+	(*
+	     <- genElStr5;;
+	    
+	     -> rrel_1: rrel_fixed: rrel_scp_var: _current_subgraph;;
+	     -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+	     -> rrel_3: rrel_fixed: rrel_scp_var: _current_edge;;
+	     -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+	     -> rrel_5: rrel_fixed: rrel_scp_const: rrel_oredge;;
+	     
+	     => nrel_goto: ..proc_of_finding_connected_component2_operator13;;
+	*);;		
+		
+	-> ..proc_of_finding_connected_component2_operator13
+	(*
+	     <- call;;
+	    
+	     -> rrel_1: rrel_fixed: rrel_scp_const: proc_of_finding_connected_component2;;
+	     -> rrel_2: rrel_fixed: rrel_scp_const: ...
+	     (*
+        	   -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+        	   -> rrel_2: rrel_fixed: rrel_scp_var: _some_vertex;;
+        	   -> rrel_3: rrel_fixed: rrel_scp_var: _not_checked_vertices;;
+        	   -> rrel_4: rrel_fixed: rrel_scp_var: _current_subgraph;;
+   	     *);;
+	     -> rrel_3: rrel_assign: rrel_scp_var: _descriptor;;
+
+	     => nrel_goto: ..proc_of_finding_connected_component2_operator14;;
+	*);;
+
+        -> ..proc_of_finding_connected_component2_operator14
+	(*
+	      <- waitReturn;;
+
+	     -> rrel_1: rrel_fixed: rrel_scp_var: _descriptor;;
+
+	     => nrel_goto: ..proc_of_finding_connected_component2_operator6;;
+	*);;
+
+        -> ..proc_of_finding_connected_component2_operator_return
+        (*
+            <- printNl;;
+            
+            -> rrel_1: rrel_fixed: rrel_scp_const: [----------------------------------------------------];;
+            
+            => nrel_goto: ..proc_of_finding_connected_component2_operator_return_end;;
+        *);;
+			
+	-> ..proc_of_finding_connected_component2_operator_return_end
+        (*
+            <- return;;
+        *);;
+    *);;
+
+*);;

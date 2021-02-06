@@ -1,0 +1,161 @@
+scp_program -> proc_of_determining_acyclic_graph_helper
+(*
+	
+    -> rrel_params: ... 
+    (*
+	-> rrel_1: rrel_in: _graph;;
+        -> rrel_2: rrel_in: _current_path;;
+        -> rrel_3: rrel_in: _graph_vertex;;
+    *);;
+
+    -> rrel_operators: ... 
+    (*
+		
+	-> rrel_init: ..check_if_vertex_already_exists_in_current_path 
+	(*
+		<- searchElStr3;;
+
+		-> rrel_1: rrel_fixed: rrel_scp_var: _current_path;;
+		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _null_sc_var_2;;
+		-> rrel_3: rrel_fixed: rrel_scp_var: _graph_vertex;;
+
+		=> nrel_then: ..set_graph_as_not_acyclic_and_return;;
+		=> nrel_else: ..add_graph_vertex_to_current_path;;
+	*);;
+
+        -> ..add_graph_vertex_to_current_path
+        (*
+	    	<- genElStr3;;
+
+	    	-> rrel_1: rrel_fixed: rrel_scp_var: _current_path;;
+	    	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _null_sc_var_2;;
+	    	-> rrel_3: rrel_fixed: rrel_scp_var: _graph_vertex;;
+
+	    	=> nrel_goto: ..get_vertices_set;;
+        *);;
+
+	-> ..get_vertices_set
+	(*
+		<- searchSetStr5;;
+		
+		-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _null_sc_var_2;;
+		-> rrel_3: rrel_assign: rrel_scp_var: _node;;
+		-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _null_sc_var_4;;
+		-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+		
+		-> rrel_set_3: rrel_assign: rrel_scp_var: _graph_vertices;;
+
+		=> nrel_then: ..get_arcs_set;;
+		=> nrel_else: ..stop_program_execution;;
+	*);;
+
+	-> ..get_arcs_set
+	(*
+		<- searchSetStr5;;
+		
+		-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _null_sc_var_2;;
+		-> rrel_3: rrel_assign: rrel_scp_var: _arc;;
+		-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _null_sc_var_4;;
+		-> rrel_5: rrel_fixed: rrel_scp_const: rrel_oredge;;
+		
+		-> rrel_set_3: rrel_assign: rrel_scp_var: _graph_arcs;;
+
+		=> nrel_then: ..get_incident_vertices_for_graph_vertex;;
+		=> nrel_else: ..stop_program_execution;;
+	*);;
+
+	-> ..get_incident_vertices_for_graph_vertex 
+	(*
+		<- searchSetStr5;;
+
+		-> rrel_1: rrel_fixed: rrel_scp_var: _graph_vertex;;
+		-> rrel_2: rrel_assign: rrel_edge: rrel_scp_var: _null_sc_var_2;;
+		-> rrel_3: rrel_assign: rrel_scp_var: _null_sc_var_3;;
+		-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _null_sc_var_4;;
+		-> rrel_5: rrel_fixed: rrel_scp_var: _graph_arcs;;
+
+		-> rrel_set_3: rrel_assign: rrel_scp_var: _incident_vertices_for_graph_vertex;;
+
+		=> nrel_then: ..iterate_over_incident_vertices_for_graph_vertex;;
+		=> nrel_else: ..stop_program_execution;;
+	*);;
+
+	-> ..iterate_over_incident_vertices_for_graph_vertex
+	(*
+		<- searchElStr3;;
+
+		-> rrel_1: rrel_fixed: rrel_scp_var: _incident_vertices_for_graph_vertex;;
+		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc_to_iterated_vertex;;
+		-> rrel_3: rrel_assign: rrel_scp_var: _next_vertex;;
+
+		=> nrel_then: ..erase_arc_to_iterated_vertex;;
+		=> nrel_else: ..stop_program_execution;;
+	*);;
+
+	-> ..erase_arc_to_iterated_vertex
+	(*
+		<- eraseEl;;
+
+		-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc_to_iterated_vertex;;
+
+		=> nrel_goto: ..continue_depth_search;;
+	*);;
+
+	-> ..continue_depth_search
+	(*
+		<- call;;
+
+		-> rrel_1: rrel_fixed: rrel_scp_const: proc_of_determining_acyclic_graph_helper;;
+		-> rrel_2: rrel_fixed: rrel_scp_const: ..call_params
+		(*
+			-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+			-> rrel_2: rrel_fixed: rrel_scp_var: _current_path;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _graph_vertex;;
+		*);;
+		-> rrel_3: rrel_assign: rrel_scp_var: _recursion_call_descriptor;;
+
+		=> nrel_goto: ..wait_recursion_return;;
+	*);;
+
+	-> ..wait_recursion_return
+	(*
+		<- waitReturn;;
+
+		-> rrel_1: rrel_fixed: rrel_scp_var: _recursion_call_descriptor;;
+
+		=> nrel_goto: ..check_if_graph_not_acyclic_determined_before;;
+	*);;
+
+	-> ..check_if_graph_not_acyclic_determined_before
+	(*
+		<- searchElStr3;;
+
+		-> rrel_1: rrel_fixed: rrel_scp_const: concept_acyclic_graph;;
+		-> rrel_2: rrel_assign: rrel_neg_const_perm: rrel_scp_var: _null_sc_var_2;;
+		-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+		=> nrel_then: ..stop_program_execution;;
+		=> nrel_else: ..iterate_over_incident_vertices_for_graph_vertex;;
+	*);;
+
+	-> ..set_graph_as_not_acyclic_and_return
+	(*
+		<- genElStr3;;
+
+            	-> rrel_1: rrel_fixed: rrel_scp_const: concept_acyclic_graph;;
+            	-> rrel_2: rrel_assign: rrel_neg_const_perm: rrel_scp_var: _null_sc_var_2;;
+            	-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+            	=> nrel_goto: ..stop_program_execution;;
+	*);;
+
+        -> ..stop_program_execution
+        (*
+            	<- return;;
+        *);;
+		
+    *);;
+
+*);;

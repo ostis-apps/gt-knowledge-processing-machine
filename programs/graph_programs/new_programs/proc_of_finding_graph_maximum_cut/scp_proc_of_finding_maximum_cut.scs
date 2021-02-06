@@ -1,0 +1,36 @@
+proc_of_finding_maximum_cut
+=> nrel_main_idtf:
+	[Программа нахождения максимального разреза в графе] (* <- lang_ru;; *);
+		
+=> nrel_initiation_condition_and_result: (..scp_proc_of_finding_maximum_cut_initiation_condition
+					  => ..scp_proc_of_finding_maximum_cut_result);
+					  
+-> rrel_key_sc_element: 
+concept_graph;
+nrel_maximum_cut;
+
+-> rrel_solver_key_sc_element:
+nrel_maximum_cut;
+
+<- rrel_key_sc_element:
+	..scp_proc_of_finding_maximum_cut_behavior
+	(*
+		<- sc_description_of_scp_program_behavior;;
+		<= nrel_sc_text_translation:
+		...
+		(*
+			-> rrel_example:
+				[ Программа находит максимальный разрез в графе и генерирует дугу принадлежности от относительного 					понятия "nrel_maximum_cut" к связке сущности "_graph" и найденного его максимального разреза. ];;
+		*);;
+	*);;
+
+
+..scp_proc_of_finding_maximum_cut_initiation_condition = [*
+	concept_graph _-> _graph;;
+*];;
+
+..scp_proc_of_finding_maximum_cut_result
+= [*
+	_graph _=> nrel_maximum_cut:: _maximum_cut;;
+*];;
+

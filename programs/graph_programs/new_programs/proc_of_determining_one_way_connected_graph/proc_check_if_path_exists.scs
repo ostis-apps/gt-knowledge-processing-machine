@@ -1,0 +1,143 @@
+scp_program -> proc_check_if_path_exists
+(*
+	
+    -> rrel_params: ... 
+    (*
+	-> rrel_1: rrel_in: _graph_nodes;;
+        -> rrel_2: rrel_in: _graph_arcs;;
+        -> rrel_3: rrel_in: _visited_nodes;;
+        -> rrel_4: rrel_in: _current_node;;
+        -> rrel_5: rrel_in: _target_node;;
+	-> rrel_6: rrel_in: .._call_result;;
+    *);;
+
+    -> rrel_operators: ... 
+    (*
+	-> rrel_init: ..proc_check_if_path_exists_operator1 
+	(*
+            	<- searchElStr3;;
+
+		-> rrel_1: rrel_fixed: rrel_scp_var: _visited_nodes;;
+		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		-> rrel_3: rrel_fixed: rrel_scp_var: _current_node;; 
+
+		=> nrel_then: ..proc_check_if_path_exists_operator_return;;
+		=> nrel_else: ..proc_check_if_path_exists_operator2;;
+	*);;
+
+        -> ..proc_check_if_path_exists_operator2
+        (*
+		<- ifCoin;;
+
+		-> rrel_1: _current_node;;
+		-> rrel_2: _target_node;;
+
+		=> nrel_then: ..proc_check_if_path_exists_operator_return_true;;
+		=> nrel_else: ..proc_check_if_path_exists_operator3;;
+        *);;
+
+        -> ..proc_check_if_path_exists_operator3
+        (*
+		<- genElStr3;;
+
+		-> rrel_1: rrel_fixed: rrel_scp_var: _visited_nodes;;
+		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		-> rrel_3: rrel_fixed: rrel_scp_var: _current_node;;
+
+		=> nrel_goto: ..proc_check_if_path_exists_operator4;;
+        *);;
+
+        -> ..proc_check_if_path_exists_operator4
+        (*
+		<- searchSetStr5;;
+
+		-> rrel_1: rrel_fixed: rrel_scp_var: _current_node;;
+		-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
+		-> rrel_3: rrel_assign: rrel_scp_var: _to_node;;
+		-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+		-> rrel_5: rrel_fixed: rrel_scp_var: _graph_arcs;;
+
+		-> rrel_set_3: rrel_assign: rrel_scp_var: _incident_nodes;;
+
+		=> nrel_then: ..proc_check_if_path_exists_operator5;;
+		=> nrel_else: ..proc_check_if_path_exists_operator_return;;
+        *);;
+
+        -> ..proc_check_if_path_exists_operator5
+        (*
+		<- searchElStr3;;
+
+		-> rrel_1: rrel_fixed: rrel_scp_var: _incident_nodes;;
+		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc_to_next_node;;
+		-> rrel_3: rrel_assign: rrel_scp_var: _next_node;; 
+
+		=> nrel_then: ..proc_check_if_path_exists_operator6;;
+		=> nrel_else: ..proc_check_if_path_exists_operator_return;;
+        *);;
+        
+	-> ..proc_check_if_path_exists_operator6
+	(*
+		<- eraseEl;;
+
+		-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc_to_next_node;;
+
+		=> nrel_goto: ..proc_check_if_path_exists_operator7;;
+	*);;
+
+        -> ..proc_check_if_path_exists_operator7
+        (*
+		<- call;;
+
+		-> rrel_1: rrel_fixed: rrel_scp_const: proc_check_if_path_exists;;
+		-> rrel_2: rrel_fixed: rrel_scp_const: ...
+		(*
+			-> rrel_1: rrel_fixed: rrel_scp_var: _graph_nodes;;
+			-> rrel_2: rrel_fixed: rrel_scp_var: _graph_arcs;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _visited_nodes;;
+			-> rrel_4: rrel_fixed: rrel_scp_var: _next_node;;
+			-> rrel_5: rrel_fixed: rrel_scp_var: _target_node;;
+			-> rrel_6: rrel_fixed: rrel_scp_var: .._call_result;;
+		*);;
+		-> rrel_3: rrel_assign: rrel_scp_var: _descr;;
+
+		=> nrel_goto: ..proc_check_if_path_exists_operator8;;
+        *);;
+
+        -> ..proc_check_if_path_exists_operator8
+        (*
+		<- waitReturn;;
+
+		-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
+
+		=> nrel_goto: ..proc_check_if_path_exists_operator9;;
+        *);;
+
+        -> ..proc_check_if_path_exists_operator9
+        (*
+		<- ifEq;;
+
+		-> rrel_1: rrel_fixed: rrel_scp_var: .._call_result;;
+		-> rrel_2: rrel_fixed: rrel_scp_const: [1];;
+		
+		=> nrel_then: ..proc_check_if_path_exists_operator_return;;
+		=> nrel_else: ..proc_check_if_path_exists_operator5;;
+        *);;
+        
+        -> ..proc_check_if_path_exists_operator_return_true
+        (*
+            	<- contAssign;;
+
+            	-> rrel_1: rrel_fixed: rrel_scp_var: .._call_result;;
+            	-> rrel_2: rrel_fixed: rrel_scp_const: [1];;
+            
+            	=> nrel_goto: ..proc_check_if_path_exists_operator_return;;
+        *);;
+
+        -> ..proc_check_if_path_exists_operator_return
+        (*
+            	<- return;;
+        *);;
+
+    *);;
+
+*);;

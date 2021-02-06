@@ -1,0 +1,126 @@
+scp_program -> proc_of_finding_tree_root 
+(*
+	-> rrel_params: ... 
+	(*
+		-> rrel_1: rrel_in: _graph;;
+		-> rrel_2: rrel_out: _tree_root;;
+	*);;
+
+	-> rrel_operators: ... 
+	(*
+		-> rrel_init: ..proc_of_finding_tree_root_operator0_1 
+		(*
+			<- searchElStr3;;
+
+    			-> rrel_1: rrel_fixed: rrel_scp_const: concept_tree;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+			=> nrel_then: ..proc_of_finding_tree_root_operator0_2;;		
+		 	=> nrel_else: ..proc_of_finding_tree_root_operator_return;;	
+		*);;
+
+		-> ..proc_of_finding_tree_root_operator0_2
+		(*
+			<- searchElStr3;;
+
+    			-> rrel_1: rrel_fixed: rrel_scp_const: concept_directed_graph;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+			=> nrel_then: ..proc_of_finding_tree_root_operator1;;		
+		 	=> nrel_else: ..proc_of_finding_tree_root_operator_return;;	
+		*);;
+			
+		-> ..proc_of_finding_tree_root_operator1 
+		(*
+			<- searchSetStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _node;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _checking_vertices;;
+
+			=> nrel_then: ..proc_of_finding_tree_root_operator2;;
+			=> nrel_else: ..proc_of_finding_tree_root_operator_return;;
+		*);;
+
+		-> ..proc_of_finding_tree_root_operator2
+		(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _checking_vertices;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _some_vertex;;
+
+			=> nrel_then: ..proc_of_finding_tree_root_operator3;;
+			=> nrel_else: ..proc_of_finding_tree_root_operator_return;;
+		*);;
+
+		-> ..proc_of_finding_tree_root_operator3
+		(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_pos_const_perm: rrel_erase: _arc2;;
+
+			=> nrel_goto: ..proc_of_finding_tree_root_operator4;;
+		*);;
+
+		-> ..proc_of_finding_tree_root_operator4
+		(*
+			<- call;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: proc_of_finding_neg_vertex_degree;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: ...
+			(*
+				-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+				-> rrel_2: rrel_fixed: rrel_scp_var: _some_vertex;;
+				-> rrel_3: rrel_assign: rrel_scp_var: _neg_degree;; 
+			*);;
+			-> rrel_3: rrel_assign: rrel_scp_var: _descriptor;;
+
+			=> nrel_goto: ..proc_of_finding_tree_root_operator5;;
+		*);;
+
+		-> ..proc_of_finding_tree_root_operator5
+		(*
+			<- waitReturn;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _descriptor;;
+
+			=> nrel_goto: ..proc_of_finding_tree_root_operator6;;
+		*);;
+
+		-> ..proc_of_finding_tree_root_operator6
+		(*
+			<- ifEq;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _neg_degree;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+			=> nrel_then: ..proc_of_finding_tree_root_operator7;;
+			=> nrel_else: ..proc_of_finding_tree_root_operator2;;
+		*);;
+
+		-> ..proc_of_finding_tree_root_operator7
+		(*
+			<- genElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _some_vertex;;
+			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc4;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_root;;
+
+			=> nrel_goto: ..proc_of_finding_tree_root_operator_return;;
+		*);;
+
+		-> ..proc_of_finding_tree_root_operator_return
+		(*
+			<- return;;
+		*);;
+	*);;
+*);;
