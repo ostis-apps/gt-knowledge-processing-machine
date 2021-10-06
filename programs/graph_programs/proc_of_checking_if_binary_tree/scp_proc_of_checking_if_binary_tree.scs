@@ -1,0 +1,37 @@
+proc_of_checking_if_binary_tree
+=> nrel_main_idtf:
+	[Программа проверки дерева на бинарность] (* <- lang_ru;; *);
+		
+=> nrel_initiation_condition_and_result: (..scp_proc_of_checking_if_binary_tree_initiation_condition
+					  => ..scp_proc_of_checking_if_binary_tree_result);
+					  
+-> rrel_key_sc_element: 
+concept_graph;
+concept_tree;
+concept_binary_tree;
+
+-> rrel_solver_key_sc_element:
+concept_binary_tree;
+
+<- rrel_key_sc_element:
+	..scp_proc_of_checking_if_binary_tree_behavior
+	(*
+		<- sc_description_of_scp_program_behavior;;
+		<= nrel_sc_text_translation:
+		...
+		(*
+			-> rrel_example:
+				[Эта программа проверяет дерево на бинарность. В случае бинарности дерева генерируется позитивная 					дуга принадлежности от абсолютного понятия "concept_binary_tree" к сущности "_graph", в ином случае 				- создаётся негативная дуга];;
+		*);;
+	*);;
+
+
+..scp_proc_of_checking_if_binary_tree_initiation_condition = [*
+	concept_tree _-> _graph;;
+*];;
+
+..scp_proc_of_checking_if_binary_tree_result
+= [*
+	concept_binary_tree -> _graph;;
+*];;
+

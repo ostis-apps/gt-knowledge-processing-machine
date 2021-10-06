@@ -1,0 +1,35 @@
+proc_of_finding_minimum_cut
+=> nrel_main_idtf:
+	[Программа нахождения минимального разреза в графе] (* <- lang_ru;; *);
+		
+=> nrel_initiation_condition_and_result: (..scp_proc_of_finding_minimum_cut_initiation_condition
+					  => ..scp_proc_of_finding_minimum_cut_result);
+					  
+-> rrel_key_sc_element: 
+concept_graph;
+nrel_minimum_cut;
+
+-> rrel_solver_key_sc_element:
+nrel_minimum_cut;
+
+<- rrel_key_sc_element:
+	..scp_proc_of_finding_minimum_cut_behavior
+	(*
+		<- sc_description_of_scp_program_behavior;;
+		<= nrel_sc_text_translation:
+		...
+		(*
+			-> rrel_example:
+				[ Программа находит минимальный разрез в графе и генерирует дугу принадлежности от относительного 					понятия "nrel_minimum_cut" к связке сущности "_graph" и найденного его минимального разреза. ];;
+		*);;
+	*);;
+
+
+..scp_proc_of_finding_minimum_cut_initiation_condition = [*
+	concept_graph _-> _graph;;
+*];;
+
+..scp_proc_of_finding_minimum_cut_result
+= [*
+	_graph _=> nrel_minimum_cut:: _minimum_cut;;
+*];;

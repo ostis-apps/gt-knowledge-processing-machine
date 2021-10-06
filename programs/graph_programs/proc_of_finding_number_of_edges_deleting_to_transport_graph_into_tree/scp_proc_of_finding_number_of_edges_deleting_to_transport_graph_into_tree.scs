@@ -1,0 +1,35 @@
+proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree
+=> nrel_main_idtf:
+	[Программа нахождения числа рёбер, удаление которых приводит исходный граф в дерево] (* <- lang_ru;; *);
+		
+=> nrel_initiation_condition_and_result: (..scp_proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_initiation_condition
+					  => ..scp_proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_result);
+					  
+-> rrel_key_sc_element: 
+concept_graph;
+nrel_deleting_edges_number;
+
+-> rrel_solver_key_sc_element:
+nrel_deleting_edges_number;
+
+<- rrel_key_sc_element:
+	..scp_proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_behavior
+	(*
+		<- sc_description_of_scp_program_behavior;;
+		<= nrel_sc_text_translation:
+		...
+		(*
+			-> rrel_example:
+				[ Программа находит число рёбер в графе, удаление которых приводит исходный граф в дерево, и генерирует 					дугу принадлежности от относительного понятия "nrel_deleting_edges_number" к графу и найденному числу 					рёбер. ];;
+		*);;
+	*);;
+
+
+..scp_proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_initiation_condition = [*
+	concept_graph _-> _graph;;
+*];;
+
+..scp_proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_result
+= [*
+	_graph _=> nrel_deleting_edges_number:: _deleting_edges_number;;
+*];;

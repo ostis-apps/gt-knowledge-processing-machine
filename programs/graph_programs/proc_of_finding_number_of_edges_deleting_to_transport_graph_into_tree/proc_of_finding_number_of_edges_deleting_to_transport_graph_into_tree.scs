@@ -1,0 +1,437 @@
+scp_program -> proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree
+(*
+    -> rrel_params: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_params
+    (*
+        -> rrel_1: rrel_in: _graph;;
+        -> rrel_2: rrel_out: _edges_deleting_number;;
+    *);;
+
+    -> rrel_operators: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operators
+    (*
+        -> rrel_init: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator0
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _edges_deleting_number;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+            => nrel_goto: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator1;;
+        *);;
+
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator1
+        (*
+            <- genEl;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: rrel_node: rrel_const: _tree;;
+
+            => nrel_goto: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator2_0;;
+        *);;
+        
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator2_0
+        (*
+            <- searchSetStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _edge;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_const: rrel_oredge;;
+
+            -> rrel_set_3: rrel_assign: rrel_scp_var: _graph_edges_set;;
+            
+            => nrel_then: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator2;;
+            => nrel_else: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator_of_successfull_solving;;
+        *);;
+
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator2
+        (*
+            <- searchSetStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _vertex;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+
+	    -> rrel_set_3: rrel_assign: rrel_scp_var: _graph_vertices_set;;
+
+            => nrel_then: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator3;;
+            => nrel_else: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator_of_successfull_solving;;
+        *);;
+
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator3
+        (*
+            <- genElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _tree;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _vertex;;
+
+            => nrel_goto: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator4;;
+        *);;
+
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator4
+        (*
+            <- searchSetStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _graph_vertices_set;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _vertex;;
+
+            -> rrel_set_3: rrel_assign: rrel_scp_var: _copy_graph_vertices_set;;
+
+            => nrel_then: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator5;;
+            => nrel_else: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator_of_successfull_solving;;
+        *);;
+
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator5
+        (*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _copy_graph_vertices_set;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _vertex;;
+
+            => nrel_then: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator6;;
+            => nrel_else: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator_of_successfull_solving;;
+        *);;
+
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator6
+        (*
+            <- eraseEl;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc2;;
+
+            => nrel_goto: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator7;;
+        *);;
+
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator7
+        (*
+            <- searchSetStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _graph_vertices_set;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _vertex;;
+
+            -> rrel_set_3: rrel_assign: rrel_scp_var: _second_copy_graph_vertices_set;;
+
+            => nrel_then: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator9;;
+            => nrel_else: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator_graph_struct_error;;
+        *);;
+
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator9
+        (*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _second_copy_graph_vertices_set;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _first_inc_vertex;;
+
+            => nrel_then: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator11;;
+            => nrel_else: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator29;;
+        *);;
+
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator11
+        (*
+            <- eraseEl;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc2;;
+
+            => nrel_goto: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator12;;
+        *);;
+
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator12
+        (*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _tree;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _first_inc_vertex;;
+
+            => nrel_then: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator13;;
+            => nrel_else: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator9;;
+        *);;
+
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator13
+        (*
+            <- searchSetStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _graph_vertices_set;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _vertex;;
+
+            -> rrel_set_3: rrel_assign: rrel_scp_var: _third_copy_graph_vertices_set;;
+
+            => nrel_then: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator14;;
+            => nrel_else: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator_graph_struct_error;;
+        *);;
+
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator14
+        (*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _third_copy_graph_vertices_set;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _second_inc_vertex;;
+
+            => nrel_then: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator16;;
+            => nrel_else: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator9;;
+        *);;
+        
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator16
+        (*
+            <- eraseEl;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc2;;
+
+            => nrel_goto: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator17;;
+        *);;
+        
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator17
+        (*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _tree;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _second_inc_vertex;;
+
+            => nrel_then: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator14;;
+            => nrel_else: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator19;;
+        *);;
+
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator19
+        (*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _first_inc_vertex;;
+            -> rrel_2: rrel_assign: rrel_scp_var: _edge;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _second_inc_vertex;;
+
+            => nrel_then: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator23_1;;
+            => nrel_else: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator24;;
+        *);;
+
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator23_1
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _chosed_edge;;
+            -> rrel_2: rrel_fixed: rrel_scp_var: _edge;;
+
+            => nrel_goto: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator23_2;;
+        *);;
+        
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator23_2
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _chosed_second_inc_vertex;;
+            -> rrel_2: rrel_fixed: rrel_scp_var: _second_inc_vertex;;
+
+            => nrel_goto: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator24;;
+        *);;
+        
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator24
+        (*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _second_inc_vertex;;
+            -> rrel_2: rrel_assign: rrel_scp_var: _edge;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _first_inc_vertex;;
+
+            => nrel_then: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator28_1;;
+            => nrel_else: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator14;;
+        *);;
+
+	-> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator28_1
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _chosed_edge;;
+            -> rrel_2: rrel_fixed: rrel_scp_var: _edge;;
+
+            => nrel_goto: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator28_2;;
+        *);;
+
+	-> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator28_2
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _chosed_second_inc_vertex;;
+            -> rrel_2: rrel_fixed: rrel_scp_var: _second_inc_vertex;;
+
+            => nrel_goto: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator14;;
+        *);;
+        
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator29
+        (*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _tree;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _chosed_edge;;
+
+            => nrel_then: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator31;;
+            => nrel_else: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator30;;
+        *);;
+
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator30
+        (*
+            <- genElStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _tree;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _chosed_edge;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_const: rrel_oredge;;
+
+            => nrel_goto: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator31;;
+        *);;
+        
+           -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator31
+        (*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _tree;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _chosed_second_inc_vertex;;
+
+            => nrel_then: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator5;;
+            => nrel_else: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator32;;
+        *);;
+
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator32
+        (*
+            <- genElStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _tree;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _chosed_second_inc_vertex;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+
+            => nrel_goto: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator5;;
+        *);;
+
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator_of_successfull_solving
+        (*
+            <- printNl;;
+            
+            -> rrel_1: rrel_fixed: rrel_scp_const: [Tree for graph has been found.];;
+
+            => nrel_goto: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator33;;
+        *);;
+
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator33
+        (*
+            <- call;;
+            
+            -> rrel_1: rrel_fixed: rrel_scp_const: proc_of_finding_power;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: ...
+            (*
+                -> rrel_1: rrel_fixed: rrel_scp_var: _graph_edges_set;;
+                -> rrel_2: rrel_assign: rrel_scp_var: _graph_edges_set_power;;
+            *);;
+            -> rrel_3: rrel_assign: rrel_scp_var: _descriptor;;
+
+            => nrel_goto: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator34;;
+        *);;
+
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator34
+        (*
+            <- waitReturn;;
+            
+            -> rrel_1: rrel_fixed: rrel_scp_var: _descriptor;;
+
+            => nrel_goto: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator35;;
+        *);;
+
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator35
+        (*
+            <- searchSetStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _tree;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _edge;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_const: rrel_oredge;;
+
+            -> rrel_set_3: rrel_assign: rrel_scp_var: _tree_edges_set;;
+            
+            => nrel_then: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator36;;
+            => nrel_else: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator_of_successfull_solving;;
+        *);;
+
+
+         -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator36
+        (*
+            <- call;;
+            
+            -> rrel_1: rrel_fixed: rrel_scp_const: proc_of_finding_power;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: ...
+            (*
+                -> rrel_1: rrel_fixed: rrel_scp_var: _tree_edges_set;;
+                -> rrel_2: rrel_assign: rrel_scp_var: _tree_edges_set_power;;
+            *);;
+            -> rrel_3: rrel_assign: rrel_scp_var: _descriptor;;
+
+            => nrel_goto: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator37;;
+        *);;
+
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator37
+        (*
+            <- waitReturn;;
+            
+            -> rrel_1: rrel_fixed: rrel_scp_var: _descriptor;;
+
+            => nrel_goto: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator38;;
+        *);;
+
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator38
+        (*
+            <- contSub;;
+            
+            -> rrel_1: rrel_assign: rrel_scp_var: _edges_deleting_number;;
+            -> rrel_2: rrel_fixed: rrel_scp_var: _graph_edges_set_power;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _tree_edges_set_power;;
+
+            => nrel_goto: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator_of_nrel_arc_generation;;
+        *);;
+        
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator_of_nrel_arc_generation
+        (*
+            <- genElStr5;;
+            
+            -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+            -> rrel_2: rrel_assign: rrel_const: rrel_common: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _edges_deleting_number;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_const: nrel_deleting_edges_number;;
+
+            => nrel_goto: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator_return;;
+        *);;
+
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator_graph_struct_error
+        (*
+            <- printNl;;
+            
+            -> rrel_1: rrel_fixed: rrel_scp_const: [Incorrect graph representation!];;
+
+            => nrel_goto: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator_return;;
+        *);;
+
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator_error
+        (*
+            <- printNl;;
+            
+            -> rrel_1: rrel_fixed: rrel_scp_const: [Error was occured...];;
+
+            => nrel_goto: ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator_return;;
+        *);;
+
+        -> ..proc_of_finding_number_of_edges_deleting_to_transport_graph_into_tree_operator_return
+        (*
+            <- return;;
+        *);;
+    *);;
+*);;

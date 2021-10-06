@@ -1,0 +1,211 @@
+scp_program -> proc_of_disconnected_graph_decomposing
+(*
+    -> rrel_params: ...
+    (*
+        -> rrel_1: rrel_in: _graph;;
+        -> rrel_2: rrel_out: _graphs_set;;
+    *);;
+
+    -> rrel_operators: ...
+    (*					
+        -> rrel_init: ..proc_of_disconnected_graph_decomposing_operator3
+        (*
+            <- searchSetStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _vertex;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+            
+            -> rrel_set_3: rrel_assign: rrel_scp_var: _vertices_set;;
+
+            => nrel_then: ..proc_of_disconnected_graph_decomposing_operator4;;
+            => nrel_else: ..proc_of_disconnected_graph_decomposing_operator_return;;
+        *);;
+
+        -> ..proc_of_disconnected_graph_decomposing_operator4
+        (*
+            <- searchSetStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _vertices_set;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _vertex;;
+
+            -> rrel_set_3: rrel_assign: rrel_scp_var: _not_checked_vertices;;
+
+            => nrel_goto: ..proc_of_disconnected_graph_decomposing_operator5;;
+        *);;
+		
+        -> ..proc_of_disconnected_graph_decomposing_operator5
+        (*
+            <- searchSetStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _edge;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_const: rrel_edge;;
+            
+            -> rrel_set_3: rrel_assign: rrel_scp_var: _edges_set;;
+
+            => nrel_then: ..proc_of_disconnected_graph_decomposing_operator6;;
+            => nrel_else: ..proc_of_disconnected_graph_decomposing_operator_return;;
+        *);;
+        
+        -> ..proc_of_disconnected_graph_decomposing_operator6
+        (*
+            <- searchSetStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _edges_set;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _edge;;
+
+            -> rrel_set_3: rrel_assign: rrel_scp_var: _not_checked_edges;;
+
+            => nrel_goto: ..proc_of_disconnected_graph_decomposing_operator7;;
+        *);;
+        
+        -> ..proc_of_disconnected_graph_decomposing_operator7
+        (*
+            <- genEl;;
+
+            -> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _graphs_set;;
+
+            => nrel_goto: ..proc_of_disconnected_graph_decomposing_operator8;;
+        *);;
+        
+        -> ..proc_of_disconnected_graph_decomposing_operator8
+        (*
+            <- genElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _graphs_set;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _current_subgraph;;
+
+            => nrel_goto: ..proc_of_disconnected_graph_decomposing_operator9_0;;
+        *);;
+        
+        -> ..proc_of_disconnected_graph_decomposing_operator9_0
+        (*
+            <- printNl;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_const: [Subgraph has been created.];;
+
+            => nrel_goto: ..proc_of_disconnected_graph_decomposing_operator9;;
+        *);;
+        
+	-> ..proc_of_disconnected_graph_decomposing_operator9
+        (*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _not_checked_vertices;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _vertex;;
+
+            => nrel_then: ..proc_of_disconnected_graph_decomposing_operator10;;
+            => nrel_else: ..proc_of_disconnected_graph_decomposing_operator12;;
+        *);;
+        
+        -> ..proc_of_disconnected_graph_decomposing_operator10
+        (*
+            <- call;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_const: proc_of_finding_connected_component;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: ...
+            (*
+            	-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+            	-> rrel_2: rrel_fixed: rrel_scp_var: _vertex;;
+            	-> rrel_3: rrel_fixed: rrel_scp_var: _not_checked_vertices;;
+            	-> rrel_4: rrel_fixed: rrel_scp_var: _current_subgraph;;
+            *);;
+            -> rrel_3: rrel_assign: rrel_scp_var: _descriptor;;
+           
+            => nrel_goto: ..proc_of_disconnected_graph_decomposing_operator11;;
+        *);;
+        
+        -> ..proc_of_disconnected_graph_decomposing_operator11
+        (*
+            <- waitReturn;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _descriptor;;
+
+            => nrel_goto: ..proc_of_disconnected_graph_decomposing_operator11_0;;
+        *);;
+        
+        -> ..proc_of_disconnected_graph_decomposing_operator11_0
+        (*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _not_checked_vertices;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _vertex;;
+
+            => nrel_then: ..proc_of_disconnected_graph_decomposing_operator8;;
+            => nrel_else: ..proc_of_disconnected_graph_decomposing_operator12;;
+        *);;
+        
+        -> ..proc_of_disconnected_graph_decomposing_operator12
+        (*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _graphs_set;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _current_subgraph;;
+
+            => nrel_then: ..proc_of_disconnected_graph_decomposing_operator13;;
+            => nrel_else: ..proc_of_disconnected_graph_decomposing_operator_decomposing;;
+        *);;
+        
+        -> ..proc_of_disconnected_graph_decomposing_operator13
+        (*
+            <- eraseEl;;
+
+            -> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc2;;
+
+            => nrel_goto: ..proc_of_disconnected_graph_decomposing_operator14;;
+        *);;
+        
+        -> ..proc_of_disconnected_graph_decomposing_operator14
+        (*
+            <- call;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_const: proc_of_finding_graph_minimum_spanning_tree;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: ...
+            (*
+            	-> rrel_1: rrel_fixed: rrel_scp_var: _current_subgraph;;
+            	-> rrel_2: rrel_assign: rrel_scp_var: _tree;;
+            *);;
+            -> rrel_3: rrel_assign: rrel_scp_var: _descriptor;;
+           
+            => nrel_goto: ..proc_of_disconnected_graph_decomposing_operator15;;
+        *);;
+        
+        -> ..proc_of_disconnected_graph_decomposing_operator15
+        (*
+            <- waitReturn;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _descriptor;;
+
+            => nrel_goto: ..proc_of_disconnected_graph_decomposing_operator12;;
+        *);;
+		
+        -> ..proc_of_disconnected_graph_decomposing_operator_decomposing
+        (*
+            <- genElStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+            -> rrel_2: rrel_assign: rrel_common: rrel_const: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _graphs_set;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: nrel_disconnected_graph_decomposing;;
+
+            => nrel_goto: ..proc_of_disconnected_graph_decomposing_operator_return;;
+        *);;
+
+	-> ..proc_of_disconnected_graph_decomposing_operator_return
+	(*
+	     <- return;;
+	*);;
+    *);;
+*);;
