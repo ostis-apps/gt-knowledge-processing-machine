@@ -1,0 +1,35 @@
+scp_proc_of_determining_strongly_connected_graph
+=> nrel_main_idtf:
+	[Программа проверки графа на cильную связность] (* <- lang_ru;; *);
+		
+=> nrel_initiation_condition_and_result: (..scp_scp_proc_of_determining_strongly_connected_graph_initiation_condition
+					  => ..scp_proc_of_determining_strongly_connected_graph_result);
+					  
+-> rrel_key_sc_element: 
+concept_graph;
+concept_strongly_connected_graph;
+
+-> rrel_solver_key_sc_element:
+concept_strongly_connected_graph;
+
+<- rrel_key_sc_element:
+	..scp_proc_of_determining_strongly_connected_graph_behavior
+	(*
+		<- sc_description_of_scp_program_behavior;;
+		<= nrel_sc_text_translation:
+		...
+		(*
+			-> rrel_example:
+				[Эта программа проверяет исходный граф на сильную связность. В случае сильной связности графа 					генерируется позитивная дуга принадлежности от абсолютного понятия "concept_strongly_connected_graph" к 					сущности "_graph", иначе создаётся негативная дуга.];;
+		*);;
+	*);;
+
+
+..scp_proc_of_determining_strongly_connected_graph_initiation_condition = [*
+	concept_graph _-> _graph;;
+*];;
+
+..scp_proc_of_determining_strongly_connected_graph_result
+= [*
+	concept_one_way_connected_graph _-> _graph;;
+*];;

@@ -1,0 +1,35 @@
+proc_of_finding_chains_set
+=> nrel_main_idtf:
+	[Программа нахождения множества всех цепей исходного графа] (* <- lang_ru;; *);
+		
+=> nrel_initiation_condition_and_result: (..scp_proc_of_finding_chains_set_initiation_condition
+					  => ..scp_proc_of_finding_chains_set_result);
+					  
+-> rrel_key_sc_element: 
+concept_graph;
+nrel_chains_set;
+
+-> rrel_solver_key_sc_element:
+nrel_chains_set;
+
+<- rrel_key_sc_element:
+	..scp_proc_of_finding_chains_set_behavior
+	(*
+		<- sc_description_of_scp_program_behavior;;
+		<= nrel_sc_text_translation:
+		...
+		(*
+			-> rrel_example:
+				[ Программа находит множество всех цепей исходного графа и генерирует дугу принадлежности от относительного 				понятия "nrel_chains_set" к связке сущности "_graph" и найденного множества его цепей. ];;
+		*);;
+	*);;
+
+
+..scp_proc_of_finding_chains_set_initiation_condition = [*
+	concept_graph _-> _graph;;
+*];;
+
+..scp_proc_of_finding_chains_set_result
+= [*
+	_graph _=> nrel_chains_set:: _graph_set;;
+*];;

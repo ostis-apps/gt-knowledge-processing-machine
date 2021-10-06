@@ -1,0 +1,196 @@
+scp_program -> proc_of_finding_lengthed_cycles_set
+(*
+    -> rrel_params: ...
+    (*
+        -> rrel_1: rrel_in: _graph;;
+        -> rrel_2: rrel_in: _cycle_length_node;;
+    *);;
+
+    -> rrel_operators: ...
+    (*
+        -> rrel_init: ..proc_of_finding_lengthed_cycles_set_operator1
+        (*
+            <- searchSetStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _some_edge;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_const: rrel_oredge;;
+
+            -> rrel_set_3: rrel_assign: rrel_scp_var: _edges_set;;
+
+            => nrel_then: ..proc_of_finding_lengthed_cycles_set_operator2;;
+            => nrel_else: ..proc_of_finding_lengthed_cycles_set_operator14;;
+        *);;
+
+        -> ..proc_of_finding_lengthed_cycles_set_operator2
+        (*
+            <- searchSetStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _some_vertex;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+
+            -> rrel_set_3: rrel_assign: rrel_scp_var: _graph_vertices;;
+
+            => nrel_then: ..proc_of_finding_lengthed_cycles_set_operator3;;
+            => nrel_else: ..proc_of_finding_lengthed_cycles_set_operator14;;
+        *);;
+
+        -> ..proc_of_finding_lengthed_cycles_set_operator3
+        (*
+            <- genEl;;
+
+            -> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _cycles_set;;
+
+            => nrel_goto: ..proc_of_finding_lengthed_cycles_set_operator4;;
+        *);;
+        
+        -> ..proc_of_finding_lengthed_cycles_set_operator4
+        (*
+            <- searchElStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _cycle_length_node;;
+            -> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _cycle_length;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_const: nrel_system_identifier;;
+
+            => nrel_then: ..proc_of_finding_lengthed_cycles_set_operator5;;
+            => nrel_else: ..proc_of_finding_lengthed_cycles_set_operator_return;;
+        *);;
+        
+        -> ..proc_of_finding_lengthed_cycles_set_operator5
+      	(*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _graph_vertices;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _some_vertex;;
+
+            => nrel_then: ..proc_of_finding_lengthed_cycles_set_operator6;;
+            => nrel_else: ..proc_of_finding_lengthed_cycles_set_operator14;;
+        *);;
+        
+        -> ..proc_of_finding_lengthed_cycles_set_operator6
+	(*
+	     <- eraseEl;;
+		    
+             -> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc2;; 	
+			    
+             => nrel_goto: ..proc_of_finding_lengthed_cycles_set_operator7;;
+	*);;
+	    
+	-> ..proc_of_finding_lengthed_cycles_set_operator7
+        (*
+            <- genEl;;
+
+            -> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _cycle;;
+
+            => nrel_goto: ..proc_of_finding_lengthed_cycles_set_operator8;;
+        *);;
+
+        -> ..proc_of_finding_lengthed_cycles_set_operator8
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _current_length;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+            => nrel_goto: ..proc_of_finding_lengthed_cycles_set_operator9;;
+        *);;
+	    
+        -> ..proc_of_finding_lengthed_cycles_set_operator9
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _previous_vertex;;
+            -> rrel_2: rrel_fixed: rrel_scp_var: _edges_set;;
+
+            => nrel_goto: ..proc_of_finding_lengthed_cycles_set_operator10;;
+        *);;
+
+        -> ..proc_of_finding_lengthed_cycles_set_operator10
+        (*
+            <- call;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_const: proc_of_finding_lengthed_cycle;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: ... 
+            (*
+                -> rrel_1: rrel_fixed: rrel_scp_var: _some_vertex;;
+                -> rrel_2: rrel_fixed: rrel_scp_var: _edges_set;; 
+                -> rrel_3: rrel_fixed: rrel_scp_var: _cycle;; 
+                -> rrel_4: rrel_fixed: rrel_scp_var: _cycles_set;;
+                -> rrel_5: rrel_fixed: rrel_scp_var: _current_length;;
+                -> rrel_6: rrel_fixed: rrel_scp_var: _cycle_length;; 
+                -> rrel_7: rrel_assign: rrel_scp_var: _is_needed_cycle;; 
+                -> rrel_8: rrel_fixed: rrel_scp_var: _some_vertex;; 
+                -> rrel_9: rrel_fixed: rrel_scp_var: _previous_vertex;; 
+            *);;
+            -> rrel_3: rrel_assign: rrel_scp_var: _descriptor;;
+
+            => nrel_goto: ..proc_of_finding_lengthed_cycles_set_operator11;;
+        *);;
+
+        -> ..proc_of_finding_lengthed_cycles_set_operator11
+        (* 
+            <- waitReturn;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _descriptor;;
+
+            => nrel_goto: ..proc_of_finding_lengthed_cycles_set_operator12;;
+        *);;
+        
+        -> ..proc_of_finding_lengthed_cycles_set_operator12
+        (*
+            <- ifEq;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _is_needed_cycle;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [1];;
+
+            => nrel_then: ..proc_of_finding_lengthed_cycles_set_operator5;;
+            => nrel_else: ..proc_of_finding_lengthed_cycles_set_operator13_1;;
+        *);;
+        
+        -> ..proc_of_finding_lengthed_cycles_set_operator13_1
+        (*
+            <- eraseEl;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _cycle;;
+
+            => nrel_goto: ..proc_of_finding_lengthed_cycles_set_operator5;;
+        *);;
+        
+        -> ..proc_of_finding_lengthed_cycles_set_operator13_2
+        (*
+            <- genElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _cycles_set;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: arc2;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _cycle;;
+
+            => nrel_goto: ..proc_of_finding_lengthed_cycles_set_operator5;;
+        *);;
+        
+         -> ..proc_of_finding_lengthed_cycles_set_operator14
+        (*
+            <- genElStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+            -> rrel_2: rrel_assign: rrel_common: rrel_const: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _cycles_set;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_const: nrel_cycles_set;;
+
+            => nrel_goto: ..proc_of_finding_lengthed_cycles_set_operator_return;;
+        *);;
+
+        -> ..proc_of_finding_lengthed_cycles_set_operator_return
+        (*
+            <- return;;
+        *);;
+    *);;
+*);;

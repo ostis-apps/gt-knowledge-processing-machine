@@ -1,0 +1,333 @@
+scp_program -> proc_of_finding_graphs_composition
+(*	
+	-> rrel_params: ...
+	(*
+		-> rrel_1: rrel_in: _first_graph;;
+		-> rrel_2: rrel_in: _second_graph;;
+		-> rrel_3: rrel_out: _graphs_composition;;
+	*);;
+		
+	-> rrel_operators: ... 
+	(*
+		-> rrel_init: ..proc_of_finding_graphs_composition_operator0
+		(*
+			<- genEl;;
+
+			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _graphs_composition;;
+
+			=> nrel_goto: ..proc_of_finding_graphs_composition_operator1;;
+		*);;
+		
+		-> ..proc_of_finding_graphs_composition_operator1
+		(*
+			<- searchSetStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _first_graph;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _some_vertex;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _first_graph_vertices_set;;
+			
+			=> nrel_then: ..proc_of_finding_graphs_composition_operator2;;
+			=> nrel_else: ..proc_of_finding_graphs_composition_operator13;;
+		*);;
+
+		-> ..proc_of_finding_graphs_composition_operator2
+		(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _first_graph_vertices_set;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _comp_vertex;;
+			
+			=> nrel_then: ..proc_of_finding_graphs_composition_operator3;;
+			=> nrel_else: ..proc_of_finding_graphs_composition_operator16;;
+		*);;
+
+		-> ..proc_of_finding_graphs_composition_operator3
+		(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc2;;
+
+			=> nrel_goto: ..proc_of_finding_graphs_composition_operator4_1;;
+		*);;	
+
+		-> ..proc_of_finding_graphs_composition_operator4_1
+		(*
+			<- searchSetStr5;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _first_vertex;;
+			-> rrel_2: rrel_assign: rrel_scp_var: _first_edge;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _comp_vertex;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+			-> rrel_5: rrel_fixed: rrel_scp_var: _first_graph;;
+			
+			-> rrel_set_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _vertices_from_first;;
+			
+			=> nrel_then: ..proc_of_finding_graphs_composition_operator4_3;;
+			=> nrel_else: ..proc_of_finding_graphs_composition_operator4_2;;
+		*);;
+		
+		-> ..proc_of_finding_graphs_composition_operator4_2
+		(*
+			<- searchSetStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _comp_vertex;;
+			-> rrel_2: rrel_assign: rrel_scp_var: _first_edge;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _first_vertex;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+			-> rrel_5: rrel_fixed: rrel_scp_var: _first_graph;;
+			
+			-> rrel_set_3: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _vertices_from_first;;
+			
+			=> nrel_then: ..proc_of_finding_graphs_composition_operator5_1;;
+			=> nrel_else: ..proc_of_finding_graphs_composition_operator2;;
+		*);;
+		
+		-> ..proc_of_finding_graphs_composition_operator4_3
+		(*
+			<- searchSetStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _comp_vertex;;
+			-> rrel_2: rrel_assign: rrel_scp_var: _first_edge;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _first_vertex;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+			-> rrel_5: rrel_fixed: rrel_scp_var: _first_graph;;
+			
+			-> rrel_set_3: rrel_fixed: rrel_const: rrel_node: rrel_scp_var: _vertices_from_first;;
+			
+			=> nrel_then: ..proc_of_finding_graphs_composition_operator5_1;;
+			=> nrel_else: ..proc_of_finding_graphs_composition_operator5_1;;
+		*);;
+		
+		-> ..proc_of_finding_graphs_composition_operator5_1
+		(*
+			<- searchSetStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _comp_vertex;;
+			-> rrel_2: rrel_assign: rrel_scp_var: _second_edge;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _second_vertex;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+			-> rrel_5: rrel_fixed: rrel_scp_var: _second_graph;;
+			
+			-> rrel_set_3: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _vertices_from_second;;
+			
+			=> nrel_then: ..proc_of_finding_graphs_composition_operator5_3;;
+			=> nrel_else: ..proc_of_finding_graphs_composition_operator5_2;;
+		*);;	
+		
+		-> ..proc_of_finding_graphs_composition_operator5_2
+		(*
+			<- searchSetStr5;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _second_vertex;;
+			-> rrel_2: rrel_assign: rrel_scp_var: _second_edge;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _comp_vertex;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+			-> rrel_5: rrel_fixed: rrel_scp_var: _second_graph;;
+			
+			-> rrel_set_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _vertices_from_second;;
+			
+			=> nrel_then: ..proc_of_finding_graphs_composition_operator6;;
+			=> nrel_else: ..proc_of_finding_graphs_composition_operator2;;
+		*);;
+		
+		-> ..proc_of_finding_graphs_composition_operator5_3
+		(*
+			<- searchSetStr5;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _second_vertex;;
+			-> rrel_2: rrel_assign: rrel_scp_var: _second_edge;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _comp_vertex;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+			-> rrel_5: rrel_fixed: rrel_scp_var: _second_graph;;
+			
+			-> rrel_set_1: rrel_fixed: rrel_const: rrel_node: rrel_scp_var: _vertices_from_second;;
+			
+			=> nrel_then: ..proc_of_finding_graphs_composition_operator6;;
+			=> nrel_else: ..proc_of_finding_graphs_composition_operator6;;
+		*);;	
+
+		-> ..proc_of_finding_graphs_composition_operator6
+		(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _vertices_from_first;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _first_vertex;;
+			
+			=> nrel_then: ..proc_of_finding_graphs_composition_operator7;;
+			=> nrel_else: ..proc_of_finding_graphs_composition_operator2;;
+		*);;
+
+		-> ..proc_of_finding_graphs_composition_operator7
+		(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc2;;
+
+			=> nrel_goto: ..proc_of_finding_graphs_composition_operator8;;
+		*);;
+		
+		-> ..proc_of_finding_graphs_composition_operator8
+		(*
+			<- searchSetStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _vertices_from_second;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _second_vertex;;
+			
+			-> rrel_set_3: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _copy_vertices_from_second;;
+			
+			=> nrel_then: ..proc_of_finding_graphs_composition_operator9;;
+			=> nrel_else: ..proc_of_finding_graphs_composition_operator6;;
+		*);;
+		
+		-> ..proc_of_finding_graphs_composition_operator9
+		(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _copy_vertices_from_second;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _second_vertex;;
+			
+			=> nrel_then: ..proc_of_finding_graphs_composition_operator10;;
+			=> nrel_else: ..proc_of_finding_graphs_composition_operator6;;
+		*);;
+
+		-> ..proc_of_finding_graphs_composition_operator10
+		(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc2;;
+
+			=> nrel_goto: ..proc_of_finding_graphs_composition_operator11;;
+		*);;
+
+		-> ..proc_of_finding_graphs_composition_operator11
+		(*
+			<- genElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _first_vertex;;
+			-> rrel_2: rrel_assign: rrel_const: rrel_common: rrel_scp_var: _new_edge;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _second_vertex;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+			-> rrel_5: rrel_fixed: rrel_scp_var: _graphs_composition;;
+			
+			=> nrel_goto: ..proc_of_finding_graphs_composition_operator13;;
+		*);;
+
+		-> ..proc_of_finding_graphs_composition_operator13
+		(*
+			<- genElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: rrel_oredge;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _arc4;;
+			
+			=> nrel_goto: ..proc_of_finding_graphs_composition_operator14_1;;
+		*);;
+
+		-> ..proc_of_finding_graphs_composition_operator14_1
+		(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _graphs_composition;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _first_vertex;;
+			
+			=> nrel_then: ..proc_of_finding_graphs_composition_operator15_1;;
+			=> nrel_else: ..proc_of_finding_graphs_composition_operator14_2;;
+		*);;
+
+		-> ..proc_of_finding_graphs_composition_operator14_2
+		(*
+			<- genElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _graphs_composition;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _first_vertex;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+			
+			=> nrel_goto: ..proc_of_finding_graphs_composition_operator15_1;;
+		*);;
+
+		-> ..proc_of_finding_graphs_composition_operator15_1
+		(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _graphs_composition;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _second_vertex;;
+			
+			=> nrel_then: ..proc_of_finding_graphs_composition_operator9;;
+			=> nrel_else: ..proc_of_finding_graphs_composition_operator15_2;;
+		*);;
+
+		-> ..proc_of_finding_graphs_composition_operator15_2
+		(*
+			<- genElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _graphs_composition;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _second_vertex;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+			
+			=> nrel_goto: ..proc_of_finding_graphs_composition_operator9;;
+		*);;
+
+		-> ..proc_of_finding_graphs_composition_operator16
+		(*
+			<- genElStr3;;
+
+			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _graphs_set;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _first_graph;;
+			
+			=> nrel_goto: ..proc_of_finding_graphs_composition_operator17;;
+		*);;
+
+		-> ..proc_of_finding_graphs_composition_operator17
+		(*
+			<- genElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _graphs_set;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _first_graph;;
+			
+			=> nrel_goto: ..proc_of_finding_graphs_composition_operator18;;
+		*);;
+
+		-> ..proc_of_finding_graphs_composition_operator18
+		(*
+			<- genElStr5;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _graphs_set;;
+			-> rrel_2: rrel_assign: rrel_const: rrel_common: rrel_scp_var: _arc2;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _graphs_composition;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_graphs_composition;;
+			
+			=> nrel_goto: ..proc_of_finding_graphs_composition_operator_return;;
+		*);;
+
+		-> ..proc_of_finding_graphs_composition_operator_error
+		(* 
+			<- printNl;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: [Incorrect graph representation...];;
+
+			=> nrel_goto: ..proc_of_finding_graphs_composition_operator_return;;
+		*);;
+
+		-> ..proc_of_finding_graphs_composition_operator_return 
+		(* 
+			<- return;;	
+		*);;
+	*);;
+*);;

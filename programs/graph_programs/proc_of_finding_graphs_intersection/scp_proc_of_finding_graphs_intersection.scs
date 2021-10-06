@@ -1,0 +1,38 @@
+proc_of_finding_graphs_intersection
+=> nrel_main_idtf:
+	[Программа нахождения пересечения двух неориентированных графов] (* <- lang_ru;; *);
+		
+=> nrel_initiation_condition_and_result: (..scp_proc_of_finding_graphs_intersection_initiation_condition
+					  => ..scp_proc_of_finding_graphs_intersection_result);
+					  
+-> rrel_key_sc_element: 
+concept_graph;
+nrel_graphs_intersection;
+
+-> rrel_solver_key_sc_element:
+nrel_graphs_intersection;
+
+<- rrel_key_sc_element:
+	..scp_proc_of_finding_graphs_intersection_behavior
+	(*
+		<- sc_description_of_scp_program_behavior;;
+		<= nrel_sc_text_translation:
+		...
+		(*
+			-> rrel_example:
+				[ Программа находит пересечение двух графов и генерирует дугу принадлежности от относительного 					понятия "nrel_graphs_intersection" ко множеству двух исходных графов и их пересечению. ];;
+		*);;
+	*);;
+
+
+..scp_proc_of_finding_graphs_intersection_initiation_condition = [*
+	concept_graph _-> _first_graph;;
+	concept_graph _-> _second_graph;;
+*];;
+
+..scp_proc_of_finding_graphs_intersection_result
+= [*
+	_graph_set _-> _first_graph;;
+	_graph_set _-> _second_graph;;
+	_graph_set _=> nrel_graphs_intersection:: _graphs_intersection;;
+*];;

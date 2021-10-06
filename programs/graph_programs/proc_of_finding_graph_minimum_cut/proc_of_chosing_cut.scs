@@ -1,0 +1,255 @@
+scp_program -> proc_of_chosing_cut
+(*
+    -> rrel_params: ...
+    (*
+        -> rrel_1: rrel_in: _graph;;
+        -> rrel_2: rrel_in: _connected_components_number;;
+        -> rrel_3: rrel_in: _deleting_edges;;
+        -> rrel_4: rrel_in: _minimum_cut;;
+    *);;
+
+    -> rrel_operators: ...
+    (*
+        -> rrel_init: ..proc_of_chosing_cut_operator1
+        (*
+            <- call;;
+            
+            -> rrel_1: rrel_fixed: rrel_scp_const: proc_of_checking_if_cut;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: ...
+            (*
+                -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+                -> rrel_2: rrel_fixed: rrel_scp_var: _deleting_edges;;
+                -> rrel_3: rrel_fixed: rrel_scp_var: _connected_components_number;;
+                -> rrel_4: rrel_assign: rrel_scp_var: _is_going;;
+            *);;
+            -> rrel_3: rrel_assign: rrel_scp_var: _descriptor;;
+
+            => nrel_goto: ..proc_of_chosing_cut_operator2;;
+        *);;
+
+        -> ..proc_of_chosing_cut_operator2
+        (*
+            <- waitReturn;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _descriptor;;
+
+            => nrel_goto: ..proc_of_chosing_cut_operator3;;
+        *);;
+
+        -> ..proc_of_chosing_cut_operator3
+        (*
+            <- ifEq;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _is_going;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [1];;
+
+            => nrel_then: ..proc_of_chosing_cut_operator4;;
+            => nrel_else: ..proc_of_chosing_cut_operator12;;
+        *);;
+
+        -> ..proc_of_chosing_cut_operator4
+        (*
+            <- call;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_const: proc_of_finding_edges_weigth;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: ...
+            (*
+                -> rrel_1: rrel_fixed: rrel_scp_var: _minimum_cut;;
+                -> rrel_2: rrel_assign: rrel_scp_var: _minimum_cut_weigth;;
+            *);;
+            -> rrel_3: rrel_assign: rrel_scp_var: _descriptor;;
+
+            => nrel_goto: ..proc_of_chosing_cut_operator5;;
+        *);;
+
+        -> ..proc_of_chosing_cut_operator5
+        (*
+            <- waitReturn;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _descriptor;;
+
+            => nrel_goto: ..proc_of_chosing_cut_operator6;;
+        *);;
+
+        -> ..proc_of_chosing_cut_operator6
+        (*
+            <- ifEq;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _minimum_cut_weigth;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+            => nrel_then: ..proc_of_chosing_cut_operator10;;
+            => nrel_else: ..proc_of_chosing_cut_operator7;;
+        *);;
+
+        -> ..proc_of_chosing_cut_operator7
+        (*
+            <- call;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_const: proc_of_finding_edges_weigth;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: ...
+            (*
+                -> rrel_1: rrel_fixed: rrel_scp_var: _deleting_edges;;
+                -> rrel_2: rrel_assign: rrel_scp_var: _deleting_edges_weigth;;
+            *);;
+            -> rrel_3: rrel_assign: rrel_scp_var: _descriptor;;
+
+            => nrel_goto: ..proc_of_chosing_cut_operator8;;
+        *);;
+
+        -> ..proc_of_chosing_cut_operator8
+        (*
+            <- waitReturn;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _descriptor;;
+
+            => nrel_goto: ..proc_of_chosing_cut_operator9;;
+        *);;
+
+        -> ..proc_of_chosing_cut_operator9
+        (*
+            <- ifGr;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _deleting_edges_weigth;;
+            -> rrel_2: rrel_fixed: rrel_scp_var: _minimum_cut_weigth;;
+
+            => nrel_then: ..proc_of_chosing_cut_operator10;;
+            => nrel_else: ..proc_of_chosing_cut_operator_return;;
+        *);;
+
+        -> ..proc_of_chosing_cut_operator10
+        (*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _minimum_cut;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _edge;;
+
+            => nrel_then: ..proc_of_chosing_cut_operator11_0;;
+            => nrel_else: ..proc_of_chosing_cut_operator11;;
+        *);;
+        
+         -> ..proc_of_chosing_cut_operator11_0
+        (*
+            <- eraseEl;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc2;;
+
+            => nrel_goto: ..proc_of_chosing_cut_operator11;;
+        *);;
+
+        -> ..proc_of_chosing_cut_operator11
+        (*
+            <- searchSetStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _deleting_edges;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _edge;;
+
+            -> rrel_set_3: rrel_fixed: rrel_scp_var: _minimum_cut;;
+
+            => nrel_then: ..proc_of_chosing_cut_operator12;;
+            => nrel_else: ..proc_of_chosing_cut_operator_return;;
+        *);;
+
+        -> ..proc_of_chosing_cut_operator12
+        (*
+            <- searchSetStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _some_edge;;
+            -> rrel_4: rrel_assign: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_const: rrel_oredge;;
+
+            -> rrel_set_3: rrel_assign: rrel_scp_var: _edges_set;;
+
+            => nrel_then: ..proc_of_chosing_cut_operator13;;
+            => nrel_else: ..proc_of_chosing_cut_operator_return;;
+        *);;
+
+        -> ..proc_of_chosing_cut_operator13
+        (*
+            <- searchElStr3;;
+            
+            -> rrel_1: rrel_fixed: rrel_scp_var: _edges_set;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _some_edge;;
+
+            => nrel_then: ..proc_of_chosing_cut_operator14;;
+            => nrel_else: ..proc_of_chosing_cut_operator_return;;
+        *);;
+
+        -> ..proc_of_chosing_cut_operator14
+        (*
+            <- eraseEl;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc2;;
+
+            => nrel_goto: ..proc_of_chosing_cut_operator15_0;;
+        *);;
+        
+         -> ..proc_of_chosing_cut_operator15_0
+        (*
+            <- searchElStr3;;
+            
+            -> rrel_1: rrel_fixed: rrel_scp_var: _minimum_cut;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _some_edge;;
+
+            => nrel_then: ..proc_of_chosing_cut_operator13;;
+            => nrel_else: ..proc_of_chosing_cut_operator15;;
+        *);;
+
+        -> ..proc_of_chosing_cut_operator15
+        (*
+            <- genElStr3;;
+            
+            -> rrel_1: rrel_fixed: rrel_scp_var: _deleting_edges;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _some_edge;;
+
+            => nrel_goto: ..proc_of_chosing_cut_operator16;;
+        *);;
+
+        -> ..proc_of_chosing_cut_operator16
+        (*
+            <- call;;
+            
+            -> rrel_1: rrel_fixed: rrel_scp_const: proc_of_chosing_cut;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: ...
+            (*
+                -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+                -> rrel_2: rrel_fixed: rrel_scp_var: _connected_components_number;;
+                -> rrel_3: rrel_fixed: rrel_scp_var: _deleting_edges;;
+                -> rrel_4: rrel_fixed: rrel_scp_var: _minimum_cut;;
+            *);;
+            -> rrel_3: rrel_assign: rrel_scp_var: _descriptor;;
+
+            => nrel_goto: ..proc_of_chosing_cut_operator17;;
+        *);;
+
+        -> ..proc_of_chosing_cut_operator17
+        (*
+            <- waitReturn;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _descriptor;;
+
+            => nrel_goto: ..proc_of_chosing_cut_operator18;;
+        *);;
+
+        -> ..proc_of_chosing_cut_operator18
+        (*
+            <- eraseEl;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc2;;
+
+            => nrel_goto: ..proc_of_chosing_cut_operator13;;
+        *);;
+
+        -> ..proc_of_chosing_cut_operator_return
+        (*
+            <- return;;
+        *);;
+    *);;
+*);;

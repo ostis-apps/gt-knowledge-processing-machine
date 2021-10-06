@@ -1,0 +1,143 @@
+scp_program -> proc_of_finding_edges_weigth
+(*
+    -> rrel_params: ...
+    (*
+        -> rrel_1: rrel_in: _edges_set;;
+        -> rrel_2: rrel_out: _weigth;;
+    *);;
+
+    -> rrel_operators: ...
+    (*
+        -> rrel_init: ..proc_of_finding_edges_weigth_operator1
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _weigth;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+            => nrel_goto: ..proc_of_finding_edges_weigth_operator2;;
+        *);;
+        
+        -> ..proc_of_finding_edges_weigth_operator2
+        (*
+            <- searchSetStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _edges_set;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _edge;;
+
+            -> rrel_set_3: rrel_assign: rrel_scp_var: _copy_edges_set;;
+
+            => nrel_then: ..proc_of_finding_edges_weigth_operator3;;
+            => nrel_else: ..proc_of_finding_edges_weigth_operator_return;;
+        *);;
+
+        -> ..proc_of_finding_edges_weigth_operator3
+        (*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _copy_edges_set;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _some_edge;;
+
+            => nrel_then: ..proc_of_finding_edges_weigth_operator4;;
+            => nrel_else: ..proc_of_finding_edges_weigth_operator_return;;
+        *);;
+
+        -> ..proc_of_finding_edges_weigth_operator4
+        (*
+            <- eraseEl;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc2;;
+
+            => nrel_goto: ..proc_of_finding_edges_weigth_operator5;;
+        *);;
+
+        -> ..proc_of_finding_edges_weigth_operator5
+        (*
+            <- searchSetStr3;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _weigth_node;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _some_edge;;
+
+            -> rrel_set_1: rrel_assign: rrel_scp_var: _set_with_weigth;;
+
+            => nrel_then: ..proc_of_finding_edges_weigth_operator6;;
+            => nrel_else: ..proc_of_finding_edges_weigth_operator3;;
+        *);;
+
+        -> ..proc_of_finding_edges_weigth_operator6
+        (*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _set_with_weigth;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _weigth_node;;
+
+            => nrel_then: ..proc_of_finding_edges_weigth_operator7;;
+            => nrel_else: ..proc_of_finding_edges_weigth_operator_return;;
+        *);;
+
+         -> ..proc_of_finding_edges_weigth_operator7
+        (*
+            <- eraseEl;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc2;;
+
+            => nrel_goto: ..proc_of_finding_edges_weigth_operator8;;
+        *);;
+
+        -> ..proc_of_finding_edges_weigth_operator8
+        (*
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_const: concept_weigth;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _weigth_node;;
+
+            => nrel_then: ..proc_of_finding_edges_weigth_operator9;;
+            => nrel_else: ..proc_of_finding_edges_weigth_operator6;;
+        *);;
+
+        -> ..proc_of_finding_edges_weigth_operator9
+        (*
+            <- searchElStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _weigth_node;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: rrel_link: _edge_weigth;;
+            -> rrel_4: rrel_assign: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_const: nrel_system_identifier;;
+
+            => nrel_then: ..proc_of_finding_edges_weigth_operator10;;
+            => nrel_else: ..proc_of_finding_edges_weigth_operator6;;
+        *);;
+
+        -> ..proc_of_finding_edges_weigth_operator10
+        (*
+            <- contAdd;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _temp;;
+            -> rrel_2: rrel_fixed: rrel_scp_var: _weigth;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _edge_weigth;;
+
+            => nrel_goto: ..proc_of_finding_edges_weigth_operator11;;
+        *);;
+
+        -> ..proc_of_finding_edges_weigth_operator11
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _weigth;;
+            -> rrel_2: rrel_fixed: rrel_scp_var: _temp;;
+
+            => nrel_goto: ..proc_of_finding_edges_weigth_operator3;;
+        *);;
+
+        -> ..proc_of_finding_edges_weigth_operator_return
+        (*
+            <- return;;
+        *);;
+    *);;
+*);;

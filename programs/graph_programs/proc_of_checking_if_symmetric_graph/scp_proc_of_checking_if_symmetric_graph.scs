@@ -1,0 +1,55 @@
+proc_of_checking_if_symmetric_graph
+=> nrel_main_idtf:
+	[Программа проверки графа на симметричность] (* <- lang_ru;; *);
+		
+=> nrel_initiation_condition_and_result: (..scp_proc_of_checking_if_symmetric_graph_initiation_condition
+					  => ..scp_proc_of_checking_if_symmetric_graph_result);
+					  
+-> rrel_key_sc_element: 
+concept_graph;
+concept_symmetric_graph;
+concept_particle_symmetric_graph;
+concept_antisymmetric_graph;
+
+-> rrel_solver_key_sc_element:
+concept_symmetric_graph;
+concept_particle_symmetric_graph;
+concept_antisymmetric_graph;
+
+<- rrel_key_sc_element:
+	..scp_proc_of_checking_if_symmetric_graph_behavior
+	(*
+		<- sc_description_of_scp_program_behavior;;
+		<= nrel_sc_text_translation:
+		...
+		(*
+			-> rrel_example:
+				[Эта программа проверяет исходный граф на cимметричность. В случае симметричности графа генерируется 				позитивная дуга принадлежности от абсолютного понятия "concept_symmetric_graph" к сущности "_graph", в 					случае частичной симметричности - создаётся дуга принадлежности от абсолютного понятия 					"concept_particle_symmetric_graph", в случае антисимметричности - создаётся дуга принадлежности от 					абсолютного понятия "concept_antisymmetric_graph".];;
+		*);;
+	*);;
+
+
+..scp_proc_of_checking_if_symmetric_graph_initiation_condition = [*
+	concept_graph _-> _graph;;
+*];;
+
+..scp_proc_of_checking_if_functional_graph_result
+	<- nrel_disjunction;
+	-> ..scp_proc_of_checking_if_symmetric_graph_result_one;
+	-> ..scp_proc_of_checking_if_symmetric_graph_result_two;
+	-> ..scp_proc_of_checking_if_symmetric_graph_result_three;;
+
+..scp_proc_of_checking_if_symmetric_graph_result_one
+= [*
+	concept_symmetric_graph _-> _graph;;
+*];;
+
+..scp_proc_of_checking_if_symmetric_graph_result_two
+= [*
+	concept_particle_symmetric_graph _-> _graph;;
+*];;
+
+..scp_proc_of_checking_if_symmetric_graph_three
+= [*
+	concept_antisymmetric_graph _-> _graph;;
+*];;

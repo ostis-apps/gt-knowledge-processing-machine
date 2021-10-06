@@ -1,0 +1,306 @@
+scp_program -> proc_of_checking_if_functional_graph
+(*
+    -> rrel_params: ...
+    (*
+        -> rrel_1: rrel_in: _graph;;
+    *);;
+
+    -> rrel_operators: ...
+    (*
+        -> rrel_init: ..proc_of_checking_if_functional_graph_operator0_1
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _is_functional;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+            => nrel_goto: ..proc_of_checking_if_functional_graph_operator0_2;;
+        *);;
+        
+        -> ..proc_of_checking_if_functional_graph_operator0_2
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _is_nonfunctional_str;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+            => nrel_goto: ..proc_of_checking_if_functional_graph_operator0_3;;
+        *);;
+       
+        -> ..proc_of_checking_if_functional_graph_operator0_3
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _is_functional_str;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+            => nrel_goto: ..proc_of_checking_if_functional_graph_operator0_4;;
+        *);;
+
+        -> ..proc_of_checking_if_functional_graph_operator0_4
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _is_contrfunctional_str;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+            => nrel_goto: ..proc_of_checking_if_functional_graph_operator1;;
+        *);;
+
+        -> ..proc_of_checking_if_functional_graph_operator1
+        (* 
+            <- searchSetStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _some_vertex;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+
+            -> rrel_set_3: rrel_assign: rrel_scp_var: _graph_vertices_set;;
+
+            => nrel_then: ..proc_of_checking_if_functional_graph_operator2;;
+            => nrel_else: ..proc_of_checking_if_functional_graph_operator_return;;
+        *);;
+
+        -> ..proc_of_checking_if_functional_graph_operator2
+        (* 
+            <- searchSetStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _some_edge;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_const: rrel_oredge;;
+
+            -> rrel_set_3: rrel_assign: rrel_scp_var: _graph_edge_set;;
+
+            => nrel_then: ..proc_of_checking_if_functional_graph_operator3;;
+            => nrel_else: ..proc_of_checking_if_functional_graph_operator18;;
+        *);;
+
+        -> ..proc_of_checking_if_functional_graph_operator3
+        (* 
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _graph_vertices_set;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _first_vertex;;
+
+            => nrel_then: ..proc_of_checking_if_functional_graph_operator4_0;;
+            => nrel_else: ..proc_of_checking_if_functional_graph_operator18;;
+        *);;
+        
+        -> ..proc_of_checking_if_functional_graph_operator4_0
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _is_functional;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+            => nrel_goto: ..proc_of_checking_if_functional_graph_operator4;;
+        *);;
+
+        -> ..proc_of_checking_if_functional_graph_operator4
+        (* 
+            <- eraseEl;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc2;;
+
+            => nrel_goto: ..proc_of_checking_if_functional_graph_operator5;;
+        *);;
+
+        -> ..proc_of_checking_if_functional_graph_operator5
+        (* 
+            <- searchSetStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _first_vertex;;
+            -> rrel_2: rrel_assign: rrel_scp_var: _edge;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _some_vertex;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_const: _graph;;
+
+            -> rrel_set_2: rrel_assign: rrel_scp_var: _inc_edges_set;;
+
+            => nrel_then: ..proc_of_checking_if_functional_graph_operator6;;
+            => nrel_else: ..proc_of_checking_if_functional_graph_operator3;;
+        *);;
+
+        -> ..proc_of_checking_if_functional_graph_operator6
+        (* 
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _inc_edges_set;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _edge;;
+
+            => nrel_then: ..proc_of_checking_if_functional_graph_operator7;;
+            => nrel_else: ..proc_of_checking_if_functional_graph_operator16;;
+        *);;
+
+        -> ..proc_of_checking_if_functional_graph_operator7
+        (* 
+            <- eraseEl;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc2;;
+
+            => nrel_goto: ..proc_of_checking_if_functional_graph_operator8;;
+        *);;
+
+        -> ..proc_of_checking_if_functional_graph_operator8
+        (*
+             <- ifEq;;
+             	
+             -> rrel_1: rrel_fixed: rrel_scp_var: _is_functional;;
+	     -> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+	    
+	     => nrel_then: ..proc_of_checking_if_functional_graph_operator9;;
+	     => nrel_else: ..proc_of_checking_if_functional_graph_operator10;;
+        *);;
+        
+        -> ..proc_of_checking_if_functional_graph_operator9
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _is_functional;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [1];;
+
+            => nrel_goto: ..proc_of_checking_if_functional_graph_operator6;;
+        *);;
+        
+        -> ..proc_of_checking_if_functional_graph_operator10
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _is_functional;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [2];;
+
+            => nrel_goto: ..proc_of_checking_if_functional_graph_operator6;;
+        *);;
+
+        -> ..proc_of_checking_if_functional_graph_operator16
+        (*
+            <- ifEq;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _is_functional;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [1];;
+
+            => nrel_then: ..proc_of_checking_if_functional_graph_operator_is_functional_str;;
+            => nrel_else: ..proc_of_checking_if_functional_graph_operator17;;
+        *);;
+        
+
+        -> ..proc_of_checking_if_functional_graph_operator17
+        (*
+            <- ifEq;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _is_functional;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+            => nrel_then: ..proc_of_checking_if_functional_graph_operator_is_contrfunctional_str;;
+            => nrel_else: ..proc_of_checking_if_functional_graph_operator_is_nonfunctional_str;;
+        *);;
+
+        -> ..proc_of_checking_if_functional_graph_operator_is_functional_str
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _is_functional_str;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [1];;
+
+            => nrel_goto: ..proc_of_checking_if_functional_graph_operator3;;
+        *);;
+
+        -> ..proc_of_checking_if_functional_graph_operator_is_contrfunctional_str
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _is_contrfunctional_str;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [1];;
+
+            => nrel_goto: ..proc_of_checking_if_functional_graph_operator3;;
+        *);;
+        
+        -> ..proc_of_checking_if_functional_graph_operator_is_nonfunctional_str
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _is_nonfunctional_str;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [1];;
+
+            => nrel_goto: ..proc_of_checking_if_functional_graph_operator3;;
+        *);;
+
+
+        -> ..proc_of_checking_if_functional_graph_operator18
+        (*
+            <- ifEq;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _is_nonfunctional_str;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [1];;
+
+            => nrel_then: ..proc_of_checking_if_functional_graph_operator_particle_functional;;
+            => nrel_else: ..proc_of_checking_if_functional_graph_operator19;;
+        *);;
+        
+        -> ..proc_of_checking_if_functional_graph_operator19
+        (*
+            <- ifEq;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _is_functional_str;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [1];;
+
+            => nrel_then: ..proc_of_checking_if_functional_graph_operator20;;
+            => nrel_else: ..proc_of_checking_if_functional_graph_operator_contrfunctional;;
+        *);;
+
+        -> ..proc_of_checking_if_functional_graph_operator20
+        (*
+            <- ifEq;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _is_contrfunctional_str;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+            => nrel_then: ..proc_of_checking_if_functional_graph_operator_functional;;
+            => nrel_else: ..proc_of_checking_if_functional_graph_operator_particle_functional;;
+        *);;
+        
+        -> ..proc_of_checking_if_functional_graph_operator_functional
+        (* 
+            <- genElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_const: concept_functional_graph;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+            => nrel_goto: ..proc_of_checking_if_functional_graph_operator_return;;
+        *);;
+
+        -> ..proc_of_checking_if_functional_graph_operator_particle_functional
+        (* 
+            <- genElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_const: concept_particle_functional_graph;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+            => nrel_goto: ..proc_of_checking_if_functional_graph_operator_return;;
+        *);;
+
+        -> ..proc_of_checking_if_functional_graph_operator_contrfunctional
+        (* 
+            <- genElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_const: concept_contrfunctional_graph;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+            => nrel_goto: ..proc_of_checking_if_functional_graph_operator_return;;
+        *);;
+
+        -> ..proc_of_checking_if_functional_graph_operator_return
+        (* 
+            <- return;;
+        *);; 
+    *);;
+*);;

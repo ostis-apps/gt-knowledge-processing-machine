@@ -1,0 +1,91 @@
+scp_program -> proc_of_finding_power 
+(*
+	-> rrel_params: ...
+	(*
+		-> rrel_1: rrel_in: _set;;
+		-> rrel_2: rrel_out: _power;;
+	*);;
+
+	-> rrel_operators: ...
+	(*
+		-> rrel_init: ..proc_of_finding_power_operator0 
+		(*
+			<- varAssign;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _power;;
+			-> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+			=> nrel_goto: ..proc_of_finding_power_operator1;;
+		*);;
+
+		-> ..proc_of_finding_power_operator1 
+		(*
+			<- searchSetStr3;;
+			    
+			-> rrel_1: rrel_fixed: rrel_scp_var: _set;;
+			-> rrel_2: rrel_scp_var: rrel_assign: rrel_pos_const_perm: _arc2;;
+			-> rrel_3: rrel_scp_var: rrel_assign: _element;;
+
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _set_temp;;
+
+			=> nrel_then: ..proc_of_finding_power_operator2;;
+			=> nrel_else: ..proc_of_finding_power_operator_return;;
+		*);; 
+
+		-> ..proc_of_finding_power_operator2 
+		(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _set_temp;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _element;;
+
+			=> nrel_then: ..proc_of_finding_power_operator3;;
+	      		=> nrel_else: ..proc_of_finding_power_operator5;;
+		*);;
+
+		-> ..proc_of_finding_power_operator3 
+		(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc2;;
+
+			=> nrel_goto: ..proc_of_finding_power_operator4;;
+		*);;
+
+		-> ..proc_of_finding_power_operator4 
+		(*
+	        	<- contAdd;;
+
+	        	-> rrel_1: rrel_assign: rrel_scp_var: _temp;;
+			-> rrel_2: rrel_fixed: rrel_scp_var: _power;;
+			-> rrel_3: rrel_fixed: rrel_scp_const: [1];;
+			 
+			=> nrel_goto: ..proc_of_finding_power_operator4_1;;
+		*);;
+
+		-> ..proc_of_finding_power_operator4_1 
+		(*
+	        	<- varAssign;;
+
+	        	-> rrel_1: rrel_assign: rrel_scp_var: _power;;
+			-> rrel_2: rrel_fixed: rrel_scp_var: _temp;;
+			 
+			=> nrel_goto: ..proc_of_finding_power_operator2;;
+		*);;
+
+		-> ..proc_of_finding_power_operator5 
+		(*
+			<- eraseEl;;
+			
+			-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _set_temp;;
+
+			=> nrel_goto: ..proc_of_finding_power_operator_return;;
+		*);;
+
+		-> ..proc_of_finding_power_operator_return
+		(*
+			<- return;;
+	    	*);;
+	*);;
+*);;

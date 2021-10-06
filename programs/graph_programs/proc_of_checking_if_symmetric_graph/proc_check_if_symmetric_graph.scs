@@ -1,0 +1,343 @@
+scp_program -> proc_check_if_symmetric_graph
+(*
+    -> rrel_params: ...
+    (*
+        -> rrel_1: rrel_in: _graph;;
+    *);;
+
+    -> rrel_operators: ...
+    (*
+        -> rrel_init: ..proc_check_if_symmetric_graph_operator0_1
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _is_exist_arc_to_from;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+            => nrel_goto: ..proc_check_if_symmetric_graph_operator0_2;;
+        *);;
+
+        -> ..proc_check_if_symmetric_graph_operator0_2
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _is_exist_arc_from_to;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+            => nrel_goto: ..proc_check_if_symmetric_graph_operator0_3;;
+        *);;
+
+        -> ..proc_check_if_symmetric_graph_operator0_3
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _is_symmetric_str;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+            => nrel_goto: ..proc_check_if_symmetric_graph_operator0_4;;
+        *);;
+
+        -> ..proc_check_if_symmetric_graph_operator0_4
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _is_antisymmetric_str;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+            => nrel_goto: ..proc_check_if_symmetric_graph_operator1;;
+        *);;
+
+        -> ..proc_check_if_symmetric_graph_operator1
+        (* 
+            <- searchSetStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _some_vertex;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+
+            -> rrel_set_3: rrel_assign: rrel_scp_var: _graph_vertices_set;;
+
+            => nrel_then: ..proc_check_if_symmetric_graph_operator2;;
+            => nrel_else: ..proc_check_if_symmetric_graph_operator_return;;
+        *);;
+
+        -> ..proc_check_if_symmetric_graph_operator2
+        (* 
+            <- searchSetStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _some_edge;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_const: rrel_oredge;;
+
+            -> rrel_set_3: rrel_assign: rrel_scp_var: _graph_edge_set;;
+
+            => nrel_then: ..proc_check_if_symmetric_graph_operator3;;
+            => nrel_else: ..proc_check_if_symmetric_graph_operator_return;;
+        *);;
+
+        -> ..proc_check_if_symmetric_graph_operator3
+        (* 
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _graph_vertices_set;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _first_vertex;;
+
+            => nrel_then: ..proc_check_if_symmetric_graph_operator4;;
+            => nrel_else: ..proc_check_if_symmetric_graph_operator18;;
+        *);;
+
+        -> ..proc_check_if_symmetric_graph_operator4
+        (* 
+            <- eraseEl;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc2;;
+
+            => nrel_goto: ..proc_check_if_symmetric_graph_operator5;;
+        *);;
+
+        -> ..proc_check_if_symmetric_graph_operator5
+        (* 
+            <- searchSetStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _some_vertex;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
+
+            -> rrel_set_3: rrel_assign: rrel_scp_var: _copy_graph_vertices_set;;
+
+            => nrel_then: ..proc_check_if_symmetric_graph_operator6;;
+            => nrel_else: ..proc_check_if_symmetric_graph_operator_return;;
+        *);;
+
+        -> ..proc_check_if_symmetric_graph_operator6
+        (* 
+            <- searchElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _copy_graph_vertices_set;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _second_vertex;;
+
+            => nrel_then: ..proc_check_if_symmetric_graph_operator7;;
+            => nrel_else: ..proc_check_if_symmetric_graph_operator3;;
+        *);;
+
+        -> ..proc_check_if_symmetric_graph_operator7
+        (* 
+            <- eraseEl;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc2;;
+
+            => nrel_goto: ..proc_check_if_symmetric_graph_operator8;;
+        *);;
+
+        -> ..proc_check_if_symmetric_graph_operator8
+        (*
+            <- ifCoin;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _first_vertex;;
+            -> rrel_2: rrel_fixed: rrel_scp_var: _second_vertex;;
+
+            => nrel_then: ..proc_check_if_symmetric_graph_operator6;;
+            => nrel_else: ..proc_check_if_symmetric_graph_operator9;;
+        *);;
+
+        -> ..proc_check_if_symmetric_graph_operator9
+        (* 
+            <- searchElStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _first_vertex;;
+            -> rrel_2: rrel_assign: rrel_scp_var: _edge;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _second_vertex;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_var: _graph;;
+
+            => nrel_then: ..proc_check_if_symmetric_graph_operator10;;
+            => nrel_else: ..proc_check_if_symmetric_graph_operator11;;
+        *);;
+
+        -> ..proc_check_if_symmetric_graph_operator10
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _is_exist_arc_from_to;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [1];;
+
+            => nrel_goto: ..proc_check_if_symmetric_graph_operator12;;
+        *);;
+
+        -> ..proc_check_if_symmetric_graph_operator11
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _is_exist_arc_from_to;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+            => nrel_goto: ..proc_check_if_symmetric_graph_operator12;;
+        *);;
+
+         -> ..proc_check_if_symmetric_graph_operator12
+        (* 
+            <- searchElStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _second_vertex;;
+            -> rrel_2: rrel_assign: rrel_scp_var: _edge;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _first_vertex;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+            -> rrel_5: rrel_fixed: rrel_scp_var: _graph;;
+
+            => nrel_then: ..proc_check_if_symmetric_graph_operator13;;
+            => nrel_else: ..proc_check_if_symmetric_graph_operator14;;
+        *);;
+
+        -> ..proc_check_if_symmetric_graph_operator13
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _is_exist_arc_to_from;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [1];;
+
+            => nrel_goto: ..proc_check_if_symmetric_graph_operator15;;
+        *);;
+
+        -> ..proc_check_if_symmetric_graph_operator14
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _is_exist_arc_to_from;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+            => nrel_goto: ..proc_check_if_symmetric_graph_operator15;;
+        *);;
+
+        -> ..proc_check_if_symmetric_graph_operator15
+        (*
+            <- contAdd;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _is_symmetric;;
+            -> rrel_2: rrel_fixed: rrel_scp_var: _is_exist_arc_to_from;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _is_exist_arc_from_to;;
+
+            => nrel_goto: ..proc_check_if_symmetric_graph_operator16;;
+        *);;
+
+        -> ..proc_check_if_symmetric_graph_operator16
+        (*
+            <- ifEq;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _is_symmetric;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [2];;
+
+            => nrel_then: ..proc_check_if_symmetric_graph_operator_is_symmetric_str;;
+            => nrel_else: ..proc_check_if_symmetric_graph_operator17;;
+        *);;
+
+        -> ..proc_check_if_symmetric_graph_operator17
+        (*
+            <- ifEq;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _is_symmetric;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [1];;
+
+            => nrel_then: ..proc_check_if_symmetric_graph_operator_is_antisymmetric_str;;
+            => nrel_else: ..proc_check_if_symmetric_graph_operator6;;
+        *);;
+
+        -> ..proc_check_if_symmetric_graph_operator_is_symmetric_str
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _is_symmetric_str;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [1];;
+
+            => nrel_goto: ..proc_check_if_symmetric_graph_operator6;;
+        *);;
+
+        -> ..proc_check_if_symmetric_graph_operator_is_antisymmetric_str
+        (*
+            <- varAssign;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: _is_antisymmetric_str;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [1];;
+
+            => nrel_goto: ..proc_check_if_symmetric_graph_operator6;;
+        *);;
+
+        -> ..proc_check_if_symmetric_graph_operator18
+        (*
+            <- ifEq;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _is_symmetric_str;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [1];;
+
+            => nrel_then: ..proc_check_if_symmetric_graph_operator19;;
+            => nrel_else: ..proc_check_if_symmetric_graph_operator_antisymmetric;;
+        *);;
+        
+        -> ..proc_check_if_symmetric_graph_operator19
+        (*
+            <- ifEq;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _is_antisymmetric_str;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+            => nrel_then: ..proc_check_if_symmetric_graph_operator_symmetric;;
+            => nrel_else: ..proc_check_if_symmetric_graph_operator20;;
+        *);;
+
+        -> ..proc_check_if_symmetric_graph_operator20
+        (*
+            <- ifEq;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _is_antisymmetric_str;;
+            -> rrel_2: rrel_fixed: rrel_scp_const: [1];;
+
+            => nrel_then: ..proc_check_if_symmetric_graph_operator_particle_symmetric;;
+            => nrel_else: ..proc_check_if_symmetric_graph_operator_particle_symmetric;;
+        *);;
+
+        -> ..proc_check_if_symmetric_graph_operator_symmetric
+        (* 
+            <- genElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_const: concept_symmetric_graph;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+            => nrel_goto: ..proc_check_if_symmetric_graph_operator_return;;
+        *);;
+
+        -> ..proc_check_if_symmetric_graph_operator_particle_symmetric
+        (* 
+            <- genElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_const: concept_particle_symmetric_graph;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+            => nrel_goto: ..proc_check_if_symmetric_graph_operator_return;;
+        *);;
+
+        -> ..proc_check_if_symmetric_graph_operator_antisymmetric
+        (* 
+            <- genElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_const: concept_antisymmetric_graph;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+            => nrel_goto: ..proc_check_if_symmetric_graph_operator_return;;
+        *);;
+
+        -> ..proc_check_if_symmetric_graph_operator_return
+        (* 
+            <- return;;
+        *);; 
+    *);;
+*);;
