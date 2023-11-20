@@ -1,119 +1,79 @@
-scp_program -> proc_find_and_use_binary_operation
-(*
-	-> rrel_params: ...
-	(*
-		-> rrel_1: rrel_in: _operand1;;
-		-> rrel_2: rrel_in: _operand2;;
-		-> rrel_3: rrel_in: _operation;;
-		-> rrel_4: rrel_in: _solution_tree_node;;
+proc_find_and_use_binary_operation
+=> nrel_main_idtf:
+	[] (* <- lang_ru;; *);
+	[] (* <- lang_en;; *);
+<- scp_program;
+-> rrel_key_sc_element: .._process1;;
+
+proc_find_and_use_binary_operation = [*
+.._process1
+_<- scp_process;
+
+_-> rrel_1:: rrel_in:: _operand1;
+_-> rrel_2:: rrel_in:: _operand2;
+_-> rrel_3:: rrel_in:: _operation;
+_-> rrel_4:: rrel_in:: _solution_tree_node;
+_<= nrel_decomposition_of_action:: .._actions (*
+
+	_-> rrel_1:: .._proc_find_and_use_binary_operation_operator0 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_assign:: rrel_scp_var:: _operation_program;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _operation;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_solver_key_sc_element;;
+
+		_=> nrel_else:: .._proc_find_and_use_binary_operation_operator_return;;
+		_=> nrel_then:: .._proc_find_and_use_binary_operation_operator5;;
 	*);;
 
-	-> rrel_operators: ... 
-	(*
-		-> rrel_init: .proc_find_and_use_binary_operation_operator0
-		(*
-			<- searchElStr5;;
-			-> rrel_1: rrel_assign: rrel_scp_var: _operation_program;;
-			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _operation;;
-			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_solver_key_sc_element;;
-
-			=> nrel_then: .proc_find_and_use_binary_operation_operator5;;
-			=> nrel_else: .proc_find_and_use_binary_operation_operator_return;;
+	_-> .._proc_find_and_use_binary_operation_operator5 (*
+		_<- call;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _operation_program;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._proc_find_and_use_binary_operation_param0 (*
+			_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _operand1;;
+			_-> rrel_2:: rrel_fixed:: rrel_scp_const:: _operand2;;
+			_-> rrel_3:: rrel_assign:: rrel_scp_var:: _operation_result;;
 		*);;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _descr;;
 
-		-> .proc_find_and_use_binary_operation_operator1
-		(*
-			<- call;;
-			-> rrel_1: rrel_fixed: rrel_scp_const: proc_find_current_graph_version;;
-			-> rrel_2: rrel_fixed: rrel_scp_const: ... 
-				(*
-					-> rrel_1: rrel_fixed: rrel_scp_var: _operand1;;
-					-> rrel_2: rrel_assign: rrel_scp_var: _graph1;;
-				*);;
-			-> rrel_3: rrel_assign: rrel_scp_var: _descr;;
-
-			=> nrel_goto: .proc_find_and_use_binary_operation_operator2;;
-		*);;
-
-		-> .proc_find_and_use_binary_operation_operator2
-		(*
-			<- waitReturn;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
-			
-			=> nrel_goto: .proc_find_and_use_binary_operation_operator3;;
-		*);;
-
-		-> .proc_find_and_use_binary_operation_operator3
-		(*
-			<- call;;
-			-> rrel_1: rrel_fixed: rrel_scp_const: proc_find_current_graph_version;;
-			-> rrel_2: rrel_fixed: rrel_scp_const: ... 
-				(*
-					-> rrel_1: rrel_fixed: rrel_scp_var: _operand2;;
-					-> rrel_2: rrel_assign: rrel_scp_var: _graph2;;
-				*);;
-			-> rrel_3: rrel_assign: rrel_scp_var: _descr;;
-
-			=> nrel_goto: .proc_find_and_use_binary_operation_operator4;;
-		*);;
-
-		-> .proc_find_and_use_binary_operation_operator4
-		(*
-			<- waitReturn;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
-			
-			=> nrel_goto: .proc_find_and_use_binary_operation_operator5;;
-		*);;
-		-> .proc_find_and_use_binary_operation_operator5
-		(*
-			<- call;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _operation_program;;
-			-> rrel_2: rrel_fixed: rrel_scp_const: ... 
-				(*
-					-> rrel_1: rrel_fixed: rrel_scp_var: _operand1;;
-					-> rrel_2: rrel_fixed: rrel_scp_var: _operand2;;
-					-> rrel_3: rrel_assign: rrel_scp_var: _operation_result;;
-				*);;
-			-> rrel_3: rrel_assign: rrel_scp_var: _descr;;
-
-			=> nrel_goto: .proc_find_and_use_binary_operation_operator6;;
-		*);;
-
-		-> .proc_find_and_use_binary_operation_operator6
-		(*
-			<- waitReturn;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
-			
-			=> nrel_goto: .proc_find_and_use_binary_operation_operator7;;
-		*);;
-
-		-> .proc_find_and_use_binary_operation_operator7
-		(*
-			<- genElStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _solution_tree_node;;
-			-> rrel_2: rrel_assign: rrel_const: rrel_common: rrel_scp_var: _arc;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _operation_result;;
-			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_action_result;;
-
-			=> nrel_goto: .proc_find_and_use_binary_operation_operator8;;
-		*);;
-
-		-> .proc_find_and_use_binary_operation_operator8
-		(*
-			<- genElStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _solution_tree_node;;
-			-> rrel_2: rrel_assign: rrel_const: rrel_common: rrel_scp_var: _arc;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _operation_program;;
-			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_solution_action;;
-
-			=> nrel_goto: .proc_find_and_use_binary_operation_operator_return;;
-		*);;
-
-		-> .proc_find_and_use_binary_operation_operator_return(*<-return;;*);;
+		_=> nrel_goto:: .._proc_find_and_use_binary_operation_operator6;;
 	*);;
+
+	_-> .._proc_find_and_use_binary_operation_operator_return (*
+		_<- return;;
+
+	*);;
+
+	_-> .._proc_find_and_use_binary_operation_operator6 (*
+		_<- waitReturn;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _descr;;
+
+		_=> nrel_goto:: .._proc_find_and_use_binary_operation_operator7;;
+	*);;
+
+	_-> .._proc_find_and_use_binary_operation_operator7 (*
+		_<- genElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _solution_tree_node;;
+		_-> rrel_2:: rrel_assign:: rrel_const:: rrel_common:: rrel_scp_var:: _arc;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _operation_result;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_action_result;;
+
+		_=> nrel_goto:: .._proc_find_and_use_binary_operation_operator8;;
+	*);;
+
+	_-> .._proc_find_and_use_binary_operation_operator8 (*
+		_<- genElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _solution_tree_node;;
+		_-> rrel_2:: rrel_assign:: rrel_const:: rrel_common:: rrel_scp_var:: _arc;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _operation_program;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_solution_action;;
+
+		_=> nrel_goto:: .._proc_find_and_use_binary_operation_operator_return;;
+	*);;
+
 *);;
 
+*];;
