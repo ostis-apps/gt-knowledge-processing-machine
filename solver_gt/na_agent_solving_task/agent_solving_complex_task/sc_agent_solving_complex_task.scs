@@ -3,7 +3,7 @@ sc_agent_solving_complex_task
 	[sc-агент решения составной задачи] (* <- lang_ru;; *);
 <- abstract_sc_agent;
 => nrel_primary_initiation_condition: (sc_event_add_output_arc => question_initiated);
-=> nrel_initiation_condition_and_result: (..sc_agent_solving_complex_task_initiation_condition => ..sc_agent_solving_complex_task_result);
+=> nrel_initiation_condition_and_result: (sc_agent_solving_complex_task_initiation_condition => sc_agent_solving_complex_task_result);
 <= nrel_sc_agent_key_sc_elements: 
 	{
 		question_initiated;
@@ -11,7 +11,7 @@ sc_agent_solving_complex_task
 		question_solving_complex_task
 	};
 <- key_sc_element:
-	..sc_agent_solving_complex_task_behavior
+	sc_agent_solving_complex_task_behavior
 	(*
 	<- sc_description_of_sc_agent_behavior;;
 	<= nrel_sc_text_translation:

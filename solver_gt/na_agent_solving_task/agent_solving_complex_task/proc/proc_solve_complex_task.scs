@@ -1,296 +1,260 @@
-scp_program -> proc_solve_complex_task
-(*
-	-> rrel_params: ...
-	(*
-		-> rrel_1: rrel_in: _quest_params;;
-		-> rrel_2: rrel_out: _solution_tree_root;;
+proc_solve_complex_task
+=> nrel_main_idtf:
+	[] (* <- lang_ru;; *);
+	[] (* <- lang_en;; *);
+<- scp_program;
+-> rrel_key_sc_element: .._process1;;
+
+proc_solve_complex_task = [*
+.._process1
+_<- scp_process;
+
+_-> rrel_1:: rrel_in:: _quest_params;
+_-> rrel_2:: rrel_out:: _solution_tree_root;
+_<= nrel_decomposition_of_action:: .._actions (*
+
+	_-> rrel_1:: .._proc_solve_complex_task_operator1 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _quest_params;;
+		_-> rrel_2:: rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _solution_goal;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_solution_goal;;
+
+		_=> nrel_else:: .._proc_solve_complex_task_operator_return;;
+		_=> nrel_then:: .._proc_solve_complex_task_operator1_1;;
 	*);;
 
-	-> rrel_operators: ... 
-	(*
-		-> rrel_init: .proc_solve_complex_task_operator1
-		(*
-			<- searchElStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _quest_params;;
-			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
-			-> rrel_3: rrel_assign: rrel_scp_var: _solution_goal;;
-			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_solution_goal;;
+	_-> .._proc_solve_complex_task_operator1_1 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _quest_params;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _task;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_task;;
 
-			=> nrel_then: .proc_solve_complex_task_operator1_1;;
-			=> nrel_else: .proc_solve_complex_task_operator_return;;
-		*);;
-
-		-> .proc_solve_complex_task_operator1_1
-		(*
-			<- searchElStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _quest_params;;
-			-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
-			-> rrel_3: rrel_assign: rrel_scp_var: _task;;
-			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_task;;
-
-			=> nrel_then: .proc_solve_complex_task_operator3;;
-			=> nrel_else: .proc_solve_complex_task_operator_return;;
-		*);;
-
-		-> .proc_solve_complex_task_operator2
-		(*
-			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_const: rrel_arc;;
-			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _solution_goal;;
-
-			=> nrel_then: .proc_solve_complex_task_operator4;;
-			=> nrel_else: .proc_solve_complex_task_operator14;;
-		*);;
-
-		-> .proc_solve_complex_task_operator3
-		(*
-			<- searchElStr3;;
-			-> rrel_1: rrel_assign: rrel_scp_var: _concept;;
-			-> rrel_2: rrel_fixed: rrel_scp_var: _solution_goal;;
-			-> rrel_3: rrel_assign: rrel_scp_var: _task_element;;
-
-			=> nrel_then: .proc_solve_complex_task_operator4;;
-			=> nrel_else: .proc_solve_complex_task_operator14;;
-		*);;
-
-		-> .proc_solve_complex_task_operator4
-		(*
-			<- call;;
-				-> rrel_1: rrel_fixed: rrel_scp_const: proc_find_task_element_value;;
-				-> rrel_2: rrel_fixed: rrel_scp_const: ... 
-				(*
-					-> rrel_1: rrel_fixed: rrel_scp_var: _task_element;;
-					-> rrel_2: rrel_fixed: rrel_scp_var: _quest_params;;
-					-> rrel_3: rrel_fixed: rrel_scp_var: _task;;
-					-> rrel_4: rrel_assign: rrel_scp_var: _task_element_value;;
-					-> rrel_5: rrel_assign: rrel_scp_var: _solution_tree_node;;
-				*);;
-				-> rrel_3: rrel_assign: rrel_scp_var: _descr;;
-
-			=> nrel_goto: .proc_solve_complex_task_operator5;;
-		*);;
-
-		-> .proc_solve_complex_task_operator5
-		(*
-			<- waitReturn;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
-
-			=> nrel_goto: .proc_solve_complex_task_operator6;;
-		*);;
-
-		-> .proc_solve_complex_task_operator6
-		(*
-			<- genElStr5;;
-			-> rrel_1: rrel_assign: rrel_scp_var: _params;;
-			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _task_element_value;;
-			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_1;;
-
-			=> nrel_goto: .proc_solve_complex_task_operator8;;
-		*);;
-
-		-> .proc_solve_complex_task_operator8
-		(*
-			<- genElStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _params;;
-			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _concept;;
-			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_2;;
-
-			=> nrel_goto: .proc_solve_complex_task_operator9;;
-		*);;
-
-		-> .proc_solve_complex_task_operator9
-		(*
-			<- call;;
-			-> rrel_1: rrel_fixed: rrel_scp_const: proc_init_question_event;;
-			-> rrel_2: rrel_fixed: rrel_scp_const: ... 
-				(*
-					-> rrel_1: rrel_fixed: rrel_scp_const: question_find_sc_element_kb_element_relation;;
-					-> rrel_2: rrel_fixed: rrel_scp_var: _params;;
-					-> rrel_3: rrel_assign: rrel_scp_var: _agent_answer;;
-				*);;
-			-> rrel_3: rrel_assign: rrel_scp_var: _descr1;;
-
-			=> nrel_goto: .proc_solve_complex_task_operator10;;
-		*);;
-
-		-> .proc_solve_complex_task_operator10
-		(*
-			<- waitReturn;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _descr1;;
-
-			=> nrel_goto: .proc_solve_complex_task_operator10_1;;
-		*);;
-
-		-> .proc_solve_complex_task_operator10_1
-		(*
-			<- searchElStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _agent_answer;;
-			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
-			-> rrel_3: rrel_assign: rrel_scp_var: _solution_tree_node_result;;
-			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_2;;
-
-			=> nrel_then: .proc_solve_complex_task_operator11;;
-			=> nrel_else: .proc_solve_complex_task_operator_return;;
-		*);;
-
-		-> .proc_solve_complex_task_operator11
-		(*
-			<- ifVarAssign;;
-			-> rrel_1: rrel_scp_var: _solution_tree_node_result;;
-
-			=> nrel_then: .proc_solve_complex_task_operator11_1;;
-			=> nrel_else: .proc_solve_complex_task_operator18;;
-		*);;
-
-		-> .proc_solve_complex_task_operator11_1
-		(*
-			<- ifVarAssign;;
-			-> rrel_1: rrel_scp_var: _solution_tree_node;;
-
-			=> nrel_then: .proc_solve_complex_task_operator11_2;;
-			=> nrel_else: .proc_solve_complex_task_operator13;;
-		*);;
-
-		-> .proc_solve_complex_task_operator11_2
-		(*
-			<- call;;
-		    -> rrel_1: rrel_fixed: rrel_scp_const: proc_add_new_solution_chain;;
-		    -> rrel_2: rrel_fixed: rrel_scp_const: ... 
-				(*
-					-> rrel_1: rrel_fixed: rrel_scp_var: _solution_tree_node;;
-					-> rrel_2: rrel_fixed: rrel_scp_var: _solution_tree_node_result;;
-				*);;
-		    -> rrel_3: rrel_assign: rrel_scp_var: _descr2;;
-
-			=> nrel_goto: .proc_solve_complex_task_operator11_3;;
-		*);;
-
-		-> .proc_solve_complex_task_operator11_3
-		(*
-			<- waitReturn;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _descr2;;
-			
-			=> nrel_goto: .proc_solve_complex_task_operator13;;
-		*);;
-
-		-> .proc_solve_complex_task_operator13
-		(*
-			<- varAssign;;
-			-> rrel_1: rrel_assign: rrel_scp_var: _solution_tree_node;;
-			-> rrel_2: rrel_fixed: rrel_scp_var: _solution_tree_node_result;;
-
-			=> nrel_goto: .proc_solve_complex_task_operator18;;
-		*);;	
-
-		-> .proc_solve_complex_task_operator14
-		(*
-			<- call;;
-				-> rrel_1: rrel_fixed: rrel_scp_const: proc_find_task_element_value;;
-				-> rrel_2: rrel_fixed: rrel_scp_const: ... 
-				(*
-					-> rrel_1: rrel_fixed: rrel_scp_var: _solution_goal;;
-					-> rrel_2: rrel_fixed: rrel_scp_var: _quest_params;;
-					-> rrel_3: rrel_fixed: rrel_scp_var: _task;;
-					-> rrel_4: rrel_assign: rrel_scp_var: _task_element_value;;
-					-> rrel_5: rrel_assign: rrel_scp_var: _solution_tree_node;;
-				*);;
-				-> rrel_3: rrel_assign: rrel_scp_var: _descr;;
-
-			=> nrel_goto: .proc_solve_complex_task_operator15;;
-		*);;
-
-		-> .proc_solve_complex_task_operator15
-		(*
-			<- waitReturn;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
-
-			=> nrel_goto: .proc_solve_complex_task_operator16;;
-		*);;
-
-		-> .proc_solve_complex_task_operator16
-		(*
-			<- ifVarAssign;;
-			-> rrel_1: rrel_scp_var: _solution_tree_node;;
-
-			=> nrel_then: .proc_solve_complex_task_operator18;;
-			=> nrel_else: .proc_solve_complex_task_operator17;;
-		*);;
-
-		-> .proc_solve_complex_task_operator17
-		(*
-			<- genEl;;
-			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _solution_tree_node;;
-
-			=> nrel_goto: .proc_solve_complex_task_operator_return;;
-		*);;	
-
-		-> .proc_solve_complex_task_operator18
-		(*
-			<- searchElStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _solution_tree_node;;
-			-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc1;;
-			-> rrel_3: rrel_assign: rrel_scp_var: _solution_result;;
-			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_action_result;;
-
-			=> nrel_then: .proc_solve_complex_task_operator19;;
-			=> nrel_else: .proc_solve_complex_task_operator20;;
-		*);;
-
-		-> .proc_solve_complex_task_operator19
-		(*
-			<- genElStr5;;
-			-> rrel_1: rrel_assign: rrel_scp_var: _solution_tree_root;;
-			-> rrel_2: rrel_assign: rrel_common: rrel_const: rrel_scp_var: _arc1;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _solution_result;;
-			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_solution_result;;
-
-			=> nrel_goto: .proc_solve_complex_task_operator21;;
-		*);;
-
-		-> .proc_solve_complex_task_operator20
-		(*
-			<- genElStr5;;
-			-> rrel_1: rrel_assign: rrel_scp_var: _solution_tree_root;;
-			-> rrel_2: rrel_assign: rrel_common: rrel_const: rrel_scp_var: _arc1;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _solution_tree_node;;
-			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_task_solution;;
-
-			=> nrel_goto: .proc_solve_complex_task_operator_return;;
-		*);;
-
-		-> .proc_solve_complex_task_operator21
-		(*
-			<- genElStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _solution_tree_root;;
-			-> rrel_2: rrel_assign: rrel_common: rrel_const: rrel_scp_var: _arc1;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _solution_tree_node;;
-			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_task_solution;;
-
-			=> nrel_goto: .proc_solve_complex_task_operator_return;;
-		*);;
-
-		-> .proc_solve_complex_task_operator_return
-		(*
-			<- printNl;;
-			-> rrel_1: rrel_fixed: rrel_scp_const: [Finish work proc_solve_complex_task];;
-
-			=> nrel_goto: .proc_solve_complex_task_operator_shadow_return;;
-		*);;
-
-
-		-> .proc_solve_complex_task_operator_shadow_return(*<-return;;*);;
+		_=> nrel_else:: .._proc_solve_complex_task_operator_return;;
+		_=> nrel_then:: .._proc_solve_complex_task_operator3;;
 	*);;
+
+	_-> .._proc_solve_complex_task_operator_return (*
+		_<- printNl;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: [Finish work proc_solve_complex_task];;
+
+		_=> nrel_goto:: .._proc_solve_complex_task_operator_shadow_return;;
+	*);;
+
+	_-> .._proc_solve_complex_task_operator_shadow_return (*
+		_<- return;;
+
+	*);;
+
+	_-> .._proc_solve_complex_task_operator3 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_assign:: rrel_scp_var:: _concept;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _solution_goal;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _task_element;;
+
+		_=> nrel_else:: .._proc_solve_complex_task_operator14;;
+		_=> nrel_then:: .._proc_solve_complex_task_operator4;;
+	*);;
+
+	_-> .._proc_solve_complex_task_operator4 (*
+		_<- call;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: proc_find_task_element_value;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._proc_solve_complex_task_param0 (*
+			_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _task_element;;
+			_-> rrel_2:: rrel_fixed:: rrel_scp_const:: _quest_params;;
+			_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _task;;
+			_-> rrel_4:: rrel_assign:: rrel_scp_var:: _task_element_value;;
+			_-> rrel_5:: rrel_assign:: rrel_scp_var:: _solution_tree_node;;
+		*);;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _descr;;
+
+		_=> nrel_goto:: .._proc_solve_complex_task_operator5;;
+	*);;
+
+	_-> .._proc_solve_complex_task_operator14 (*
+		_<- call;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: proc_find_task_element_value;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._proc_solve_complex_task_param1 (*
+			_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _solution_goal;;
+			_-> rrel_2:: rrel_fixed:: rrel_scp_const:: _quest_params;;
+			_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _task;;
+			_-> rrel_4:: rrel_assign:: rrel_scp_var:: _task_element_value;;
+			_-> rrel_5:: rrel_assign:: rrel_scp_var:: _solution_tree_node;;
+		*);;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _descr;;
+
+		_=> nrel_goto:: .._proc_solve_complex_task_operator15;;
+	*);;
+
+	_-> .._proc_solve_complex_task_operator15 (*
+		_<- waitReturn;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _descr;;
+
+		_=> nrel_goto:: .._proc_solve_complex_task_operator16;;
+	*);;
+
+	_-> .._proc_solve_complex_task_operator16 (*
+		_<- ifVarAssign;;
+		_-> rrel_1:: rrel_scp_var:: _solution_tree_node;;
+
+		_=> nrel_else:: .._proc_solve_complex_task_operator17;;
+		_=> nrel_then:: .._proc_solve_complex_task_operator18;;
+	*);;
+
+	_-> .._proc_solve_complex_task_operator18 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _solution_tree_node;;
+		_-> rrel_2:: rrel_4:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _solution_result;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_action_result;;
+
+		_=> nrel_else:: .._proc_solve_complex_task_operator20;;
+		_=> nrel_then:: .._proc_solve_complex_task_operator19;;
+	*);;
+
+	_-> .._proc_solve_complex_task_operator17 (*
+		_<- genEl;;
+		_-> rrel_1:: rrel_assign:: rrel_const:: rrel_node:: rrel_scp_var:: _solution_tree_node;;
+
+		_=> nrel_goto:: .._proc_solve_complex_task_operator_return;;
+	*);;
+
+	_-> .._proc_solve_complex_task_operator19 (*
+		_<- genElStr5;;
+		_-> rrel_1:: rrel_assign:: rrel_scp_var:: _solution_tree_root;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_const:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _solution_result;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_solution_result;;
+
+		_=> nrel_goto:: .._proc_solve_complex_task_operator21;;
+	*);;
+
+	_-> .._proc_solve_complex_task_operator20 (*
+		_<- genElStr5;;
+		_-> rrel_1:: rrel_assign:: rrel_scp_var:: _solution_tree_root;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_const:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _solution_tree_node;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_task_solution;;
+
+		_=> nrel_goto:: .._proc_solve_complex_task_operator_return;;
+	*);;
+
+	_-> .._proc_solve_complex_task_operator21 (*
+		_<- genElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _solution_tree_root;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_const:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _solution_tree_node;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_task_solution;;
+
+		_=> nrel_goto:: .._proc_solve_complex_task_operator_return;;
+	*);;
+
+	_-> .._proc_solve_complex_task_operator5 (*
+		_<- waitReturn;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _descr;;
+
+		_=> nrel_goto:: .._proc_solve_complex_task_operator6;;
+	*);;
+
+	_-> .._proc_solve_complex_task_operator6 (*
+		_<- genElStr5;;
+		_-> rrel_1:: rrel_assign:: rrel_scp_var:: _params;;
+		_-> rrel_2:: rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _task_element_value;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_1;;
+
+		_=> nrel_goto:: .._proc_solve_complex_task_operator8;;
+	*);;
+
+	_-> .._proc_solve_complex_task_operator8 (*
+		_<- genElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _params;;
+		_-> rrel_2:: rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _concept;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_2;;
+
+		_=> nrel_goto:: .._proc_solve_complex_task_operator9;;
+	*);;
+
+	_-> .._proc_solve_complex_task_operator9 (*
+		_<- call;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: proc_init_question_event;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._proc_solve_complex_task_param2 (*
+			_-> rrel_1:: rrel_fixed:: rrel_scp_const:: question_find_sc_element_kb_element_relation;;
+			_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _params;;
+			_-> rrel_3:: rrel_assign:: rrel_scp_var:: _agent_answer;;
+		*);;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _descr1;;
+
+		_=> nrel_goto:: .._proc_solve_complex_task_operator10;;
+	*);;
+
+	_-> .._proc_solve_complex_task_operator10 (*
+		_<- waitReturn;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _descr1;;
+
+		_=> nrel_goto:: .._proc_solve_complex_task_operator10_1;;
+	*);;
+
+	_-> .._proc_solve_complex_task_operator10_1 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _agent_answer;;
+		_-> rrel_2:: rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _solution_tree_node_result;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_2;;
+
+		_=> nrel_else:: .._proc_solve_complex_task_operator_return;;
+		_=> nrel_then:: .._proc_solve_complex_task_operator11;;
+	*);;
+
+	_-> .._proc_solve_complex_task_operator11 (*
+		_<- ifVarAssign;;
+		_-> rrel_1:: rrel_scp_var:: _solution_tree_node_result;;
+
+		_=> nrel_else:: .._proc_solve_complex_task_operator18;;
+		_=> nrel_then:: .._proc_solve_complex_task_operator11_1;;
+	*);;
+
+	_-> .._proc_solve_complex_task_operator11_1 (*
+		_<- ifVarAssign;;
+		_-> rrel_1:: rrel_scp_var:: _solution_tree_node;;
+
+		_=> nrel_else:: .._proc_solve_complex_task_operator13;;
+		_=> nrel_then:: .._proc_solve_complex_task_operator11_2;;
+	*);;
+
+	_-> .._proc_solve_complex_task_operator11_2 (*
+		_<- call;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: proc_add_new_solution_chain;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._proc_solve_complex_task_param3 (*
+			_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _solution_tree_node;;
+			_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _solution_tree_node_result;;
+		*);;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _descr2;;
+
+		_=> nrel_goto:: .._proc_solve_complex_task_operator11_3;;
+	*);;
+
+	_-> .._proc_solve_complex_task_operator13 (*
+		_<- varAssign;;
+		_-> rrel_1:: rrel_assign:: rrel_scp_var:: _solution_tree_node;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _solution_tree_node_result;;
+
+		_=> nrel_goto:: .._proc_solve_complex_task_operator18;;
+	*);;
+
+	_-> .._proc_solve_complex_task_operator11_3 (*
+		_<- waitReturn;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _descr2;;
+
+		_=> nrel_goto:: .._proc_solve_complex_task_operator13;;
+	*);;
+
 *);;
 
+*];;
