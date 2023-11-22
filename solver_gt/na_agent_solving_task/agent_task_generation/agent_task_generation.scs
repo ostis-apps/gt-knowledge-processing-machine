@@ -2,173 +2,159 @@ agent_task_generation
 => nrel_main_idtf:
 	[агентная scp-программа решения состовной задачи] (* <- lang_ru;; *);
 	[agent scp-program of solving complex task] (* <- lang_en;; *);
-	<- agent_scp_program;;
+<- scp_program;
+<- agent_scp_program;
+-> rrel_key_sc_element: .._process1;;
 
-scp_program -> agent_task_generation (*
-	-> rrel_params: .agent_task_generation_params (*
-		-> rrel_1: rrel_in: _event;;
-		-> rrel_2: rrel_in: _input_arc;;
+agent_task_generation = [*
+.._process1
+_<- scp_process;
+
+_-> rrel_1:: rrel_in:: _event;
+_-> rrel_2:: rrel_in:: _input_arc;
+_<= nrel_decomposition_of_action:: .._actions (*
+
+	_-> rrel_1:: .._agent_task_generation_operator0 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_assign:: rrel_scp_var:: _temp;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: _input_arc;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _quest;;
+
+		_=> nrel_goto:: .._agent_task_generation_operator1;;
 	*);;
 
-	-> rrel_operators: .agent_task_generation_operator_set (*
+	_-> .._agent_task_generation_operator1 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: question_generate_task;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _quest;;
 
-		-> .agent_task_generation_operator_debug
-		(*
-			<- printNl;;
-			-> rrel_1: rrel_fixed: rrel_scp_const: [Start work agent_task_generation];;
-
-			=> nrel_goto: .agent_task_generation_operator2;;
-		*);;
-
-		->rrel_init: .agent_task_generation_operator0 
-		(*
-			<- searchElStr3;;
-			-> rrel_1: rrel_assign: rrel_scp_var: _temp;;
-			-> rrel_2: rrel_fixed: rrel_scp_var: _input_arc;;
-			-> rrel_3: rrel_assign: rrel_scp_var: _quest;;
-	
-			=> nrel_goto: .agent_task_generation_operator1;;
-		*);;
-
-		-> .agent_task_generation_operator1
-		(*
-			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_const: question_generate_task;;
-			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
-
-			=> nrel_then: .agent_task_generation_operator_debug;;
-			=> nrel_else: .agent_task_generation_operator_return;;
-		*);;
-
-		-> .agent_task_generation_operator2
-		(*
-			<- searchElStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
-			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
-			-> rrel_3: rrel_assign: rrel_scp_var: _task_template;;
-			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_1;;
-
-			=> nrel_then: .agent_task_generation_operator3;;
-			=> nrel_else: .agent_task_generation_operator_return;;
-		*);;
-
-		-> .agent_task_generation_operator3
-		(*
-			<- searchElStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
-			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
-			-> rrel_3: rrel_assign: rrel_scp_var: _params;;
-			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_2;;
-
-			=> nrel_then: .agent_task_generation_operator4;;
-			=> nrel_else: .agent_task_generation_operator_return;;
-		*);;
-
-		-> .agent_task_generation_operator4
-		(*
-			<- call;;
-		    -> rrel_1: rrel_fixed: rrel_scp_const: proc_generate_task_with_question;;
-		    -> rrel_2: rrel_fixed: rrel_scp_const: ... 
-				(*
-					-> rrel_1: rrel_fixed: rrel_scp_var: _task_template;;
-					-> rrel_2: rrel_fixed: rrel_scp_var: _params;;
-					-> rrel_3: rrel_assign: rrel_scp_var: _task_question_node;;
-				*);;
-		    -> rrel_3: rrel_assign: rrel_scp_var: _descr1;;
-
-			=> nrel_goto: .agent_task_generation_operator5;;
-		*);;
-
-		-> .agent_task_generation_operator5
-		(*
-			<- waitReturn;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _descr1;;
-
-			=> nrel_goto: .agent_task_generation_operator6;;
-		*);;
-
-		-> .agent_task_generation_operator6
-		(*
-			<- ifVarAssign;;
-			-> rrel_1: rrel_scp_var: _task_question_node;;
-
-			=> nrel_then: .agent_task_generation_operator7;;
-			=> nrel_else: .agent_task_generation_operator11;;
-		*);;
-
-		-> .agent_task_generation_operator7
-		(*
-			<- call;;
-		    -> rrel_1: rrel_fixed: rrel_scp_const: proc_init_question_by_quest;;
-		    -> rrel_2: rrel_fixed: rrel_scp_const: ... 
-				(*
-					-> rrel_1: rrel_fixed: rrel_scp_var: _task_question_node;;
-					-> rrel_2: rrel_assign: rrel_scp_var: _agent_answer;;
-				*);;
-		    -> rrel_3: rrel_assign: rrel_scp_var: _descr1;;
-
-			=> nrel_goto: .agent_task_generation_operator8;;
-		*);;
-
-		-> .agent_task_generation_operator8
-		(*
-			<- waitReturn;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _descr1;;
-
-			=> nrel_goto: .agent_task_generation_operator9;;
-		*);;
-
-		-> .agent_task_generation_operator9
-		(*
-			<- ifVarAssign;;
-			-> rrel_1: rrel_scp_var: _agent_answer;;
-
-			=> nrel_then: .agent_task_generation_operator10;;
-			=> nrel_else: .agent_task_generation_operator11;;
-		*);;
-
-		-> .agent_task_generation_operator10
-		(*
-			<- varAssign;;
-			-> rrel_1: rrel_assign: rrel_scp_var: _answer;;
-			-> rrel_2: rrel_fixed: rrel_scp_var: _agent_answer;;
-
-			=> nrel_goto: .agent_task_generation_operator_last;;
-		*);;
-
-		-> .agent_task_generation_operator11
-		(*
-			<- genEl;;
-			-> rrel_1: rrel_assign: rrel_const: rrel_node: rrel_scp_var: _answer;;
-
-			=> nrel_goto: .agent_task_generation_operator_last;;
-		*);;	
-		
-		-> .agent_task_generation_operator_last
-		(*
-			<- genElStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
-			-> rrel_2: rrel_assign: rrel_const: rrel_common: rrel_scp_var: _arc;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _answer;;
-			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_answer;;
-
-			=>nrel_goto: .agent_task_generation_operator_return;;
-		*);; 
-
-		-> .agent_task_generation_operator_return
-		(*
-			<- printNl;;
-			-> rrel_1: rrel_fixed: rrel_scp_const: [Finish work agent_task_generation];;
-
-			=> nrel_goto: .agent_task_generation_operator_shadow_return;;
-		*);;
-
-		-> .agent_task_generation_operator_shadow_return (*
-		  <- return;;
-		*);;
+		_=> nrel_else:: .._agent_task_generation_operator_return;;
+		_=> nrel_then:: .._agent_task_generation_operator_debug;;
 	*);;
+
+	_-> .._agent_task_generation_operator_debug (*
+		_<- printNl;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: [Start work agent_task_generation];;
+
+		_=> nrel_goto:: .._agent_task_generation_operator2;;
+	*);;
+
+	_-> .._agent_task_generation_operator_return (*
+		_<- printNl;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: [Finish work agent_task_generation];;
+
+		_=> nrel_goto:: .._agent_task_generation_operator_shadow_return;;
+	*);;
+
+	_-> .._agent_task_generation_operator_shadow_return (*
+		_<- return;;
+
+	*);;
+
+	_-> .._agent_task_generation_operator2 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _quest;;
+		_-> rrel_2:: rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _task_template;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_1;;
+
+		_=> nrel_else:: .._agent_task_generation_operator_return;;
+		_=> nrel_then:: .._agent_task_generation_operator3;;
+	*);;
+
+	_-> .._agent_task_generation_operator3 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _quest;;
+		_-> rrel_2:: rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _params;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_2;;
+
+		_=> nrel_else:: .._agent_task_generation_operator_return;;
+		_=> nrel_then:: .._agent_task_generation_operator4;;
+	*);;
+
+	_-> .._agent_task_generation_operator4 (*
+		_<- call;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: proc_generate_task_with_question;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._agent_task_generation_param0 (*
+			_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _task_template;;
+			_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _params;;
+			_-> rrel_3:: rrel_assign:: rrel_scp_var:: _task_question_node;;
+		*);;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _descr1;;
+
+		_=> nrel_goto:: .._agent_task_generation_operator5;;
+	*);;
+
+	_-> .._agent_task_generation_operator5 (*
+		_<- waitReturn;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _descr1;;
+
+		_=> nrel_goto:: .._agent_task_generation_operator6;;
+	*);;
+
+	_-> .._agent_task_generation_operator6 (*
+		_<- ifVarAssign;;
+		_-> rrel_1:: rrel_scp_var:: _task_question_node;;
+
+		_=> nrel_else:: .._agent_task_generation_operator11;;
+		_=> nrel_then:: .._agent_task_generation_operator7;;
+	*);;
+
+	_-> .._agent_task_generation_operator7 (*
+		_<- call;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: proc_init_question_by_quest;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._agent_task_generation_param1 (*
+			_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _task_question_node;;
+			_-> rrel_2:: rrel_assign:: rrel_scp_var:: _agent_answer;;
+		*);;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _descr1;;
+
+		_=> nrel_goto:: .._agent_task_generation_operator8;;
+	*);;
+
+	_-> .._agent_task_generation_operator11 (*
+		_<- genEl;;
+		_-> rrel_1:: rrel_assign:: rrel_const:: rrel_node:: rrel_scp_var:: _answer;;
+
+		_=> nrel_goto:: .._agent_task_generation_operator_last;;
+	*);;
+
+	_-> .._agent_task_generation_operator_last (*
+		_<- genElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _quest;;
+		_-> rrel_2:: rrel_assign:: rrel_const:: rrel_common:: rrel_scp_var:: _arc;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _answer;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_answer;;
+
+		_=> nrel_goto:: .._agent_task_generation_operator_return;;
+	*);;
+
+	_-> .._agent_task_generation_operator8 (*
+		_<- waitReturn;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _descr1;;
+
+		_=> nrel_goto:: .._agent_task_generation_operator9;;
+	*);;
+
+	_-> .._agent_task_generation_operator9 (*
+		_<- ifVarAssign;;
+		_-> rrel_1:: rrel_scp_var:: _agent_answer;;
+
+		_=> nrel_else:: .._agent_task_generation_operator11;;
+		_=> nrel_then:: .._agent_task_generation_operator10;;
+	*);;
+
+	_-> .._agent_task_generation_operator10 (*
+		_<- varAssign;;
+		_-> rrel_1:: rrel_assign:: rrel_scp_var:: _answer;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _agent_answer;;
+
+		_=> nrel_goto:: .._agent_task_generation_operator_last;;
+	*);;
+
 *);;
+
+*];;

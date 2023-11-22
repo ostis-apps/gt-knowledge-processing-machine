@@ -1,76 +1,77 @@
-scp_program -> proc_remove_current_solution_branch
-(*
-	-> rrel_params: ...
-	(*
-		-> rrel_1: rrel_in: _solution_node;;
+proc_remove_current_solution_branch
+=> nrel_main_idtf:
+	[] (* <- lang_ru;; *);
+	[] (* <- lang_en;; *);
+<- scp_program;
+-> rrel_key_sc_element: .._process1;;
+
+proc_remove_current_solution_branch = [*
+.._process1
+_<- scp_process;
+
+_-> rrel_1:: rrel_in:: _solution_node;
+_<= nrel_decomposition_of_action:: .._actions (*
+
+	_-> rrel_1:: .._proc_remove_current_solution_branch_operator0 (*
+		_<- searchSetStr5;;
+		_-> rrel_1:: rrel_assign:: rrel_scp_var:: _old_solution_node;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _solution_node;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_goto;;
+		_-> rrel_assign:: rrel_scp_var:: rrel_set_1:: _old_solution_nodes;;
+
+		_=> nrel_else:: .._proc_remove_current_solution_branch_operator5;;
+		_=> nrel_then:: .._proc_remove_current_solution_branch_operator1;;
 	*);;
 
-	-> rrel_operators: ... 
-	(*
-		-> rrel_init: .proc_remove_current_solution_branch_operator0
-		(*
-			<- searchSetStr5;;
-			-> rrel_1: rrel_assign: rrel_scp_var: _old_solution_node;;
-            -> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc;;
-            -> rrel_3: rrel_fixed: rrel_scp_var: _solution_node;;
-			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
-    		-> rrel_5: rrel_fixed: rrel_scp_const: nrel_goto;;
-			
-			-> rrel_set_1: rrel_assign: rrel_scp_var: _old_solution_nodes;;
+	_-> .._proc_remove_current_solution_branch_operator1 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _old_solution_nodes;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_erase_2;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _old_solution_node;;
 
-			=> nrel_then: .proc_remove_current_solution_branch_operator1;;
-			=> nrel_else: .proc_remove_current_solution_branch_operator5;;
-		*);;
-
-		-> .proc_remove_current_solution_branch_operator1
-		(*
-			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _old_solution_nodes;;
-            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc_erase_2;;
-            -> rrel_3: rrel_assign: rrel_scp_var: _old_solution_node;;
-			
-			=> nrel_then: .proc_remove_current_solution_branch_operator2;;
-			=> nrel_else: .proc_remove_current_solution_branch_operator4;;
-		*);;
-
-         -> .proc_remove_current_solution_branch_operator2
-		(*
-			<- call;;
-		    -> rrel_1: rrel_fixed: rrel_scp_const: proc_remove_current_solution_branch;;
-		    -> rrel_2: rrel_fixed: rrel_scp_const: ... 
-				(*
-					-> rrel_1: rrel_fixed: rrel_scp_var: _old_solution_node;;
-				*);;
-		    -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
-
-			=> nrel_goto: .proc_remove_current_solution_branch_operator3;;
-		*);;
-
-		-> .proc_remove_current_solution_branch_operator3
-		(*
-			<- waitReturn;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
-
-			=> nrel_goto: .proc_remove_current_solution_branch_operator1;;
-		*);;
-
-        -> .proc_remove_current_solution_branch_operator4
-		(*
-			<- eraseEl;;
-            -> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _old_solution_nodes;;
-
-			=> nrel_goto: .proc_remove_current_solution_branch_operator5;;
-		*);;
-
-		-> .proc_remove_current_solution_branch_operator5
-		(*
-			<- eraseEl;;
-            -> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _solution_node;;
-
-			=> nrel_goto: .proc_remove_current_solution_branch_operator_return;;
-		*);;
-
-		-> .proc_remove_current_solution_branch_operator_return(*<-return;;*);;
+		_=> nrel_else:: .._proc_remove_current_solution_branch_operator4;;
+		_=> nrel_then:: .._proc_remove_current_solution_branch_operator2;;
 	*);;
+
+	_-> .._proc_remove_current_solution_branch_operator5 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_const:: _solution_node;;
+
+		_=> nrel_goto:: .._proc_remove_current_solution_branch_operator_return;;
+	*);;
+
+	_-> .._proc_remove_current_solution_branch_operator_return (*
+		_<- return;;
+
+	*);;
+
+	_-> .._proc_remove_current_solution_branch_operator2 (*
+		_<- call;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: proc_remove_current_solution_branch;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._proc_remove_current_solution_branch_param0 (*
+			_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _old_solution_node;;
+		*);;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _descr;;
+
+		_=> nrel_goto:: .._proc_remove_current_solution_branch_operator3;;
+	*);;
+
+	_-> .._proc_remove_current_solution_branch_operator4 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _old_solution_nodes;;
+
+		_=> nrel_goto:: .._proc_remove_current_solution_branch_operator5;;
+	*);;
+
+	_-> .._proc_remove_current_solution_branch_operator3 (*
+		_<- waitReturn;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _descr;;
+
+		_=> nrel_goto:: .._proc_remove_current_solution_branch_operator1;;
+	*);;
+
 *);;
 
+*];;

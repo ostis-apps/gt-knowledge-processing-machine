@@ -1,68 +1,63 @@
-scp_program -> proc_use_sc_statement
-(*
-	-> rrel_params: ...
-	(*
-		-> rrel_1: rrel_in: _statement;;
-		-> rrel_2: rrel_in: _solver_object;;
-		-> rrel_3: rrel_in: _init_struct;;
-		-> rrel_4: rrel_in: _result_struct;;
+proc_use_sc_statement
+=> nrel_main_idtf:
+	[] (* <- lang_ru;; *);
+	[] (* <- lang_en;; *);
+<- scp_program;
+-> rrel_key_sc_element: .._process1;;
+
+proc_use_sc_statement = [*
+.._process1
+_<- scp_process;
+
+_-> rrel_1:: rrel_in:: _statement;
+_-> rrel_2:: rrel_in:: _solver_object;
+_-> rrel_3:: rrel_in:: _init_struct;
+_-> rrel_4:: rrel_in:: _result_struct;
+_<= nrel_decomposition_of_action:: .._actions (*
+
+	_-> rrel_1:: .._proc_use_sc_statement_operator1 (*
+		_<- call;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: proc_find_var_in_solver_element;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._proc_use_sc_statement_param0 (*
+			_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _statement;;
+			_-> rrel_2:: rrel_fixed:: rrel_scp_const:: _init_struct;;
+			_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _result_struct;;
+			_-> rrel_4:: rrel_assign:: rrel_scp_var:: _var_from_solver_element;;
+		*);;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _descr1;;
+
+		_=> nrel_goto:: .._proc_use_sc_statement_operator2;;
 	*);;
 
-	-> rrel_operators: ... 
-	(*
+	_-> .._proc_use_sc_statement_operator2 (*
+		_<- waitReturn;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _descr1;;
 
-		-> rrel_init: .proc_use_sc_statement_operator1
-		(*
-			<- call;;
-		    -> rrel_1: rrel_fixed: rrel_scp_const: proc_find_var_in_solver_element;;
-		    -> rrel_2: rrel_fixed: rrel_scp_const: ... 
-				(*
-					-> rrel_1: rrel_fixed: rrel_scp_var: _statement;;
-					-> rrel_2: rrel_fixed: rrel_scp_var: _init_struct;;
-					-> rrel_3: rrel_fixed: rrel_scp_var: _result_struct;;
-					-> rrel_4: rrel_assign: rrel_scp_var: _var_from_solver_element;;
-				*);;
-		    -> rrel_3: rrel_assign: rrel_scp_var: _descr1;;
-
-			=> nrel_goto: .proc_use_sc_statement_operator2;;
-		*);;
-
-		-> .proc_use_sc_statement_operator2
-		(*
-			<- waitReturn;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _descr1;;
-
-			=> nrel_goto: .proc_use_sc_statement_operator3;;
-		*);;
-
-		-> .proc_use_sc_statement_operator3
-		(*
-			<- ifVarAssign;;
-			-> rrel_1: rrel_assign: rrel_scp_var: _var_from_solver_element;;
-
-			=> nrel_then: .proc_use_sc_statement_operator4;;
-			=> nrel_else: .proc_use_sc_statement_operator_return;;
-		*);;
-
-		-> .proc_use_sc_statement_operator4
-		(*
-			<- sys_gen;;	
-			
-			-> rrel_1: rrel_fixed: rrel_scp_var: _result_struct;;
-		 	-> rrel_2: rrel_fixed: rrel_scp_const: ...;;
-			-> rrel_3: rrel_fixed: rrel_scp_const: ... 
-				(* -> ... 
-					(* -> rrel_1: rrel_fixed: rrel_scp_var: _var_from_solver_element;;
-                       -> rrel_2: rrel_fixed: rrel_scp_var: _solver_object;; 
-					*);;
-				*);;
-
-			=> nrel_goto: .proc_use_sc_statement_operator_return;;
-		*);;
-		
-
-
-		-> .proc_use_sc_statement_operator_return(*<-return;;*);;
+		_=> nrel_goto:: .._proc_use_sc_statement_operator3;;
 	*);;
+
+	_-> .._proc_use_sc_statement_operator3 (*
+		_<- ifVarAssign;;
+		_-> rrel_1:: rrel_assign:: rrel_scp_var:: _var_from_solver_element;;
+
+		_=> nrel_else:: .._proc_use_sc_statement_operator_return;;
+		_=> nrel_then:: .._proc_use_sc_statement_operator4;;
+	*);;
+
+	_-> .._proc_use_sc_statement_operator4 (*
+		_<- sys_gen;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _result_struct;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._proc_use_sc_statement_param1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: .._proc_use_sc_statement_param2;;
+
+		_=> nrel_goto:: .._proc_use_sc_statement_operator_return;;
+	*);;
+
+	_-> .._proc_use_sc_statement_operator_return (*
+		_<- return;;
+
+	*);;
+
 *);;
 
+*];;
