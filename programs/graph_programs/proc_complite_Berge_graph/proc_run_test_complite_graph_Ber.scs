@@ -1,119 +1,125 @@
-scp_program -> proc_run_test_complite_graph_Ber (*
-	
-	-> rrel_params: ... (*
-		-> rrel_1: rrel_in: _graph;;
-		-> rrel_2: rrel_in: _answer;;
+proc_run_test_complite_graph_Ber
+=> nrel_main_idtf:
+	[Программа проверки графа на то, что он является полным графом Бержа] (* <- lang_ru;; *);
+	[] (* <- lang_en;; *);
+<- scp_program;
+-> rrel_key_sc_element: .._process1;;
+
+proc_run_test_complite_graph_Ber = [*
+.._process1
+_<- scp_process;
+
+_-> rrel_1:: rrel_in:: _graph;
+_-> rrel_2:: rrel_in:: _answer;
+_<= nrel_decomposition_of_action:: .._actions (*
+
+	_-> rrel_1:: .._proc_run_test_complite_graph_Ber_operator0 (*
+		_<- searchSetStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _graph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _el3;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc4;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_vertex;;
+		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _soUPset;;
+
+		_=> nrel_goto:: .._proc_run_test_complite_graph_Ber_operator1;;
 	*);;
 
-	-> rrel_operators: ... (*
-	-> rrel_init: ..start (*
-<- searchSetStr5;;
--> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
--> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
--> rrel_3: rrel_assign: rrel_scp_var: _el3;;
--> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
--> rrel_5: rrel_fixed: rrel_scp_const : rrel_vertex;;
--> rrel_set_3 : rrel_assign : rrel_scp_var : _soUPset;;
+	_-> .._proc_run_test_complite_graph_Ber_operator1 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _soUPset;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _node;;
 
-=> nrel_goto : ..proc_complite_graph_Ber_step1;; *);;
-
-
--> ..proc_complite_graph_Ber_step_0 (*
-<- searchElStr3;;
--> rrel_1 : rrel_fixed : rrel_scp_var : _answer;;
--> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
--> rrel_3 : rrel_fixed : rrel_scp_var : _graph;;
-
-=> nrel_then : ..free_mem;; 
-=> nrel_else : ..proc_complite_graph_Ber_step1;; *);;
-
-
--> ..proc_complite_graph_Ber_step1 (*
-<- searchElStr3;;
--> rrel_1 : rrel_fixed : rrel_scp_var : _soUPset;;
--> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
--> rrel_3 : rrel_assign : rrel_scp_var : _node;;
-
-=> nrel_then : ..proc_complite_graph_Ber_step2;; 
-=> nrel_else : ..graph_is_full_1 ;;*);; 
-
-
--> ..proc_complite_graph_Ber_step2 (*
-<- eraseEl;;
--> rrel_1 : rrel_fixed : rrel_pos_const_perm : rrel_erase: rrel_scp_var : _arc;;
-
-=> nrel_goto : ..ave_start_checking;; *);;
-
-
--> ..ave_start_checking (*
-<- call;;
-	-> rrel_1: rrel_fixed: rrel_scp_const: full_checking_Ber;;
-	-> rrel_2: rrel_fixed: rrel_scp_const: ... (*
-		-> rrel_1: rrel_fixed: rrel_scp_var: _node;;
-		-> rrel_2: rrel_fixed: rrel_scp_var: _graph;;
-		-> rrel_3: rrel_fixed: rrel_scs_var: _answer;;
+		_=> nrel_else:: .._proc_run_test_complite_graph_Ber_operator2;;
+		_=> nrel_then:: .._proc_run_test_complite_graph_Ber_operator3;;
 	*);;
-	-> rrel_3: rrel_assign: rrel_scp_var: _descr;;
 
-	=> nrel_goto: ..hail_to_the_king;;
+	_-> .._proc_run_test_complite_graph_Ber_operator3 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+
+		_=> nrel_goto:: .._proc_run_test_complite_graph_Ber_operator4;;
+	*);;
+
+	_-> .._proc_run_test_complite_graph_Ber_operator2 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _answer;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _graph;;
+
+		_=> nrel_goto:: .._proc_run_test_complite_graph_Ber_operator5;;
+	*);;
+
+	_-> .._proc_run_test_complite_graph_Ber_operator5 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _answer;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: concept_berge_complete_graph;;
+
+		_=> nrel_goto:: .._proc_run_test_complite_graph_Ber_operator6;;
+	*);;
+
+	_-> .._proc_run_test_complite_graph_Ber_operator6 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: concept_berge_complete_graph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _graph;;
+
+		_=> nrel_goto:: .._proc_run_test_complite_graph_Ber_operator7;;
+	*);;
+
+	_-> .._proc_run_test_complite_graph_Ber_operator7 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _answer;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc3;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _arc2;;
+
+		_=> nrel_goto:: .._proc_run_test_complite_graph_Ber_operator8;;
+	*);;
+
+	_-> .._proc_run_test_complite_graph_Ber_operator8 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _soUPset;;
+
+		_=> nrel_goto:: .._proc_run_test_complite_graph_Ber_operator9;;
+	*);;
+
+	_-> .._proc_run_test_complite_graph_Ber_operator9 (*
+		_<- return;;
+
+	*);;
+
+	_-> .._proc_run_test_complite_graph_Ber_operator4 (*
+		_<- call;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: full_checking_Ber;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._proc_run_test_complite_graph_Ber_param0 (*
+			_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _node;;
+			_-> rrel_2:: rrel_fixed:: rrel_scp_const:: _graph;;
+			_-> rrel_3:: rrel_fixed:: _answer;;
+		*);;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _descr;;
+
+		_=> nrel_goto:: .._proc_run_test_complite_graph_Ber_operator10;;
+	*);;
+
+	_-> .._proc_run_test_complite_graph_Ber_operator10 (*
+		_<- waitReturn;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _descr;;
+
+		_=> nrel_goto:: .._proc_run_test_complite_graph_Ber_operator11;;
+	*);;
+
+	_-> .._proc_run_test_complite_graph_Ber_operator11 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _answer;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _graph;;
+
+		_=> nrel_else:: .._proc_run_test_complite_graph_Ber_operator1;;
+		_=> nrel_then:: .._proc_run_test_complite_graph_Ber_operator8;;
+	*);;
+
 *);;
-	
--> ..hail_to_the_king (*
-	<- waitReturn;;
-	-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
-	
-	=> nrel_goto: ..proc_complite_graph_Ber_step_0;; *);;
-	
 
--> ..graph_is_full_1 (*
-<- genElStr3;;
--> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
--> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
--> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
-
-=> nrel_goto : ..graph_is_full_2;; *);;
-
-
--> ..graph_is_full_2 (*
-<- genElStr3;;
--> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
--> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
--> rrel_3: rrel_fixed: rrel_scp_const: concept_berge_complete_graph;;
-
-=> nrel_goto : ..graph_is_full_3;; *);;
-
-
--> ..graph_is_full_3 (*
-<- genElStr3;;
--> rrel_1: rrel_fixed: rrel_scp_const: concept_berge_complete_graph;;
--> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
--> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
-
-=> nrel_goto : ..graph_is_full_4;; *);;
-
-
--> ..graph_is_full_4 (*
-<- genElStr3;;
--> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
--> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc3;;
--> rrel_3: rrel_fixed: rrel_scp_var: _arc2;;
-
-=> nrel_goto : ..free_mem;; *);;
-	
-
--> ..free_mem (*
-<- eraseEl;;
--> rrel_1 : rrel_fixed :rrel_erase: rrel_scp_var : _soUPset;;
-
-=> nrel_goto : ..oper_return;; *);;
-
-
--> ..oper_return (*
-<-return;; *);;
-
-
-*);;
-*);;
-
-
-
+*];;

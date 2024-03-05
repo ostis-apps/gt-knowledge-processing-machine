@@ -1,704 +1,559 @@
-scp_program -> proc_find_shortest_path_tree (* 
-	-> rrel_params: 
-	... 
-	(*
-		-> rrel_1: rrel_in: _graph;;
-		-> rrel_2: rrel_in: _beg_vertex;;
-		-> rrel_3: rrel_in: _answer;;
+proc_find_shortest_path_tree
+=> nrel_main_idtf:
+	[] (* <- lang_ru;; *);
+	[] (* <- lang_en;; *);
+<- scp_program;
+-> rrel_key_sc_element: .._process1;;
+
+proc_find_shortest_path_tree = [*
+.._process1
+_<- scp_process;
+
+_-> rrel_1:: rrel_in:: _graph;
+_-> rrel_2:: rrel_in:: _beg_vertex;
+_-> rrel_3:: rrel_in:: _answer;
+_<= nrel_decomposition_of_action:: .._actions (*
+
+	_-> rrel_1:: .._proc_find_shortest_path_tree_operator0 (*
+		_<- genEl;;
+		_-> rrel_1:: rrel_assign:: rrel_const:: rrel_node:: rrel_scp_var:: _shortest_path_tree;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator1;;
 	*);;
 
-	-> rrel_operators: 
-	... 
-		(*
+	_-> .._proc_find_shortest_path_tree_operator1 (*
+		_<- genElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _graph;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_const:: rrel_scp_var:: _arc_tree_2;;
+		_-> rrel_3:: rrel_fixed:: rrel_node:: rrel_scp_var:: _shortest_path_tree;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_tree_4;;
+		_-> rrel_5:: rrel_const:: rrel_fixed:: rrel_node:: nrel_tree_minimal_way;;
 
-// Создание узла _shortest_path_tree
-		-> rrel_init: ..proc_find_shortest_path_tree_agent9 (*
-		    <- genEl;;
-	        -> rrel_1: rrel_assign: rrel_scp_var: rrel_node: rrel_const: _shortest_path_tree;;
-
-	        => nrel_goto: ..proc_find_shortest_path_tree_agent10;; 
-		*);;
-
-
-// Генерация дуги от _graph _shortest_path_tree
-        ->  ..proc_find_shortest_path_tree_agent10 (*
-        	<- genElStr5;;
-	        -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
-	        -> rrel_2: rrel_assign: rrel_common: rrel_scp_var: rrel_const: _arc_tree_2;;
-	        -> rrel_3: rrel_fixed: rrel_node: rrel_scp_var: _shortest_path_tree;;
-	        -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_tree_4;;
-	        -> rrel_5: rrel_fixed: rrel_node: rrel_const: nrel_tree_minimal_way;;
-
-	        => nrel_goto: ..proc_find_shortest_path_tree_agent11;;
-	    *);;
-
-// Генерация дуг от _answer 
-        -> ..proc_find_shortest_path_tree_agent11 (*
-            <- genElStr3;;
-            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1_answer;;
-            -> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
-
-            => nrel_goto : ..proc_find_shortest_path_tree_agent12;; 
-        *);;
-
-        -> ..proc_find_shortest_path_tree_agent12 (*
-            <- genElStr3;;
-            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2_answer;;
-            -> rrel_3: rrel_fixed: rrel_scp_var: _arc_tree_2;;
-
-            => nrel_goto : ..proc_find_shortest_path_tree_agent13;; 
-        *);;
-
-        -> ..proc_find_shortest_path_tree_agent13 (*
-            <- genElStr3;;
-            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc3_answer;;
-            -> rrel_3: rrel_fixed: rrel_scp_var: _shortest_path_tree;;
-
-            => nrel_goto : ..proc_find_shortest_path_tree_agent14;; 
-        *);;
-
-        -> ..proc_find_shortest_path_tree_agent14 (*
-            <- genElStr3;;
-            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4_answer;;
-            -> rrel_3: rrel_fixed: rrel_scp_var: _arc_tree_4;;
-
-            => nrel_goto : ..proc_find_shortest_path_tree_agent15;; 
-        *);;
-
-         -> ..proc_find_shortest_path_tree_agent15 (*
-            <- genElStr3;;
-            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
-            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc5_answer;;
-            -> rrel_3: rrel_fixed: rrel_node: rrel_const: rrel_scp_const: nrel_tree_minimal_way;;
-
-            => nrel_goto : ..proc_find_shortest_path_tree_operator1;; 
-        *);;
-
-//1. Создание узла дерева кратчайших путей
-			-> ..proc_find_shortest_path_tree_operator1 
-			(*
-				<- genElStr3;;
-				-> rrel_1: rrel_fixed: rrel_scp_const: concept_tree;;
-				-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
-				-> rrel_3: rrel_fixed: rrel_scp_var: _shortest_path_tree;;
-
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator_print_27;;
-			*);;
-
-						
-			//Вывод содержания системного идентификатора узла на консоль
-			-> ..proc_find_shortest_path_tree_operator_print_27
-			(*
-				<- printEl;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
-
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator2;;
-			*);;
-
-			//2. Добавление всех вершин неориентированного графа во множество непроверенных вершин.	
-			-> ..proc_find_shortest_path_tree_operator2 
-			(*
-				<- searchSetStr5;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
-				-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2p;;
-				-> rrel_3: rrel_assign: rrel_scp_var: _node;;
-				-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc3p;;
-				-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
-			
-				-> rrel_set_3: rrel_assign: rrel_scp_var: _not_checked_vertexes;;
-				=> nrel_then: ..proc_find_shortest_path_tree_operator3;;		
-				=> nrel_else: ..proc_find_shortest_path_tree_operator_return;;	
-			*);;
-			
-			//3. Ищем дугу соединяющую начальную вершину и множество непроверенных вершин
-			-> ..proc_find_shortest_path_tree_operator3 
-			(*
-				<- searchElStr3;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _not_checked_vertexes;;
-				-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
-				-> rrel_3: rrel_fixed: rrel_scp_var: _beg_vertex;;
-			
-				=> nrel_then: ..proc_find_shortest_path_tree_operator4;;		
-				=> nrel_else: ..proc_find_shortest_path_tree_error1;;
-			*);;
-			
-			//4. Исключаем начальную вершину из множества непроверенных вершин
-			-> ..proc_find_shortest_path_tree_operator4 
-			(*
-				<- eraseEl;;
-				-> rrel_1:rrel_fixed:rrel_pos_const_perm:rrel_scp_var:rrel_erase:_arc4;;
-
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator5;;	
-			*);;
-			
-			//5. Заносим начальную вершины в дерево кратчайших путей
-			-> ..proc_find_shortest_path_tree_operator5 
-			(*
-				<- genElStr5;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _shortest_path_tree;;
-				-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc5;;
-				-> rrel_3: rrel_fixed: rrel_scp_var: _beg_vertex;;
-				-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc6;;
-				-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
-			
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator_add_tree_root_1;;
-			*);;
-			
-			//Поиск дуги соединяющей дерево кратчайших путей с начальной вершиной
-			-> ..proc_find_shortest_path_tree_operator_add_tree_root_1
-			(*
-				<- searchElStr5;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _shortest_path_tree;;
-				-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc5;;
-				-> rrel_3: rrel_fixed: rrel_scp_var: _beg_vertex;;
-				-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc6;;
-				-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
-			
-				=> nrel_then: ..proc_find_shortest_path_tree_operator_add_tree_root_2;;		
-				=> nrel_else: ..proc_find_shortest_path_tree_operator_erase_not_checked_vertexes;;
-			*);;
-
-			//Устанавливаем атрибут корень дерева для начальной вершины
-			-> ..proc_find_shortest_path_tree_operator_add_tree_root_2
-			(*
-				<- genElStr3;;
-				-> rrel_1: rrel_fixed: rrel_scp_const: rrel_tree_root;;
-				-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_new;;
-				-> rrel_3: rrel_fixed: rrel_pos_const_perm: rrel_scp_var: _arc5;;
-			
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator_print_root_2;;
-			*);;
-
-			
-			//Вывод содержания системного идентификатора узла на консоль
-			-> ..proc_find_shortest_path_tree_operator_print_root_2
-			(*
-				<- printEl;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _beg_vertex;;
-
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator6;;
-			*);;
-			
-			
-			//6. Поиск всех дуг выходящих из начальной вершины с занесением во множество _set2
-			-> ..proc_find_shortest_path_tree_operator6 
-			(*
-				<- searchSetStr3;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _beg_vertex;;
-				-> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc1x;;
-				-> rrel_3: rrel_assign: rrel_scp_var: _vertex1;;
-			
-				-> rrel_set_3: rrel_assign: rrel_scp_var: _set2;;
-				=> nrel_then: ..proc_find_shortest_path_tree_operator7_1;;		
-				=> nrel_else: ..proc_find_shortest_path_tree_operator_erase_not_checked_vertexes;;
-			*);;
-
-			
-			//7.1 Создаем множество _set1
-			-> ..proc_find_shortest_path_tree_operator7_1 
-			(*
-				<- genEl;;
-				-> rrel_1: rrel_assign: rrel_scp_var: rrel_node: _set1;;
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator7_2;;
-			*);;
-
-			//7.2. Создаем множество _set3
-			-> ..proc_find_shortest_path_tree_operator7_2
-			(*
-				<- genEl;;
-				-> rrel_1: rrel_assign: rrel_scp_var: rrel_node: _set3;;
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator8;;
-			*);;
-
-			// Цикл 1. Формирование первой волны
-			//8. Берём произвольный элемент из множества _set2
-			-> ..proc_find_shortest_path_tree_operator8
-			(*
-				<- searchElStr3;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _set2;;
-				-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc8;;
-				-> rrel_3: rrel_assign: rrel_scp_var: _vertex2;;
-				
-				=> nrel_then: ..proc_find_shortest_path_tree_operator9;;		
-				=> nrel_else: ..proc_find_shortest_path_tree_operator16;;
-			*);;
-			
-			//9. Исключаем найденный узел из множества _set2
-			-> ..proc_find_shortest_path_tree_operator9 
-			(*
-				<- eraseEl;;
-				-> rrel_1: rrel_fixed: rrel_pos_const_perm: rrel_scp_var: rrel_erase: _arc8;;
-
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator10_1;;	
-			*);;
-			
-			//10.1. Проверяем, принадлежит ли найденный узел множеству непроверенных вершин
-			//если принадлежит, то переходим к следующему оператору
-			//если нет, то возвращаемя в начало цикла
-			-> ..proc_find_shortest_path_tree_operator10_1
-			(*
-				<- searchElStr3;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _not_checked_vertexes;;
-				-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc9;;
-				-> rrel_3: rrel_fixed: rrel_scp_var: _vertex2;;
-			
-				=> nrel_then: ..proc_find_shortest_path_tree_operator10_2;;		
-				=> nrel_else: ..proc_find_shortest_path_tree_operator8;;
-			*);;
-
-			-> ..proc_find_shortest_path_tree_operator10_2
-			(*
-				<- searchElStr3;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _beg_vertex;;
-				-> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc_check1;;
-				-> rrel_3: rrel_fixed: rrel_scp_var: _vertex2;;
-			
-				=> nrel_then: ..proc_find_shortest_path_tree_operator_print_198725;;		
-				=> nrel_else: ..proc_find_shortest_path_tree_operator8;;
-			*);;
-			
-									
-			//Вывод содержания системного идентификатора узла на консоль
-			-> ..proc_find_shortest_path_tree_operator_print_198725
-			(*
-				<- printEl;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _arc_check1;;
-
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator10_3;;
-			*);;
-			
-
-			-> ..proc_find_shortest_path_tree_operator10_3
-			(*
-				<- searchElStr5;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
-				-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_check2;;
-				-> rrel_3: rrel_fixed: rrel_scp_var: rrel_common: _arc_check1;;
-				-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_check3;;
-				-> rrel_5: rrel_fixed: rrel_scp_const: rrel_oredge;;
-			
-				=> nrel_then: ..proc_find_shortest_path_tree_operator11;;		
-				=> nrel_else: ..proc_find_shortest_path_tree_operator8;;
-			*);;
-			
-			//11. Исключаем вершину из множества непроверенных вершин
-			-> ..proc_find_shortest_path_tree_operator11 
-			(*
-				<- eraseEl;;
-				-> rrel_1: rrel_fixed: rrel_erase: rrel_pos_const_perm: rrel_scp_var: _arc9;;
-
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator12;;	
-			*);;
-			
-			//12. Заносим вершину во множество _set1
-			-> ..proc_find_shortest_path_tree_operator12
-			(*
-				<- genElStr3;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _set1;;
-				-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc10;;
-				-> rrel_3: rrel_fixed: rrel_scp_var: _vertex2;;
-				
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator13;;
-			*);;
-			
-			//13. Заносим найденный элемент в дерево кратчайших путей
-			-> ..proc_find_shortest_path_tree_operator13 
-			(*
-				<- genElStr5;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _shortest_path_tree;;
-				-> rrel_2: rrel_assign: rrel_scp_var:rrel_pos_const_perm:_arc11;;
-				-> rrel_3: rrel_fixed: rrel_scp_var: _vertex2;;
-				-> rrel_4: rrel_assign:  rrel_scp_var: rrel_pos_const_perm: _arc12;;
-				-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
-			
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator14;;
-			*);;
-			
-			//14. Генерируем бинардую дугу между начальной вершиной и найденной
-			-> ..proc_find_shortest_path_tree_operator14 
-			(*
-				<- genElStr3;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _beg_vertex;;
-				-> rrel_2: rrel_assign: rrel_scp_var: rrel_common: rrel_const: _arc13;;
-				-> rrel_3: rrel_fixed: rrel_scp_var: _vertex2;;
-			
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator15_1;;
-			*);;
-			
-			//15.1. Ищем эту бинарную дугу
-			-> ..proc_find_shortest_path_tree_operator15_1 
-			(*
-				<- searchElStr3;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _beg_vertex;;
-				-> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc9x;;
-				-> rrel_3: rrel_fixed: rrel_scp_var: _vertex2;;
-			
-				=> nrel_then: ..proc_find_shortest_path_tree_operator15_2;;		
-				=> nrel_else: ..proc_find_shortest_path_tree_error2;;
-			*);;
-
-			//15.2. Заносим сгенерированную дугу в дерево кратчайших путей
-			-> ..proc_find_shortest_path_tree_operator15_2
-			(*
-				<- genElStr5;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _shortest_path_tree;;
-				-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc14;;
-				-> rrel_3: rrel_fixed: rrel_common: rrel_scp_var: _arc9x;;
-				-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm:_arc15;;
-				-> rrel_5: rrel_fixed: rrel_scp_const: rrel_oredge;;
-			
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator_print_2;;
-			*);;
-			
-			
-			//Вывод содержания системного идентификатора узла на консоль
-			-> ..proc_find_shortest_path_tree_operator_print_2
-			(*
-				<- printEl;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _vertex2;;
-
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator8;;
-			*);;
-			//Конец цикла 1
-			
-			//Цикл 2
-			//16. Берём произвольный элемент, принадлежащий множеству _set1
-			-> ..proc_find_shortest_path_tree_operator16 
-			(*
-				<- searchElStr3;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _set1;;
-				-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm:_arc16;;
-				-> rrel_3: rrel_assign: rrel_scp_var: _vertex3;;
-				
-				=> nrel_then: ..proc_find_shortest_path_tree_operator17;;		
-				=> nrel_else: ..proc_find_shortest_path_tree_operator27;;
-			*);;
-			
-			-> ..proc_find_shortest_path_tree_check_1
-			(*
-				<- printNl;;
-				-> rrel_1: rrel_fixed: rrel_scp_const: [Set 1];;
-				
-				=> nrel_goto: ..proc_find_shortest_path_tree_check_2;;
-			*);;
-					
-			//Вывод содержания системного идентификатора узла на консоль
-			-> ..proc_find_shortest_path_tree_check_2
-			(*
-				<- printEl;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _vertex3;;
-
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator17;;
-			*);;
-			
-		
-			//17. Исключаем найденный узел из множества _set1
-			-> ..proc_find_shortest_path_tree_operator17
-			(*
-				<- eraseEl;;
-				-> rrel_1: rrel_fixed:rrel_erase: rrel_pos_const_perm: rrel_scp_var: _arc16;;
-
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator18;;	
-			*);;
-			
-			//18. Поиск всех дуг выходящих из вершины _vertex3 с занесением во множество _set3
-			-> ..proc_find_shortest_path_tree_operator18
-			(*
-				<- searchSetStr3;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _vertex3;;
-				-> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc17;;
-				-> rrel_3: rrel_assign: rrel_scp_var: _vertex4;;
-			
-				-> rrel_set_3: rrel_assign: rrel_scp_var: _set3;;
-				=> nrel_then: ..proc_find_shortest_path_tree_operator19;;		
-				=> nrel_else: ..proc_find_shortest_path_tree_operator16;;
-			*);;
-			
-			//Цикл 3
-			//19. Берём произвольный элемент из множества _set3
-			-> ..proc_find_shortest_path_tree_operator19
-			(*
-				<- searchElStr3;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _set3;;
-				-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc18;;
-				-> rrel_3: rrel_assign: rrel_scp_var: _vertex5;;
-				
-				=> nrel_then: ..proc_find_shortest_path_tree_operator20;;		
-				=> nrel_else: ..proc_find_shortest_path_tree_operator16;;
-			*);;
-
-			-> ..proc_find_shortest_path_tree_check_3
-			(*
-				<- printNl;;
-				-> rrel_1: rrel_fixed: rrel_scp_const: [Set3];;
-				
-				=> nrel_goto: ..proc_find_shortest_path_tree_check_4;;
-			*);;
-					
-			//Вывод содержания системного идентификатора узла на консоль
-			-> ..proc_find_shortest_path_tree_check_4
-			(*
-				<- printEl;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _vertex4;;
-
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator20;;
-			*);;
-			
-			//20. Исключаем найденный узел из множества _set3
-			-> ..proc_find_shortest_path_tree_operator20
-			(*
-				<- eraseEl;;
-				-> rrel_1: rrel_fixed:rrel_erase: rrel_pos_const_perm: rrel_scp_var: _arc18;;
-
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator21_1;;	
-			*);;
-			
-			//21. Проверяем, принадлежит ли найденный узел множеству непроверенных вершин
-			//если принадлежит, то переходим к следующему оператору
-			//если нет, то возвращаемя в начало цикла
-			-> ..proc_find_shortest_path_tree_operator21_1
-			(*
-				<- searchElStr3;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _not_checked_vertexes;;
-				-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc19;;
-				-> rrel_3:  rrel_fixed: rrel_scp_var: _vertex5;;
-			
-				=> nrel_then: ..proc_find_shortest_path_tree_operator21_2;;		
-				=> nrel_else: ..proc_find_shortest_path_tree_operator19;;
-			*);;
-
-			-> ..proc_find_shortest_path_tree_operator21_2
-			(*
-				<- searchElStr3;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _vertex3;;
-				-> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc_check4;;
-				-> rrel_3: rrel_fixed: rrel_scp_var: _vertex5;;
-			
-				=> nrel_then: ..proc_find_shortest_path_tree_operator21_3;;		
-				=> nrel_else: ..proc_find_shortest_path_tree_operator19;;
-			*);;
-
-			-> ..proc_find_shortest_path_tree_operator21_3
-			(*
-				<- searchElStr5;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
-				-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_check5;;
-				-> rrel_3: rrel_fixed: rrel_scp_var: rrel_common: _arc_check4;;
-				-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_check6;;
-				-> rrel_5: rrel_fixed: rrel_scp_const: rrel_oredge;;
-			
-				=> nrel_then: ..proc_find_shortest_path_tree_operator22;;		
-				=> nrel_else: ..proc_find_shortest_path_tree_operator19;;
-			*);;
-			
-			//22. Исключаем вершину из множества непроверенных вершин
-			-> ..proc_find_shortest_path_tree_operator22 
-			(*
-				<- eraseEl;;
-				-> rrel_1: rrel_fixed: rrel_erase: rrel_pos_const_perm:rrel_scp_var: _arc19;;
-
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator23;;	
-			*);;
-			
-			//23. Заносим вершину во множество _set2
-			-> ..proc_find_shortest_path_tree_operator23
-			(*
-				<- genElStr3;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _set2;;
-				-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc20;;
-				-> rrel_3: rrel_fixed: rrel_scp_var: _vertex5;;
-				
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator24;;
-			*);;
-			
-			//24. Заносим найденный элемент в дерево кратчайших путей
-			-> ..proc_find_shortest_path_tree_operator24 
-			(*
-				<- genElStr5;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _shortest_path_tree;;
-				-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc21;;
-				-> rrel_3: rrel_fixed: rrel_scp_var: _vertex5;;
-				-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc22;;
-				-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
-			
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator_print_4;;
-			*);;
-			
-			//Вывод содержания системного идентификатора узла на консоль
-			-> ..proc_find_shortest_path_tree_operator_print_4
-			(*
-				<- printEl;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _vertex5;;
-
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator25;;
-			*);;
-			
-			//25. Генерируем бинардую дугу между узлами
-			-> ..proc_find_shortest_path_tree_operator25
-			(*
-				<- genElStr3;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _vertex3;;
-				-> rrel_2: rrel_assign:rrel_scp_var:rrel_common: rrel_const: _arc23;;
-				-> rrel_3: rrel_fixed: rrel_scp_var: _vertex5;;
-			
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator26_1;;
-			*);;
-
-			//26.1. Ищем эту бинарную дугу
-			-> ..proc_find_shortest_path_tree_operator26_1 
-			(*
-				<- searchElStr3;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _vertex3;;
-				-> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc26x;;
-				-> rrel_3: rrel_fixed: rrel_scp_var: _vertex5;;
-			
-				=> nrel_then: ..proc_find_shortest_path_tree_operator26_2;;		
-				=> nrel_else: ..proc_find_shortest_path_tree_error2;;
-			*);;
-
-			//26.2. Заносим сгенерированную дугу в дерево кратчайших путей
-			-> ..proc_find_shortest_path_tree_operator26_2
-			(*
-				<- genElStr5;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _shortest_path_tree;;
-				-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc24;;
-				-> rrel_3: rrel_fixed: rrel_common: rrel_scp_var: _arc26x;;
-				-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc25;;
-				-> rrel_5: rrel_fixed: rrel_scp_const: rrel_oredge;;
-			
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator19;;
-			*);;
-			//Конец цикла 3
-			
-			//27. Проверка на пустую волну
-			-> ..proc_find_shortest_path_tree_operator27
-			(*
-				<- searchElStr3;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _set2;;
-				-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc26;;
-				-> rrel_3: rrel_assign: rrel_scp_var: _vertex6;;
-				
-				=> nrel_then: ..proc_find_shortest_path_tree_operator28;;		
-				=> nrel_else: ..proc_find_shortest_path_tree_operator33;;
-			*);;
-						
-			//28. Исключаем найденный узел из множества _set2
-			-> ..proc_find_shortest_path_tree_operator28
-			(*
-				<- eraseEl;;
-				-> rrel_1: rrel_fixed:rrel_erase: rrel_pos_const_perm: rrel_scp_var: _arc26;;
-
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator29;;	
-			*);;
-			
-			//29. Заносим вершину во множество _set1
-			-> ..proc_find_shortest_path_tree_operator29
-			(*
-				<- genElStr3;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _set1;;
-				-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc27;;
-				-> rrel_3: rrel_fixed: rrel_scp_var: _vertex6;;
-				
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator30;;
-			*);;
-			
-			//Цикл 4
-			//Перенос оставшихся вершин из множества _set2 в _set1
-			//30. 
-			-> ..proc_find_shortest_path_tree_operator30
-			(*
-				<- searchElStr3;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _set2;;
-				-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc28;;
-				-> rrel_3: rrel_assign: rrel_scp_var: _vertex7;;
-				
-				=> nrel_then: ..proc_find_shortest_path_tree_operator31;;		
-				=> nrel_else: ..proc_find_shortest_path_tree_operator16;;
-			*);;
-						
-			//31. Исключаем найденный узел из множества _set2
-			-> ..proc_find_shortest_path_tree_operator31
-			(*
-				<- eraseEl;;
-				-> rrel_1: rrel_fixed: rrel_erase: rrel_pos_const_perm:rrel_scp_var: _arc28;;
-
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator32;;	
-			*);;
-			
-			//32. Заносим вершину во множество _set1
-			-> ..proc_find_shortest_path_tree_operator32
-			(*
-				<- genElStr3;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _set1;;
-				-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc29;;
-				-> rrel_3: rrel_fixed: rrel_scp_var: _vertex7;;
-				
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator30;;
-			*);;
-			
-			//33. Удаляем множество _set3
-			-> ..proc_find_shortest_path_tree_operator33
-			(*
-				<- eraseEl;;
-				-> rrel_1: rrel_fixed: rrel_erase:  rrel_scp_var: _set3;;
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator34;;
-			*);;
-			
-			//34. Удаляем множество _set1
-			-> ..proc_find_shortest_path_tree_operator34
-			(*
-				<- eraseEl;;
-				-> rrel_1: rrel_fixed: rrel_erase:  rrel_scp_var: _set1;;
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator35;;
-			*);;
-			
-			//35. Удаляем множество _set2
-			-> ..proc_find_shortest_path_tree_operator35
-			(*
-				<- eraseEl;;
-				-> rrel_1: rrel_fixed: rrel_erase:  rrel_scp_var: _set2;;
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator_erase_not_checked_vertexes;;
-			*);;
-			
-			-> ..proc_find_shortest_path_tree_error1
-			(*
-				<- printNl;;
-				-> rrel_1: rrel_fixed: rrel_scp_const: [Начальная вершина не принадлежит неориентированному графу.];;
-				
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator_erase_not_checked_vertexes;;
-			*);;
-
-			-> ..proc_find_shortest_path_tree_error2
-			(*
-				<- printNl;;
-				-> rrel_1: rrel_fixed: rrel_scp_const: [Не сгенерирована дуга];;
-				
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator34;;
-			*);;
-
-			
-			-> ..proc_find_shortest_path_tree_operator_erase_not_checked_vertexes
-			(*
-				<- eraseEl;;
-				-> rrel_1: rrel_fixed: rrel_erase:  rrel_scp_var: _not_checked_vertexes;;
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator_print_tree;;
-				
-			*);;
-
-			-> ..proc_find_shortest_path_tree_operator_print_tree
-			(*
-				<- printEl;;
-				-> rrel_1: rrel_fixed: rrel_scp_var: _shortest_path_tree;;
-				=> nrel_goto: ..proc_find_shortest_path_tree_operator_return;;
-			*);;
-
-			-> ..proc_find_shortest_path_tree_operator_return 
-			(*
-				<- return;;
-			*);;
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator2;;
 	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator2 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _answer;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1_answer;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _graph;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator3;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator3 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _answer;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2_answer;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _arc_tree_2;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator4;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator4 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _answer;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc3_answer;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _shortest_path_tree;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator5;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator5 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _answer;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc4_answer;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _arc_tree_4;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator6;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator6 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _answer;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc5_answer;;
+		_-> rrel_3:: rrel_const:: rrel_fixed:: rrel_node:: rrel_scp_const:: nrel_tree_minimal_way;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator7;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator7 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: concept_tree;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _shortest_path_tree;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator8;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator8 (*
+		_<- printEl;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _graph;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator9;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator9 (*
+		_<- searchSetStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _graph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2p;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _node;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc3p;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_vertex;;
+		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _not_checked_vertexes;;
+
+		_=> nrel_else:: .._proc_find_shortest_path_tree_operator10;;
+		_=> nrel_then:: .._proc_find_shortest_path_tree_operator11;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator11 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _not_checked_vertexes;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc4;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _beg_vertex;;
+
+		_=> nrel_else:: .._proc_find_shortest_path_tree_operator12;;
+		_=> nrel_then:: .._proc_find_shortest_path_tree_operator13;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator10 (*
+		_<- return;;
+
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator13 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_pos_const_perm:: rrel_scp_var:: _arc4;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator14;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator12 (*
+		_<- printNl;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: [Начальная вершина не принадлежит неориентированному графу.];;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator15;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator15 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _not_checked_vertexes;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator16;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator16 (*
+		_<- printEl;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _shortest_path_tree;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator10;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator14 (*
+		_<- genElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _shortest_path_tree;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc5;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _beg_vertex;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc6;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_vertex;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator17;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator17 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _shortest_path_tree;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc5;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _beg_vertex;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc6;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_vertex;;
+
+		_=> nrel_else:: .._proc_find_shortest_path_tree_operator15;;
+		_=> nrel_then:: .._proc_find_shortest_path_tree_operator18;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator18 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: rrel_tree_root;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_new;;
+		_-> rrel_3:: rrel_fixed:: rrel_pos_const_perm:: rrel_scp_var:: _arc5;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator19;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator19 (*
+		_<- printEl;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _beg_vertex;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator20;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator20 (*
+		_<- searchSetStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _beg_vertex;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc1x;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _vertex1;;
+		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _set2;;
+
+		_=> nrel_else:: .._proc_find_shortest_path_tree_operator15;;
+		_=> nrel_then:: .._proc_find_shortest_path_tree_operator21;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator21 (*
+		_<- genEl;;
+		_-> rrel_1:: rrel_assign:: rrel_node:: rrel_scp_var:: _set1;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator22;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator22 (*
+		_<- genEl;;
+		_-> rrel_1:: rrel_assign:: rrel_node:: rrel_scp_var:: _set3;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator23;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator23 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _set2;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc8;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _vertex2;;
+
+		_=> nrel_else:: .._proc_find_shortest_path_tree_operator24;;
+		_=> nrel_then:: .._proc_find_shortest_path_tree_operator25;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator25 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_pos_const_perm:: rrel_scp_var:: _arc8;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator26;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator24 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _set1;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc16;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _vertex3;;
+
+		_=> nrel_else:: .._proc_find_shortest_path_tree_operator27;;
+		_=> nrel_then:: .._proc_find_shortest_path_tree_operator28;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator28 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_pos_const_perm:: rrel_scp_var:: _arc16;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator29;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator27 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _set2;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc26;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _vertex6;;
+
+		_=> nrel_else:: .._proc_find_shortest_path_tree_operator30;;
+		_=> nrel_then:: .._proc_find_shortest_path_tree_operator31;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator31 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_pos_const_perm:: rrel_scp_var:: _arc26;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator32;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator30 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _set3;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator33;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator33 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _set1;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator34;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator34 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _set2;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator15;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator32 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _set1;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc27;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _vertex6;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator35;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator35 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _set2;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc28;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _vertex7;;
+
+		_=> nrel_else:: .._proc_find_shortest_path_tree_operator24;;
+		_=> nrel_then:: .._proc_find_shortest_path_tree_operator36;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator36 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_pos_const_perm:: rrel_scp_var:: _arc28;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator37;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator37 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _set1;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc29;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _vertex7;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator35;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator29 (*
+		_<- searchSetStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _vertex3;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc17;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _vertex4;;
+		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _set3;;
+
+		_=> nrel_else:: .._proc_find_shortest_path_tree_operator24;;
+		_=> nrel_then:: .._proc_find_shortest_path_tree_operator38;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator38 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _set3;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc18;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _vertex5;;
+
+		_=> nrel_else:: .._proc_find_shortest_path_tree_operator24;;
+		_=> nrel_then:: .._proc_find_shortest_path_tree_operator39;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator39 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_pos_const_perm:: rrel_scp_var:: _arc18;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator40;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator40 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _not_checked_vertexes;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc19;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _vertex5;;
+
+		_=> nrel_else:: .._proc_find_shortest_path_tree_operator38;;
+		_=> nrel_then:: .._proc_find_shortest_path_tree_operator41;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator41 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _vertex3;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc_check4;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _vertex5;;
+
+		_=> nrel_else:: .._proc_find_shortest_path_tree_operator38;;
+		_=> nrel_then:: .._proc_find_shortest_path_tree_operator42;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator42 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _graph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_check5;;
+		_-> rrel_3:: rrel_common:: rrel_fixed:: rrel_scp_var:: _arc_check4;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_check6;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_oredge;;
+
+		_=> nrel_else:: .._proc_find_shortest_path_tree_operator38;;
+		_=> nrel_then:: .._proc_find_shortest_path_tree_operator43;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator43 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_pos_const_perm:: rrel_scp_var:: _arc19;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator44;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator44 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _set2;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc20;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _vertex5;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator45;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator45 (*
+		_<- genElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _shortest_path_tree;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc21;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _vertex5;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc22;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_vertex;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator46;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator46 (*
+		_<- printEl;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _vertex5;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator47;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator47 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _vertex3;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_const:: rrel_scp_var:: _arc23;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _vertex5;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator48;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator48 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _vertex3;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc26x;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _vertex5;;
+
+		_=> nrel_else:: .._proc_find_shortest_path_tree_operator49;;
+		_=> nrel_then:: .._proc_find_shortest_path_tree_operator50;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator50 (*
+		_<- genElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _shortest_path_tree;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc24;;
+		_-> rrel_3:: rrel_common:: rrel_fixed:: rrel_scp_var:: _arc26x;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc25;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_oredge;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator38;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator49 (*
+		_<- printNl;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: [Не сгенерирована дуга];;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator33;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator26 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _not_checked_vertexes;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc9;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _vertex2;;
+
+		_=> nrel_else:: .._proc_find_shortest_path_tree_operator23;;
+		_=> nrel_then:: .._proc_find_shortest_path_tree_operator51;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator51 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _beg_vertex;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc_check1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _vertex2;;
+
+		_=> nrel_else:: .._proc_find_shortest_path_tree_operator23;;
+		_=> nrel_then:: .._proc_find_shortest_path_tree_operator52;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator52 (*
+		_<- printEl;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _arc_check1;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator53;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator53 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _graph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_check2;;
+		_-> rrel_3:: rrel_common:: rrel_fixed:: rrel_scp_var:: _arc_check1;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_check3;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_oredge;;
+
+		_=> nrel_else:: .._proc_find_shortest_path_tree_operator23;;
+		_=> nrel_then:: .._proc_find_shortest_path_tree_operator54;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator54 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_pos_const_perm:: rrel_scp_var:: _arc9;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator55;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator55 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _set1;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc10;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _vertex2;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator56;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator56 (*
+		_<- genElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _shortest_path_tree;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc11;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _vertex2;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc12;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_vertex;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator57;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator57 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _beg_vertex;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_const:: rrel_scp_var:: _arc13;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _vertex2;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator58;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator58 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _beg_vertex;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc9x;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _vertex2;;
+
+		_=> nrel_else:: .._proc_find_shortest_path_tree_operator49;;
+		_=> nrel_then:: .._proc_find_shortest_path_tree_operator59;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator59 (*
+		_<- genElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _shortest_path_tree;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc14;;
+		_-> rrel_3:: rrel_common:: rrel_fixed:: rrel_scp_var:: _arc9x;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc15;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_oredge;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator60;;
+	*);;
+
+	_-> .._proc_find_shortest_path_tree_operator60 (*
+		_<- printEl;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _vertex2;;
+
+		_=> nrel_goto:: .._proc_find_shortest_path_tree_operator23;;
+	*);;
+
 *);;
+
+*];;

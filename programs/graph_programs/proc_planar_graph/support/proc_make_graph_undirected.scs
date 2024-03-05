@@ -1,304 +1,254 @@
-scp_program -> proc_make_graph_undirected
-(*
-	-> rrel_params: ...
-	(*
-		-> rrel_1: rrel_in: _curr_graph;;
-		-> rrel_2: rrel_out: _undir_graph;;
+proc_make_graph_undirected
+=> nrel_main_idtf:
+	[] (* <- lang_ru;; *);
+	[] (* <- lang_en;; *);
+<- scp_program;
+-> rrel_key_sc_element: .._process1;;
+
+proc_make_graph_undirected = [*
+.._process1
+_<- scp_process;
+
+_-> rrel_1:: rrel_in:: _curr_graph;
+_-> rrel_2:: rrel_out:: _undir_graph;
+_<= nrel_decomposition_of_action:: .._actions (*
+
+	_-> rrel_1:: .._proc_make_graph_undirected_operator0 (*
+		_<- genEl;;
+		_-> rrel_1:: rrel_assign:: rrel_const:: rrel_node:: rrel_scp_var:: _undir_graph;;
+
+		_=> nrel_goto:: .._proc_make_graph_undirected_operator1;;
 	*);;
 
-	-> rrel_operators: ... 
-	(*
-		-> rrel_init: .create_undir_graph
-		(*
-			<-genEl;;
-			->rrel_1 : rrel_assign : rrel_scp_var : rrel_node : rrel_const : _undir_graph;;
-			
-			=>nrel_goto : .generate_set_of_corespondence;;
-		*);;
+	_-> .._proc_make_graph_undirected_operator1 (*
+		_<- genEl;;
+		_-> rrel_1:: rrel_assign:: rrel_const:: rrel_node:: rrel_scp_var:: _set_of_corespondence;;
 
-		->.generate_set_of_corespondence
-		(*
-			<-genEl;;
-			-> rrel_1 : rrel_assign : rrel_scp_var : rrel_node : rrel_const : _set_of_corespondence;;
-
-			=>nrel_goto: .gen_copy_vertex_set;;
-		*);;
-
-
-		-> .gen_copy_vertex_set
-		(*
-			<- searchSetStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _curr_graph;;
-            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs1;;
-            -> rrel_3: rrel_assign: rrel_scp_var: _vert;;
-			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs2;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
-
-			-> rrel_set_3: rrel_assign: rrel_scp_var: _vertexs;;
-			
-			=> nrel_then: .take_vertex_from_vertexs;;
-			=> nrel_else: .operator_return;;
-		*);;
-
-		-> .take_vertex_from_vertexs
-		(*
-			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _vertexs;;
-            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_erase;;
-            -> rrel_3: rrel_assign: rrel_scp_var: _curr_vert;;
-			
-			=>nrel_then: .erase_vertex_from_vertexs;;
-			=>nrel_else: .gen_copy_arc_set;; 	
-		*);;
-
-		-> .erase_vertex_from_vertexs
-		(*
-			<- eraseEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase:  _arc_erase;;
-                        		
-			=>nrel_goto: .create_associate;;
-			
-		*);;
-
-		-> .create_associate
-		(*
-			<-genElStr5;;
-			-> rrel_1 : rrel_fixed : rrel_scp_var : _curr_vert ;;
-			-> rrel_2 : rrel_assign : rrel_scp_var : rrel_common : _arc1;;
-			-> rrel_3 : rrel_assign : rrel_scp_var : rrel_const : rrel_node : _new_vertex;;
-			-> rrel_4 : rrel_assign : rrel_scp_var : rrel_pos_const_perm : _pos_arc;;
-			-> rrel_5 : rrel_fixed : rrel_scp_var : _set_of_corespondence;;
-
-			=>nrel_goto : .add_vertex_in_graph;;
-
-		*);;
-
-		-> .add_vertex_in_graph
-		(*
-			<-genElStr5;;
-			-> rrel_1 : rrel_fixed : rrel_scp_var : _undir_graph;;
-			-> rrel_2 : rrel_assign : rrel_scp_var : rrel_pos_const_perm : _pos_arc;;
-			-> rrel_3 : rrel_fixed : rrel_scp_var : _new_vertex;;
-			-> rrel_4 : rrel_assign : rrel_scp_var : rrel_pos_const_perm : _pos_arc_2;;
-			-> rrel_5 : rrel_fixed : rrel_scp_const : rrel_vertex;;
-
-			=>nrel_goto : .take_vertex_from_vertexs;;
-		*);;
-
-		-> .gen_copy_arc_set
-		(*
-			<- searchSetStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _curr_graph;;
-            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs1;;
-            -> rrel_3: rrel_assign: rrel_scp_var: _vert;;
-			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs2;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_oredge;;
-
-			-> rrel_set_3: rrel_assign: rrel_scp_var: _edges;;
-			
-			=> nrel_then: .take_edge_from_edges;;
-			=> nrel_else: .operator_return;;
-		*);;
-
-		
-		-> .take_edge_from_edges
-		(*
-			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _edges;;
-            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_erase;;
-            -> rrel_3: rrel_assign: rrel_scp_var: _curr_edge;;
-			
-			=>nrel_then: .erase_edge_from_edges;;
-			=>nrel_else: .clear_info;; 	
-		*);;
-
-		-> .erase_edge_from_edges
-		(*
-			<- eraseEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase:  _arc_erase;;
-                        		
-			=>nrel_goto: .find_end_vertexes;;
-		*);;
-
-		-> .find_end_vertexes
-		(*
-			<-searchElStr3;;
-			-> rrel_1 : rrel_assign : rrel_scp_var : _start_vertex;;
-			-> rrel_2 : rrel_fixed : rrel_scp_var : _curr_edge;;
-			-> rrel_3 : rrel_assign : rrel_scp_var : _end_vertex;;
-
-			=>nrel_goto : .delete_the_same_arcs_1;;
-		*);;
-		/* ищем все дуги которые соединяют те же вершины , и удаляем их*/ 
-		-> .delete_the_same_arcs_1
-		(*
-			<- searchElStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _start_vertex;;
-            -> rrel_2: rrel_assign: rrel_scp_var: _arc_erase_1;;
-            -> rrel_3: rrel_fixed: rrel_scp_var: _end_vertex;;
-			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _this_arc;;
-			-> rrel_5: rrel_fixed : rrel_scp_var: _edges;;
-
-			=>nrel_then: .delete_the_same_arcs_3;;
-			=>nrel_else: .delete_the_same_arcs_2;; 
-		*);;
-
-		-> .delete_the_same_arcs_2
-		(*
-			<- searchElStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _end_vertex;;
-            -> rrel_2: rrel_assign: rrel_scp_var: _arc_erase_1;;
-            -> rrel_3: rrel_fixed: rrel_scp_var: _start_vertex;;
-			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _this_arc;;
-			-> rrel_5: rrel_fixed : rrel_scp_var: _edges;;
-			
-			=>nrel_then: .delete_the_same_arcs_3;;
-			=>nrel_else: .find_start_vertex_association;; 
-		*);;
-		
-		-> .delete_the_same_arcs_3
-		(*
-			<- eraseEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase:  _this_arc;;
-                        		
-			=>nrel_goto: .delete_the_same_arcs_1;;
-		*);;
-
-		-> .find_start_vertex_association
-		(*
-			<-searchElStr5;;
-			-> rrel_1 : rrel_fixed : rrel_scp_var : _start_vertex;;
-			-> rrel_2 : rrel_assign : rrel_scp_var : _arc1;;
-			-> rrel_3 : rrel_assign : rrel_scp_var : _start_vertex_association;;
-			-> rrel_4 : rrel_assign : rrel_scp_var : _arc2;;
-			-> rrel_5 : rrel_fixed : rrel_scp_var : _set_of_corespondence;;
-
-			=> nrel_then: .find_end_vertex_association;;
-			=> nrel_else: .operator_return;;
-			*);;
-
-
-		-> .find_end_vertex_association
-		(*
-			<-searchElStr5;;
-			-> rrel_1 : rrel_fixed : rrel_scp_var : _end_vertex;;
-			-> rrel_2 : rrel_assign : rrel_scp_var : _arc1;;
-			-> rrel_3 : rrel_assign : rrel_scp_var : _end_vertex_association;;
-			-> rrel_4 : rrel_assign : rrel_scp_var : _arc2;;
-			-> rrel_5 : rrel_fixed : rrel_scp_var : _set_of_corespondence;;
-
-			=> nrel_then: .create_edge;;
-			=> nrel_else: .operator_return;;
-			*);;
-
-
-		-> .create_edge
-		(*
-			<-genElStr5;;
-			-> rrel_1 : rrel_fixed : rrel_scp_var : _start_vertex_association;;
-			-> rrel_2 : rrel_assign : rrel_scp_var : rrel_common : rrel_const:  _arc1;;
-			-> rrel_3 : rrel_fixed : rrel_scp_var : _end_vertex_association;;
-			-> rrel_4 : rrel_assign : rrel_scp_var : rrel_pos_const_perm : _arc2;;
-			-> rrel_5 : rrel_fixed : rrel_scp_var : _undir_graph;;
-
-			=>nrel_goto : .create_edge_2;;
-		*);;
-
-		-> .create_edge_2 
-		(*
-			<-genElStr3;;
-			-> rrel_1 : rrel_fixed : rrel_scp_const : rrel_oredge;;
-			-> rrel_2 : rrel_assign : rrel_scp_var : rrel_pos_const_perm : _arc3;;
-			-> rrel_3 : rrel_fixed : rrel_scp_var: _arc2;;			
-
-			=>nrel_goto : .create_edge_3;;
-		*);;
-
-		-> .create_edge_3
-		(*
-			<-genElStr5;;
-			-> rrel_1 : rrel_fixed : rrel_scp_var : _end_vertex_association;;
-			-> rrel_2 : rrel_assign : rrel_scp_var : rrel_common : rrel_const:  _arc1;;
-			-> rrel_3 : rrel_fixed : rrel_scp_var : _start_vertex_association;;
-			-> rrel_4 : rrel_assign : rrel_scp_var : rrel_pos_const_perm : _arc2;;
-			-> rrel_5 : rrel_fixed : rrel_scp_var : _undir_graph;;
-
-			=>nrel_goto : .create_edge_4;;
-		*);;
-
-		-> .create_edge_4
-		(*
-			<-genElStr3;;
-			-> rrel_1 : rrel_fixed : rrel_scp_const : rrel_oredge;;
-			-> rrel_2 : rrel_assign : rrel_scp_var : rrel_pos_const_perm : _arc3;;
-			-> rrel_3 : rrel_fixed : rrel_scp_var: _arc2;;			
-
-			=>nrel_goto : .take_edge_from_edges;;
-		*);;
-		
-		-> .clear_info 
-		(*
-			<-searchElStr3;;
-			-> rrel_1 : rrel_fixed : rrel_scp_var : _set_of_corespondence;;
-			-> rrel_2 : rrel_assign : rrel_scp_var : rrel_pos_const_perm : _pos_arc;;
-			-> rrel_3 : rrel_assign : rrel_scp_var : _arc;;
-
-			=>nrel_then : .clear_info_2;;
-			=>nrel_else : .clear_info_3;;
-		*);;
-		
-		-> .clear_info_2
-		(*
-			<-eraseEl;;
-			-> rrel_1 : rrel_fixed : rrel_scp_var : rrel_erase : _arc ;;
-			
-			=>nrel_goto : .clear_info;;
-		*);;
-
-		-> .clear_info_3 
-		(*
-			<-eraseEl;;
-			-> rrel_1 : rrel_fixed : rrel_scp_var : rrel_erase : _set_of_corespondence;;
-
-			=>nrel_goto : .operator_return;;
-		*);;
-	/*	-> .create_associate_in_edge_set
-		(*
-			<-genElStr5;;
-			-> rrel_1 : rrel_fixed : rrel_scp_var : _curr_vert ;;
-			-> rrel_2 : rrel_assign : rrel_scp_var : rrel_common : _arc1;;
-			-> rrel_3 : rrel_assign : rrel_scp_var : rrel_common : _new_vertex;;
-			-> rrel_4 : rrel_assign : rrel_scp_var : rrel_pos_const_perm : _pos_arc;;
-			-> rrel_5 : rrel_fixed : rrel_scp_var : _set_of_corespondence;;
-
-			=>nrel_goto : .add_vertex_in_graph;;
-
-		*);;
-
-		-> .add_vertex_in_graph
-		(*
-			<-genElStr5;;
-			-> rrel_1 : rrel_fixed : rrel_scp_var : _undir_graph;;
-			-> rrel_2 : rrel_assign : rrel_scp_var : rrel_pos_const_perm : _pos_arc;;
-			-> rrel_3 : rrel_fixed : rrel_scp_var : _new_vertex;;
-			-> rrel_4 : rrel_assign : rrel_scp_var : rrel_pos_const_perm : _pos_arc_2;;
-			-> rrel_5 : rrel_fixed : rrel_scp_const : rrel_vertex;;
-
-			=>nrel_goto : .take_vertex_from_vertexs;;
-		*);;
-
-*/		
-		-> .operator_return
-		(*
-			<-printNl;;
-			->rrel_1 : rrel_fixed : rrel_scp_const : [EXIT proc_make_graph_undirected];;
-
-			=>nrel_goto : .operator_return_2;;
-		*);;
-
-		-> .operator_return_2
-		(*
-			<-return;;
-		*);;
+		_=> nrel_goto:: .._proc_make_graph_undirected_operator2;;
 	*);;
+
+	_-> .._proc_make_graph_undirected_operator2 (*
+		_<- searchSetStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _curr_graph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_of_vertexs1;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _vert;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_of_vertexs2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_vertex;;
+		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _vertexs;;
+
+		_=> nrel_else:: .._proc_make_graph_undirected_operator3;;
+		_=> nrel_then:: .._proc_make_graph_undirected_operator4;;
+	*);;
+
+	_-> .._proc_make_graph_undirected_operator4 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _vertexs;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_erase;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _curr_vert;;
+
+		_=> nrel_else:: .._proc_make_graph_undirected_operator5;;
+		_=> nrel_then:: .._proc_make_graph_undirected_operator6;;
+	*);;
+
+	_-> .._proc_make_graph_undirected_operator3 (*
+		_<- printNl;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: [EXIT proc_make_graph_undirected];;
+
+		_=> nrel_goto:: .._proc_make_graph_undirected_operator7;;
+	*);;
+
+	_-> .._proc_make_graph_undirected_operator7 (*
+		_<- return;;
+
+	*);;
+
+	_-> .._proc_make_graph_undirected_operator6 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _arc_erase;;
+
+		_=> nrel_goto:: .._proc_make_graph_undirected_operator8;;
+	*);;
+
+	_-> .._proc_make_graph_undirected_operator5 (*
+		_<- searchSetStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _curr_graph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_of_vertexs1;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _vert;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_of_vertexs2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_oredge;;
+		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _edges;;
+
+		_=> nrel_else:: .._proc_make_graph_undirected_operator3;;
+		_=> nrel_then:: .._proc_make_graph_undirected_operator9;;
+	*);;
+
+	_-> .._proc_make_graph_undirected_operator9 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _edges;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_erase;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _curr_edge;;
+
+		_=> nrel_else:: .._proc_make_graph_undirected_operator10;;
+		_=> nrel_then:: .._proc_make_graph_undirected_operator11;;
+	*);;
+
+	_-> .._proc_make_graph_undirected_operator11 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _arc_erase;;
+
+		_=> nrel_goto:: .._proc_make_graph_undirected_operator12;;
+	*);;
+
+	_-> .._proc_make_graph_undirected_operator10 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _set_of_corespondence;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _pos_arc;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _arc;;
+
+		_=> nrel_else:: .._proc_make_graph_undirected_operator13;;
+		_=> nrel_then:: .._proc_make_graph_undirected_operator14;;
+	*);;
+
+	_-> .._proc_make_graph_undirected_operator14 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _arc;;
+
+		_=> nrel_goto:: .._proc_make_graph_undirected_operator10;;
+	*);;
+
+	_-> .._proc_make_graph_undirected_operator13 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _set_of_corespondence;;
+
+		_=> nrel_goto:: .._proc_make_graph_undirected_operator3;;
+	*);;
+
+	_-> .._proc_make_graph_undirected_operator12 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_assign:: rrel_scp_var:: _start_vertex;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _curr_edge;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _end_vertex;;
+
+		_=> nrel_goto:: .._proc_make_graph_undirected_operator15;;
+	*);;
+
+	_-> .._proc_make_graph_undirected_operator15 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _start_vertex;;
+		_-> rrel_2:: rrel_assign:: rrel_scp_var:: _arc_erase_1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _end_vertex;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _this_arc;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_var:: _edges;;
+
+		_=> nrel_else:: .._proc_make_graph_undirected_operator16;;
+		_=> nrel_then:: .._proc_make_graph_undirected_operator17;;
+	*);;
+
+	_-> .._proc_make_graph_undirected_operator17 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _this_arc;;
+
+		_=> nrel_goto:: .._proc_make_graph_undirected_operator15;;
+	*);;
+
+	_-> .._proc_make_graph_undirected_operator16 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _end_vertex;;
+		_-> rrel_2:: rrel_assign:: rrel_scp_var:: _arc_erase_1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _start_vertex;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _this_arc;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_var:: _edges;;
+
+		_=> nrel_else:: .._proc_make_graph_undirected_operator18;;
+		_=> nrel_then:: .._proc_make_graph_undirected_operator17;;
+	*);;
+
+	_-> .._proc_make_graph_undirected_operator18 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _start_vertex;;
+		_-> rrel_2:: rrel_assign:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _start_vertex_association;;
+		_-> rrel_4:: rrel_assign:: rrel_scp_var:: _arc2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_var:: _set_of_corespondence;;
+
+		_=> nrel_else:: .._proc_make_graph_undirected_operator3;;
+		_=> nrel_then:: .._proc_make_graph_undirected_operator19;;
+	*);;
+
+	_-> .._proc_make_graph_undirected_operator19 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _end_vertex;;
+		_-> rrel_2:: rrel_assign:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _end_vertex_association;;
+		_-> rrel_4:: rrel_assign:: rrel_scp_var:: _arc2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_var:: _set_of_corespondence;;
+
+		_=> nrel_else:: .._proc_make_graph_undirected_operator3;;
+		_=> nrel_then:: .._proc_make_graph_undirected_operator20;;
+	*);;
+
+	_-> .._proc_make_graph_undirected_operator20 (*
+		_<- genElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _start_vertex_association;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_const:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _end_vertex_association;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_var:: _undir_graph;;
+
+		_=> nrel_goto:: .._proc_make_graph_undirected_operator21;;
+	*);;
+
+	_-> .._proc_make_graph_undirected_operator21 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: rrel_oredge;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc3;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _arc2;;
+
+		_=> nrel_goto:: .._proc_make_graph_undirected_operator22;;
+	*);;
+
+	_-> .._proc_make_graph_undirected_operator22 (*
+		_<- genElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _end_vertex_association;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_const:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _start_vertex_association;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_var:: _undir_graph;;
+
+		_=> nrel_goto:: .._proc_make_graph_undirected_operator23;;
+	*);;
+
+	_-> .._proc_make_graph_undirected_operator23 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: rrel_oredge;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc3;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _arc2;;
+
+		_=> nrel_goto:: .._proc_make_graph_undirected_operator9;;
+	*);;
+
+	_-> .._proc_make_graph_undirected_operator8 (*
+		_<- genElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _curr_vert;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_assign:: rrel_const:: rrel_node:: rrel_scp_var:: _new_vertex;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _pos_arc;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_var:: _set_of_corespondence;;
+
+		_=> nrel_goto:: .._proc_make_graph_undirected_operator24;;
+	*);;
+
+	_-> .._proc_make_graph_undirected_operator24 (*
+		_<- genElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _undir_graph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _pos_arc;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _new_vertex;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _pos_arc_2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_vertex;;
+
+		_=> nrel_goto:: .._proc_make_graph_undirected_operator4;;
+	*);;
+
 *);;
+
+*];;

@@ -12,7 +12,7 @@ _<- scp_process;
 _-> rrel_1:: rrel_in:: _solver_object;
 _-> rrel_2:: rrel_in:: _key_element;
 _-> rrel_3:: rrel_in:: _solver_element;
-_-> rrel_4:: rrel_out:: _solutirrel_conston_node;
+_-> rrel_4:: rrel_out:: _solution_node;
 _-> rrel_5:: rrel_in:: _init_struct;
 _-> rrel_6:: rrel_in:: _result_struct;
 _<= nrel_decomposition_of_action:: .._actions (*
@@ -23,11 +23,11 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _solver_element;;
 
-		_=> nrel_else:: .._proc_use_solver_element_operator3;;
-		_=> nrel_then:: .._proc_use_solver_element_operator1;;
+		_=> nrel_else:: .._proc_use_solver_element_operator1;;
+		_=> nrel_then:: .._proc_use_solver_element_operator2;;
 	*);;
 
-	_-> .._proc_use_solver_element_operator1 (*
+	_-> .._proc_use_solver_element_operator2 (*
 		_<- call;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _solver_element;;
 		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._proc_use_solver_element_param0 (*
@@ -35,20 +35,20 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		*);;
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _descr;;
 
-		_=> nrel_goto:: .._proc_use_solver_element_operator2;;
+		_=> nrel_goto:: .._proc_use_solver_element_operator3;;
 	*);;
 
-	_-> .._proc_use_solver_element_operator3 (*
+	_-> .._proc_use_solver_element_operator1 (*
 		_<- searchElStr3;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: sc_statement;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _solver_element;;
 
-		_=> nrel_else:: .._proc_use_solver_element_operator_return;;
-		_=> nrel_then:: .._proc_use_solver_element_operator4;;
+		_=> nrel_else:: .._proc_use_solver_element_operator4;;
+		_=> nrel_then:: .._proc_use_solver_element_operator5;;
 	*);;
 
-	_-> .._proc_use_solver_element_operator4 (*
+	_-> .._proc_use_solver_element_operator5 (*
 		_<- call;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: proc_use_sc_statement;;
 		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._proc_use_solver_element_param1 (*
@@ -59,15 +59,15 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		*);;
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _descr;;
 
-		_=> nrel_goto:: .._proc_use_solver_element_operator5;;
+		_=> nrel_goto:: .._proc_use_solver_element_operator6;;
 	*);;
 
-	_-> .._proc_use_solver_element_operator_return (*
+	_-> .._proc_use_solver_element_operator4 (*
 		_<- return;;
 
 	*);;
 
-	_-> .._proc_use_solver_element_operator5 (*
+	_-> .._proc_use_solver_element_operator6 (*
 		_<- waitReturn;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _descr;;
 
@@ -98,7 +98,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_<- ifVarAssign;;
 		_-> rrel_1:: rrel_scp_var:: _nodes_relation;;
 
-		_=> nrel_else:: .._proc_use_solver_element_operator_return;;
+		_=> nrel_else:: .._proc_use_solver_element_operator4;;
 		_=> nrel_then:: .._proc_use_solver_element_operator10;;
 	*);;
 
@@ -106,7 +106,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_<- genElStr3;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: solution_tree_node;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _ara;;
-		_-> rrel_3:: rrel_assign:: rrel_node:: rrel_scp_var:: rrel_const:: _solution_node;;
+		_-> rrel_3:: rrel_assign:: rrel_const:: rrel_node:: rrel_scp_var:: _solution_node;;
 
 		_=> nrel_goto:: .._proc_use_solver_element_operator11;;
 	*);;
@@ -114,7 +114,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 	_-> .._proc_use_solver_element_operator11 (*
 		_<- genElStr5;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _solution_node;;
-		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: rrel_const:: _arc;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_const:: rrel_scp_var:: _arc;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _key_element;;
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_solution_action_goal;;
@@ -125,7 +125,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 	_-> .._proc_use_solver_element_operator12 (*
 		_<- genElStr5;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _solution_node;;
-		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: rrel_const:: _arc;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_const:: rrel_scp_var:: _arc;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _solver_object;;
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_solution_argument_1;;
@@ -136,7 +136,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 	_-> .._proc_use_solver_element_operator13 (*
 		_<- genElStr5;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _solution_node;;
-		_-> rrel_2:: rrel_assign:: rrel_const:: rrel_common:: rrel_scp_var:: _arc;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_const:: rrel_scp_var:: _arc;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _nodes_relation;;
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_action_result;;
@@ -147,15 +147,15 @@ _<= nrel_decomposition_of_action:: .._actions (*
 	_-> .._proc_use_solver_element_operator14 (*
 		_<- genElStr5;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _solution_node;;
-		_-> rrel_2:: rrel_assign:: rrel_const:: rrel_common:: rrel_scp_var:: _arc;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_const:: rrel_scp_var:: _arc;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _solver_element;;
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_solution_action;;
 
-		_=> nrel_goto:: .._proc_use_solver_element_operator_return;;
+		_=> nrel_goto:: .._proc_use_solver_element_operator4;;
 	*);;
 
-	_-> .._proc_use_solver_element_operator2 (*
+	_-> .._proc_use_solver_element_operator3 (*
 		_<- waitReturn;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _descr;;
 

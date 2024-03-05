@@ -1,197 +1,204 @@
-scp_program -> proc_run_test_concept_multigraph (*
-	
-	-> rrel_params: ... (*
-		-> rrel_1: rrel_in: _graph;;
-		-> rrel_2: rrel_in: _answer;;
+proc_run_test_concept_multigraph
+=> nrel_main_idtf:
+	[Программа проверки графа на то, что он является мультиграфом] (* <- lang_ru;; *);
+	[] (* <- lang_en;; *);
+<- scp_program;
+-> rrel_key_sc_element: .._process1;;
+
+proc_run_test_concept_multigraph = [*
+.._process1
+_<- scp_process;
+
+_-> rrel_1:: rrel_in:: _graph;
+_-> rrel_2:: rrel_in:: _answer;
+_<= nrel_decomposition_of_action:: .._actions (*
+
+	_-> rrel_1:: .._proc_run_test_concept_multigraph_operator0 (*
+		_<- searchSetStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _graph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _el3;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc4;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_edge;;
+		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _soUPset;;
+
+		_=> nrel_goto:: .._proc_run_test_concept_multigraph_operator1;;
 	*);;
 
-	-> rrel_operators: ... (*
-	-> rrel_init: ..start (*
-<- searchSetStr5;;
--> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
--> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
--> rrel_3: rrel_assign: rrel_scp_var: _el3;;
--> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
--> rrel_5: rrel_fixed: rrel_scp_const : rrel_edge;;
--> rrel_set_3 : rrel_assign : rrel_scp_var : _soUPset;;
+	_-> .._proc_run_test_concept_multigraph_operator1 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _soUPset;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _dot;;
 
-=> nrel_goto : ..proc_concept_multigraph_step1;; *);;
+		_=> nrel_else:: .._proc_run_test_concept_multigraph_operator2;;
+		_=> nrel_then:: .._proc_run_test_concept_multigraph_operator3;;
+	*);;
 
+	_-> .._proc_run_test_concept_multigraph_operator3 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
 
--> ..proc_concept_multigraph_step0 (*
-<- eraseEl;;
--> rrel_1 : rrel_fixed :rrel_erase: rrel_scp_var : _Jabba;;
+		_=> nrel_goto:: .._proc_run_test_concept_multigraph_operator4;;
+	*);;
 
-=> nrel_goto : ..proc_concept_multigraph_step1;; *);;
+	_-> .._proc_run_test_concept_multigraph_operator2 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _answer;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _graph;;
 
+		_=> nrel_goto:: .._proc_run_test_concept_multigraph_operator5;;
+	*);;
 
--> ..proc_concept_multigraph_step1 (*
-<- searchElStr3;;
--> rrel_1 : rrel_fixed : rrel_scp_var : _soUPset;;
--> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
--> rrel_3 : rrel_assign : rrel_scp_var : _dot;;
+	_-> .._proc_run_test_concept_multigraph_operator5 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _answer;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: concept_multigraph;;
 
-=> nrel_then : ..proc_concept_multigraph_step2;; 
-=> nrel_else : ..graph_is_not_mult ;;*);; 
+		_=> nrel_goto:: .._proc_run_test_concept_multigraph_operator6;;
+	*);;
 
+	_-> .._proc_run_test_concept_multigraph_operator6 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: concept_multigraph;;
+		_-> rrel_2:: rrel_access:: rrel_assign:: rrel_const:: rrel_neg:: rrel_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _graph;;
 
--> ..proc_concept_multigraph_step2 (*
-<- eraseEl;;
--> rrel_1 : rrel_fixed : rrel_pos_const_perm : rrel_erase: rrel_scp_var : _arc;;
+		_=> nrel_goto:: .._proc_run_test_concept_multigraph_operator7;;
+	*);;
 
-=> nrel_goto : ..proc_concept_multigraph_step3;; *);;
+	_-> .._proc_run_test_concept_multigraph_operator7 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _answer;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc3;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _arc2;;
 
+		_=> nrel_goto:: .._proc_run_test_concept_multigraph_operator8;;
+	*);;
 
--> ..proc_concept_multigraph_step3 (*
-<- searchElStr3;;
--> rrel_1 : rrel_assign : rrel_scp_var : _fir;;
--> rrel_2 : rrel_fixed : rrel_common : rrel_scp_var : _dot;;
--> rrel_3 : rrel_assign : rrel_scp_var : _sec;;
+	_-> .._proc_run_test_concept_multigraph_operator8 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _soUPset;;
 
-=> nrel_then : ..proc_concept_multigraph_step4;; 
-=> nrel_else : ..graph_is_not_mult ;;*);;             
+		_=> nrel_goto:: .._proc_run_test_concept_multigraph_operator9;;
+	*);;
 
+	_-> .._proc_run_test_concept_multigraph_operator9 (*
+		_<- return;;
 
--> ..proc_concept_multigraph_step4 (*
-<- searchSetStr3;;
--> rrel_1 : rrel_fixed : rrel_scp_var : _soUPset;;
--> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
--> rrel_3 : rrel_assign : rrel_scp_var : _maybe;;
--> rrel_set_3 : rrel_assign : rrel_scp_var : _Jabba;;
+	*);;
 
-=> nrel_then : ..proc_concept_multigraph_step1_1;; 
-=> nrel_else : ..graph_is_not_mult ;;*);; 
+	_-> .._proc_run_test_concept_multigraph_operator4 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_assign:: rrel_scp_var:: _fir;;
+		_-> rrel_2:: rrel_common:: rrel_fixed:: rrel_scp_var:: _dot;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _sec;;
 
+		_=> nrel_else:: .._proc_run_test_concept_multigraph_operator2;;
+		_=> nrel_then:: .._proc_run_test_concept_multigraph_operator10;;
+	*);;
 
--> ..proc_concept_multigraph_step1_1 (*
-<- searchElStr3;;
--> rrel_1 : rrel_fixed : rrel_scp_var : _Jabba;;
--> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
--> rrel_3 : rrel_assign : rrel_scp_var : _maybe;;
+	_-> .._proc_run_test_concept_multigraph_operator10 (*
+		_<- searchSetStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _soUPset;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _maybe;;
+		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _Jabba;;
 
-=> nrel_then : ..proc_concept_multigraph_step1_2;; 
-=> nrel_else : ..proc_concept_multigraph_step0 ;;*);;    
+		_=> nrel_else:: .._proc_run_test_concept_multigraph_operator2;;
+		_=> nrel_then:: .._proc_run_test_concept_multigraph_operator11;;
+	*);;
 
+	_-> .._proc_run_test_concept_multigraph_operator11 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _Jabba;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _maybe;;
 
--> ..proc_concept_multigraph_step1_2 (*
-<- eraseEl;;
--> rrel_1 : rrel_fixed : rrel_pos_const_perm : rrel_erase: rrel_scp_var : _arc;;
+		_=> nrel_else:: .._proc_run_test_concept_multigraph_operator12;;
+		_=> nrel_then:: .._proc_run_test_concept_multigraph_operator13;;
+	*);;
 
-=> nrel_goto : ..proc_concept_multigraph_step1_3;; *);;
+	_-> .._proc_run_test_concept_multigraph_operator13 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
 
+		_=> nrel_goto:: .._proc_run_test_concept_multigraph_operator14;;
+	*);;
 
--> ..proc_concept_multigraph_step1_3 (*
-<- searchElStr3;;
--> rrel_1 : rrel_assign : rrel_scp_var : _fir2;;
--> rrel_2 : rrel_fixed : rrel_common : rrel_scp_var : _maybe;;
--> rrel_3 : rrel_assign : rrel_scp_var : _sec2;;
+	_-> .._proc_run_test_concept_multigraph_operator12 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _Jabba;;
 
-=> nrel_then : ..proc_concept_multigraph_step1_4;; 
-=> nrel_else : ..graph_is_not_mult ;;*);;             
+		_=> nrel_goto:: .._proc_run_test_concept_multigraph_operator1;;
+	*);;
 
+	_-> .._proc_run_test_concept_multigraph_operator14 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_assign:: rrel_scp_var:: _fir2;;
+		_-> rrel_2:: rrel_common:: rrel_fixed:: rrel_scp_var:: _maybe;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _sec2;;
 
--> ..proc_concept_multigraph_step1_4 (*
-<- ifCoin;;
--> rrel_1 : rrel_fixed : rrel_scp_var : _fir;;
--> rrel_2 : rrel_fixed : rrel_scp_var : _fir2;;
+		_=> nrel_else:: .._proc_run_test_concept_multigraph_operator2;;
+		_=> nrel_then:: .._proc_run_test_concept_multigraph_operator15;;
+	*);;
 
-=> nrel_then: ..proc_concept_multigraph_step1_5;;
-=> nrel_else: ..proc_concept_multigraph_step1_1;; *);;
+	_-> .._proc_run_test_concept_multigraph_operator15 (*
+		_<- ifCoin;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _fir;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _fir2;;
 
+		_=> nrel_else:: .._proc_run_test_concept_multigraph_operator11;;
+		_=> nrel_then:: .._proc_run_test_concept_multigraph_operator16;;
+	*);;
 
--> ..proc_concept_multigraph_step1_5 (*
-<- ifCoin;;
--> rrel_1 : rrel_fixed : rrel_scp_var : _sec;;
--> rrel_2 : rrel_fixed : rrel_scp_var : _sec2;;
+	_-> .._proc_run_test_concept_multigraph_operator16 (*
+		_<- ifCoin;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _sec;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _sec2;;
 
-=> nrel_then: ..graph_is_multigraph_1;;
-=> nrel_else: ..proc_concept_multigraph_step1_1;; *);;
+		_=> nrel_else:: .._proc_run_test_concept_multigraph_operator11;;
+		_=> nrel_then:: .._proc_run_test_concept_multigraph_operator17;;
+	*);;
 
+	_-> .._proc_run_test_concept_multigraph_operator17 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _answer;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _graph;;
 
--> ..graph_is_multigraph_1 (*
-<- genElStr3;;
--> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
--> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
--> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+		_=> nrel_goto:: .._proc_run_test_concept_multigraph_operator18;;
+	*);;
 
-=> nrel_goto : ..graph_is_multigraph_2;; *);;
+	_-> .._proc_run_test_concept_multigraph_operator18 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _answer;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: concept_multigraph;;
 
+		_=> nrel_goto:: .._proc_run_test_concept_multigraph_operator19;;
+	*);;
 
--> ..graph_is_multigraph_2 (*
-<- genElStr3;;
--> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
--> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
--> rrel_3: rrel_fixed: rrel_scp_const: concept_multigraph;;
+	_-> .._proc_run_test_concept_multigraph_operator19 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: concept_multigraph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _graph;;
 
-=> nrel_goto : ..graph_is_multigraph_3;; *);;
+		_=> nrel_goto:: .._proc_run_test_concept_multigraph_operator20;;
+	*);;
 
+	_-> .._proc_run_test_concept_multigraph_operator20 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _answer;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc3;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _arc2;;
 
--> ..graph_is_multigraph_3 (*
-<- genElStr3;;
--> rrel_1: rrel_fixed: rrel_scp_const: concept_multigraph;;
--> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
--> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
-
-=> nrel_goto : ..graph_is_multigraph_4;; *);;
-
-
--> ..graph_is_multigraph_4 (*
-<- genElStr3;;
--> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
--> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc3;;
--> rrel_3: rrel_fixed: rrel_scp_var: _arc2;;
-
-=> nrel_goto : ..free_mem;; *);;
-
-
--> ..graph_is_not_mult (*
-<- genElStr3;;
--> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
--> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
--> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
-
-=> nrel_goto : ..graph_is_not_multigraph_2;; *);;
-
-
--> ..graph_is_not_multigraph_2 (*
-<- genElStr3;;
--> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
--> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
--> rrel_3: rrel_fixed: rrel_scp_const: concept_multigraph;;
-
-=> nrel_goto : ..graph_is_not_multigraph_3;; *);;
-
-
--> ..graph_is_not_multigraph_3 (*
-<- genElStr3;;
--> rrel_1: rrel_fixed: rrel_scp_const: concept_multigraph;;
--> rrel_2: rrel_assign: rrel_scp_var: rrel_neg: rrel_const: rrel_perm: rrel_access: _arc2;;
--> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
-
-=> nrel_goto : ..graph_is_not_multigraph_4;; *);;
-
-
--> ..graph_is_not_multigraph_4 (*
-<- genElStr3;;
--> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
--> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc3;;
--> rrel_3: rrel_fixed: rrel_scp_var: _arc2;;
-
-=> nrel_goto : ..free_mem;; *);;
-
-
-
--> ..free_mem (*
-<- eraseEl;;
--> rrel_1 : rrel_fixed :rrel_erase: rrel_scp_var : _soUPset;;
-
-=> nrel_goto : ..oper_return;; *);;
-
-
--> ..oper_return (*
-<-return;; *);;
-
+		_=> nrel_goto:: .._proc_run_test_concept_multigraph_operator8;;
+	*);;
 
 *);;
-*);;
 
+*];;

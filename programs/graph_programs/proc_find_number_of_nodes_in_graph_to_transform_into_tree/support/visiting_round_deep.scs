@@ -1,115 +1,226 @@
-scp_program -> visiting_round_deep (*
-	
-	-> rrel_params: ... (*
-		-> rrel_1: rrel_in: _current;;
-		-> rrel_2: rrel_in: _prev;;
-		-> rrel_3: rrel_in: rrel_scp_var: _count;;
-		-> rrel_4: rrel_in: _graph;;
-		-> rrel_5: rrel_in: _marked_nodes;;
+visiting_round_deep
+=> nrel_main_idtf:
+	[] (* <- lang_ru;; *);
+	[] (* <- lang_en;; *);
+<- scp_program;
+-> rrel_key_sc_element: .._process1;;
+
+visiting_round_deep = [*
+.._process1
+_<- scp_process;
+
+_-> rrel_1:: rrel_in:: _current;
+_-> rrel_2:: rrel_in:: _fin;
+_-> rrel_3:: rrel_in:: rrel_scp_const:: _count;
+_-> rrel_4:: rrel_in:: _graph;
+_-> rrel_5:: rrel_in:: _marked_nodes;
+_<= nrel_decomposition_of_action:: .._actions (*
+
+	_-> rrel_1:: .._visiting_round_deep_operator0 (*
+		_<- searchSetStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _current;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc2;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _el3;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc4;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: _graph;;
+		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _soUPset;;
+
+		_=> nrel_goto:: .._visiting_round_deep_operator1;;
 	*);;
 
-	-> rrel_operators: ... (*
+	_-> .._visiting_round_deep_operator2 (*
+		_<- searchSetStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _current;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc2;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _el3;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc4;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: _graph;;
+		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _soUPset;;
 
-	-> rrel_init: ..start (*
-<- searchSetStr5;;
--> rrel_1: rrel_fixed: rrel_scp_var: _current;;
--> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc2;;
--> rrel_3: rrel_assign: rrel_scp_var: _el3;;
--> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
--> rrel_5: rrel_fixed: rrel_scp_var : _graph;;
--> rrel_set_3 : rrel_assign : rrel_scp_var : _soUPset;;
-
-=> nrel_goto : ..step1;; *);;
-
-
--> ..step1 (*
-<- searchElStr3;;
--> rrel_1 : rrel_fixed : rrel_scp_var : _soUPset;;
--> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
--> rrel_3 : rrel_assign : rrel_scp_var : _new;;
-
-=> nrel_then : ..step2;; 
-=> nrel_else : ..finish ;;*);;
-
-
--> ..step2 (*
-<- eraseEl;;
--> rrel_1 : rrel_fixed : rrel_pos_const_perm : rrel_erase:rrel_scp_var : _arc;;
-
-=> nrel_goto : ..step3;; *);;
-
-
--> ..step3 (*
-<- ifCoin;;
--> rrel_1 : rrel_fixed : rrel_scp_var : _new;;
--> rrel_2 : rrel_fixed : rrel_scp_var : _prev;;
-
-=> nrel_then: ..step1;;
-=> nrel_else: ..step4;; *);;
-
-
--> ..step4 (*
-<- searchElStr3;;
--> rrel_1 : rrel_fixed : rrel_scp_var : _marked_nodes;;
--> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
--> rrel_3 : rrel_fixed : rrel_scp_var : _new;;
-
-=> nrel_then : ..plus_plus;;
-=> nrel_else : ..step5;; *);;
-
-
--> ..step5 (*
-<- genElStr3;;
--> rrel_1 : rrel_fixed : rrel_scp_var : _marked_nodes;;
--> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
--> rrel_3 : rrel_fixed : rrel_scp_var : _new;;
-
-=> nrel_goto : ..ave_recurs;; *);;
-
-
--> ..ave_recurs (*
-<- call;;
-	-> rrel_1: rrel_fixed: rrel_scp_const: visiting_round_deep;;
-	-> rrel_2: rrel_fixed: rrel_scp_const: ... (*
-		-> rrel_1: rrel_fixed: rrel_scp_var: _new;;
-		-> rrel_2: rrel_fixed: rrel_scp_var: _current;;
-		-> rrel_3: rrel_fixed : rrel_scp_var: _count;;
-		-> rrel_4: rrel_fixed: rrel_scp_var: _graph;;
-		-> rrel_5: rrel_fixed: rrel_scp_var: _marked_nodes;;
+		_=> nrel_goto:: .._visiting_round_deep_operator3;;
 	*);;
-	-> rrel_3: rrel_assign: rrel_scp_var: _descr;;
 
-	=> nrel_goto: ..hail_to_the_king;;
+	_-> .._visiting_round_deep_operator3 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _soUPset;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _new;;
+
+		_=> nrel_else:: .._visiting_round_deep_operator4;;
+		_=> nrel_then:: .._visiting_round_deep_operator5;;
+	*);;
+
+	_-> .._visiting_round_deep_operator5 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+
+		_=> nrel_goto:: .._visiting_round_deep_operator6;;
+	*);;
+
+	_-> .._visiting_round_deep_operator4 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _soUPset;;
+
+		_=> nrel_goto:: .._visiting_round_deep_operator7;;
+	*);;
+
+	_-> .._visiting_round_deep_operator7 (*
+		_<- return;;
+
+	*);;
+
+	_-> .._visiting_round_deep_operator6 (*
+		_<- ifCoin;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _new;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: _prev;;
+
+		_=> nrel_else:: .._visiting_round_deep_operator8;;
+		_=> nrel_then:: .._visiting_round_deep_operator3;;
+	*);;
+
+	_-> .._visiting_round_deep_operator8 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _marked_nodes;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _new;;
+
+		_=> nrel_else:: .._visiting_round_deep_operator9;;
+		_=> nrel_then:: .._visiting_round_deep_operator10;;
+	*);;
+
+	_-> .._visiting_round_deep_operator10 (*
+		_<- contAdd;;
+		_-> rrel_1:: rrel_2:: rrel_fixed:: rrel_scp_const:: _count;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: [1];;
+
+		_=> nrel_goto:: .._visiting_round_deep_operator3;;
+	*);;
+
+	_-> .._visiting_round_deep_operator9 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _marked_nodes;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _new;;
+
+		_=> nrel_goto:: .._visiting_round_deep_operator11;;
+	*);;
+
+	_-> .._visiting_round_deep_operator11 (*
+		_<- call;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: visiting_round_deep;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._visiting_round_deep_param0 (*
+			_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _new;;
+			_-> rrel_2:: rrel_fixed:: rrel_scp_const:: _current;;
+			_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _count;;
+			_-> rrel_4:: rrel_fixed:: rrel_scp_const:: _graph;;
+			_-> rrel_5:: rrel_fixed:: rrel_scp_const:: _marked_nodes;;
+		*);;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _descr;;
+
+		_=> nrel_goto:: .._visiting_round_deep_operator12;;
+	*);;
+
+	_-> .._visiting_round_deep_operator12 (*
+		_<- waitReturn;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _descr;;
+
+		_=> nrel_goto:: .._visiting_round_deep_operator3;;
+	*);;
+
+	_-> .._visiting_round_deep_operator1 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _soUPset;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _new;;
+
+		_=> nrel_else:: .._visiting_round_deep_operator13;;
+		_=> nrel_then:: .._visiting_round_deep_operator14;;
+	*);;
+
+	_-> .._visiting_round_deep_operator14 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+
+		_=> nrel_goto:: .._visiting_round_deep_operator15;;
+	*);;
+
+	_-> .._visiting_round_deep_operator13 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _soUPset;;
+
+		_=> nrel_goto:: .._visiting_round_deep_operator16;;
+	*);;
+
+	_-> .._visiting_round_deep_operator16 (*
+		_<- return;;
+
+	*);;
+
+	_-> .._visiting_round_deep_operator15 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _marked_nodes;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _new;;
+
+		_=> nrel_else:: .._visiting_round_deep_operator17;;
+		_=> nrel_then:: .._visiting_round_deep_operator1;;
+	*);;
+
+	_-> .._visiting_round_deep_operator17 (*
+		_<- ifCoin;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _new;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: _fin;;
+
+		_=> nrel_else:: .._visiting_round_deep_operator18;;
+		_=> nrel_then:: .._visiting_round_deep_operator19;;
+	*);;
+
+	_-> .._visiting_round_deep_operator19 (*
+		_<- contAdd;;
+		_-> rrel_1:: rrel_2:: rrel_fixed:: rrel_scp_const:: _count;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: [1];;
+
+		_=> nrel_goto:: .._visiting_round_deep_operator18;;
+	*);;
+
+	_-> .._visiting_round_deep_operator18 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _marked_nodes;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _marked_arg;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _new;;
+
+		_=> nrel_goto:: .._visiting_round_deep_operator20;;
+	*);;
+
+	_-> .._visiting_round_deep_operator20 (*
+		_<- call;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: visiting_round_deep;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._visiting_round_deep_param1 (*
+			_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _new;;
+			_-> rrel_2:: rrel_fixed:: rrel_scp_const:: _fin;;
+			_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _count;;
+			_-> rrel_4:: rrel_fixed:: rrel_scp_const:: _graph;;
+			_-> rrel_5:: rrel_fixed:: rrel_scp_const:: _marked_nodes;;
+		*);;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _descr;;
+
+		_=> nrel_goto:: .._visiting_round_deep_operator21;;
+	*);;
+
+	_-> .._visiting_round_deep_operator21 (*
+		_<- waitReturn;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _descr;;
+
+		_=> nrel_goto:: .._visiting_round_deep_operator22;;
+	*);;
+
+	_-> .._visiting_round_deep_operator22 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _marked_arg;;
+
+		_=> nrel_goto:: .._visiting_round_deep_operator1;;
+	*);;
+
 *);;
-	
--> ..hail_to_the_king (*
-	<- waitReturn;;
-	-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
-	
-	=> nrel_goto: ..step1;; *);;
-	
-	
--> ..plus_plus (*
-<- contAdd;;
--> rrel_1 : rrel_fixed : rrel_scp_var: _count;;
--> rrel_2 : rrel_fixed : rrel_scp_var: _count;;
--> rrel_3 : rrel_fixed : rrel_scp_const: [1];;
 
-=> nrel_goto : ..step1;; *);;
-
-
-
--> ..finish (*
-<- eraseEl;;
--> rrel_1 : rrel_fixed : rrel_erase: rrel_scp_var : _soUPset;;
-
-=> nrel_goto : ..oper_return;; *);;
-
-
-
--> ..oper_return (*
-<-return;; *);;
-
-
-*);;
-*);;
+*];;

@@ -1,218 +1,183 @@
-scp_program -> proc_transitive_graph
-(*
-	-> rrel_params: ...
-	(*
-		-> rrel_1: rrel_in: _curr_graph;;
+proc_transitive_graph
+=> nrel_main_idtf:
+	[Программа проверки графа на транзитивность] (* <- lang_ru;; *);
+	[] (* <- lang_en;; *);
+<- scp_program;
+-> rrel_key_sc_element: .._process1;;
+
+proc_transitive_graph = [*
+.._process1
+_<- scp_process;
+
+_-> rrel_1:: rrel_in:: _curr_graph;
+_<= nrel_decomposition_of_action:: .._actions (*
+
+	_-> rrel_1:: .._proc_transitive_graph_operator0 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: concept_transitive_graph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _ara;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _curr_graph;;
+
+		_=> nrel_else:: .._proc_transitive_graph_operator1;;
+		_=> nrel_then:: .._proc_transitive_graph_operator2;;
 	*);;
 
-	-> rrel_operators: ... 
-	(*	
-		-> rrel_init: .proc_transitive_graph_operator0
-		(*
-			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_const: concept_transitive_graph;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
-			
-			=> nrel_then: .proc_transitive_graph_return;;
-			=> nrel_else: .proc_transitive_graph_operator0_1;;
-		*);;
+	_-> .._proc_transitive_graph_operator2 (*
+		_<- return;;
 
-		-> .proc_transitive_graph_operator0_1
-		(*
-			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_const: concept_transitive_graph;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_neg: _ara;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
-			
-			=> nrel_then: .proc_transitive_graph_return;;
-			=> nrel_else: .proc_transitive_graph_operator2;;
-		*);;
-
-		-> .proc_transitive_graph_operator2
-		(*
-			<- searchSetStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _curr_graph;;
-                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs1;;
-                        -> rrel_3: rrel_assign: rrel_scp_var: _vert;;
-			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs2;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
-
-			-> rrel_set_3: rrel_assign: rrel_scp_var: _vertexs;;
-			
-			=> nrel_then: .proc_transitive_graph_operator3;;
-                	=> nrel_else: .proc_transitive_graph_operator17;;
-		*);;
-
-		-> .proc_transitive_graph_operator3
-		(*
-			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _vertexs;;
-                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_erase;;
-                        -> rrel_3: rrel_assign: rrel_scp_var: _curr_vert;;
-			
-			=>nrel_then: .proc_transitive_graph_operator5;;
-			=>nrel_else: .proc_transitive_graph_operator14;; 	
-		*);;
-
-		-> .proc_transitive_graph_operator5
-		(*
-			<- searchSetStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _curr_vert;;
-                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc_of_vertexs1;;
-                        -> rrel_3: rrel_assign: rrel_scp_var: _vert;;
-			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs2;;
-			-> rrel_5: rrel_fixed: rrel_scp_var: _curr_graph;;
-
-			-> rrel_set_3: rrel_assign: rrel_scp_var: _sosedi;;
-			
-			=> nrel_then: .proc_transitive_graph_operator6;;
-                	=> nrel_else: .proc_transitive_graph_operator13;;
-		*);;
-
-		-> .proc_transitive_graph_operator6
-		(*
-			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _sosedi;;
-                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_erase_in;;
-                        -> rrel_3: rrel_assign: rrel_scp_var: _sosed;;
-			
-			=>nrel_then: .proc_transitive_graph_operator7;;
-			=>nrel_else: .proc_transitive_graph_operator11;; 	
-		*);;		
-
-		->.proc_transitive_graph_operator7
-		(*
-			<- searchSetStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _sosed;;
-                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc_of_vertexs1;;
-                        -> rrel_3: rrel_assign: rrel_scp_var: _vert;;
-			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs2;;
-			-> rrel_5: rrel_fixed: rrel_scp_var: _curr_graph;;
-
-			-> rrel_set_3: rrel_assign: rrel_scp_var: _sosedi_sosedey;;
-			
-			=> nrel_then: .proc_transitive_graph_operator8;;
-                	=> nrel_else: .proc_transitive_graph_operator10;;
-		*);;
-
-		-> .proc_transitive_graph_operator8
-		(*
-			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _sosedi_sosedey;;
-                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_erase_in_in;;
-                        -> rrel_3: rrel_assign: rrel_scp_var: _sosed_soseda;;
-			
-			=>nrel_then: .proc_transitive_graph_operator9;;
-			=>nrel_else: .proc_transitive_graph_operator9_2;; 	
-		*);;	
-
-		-> .proc_transitive_graph_operator9
-		(*
-			<- searchElStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _curr_vert;;
-                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc_of_vertexs1;;
-                        -> rrel_3: rrel_fixed: rrel_scp_var: _sosed_soseda;;
-			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs2;;
-			-> rrel_5: rrel_fixed: rrel_scp_var: _curr_graph;;
-
-			=> nrel_then: .proc_transitive_graph_operator9_1;;
-                	=> nrel_else: .proc_transitive_graph_operator20;;
-		*);;
-
-		-> .proc_transitive_graph_operator9_1
-		(*
-			<- eraseEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc_erase_in_in;;
-			
-			=> nrel_goto: .proc_transitive_graph_operator8;;
-		*);;
-
-		-> .proc_transitive_graph_operator9_2
-		(*
-			<- eraseEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _sosedi_sosedey;;
-			
-			=> nrel_goto: .proc_transitive_graph_operator10;;
-		*);;		
-
-		-> .proc_transitive_graph_operator10
-		(*
-			<- eraseEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc_erase_in;;
-			
-			=> nrel_goto: .proc_transitive_graph_operator6;;
-		*);;
-
-		-> .proc_transitive_graph_operator11
-		(*
-			<- eraseEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _sosedi;;
-			
-			=> nrel_goto: .proc_transitive_graph_operator13;;
-		*);;
-		
-		-> .proc_transitive_graph_operator13
-		(*
-			<- eraseEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc_erase;;
-			
-			=> nrel_goto: .proc_transitive_graph_operator3;;
-		*);;
-
-		-> .proc_transitive_graph_operator14
-		(*
-			<- eraseEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _vertexs;;
-			
-			=> nrel_goto: .proc_transitive_graph_operator17;;
-		*);;
-		
-		-> .proc_transitive_graph_operator17
-		(*
-			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_const: concept_proc_transitive_graph;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _ara;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
-			
-			=> nrel_goto: .proc_transitive_graph_return;;
-		*);;
-
-		-> .proc_transitive_graph_operator19
-		(*
-			<- eraseEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _sosedi_sosedey;;
-			
-			=> nrel_goto: .proc_transitive_graph_operator19_1;;
-		*);;
-	
-		-> .proc_transitive_graph_operator19_1
-		(*
-			<- eraseEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _sosedi;;
-			
-			=> nrel_goto: .proc_transitive_graph_operator19_2;;
-		*);;
-
-		-> .proc_transitive_graph_operator19_2
-		(*
-			<- eraseEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _vertexs;;
-			
-			=> nrel_goto: .proc_transitive_graph_return;;
-		*);;
-		
-		-> .proc_transitive_graph_operator20
-		(*
-			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_const: concept_transitive_graph;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_neg: rrel_const: rrel_perm: rrel_access: _ara;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_graph;;
-			
-			=> nrel_goto: .proc_transitive_graph_return;;
-		*);;
-	
-		-> .proc_transitive_graph_return(*<-return;;*);;
 	*);;
+
+	_-> .._proc_transitive_graph_operator1 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: concept_transitive_graph;;
+		_-> rrel_2:: rrel_assign:: rrel_neg:: rrel_scp_var:: _ara;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _curr_graph;;
+
+		_=> nrel_else:: .._proc_transitive_graph_operator3;;
+		_=> nrel_then:: .._proc_transitive_graph_operator2;;
+	*);;
+
+	_-> .._proc_transitive_graph_operator3 (*
+		_<- searchSetStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _curr_graph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_of_vertexs1;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _vert;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_of_vertexs2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_vertex;;
+		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _vertexs;;
+
+		_=> nrel_else:: .._proc_transitive_graph_operator4;;
+		_=> nrel_then:: .._proc_transitive_graph_operator5;;
+	*);;
+
+	_-> .._proc_transitive_graph_operator5 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _vertexs;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_erase;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _curr_vert;;
+
+		_=> nrel_else:: .._proc_transitive_graph_operator6;;
+		_=> nrel_then:: .._proc_transitive_graph_operator7;;
+	*);;
+
+	_-> .._proc_transitive_graph_operator4 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: concept_proc_transitive_graph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _ara;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _curr_graph;;
+
+		_=> nrel_goto:: .._proc_transitive_graph_operator2;;
+	*);;
+
+	_-> .._proc_transitive_graph_operator7 (*
+		_<- searchSetStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _curr_vert;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc_of_vertexs1;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _vert;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_of_vertexs2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: _curr_graph;;
+		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _sosedi;;
+
+		_=> nrel_else:: .._proc_transitive_graph_operator8;;
+		_=> nrel_then:: .._proc_transitive_graph_operator9;;
+	*);;
+
+	_-> .._proc_transitive_graph_operator6 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _vertexs;;
+
+		_=> nrel_goto:: .._proc_transitive_graph_operator4;;
+	*);;
+
+	_-> .._proc_transitive_graph_operator9 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _sosedi;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_erase_in;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _sosed;;
+
+		_=> nrel_else:: .._proc_transitive_graph_operator10;;
+		_=> nrel_then:: .._proc_transitive_graph_operator11;;
+	*);;
+
+	_-> .._proc_transitive_graph_operator8 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _arc_erase;;
+
+		_=> nrel_goto:: .._proc_transitive_graph_operator5;;
+	*);;
+
+	_-> .._proc_transitive_graph_operator11 (*
+		_<- searchSetStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _sosed;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc_of_vertexs1;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _vert;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_of_vertexs2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: _curr_graph;;
+		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _sosedi_sosedey;;
+
+		_=> nrel_else:: .._proc_transitive_graph_operator12;;
+		_=> nrel_then:: .._proc_transitive_graph_operator13;;
+	*);;
+
+	_-> .._proc_transitive_graph_operator10 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _sosedi;;
+
+		_=> nrel_goto:: .._proc_transitive_graph_operator8;;
+	*);;
+
+	_-> .._proc_transitive_graph_operator13 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _sosedi_sosedey;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_erase_in_in;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _sosed_soseda;;
+
+		_=> nrel_else:: .._proc_transitive_graph_operator14;;
+		_=> nrel_then:: .._proc_transitive_graph_operator15;;
+	*);;
+
+	_-> .._proc_transitive_graph_operator12 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _arc_erase_in;;
+
+		_=> nrel_goto:: .._proc_transitive_graph_operator9;;
+	*);;
+
+	_-> .._proc_transitive_graph_operator15 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _curr_vert;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc_of_vertexs1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _sosed_soseda;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_of_vertexs2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: _curr_graph;;
+
+		_=> nrel_else:: .._proc_transitive_graph_operator16;;
+		_=> nrel_then:: .._proc_transitive_graph_operator17;;
+	*);;
+
+	_-> .._proc_transitive_graph_operator14 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _sosedi_sosedey;;
+
+		_=> nrel_goto:: .._proc_transitive_graph_operator12;;
+	*);;
+
+	_-> .._proc_transitive_graph_operator17 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _arc_erase_in_in;;
+
+		_=> nrel_goto:: .._proc_transitive_graph_operator13;;
+	*);;
+
+	_-> .._proc_transitive_graph_operator16 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: concept_transitive_graph;;
+		_-> rrel_2:: rrel_access:: rrel_assign:: rrel_const:: rrel_neg:: rrel_perm:: rrel_scp_var:: _ara;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _curr_graph;;
+
+		_=> nrel_goto:: .._proc_transitive_graph_operator2;;
+	*);;
+
 *);;
 
+*];;

@@ -1,160 +1,154 @@
-scp_program -> proc_clean_outline
-(*
-	-> rrel_params: ...
-	(*
-		-> rrel_1: rrel_in: _outline;;	
+proc_clean_outline
+=> nrel_main_idtf:
+	[] (* <- lang_ru;; *);
+	[] (* <- lang_en;; *);
+<- scp_program;
+-> rrel_key_sc_element: .._process1;;
+
+proc_clean_outline = [*
+.._process1
+_<- scp_process;
+
+_-> rrel_1:: rrel_in:: _outline;
+_<= nrel_decomposition_of_action:: .._actions (*
+
+	_-> rrel_1:: .._proc_clean_outline_operator0 (*
+		_<- searchSetStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _outline;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc_of_vertexs1;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _node;;
+		_-> rrel_4:: rrel_assign:: rrel_scp_var:: _arc_of_vertex2;;
+		_-> rrel_5:: rrel_assign:: rrel_scp_var:: _nrelrelation;;
+		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _nodes;;
+
+		_=> nrel_else:: .._proc_clean_outline_operator1;;
+		_=> nrel_then:: .._proc_clean_outline_operator2;;
 	*);;
 
-	-> rrel_operators: ... 
-	(*
-		-> rrel_init: .proc_clean_outline_operator1
-		(*
-			<- searchSetStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
-            -> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc_of_vertexs1;;
-            -> rrel_3: rrel_assign: rrel_scp_var: _node;;
-            -> rrel_4: rrel_assign: rrel_scp_var: _arc_of_vertex2;;
-            -> rrel_5: rrel_assign: rrel_scp_var: _nrelrelation;;
+	_-> .._proc_clean_outline_operator2 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _nodes;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_erase;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _element;;
 
-			-> rrel_set_3: rrel_assign: rrel_scp_var: _nodes;;
-			
-			=> nrel_then: .proc_clean_outline_operator2;;
-            => nrel_else: .proc_clean_outline_operato8;;
-		*);;
-
-		-> .proc_clean_outline_operator2
-		(*
-			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _nodes;;
-            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_erase;;
-            -> rrel_3: rrel_assign: rrel_scp_var: _element;;
-
-			=>nrel_then: .proc_clean_outline_operator3;;
-			=>nrel_else: .proc_clean_outline_operator7;; 	 	
-		*);;		
-
-		-> .proc_clean_outline_operator3
-		(*
-			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
-            -> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc_common_erase;;
-            -> rrel_3: rrel_fixed: rrel_scp_var: _element;;
-			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertex2;;
-            -> rrel_5: rrel_assign: rrel_scp_var: _nrelrelation;;       
-			
-			=>nrel_then: .proc_clean_outline_operator4;;
-			=>nrel_else: .proc_clean_outline_operator6;; 	
-		*);;
-
-		-> .proc_clean_outline_operator4
-		(*
-			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_const: set_exception;;
-            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
-            -> rrel_3: rrel_fixed: rrel_scp_var: _nrelrelation;;
-
-			=>nrel_then: .proc_clean_outline_operator6;;
-			=>nrel_else: .proc_clean_outline_operato5;; 	 	
-		*);;		
-
-	    -> .proc_clean_outline_operator5
-		(*
-			<- eraseEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc_common_erase;;
-			
-			=> nrel_goto: .proc_clean_outline_operator6;;
-		*);;
-
-		-> .proc_clean_outline_operator6
-		(*
-			<- eraseEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc_erase;;
-			
-			=> nrel_goto: .proc_clean_outline_operator2;;
-		*);;
-
-		-> .proc_clean_outline_operator7
-		(*
-			<- eraseEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _nodes;;
-			
-			=> nrel_goto: .proc_clean_outline_operator8;;
-		*);;
-
-		-> .proc_clean_outline_operator8
-		(*
-			<- searchSetStr3;;
-			-> rrel_1: rrel_assign: rrel_scp_var: _node;;
-            -> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc_of_vertexs1;;
-            -> rrel_3: rrel_fixed: rrel_scp_var: _outline;;
-
-			-> rrel_set_3: rrel_assign: rrel_scp_var: _nodes;;
-			
-			=> nrel_then: .proc_clean_outline_operator9;;
-            => nrel_else: .proc_clean_outline_operato15;;
-		*);;
-
-		-> .proc_clean_outline_operator9
-		(*
-			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _nodes;;
-            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_erase;;
-            -> rrel_3: rrel_assign: rrel_scp_var: _element;;
-
-			=>nrel_then: .proc_clean_outline_operator10;;
-			=>nrel_else: .proc_clean_outline_operator14;; 	 	
-		*);;		
-
-		-> .proc_clean_outline_operator10
-		(*
-			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
-            -> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc_common_erase;;
-            -> rrel_3: rrel_fixed: rrel_scp_var: _element;;
-			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertex2;;
-            -> rrel_5: rrel_assign: rrel_scp_var: _nrelrelation;;       
-			
-			=>nrel_then: .proc_clean_outline_operator11;;
-			=>nrel_else: .proc_clean_outline_operator13;; 	
-		*);;
-
-		-> .proc_clean_outline_operator11
-		(*
-			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_const: set_exception;;
-            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
-            -> rrel_3: rrel_fixed: rrel_scp_var: _nrelrelation;;
-
-			=>nrel_then: .proc_clean_outline_operator13;;
-			=>nrel_else: .proc_clean_outline_operato12;; 	 	
-		*);;		
-
-	    -> .proc_clean_outline_operator12
-		(*
-			<- eraseEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc_common_erase;;
-			
-			=> nrel_goto: .proc_clean_outline_operator13;;
-		*);;
-
-		-> .proc_clean_outline_operator13
-		(*
-			<- eraseEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc_erase;;
-			
-			=> nrel_goto: .proc_clean_outline_operator9;;
-		*);;
-
-		-> .proc_clean_outline_operator14
-		(*
-			<- eraseEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _nodes;;
-			
-			=> nrel_goto: .proc_clean_outline_return;;
-		*);;
-
-		-> .proc_clean_outline_return(*<-return;;*);;
+		_=> nrel_else:: .._proc_clean_outline_operator3;;
+		_=> nrel_then:: .._proc_clean_outline_operator4;;
 	*);;
+
+	_-> .._proc_clean_outline_operator1 (*
+
+	*);;
+
+	_-> .._proc_clean_outline_operator4 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _outline;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc_common_erase;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _element;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_of_vertex2;;
+		_-> rrel_5:: rrel_assign:: rrel_scp_var:: _nrelrelation;;
+
+		_=> nrel_else:: .._proc_clean_outline_operator5;;
+		_=> nrel_then:: .._proc_clean_outline_operator6;;
+	*);;
+
+	_-> .._proc_clean_outline_operator3 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _nodes;;
+
+		_=> nrel_goto:: .._proc_clean_outline_operator7;;
+	*);;
+
+	_-> .._proc_clean_outline_operator7 (*
+		_<- searchSetStr3;;
+		_-> rrel_1:: rrel_assign:: rrel_scp_var:: _node;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc_of_vertexs1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _outline;;
+		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _nodes;;
+
+		_=> nrel_else:: .._proc_clean_outline_operator8;;
+		_=> nrel_then:: .._proc_clean_outline_operator9;;
+	*);;
+
+	_-> .._proc_clean_outline_operator9 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _nodes;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_erase;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _element;;
+
+		_=> nrel_else:: .._proc_clean_outline_operator10;;
+		_=> nrel_then:: .._proc_clean_outline_operator11;;
+	*);;
+
+	_-> .._proc_clean_outline_operator8 (*
+
+	*);;
+
+	_-> .._proc_clean_outline_operator11 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _outline;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc_common_erase;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _element;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_of_vertex2;;
+		_-> rrel_5:: rrel_assign:: rrel_scp_var:: _nrelrelation;;
+
+		_=> nrel_else:: .._proc_clean_outline_operator12;;
+		_=> nrel_then:: .._proc_clean_outline_operator13;;
+	*);;
+
+	_-> .._proc_clean_outline_operator10 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _nodes;;
+
+		_=> nrel_goto:: .._proc_clean_outline_operator14;;
+	*);;
+
+	_-> .._proc_clean_outline_operator14 (*
+		_<- return;;
+
+	*);;
+
+	_-> .._proc_clean_outline_operator13 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: set_exception;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _nrelrelation;;
+
+		_=> nrel_else:: .._proc_clean_outline_operator15;;
+		_=> nrel_then:: .._proc_clean_outline_operator12;;
+	*);;
+
+	_-> .._proc_clean_outline_operator12 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _arc_erase;;
+
+		_=> nrel_goto:: .._proc_clean_outline_operator9;;
+	*);;
+
+	_-> .._proc_clean_outline_operator15 (*
+
+	*);;
+
+	_-> .._proc_clean_outline_operator6 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: set_exception;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _nrelrelation;;
+
+		_=> nrel_else:: .._proc_clean_outline_operator16;;
+		_=> nrel_then:: .._proc_clean_outline_operator5;;
+	*);;
+
+	_-> .._proc_clean_outline_operator5 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _arc_erase;;
+
+		_=> nrel_goto:: .._proc_clean_outline_operator2;;
+	*);;
+
+	_-> .._proc_clean_outline_operator16 (*
+
+	*);;
+
 *);;
 
-
+*];;

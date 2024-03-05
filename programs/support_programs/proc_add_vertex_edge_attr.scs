@@ -1,132 +1,128 @@
-scp_program -> proc_add_vertex_edge_attr
-(*
-	-> rrel_params: ...
-	(*
-		-> rrel_1: rrel_in: _outline;;	
+proc_add_vertex_edge_attr
+=> nrel_main_idtf:
+	[] (* <- lang_ru;; *);
+	[] (* <- lang_en;; *);
+<- scp_program;
+-> rrel_key_sc_element: .._process1;;
+
+proc_add_vertex_edge_attr = [*
+.._process1
+_<- scp_process;
+
+_-> rrel_1:: rrel_in:: _outline;
+_<= nrel_decomposition_of_action:: .._actions (*
+
+	_-> rrel_1:: .._proc_add_vertex_edge_attr_operator0 (*
+		_<- searchSetStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _outline;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_of_vertexs1;;
+		_-> rrel_3:: rrel_assign:: rrel_common:: rrel_scp_var:: _vert;;
+		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _elements;;
+
+		_=> nrel_else:: .._proc_add_vertex_edge_attr_operator1;;
+		_=> nrel_then:: .._proc_add_vertex_edge_attr_operator2;;
 	*);;
 
-	-> rrel_operators: ... 
-	(*
-		-> rrel_init: .proc_add_vertex_edge_attr_operator1
-		(*
-			<- searchSetStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
-                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs1;;
-                        -> rrel_3: rrel_assign: rrel_scp_var: rrel_common: _vert;;
+	_-> .._proc_add_vertex_edge_attr_operator2 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _elements;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_erase;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _element;;
 
-			-> rrel_set_3: rrel_assign: rrel_scp_var: _elements;;
-			
-			=> nrel_then: .proc_add_vertex_edge_attr_operator2;;
-                	=> nrel_else: .proc_add_vertex_edge_attr_operator8;;
-		*);;
-
-		-> .proc_add_vertex_edge_attr_operator2
-		(*
-			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _elements;;
-                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_erase;;
-                        -> rrel_3: rrel_assign: rrel_scp_var: _element;;
-			
-			=>nrel_then: .proc_add_vertex_edge_attr_operator3;;
-			=>nrel_else: .proc_add_vertex_edge_attr_operator7;; 	
-		*);;
-
-		-> .proc_add_vertex_edge_attr_operator3
-		(*
-			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
-                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
-                        -> rrel_3: rrel_fixed: rrel_scp_var: _element;;
-			
-			=>nrel_goto: .proc_add_vertex_edge_attr_operator5;; 	
-		*);;		
-
-		-> .proc_add_vertex_edge_attr_operator5
-		(*
-			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_const: rrel_oredge;;
-                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
-                        -> rrel_3: rrel_fixed: rrel_scp_var: _arc2;;
-			
-			=>nrel_goto: .proc_add_vertex_edge_attr_operator6;; 	
-		*);;
-
-		-> .proc_add_vertex_edge_attr_operator6
-		(*
-			<- eraseEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc_erase;;
-			
-			=> nrel_goto: .proc_add_vertex_edge_attr_operator2;;
-		*);;
-
-		-> .proc_add_vertex_edge_attr_operator7
-		(*
-			<- eraseEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _elements;;
-			
-			=> nrel_goto: .proc_add_vertex_edge_attr_operator8;;
-		*);;
-		
-		-> .proc_add_vertex_edge_attr_operator8
-		(*
-			<- searchSetStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
-                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs1;;
-                        -> rrel_3: rrel_assign: rrel_scp_var: rrel_node: _vert;;
-
-			-> rrel_set_3: rrel_assign: rrel_scp_var: _elements;;
-			
-			=> nrel_then: .proc_add_vertex_edge_attr_operator9;;
-                	=> nrel_else: .proc_add_vertex_edge_attr_return;;
-		*);;
-
-		-> .proc_add_vertex_edge_attr_operator9
-		(*
-			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _elements;;
-                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_erase;;
-                        -> rrel_3: rrel_assign: rrel_scp_var: _element;;
-			
-			=>nrel_then: .proc_add_vertex_edge_attr_operator10;;
-			=>nrel_else: .proc_add_vertex_edge_attr_operator13;; 	
-		*);;
-
-		-> .proc_add_vertex_edge_attr_operator10
-		(*
-			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _outline;;
-                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
-                        -> rrel_3: rrel_fixed: rrel_scp_var: _element;;
-			
-			=>nrel_goto: .proc_add_vertex_edge_attr_operator11;; 	
-		*);;		
-
-		-> .proc_add_vertex_edge_attr_operator11
-		(*
-			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_const: rrel_vertex;;
-                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arca;;
-                        -> rrel_3: rrel_fixed: rrel_scp_var: _arc1;;
-			
-			=>nrel_goto: .proc_add_vertex_edge_attr_operator12;; 	
-		*);;
-
-		-> .proc_add_vertex_edge_attr_operator12
-		(*
-			<- eraseEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc_erase;;
-			
-			=> nrel_goto: .proc_add_vertex_edge_attr_operator9;;
-		*);;
-
-		-> .proc_add_vertex_edge_attr_operator13
-		(*
-			<- eraseEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _elements;;
-			
-			=> nrel_goto: .proc_add_vertex_edge_attr_return;;
-		*);;
-		-> .proc_add_vertex_edge_attr_return(*<-return;;*);;
+		_=> nrel_else:: .._proc_add_vertex_edge_attr_operator3;;
+		_=> nrel_then:: .._proc_add_vertex_edge_attr_operator4;;
 	*);;
+
+	_-> .._proc_add_vertex_edge_attr_operator1 (*
+		_<- searchSetStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _outline;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_of_vertexs1;;
+		_-> rrel_3:: rrel_assign:: rrel_node:: rrel_scp_var:: _vert;;
+		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _elements;;
+
+		_=> nrel_else:: .._proc_add_vertex_edge_attr_operator5;;
+		_=> nrel_then:: .._proc_add_vertex_edge_attr_operator6;;
+	*);;
+
+	_-> .._proc_add_vertex_edge_attr_operator6 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _elements;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_erase;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _element;;
+
+		_=> nrel_else:: .._proc_add_vertex_edge_attr_operator7;;
+		_=> nrel_then:: .._proc_add_vertex_edge_attr_operator8;;
+	*);;
+
+	_-> .._proc_add_vertex_edge_attr_operator5 (*
+		_<- return;;
+
+	*);;
+
+	_-> .._proc_add_vertex_edge_attr_operator8 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _outline;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _element;;
+
+		_=> nrel_goto:: .._proc_add_vertex_edge_attr_operator9;;
+	*);;
+
+	_-> .._proc_add_vertex_edge_attr_operator7 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _elements;;
+
+		_=> nrel_goto:: .._proc_add_vertex_edge_attr_operator5;;
+	*);;
+
+	_-> .._proc_add_vertex_edge_attr_operator9 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: rrel_vertex;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arca;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _arc1;;
+
+		_=> nrel_goto:: .._proc_add_vertex_edge_attr_operator10;;
+	*);;
+
+	_-> .._proc_add_vertex_edge_attr_operator10 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _arc_erase;;
+
+		_=> nrel_goto:: .._proc_add_vertex_edge_attr_operator6;;
+	*);;
+
+	_-> .._proc_add_vertex_edge_attr_operator4 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _outline;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _element;;
+
+		_=> nrel_goto:: .._proc_add_vertex_edge_attr_operator11;;
+	*);;
+
+	_-> .._proc_add_vertex_edge_attr_operator3 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _elements;;
+
+		_=> nrel_goto:: .._proc_add_vertex_edge_attr_operator1;;
+	*);;
+
+	_-> .._proc_add_vertex_edge_attr_operator11 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: rrel_oredge;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _arc2;;
+
+		_=> nrel_goto:: .._proc_add_vertex_edge_attr_operator12;;
+	*);;
+
+	_-> .._proc_add_vertex_edge_attr_operator12 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _arc_erase;;
+
+		_=> nrel_goto:: .._proc_add_vertex_edge_attr_operator2;;
+	*);;
+
 *);;
 
+*];;

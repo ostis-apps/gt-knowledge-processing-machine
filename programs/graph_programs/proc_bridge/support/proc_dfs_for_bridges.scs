@@ -1,417 +1,371 @@
+proc_dfs_for_bridges
+=> nrel_main_idtf:
+	[] (* <- lang_ru;; *);
+	[] (* <- lang_en;; *);
+<- scp_program;
+-> rrel_key_sc_element: .._process1;;
 
-scp_program -> proc_dfs_for_bridges (*	
-	-> rrel_params: ... (*
-		-> rrel_1: rrel_in: _v;;
-		-> rrel_2: rrel_in: _p;;
-		-> rrel_3: rrel_in: _graph;;
-		-> rrel_4: rrel_in: _not_checked_vertexes;;
-		-> rrel_5: rrel_in: _timer;;
-		-> rrel_6: rrel_in: _set_of_bridge;;
-		-> rrel_7: rrel_in: tin_vertex;;
-		-> rrel_8: rrel_in: fup_vertex;;
+proc_dfs_for_bridges = [*
+.._process1
+_<- scp_process;
+
+_-> rrel_1:: rrel_in:: _v;
+_-> rrel_2:: rrel_in:: _p;
+_-> rrel_3:: rrel_in:: _graph;
+_-> rrel_4:: rrel_in:: _not_checked_vertexes;
+_-> rrel_5:: rrel_in:: _timer;
+_-> rrel_6:: rrel_in:: _set_of_bridge;
+_-> rrel_7:: rrel_in:: tin_vertex;
+_-> rrel_8:: rrel_in:: fup_vertex;
+_<= nrel_decomposition_of_action:: .._actions (*
+
+	_-> rrel_1:: .._proc_dfs_for_bridges_operator0 (*
+		_<- contAdd;;
+		_-> rrel_1:: rrel_2:: rrel_fixed:: rrel_scp_const:: _timer;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: [1];;
+
+		_=> nrel_goto:: .._proc_dfs_for_bridges_operator1;;
 	*);;
-	-> rrel_operators: ... (*
-// Увеличиваем время timer
-        -> rrel_init: ..step1_t (*
-        	<- contAdd;;
-        	-> rrel_1: rrel_fixed: rrel_scp_var: _timer;;
-	        -> rrel_2: rrel_fixed: rrel_scp_var: _timer;;
-	        -> rrel_3: rrel_fixed: rrel_scp_const: [1];;
 
-	        => nrel_goto: ..step2_t;;
-        *);;
+	_-> .._proc_dfs_for_bridges_operator1 (*
+		_<- genEl;;
+		_-> rrel_1:: rrel_assign:: rrel_const:: rrel_node:: rrel_scp_var:: _tin;;
 
-// Создание узла _tin
-		-> ..step2_t (*
-		    <- genEl;;
-	        -> rrel_1: rrel_assign: rrel_node: rrel_link: rrel_const: rrel_scp_var: _tin;;
+		_=> nrel_goto:: .._proc_dfs_for_bridges_operator2;;
+	*);;
 
-	        => nrel_goto: ..step3_t;; 
+	_-> .._proc_dfs_for_bridges_operator2 (*
+		_<- contAssign;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _tin;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: _timer;;
+
+		_=> nrel_goto:: .._proc_dfs_for_bridges_operator3;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator3 (*
+		_<- genEl;;
+		_-> rrel_1:: rrel_assign:: rrel_const:: rrel_node:: rrel_scp_var:: _fup;;
+
+		_=> nrel_goto:: .._proc_dfs_for_bridges_operator4;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator4 (*
+		_<- contAssign;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _fup;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: _timer;;
+
+		_=> nrel_goto:: .._proc_dfs_for_bridges_operator5;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator5 (*
+		_<- genElStr5;;
+		_-> rrel_1:: rrel_const:: rrel_fixed:: rrel_node:: rrel_scp_const:: _v;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc_tin_2;;
+		_-> rrel_3:: rrel_const:: rrel_fixed:: rrel_scp_var:: _tin;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_tin_4;;
+		_-> rrel_5:: rrel_const:: rrel_fixed:: rrel_node:: rrel_scp_const:: tin_vertex;;
+
+		_=> nrel_goto:: .._proc_dfs_for_bridges_operator6;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator6 (*
+		_<- genElStr5;;
+		_-> rrel_1:: rrel_const:: rrel_fixed:: rrel_node:: rrel_scp_const:: _v;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc_fup_2;;
+		_-> rrel_3:: rrel_const:: rrel_fixed:: rrel_scp_var:: _fup;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_fup_4;;
+		_-> rrel_5:: rrel_const:: rrel_fixed:: rrel_node:: rrel_scp_const:: fup_vertex;;
+
+		_=> nrel_goto:: .._proc_dfs_for_bridges_operator7;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator7 (*
+		_<- genEl;;
+		_-> rrel_1:: rrel_assign:: rrel_node:: rrel_scp_var:: _temp_set;;
+
+		_=> nrel_goto:: .._proc_dfs_for_bridges_operator8;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator8 (*
+		_<- searchSetStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _v;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc2;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _el3;;
+		_-> rrel_4:: rrel_assign:: rrel_scp_var:: _arc4;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: _graph;;
+		_-> rrel_fixed:: rrel_scp_var:: rrel_set_3:: _temp_set;;
+
+		_=> nrel_goto:: .._proc_dfs_for_bridges_operator9;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator9 (*
+		_<- searchSetStr5;;
+		_-> rrel_1:: rrel_assign:: rrel_scp_var:: _el3;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc2;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _v;;
+		_-> rrel_4:: rrel_assign:: rrel_scp_var:: _arc4;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: _graph;;
+		_-> rrel_fixed:: rrel_scp_var:: rrel_set_1:: _temp_set;;
+
+		_=> nrel_goto:: .._proc_dfs_for_bridges_operator10;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator10 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _temp_set;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _to;;
+
+		_=> nrel_else:: .._proc_dfs_for_bridges_operator11;;
+		_=> nrel_then:: .._proc_dfs_for_bridges_operator12;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator12 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+
+		_=> nrel_goto:: .._proc_dfs_for_bridges_operator13;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator11 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _temp_set;;
+
+		_=> nrel_goto:: .._proc_dfs_for_bridges_operator14;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator14 (*
+		_<- return;;
+
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator13 (*
+		_<- ifCoin;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _to;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: _p;;
+
+		_=> nrel_else:: .._proc_dfs_for_bridges_operator15;;
+		_=> nrel_then:: .._proc_dfs_for_bridges_operator10;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator15 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _not_checked_vertexes;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _to;;
+
+		_=> nrel_else:: .._proc_dfs_for_bridges_operator16;;
+		_=> nrel_then:: .._proc_dfs_for_bridges_operator17;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator17 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+
+		_=> nrel_goto:: .._proc_dfs_for_bridges_operator18;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator16 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_const:: rrel_fixed:: rrel_node:: rrel_scp_var:: _to;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc_tin_to_2;;
+		_-> rrel_3:: rrel_assign:: rrel_const:: rrel_scp_var:: _tin_to;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_tin_to_4;;
+		_-> rrel_5:: rrel_const:: rrel_fixed:: rrel_node:: rrel_scp_const:: tin_vertex;;
+
+		_=> nrel_else:: .._proc_dfs_for_bridges_operator19;;
+		_=> nrel_then:: .._proc_dfs_for_bridges_operator20;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator20 (*
+		_<- ifGr;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _tin_to;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _fup;;
+
+		_=> nrel_else:: .._proc_dfs_for_bridges_operator21;;
+		_=> nrel_then:: .._proc_dfs_for_bridges_operator10;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator19 (*
+		_<- print;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: [ERROR IN FIND tin_to, ..step4_2 !!!];;
+
+		_=> nrel_goto:: .._proc_dfs_for_bridges_operator11;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator21 (*
+		_<- contSub;;
+		_-> rrel_1:: rrel_2:: rrel_3:: rrel_fixed:: rrel_scp_var:: _fup;;
+
+		_=> nrel_goto:: .._proc_dfs_for_bridges_operator22;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator22 (*
+		_<- contAdd;;
+		_-> rrel_1:: rrel_2:: rrel_fixed:: rrel_scp_var:: _fup;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _tin_to;;
+
+		_=> nrel_goto:: .._proc_dfs_for_bridges_operator10;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator18 (*
+		_<- call;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: proc_dfs_for_bridges;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._proc_dfs_for_bridges_param0 (*
+			_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _to;;
+			_-> rrel_2:: rrel_fixed:: rrel_scp_const:: _v;;
+			_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _graph;;
+			_-> rrel_4:: rrel_fixed:: rrel_scp_const:: _not_checked_vertexes;;
+			_-> rrel_5:: rrel_fixed:: rrel_scp_const:: _timer;;
+			_-> rrel_6:: rrel_fixed:: rrel_scp_const:: _set_of_bridge;;
+			_-> rrel_7:: rrel_fixed:: rrel_scp_const:: tin_vertex;;
+			_-> rrel_8:: rrel_fixed:: rrel_scp_const:: fup_vertex;;
 		*);;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _descr;;
+
+		_=> nrel_goto:: .._proc_dfs_for_bridges_operator23;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator23 (*
+		_<- waitReturn;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _descr;;
+
+		_=> nrel_goto:: .._proc_dfs_for_bridges_operator24;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator24 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_const:: rrel_fixed:: rrel_node:: rrel_scp_var:: _to;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc_fup_to_2;;
+		_-> rrel_3:: rrel_assign:: rrel_const:: rrel_scp_var:: _fup_to;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_fup_to_4;;
+		_-> rrel_5:: rrel_const:: rrel_fixed:: rrel_node:: rrel_scp_const:: fup_vertex;;
+
+		_=> nrel_else:: .._proc_dfs_for_bridges_operator25;;
+		_=> nrel_then:: .._proc_dfs_for_bridges_operator26;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator26 (*
+		_<- ifGr;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _fup_to;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _fup;;
+
+		_=> nrel_else:: .._proc_dfs_for_bridges_operator27;;
+		_=> nrel_then:: .._proc_dfs_for_bridges_operator28;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator25 (*
+		_<- print;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: [ERROR IN FIND fup_to, ..step5_2 !!!];;
+
+		_=> nrel_goto:: .._proc_dfs_for_bridges_operator14;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator28 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_const:: rrel_fixed:: rrel_node:: rrel_scp_const:: _v;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc_tin_v_2;;
+		_-> rrel_3:: rrel_assign:: rrel_const:: rrel_scp_var:: _tin_v;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_tin_v_4;;
+		_-> rrel_5:: rrel_const:: rrel_fixed:: rrel_node:: rrel_scp_const:: tin_vertex;;
+
+		_=> nrel_else:: .._proc_dfs_for_bridges_operator29;;
+		_=> nrel_then:: .._proc_dfs_for_bridges_operator30;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator27 (*
+		_<- contSub;;
+		_-> rrel_1:: rrel_2:: rrel_3:: rrel_fixed:: rrel_scp_var:: _fup;;
+
+		_=> nrel_goto:: .._proc_dfs_for_bridges_operator31;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator31 (*
+		_<- contAdd;;
+		_-> rrel_1:: rrel_2:: rrel_fixed:: rrel_scp_var:: _fup;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _fup_to;;
+
+		_=> nrel_goto:: .._proc_dfs_for_bridges_operator28;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator30 (*
+		_<- ifGr;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _fup_to;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _tin_v;;
+
+		_=> nrel_else:: .._proc_dfs_for_bridges_operator10;;
+		_=> nrel_then:: .._proc_dfs_for_bridges_operator32;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator29 (*
+		_<- print;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: [ERROR IN FIND tin_to, ..step_check_bridge !!!];;
+
+		_=> nrel_goto:: .._proc_dfs_for_bridges_operator14;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator32 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_const:: rrel_fixed:: rrel_node:: rrel_scp_var:: _to;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc_is_bridge;;
+		_-> rrel_3:: rrel_const:: rrel_fixed:: rrel_node:: rrel_scp_const:: _v;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_bridge_4;;
+		_-> rrel_5:: rrel_const:: rrel_fixed:: rrel_node:: rrel_scp_const:: _graph;;
+
+		_=> nrel_else:: .._proc_dfs_for_bridges_operator33;;
+		_=> nrel_then:: .._proc_dfs_for_bridges_operator34;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator34 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _set_of_bridge;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_bridge_4_test_1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _arc_is_bridge;;
+
+		_=> nrel_else:: .._proc_dfs_for_bridges_operator35;;
+		_=> nrel_then:: .._proc_dfs_for_bridges_operator10;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator33 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_const:: rrel_fixed:: rrel_node:: rrel_scp_const:: _v;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc_is_bridge2;;
+		_-> rrel_3:: rrel_const:: rrel_fixed:: rrel_node:: rrel_scp_var:: _to;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_bridge_4;;
+		_-> rrel_5:: rrel_const:: rrel_fixed:: rrel_node:: rrel_scp_const:: _graph;;
+
+		_=> nrel_else:: .._proc_dfs_for_bridges_operator10;;
+		_=> nrel_then:: .._proc_dfs_for_bridges_operator36;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator36 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _set_of_bridge;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_bridge_4_test_2;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _arc_is_bridge2;;
+
+		_=> nrel_else:: .._proc_dfs_for_bridges_operator37;;
+		_=> nrel_then:: .._proc_dfs_for_bridges_operator10;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator37 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _set_of_bridge;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_bridge_4;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _arc_is_bridge2;;
+
+		_=> nrel_goto:: .._proc_dfs_for_bridges_operator10;;
+	*);;
+
+	_-> .._proc_dfs_for_bridges_operator35 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _set_of_bridge;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_bridge_4;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _arc_is_bridge;;
+
+		_=> nrel_goto:: .._proc_dfs_for_bridges_operator33;;
+	*);;
 
-// Занесение в узел _tin _timer
-		-> ..step3_t (*
-        	<- contAssign;;
-	        -> rrel_1: rrel_fixed: rrel_scp_var: _tin;;
-	        -> rrel_2: rrel_fixed: rrel_scp_const: _timer;;
-
-	        => nrel_goto: ..step4_t;;
-		*);;
-
-// Создание узла _fup
-		-> ..step4_t (*
-		    <- genEl;;
-	        -> rrel_1: rrel_assign: rrel_node: rrel_link: rrel_const: rrel_scp_var: _fup;;
-
-	        => nrel_goto: ..step5_t;; 
-		*);;
-
-// Занесение в узел _fup _timer
-		-> ..step5_t (*
-        	<- contAssign;;
-	        -> rrel_1: rrel_fixed: rrel_scp_var: _fup;;
-	        -> rrel_2: rrel_fixed: rrel_scp_const: _timer;;
-
-	        => nrel_goto: ..step6_t;;
-		*);;
-
-// Прикрепляем _tin к вершине 
-		-> ..step6_t (*
-        	<- genElStr5;;
-	        -> rrel_1: rrel_fixed: rrel_scp_var: rrel_node: rrel_const: _v;;
-	        -> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc_tin_2;;
-	        -> rrel_3: rrel_fixed: rrel_scp_var: rrel_link: rrel_const: _tin;;
-	        -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_tin_4;;
-	        -> rrel_5: rrel_fixed: rrel_scp_const: rrel_node: rrel_const: tin_vertex;;
-
-	        => nrel_goto: ..step7_t;;
-        *);;
-
-// Прикрепляем _fup к вершине
-        -> ..step7_t (*
-        	<- genElStr5;;
-	        -> rrel_1: rrel_fixed: rrel_scp_var: rrel_node: rrel_const: _v;;
-	        -> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc_fup_2;;
-	        -> rrel_3: rrel_fixed: rrel_scp_var: rrel_link: rrel_const: _fup;;
-	        -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_fup_4;;
-	        -> rrel_5: rrel_fixed: rrel_scp_const: rrel_node: rrel_const: fup_vertex;;
-
-	        => nrel_goto: ..step8_t;;
-        *);;
-
-// Создание узла _temp_set
-		-> ..step8_t(*
-		    <- genEl;;
-	        -> rrel_1: rrel_assign: rrel_node: rrel_scp_var: _temp_set;;
-
-	        => nrel_goto: ..start ;; 
-		*);; 		
-
-// Ищем смежные вершины и заносим все смежные вершины во временное множество
-	    -> ..start (*
-            <- searchSetStr5;;
-            -> rrel_1: rrel_fixed: rrel_scp_var: _v;;
-            -> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc2;;
-            -> rrel_3: rrel_assign: rrel_scp_var: _el3;;
-            -> rrel_4: rrel_assign: rrel_scp_var: _arc4;;
-            -> rrel_5: rrel_fixed: rrel_scp_var : _graph;;
-            -> rrel_set_3 : rrel_fixed : rrel_scp_var : _temp_set;;
-
-            => nrel_goto : ..step0;; 
-        *);;
-
-// По определению О. Оре [стр. 38] делаем соотнесенный неориентированный
-	    -> ..step0 (*
-            <- searchSetStr5;;
-            -> rrel_1: rrel_assign: rrel_scp_var: _el3;;
-            -> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc2;;
-            -> rrel_3: rrel_fixed: rrel_scp_var: _v;;
-            -> rrel_4: rrel_assign: rrel_scp_var: _arc4;;
-            -> rrel_5: rrel_fixed: rrel_scp_var : _graph;;
-            -> rrel_set_1 : rrel_fixed : rrel_scp_var : _temp_set;;
-
-            => nrel_goto : ..step1;; 
-        *);;
-
-// Ищем смежную вершину
-        -> ..step1 (*
-            <- searchElStr3;;
-            -> rrel_1 : rrel_fixed : rrel_scp_var : _temp_set;;
-            -> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
-            -> rrel_3 : rrel_assign : rrel_scp_var : _to;;
-
-            => nrel_then : ..step2;; 
-            => nrel_else : ..finish_dfs ;;
-        *);; 
-
-// Удаляем эту вершину с временного множества 
-        -> ..step2 (*
-            <- eraseEl;;
-            -> rrel_1 : rrel_fixed : rrel_pos_const_perm : rrel_erase:rrel_scp_var : _arc;;
-
-            => nrel_goto : ..step3;; 
-        *);;
-
-// Проверяем является ли эта вершина родителем
-        -> ..step3 (*
-            <- ifCoin;;
-            -> rrel_1 : rrel_fixed : rrel_scp_var : _to;;
-            -> rrel_2 : rrel_fixed : rrel_scp_var : _p;;
-
-            => nrel_then: ..step1;; 
-            => nrel_else: ..step4;; 
-        *);;
-
-// Проверяем находится ли вершина в множестве непосещенных вершин
-        -> ..step4 (*
-            <- searchElStr3;;
-            -> rrel_1 : rrel_fixed : rrel_scp_var : _not_checked_vertexes;;
-            -> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
-            -> rrel_3 : rrel_fixed : rrel_scp_var : _to;;
-
-            => nrel_then : ..step5;; 
-            => nrel_else : ..step4_2;; 
-        *);;
-
-
-// ---------------------			fup[v] = min (fup[v], tin[to]);			--------------------- BEGIN
-
-// Рассчитываем новое время для fup_v (в области видимости именуется fup)
-// Находим tin_to
-        -> ..step4_2 (*
-        	<- searchElStr5;;
-	        -> rrel_1: rrel_fixed: rrel_scp_var: rrel_node: rrel_const: _to;;
-	        -> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc_tin_to_2;;
-	        -> rrel_3: rrel_assign: rrel_scp_var: rrel_link: rrel_const: _tin_to;;
-	        -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_tin_to_4;;
-	        -> rrel_5: rrel_fixed: rrel_scp_const: rrel_node: rrel_const: tin_vertex;;
-
-	        => nrel_then: ..step4_3;;
-	        => nrel_else: ..scp_operator_error_tin_to_print;;
-        *);;  		
-
-// На случай если что-то пошло не так
-        -> ..scp_operator_error_tin_to_print (*
-	        <- print;;
-	        -> rrel_1: rrel_fixed: rrel_scp_const: [ERROR IN FIND tin_to, ..step4_2 !!!];;
-
-	        => nrel_goto: ..finish_dfs;;
-        *);;
-
-// Нажодим меньшее
-        -> ..step4_3 (*
-	        <- ifGr;;
-	        -> rrel_1: rrel_fixed : rrel_scp_var: _tin_to;;
-	        -> rrel_2: rrel_fixed : rrel_scp_var: _fup;;
-
-	        => nrel_then: ..step1;;                       // _fup уже и так минимальное, переходим в другим вершинам
-	        => nrel_else: ..step4_3_min_to;;               // минимальное _tin_to, обнуляем _fup и прибавлем к нему _tin_to
-        *);;
-
-// min = tin_to поэтому обнуляем fup = 0  
-        -> ..step4_3_min_to (*
-	        <- contSub;;
-	        -> rrel_1: rrel_fixed: rrel_scp_var: _fup;;
-	        -> rrel_2: rrel_fixed: rrel_scp_var: _fup;;
-	        -> rrel_3: rrel_fixed: rrel_scp_var: _fup;;
-
-	        => nrel_goto: ..step4_4_min_to_2;;
-        *);;
-
-// fup = 0 + tin_to = 0 + min = min
-        -> ..step4_4_min_to_2 (*
-	        	<- contAdd;;
-	            -> rrel_1: rrel_fixed: rrel_scp_var: _fup;;
-	            -> rrel_2: rrel_fixed: rrel_scp_var: _fup;;
-	            -> rrel_3: rrel_fixed: rrel_scp_var: _tin_to;;
-
-	            => nrel_goto: ..step1;;
-        *);;
-
-// ---------------------			fup[v] = min (fup[v], tin[to]);			----------------------- END         
-
-// Удаляем вершину из множества непроверенных вершин
-        -> ..step5 (*
-            <- eraseEl;;
-            -> rrel_1 : rrel_fixed : rrel_pos_const_perm : rrel_erase:rrel_scp_var : _arc;;
-
-            => nrel_goto : ..in_dfs_recurs;; 
-        *);;
-
-// Рекурсивно вызываем поиск в глубину для следующей вершины
-        -> ..in_dfs_recurs (*
-            <- call;;
-	        -> rrel_1: rrel_fixed: rrel_scp_const: proc_dfs_for_bridges;;
-	        -> rrel_2: rrel_fixed: rrel_scp_const: ... (*
-		        -> rrel_1: rrel_fixed: rrel_scp_var: _to;;
-		        -> rrel_2: rrel_fixed: rrel_scp_var: _v;;
-		        -> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
-		        -> rrel_4: rrel_fixed: rrel_scp_var: _not_checked_vertexes;;
-		        -> rrel_5: rrel_fixed: rrel_scp_var: _timer;;
-		        -> rrel_6: rrel_fixed: rrel_scp_var: _set_of_bridge;;
-		        -> rrel_7: rrel_fixed: rrel_scp_const: tin_vertex;;
-		        -> rrel_8: rrel_fixed: rrel_scp_const: fup_vertex;;
-	        *);;
-	        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
-
-	        => nrel_goto: ..out_dfs_recurs;;
-        *);;
-
-// Ожидаем пока завершатся все предыдущии действия	
-        -> ..out_dfs_recurs (*
-	        <- waitReturn;;
-	        -> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
-	
-	        => nrel_goto: ..step5_2;; 
-	    *);;
-
-
-// ---------------------			fup[v] = min (fup[v], fup[to]);			--------------------- BEGIN
-
-// Рассчитываем новое время для fup_to (fup_v в области видимости именуется fup)
-// Находим fup_to
-        -> ..step5_2 (*
-        	<- searchElStr5;;
-	        -> rrel_1: rrel_fixed: rrel_scp_var: rrel_node: rrel_const: _to;;
-	        -> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc_fup_to_2;;
-	        -> rrel_3: rrel_assign: rrel_scp_var: rrel_link: rrel_const: _fup_to;;
-	        -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_fup_to_4;;
-	        -> rrel_5: rrel_fixed: rrel_scp_const: rrel_node: rrel_const: fup_vertex;;
-
-	        => nrel_then: ..step5_3;;
-	        => nrel_else: ..scp_operator_error_fup_to_print;;
-        *);;  		
-
-// На случай если что-то пошло не так
-        -> ..scp_operator_error_fup_to_print (*
-	        <- print;;
-	        -> rrel_1: rrel_fixed: rrel_scp_const: [ERROR IN FIND fup_to, ..step5_2 !!!];;
-
-	        => nrel_goto: ..end_dfs;;
-        *);;
-
-// Нажодим меньшее
-        -> ..step5_3 (*
-	        <- ifGr;;
-	        -> rrel_1: rrel_fixed : rrel_scp_var: _fup_to;;
-	        -> rrel_2: rrel_fixed : rrel_scp_var: _fup;;
-
-	        => nrel_then: ..step_check_bridge;;                 // _fup уже и так минимальное, переходим в другим вершинам
-	        => nrel_else: ..step5_3_min_v;;                     // минимальное _fup_to, обнуляем _fup и прибавлем к нему _fup_to
-        *);;
-
-// min = fup_to поэтому обнуляем для fup = 0  
-        -> ..step5_3_min_v (*
-	        <- contSub;;
-	        -> rrel_1: rrel_fixed: rrel_scp_var: _fup;;
-	        -> rrel_2: rrel_fixed: rrel_scp_var: _fup;;
-	        -> rrel_3: rrel_fixed: rrel_scp_var: _fup;;
-
-	        => nrel_goto: ..step5_3_min_v_2;;
-        *);;
-
-// fup = 0 + fup_to = 0 + min = min
-        -> ..step5_3_min_v_2 (*
-	        	<- contAdd;;
-	            -> rrel_1: rrel_fixed: rrel_scp_var: _fup;;
-	            -> rrel_2: rrel_fixed: rrel_scp_var: _fup;;
-	            -> rrel_3: rrel_fixed: rrel_scp_var: _fup_to;;
-
-	            => nrel_goto: ..step_check_bridge ;;
-        *);;
-
-// ---------------------			fup[v] = min (fup[v], fup[to]);			----------------------- END
-
-// Находим tin_v
-        -> ..step_check_bridge (*
-        	<- searchElStr5;;
-	        -> rrel_1: rrel_fixed: rrel_scp_var: rrel_node: rrel_const: _v;;
-	        -> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc_tin_v_2;;
-	        -> rrel_3: rrel_assign: rrel_scp_var: rrel_link: rrel_const: _tin_v;;
-	        -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_tin_v_4;;
-	        -> rrel_5: rrel_fixed: rrel_scp_const: rrel_node: rrel_const: tin_vertex;;
-
-	        => nrel_then: ..step_check_bridge_2;;
-	        => nrel_else: ..scp_operator_error_tin_v_print;;
-        *);;  		
-
-// На случай если что-то пошло не так
-        -> ..scp_operator_error_tin_v_print (*
-	        <- print;;
-	        -> rrel_1: rrel_fixed: rrel_scp_const: [ERROR IN FIND tin_to, ..step_check_bridge !!!];;
-
-	        => nrel_goto: ..end_dfs;;
-        *);;
-
-// fup[to] > tin[v]
-        -> ..step_check_bridge_2 (*
-	        <- ifGr;;
-	        -> rrel_1: rrel_fixed : rrel_scp_var: _fup_to;;
-	        -> rrel_2: rrel_fixed : rrel_scp_var: _tin_v;;
-
-	        => nrel_then: ..step_check_bridge_3;; 
-	        => nrel_else: ..step1;;               
-        *);;
-
-// Мы нашли мост fup[to] > tin[v]. Ищем дугу
-        -> ..step_check_bridge_3 (*
-            <- searchElStr5;;
-	        -> rrel_1: rrel_fixed: rrel_scp_var: rrel_node: rrel_const: _to;;
-	        -> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc_is_bridge;;
-	        -> rrel_3: rrel_fixed: rrel_scp_var: rrel_node: rrel_const: _v;;
-	        -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_bridge_4;;
-	        -> rrel_5: rrel_fixed: rrel_scp_const: rrel_node: rrel_const: _graph;;
-
-	        => nrel_then: ..step_check_bridge_4;;
-	        => nrel_else: ..step_check_bridge_6;;       
-        *);; 
-
-// Проверяем на дубликат 
-        -> ..step_check_bridge_4(*
-            <- searchElStr3;;
-	        -> rrel_1: rrel_fixed: rrel_scp_var: _set_of_bridge;;
-	        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_bridge_4_test_1;;
-	        -> rrel_3: rrel_fixed: rrel_scp_var: _arc_is_bridge;;
-
-	        => nrel_then: ..step1;;
-	        => nrel_else: ..step_check_bridge_5;;           
-        *);;
-
-// Говорим что это мост
-        -> ..step_check_bridge_5(*
-            <- genElStr3;;
-	        -> rrel_1: rrel_fixed: rrel_scp_var: _set_of_bridge;;
-	        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_bridge_4;;
-	        -> rrel_3: rrel_fixed: rrel_scp_var: _arc_is_bridge;;
-
-	        => nrel_goto: ..step_check_bridge_6;;          
-        *);;
-
-// Ищем обратную дугу
-        -> ..step_check_bridge_6 (*
-            <- searchElStr5;;
-	        -> rrel_1: rrel_fixed: rrel_scp_var: rrel_node: rrel_const: _v;;
-	        -> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc_is_bridge2;;
-	        -> rrel_3: rrel_fixed: rrel_scp_var: rrel_node: rrel_const: _to;;
-	        -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_bridge_4;;
-	        -> rrel_5: rrel_fixed: rrel_scp_const: rrel_node: rrel_const: _graph;;
-
-	        => nrel_then: ..step_check_bridge_7;;
-	        => nrel_else: ..step1;;       
-        *);; 
-
-// Проверяем на дубликат 
-        -> ..step_check_bridge_7(*
-            <- searchElStr3;;
-	        -> rrel_1: rrel_fixed: rrel_scp_var: _set_of_bridge;;
-	        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_bridge_4_test_2;;
-	        -> rrel_3: rrel_fixed: rrel_scp_var: _arc_is_bridge2;;
-
-	        => nrel_then: ..step1;;
-	        => nrel_else: ..step_check_bridge_8;;           
-        *);;
-
-// Говорим что это мост
-        -> ..step_check_bridge_8 (*
-            <- genElStr3;;
-	        -> rrel_1: rrel_fixed: rrel_scp_var: _set_of_bridge;;
-	        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_bridge_4;;
-	        -> rrel_3: rrel_fixed: rrel_scp_var: _arc_is_bridge2;;
-
-	        => nrel_goto: ..step1;;          
-        *);;
-
-// Удаляем временное множество
-        -> ..finish_dfs (*
-            <- eraseEl;;
-            -> rrel_1 : rrel_fixed : rrel_erase: rrel_scp_var : _temp_set;;
-
-            => nrel_goto : ..end_dfs;; 
-        *);;
-
-// Завершаем поиск в глубину
-        -> ..end_dfs (*
-            <-return;; 
-        *);;
-    *);;
 *);;
+
+*];;

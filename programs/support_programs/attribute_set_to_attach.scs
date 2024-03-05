@@ -1,67 +1,69 @@
-scp_program -> attribute_set_to_attach
-(*
-	
-	-> rrel_params: ...
-        (*
-		-> rrel_1: rrel_in: _mnog;;
-                -> rrel_2: rrel_in: _attrib;;
+attribute_set_to_attach
+=> nrel_main_idtf:
+	[] (* <- lang_ru;; *);
+	[] (* <- lang_en;; *);
+<- scp_program;
+-> rrel_key_sc_element: .._process1;;
+
+attribute_set_to_attach = [*
+.._process1
+_<- scp_process;
+
+_-> rrel_1:: rrel_in:: _mnog;
+_-> rrel_2:: rrel_in:: _attrib;
+_<= nrel_decomposition_of_action:: .._actions (*
+
+	_-> rrel_1:: .._attribute_set_to_attach_operator0 (*
+		_<- searchSetStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _mnog;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_of_1;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _vert;;
+		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _buffer;;
+
+		_=> nrel_else:: .._attribute_set_to_attach_operator1;;
+		_=> nrel_then:: .._attribute_set_to_attach_operator2;;
 	*);;
 
-	-> rrel_operators: ...
-        (*
+	_-> .._attribute_set_to_attach_operator2 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _buffer;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_erase;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _curr_vert;;
 
-		->rrel_init:..set_vertexs
-		(*
-			<- searchSetStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _mnog;;
-                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_1;;
-                        -> rrel_3: rrel_assign: rrel_scp_var: _vert;;
-
-			-> rrel_set_3: rrel_assign: rrel_scp_var: _buffer;;
-			
-			=> nrel_then: ..go_circle;;
-                	=> nrel_else: ..ret;;
-		*);;
-
-		->..go_circle
-		(*
-			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _buffer;;
-                        -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_erase;;
-                        -> rrel_3: rrel_assign: rrel_scp_var: _curr_vert;;
-			
-			=>nrel_then: ..gen_5;;
-			=>nrel_else: ..erase_buffer;; 		
-		*);;
-
-		->..gen_5
-		(*
-			<- genElStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _mnog;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _curr_vert;;
-			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
-			-> rrel_5: rrel_fixed: rrel_scp_var: _attrib;;
-			
-			=> nrel_goto: ..erase_arc_erase;;
-		*);;
-		
-		->..erase_arc_erase
-		(*
-			<- eraseEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc_erase;;
-			
-			=> nrel_goto: ..go_circle;;
-		*);;
-	
-		->..erase_buffer
-		(*
-			<- eraseEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _buffer;;
-			
-			=> nrel_goto: ..ret;;
-		*);;
-
-		->..ret(*<-return;;*);;
+		_=> nrel_else:: .._attribute_set_to_attach_operator3;;
+		_=> nrel_then:: .._attribute_set_to_attach_operator4;;
 	*);;
+
+	_-> .._attribute_set_to_attach_operator1 (*
+		_<- return;;
+
+	*);;
+
+	_-> .._attribute_set_to_attach_operator4 (*
+		_<- genElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _mnog;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _curr_vert;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: _attrib;;
+
+		_=> nrel_goto:: .._attribute_set_to_attach_operator5;;
+	*);;
+
+	_-> .._attribute_set_to_attach_operator3 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _buffer;;
+
+		_=> nrel_goto:: .._attribute_set_to_attach_operator1;;
+	*);;
+
+	_-> .._attribute_set_to_attach_operator5 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _arc_erase;;
+
+		_=> nrel_goto:: .._attribute_set_to_attach_operator2;;
+	*);;
+
 *);;
+
+*];;

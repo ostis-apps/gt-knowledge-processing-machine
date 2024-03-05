@@ -16,7 +16,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
 	_-> rrel_1:: .._proc_graph_union_operator0 (*
 		_<- genEl;;
-		_-> rrel_1:: rrel_assign:: rrel_node:: rrel_const:: rrel_scp_var:: rrel_struct:: _rez_graph;;
+		_-> rrel_1:: rrel_assign:: rrel_const:: rrel_node:: rrel_scp_var:: rrel_struct:: _rez_graph;;
 
 		_=> nrel_goto:: .._proc_graph_union_operator1;;
 	*);;
@@ -30,33 +30,33 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_vertex;;
 		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _allvertex;;
 
-		_=> nrel_else:: .._proc_graph_union_return_end;;
-		_=> nrel_then:: .._proc_graph_union_operator2;;
+		_=> nrel_else:: .._proc_graph_union_operator2;;
+		_=> nrel_then:: .._proc_graph_union_operator3;;
 	*);;
 
-	_-> .._proc_graph_union_operator2 (*
+	_-> .._proc_graph_union_operator3 (*
 		_<- searchElStr3;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _allvertex;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _v;;
 
-		_=> nrel_else:: .._proc_graph_union_operator6;;
-		_=> nrel_then:: .._proc_graph_union_operator3;;
+		_=> nrel_else:: .._proc_graph_union_operator4;;
+		_=> nrel_then:: .._proc_graph_union_operator5;;
 	*);;
 
-	_-> .._proc_graph_union_return_end (*
+	_-> .._proc_graph_union_operator2 (*
 		_<- return;;
 
 	*);;
 
-	_-> .._proc_graph_union_operator3 (*
+	_-> .._proc_graph_union_operator5 (*
 		_<- eraseEl;;
 		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
 
-		_=> nrel_goto:: .._proc_graph_union_operator4;;
+		_=> nrel_goto:: .._proc_graph_union_operator6;;
 	*);;
 
-	_-> .._proc_graph_union_operator6 (*
+	_-> .._proc_graph_union_operator4 (*
 		_<- searchSetStr5;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _graph2;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
@@ -65,7 +65,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_vertex;;
 		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _all_graph2_vertex;;
 
-		_=> nrel_else:: .._proc_graph_union_return_end;;
+		_=> nrel_else:: .._proc_graph_union_operator2;;
 		_=> nrel_then:: .._proc_graph_union_operator7;;
 	*);;
 
@@ -75,18 +75,18 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _v;;
 
-		_=> nrel_else:: .._proc_graph_union_operator11;;
-		_=> nrel_then:: .._proc_graph_union_operator8;;
+		_=> nrel_else:: .._proc_graph_union_operator8;;
+		_=> nrel_then:: .._proc_graph_union_operator9;;
 	*);;
 
-	_-> .._proc_graph_union_operator8 (*
+	_-> .._proc_graph_union_operator9 (*
 		_<- eraseEl;;
 		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
 
-		_=> nrel_goto:: .._proc_graph_union_operator9;;
+		_=> nrel_goto:: .._proc_graph_union_operator10;;
 	*);;
 
-	_-> .._proc_graph_union_operator11 (*
+	_-> .._proc_graph_union_operator8 (*
 		_<- searchSetStr5;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _graph1;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
@@ -95,17 +95,17 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_oredge;;
 		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _alledge;;
 
-		_=> nrel_else:: .._proc_graph_union_return_end;;
-		_=> nrel_then:: .._proc_graph_union_operator12;;
+		_=> nrel_else:: .._proc_graph_union_operator2;;
+		_=> nrel_then:: .._proc_graph_union_operator11;;
 	*);;
 
-	_-> .._proc_graph_union_operator12 (*
+	_-> .._proc_graph_union_operator11 (*
 		_<- searchElStr3;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _alledge;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _v;;
 
-		_=> nrel_else:: .._proc_graph_union_operator16;;
+		_=> nrel_else:: .._proc_graph_union_operator12;;
 		_=> nrel_then:: .._proc_graph_union_operator13;;
 	*);;
 
@@ -116,7 +116,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_=> nrel_goto:: .._proc_graph_union_operator14;;
 	*);;
 
-	_-> .._proc_graph_union_operator16 (*
+	_-> .._proc_graph_union_operator12 (*
 		_<- searchSetStr5;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _graph2;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
@@ -125,28 +125,28 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_oredge;;
 		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _all_graph2_edge;;
 
-		_=> nrel_else:: .._proc_graph_union_return;;
-		_=> nrel_then:: .._proc_graph_union_operator17;;
+		_=> nrel_else:: .._proc_graph_union_operator15;;
+		_=> nrel_then:: .._proc_graph_union_operator16;;
 	*);;
 
-	_-> .._proc_graph_union_operator17 (*
+	_-> .._proc_graph_union_operator16 (*
 		_<- searchElStr3;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _all_graph2_edge;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _v;;
 
-		_=> nrel_else:: .._proc_graph_union_return;;
-		_=> nrel_then:: .._proc_graph_union_operator18;;
+		_=> nrel_else:: .._proc_graph_union_operator15;;
+		_=> nrel_then:: .._proc_graph_union_operator17;;
 	*);;
 
-	_-> .._proc_graph_union_return (*
+	_-> .._proc_graph_union_operator15 (*
 		_<- genEl;;
 		_-> rrel_1:: rrel_assign:: rrel_const:: rrel_node:: rrel_scp_var:: _comp;;
 
-		_=> nrel_goto:: .._proc_graph_union_return1;;
+		_=> nrel_goto:: .._proc_graph_union_operator18;;
 	*);;
 
-	_-> .._proc_graph_union_return1 (*
+	_-> .._proc_graph_union_operator18 (*
 		_<- genElStr5;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _comp;;
 		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_const:: rrel_scp_var:: _arc1;;
@@ -154,44 +154,44 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc4;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_graph_union;;
 
-		_=> nrel_goto:: .._proc_graph_union_return2;;
+		_=> nrel_goto:: .._proc_graph_union_operator19;;
 	*);;
 
-	_-> .._proc_graph_union_return2 (*
+	_-> .._proc_graph_union_operator19 (*
 		_<- genElStr3;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _comp;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc4;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _graph1;;
 
-		_=> nrel_goto:: .._proc_graph_union_return3;;
+		_=> nrel_goto:: .._proc_graph_union_operator20;;
 	*);;
 
-	_-> .._proc_graph_union_return3 (*
+	_-> .._proc_graph_union_operator20 (*
 		_<- genElStr3;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _comp;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc4;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _graph2;;
 
-		_=> nrel_goto:: .._proc_graph_union_return4;;
+		_=> nrel_goto:: .._proc_graph_union_operator21;;
 	*);;
 
-	_-> .._proc_graph_union_return4 (*
+	_-> .._proc_graph_union_operator21 (*
 		_<- genElStr3;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: concept_graph;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc4;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _rez_graph;;
 
-		_=> nrel_goto:: .._proc_graph_union_return_end;;
+		_=> nrel_goto:: .._proc_graph_union_operator2;;
 	*);;
 
-	_-> .._proc_graph_union_operator18 (*
+	_-> .._proc_graph_union_operator17 (*
 		_<- eraseEl;;
 		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
 
-		_=> nrel_goto:: .._proc_graph_union_operator19;;
+		_=> nrel_goto:: .._proc_graph_union_operator22;;
 	*);;
 
-	_-> .._proc_graph_union_operator19 (*
+	_-> .._proc_graph_union_operator22 (*
 		_<- searchElStr5;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _graph1;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
@@ -199,11 +199,11 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc4;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_oredge;;
 
-		_=> nrel_else:: .._proc_graph_union_operator20;;
-		_=> nrel_then:: .._proc_graph_union_operator17;;
+		_=> nrel_else:: .._proc_graph_union_operator23;;
+		_=> nrel_then:: .._proc_graph_union_operator16;;
 	*);;
 
-	_-> .._proc_graph_union_operator20 (*
+	_-> .._proc_graph_union_operator23 (*
 		_<- genElStr5;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _rez_graph;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
@@ -211,7 +211,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc4;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_oredge;;
 
-		_=> nrel_goto:: .._proc_graph_union_operator17;;
+		_=> nrel_goto:: .._proc_graph_union_operator16;;
 	*);;
 
 	_-> .._proc_graph_union_operator14 (*
@@ -222,10 +222,10 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc4;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_oredge;;
 
-		_=> nrel_goto:: .._proc_graph_union_operator12;;
+		_=> nrel_goto:: .._proc_graph_union_operator11;;
 	*);;
 
-	_-> .._proc_graph_union_operator9 (*
+	_-> .._proc_graph_union_operator10 (*
 		_<- searchElStr5;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _graph1;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
@@ -233,11 +233,11 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc4;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_vertex;;
 
-		_=> nrel_else:: .._proc_graph_union_operator10;;
+		_=> nrel_else:: .._proc_graph_union_operator24;;
 		_=> nrel_then:: .._proc_graph_union_operator7;;
 	*);;
 
-	_-> .._proc_graph_union_operator10 (*
+	_-> .._proc_graph_union_operator24 (*
 		_<- genElStr5;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _rez_graph;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
@@ -248,7 +248,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_=> nrel_goto:: .._proc_graph_union_operator7;;
 	*);;
 
-	_-> .._proc_graph_union_operator4 (*
+	_-> .._proc_graph_union_operator6 (*
 		_<- genElStr5;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _rez_graph;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
@@ -256,7 +256,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc4;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_vertex;;
 
-		_=> nrel_goto:: .._proc_graph_union_operator2;;
+		_=> nrel_goto:: .._proc_graph_union_operator3;;
 	*);;
 
 *);;
