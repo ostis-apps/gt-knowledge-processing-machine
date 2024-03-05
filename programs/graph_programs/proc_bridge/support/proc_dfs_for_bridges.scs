@@ -21,7 +21,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
 	_-> rrel_1:: .._proc_dfs_for_bridges_operator0 (*
 		_<- contAdd;;
-		_-> rrel_1:: rrel_2:: rrel_fixed:: rrel_scp_const:: _timer;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _timer;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: _timer;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: [1];;
 
 		_=> nrel_goto:: .._proc_dfs_for_bridges_operator1;;
@@ -35,7 +36,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 	*);;
 
 	_-> .._proc_dfs_for_bridges_operator2 (*
-		_<- contAssign;;
+		_<- varAssign;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _tin;;
 		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: _timer;;
 
@@ -50,7 +51,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 	*);;
 
 	_-> .._proc_dfs_for_bridges_operator4 (*
-		_<- contAssign;;
+		_<- varAssign;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _fup;;
 		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: _timer;;
 
@@ -93,7 +94,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _el3;;
 		_-> rrel_4:: rrel_assign:: rrel_scp_var:: _arc4;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: _graph;;
-		_-> rrel_fixed:: rrel_scp_var:: rrel_set_3:: _temp_set;;
+		_-> rrel_set_3:: rrel_fixed:: rrel_scp_var:: _temp_set;;
 
 		_=> nrel_goto:: .._proc_dfs_for_bridges_operator9;;
 	*);;
@@ -105,7 +106,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _v;;
 		_-> rrel_4:: rrel_assign:: rrel_scp_var:: _arc4;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: _graph;;
-		_-> rrel_fixed:: rrel_scp_var:: rrel_set_1:: _temp_set;;
+		_-> rrel_set_1:: rrel_fixed:: rrel_scp_var:: _temp_set;;
 
 		_=> nrel_goto:: .._proc_dfs_for_bridges_operator10;;
 	*);;
@@ -195,14 +196,17 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
 	_-> .._proc_dfs_for_bridges_operator21 (*
 		_<- contSub;;
-		_-> rrel_1:: rrel_2:: rrel_3:: rrel_fixed:: rrel_scp_var:: _fup;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _fup;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _fup;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _fup;;
 
 		_=> nrel_goto:: .._proc_dfs_for_bridges_operator22;;
 	*);;
 
 	_-> .._proc_dfs_for_bridges_operator22 (*
 		_<- contAdd;;
-		_-> rrel_1:: rrel_2:: rrel_fixed:: rrel_scp_var:: _fup;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _fup;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _fup;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _tin_to;;
 
 		_=> nrel_goto:: .._proc_dfs_for_bridges_operator10;;
@@ -275,14 +279,17 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
 	_-> .._proc_dfs_for_bridges_operator27 (*
 		_<- contSub;;
-		_-> rrel_1:: rrel_2:: rrel_3:: rrel_fixed:: rrel_scp_var:: _fup;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _fup;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _fup;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _fup;;
 
 		_=> nrel_goto:: .._proc_dfs_for_bridges_operator31;;
 	*);;
 
 	_-> .._proc_dfs_for_bridges_operator31 (*
 		_<- contAdd;;
-		_-> rrel_1:: rrel_2:: rrel_fixed:: rrel_scp_var:: _fup;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _fup;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _fup;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _fup_to;;
 
 		_=> nrel_goto:: .._proc_dfs_for_bridges_operator28;;

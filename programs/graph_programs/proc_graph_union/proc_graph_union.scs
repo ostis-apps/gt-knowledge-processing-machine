@@ -28,7 +28,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _el3;;
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc4;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_vertex;;
-		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _allvertex;;
+		_-> rrel_set_3:: rrel_assign:: rrel_scp_var:: _allvertex;;
 
 		_=> nrel_else:: .._proc_graph_union_operator2;;
 		_=> nrel_then:: .._proc_graph_union_operator3;;
@@ -63,7 +63,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _el3;;
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc4;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_vertex;;
-		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _all_graph2_vertex;;
+		_-> rrel_set_3:: rrel_assign:: rrel_scp_var:: _all_graph2_vertex;;
 
 		_=> nrel_else:: .._proc_graph_union_operator2;;
 		_=> nrel_then:: .._proc_graph_union_operator7;;
@@ -93,7 +93,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _el3;;
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc4;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_oredge;;
-		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _alledge;;
+		_-> rrel_set_3:: rrel_assign:: rrel_scp_var:: _alledge;;
 
 		_=> nrel_else:: .._proc_graph_union_operator2;;
 		_=> nrel_then:: .._proc_graph_union_operator11;;
@@ -123,7 +123,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _el3;;
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc4;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_oredge;;
-		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _all_graph2_edge;;
+		_-> rrel_set_3:: rrel_assign:: rrel_scp_var:: _all_graph2_edge;;
 
 		_=> nrel_else:: .._proc_graph_union_operator15;;
 		_=> nrel_then:: .._proc_graph_union_operator16;;

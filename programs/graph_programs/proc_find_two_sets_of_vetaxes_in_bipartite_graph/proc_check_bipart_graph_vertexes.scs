@@ -57,7 +57,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_<- call;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: visiting_round_B;;
 		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._proc_check_bipart_graph_vertexes_param0 (*
-			_-> rrel_1:: rrel_2:: rrel_fixed:: rrel_scp_var:: _node;;
+			_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _node;;
+			_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _node;;
 			_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _set_A;;
 			_-> rrel_4:: rrel_fixed:: rrel_scp_const:: _graph;;
 			_-> rrel_5:: rrel_fixed:: rrel_scp_var:: _set_B;;

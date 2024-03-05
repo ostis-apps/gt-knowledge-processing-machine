@@ -38,7 +38,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 	*);;
 
 	_-> .._proc_find_num_graph_tree_nodes_operator3 (*
-		_<- contAssign;;
+		_<- varAssign;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _counter;;
 		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: [0];;
 
@@ -65,7 +65,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_<- call;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: visiting_round_deep;;
 		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._proc_find_num_graph_tree_nodes_param0 (*
-			_-> rrel_1:: rrel_2:: rrel_fixed:: rrel_scp_var:: _node;;
+			_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _node;;
+			_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _node;;
 			_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _counter;;
 			_-> rrel_4:: rrel_fixed:: rrel_scp_const:: _graph;;
 			_-> rrel_5:: rrel_fixed:: rrel_scp_var:: _marked_nodes;;
@@ -84,7 +85,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
 	_-> .._proc_find_num_graph_tree_nodes_operator8 (*
 		_<- contDiv;;
-		_-> rrel_1:: rrel_2:: rrel_fixed:: rrel_scp_var:: _counter;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _counter;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _counter;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: [2];;
 
 		_=> nrel_goto:: .._proc_find_num_graph_tree_nodes_operator9;;

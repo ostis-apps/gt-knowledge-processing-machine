@@ -26,7 +26,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _el3;;
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc4;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_vertex;;
-		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _allvertex;;
+		_-> rrel_set_3:: rrel_assign:: rrel_scp_var:: _allvertex;;
 
 		_=> nrel_else:: .._proc_find_complement_graph_operator2;;
 		_=> nrel_then:: .._proc_find_complement_graph_operator3;;
@@ -60,7 +60,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _el3;;
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc4;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_vertex;;
-		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _biginset;;
+		_-> rrel_set_3:: rrel_assign:: rrel_scp_var:: _biginset;;
 
 		_=> nrel_goto:: .._proc_find_complement_graph_operator7;;
 	*);;
@@ -103,7 +103,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _biginset;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc5;;
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _V;;
-		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _endset;;
+		_-> rrel_set_3:: rrel_assign:: rrel_scp_var:: _endset;;
 
 		_=> nrel_else:: .._proc_find_complement_graph_operator8;;
 		_=> nrel_then:: .._proc_find_complement_graph_operator12;;
@@ -145,7 +145,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _begin;;
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc4;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: _graph;;
-		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _allvertex;;
+		_-> rrel_set_3:: rrel_assign:: rrel_scp_var:: _allvertex;;
 
 		_=> nrel_else:: .._proc_find_complement_graph_operator16;;
 		_=> nrel_then:: .._proc_find_complement_graph_operator12;;

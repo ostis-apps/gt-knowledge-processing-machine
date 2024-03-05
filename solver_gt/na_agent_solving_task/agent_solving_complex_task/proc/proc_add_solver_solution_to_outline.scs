@@ -29,7 +29,9 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _node;;
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_solution_result;;
-		_-> rrel_fixed:: rrel_scp_const:: rrel_set_2:: rrel_set_3:: rrel_set_4:: _outline;;
+		_-> rrel_set_2:: rrel_fixed:: rrel_scp_const:: _outline;;
+		_-> rrel_set_3:: rrel_fixed:: rrel_scp_const:: _outline;;
+		_-> rrel_set_4:: rrel_fixed:: rrel_scp_const:: _outline;;
 
 		_=> nrel_else:: .._proc_add_solver_solution_to_outline_operator2;;
 		_=> nrel_then:: .._proc_add_solver_solution_to_outline_operator3;;
@@ -51,7 +53,9 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _node;;
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_task_solution;;
-		_-> rrel_fixed:: rrel_scp_const:: rrel_set_2:: rrel_set_3:: rrel_set_4:: _outline;;
+		_-> rrel_set_2:: rrel_fixed:: rrel_scp_const:: _outline;;
+		_-> rrel_set_3:: rrel_fixed:: rrel_scp_const:: _outline;;
+		_-> rrel_set_4:: rrel_fixed:: rrel_scp_const:: _outline;;
 
 		_=> nrel_else:: .._proc_add_solver_solution_to_outline_operator4;;
 		_=> nrel_then:: .._proc_add_solver_solution_to_outline_operator5;;

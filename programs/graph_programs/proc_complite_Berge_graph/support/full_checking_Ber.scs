@@ -21,7 +21,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _el3;;
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc4;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_vertex;;
-		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _soUPset;;
+		_-> rrel_set_3:: rrel_assign:: rrel_scp_var:: _soUPset;;
 
 		_=> nrel_goto:: .._full_checking_Ber_operator1;;
 	*);;

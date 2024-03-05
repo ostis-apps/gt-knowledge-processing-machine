@@ -103,7 +103,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 	*);;
 
 	_-> .._proc_planar_graph_operator10 (*
-		_<- contAssign;;
+		_<- varAssign;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _vertex_amount;;
 		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: [0];;
 
@@ -117,7 +117,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _vert;;
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_of_vertexs2;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_vertex;;
-		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _vertexs;;
+		_-> rrel_set_3:: rrel_assign:: rrel_scp_var:: _vertexs;;
 
 		_=> nrel_else:: .._proc_planar_graph_operator2;;
 		_=> nrel_then:: .._proc_planar_graph_operator12;;
@@ -151,7 +151,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
 	_-> .._proc_planar_graph_operator17 (*
 		_<- contMult;;
-		_-> rrel_1:: rrel_2:: rrel_fixed:: rrel_scp_var:: _vertex_amount;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _vertex_amount;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _vertex_amount;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: [3];;
 
 		_=> nrel_goto:: .._proc_planar_graph_operator18;;
@@ -168,7 +169,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
 	_-> .._proc_planar_graph_operator18 (*
 		_<- contSub;;
-		_-> rrel_1:: rrel_2:: rrel_fixed:: rrel_scp_var:: _vertex_amount;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _vertex_amount;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _vertex_amount;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: [6];;
 
 		_=> nrel_goto:: .._proc_planar_graph_operator19;;
@@ -181,7 +183,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _vert;;
 		_-> rrel_4:: rrel_assign:: rrel_scp_var:: _arc_of_vertexs2;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_oredge;;
-		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _edges;;
+		_-> rrel_set_3:: rrel_assign:: rrel_scp_var:: _edges;;
 
 		_=> nrel_else:: .._proc_planar_graph_operator16;;
 		_=> nrel_then:: .._proc_planar_graph_operator20;;
@@ -249,7 +251,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
 	_-> .._proc_planar_graph_operator26 (*
 		_<- contSub;;
-		_-> rrel_1:: rrel_2:: rrel_fixed:: rrel_scp_var:: _vertex_amount;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _vertex_amount;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _vertex_amount;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: [1];;
 
 		_=> nrel_goto:: .._proc_planar_graph_operator20;;
@@ -257,7 +260,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
 	_-> .._proc_planar_graph_operator15 (*
 		_<- contAdd;;
-		_-> rrel_1:: rrel_2:: rrel_fixed:: rrel_scp_var:: _vertex_amount;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _vertex_amount;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _vertex_amount;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: [1];;
 
 		_=> nrel_goto:: .._proc_planar_graph_operator12;;

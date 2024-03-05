@@ -15,7 +15,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
 	_-> rrel_1:: .._proc_find_condensation_operator0 (*
 		_<- searchElStr5;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: .._proc_find_condensation_param0;;
-		_-> rrel_2:: rrel_4:: rrel_assign:: rrel_common:: rrel_const:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_const:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
+		_-> rrel_4:: rrel_assign:: rrel_common:: rrel_const:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: .._proc_find_condensation_param2;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_condensation_of_the_digraph;;
 
@@ -45,10 +46,11 @@ _<= nrel_decomposition_of_action:: .._actions (*
 	_-> .._proc_find_condensation_operator4 (*
 		_<- searchSetStr5;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: .._proc_find_condensation_param0;;
-		_-> rrel_2:: rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: .._proc_find_condensation_param5;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_vertex;;
-		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: .._proc_find_condensation_param6;;
+		_-> rrel_set_3:: rrel_assign:: rrel_scp_var:: .._proc_find_condensation_param6;;
 
 		_=> nrel_else:: .._proc_find_condensation_operator5;;
 		_=> nrel_then:: .._proc_find_condensation_operator6;;
@@ -88,7 +90,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
 	_-> .._proc_find_condensation_operator10 (*
 		_<- genElStr5;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: .._proc_find_condensation_param0;;
-		_-> rrel_2:: rrel_4:: rrel_assign:: rrel_common:: rrel_const:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_const:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
+		_-> rrel_4:: rrel_assign:: rrel_common:: rrel_const:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: .._proc_find_condensation_param10;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_condensation_of_the_digraph;;
 
@@ -129,10 +132,11 @@ _<= nrel_decomposition_of_action:: .._actions (*
 	_-> .._proc_find_condensation_operator15 (*
 		_<- searchSetStr5;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: .._proc_find_condensation_param4;;
-		_-> rrel_2:: rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: .._proc_find_condensation_param12;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_queue_element;;
-		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: .._proc_find_condensation_param13;;
+		_-> rrel_set_3:: rrel_assign:: rrel_scp_var:: .._proc_find_condensation_param13;;
 
 		_=> nrel_else:: .._proc_find_condensation_operator16;;
 		_=> nrel_then:: .._proc_find_condensation_operator17;;
@@ -167,7 +171,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: .._proc_find_condensation_param9;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: .._proc_find_condensation_param15;;
-		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: .._proc_find_condensation_param16;;
+		_-> rrel_set_3:: rrel_assign:: rrel_scp_var:: .._proc_find_condensation_param16;;
 
 		_=> nrel_else:: .._proc_find_condensation_operator21;;
 		_=> nrel_then:: .._proc_find_condensation_operator22;;
@@ -200,10 +204,11 @@ _<= nrel_decomposition_of_action:: .._actions (*
 	_-> .._proc_find_condensation_operator25 (*
 		_<- searchSetStr5;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: .._proc_find_condensation_param4;;
-		_-> rrel_2:: rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: .._proc_find_condensation_param18;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_queue_element;;
-		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: .._proc_find_condensation_param19;;
+		_-> rrel_set_3:: rrel_assign:: rrel_scp_var:: .._proc_find_condensation_param19;;
 
 		_=> nrel_else:: .._proc_find_condensation_operator26;;
 		_=> nrel_then:: .._proc_find_condensation_operator27;;
@@ -231,7 +236,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: .._proc_find_condensation_param9;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: .._proc_find_condensation_param15;;
-		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: .._proc_find_condensation_param21;;
+		_-> rrel_set_3:: rrel_assign:: rrel_scp_var:: .._proc_find_condensation_param21;;
 
 		_=> nrel_else:: .._proc_find_condensation_operator30;;
 		_=> nrel_then:: .._proc_find_condensation_operator31;;
@@ -271,7 +276,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
 	_-> .._proc_find_condensation_operator23 (*
 		_<- searchElStr5;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: .._proc_find_condensation_param8;;
-		_-> rrel_2:: rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: .._proc_find_condensation_param5;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_var:: .._proc_find_condensation_param15;;
 
@@ -310,8 +316,10 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
 	_-> .._proc_find_condensation_operator18 (*
 		_<- searchElStr5;;
-		_-> rrel_1:: rrel_3:: rrel_assign:: rrel_fixed:: rrel_scp_var:: .._proc_find_condensation_param11;;
-		_-> rrel_2:: rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
+		_-> rrel_1:: rrel_assign:: rrel_fixed:: rrel_scp_var:: .._proc_find_condensation_param11;;
+		_-> rrel_3:: rrel_assign:: rrel_fixed:: rrel_scp_var:: .._proc_find_condensation_param11;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_next_queue_element;;
 
 		_=> nrel_goto:: .._proc_find_condensation_operator36;;
@@ -320,7 +328,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
 	_-> .._proc_find_condensation_operator36 (*
 		_<- searchElStr5;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: .._proc_find_condensation_param11;;
-		_-> rrel_2:: rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: .._proc_find_condensation_param5;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_queue_element_value;;
 
@@ -385,7 +394,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
 	_-> .._proc_find_condensation_operator43 (*
 		_<- genElStr5;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: .._proc_find_condensation_param15;;
-		_-> rrel_2:: rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
 		_-> rrel_3:: rrel_assign:: rrel_const:: rrel_node:: rrel_scp_var:: .._proc_find_condensation_param27;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_representation;;
 
@@ -395,7 +405,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
 	_-> .._proc_find_condensation_operator44 (*
 		_<- genElStr5;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: .._proc_find_condensation_param10;;
-		_-> rrel_2:: rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: .._proc_find_condensation_param1;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: .._proc_find_condensation_param27;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_vertex;;
 

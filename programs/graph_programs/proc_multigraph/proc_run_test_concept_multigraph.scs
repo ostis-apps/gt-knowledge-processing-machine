@@ -20,7 +20,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _el3;;
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc4;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_edge;;
-		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _soUPset;;
+		_-> rrel_set_3:: rrel_assign:: rrel_scp_var:: _soUPset;;
 
 		_=> nrel_goto:: .._proc_run_test_concept_multigraph_operator1;;
 	*);;
@@ -105,7 +105,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _soUPset;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _maybe;;
-		_-> rrel_assign:: rrel_scp_var:: rrel_set_3:: _Jabba;;
+		_-> rrel_set_3:: rrel_assign:: rrel_scp_var:: _Jabba;;
 
 		_=> nrel_else:: .._proc_run_test_concept_multigraph_operator2;;
 		_=> nrel_then:: .._proc_run_test_concept_multigraph_operator11;;

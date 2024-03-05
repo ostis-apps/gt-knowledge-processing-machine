@@ -38,7 +38,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 	*);;
 
 	_-> .._proc_find_the_number_of_connected_components_operator3 (*
-		_<- contAssign;;
+		_<- varAssign;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _counter;;
 		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: [0];;
 
@@ -76,7 +76,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
 	_-> .._proc_find_the_number_of_connected_components_operator8 (*
 		_<- contAdd;;
-		_-> rrel_1:: rrel_2:: rrel_fixed:: rrel_scp_var:: _counter;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _counter;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _counter;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: [1];;
 
 		_=> nrel_goto:: .._proc_find_the_number_of_connected_components_operator9;;
