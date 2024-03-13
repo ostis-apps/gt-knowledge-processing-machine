@@ -43,8 +43,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
 	*);;
 
 	_-> .._proc_find_complement_graph_operator2 (*
-
-	*);;
+ <- empty_operator;;
+*);;
 
 	_-> .._proc_find_complement_graph_operator5 (*
 		_<- eraseEl;;

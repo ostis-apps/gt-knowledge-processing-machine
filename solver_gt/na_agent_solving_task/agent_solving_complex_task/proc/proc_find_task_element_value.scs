@@ -263,8 +263,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
 	*);;
 
 	_-> .._proc_find_task_element_value_operator26 (*
-
-	*);;
+ <- empty_operator;;
+*);;
 
 	_-> .._proc_find_task_element_value_operator10 (*
 		_<- call;;
@@ -471,8 +471,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
 	*);;
 
 	_-> .._proc_find_task_element_value_operator49 (*
-
-	*);;
+ <- empty_operator;;
+*);;
 
 	_-> .._proc_find_task_element_value_operator45 (*
 		_<- genElStr5;;
@@ -494,8 +494,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
 	*);;
 
 	_-> .._proc_find_task_element_value_operator50 (*
-
-	*);;
+ <- empty_operator;;
+*);;
 
 *);;
 
