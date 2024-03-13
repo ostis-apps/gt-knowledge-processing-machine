@@ -11,7 +11,7 @@ sc_agent_solving_complex_task
 		question_solving_complex_task
 	};
 <- key_sc_element:
-	..sc_agent_solving_complex_task_behavior
+	sc_agent_solving_complex_task_behavior
 	(*
 	<- sc_description_of_sc_agent_behavior;;
 	<= nrel_sc_text_translation:

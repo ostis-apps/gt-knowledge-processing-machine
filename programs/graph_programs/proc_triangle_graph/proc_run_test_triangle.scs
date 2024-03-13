@@ -1,295 +1,303 @@
-scp_program -> proc_run_test_triangle (*
-	
-	-> rrel_params: ... (*
-		-> rrel_1: rrel_in: _graph;;
-		-> rrel_2: rrel_in: _answer;;
+proc_run_test_triangle
+=> nrel_main_idtf:
+	[Программа проверки графа на то, что он является треугольником] (* <- lang_ru;; *);
+	[] (* <- lang_en;; *);
+<- scp_program;
+-> rrel_key_sc_element: .._process1;;
+
+proc_run_test_triangle = [*
+.._process1
+_<- scp_process;
+
+_-> rrel_1:: rrel_in:: _graph;
+_-> rrel_2:: rrel_in:: _answer;
+_<= nrel_decomposition_of_action:: .._actions (*
+
+	_-> rrel_1:: .._proc_run_test_triangle_operator0 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: concept_triangle_graph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _important_arc;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _graph;;
+
+		_=> nrel_else:: .._proc_run_test_triangle_operator1;;
+		_=> nrel_then:: .._proc_run_test_triangle_operator2;;
 	*);;
 
-	-> rrel_operators: ... (*
-	-> rrel_init: ..step1 (*
-<- searchElStr3;;
--> rrel_1: rrel_fixed: rrel_scp_const: concept_triangle_graph;;
--> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _important_arc;;
--> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
-
-=> nrel_then : ..gen_ans_step1;; 
-=> nrel_else : ..step2 ;;*);; 
-
-
--> ..step2 (*
-<- searchElStr3;;
--> rrel_1: rrel_fixed: rrel_scp_const: concept_triangle_graph;;
--> rrel_2: rrel_assign: rrel_scp_var: rrel_neg: rrel_const: rrel_perm: rrel_access: _important_arc;;
--> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
-
-=> nrel_then : ..gen_ans_step1;; 
-=> nrel_else : ..step3 ;;*);;
-
-
--> ..step3 (*
-<- searchSetStr5;;
--> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
--> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
--> rrel_3: rrel_assign: rrel_scp_var: _el3;;
--> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
--> rrel_5: rrel_fixed: rrel_scp_const : rrel_vertex;;
--> rrel_set_3 : rrel_assign : rrel_scp_var : _soUPset;;
-
-=> nrel_then : ..step4;; 
-=> nrel_else : ..is_not_triangle ;;*);;                                               
-
-
--> ..step4 (*
-<- genEl;;
--> rrel_1: rrel_assign: rrel_node: rrel_link: rrel_const: rrel_scp_var: _count;;
-
-=> nrel_goto : ..vertex_check_step1;; *);;
-
-
--> ..vertex_check_step1 (*
-<- contAssign;;
--> rrel_1: rrel_fixed: rrel_scp_var: _count;;
--> rrel_2: rrel_fixed: rrel_scp_const: [0];;
-
-=> nrel_goto : ..vertex_check_step2;; *);;
-
-
--> ..vertex_check_step2 (*
-<- searchElStr3;;
--> rrel_1 : rrel_fixed : rrel_scp_var : _soUPset;;
--> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
--> rrel_3 : rrel_assign : rrel_scp_var : _dot;;
-
-=> nrel_then : ..vertex_check_step3;; 
-=> nrel_else : ..vertex_check_step5 ;;*);; 
-
-
--> ..vertex_check_step3 (*
-<- eraseEl;;
--> rrel_1 : rrel_fixed : rrel_pos_const_perm : rrel_erase: rrel_scp_var : _arc;;
-
-=> nrel_goto : ..vertex_check_step4;; *);;
-
-
--> ..vertex_check_step4 (*
-<- contAdd;;
--> rrel_1 : rrel_fixed : rrel_scp_var: _count;;
--> rrel_2 : rrel_fixed : rrel_scp_var: _count;;
--> rrel_3 : rrel_fixed : rrel_scp_const: [1];;
-
-=> nrel_goto : ..vertex_check_step2;; *);;
-
-
--> ..vertex_check_step5 (*
-<- ifEq;;
--> rrel_1 : rrel_fixed : rrel_scp_var: _count;;
--> rrel_2 : rrel_fixed : rrel_scp_const: [3];;
-
-=> nrel_then : ..vertex_check_del_trash_step1;; 
-=> nrel_else : ..is_not_triangle ;;*);;                  
-
-
--> ..vertex_check_del_trash_step1 (*
-<- eraseEl;;
--> rrel_1 : rrel_fixed :rrel_erase: rrel_scp_var : _soUPset;;
-
-=> nrel_goto : ..vertex_check_del_trash_step2;; *);;
-
-
--> ..vertex_check_del_trash_step2 (*
-<- eraseEl;;
--> rrel_1 : rrel_fixed :rrel_erase: rrel_scp_var : _count;;
-
-=> nrel_goto : ..arc_check_step0;; *);;
-
-
--> ..arc_check_step0 (*
-<- searchSetStr5;;
--> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
--> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
--> rrel_3: rrel_assign: rrel_scp_var: _el3;;
--> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
--> rrel_5: rrel_fixed: rrel_scp_const : rrel_edge;;
--> rrel_set_3 : rrel_assign : rrel_scp_var : _soUPset;;
-
-=> nrel_then : ..arc_check_step0_1;; 
-=> nrel_else : ..is_not_triangle ;;*);;                       
-
-
--> ..arc_check_step0_1 (*
-<- genEl;;
--> rrel_1: rrel_assign: rrel_node: rrel_link: rrel_const: rrel_scp_var: _count;;
-
-=> nrel_goto : ..arc_check_step1;; *);;
-
-
--> ..arc_check_step1 (*
-<- contAssign;;
--> rrel_1: rrel_fixed: rrel_scp_var: _count;;
--> rrel_2: rrel_fixed: rrel_scp_const: [0];;
-
-=> nrel_goto : ..arc_check_step2;; *);;
-
-
--> ..arc_check_step2 (*
-<- searchElStr3;;
--> rrel_1 : rrel_fixed : rrel_scp_var : _soUPset;;
--> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
--> rrel_3 : rrel_assign : rrel_scp_var : _dot;;
-
-=> nrel_then : ..arc_check_step3;; 
-=> nrel_else : ..arc_check_step5 ;;*);; 
-
-
--> ..arc_check_step3 (*
-<- eraseEl;;
--> rrel_1 : rrel_fixed : rrel_pos_const_perm : rrel_erase: rrel_scp_var : _arc;;
-
-=> nrel_goto : ..arc_check_step4;; *);;
-
-
--> ..arc_check_step4 (*
-<- contAdd;;
--> rrel_1 : rrel_fixed : rrel_scp_var: _count;;
--> rrel_2 : rrel_fixed : rrel_scp_var: _count;;
--> rrel_3 : rrel_fixed : rrel_scp_const: [1];;
-
-=> nrel_goto : ..arc_check_step2;; *);;
-
-
--> ..arc_check_step5 (*
-<- ifEq;;
--> rrel_1 : rrel_fixed : rrel_scp_var: _count;;
--> rrel_2 : rrel_fixed : rrel_scp_const: [3];;
-
-=> nrel_then : ..arc_check_del_trash_step1;;                     
-=> nrel_else : ..is_not_triangle ;;*);;                  
-
-
--> ..arc_check_del_trash_step1 (*
-<- eraseEl;;
--> rrel_1 : rrel_fixed :rrel_erase: rrel_scp_var : _soUPset;;
-
-=> nrel_goto : ..arc_check_del_trash_step2;; *);;
-
-
--> ..arc_check_del_trash_step2 (*
-<- eraseEl;;
--> rrel_1 : rrel_fixed :rrel_erase: rrel_scp_var : _count;;
-
-=> nrel_goto : ..deside_arc_1;; *);;
-
-
--> ..deside_arc_1 (*
-<- searchSetStr5;;
--> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
--> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
--> rrel_3: rrel_assign: rrel_scp_var: _el3;;
--> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
--> rrel_5: rrel_fixed: rrel_scp_const : rrel_vertex;;
--> rrel_set_3 : rrel_assign : rrel_scp_var : _soUPset;;
-
-=> nrel_then : ..deside_arc_2;; 
-=> nrel_else : ..is_not_triangle ;;*);;                   
-
-
--> ..deside_arc_2 (*
-<- searchElStr3;;
--> rrel_1 : rrel_fixed : rrel_scp_var : _soUPset;;
--> rrel_2 : rrel_assign : rrel_pos_const_perm : rrel_scp_var : _arc;;
--> rrel_3 : rrel_assign : rrel_scp_var : _dot;;
-
-=> nrel_then : ..deside_arc_3;; 
-=> nrel_else : ..deside_arc_del_trash ;;*);;               
-
-
--> ..deside_arc_3 (*
-<- eraseEl;;
--> rrel_1 : rrel_fixed : rrel_pos_const_perm : rrel_erase: rrel_scp_var : _arc;;
-
-=> nrel_goto : ..deside_arc_4;; *);;
-
-
--> ..deside_arc_4 (*
-<- searchElStr5;;
--> rrel_1: rrel_fixed: rrel_scp_var: _dot;;
--> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc2;;
--> rrel_3: rrel_assign: rrel_scp_var: _el3;;
--> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
--> rrel_5: rrel_fixed: rrel_scp_var : _graph;;
-
-=> nrel_then : ..deside_arc_5;; 
-=> nrel_else : ..is_not_triangle ;;*);;                     
-
-
--> ..deside_arc_5 (*
-<- searchElStr5;;
--> rrel_1: rrel_assign: rrel_scp_var: _el3;;
--> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc2;;
--> rrel_3: rrel_fixed: rrel_scp_var: _dot;;
--> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
--> rrel_5: rrel_fixed: rrel_scp_var : _graph;;
-
-=> nrel_then : ..deside_arc_2;; 
-=> nrel_else : ..is_not_triangle ;;*);;                   
-
-
--> ..deside_arc_del_trash (*
-<- eraseEl;;
--> rrel_1 : rrel_fixed :rrel_erase: rrel_scp_var : _soUPset;;
-
-=> nrel_goto : ..is_triangle;; *);;
-
-
--> ..is_triangle (*
-<- genElStr3;;
--> rrel_1: rrel_fixed: rrel_scp_const: concept_triangle_graph;;
--> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _important_arc;;
--> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
-
-=> nrel_goto : ..gen_ans_step1;; *);;
-
-
--> ..is_not_triangle (*
-<- genElStr3;;
--> rrel_1: rrel_fixed: rrel_scp_const: concept_triangle_graph;;
--> rrel_2: rrel_assign: rrel_scp_var: rrel_neg: rrel_const: rrel_perm: rrel_access: _important_arc;;
--> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
-
-=> nrel_goto : ..gen_ans_step1;; *);;
-
-
--> ..gen_ans_step1 (*
-<- genElStr3;;
--> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
--> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
--> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
-
-=> nrel_goto : ..gen_ans_step2;; *);;
-
-
--> ..gen_ans_step2 (*
-<- genElStr3;;
--> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
--> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
--> rrel_3: rrel_fixed: rrel_scp_const: concept_triangle_graph;;
-
-=> nrel_goto : ..gen_ans_step3;; *);;
-
-
--> ..gen_ans_step3 (*
-<- genElStr3;;
--> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
--> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
--> rrel_3: rrel_fixed: rrel_scp_var: _important_arc;;
-
-=> nrel_goto : ..oper_return;; *);;
-
-
--> ..oper_return (*
-<-return;; *);;
-
+	_-> .._proc_run_test_triangle_operator2 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _answer;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _graph;;
+
+		_=> nrel_goto:: .._proc_run_test_triangle_operator3;;
+	*);;
+
+	_-> .._proc_run_test_triangle_operator1 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: concept_triangle_graph;;
+		_-> rrel_2:: rrel_access:: rrel_assign:: rrel_const:: rrel_neg:: rrel_perm:: rrel_scp_var:: _important_arc;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _graph;;
+
+		_=> nrel_else:: .._proc_run_test_triangle_operator4;;
+		_=> nrel_then:: .._proc_run_test_triangle_operator2;;
+	*);;
+
+	_-> .._proc_run_test_triangle_operator4 (*
+		_<- searchSetStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _graph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _el3;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc4;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_vertex;;
+		_-> rrel_set_3:: rrel_assign:: rrel_scp_var:: _soUPset;;
+
+		_=> nrel_else:: .._proc_run_test_triangle_operator5;;
+		_=> nrel_then:: .._proc_run_test_triangle_operator6;;
+	*);;
+
+	_-> .._proc_run_test_triangle_operator6 (*
+		_<- genEl;;
+		_-> rrel_1:: rrel_assign:: rrel_const:: rrel_node:: rrel_scp_var:: _count;;
+
+		_=> nrel_goto:: .._proc_run_test_triangle_operator7;;
+	*);;
+
+	_-> .._proc_run_test_triangle_operator5 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: concept_triangle_graph;;
+		_-> rrel_2:: rrel_access:: rrel_assign:: rrel_const:: rrel_neg:: rrel_perm:: rrel_scp_var:: _important_arc;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _graph;;
+
+		_=> nrel_goto:: .._proc_run_test_triangle_operator2;;
+	*);;
+
+	_-> .._proc_run_test_triangle_operator7 (*
+		_<- varAssign;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _count;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: [0];;
+
+		_=> nrel_goto:: .._proc_run_test_triangle_operator8;;
+	*);;
+
+	_-> .._proc_run_test_triangle_operator8 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _soUPset;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _dot;;
+
+		_=> nrel_else:: .._proc_run_test_triangle_operator9;;
+		_=> nrel_then:: .._proc_run_test_triangle_operator10;;
+	*);;
+
+	_-> .._proc_run_test_triangle_operator10 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+
+		_=> nrel_goto:: .._proc_run_test_triangle_operator11;;
+	*);;
+
+	_-> .._proc_run_test_triangle_operator9 (*
+		_<- ifEq;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _count;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: [3];;
+
+		_=> nrel_else:: .._proc_run_test_triangle_operator5;;
+		_=> nrel_then:: .._proc_run_test_triangle_operator12;;
+	*);;
+
+	_-> .._proc_run_test_triangle_operator12 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _soUPset;;
+
+		_=> nrel_goto:: .._proc_run_test_triangle_operator13;;
+	*);;
+
+	_-> .._proc_run_test_triangle_operator13 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _count;;
+
+		_=> nrel_goto:: .._proc_run_test_triangle_operator14;;
+	*);;
+
+	_-> .._proc_run_test_triangle_operator14 (*
+		_<- searchSetStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _graph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _el3;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc4;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_edge;;
+		_-> rrel_set_3:: rrel_assign:: rrel_scp_var:: _soUPset;;
+
+		_=> nrel_else:: .._proc_run_test_triangle_operator5;;
+		_=> nrel_then:: .._proc_run_test_triangle_operator15;;
+	*);;
+
+	_-> .._proc_run_test_triangle_operator15 (*
+		_<- genEl;;
+		_-> rrel_1:: rrel_assign:: rrel_const:: rrel_node:: rrel_scp_var:: _count;;
+
+		_=> nrel_goto:: .._proc_run_test_triangle_operator16;;
+	*);;
+
+	_-> .._proc_run_test_triangle_operator16 (*
+		_<- varAssign;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _count;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: [0];;
+
+		_=> nrel_goto:: .._proc_run_test_triangle_operator17;;
+	*);;
+
+	_-> .._proc_run_test_triangle_operator17 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _soUPset;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _dot;;
+
+		_=> nrel_else:: .._proc_run_test_triangle_operator18;;
+		_=> nrel_then:: .._proc_run_test_triangle_operator19;;
+	*);;
+
+	_-> .._proc_run_test_triangle_operator19 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+
+		_=> nrel_goto:: .._proc_run_test_triangle_operator20;;
+	*);;
+
+	_-> .._proc_run_test_triangle_operator18 (*
+		_<- ifEq;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _count;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: [3];;
+
+		_=> nrel_else:: .._proc_run_test_triangle_operator5;;
+		_=> nrel_then:: .._proc_run_test_triangle_operator21;;
+	*);;
+
+	_-> .._proc_run_test_triangle_operator21 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _soUPset;;
+
+		_=> nrel_goto:: .._proc_run_test_triangle_operator22;;
+	*);;
+
+	_-> .._proc_run_test_triangle_operator22 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _count;;
+
+		_=> nrel_goto:: .._proc_run_test_triangle_operator23;;
+	*);;
+
+	_-> .._proc_run_test_triangle_operator23 (*
+		_<- searchSetStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _graph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _el3;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc4;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_vertex;;
+		_-> rrel_set_3:: rrel_assign:: rrel_scp_var:: _soUPset;;
+
+		_=> nrel_else:: .._proc_run_test_triangle_operator5;;
+		_=> nrel_then:: .._proc_run_test_triangle_operator24;;
+	*);;
+
+	_-> .._proc_run_test_triangle_operator24 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _soUPset;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _dot;;
+
+		_=> nrel_else:: .._proc_run_test_triangle_operator25;;
+		_=> nrel_then:: .._proc_run_test_triangle_operator26;;
+	*);;
+
+	_-> .._proc_run_test_triangle_operator26 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+
+		_=> nrel_goto:: .._proc_run_test_triangle_operator27;;
+	*);;
+
+	_-> .._proc_run_test_triangle_operator25 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _soUPset;;
+
+		_=> nrel_goto:: .._proc_run_test_triangle_operator28;;
+	*);;
+
+	_-> .._proc_run_test_triangle_operator28 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: concept_triangle_graph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _important_arc;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _graph;;
+
+		_=> nrel_goto:: .._proc_run_test_triangle_operator2;;
+	*);;
+
+	_-> .._proc_run_test_triangle_operator27 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _dot;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc2;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _el3;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc4;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: _graph;;
+
+		_=> nrel_else:: .._proc_run_test_triangle_operator5;;
+		_=> nrel_then:: .._proc_run_test_triangle_operator29;;
+	*);;
+
+	_-> .._proc_run_test_triangle_operator29 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_assign:: rrel_scp_var:: _el3;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc2;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _dot;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc4;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: _graph;;
+
+		_=> nrel_else:: .._proc_run_test_triangle_operator5;;
+		_=> nrel_then:: .._proc_run_test_triangle_operator24;;
+	*);;
+
+	_-> .._proc_run_test_triangle_operator20 (*
+		_<- contAdd;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _count;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _count;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: [1];;
+
+		_=> nrel_goto:: .._proc_run_test_triangle_operator17;;
+	*);;
+
+	_-> .._proc_run_test_triangle_operator11 (*
+		_<- contAdd;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _count;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _count;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: [1];;
+
+		_=> nrel_goto:: .._proc_run_test_triangle_operator8;;
+	*);;
+
+	_-> .._proc_run_test_triangle_operator3 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _answer;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: concept_triangle_graph;;
+
+		_=> nrel_goto:: .._proc_run_test_triangle_operator30;;
+	*);;
+
+	_-> .._proc_run_test_triangle_operator30 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _answer;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _important_arc;;
+
+		_=> nrel_goto:: .._proc_run_test_triangle_operator31;;
+	*);;
+
+	_-> .._proc_run_test_triangle_operator31 (*
+		_<- return;;
+
+	*);;
 
 *);;
-*);;
 
+*];;

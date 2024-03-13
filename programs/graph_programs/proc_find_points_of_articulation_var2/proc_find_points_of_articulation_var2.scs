@@ -1,231 +1,217 @@
-scp_program -> proc_find_points_of_articulation_var2 (*
-	-> rrel_params: ... (*
-		-> rrel_1: rrel_in: _graph;;
+proc_find_points_of_articulation_var2
+=> nrel_main_idtf:
+	[Программа поиска всех точек сочленения графа] (* <- lang_ru;; *);
+	[] (* <- lang_en;; *);
+<- scp_program;
+-> rrel_key_sc_element: .._process1;;
+
+proc_find_points_of_articulation_var2 = [*
+.._process1
+_<- scp_process;
+
+_-> rrel_1:: rrel_in:: _graph;
+_<= nrel_decomposition_of_action:: .._actions (*
+
+	_-> rrel_1:: .._proc_find_points_of_articulation_var2_operator0 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _graph;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_const:: rrel_scp_var:: _arc_poa_2;;
+		_-> rrel_3:: rrel_assign:: rrel_node:: rrel_scp_var:: _set_point_of_articulation;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_poa_4;;
+		_-> rrel_5:: rrel_const:: rrel_fixed:: rrel_node:: nrel_set_point_articulation;;
+
+		_=> nrel_else:: .._proc_find_points_of_articulation_var2_operator1;;
+		_=> nrel_then:: .._proc_find_points_of_articulation_var2_operator2;;
 	*);;
 
-	-> rrel_operators: ... (*
-// Поиск ответа	 
-		-> rrel_init: ..proc_find_poa_operator0_0 (*
-        	<- searchElStr5;;
-	        -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
-	        -> rrel_2: rrel_assign: rrel_common: rrel_scp_var: rrel_const: _arc_poa_2;;
-	        -> rrel_3: rrel_assign: rrel_node: rrel_scp_var: _set_point_of_articulation;;
-	        -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_poa_4;;
-	        -> rrel_5: rrel_fixed: rrel_node: rrel_const: nrel_set_point_articulation;;
+	_-> .._proc_find_points_of_articulation_var2_operator2 (*
+		_<- return;;
 
-	        => nrel_then: ..proc_find_poa_operator_end;;
-	        => nrel_else: ..proc_find_poa_operator1;;
-	    *);;
-
-// Добавление всех вершин графа во множество непроверенных вершин.
-		->..proc_find_poa_operator1 (*
-			 <- searchSetStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
-			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
-			-> rrel_3: rrel_assign: rrel_scp_var: _el3;;
-			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
-		
-			->rrel_set_3: rrel_assign: rrel_scp_var: _not_checked_vertexes;;
-			=> nrel_then: ..proc_find_poa_operator3;;		
-		 	=> nrel_else: ..proc_find_poa_operator_end;;	
-		*);;
-
-// У этого узла нет родителя
-		-> ..proc_find_poa_operator3 (*
-		    <- genEl;;
-	        -> rrel_1: rrel_assign: rrel_scp_var: rrel_node: _node;;
-
-	        => nrel_goto: ..proc_find_poa_operator5;; 
-		*);;
-
-
-// Создание узла _timer
-		-> ..proc_find_poa_operator5 (*
-		    <- genEl;;
-	        -> rrel_1: rrel_assign: rrel_node: rrel_link: rrel_const: rrel_scp_var: _timer;;
-
-	        => nrel_goto: ..proc_find_poa_operator6;; 
-		*);;
-
-// заносим время в таймер
-        -> ..proc_find_poa_operator6 (*
-            <- contAssign;;
-	        -> rrel_1: rrel_fixed: rrel_scp_var: _timer;;
-	        -> rrel_2: rrel_fixed: rrel_scp_const: [0];;
-
-	        => nrel_goto: ..proc_find_poa_operator7;;
-        *);;
-
-// Создание узла tin_vertex*
-		-> ..proc_find_poa_operator7 (*
-		    <- genEl;;
-	        -> rrel_1: rrel_assign: rrel_node: rrel_scp_var: tin_vertex;;
-
-	        => nrel_goto: ..proc_find_poa_operator8;; 
-		*);;
-
-// Создание узла fup_vertex*
-		-> ..proc_find_poa_operator8 (*
-		    <- genEl;;
-	        -> rrel_1: rrel_assign: rrel_node: rrel_scp_var: fup_vertex;;
-
-	        => nrel_goto: ..proc_find_poa_operator9;; 
-		*);;
-
-// Создание _set_point_of_articulation
-		-> ..proc_find_poa_operator9 (*
-		    <- genEl;;
-	        -> rrel_1: rrel_assign: rrel_scp_var: rrel_node: _set_point_of_articulation;;
-
-	        => nrel_goto: ..proc_find_poa_operator10;; 
-		*);;
-
-// Генерация дуги от _graph к _set_point_of_articulation
-        -> ..proc_find_poa_operator10 (*
-        	<- genElStr5;;
-	        -> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
-	        -> rrel_2: rrel_assign: rrel_common: rrel_scp_var: rrel_const: _arc_poa_2;;
-	        -> rrel_3: rrel_fixed: rrel_scp_var: _set_point_of_articulation;;
-	        -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_poa_4;;
-	        -> rrel_5: rrel_fixed: rrel_scp_const: nrel_set_point_articulation;;
-
-	        => nrel_goto: ..proc_find_poa_operator16;;
-	    *);;
-
-// Создание узла tin_vertex*
-		-> ..proc_find_poa_operator16 (*
-		    <- genEl;;
-	        -> rrel_1: rrel_assign: rrel_node: rrel_scp_var: tin_vertex_set;;
-
-	        => nrel_goto: ..proc_find_poa_operator17;; 
-		*);;
-
-// Создание узла fup_vertex*
-		-> ..proc_find_poa_operator17 (*
-		    <- genEl;;
-	        -> rrel_1: rrel_assign: rrel_node: rrel_scp_var: fup_vertex_set;;
-
-	        => nrel_goto: ..proc_find_poa_operator18;; 
-		*);;
-
-// Нахождение первой поавшейся вершины в графе.
-        -> ..proc_find_poa_operator18 (*
-            <- searchElStr3;;
-            -> rrel_1: rrel_fixed: rrel_scp_var: _not_checked_vertexes;;
-            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2_op2;;
-            -> rrel_3: rrel_assign: rrel_scp_var: _beg_vertex;;
-
-            => nrel_then: ..proc_find_poa_operator19;;       
-            => nrel_else: ..proc_find_poa_operator20;;    
-        *);;
-
-// Удаление этой вершины из множества непроверенных     
-        -> ..proc_find_poa_operator19 (*
-            <- eraseEl;;
-            -> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc2_op2;;
-
-            => nrel_goto: ..in_dfs;;   
-        *);;
-
-
-// Первый вызывание dfs
-		-> ..in_dfs (*
-            <- call;;
-	        -> rrel_1: rrel_fixed: rrel_scp_const: proc_dfs_for_articulation_point;;
-	        -> rrel_2: rrel_fixed: rrel_scp_const: ... (*
-		        -> rrel_1: rrel_fixed: rrel_scp_var: _beg_vertex;;
-		        -> rrel_2: rrel_fixed: rrel_scp_var: _node;;
-		        -> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
-		        -> rrel_4: rrel_fixed: rrel_scp_var: _not_checked_vertexes;;
-		        -> rrel_5: rrel_fixed: rrel_scp_var: _timer;;
-		        -> rrel_6: rrel_fixed: rrel_scp_const: tin_vertex;;
-		        -> rrel_7: rrel_fixed: rrel_scp_const: fup_vertex;;
-		        -> rrel_8: rrel_fixed: rrel_scp_var: _node;;
-		        -> rrel_9: rrel_fixed: rrel_scp_var: _set_point_of_articulation;;
-	        *);;
-	        -> rrel_3: rrel_assign: rrel_scp_var: _descr;;
-
-	        => nrel_goto: ..out_dfs;;
-        *);;
-
-// Ожидаем пока завершатся все предыдущии действия		
-        -> ..out_dfs (*
-	        <- waitReturn;;
-	        -> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
-	
-	        => nrel_goto: ..proc_find_poa_operator18;; 
-	    *);;
-
-// удаляем _tin  
-		-> ..proc_find_poa_operator20 (*
-        	<- searchElStr5;;
-	        -> rrel_1: rrel_assign: rrel_scp_var: rrel_node: rrel_const: _v_tin;;
-	        -> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc_tin_2;;
-	        -> rrel_3: rrel_assign: rrel_scp_var: rrel_link: rrel_const: _tin;;
-	        -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_tin_4;;
-	        -> rrel_5: rrel_fixed: rrel_scp_const: rrel_node: rrel_const: tin_vertex;;
-
-	        => nrel_then: ..proc_find_poa_operator21;;
-	        => nrel_else: ..proc_find_poa_operator22;;
-        *);;
-
-// Удаляем переменную _tin
-        -> ..proc_find_poa_operator21 (*
-            <- eraseEl;;
-            -> rrel_1 : rrel_fixed : rrel_erase: rrel_scp_var : _tin;;
-
-            => nrel_goto : ..proc_find_poa_operator20;; 
-        *);;
-
-// удаляем _fup 
-        -> ..proc_find_poa_operator22(*
-        	<- searchElStr5;;
-	        -> rrel_1: rrel_assign: rrel_scp_var: rrel_node: rrel_const: _v_fup;;
-	        -> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc_fup_2;;
-	        -> rrel_3: rrel_assign: rrel_scp_var: rrel_link: rrel_const: _fup;;
-	        -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_fup_4;;
-	        -> rrel_5: rrel_fixed: rrel_scp_const: rrel_node: rrel_const: fup_vertex;;
-
-	        => nrel_then: ..proc_find_poa_operator23;;
-	        => nrel_else: ..proc_find_poa_operator24;;
-        *);;
-
-// Удаляем переменную _fup
-        -> ..proc_find_poa_operator23 (*
-            <- eraseEl;;
-            -> rrel_1 : rrel_fixed : rrel_erase: rrel_scp_var : _fup;;
-
-            => nrel_goto : ..proc_find_poa_operator22;; 
-        *);;
-
-// Удаляем переменную _timer
-        -> ..proc_find_poa_operator24 (*
-            <- eraseEl;;
-            -> rrel_1 : rrel_fixed : rrel_erase: rrel_scp_var : _timer;;
-
-            => nrel_goto : ..proc_find_poa_operator25;; 
-        *);;
-
-// Удаляем переменную _node
-        -> ..proc_find_poa_operator25 (*
-            <- eraseEl;;
-            -> rrel_1 : rrel_fixed : rrel_erase: rrel_scp_var : _node;;
-
-            => nrel_goto : ..proc_find_poa_operator26;; 
-        *);;
-
-// Удаляем переменную _not_checked_vertexes
-        -> ..proc_find_poa_operator26 (*
-            <- eraseEl;;
-            -> rrel_1 : rrel_fixed : rrel_erase: rrel_scp_var : _not_checked_vertexes;;
-
-            => nrel_goto : ..proc_find_poa_operator_end;; 
-        *);;
-
-// Завершаем программу
-	    -> ..proc_find_poa_operator_end (*
-			<- return;;
-		*);;	
 	*);;
+
+	_-> .._proc_find_points_of_articulation_var2_operator1 (*
+		_<- searchSetStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _graph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _el3;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc4;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_vertex;;
+		_-> rrel_set_3:: rrel_assign:: rrel_scp_var:: _not_checked_vertexes;;
+
+		_=> nrel_else:: .._proc_find_points_of_articulation_var2_operator2;;
+		_=> nrel_then:: .._proc_find_points_of_articulation_var2_operator3;;
+	*);;
+
+	_-> .._proc_find_points_of_articulation_var2_operator3 (*
+		_<- genEl;;
+		_-> rrel_1:: rrel_assign:: rrel_node:: rrel_scp_var:: _node;;
+
+		_=> nrel_goto:: .._proc_find_points_of_articulation_var2_operator4;;
+	*);;
+
+	_-> .._proc_find_points_of_articulation_var2_operator4 (*
+		_<- genEl;;
+		_-> rrel_1:: rrel_assign:: rrel_const:: rrel_node:: rrel_scp_var:: _timer;;
+
+		_=> nrel_goto:: .._proc_find_points_of_articulation_var2_operator5;;
+	*);;
+
+	_-> .._proc_find_points_of_articulation_var2_operator5 (*
+		_<- varAssign;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _timer;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: [0];;
+
+		_=> nrel_goto:: .._proc_find_points_of_articulation_var2_operator6;;
+	*);;
+
+	_-> .._proc_find_points_of_articulation_var2_operator6 (*
+		_<- genEl;;
+		_-> rrel_1:: rrel_assign:: rrel_node:: rrel_scp_var:: tin_vertex;;
+
+		_=> nrel_goto:: .._proc_find_points_of_articulation_var2_operator7;;
+	*);;
+
+	_-> .._proc_find_points_of_articulation_var2_operator7 (*
+		_<- genEl;;
+		_-> rrel_1:: rrel_assign:: rrel_node:: rrel_scp_var:: fup_vertex;;
+
+		_=> nrel_goto:: .._proc_find_points_of_articulation_var2_operator8;;
+	*);;
+
+	_-> .._proc_find_points_of_articulation_var2_operator8 (*
+		_<- genEl;;
+		_-> rrel_1:: rrel_assign:: rrel_node:: rrel_scp_var:: _set_point_of_articulation;;
+
+		_=> nrel_goto:: .._proc_find_points_of_articulation_var2_operator9;;
+	*);;
+
+	_-> .._proc_find_points_of_articulation_var2_operator9 (*
+		_<- genElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _graph;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_const:: rrel_scp_var:: _arc_poa_2;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _set_point_of_articulation;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_poa_4;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_set_point_articulation;;
+
+		_=> nrel_goto:: .._proc_find_points_of_articulation_var2_operator10;;
+	*);;
+
+	_-> .._proc_find_points_of_articulation_var2_operator10 (*
+		_<- genEl;;
+		_-> rrel_1:: rrel_assign:: rrel_node:: rrel_scp_var:: tin_vertex_set;;
+
+		_=> nrel_goto:: .._proc_find_points_of_articulation_var2_operator11;;
+	*);;
+
+	_-> .._proc_find_points_of_articulation_var2_operator11 (*
+		_<- genEl;;
+		_-> rrel_1:: rrel_assign:: rrel_node:: rrel_scp_var:: fup_vertex_set;;
+
+		_=> nrel_goto:: .._proc_find_points_of_articulation_var2_operator12;;
+	*);;
+
+	_-> .._proc_find_points_of_articulation_var2_operator12 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _not_checked_vertexes;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2_op2;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _beg_vertex;;
+
+		_=> nrel_else:: .._proc_find_points_of_articulation_var2_operator13;;
+		_=> nrel_then:: .._proc_find_points_of_articulation_var2_operator14;;
+	*);;
+
+	_-> .._proc_find_points_of_articulation_var2_operator14 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _arc2_op2;;
+
+		_=> nrel_goto:: .._proc_find_points_of_articulation_var2_operator15;;
+	*);;
+
+	_-> .._proc_find_points_of_articulation_var2_operator13 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_assign:: rrel_const:: rrel_node:: rrel_scp_var:: _v_tin;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc_tin_2;;
+		_-> rrel_3:: rrel_assign:: rrel_const:: rrel_scp_var:: _tin;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_tin_4;;
+		_-> rrel_5:: rrel_const:: rrel_fixed:: rrel_node:: rrel_scp_const:: tin_vertex;;
+
+		_=> nrel_else:: .._proc_find_points_of_articulation_var2_operator16;;
+		_=> nrel_then:: .._proc_find_points_of_articulation_var2_operator17;;
+	*);;
+
+	_-> .._proc_find_points_of_articulation_var2_operator17 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _tin;;
+
+		_=> nrel_goto:: .._proc_find_points_of_articulation_var2_operator13;;
+	*);;
+
+	_-> .._proc_find_points_of_articulation_var2_operator16 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_assign:: rrel_const:: rrel_node:: rrel_scp_var:: _v_fup;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc_fup_2;;
+		_-> rrel_3:: rrel_assign:: rrel_const:: rrel_scp_var:: _fup;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_fup_4;;
+		_-> rrel_5:: rrel_const:: rrel_fixed:: rrel_node:: rrel_scp_const:: fup_vertex;;
+
+		_=> nrel_else:: .._proc_find_points_of_articulation_var2_operator18;;
+		_=> nrel_then:: .._proc_find_points_of_articulation_var2_operator19;;
+	*);;
+
+	_-> .._proc_find_points_of_articulation_var2_operator19 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _fup;;
+
+		_=> nrel_goto:: .._proc_find_points_of_articulation_var2_operator16;;
+	*);;
+
+	_-> .._proc_find_points_of_articulation_var2_operator18 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _timer;;
+
+		_=> nrel_goto:: .._proc_find_points_of_articulation_var2_operator20;;
+	*);;
+
+	_-> .._proc_find_points_of_articulation_var2_operator20 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _node;;
+
+		_=> nrel_goto:: .._proc_find_points_of_articulation_var2_operator21;;
+	*);;
+
+	_-> .._proc_find_points_of_articulation_var2_operator21 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _not_checked_vertexes;;
+
+		_=> nrel_goto:: .._proc_find_points_of_articulation_var2_operator2;;
+	*);;
+
+	_-> .._proc_find_points_of_articulation_var2_operator15 (*
+		_<- call;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: proc_dfs_for_articulation_point;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._proc_find_points_of_articulation_var2_param0 (*
+			_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _beg_vertex;;
+			_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _node;;
+			_-> rrel_8:: rrel_fixed:: rrel_scp_var:: _node;;
+			_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _graph;;
+			_-> rrel_4:: rrel_fixed:: rrel_scp_var:: _not_checked_vertexes;;
+			_-> rrel_5:: rrel_fixed:: rrel_scp_var:: _timer;;
+			_-> rrel_6:: rrel_fixed:: rrel_scp_const:: tin_vertex;;
+			_-> rrel_7:: rrel_fixed:: rrel_scp_const:: fup_vertex;;
+			_-> rrel_9:: rrel_fixed:: rrel_scp_var:: _set_point_of_articulation;;
+		*);;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _descr;;
+
+		_=> nrel_goto:: .._proc_find_points_of_articulation_var2_operator22;;
+	*);;
+
+	_-> .._proc_find_points_of_articulation_var2_operator22 (*
+		_<- waitReturn;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _descr;;
+
+		_=> nrel_goto:: .._proc_find_points_of_articulation_var2_operator12;;
+	*);;
+
 *);;
+
+*];;

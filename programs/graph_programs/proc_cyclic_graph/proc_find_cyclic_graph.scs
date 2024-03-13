@@ -1,122 +1,129 @@
-scp_program -> proc_find_cyclic_graph (*
-	
-	-> rrel_params: ... (*
-		-> rrel_1: rrel_in: _graph;;
+proc_find_cyclic_graph
+=> nrel_main_idtf:
+	[Программа проверки графа на цикличность] (* <- lang_ru;; *);
+	[] (* <- lang_en;; *);
+<- scp_program;
+-> rrel_key_sc_element: .._process1;;
+
+proc_find_cyclic_graph = [*
+.._process1
+_<- scp_process;
+
+_-> rrel_1:: rrel_in:: _graph;
+_<= nrel_decomposition_of_action:: .._actions (*
+
+	_-> rrel_1:: .._proc_find_cyclic_graph_operator0 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: concept_cyclic_graph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _graph;;
+
+		_=> nrel_else:: .._proc_find_cyclic_graph_operator1;;
+		_=> nrel_then:: .._proc_find_cyclic_graph_operator2;;
 	*);;
 
-	-> rrel_operators: ... (*
-
-		-> rrel_init: .proc_find_cyclic_graph_operator0 (*
-			<- searchElStr3;;
-    		-> rrel_1: rrel_fixed: rrel_scp_const: concept_cyclic_graph;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
-
-			=> nrel_then: .proc_find_cyclic_graph_operator_return;;		
-		 	=> nrel_else: .proc_find_cyclic_graph_operator1;;	
-		*);;
-
-		-> .proc_find_cyclic_graph_operator1 (*
-			<- searchElStr3;;
-    		-> rrel_1: rrel_fixed: rrel_scp_const: concept_acyclic_graph;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
-
-			=> nrel_then: .proc_find_cyclic_graph_operator_return;;		
-		 	=> nrel_else: .proc_find_cyclic_graph_operator2;;	
-		*);;
-
-		-> .proc_find_cyclic_graph_operator2 (*
-			<- call;;
-			-> rrel_1: rrel_fixed: rrel_scp_const: proc_gen_number_of_stronge_connected_components;;
-			-> rrel_2: rrel_fixed: rrel_scp_const: ... (*
-				-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
-			*);;
-			-> rrel_3: rrel_assign: rrel_scp_var: _descr;;
-
-			=> nrel_goto: .proc_find_cyclic_graph_operator3;;
-		*);;
-
-		-> .proc_find_cyclic_graph_operator3 (*
-			<- waitReturn;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
-
-			=> nrel_goto: .proc_find_cyclic_graph_operator4;;
-		*);;		
-
-		-> .proc_find_cyclic_graph_operator4
-		(*
-			<- searchElStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc1;;
-			-> rrel_3: rrel_assign: rrel_scp_var: _number_scc;;
-			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_number_stronge_connected_components;;
-			
-			=> nrel_then: .proc_find_cyclic_graph_operator4_1;;
-			=> nrel_else: .proc_find_cyclic_graph_operator_return;;
-		*);; 
-
-		-> .proc_find_cyclic_graph_operator4_1 (*
-			<- call;;
-			-> rrel_1: rrel_fixed: rrel_scp_const: proc_find_number_of_vertexes;;
-			-> rrel_2: rrel_fixed: rrel_scp_const: ... (*
-				-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
-			*);;
-			-> rrel_3: rrel_assign: rrel_scp_var: _descr;;
-
-			=> nrel_goto: .proc_find_cyclic_graph_operator4_2;;
-		*);;
-
-		-> .proc_find_cyclic_graph_operator4_2 (*
-			<- waitReturn;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _descr;;
-
-			=> nrel_goto: .proc_find_cyclic_graph_operator4_3;;
-		*);;		
-
-		-> .proc_find_cyclic_graph_operator4_3
-		(*
-			<- searchElStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc1;;
-			-> rrel_3: rrel_assign: rrel_scp_var: _number_vertex;;
-			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_number_of_vertexes;;
-			
-			=> nrel_then: .proc_find_cyclic_graph_operator5;;
-			=> nrel_else: .proc_find_cyclic_graph_operator_return;;
-		*);; 
-
-		-> .proc_find_cyclic_graph_operator5
-		(*
-			<- ifGr;;
-		  	-> rrel_1: rrel_fixed: rrel_scp_var: _number_vertex;;
-		  	-> rrel_2: rrel_fixed: rrel_scp_var: _number_scc;;
-
-			=> nrel_then: .proc_find_cyclic_graph_operator6;;
-			=> nrel_else: .proc_find_cyclic_graph_operator7;;
-		*);;
-		
-		-> .proc_find_cyclic_graph_operator6 (*
-			<- genElStr3;;
-    		-> rrel_1: rrel_fixed: rrel_scp_const: concept_cyclic_graph;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
-
-			=> nrel_goto: .proc_find_cyclic_graph_operator_return;;
-		*);;
-
-		-> .proc_find_cyclic_graph_operator7 (*
-			<- genElStr3;;
-    		-> rrel_1: rrel_fixed: rrel_scp_const: concept_acyclic_graph;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
-
-			=> nrel_goto: .proc_find_cyclic_graph_operator_return;;
-		*);;
-
-		->.proc_find_cyclic_graph_operator_return(*<-return;;*);;
+	_-> .._proc_find_cyclic_graph_operator2 (*
+		_<- return;;
 
 	*);;
+
+	_-> .._proc_find_cyclic_graph_operator1 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: concept_acyclic_graph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _graph;;
+
+		_=> nrel_else:: .._proc_find_cyclic_graph_operator3;;
+		_=> nrel_then:: .._proc_find_cyclic_graph_operator2;;
+	*);;
+
+	_-> .._proc_find_cyclic_graph_operator3 (*
+		_<- call;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: proc_gen_number_of_stronge_connected_components;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._proc_find_cyclic_graph_param0 (*
+			_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _graph;;
+		*);;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _descr;;
+
+		_=> nrel_goto:: .._proc_find_cyclic_graph_operator4;;
+	*);;
+
+	_-> .._proc_find_cyclic_graph_operator4 (*
+		_<- waitReturn;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _descr;;
+
+		_=> nrel_goto:: .._proc_find_cyclic_graph_operator5;;
+	*);;
+
+	_-> .._proc_find_cyclic_graph_operator5 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _graph;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _number_scc;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_number_stronge_connected_components;;
+
+		_=> nrel_else:: .._proc_find_cyclic_graph_operator2;;
+		_=> nrel_then:: .._proc_find_cyclic_graph_operator6;;
+	*);;
+
+	_-> .._proc_find_cyclic_graph_operator6 (*
+		_<- call;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: proc_find_number_of_vertexes;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._proc_find_cyclic_graph_param1 (*
+			_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _graph;;
+		*);;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _descr;;
+
+		_=> nrel_goto:: .._proc_find_cyclic_graph_operator7;;
+	*);;
+
+	_-> .._proc_find_cyclic_graph_operator7 (*
+		_<- waitReturn;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _descr;;
+
+		_=> nrel_goto:: .._proc_find_cyclic_graph_operator8;;
+	*);;
+
+	_-> .._proc_find_cyclic_graph_operator8 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _graph;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _number_vertex;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_number_of_vertexes;;
+
+		_=> nrel_else:: .._proc_find_cyclic_graph_operator2;;
+		_=> nrel_then:: .._proc_find_cyclic_graph_operator9;;
+	*);;
+
+	_-> .._proc_find_cyclic_graph_operator9 (*
+		_<- ifGr;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _number_vertex;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _number_scc;;
+
+		_=> nrel_else:: .._proc_find_cyclic_graph_operator10;;
+		_=> nrel_then:: .._proc_find_cyclic_graph_operator11;;
+	*);;
+
+	_-> .._proc_find_cyclic_graph_operator11 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: concept_cyclic_graph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _graph;;
+
+		_=> nrel_goto:: .._proc_find_cyclic_graph_operator2;;
+	*);;
+
+	_-> .._proc_find_cyclic_graph_operator10 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: concept_acyclic_graph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _graph;;
+
+		_=> nrel_goto:: .._proc_find_cyclic_graph_operator2;;
+	*);;
+
 *);;
+
+*];;
