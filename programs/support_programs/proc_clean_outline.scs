@@ -36,8 +36,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
 	*);;
 
 	_-> .._proc_clean_outline_operator1 (*
-
-	*);;
+ <- empty_operator;;
+*);;
 
 	_-> .._proc_clean_outline_operator4 (*
 		_<- searchElStr3;;
@@ -80,8 +80,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
 	*);;
 
 	_-> .._proc_clean_outline_operator8 (*
-
-	*);;
+ <- empty_operator;;
+*);;
 
 	_-> .._proc_clean_outline_operator11 (*
 		_<- searchElStr3;;
@@ -125,8 +125,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
 	*);;
 
 	_-> .._proc_clean_outline_operator15 (*
-
-	*);;
+ <- empty_operator;;
+*);;
 
 	_-> .._proc_clean_outline_operator6 (*
 		_<- searchElStr3;;
@@ -146,8 +146,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
 	*);;
 
 	_-> .._proc_clean_outline_operator16 (*
-
-	*);;
+ <- empty_operator;;
+*);;
 
 *);;
 

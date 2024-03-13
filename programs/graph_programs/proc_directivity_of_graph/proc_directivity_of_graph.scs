@@ -99,8 +99,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
 	*);;
 
 	_-> .._proc_directivity_of_graph_operator8 (*
-
-	*);;
+ <- empty_operator;;
+*);;
 
 	_-> .._proc_directivity_of_graph_operator11 (*
 		_<- eraseEl;;

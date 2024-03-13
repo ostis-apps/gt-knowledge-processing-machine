@@ -71,8 +71,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
 	*);;
 
 	_-> .._proc_add_solver_solution_to_outline_operator4 (*
-
-	*);;
+ <- empty_operator;;
+*);;
 
 	_-> .._proc_add_solver_solution_to_outline_operator6 (*
 		_<- printNl;;
