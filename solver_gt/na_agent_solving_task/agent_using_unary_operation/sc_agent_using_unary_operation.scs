@@ -4,7 +4,9 @@ agent_using_unary_operation
 <- abstract_sc_agent;
 => nrel_primary_initiation_condition: (sc_event_add_output_arc => question_initiated);
 => nrel_initiation_condition_and_result: (sc_agent_using_unary_operation_initiation_condition => sc_agent_using_unary_operation_result);
-<= nrel_sc_agent_key_sc_elements: 
+=> nrel_sc_agent_action_class:
+    question_using_unary_operation;
+<= nrel_sc_agent_key_sc_elements:
 	{
 		question_initiated;
 		question;

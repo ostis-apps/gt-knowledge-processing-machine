@@ -4,7 +4,9 @@ sc_agent_task_generation
 <- abstract_sc_agent;
 => nrel_primary_initiation_condition: (sc_event_add_output_arc => question_initiated);
 => nrel_initiation_condition_and_result: (sc_agent_task_generation_initiation_condition => sc_agent_task_generation_result);
-<= nrel_sc_agent_key_sc_elements: 
+=> nrel_sc_agent_action_class:
+    question_generate_task;
+<= nrel_sc_agent_key_sc_elements:
 	{
 		question_initiated;
 		question;
