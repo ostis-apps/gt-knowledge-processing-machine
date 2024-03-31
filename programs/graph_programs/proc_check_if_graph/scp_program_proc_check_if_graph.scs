@@ -20,7 +20,7 @@ proc_check_if_graph
 	*);;
 
 
-..scp_program_proc_find_connected_graph_initiation_condition -> rrel_var: _curr_graph;;
+..scp_program_proc_find_connected_graph_initiation_condition = [* .._random _-> _curr_graph;; *];;
 
 ..scp_program_proc_check_if_graph_result 
 = [*

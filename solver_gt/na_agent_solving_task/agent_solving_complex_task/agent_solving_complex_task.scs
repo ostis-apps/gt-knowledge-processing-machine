@@ -64,7 +64,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
 	_-> .._agent_solving_complex_task_operator7 (*
 		_<- genEl;;
-		_-> rrel_1:: rrel_assign:: rrel_const:: rrel_node:: rrel_scp_var:: _answer;;
+		_-> rrel_1:: rrel_assign:: rrel_const:: rrel_node:: rrel_struct:: rrel_scp_var:: _answer;;
 
 		_=> nrel_goto:: .._agent_solving_complex_task_operator8;;
 	*);;
