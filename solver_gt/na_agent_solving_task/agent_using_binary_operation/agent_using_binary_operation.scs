@@ -120,7 +120,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_<- genElStr5;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _solution_tree_root;;
 		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_const:: rrel_scp_var:: _arc;;
-		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _param2;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _param3;;
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_solution_action_goal;;
 
@@ -142,7 +142,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_<- genElStr5;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _solution_tree_root;;
 		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_const:: rrel_scp_var:: _arc;;
-		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _param3;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _param2;;
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_solution_argument_2;;
 
@@ -154,8 +154,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: proc_find_and_use_binary_operation;;
 		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._agent_using_binary_operation_param0 (*
 			_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _param1;;
-			_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _param3;;
-			_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _param2;;
+			_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _param2;;
+			_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _param3;;
 			_-> rrel_4:: rrel_fixed:: rrel_scp_var:: _solution_tree_root;;
 		*);;
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _descr;;
