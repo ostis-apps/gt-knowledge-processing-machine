@@ -4,7 +4,9 @@ sc_agent_solving_complex_task
 <- abstract_sc_agent;
 => nrel_primary_initiation_condition: (sc_event_add_output_arc => question_initiated);
 => nrel_initiation_condition_and_result: (..sc_agent_solving_complex_task_initiation_condition => ..sc_agent_solving_complex_task_result);
-<= nrel_sc_agent_key_sc_elements: 
+=> nrel_sc_agent_action_class:
+    question_solving_complex_task;
+<= nrel_sc_agent_key_sc_elements:
 	{
 		question_initiated;
 		question;

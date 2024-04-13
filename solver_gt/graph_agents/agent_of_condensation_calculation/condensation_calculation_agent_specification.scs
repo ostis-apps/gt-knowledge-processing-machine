@@ -11,6 +11,8 @@ sc_agent_of_condensation_calculation
     => nrel_initiation_condition_and_result: (
         ..sc_agent_of_finding_condition => ..sc_agent_of_finding_result
     );
+    => nrel_sc_agent_action_class:
+        question_of_condensation_calculation;
     
     <= nrel_sc_agent_key_sc_elements: {
         question_initiated;

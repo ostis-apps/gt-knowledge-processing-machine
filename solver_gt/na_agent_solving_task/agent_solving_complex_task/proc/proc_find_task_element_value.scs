@@ -33,7 +33,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_1:: rrel_assign:: rrel_scp_var:: _task_element_value;;
 		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: _task_element;;
 
-		_=> nrel_goto:: .._proc_find_task_element_value_operator3;;
+		_=> nrel_goto:: .._proc_find_task_element_value_operator_debug_return;;
 	*);;
 
 	_-> .._proc_find_task_element_value_operator1 (*
@@ -44,7 +44,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_erase;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: _task;;
 
-		_=> nrel_else:: .._proc_find_task_element_value_operator3;;
+		_=> nrel_else:: .._proc_find_task_element_value_operator_debug_return;;
 		_=> nrel_then:: .._proc_find_task_element_value_operator4;;
 	*);;
 
@@ -55,14 +55,14 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_=> nrel_goto:: .._proc_find_task_element_value_operator5;;
 	*);;
 
-	_-> .._proc_find_task_element_value_operator3 (*
+	_-> .._proc_find_task_element_value_operator_debug_return (*
 		_<- printNl;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: [Finish work proc_find_task_element_value];;
 
-		_=> nrel_goto:: .._proc_find_task_element_value_operator6;;
+		_=> nrel_goto:: .._proc_find_task_element_value_operator_return;;
 	*);;
 
-	_-> .._proc_find_task_element_value_operator6 (*
+	_-> .._proc_find_task_element_value_operator_return (*
 		_<- return;;
 
 	*);;
@@ -75,7 +75,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_erase;;
 		_-> rrel_5:: rrel_assign:: rrel_scp_var:: _nrel;;
 
-		_=> nrel_else:: .._proc_find_task_element_value_operator3;;
+		_=> nrel_else:: .._proc_find_task_element_value_operator_debug_return;;
 		_=> nrel_then:: .._proc_find_task_element_value_operator7;;
 	*);;
 
@@ -99,7 +99,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_2;;
 
-		_=> nrel_else:: .._proc_find_task_element_value_operator3;;
+		_=> nrel_else:: .._proc_find_task_element_value_operator_debug_return;;
 		_=> nrel_then:: .._proc_find_task_element_value_operator10;;
 	*);;
 
@@ -111,7 +111,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
 		_-> rrel_5:: rrel_assign:: rrel_scp_var:: _nrel;;
 
-		_=> nrel_else:: .._proc_find_task_element_value_operator3;;
+		_=> nrel_else:: .._proc_find_task_element_value_operator_debug_return;;
 		_=> nrel_then:: .._proc_find_task_element_value_operator11;;
 	*);;
 
@@ -141,7 +141,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_<- ifVarAssign;;
 		_-> rrel_1:: rrel_scp_var:: _parent_task_element_value;;
 
-		_=> nrel_else:: .._proc_find_task_element_value_operator3;;
+		_=> nrel_else:: .._proc_find_task_element_value_operator_debug_return;;
 		_=> nrel_then:: .._proc_find_task_element_value_operator14;;
 	*);;
 
@@ -195,7 +195,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_1;;
 
-		_=> nrel_else:: .._proc_find_task_element_value_operator3;;
+		_=> nrel_else:: .._proc_find_task_element_value_operator_debug_return;;
 		_=> nrel_then:: .._proc_find_task_element_value_operator19;;
 	*);;
 
@@ -207,7 +207,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_2;;
 
-		_=> nrel_else:: .._proc_find_task_element_value_operator3;;
+		_=> nrel_else:: .._proc_find_task_element_value_operator_debug_return;;
 		_=> nrel_then:: .._proc_find_task_element_value_operator20;;
 	*);;
 
@@ -248,7 +248,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_1:: rrel_assign:: rrel_scp_var:: _solution_tree_node;;
 		_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _agent_solution_node;;
 
-		_=> nrel_goto:: .._proc_find_task_element_value_operator3;;
+		_=> nrel_goto:: .._proc_find_task_element_value_operator_debug_return;;
 	*);;
 
 	_-> .._proc_find_task_element_value_operator25 (*
@@ -259,12 +259,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_next_solution_action;;
 
-		_=> nrel_goto:: .._proc_find_task_element_value_operator26;;
+		_=> nrel_goto:: .._proc_find_task_element_value_operator23;;
 	*);;
-
-	_-> .._proc_find_task_element_value_operator26 (*
- <- empty_operator;;
-*);;
 
 	_-> .._proc_find_task_element_value_operator10 (*
 		_<- call;;
@@ -292,7 +288,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_<- ifVarAssign;;
 		_-> rrel_1:: rrel_scp_var:: _operand1_value;;
 
-		_=> nrel_else:: .._proc_find_task_element_value_operator3;;
+		_=> nrel_else:: .._proc_find_task_element_value_operator_debug_return;;
 		_=> nrel_then:: .._proc_find_task_element_value_operator29;;
 	*);;
 
@@ -322,7 +318,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_<- ifVarAssign;;
 		_-> rrel_1:: rrel_scp_var:: _operand2_value;;
 
-		_=> nrel_else:: .._proc_find_task_element_value_operator3;;
+		_=> nrel_else:: .._proc_find_task_element_value_operator_debug_return;;
 		_=> nrel_then:: .._proc_find_task_element_value_operator32;;
 	*);;
 
@@ -343,7 +339,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _nrel;;
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
-		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_3;;
 
 		_=> nrel_goto:: .._proc_find_task_element_value_operator34;;
 	*);;
@@ -354,7 +350,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _operand2_value;;
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
-		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_3;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_2;;
 
 		_=> nrel_goto:: .._proc_find_task_element_value_operator35;;
 	*);;
@@ -387,7 +383,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_1;;
 
-		_=> nrel_else:: .._proc_find_task_element_value_operator3;;
+		_=> nrel_else:: .._proc_find_task_element_value_operator_debug_return;;
 		_=> nrel_then:: .._proc_find_task_element_value_operator38;;
 	*);;
 
@@ -399,7 +395,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_2;;
 
-		_=> nrel_else:: .._proc_find_task_element_value_operator3;;
+		_=> nrel_else:: .._proc_find_task_element_value_operator_debug_return;;
 		_=> nrel_then:: .._proc_find_task_element_value_operator39;;
 	*);;
 
@@ -439,7 +435,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_<- ifVarAssign;;
 		_-> rrel_1:: rrel_scp_var:: _operation_solution_node;;
 
-		_=> nrel_else:: .._proc_find_task_element_value_operator3;;
+		_=> nrel_else:: .._proc_find_task_element_value_operator_debug_return;;
 		_=> nrel_then:: .._proc_find_task_element_value_operator46;;
 	*);;
 
@@ -459,7 +455,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_next_solution_action;;
 
-		_=> nrel_goto:: .._proc_find_task_element_value_operator49;;
+		_=> nrel_goto:: .._proc_find_task_element_value_operator47;;
 	*);;
 
 	_-> .._proc_find_task_element_value_operator47 (*
@@ -467,12 +463,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_1:: rrel_assign:: rrel_scp_var:: _solution_tree_node;;
 		_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _operation_solution_node;;
 
-		_=> nrel_goto:: .._proc_find_task_element_value_operator3;;
+		_=> nrel_goto:: .._proc_find_task_element_value_operator_debug_return;;
 	*);;
-
-	_-> .._proc_find_task_element_value_operator49 (*
- <- empty_operator;;
-*);;
 
 	_-> .._proc_find_task_element_value_operator45 (*
 		_<- genElStr5;;
@@ -482,7 +474,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_next_solution_action;;
 
-		_=> nrel_goto:: .._proc_find_task_element_value_operator50;;
+		_=> nrel_goto:: .._proc_find_task_element_value_operator44;;
 	*);;
 
 	_-> .._proc_find_task_element_value_operator44 (*
@@ -492,10 +484,6 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
 		_=> nrel_goto:: .._proc_find_task_element_value_operator42;;
 	*);;
-
-	_-> .._proc_find_task_element_value_operator50 (*
- <- empty_operator;;
-*);;
 
 *);;
 

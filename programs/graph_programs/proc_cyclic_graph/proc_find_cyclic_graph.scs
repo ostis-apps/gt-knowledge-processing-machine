@@ -102,8 +102,15 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _number_vertex;;
 		_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _number_scc;;
 
-		_=> nrel_else:: .._proc_find_cyclic_graph_operator10;;
-		_=> nrel_then:: .._proc_find_cyclic_graph_operator11;;
+		_=> nrel_else:: .._proc_find_cyclic_graph_operator10_debug;;
+		_=> nrel_then:: .._proc_find_cyclic_graph_operator11_debug;;
+	*);;
+
+	_-> .._proc_find_cyclic_graph_operator11_debug (*
+		_<- printNl;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: [graph is cyclic];;
+
+		_=> nrel_goto:: .._proc_find_cyclic_graph_operator11;;
 	*);;
 
 	_-> .._proc_find_cyclic_graph_operator11 (*
@@ -113,6 +120,13 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _graph;;
 
 		_=> nrel_goto:: .._proc_find_cyclic_graph_operator2;;
+	*);;
+
+	_-> .._proc_find_cyclic_graph_operator10_debug (*
+		_<- printNl;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: [graph is acyclic];;
+
+		_=> nrel_goto:: .._proc_find_cyclic_graph_operator10;;
 	*);;
 
 	_-> .._proc_find_cyclic_graph_operator10 (*

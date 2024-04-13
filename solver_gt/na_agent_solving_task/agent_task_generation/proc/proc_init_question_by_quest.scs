@@ -70,7 +70,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
 	_-> .._proc_init_question_by_quest_operator7 (*
 		_<- printNl;;
-		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: [sc_event_add_input_arc was occured];;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: [sc_event_remove_input_arc was occured];;
 
 		_=> nrel_goto:: .._proc_init_question_by_quest_operator1;;
 	*);;
