@@ -48,7 +48,12 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_<- sys_gen;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _result_struct;;
 		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._proc_use_sc_statement_param1;;
-		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: .._proc_use_sc_statement_param2;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: .._proc_use_sc_statement_param2 (*
+			_-> .._proc_use_sc_statement_param3 (*
+				_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _var_from_solver_element;;
+				_-> rrel_2:: rrel_fixed:: rrel_scp_const:: _solver_object;;
+			*);;
+		*);;
 
 		_=> nrel_goto:: .._proc_use_sc_statement_operator3;;
 	*);;
