@@ -75,8 +75,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _curr_arc;;
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _pravoe;;
 
-		_=> nrel_else:: .._proc_directivity_of_graph_operator8;;
-		_=> nrel_then:: .._proc_directivity_of_graph_operator9;;
+		_=> nrel_goto:: .._proc_directivity_of_graph_operator9;;
 	*);;
 
 	_-> .._proc_directivity_of_graph_operator6 (*
@@ -97,10 +96,6 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_=> nrel_else:: .._proc_directivity_of_graph_operator10;;
 		_=> nrel_then:: .._proc_directivity_of_graph_operator11;;
 	*);;
-
-	_-> .._proc_directivity_of_graph_operator8 (*
- <- empty_operator;;
-*);;
 
 	_-> .._proc_directivity_of_graph_operator11 (*
 		_<- eraseEl;;
