@@ -31,6 +31,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _operation_program;;
 		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._proc_find_and_use_unary_operation_param0 (*
 			_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _operand1;;
+			_-> rrel_2:: rrel_assign:: rrel_scp_var:: _operation_result;;
+			
 		*);;
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _descr;;
 
@@ -53,7 +55,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_<- genElStr5;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _solution_tree_node;;
 		_-> rrel_2:: rrel_assign:: rrel_const:: rrel_common:: rrel_scp_var:: _arc;;
-		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _descr;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _operation_result;;
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_action_result;;
 
