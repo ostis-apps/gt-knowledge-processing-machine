@@ -79,9 +79,9 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
 	_-> .._proc_directivity_of_graph_operator6_1 (*
 		_<- genElStr3;;
-		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: concept_undirected_graph;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _rez;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _ara;;
-		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _rez;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: concept_undirected_graph;;
 
 		_=> nrel_goto:: .._proc_directivity_of_graph_operator_return;;
 	*);;
@@ -139,9 +139,9 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
 	_-> .._proc_directivity_of_graph_operator11_1 (*
 		_<- genElStr3;;
-		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: concept_directed_graph;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _rez;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _ara;;
-		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _rez;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: concept_directed_graph;;
 
 		_=> nrel_goto:: .._proc_directivity_of_graph_operator_return;;
 	*);;
