@@ -1,0 +1,120 @@
+test_params_graph1_directed_graph
+    => nrel_main_idtf:
+        [parameters for determining the directionality of the graph test_graph1]
+        (*
+            <- lang_en;;
+        *);
+        [параметры для определения ориентированности графа test_graph1]
+        (*
+            <- lang_ru;;
+        *);
+    -> rrel_1: test_graph1;
+    -> rrel_2: concept_directed_graph;;
+
+test_params_graph1_graph2_intersection
+    => nrel_main_idtf:
+        [parameters for intersecting the graphs test_graph1 and test_graph2]
+        (*
+            <- lang_en;;
+        *);
+        [параметры для пересечения графов test_graph1 и test_graph2]
+        (*
+            <- lang_ru;;
+        *);
+    -> rrel_1: test_graph1;
+    -> rrel_2: test_graph2;
+    -> rrel_3: nrel_graph_intersection;;
+
+test_params_graph1_graph2_union
+    => nrel_main_idtf:
+        [parameters for uniting the graphs test_graph1 and test_graph2]
+        (*
+            <- lang_en;;
+        *);
+        [параметры для объединения графов test_graph1 и test_graph2]
+        (*
+            <- lang_ru;;
+        *);
+    -> rrel_1: test_graph1;
+    -> rrel_2: test_graph2;
+    -> rrel_3: nrel_graph_union;;
+
+test_graph1
+<- sc_node_struct;
+<- concept_graph;
+-> rrel_vertex:
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+-> rrel_oredge:
+    (v1 => v2);
+    (v2 => v3);
+    (v3 => v5);
+    (v3 => v4);;
+
+test_graph2
+<- sc_node_struct;
+<- concept_graph;
+-> rrel_vertex:
+    v1;
+    v2;
+    v6;
+    v7;
+    v8;
+
+-> rrel_oredge:
+    (v1 => v7);
+    (v7 => v8);
+    (v6 => v8);;
+
+test_params_set1_set2_intersection
+    => nrel_main_idtf:
+        [parameters for multisets operations]
+        (*
+            <- lang_en;;
+        *);
+        [параметры для операций с мультимножествами]
+        (*
+            <- lang_ru;;
+        *);
+    -> rrel_1: test_multiset1;
+    -> rrel_2: test_multiset2;;
+
+test_multiset1
+    -> multiplicity_of_belonging_2: element1;
+    -> multiplicity_of_belonging_1: element2;
+    -> multiplicity_of_belonging_1: element3;
+    -> multiplicity_of_belonging_2: element4;;
+
+test_multiset2
+    -> multiplicity_of_belonging_2: element1;
+    -> multiplicity_of_belonging_1: element3;
+    -> multiplicity_of_belonging_1: element4;
+    -> multiplicity_of_belonging_4: element5;;
+
+multiplicity_of_belonging
+    -> multiplicity_of_belonging_1;
+    -> multiplicity_of_belonging_2;
+    -> multiplicity_of_belonging_4;;
+
+multiplicity_of_belonging_1
+    => nrel_measurement: number_1
+    (*
+        <- number;;
+        => nrel_idtf: [1];;
+    *);;
+multiplicity_of_belonging_2
+    => nrel_measurement: number_2
+    (*
+        <- number;;
+        => nrel_idtf: [2];;
+    *);;
+multiplicity_of_belonging_4
+    => nrel_measurement: number_4
+    (*
+        <- number;;
+        => nrel_idtf: [4];;
+    *);;
