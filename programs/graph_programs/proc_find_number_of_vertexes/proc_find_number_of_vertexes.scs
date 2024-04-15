@@ -10,19 +10,16 @@ proc_find_number_of_vertexes = [*
 _<- scp_process;
 
 _-> rrel_1:: rrel_in:: _graph;
+_-> rrel_2:: rrel_out:: _rez;
 _<= nrel_decomposition_of_action:: .._actions (*
 
-	_-> rrel_1:: ..proc_find_number_of_vertexes_op1 (*
-		_<- searchElStr5;;
-		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _graph;;
-		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc1;;
-		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _vert;;
-		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
-		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_number_of_vertexes;;
+	_-> rrel_1:: .._proc_find_number_of_vertexes_0 (*
+		_<- genEl;;
+		_-> rrel_1:: rrel_assign:: rrel_const:: rrel_node:: rrel_scp_var:: rrel_struct:: _rez;;
 
-		_=> nrel_else:: .._proc_find_number_of_vertexes_operator0;;
-		_=> nrel_then:: .._proc_find_number_of_vertexes_operator1;;
+		_=> nrel_goto:: .._proc_find_number_of_vertexes_operator0;;
 	*);;
+
 
 	_-> .._proc_find_number_of_vertexes_operator1 (*
 		_<- return;;
@@ -74,6 +71,17 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _number_of_vertexes;;
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_number_of_vertexes;;
+
+		_=> nrel_goto:: .._proc_find_number_of_vertexes_operator04;;
+	*);;
+
+	_-> .._proc_find_number_of_vertexes_operator04 (*
+		_<- genElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _rez;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_const:: rrel_scp_var:: _ar;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _number_of_vertexes;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_value;;
 
 		_=> nrel_goto:: .._proc_find_number_of_vertexes_operator1;;
 	*);;
