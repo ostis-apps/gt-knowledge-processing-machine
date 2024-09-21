@@ -10,7 +10,7 @@ proc_run_test_complite_graph = [*
 _<- scp_process;
 
 _-> rrel_1:: rrel_in:: _graph;
-_-> rrel_2:: rrel_in:: _answer;
+_-> rrel_2:: rrel_in:: _result;
 _<= nrel_decomposition_of_action:: .._actions (*
 
 	_-> rrel_1:: .._proc_run_test_complite_graph_operator0 (*
@@ -44,7 +44,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
 	_-> .._proc_run_test_complite_graph_operator2 (*
 		_<- genElStr3;;
-		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _answer;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _result;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _graph;;
 
@@ -53,7 +53,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
 	_-> .._proc_run_test_complite_graph_operator5 (*
 		_<- genElStr3;;
-		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _answer;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _result;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: concept_complete_graph;;
 
@@ -71,7 +71,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
 	_-> .._proc_run_test_complite_graph_operator7 (*
 		_<- genElStr3;;
-		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _answer;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _result;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc3;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _arc2;;
 
@@ -96,7 +96,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._proc_run_test_complite_graph_param0 (*
 			_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _node;;
 			_-> rrel_2:: rrel_fixed:: rrel_scp_const:: _graph;;
-			_-> rrel_3:: rrel_fixed:: _answer;;
+			_-> rrel_3:: rrel_fixed:: _result;;
 		*);;
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _descr;;
 
@@ -112,7 +112,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
 	_-> .._proc_run_test_complite_graph_operator11 (*
 		_<- searchElStr3;;
-		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _answer;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _result;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _graph;;
 

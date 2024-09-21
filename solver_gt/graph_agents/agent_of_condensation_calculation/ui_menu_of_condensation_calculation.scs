@@ -8,11 +8,11 @@ ui_menu_file_of_condensation_calculation => nrel_main_idtf:
     [Calculate condensation of a graph](* <- lang_en;; *);;
 
 ui_menu_file_of_condensation_calculation => ui_nrel_command_template: [*
-    question_of_condensation_calculation _-> ._question_of_condensation_calculation_instance(*
+    action_of_condensation_calculation _-> ._action_of_condensation_calculation_instance(*
         _-> ui_arg_1;;
     *);;
     
-    ._question_of_condensation_calculation_instance _<- question;;
+    ._action_of_condensation_calculation_instance _<- action;;
 *];;
 
 ui_menu_file_of_condensation_calculation => ui_nrel_command_lang_template:

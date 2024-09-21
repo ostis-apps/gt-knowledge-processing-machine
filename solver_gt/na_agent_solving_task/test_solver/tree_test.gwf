@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GWF version="2.0">
     <staticSector>
-        <node type="node/var/perm/general" idtf="_question_solving_task_with_tree" shapeColor="0" id="97804728126800" parent="97804734708544" left="0" top="0" right="250.484" bottom="25" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="1108.43" y="615.499" haveBus="false" idtf_pos="0">
+        <node type="node/var/perm/general" idtf="_action_solving_task_with_tree" shapeColor="0" id="97804728126800" parent="97804734708544" left="0" top="0" right="250.484" bottom="25" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="1108.43" y="615.499" haveBus="false" idtf_pos="0">
             <content type="0" mime_type="" content_visibility="false" file_name=""/>
         </node>
-        <node type="node/const/perm/group" idtf="question_solving_complex_task" shapeColor="0" id="97804732503856" parent="97804734708544" left="0" top="0" right="237.438" bottom="25" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="1090.5" y="528.5" haveBus="false" idtf_pos="0">
+        <node type="node/const/perm/group" idtf="action_solving_complex_task" shapeColor="0" id="97804732503856" parent="97804734708544" left="0" top="0" right="237.438" bottom="25" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="1090.5" y="528.5" haveBus="false" idtf_pos="0">
             <content type="0" mime_type="" content_visibility="false" file_name=""/>
         </node>
         <node type="node/const/perm/role" idtf="rrel_solution_goal" shapeColor="0" id="97804732911616" parent="97804734708544" left="0" top="0" right="138.703" bottom="25" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="945.926" y="692.999" haveBus="false" idtf_pos="0">
@@ -75,7 +75,7 @@
         <node type="node/const/perm/general" idtf="" shapeColor="0" id="97804727796528" parent="0" x="417" y="330" haveBus="false" idtf_pos="0">
             <content type="0" mime_type="" content_visibility="false" file_name=""/>
         </node>
-        <node type="node/var/perm/general" idtf="_question_solving_task_with_tree" shapeColor="0" id="97804728058784" parent="0" left="0" top="0" right="250.484" bottom="25" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="1082.43" y="888.5" haveBus="false" idtf_pos="0">
+        <node type="node/var/perm/general" idtf="_action_solving_task_with_tree" shapeColor="0" id="97804728058784" parent="0" left="0" top="0" right="250.484" bottom="25" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="1082.43" y="888.5" haveBus="false" idtf_pos="0">
             <content type="0" mime_type="" content_visibility="false" file_name=""/>
         </node>
         <node type="node/const/perm/group" idtf="concept_graph" shapeColor="0" id="97804727993072" parent="0" left="0" top="0" right="115.406" bottom="25" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="389.426" y="70.5" haveBus="false" idtf_pos="0">
@@ -84,7 +84,7 @@
         <node type="node/const/perm/struct" idtf="" shapeColor="0" id="97804728075904" parent="0" x="301.926" y="81" haveBus="false" idtf_pos="0">
             <content type="0" mime_type="" content_visibility="false" file_name=""/>
         </node>
-        <node type="node/const/perm/role" idtf="rrel_question_node" shapeColor="0" id="97804727851536" parent="0" left="0" top="0" right="147.281" bottom="25" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="847.426" y="852.5" haveBus="false" idtf_pos="0">
+        <node type="node/const/perm/role" idtf="rrel_action_node" shapeColor="0" id="97804727851536" parent="0" left="0" top="0" right="147.281" bottom="25" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="847.426" y="852.5" haveBus="false" idtf_pos="0">
             <content type="0" mime_type="" content_visibility="false" file_name=""/>
         </node>
         <node type="node/const/perm/role" idtf="rrel_1" shapeColor="0" id="97804727835056" parent="0" left="0" top="0" right="49.6094" bottom="25" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="445.426" y="378.5" haveBus="false" idtf_pos="0">
@@ -99,10 +99,10 @@
         <node type="node/const/perm/general" idtf="" shapeColor="0" id="97804728076560" parent="0" x="487.926" y="328" haveBus="false" idtf_pos="0">
             <content type="0" mime_type="" content_visibility="false" file_name=""/>
         </node>
-        <node type="node/const/perm/general" idtf="unary_tree_test_question" shapeColor="0" id="97804728228880" parent="0" left="0" top="0" right="192.75" bottom="25" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="658.926" y="349" haveBus="false" idtf_pos="5">
+        <node type="node/const/perm/general" idtf="unary_tree_test_action" shapeColor="0" id="97804728228880" parent="0" left="0" top="0" right="192.75" bottom="25" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="658.926" y="349" haveBus="false" idtf_pos="5">
             <content type="0" mime_type="" content_visibility="false" file_name=""/>
         </node>
-        <node type="node/const/perm/group" idtf="question_generate_task" shapeColor="0" id="97804734816560" parent="0" left="0" top="0" right="183.625" bottom="25" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="689.426" y="285.5" haveBus="false" idtf_pos="0">
+        <node type="node/const/perm/group" idtf="action_generate_task" shapeColor="0" id="97804734816560" parent="0" left="0" top="0" right="183.625" bottom="25" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="689.426" y="285.5" haveBus="false" idtf_pos="0">
             <content type="0" mime_type="" content_visibility="false" file_name=""/>
         </node>
         <node type="node/const/perm/role" idtf="rrel_2" shapeColor="0" id="97804734800400" parent="0" left="0" top="0" right="49.6094" bottom="25" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="539.426" y="259.5" haveBus="false" idtf_pos="0">

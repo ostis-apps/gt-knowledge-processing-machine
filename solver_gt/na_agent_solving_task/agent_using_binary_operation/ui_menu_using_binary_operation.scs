@@ -6,14 +6,14 @@ ui_menu_using_binary_operation =>nrel_main_idtf: [Doing graph operation] (* <- l
 
 ui_menu_using_binary_operation =>ui_nrel_command_template:
 [*
-	question_using_binary_operation _-> ._question_using_binary_operation_instance
+	action_using_binary_operation _-> ._action_using_binary_operation_instance
 	(*
 		_-> rrel_1:: ui_arg_1;;
 		_-> rrel_2:: ui_arg_2;;
 		_-> rrel_3:: ui_arg_3;;
 	*);;
 
-	._question_using_binary_operation_instance _<- question;;
+	._action_using_binary_operation_instance _<- action;;
 *];;
 
 ui_menu_using_binary_operation =>ui_nrel_command_lang_template: [Выполнение графовой операции: $ui_arg_1] 
