@@ -1,126 +1,122 @@
-scp_program -> proc_find_antideadlock
-(*
-	-> rrel_params: ... 
-	(*
-		-> rrel_1: rrel_in: _curr_graph;;
+proc_find_antideadlock
+=> nrel_main_idtf:
+	[Программа поиска всех антитупиков графа] (* <- lang_ru;; *);
+	[] (* <- lang_en;; *);
+<- scp_program;
+-> rrel_key_sc_element: .._process1;;
+
+proc_find_antideadlock = [*
+.._process1
+_<- scp_process;
+
+_-> rrel_1:: rrel_in:: _curr_graph;
+_<= nrel_decomposition_of_action:: .._actions (*
+
+	_-> rrel_1:: .._proc_find_antideadlock_operator0 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _curr_graph;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc_for_answer1;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _antitypici;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_for_answer2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_set_antideadlock;;
+
+		_=> nrel_else:: .._proc_find_antideadlock_operator1;;
+		_=> nrel_then:: .._proc_find_antideadlock_operator2;;
 	*);;
 
-	-> rrel_operators: ... 
-	(*
-		-> rrel_init: ..proc_find_antideadlock_operator0
-		(*
-			<- searchElStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _curr_graph;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc_for_answer1;;
-			-> rrel_3: rrel_assign: rrel_scp_var: _antitypici;;
-			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_for_answer2;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_set_antideadlock;;
-			
-			=> nrel_then: ..proc_find_antideadlock_operator_return;;
-			=> nrel_else: ..proc_find_antideadlock_operator1;;
-		*);;	
-						
-		-> ..proc_find_antideadlock_operator1
-		(*
-			<- genEl;;
-			-> rrel_1: rrel_assign: rrel_node: rrel_scp_var: _antitypici;;
-			
-			=> nrel_goto: ..proc_find_antideadlock_operator2;;
-		*);;
+	_-> .._proc_find_antideadlock_operator2 (*
+		_<- return;;
 
-		-> ..proc_find_antideadlock_operator2
-		(*
-			<- genElStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _curr_graph;;
-			-> rrel_2: rrel_assign: rrel_scp_var: rrel_const: rrel_common: _arc_for_answer1;;
-			-> rrel_3: rrel_fixed: rrel_scp_var: _antitypici;;
-			-> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_for_answer2;;
-			-> rrel_5: rrel_fixed: rrel_scp_const: nrel_set_antideadlock;;
-						
-			=> nrel_goto: ..proc_find_antideadlock_operator3;;
-		*);;
-
-		-> ..proc_find_antideadlock_operator3
-		(*
-			<- searchSetStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _curr_graph;;
-            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs1;;
-            -> rrel_3: rrel_assign: rrel_scp_var: _vert;;
-            -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs2;;
-            -> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
-
-			-> rrel_set_3: rrel_assign: rrel_scp_var: _vertexs;;
-			
-			=> nrel_then: ..proc_find_antideadlock_operator4;;
-                	=> nrel_else: ..proc_find_antideadlock_operator_return;;
-		*);;
-
-		-> ..proc_find_antideadlock_operator4
-		(*
-			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _vertexs;;
-            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_erase;;
-            -> rrel_3: rrel_assign: rrel_scp_var: _curr_vert;;
-			
-			=>nrel_then: ..proc_find_antideadlock_operator5;;
-			=>nrel_else: ..proc_find_antideadlock_operator11;; 		
-		*);;
-
-		-> ..proc_find_antideadlock_operator5
-		(*
-			<- searchElStr5;;
-			-> rrel_1: rrel_assign: rrel_scp_var: _vert;;
-            -> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc_of_vertexs1;;
-            -> rrel_3: rrel_fixed: rrel_scp_var: _curr_vert;;
-            -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs2;;
-            -> rrel_5: rrel_fixed: rrel_scp_var: _curr_graph;;
-
-			=> nrel_then: ..proc_find_antideadlock_operator8;;
-            => nrel_else: ..proc_find_antideadlock_operator7;;
-		*);;
-				
-		-> ..proc_find_antideadlock_operator7
-		(*
-			<- searchElStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _curr_vert;;
-            -> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc_of_vertexs1;;
-            -> rrel_3: rrel_assign: rrel_scp_var: _vert;;
-            -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_of_vertexs2;;
-            -> rrel_5: rrel_fixed: rrel_scp_var: _curr_graph;;
-			
-			=> nrel_then: ..proc_find_antideadlock_operator9;;
-            => nrel_else: ..proc_find_antideadlock_operator8;;
-		*);;
-
-		-> ..proc_find_antideadlock_operator9
-		(*
-			<- genElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _antitypici;;
-            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_buf;;
-            -> rrel_3: rrel_fixed: rrel_scp_var: _curr_vert;;
-			
-			=>nrel_goto: ..proc_find_antideadlock_operator8;; 		
-		*);;
-
-		->..proc_find_antideadlock_operator8
-		(*
-			<- eraseEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc_erase;;
-
-			=>nrel_goto: ..proc_find_antideadlock_operator4;;
-		*);;
-
-		->..proc_find_antideadlock_operator11
-		(*
-			<- eraseEl;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _vertexs;;
-
-			=>nrel_goto: ..proc_find_antideadlock_operator_return;;
-		*);;
-		
-		-> ..proc_find_antideadlock_operator_return 
-		(*
-			<- return;;
-		*);;
 	*);;
+
+	_-> .._proc_find_antideadlock_operator1 (*
+		_<- genEl;;
+		_-> rrel_1:: rrel_assign:: rrel_node:: rrel_scp_var:: _antitypici;;
+
+		_=> nrel_goto:: .._proc_find_antideadlock_operator3;;
+	*);;
+
+	_-> .._proc_find_antideadlock_operator3 (*
+		_<- genElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _curr_graph;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_const:: rrel_scp_var:: _arc_for_answer1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _antitypici;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_for_answer2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_set_antideadlock;;
+
+		_=> nrel_goto:: .._proc_find_antideadlock_operator4;;
+	*);;
+
+	_-> .._proc_find_antideadlock_operator4 (*
+		_<- searchSetStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _curr_graph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_of_vertexs1;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _vert;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_of_vertexs2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_vertex;;
+		_-> rrel_set_3:: rrel_assign:: rrel_scp_var:: _vertexs;;
+
+		_=> nrel_else:: .._proc_find_antideadlock_operator2;;
+		_=> nrel_then:: .._proc_find_antideadlock_operator5;;
+	*);;
+
+	_-> .._proc_find_antideadlock_operator5 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _vertexs;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_erase;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _curr_vert;;
+
+		_=> nrel_else:: .._proc_find_antideadlock_operator6;;
+		_=> nrel_then:: .._proc_find_antideadlock_operator7;;
+	*);;
+
+	_-> .._proc_find_antideadlock_operator7 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_assign:: rrel_scp_var:: _vert;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc_of_vertexs1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _curr_vert;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_of_vertexs2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: _curr_graph;;
+
+		_=> nrel_else:: .._proc_find_antideadlock_operator8;;
+		_=> nrel_then:: .._proc_find_antideadlock_operator9;;
+	*);;
+
+	_-> .._proc_find_antideadlock_operator6 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _vertexs;;
+
+		_=> nrel_goto:: .._proc_find_antideadlock_operator2;;
+	*);;
+
+	_-> .._proc_find_antideadlock_operator9 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _arc_erase;;
+
+		_=> nrel_goto:: .._proc_find_antideadlock_operator5;;
+	*);;
+
+	_-> .._proc_find_antideadlock_operator8 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _curr_vert;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc_of_vertexs1;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _vert;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_of_vertexs2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: _curr_graph;;
+
+		_=> nrel_else:: .._proc_find_antideadlock_operator9;;
+		_=> nrel_then:: .._proc_find_antideadlock_operator10;;
+	*);;
+
+	_-> .._proc_find_antideadlock_operator10 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _antitypici;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_buf;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _curr_vert;;
+
+		_=> nrel_goto:: .._proc_find_antideadlock_operator9;;
+	*);;
+
 *);;
+
+*];;

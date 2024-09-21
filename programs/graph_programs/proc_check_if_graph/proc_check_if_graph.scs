@@ -1,162 +1,149 @@
-scp_program -> proc_check_if_graph (*
-	
-	-> rrel_params: ... (*
-		-> rrel_1: rrel_in: _graph;;
+proc_check_if_graph
+=> nrel_main_idtf:
+	[Программа определяющая, является ли узел графом] (* <- lang_ru;; *);
+	[] (* <- lang_en;; *);
+<- scp_program;
+-> rrel_key_sc_element: .._process1;;
+
+proc_check_if_graph = [*
+.._process1
+_<- scp_process;
+
+_-> rrel_1:: rrel_in:: _graph;
+_<= nrel_decomposition_of_action:: .._actions (*
+
+	_-> rrel_1:: .._proc_check_if_graph_operator0 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: concept_graph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _graph;;
+
+		_=> nrel_else:: .._proc_check_if_graph_operator1;;
+		_=> nrel_then:: .._proc_check_if_graph_operator2;;
 	*);;
 
-	-> rrel_operators: ... (*
+	_-> .._proc_check_if_graph_operator2 (*
+		_<- return;;
 
-	-> rrel_init: ..proc_check_if_graph_op1_1 
-	(*
-		<- searchElStr3;;
-		-> rrel_1: rrel_fixed: rrel_scp_const: concept_graph;;
-		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
-		-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
-
-		=> nrel_then: ..check_if_graph_return;; 
-		=> nrel_else: ..check_if_graph_op1_2 ;;
 	*);;
 
-	-> ..check_if_graph_op1_2 
-	(*
-	<- searchElStr3;;
-		-> rrel_1: rrel_fixed: rrel_scp_const: concept_graph;;
-		-> rrel_2: rrel_assign: rrel_scp_var: rrel_neg: rrel_const: rrel_perm: rrel_access: _arc2;;
-		-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+	_-> .._proc_check_if_graph_operator1 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: concept_graph;;
+		_-> rrel_2:: rrel_access:: rrel_assign:: rrel_const:: rrel_neg:: rrel_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _graph;;
 
-		=> nrel_then: ..check_if_graph_return;; 
-		=> nrel_else: ..check_if_graph_op1 ;;
+		_=> nrel_else:: .._proc_check_if_graph_operator3;;
+		_=> nrel_then:: .._proc_check_if_graph_operator2;;
 	*);;
 
+	_-> .._proc_check_if_graph_operator3 (*
+		_<- searchSetStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _graph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _node;;
+		_-> rrel_set_3:: rrel_assign:: rrel_scp_var:: _soUPset;;
 
-	-> ..check_if_graph_op1 
-	(*
-	<- searchSetStr3;;
-		-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
-		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
-		-> rrel_3: rrel_assign: rrel_scp_var: _node;;
-		-> rrel_set_3: rrel_assign: rrel_scp_var: _soUPset;;
-		
-		=> nrel_then: ..check_if_graph_op2;;
-		=> nrel_else: ..check_if_graph_op7;;
+		_=> nrel_else:: .._proc_check_if_graph_operator4;;
+		_=> nrel_then:: .._proc_check_if_graph_operator5;;
 	*);;
 
+	_-> .._proc_check_if_graph_operator5 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _soUPset;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _vert;;
 
-	-> ..check_if_graph_op2 
-	(*
-	<- searchElStr3;;
-		-> rrel_1: rrel_fixed: rrel_scp_var: _soUPset;;
-		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
-		-> rrel_3: rrel_assign: rrel_scp_var: _vert;;
-
-		=> nrel_then: ..check_if_graph_op3;; 
-		=> nrel_else: ..check_if_graph_op6 ;;
-	*);; 
-
-
-	-> ..check_if_graph_op3 
-	(*
-		<- eraseEl;;
-		-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _arc;;
-
-		=> nrel_goto: ..check_if_graph_op4;; 
+		_=> nrel_else:: .._proc_check_if_graph_operator6;;
+		_=> nrel_then:: .._proc_check_if_graph_operator7;;
 	*);;
 
+	_-> .._proc_check_if_graph_operator4 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: concept_graph;;
+		_-> rrel_2:: rrel_access:: rrel_assign:: rrel_const:: rrel_neg:: rrel_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _graph;;
 
-	-> ..check_if_graph_op4 
-	(*
-	<- searchElStr5;;
-		-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
-		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
-		-> rrel_3: rrel_fixed: rrel_scp_var: _vert;;
-		-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
-		-> rrel_5: rrel_fixed: rrel_scp_const: rrel_vertex;;
-
-		=> nrel_then: ..check_if_graph_op2;; 
-		=> nrel_else: ..check_if_graph_op5 ;;
-	*);; 
-
-
-	-> ..check_if_graph_op5 
-	(*
-	<- searchElStr5;;
-		-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
-		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
-		-> rrel_3: rrel_fixed: rrel_scp_var: _vert;;
-		-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
-		-> rrel_5: rrel_fixed: rrel_scp_const: rrel_oredge;;
-
-		=> nrel_then: ..check_if_graph_op5_1;; 
-		=> nrel_else: ..check_if_graph_op7;;
+		_=> nrel_goto:: .._proc_check_if_graph_operator8;;
 	*);;
 
+	_-> .._proc_check_if_graph_operator8 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _soUPset;;
 
-	-> ..check_if_graph_op5_1 (*
-	<- searchElStr3;;
-		-> rrel_1: rrel_assign: rrel_scp_var: _vert1;;
-		-> rrel_2: rrel_fixed:  rrel_scp_var: _vert;;
-		-> rrel_3: rrel_assign: rrel_scp_var: _vert2;;
-
-		=> nrel_then: ..check_if_graph_op5_2;; 
-		=> nrel_else: ..check_if_graph_op7;;
+		_=> nrel_goto:: .._proc_check_if_graph_operator2;;
 	*);;
 
-	-> ..check_if_graph_op5_2 
-	(*
-	<- searchElStr3;;
-		-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
-		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
-		-> rrel_3: rrel_fixed: rrel_scp_var: _vert1;;
+	_-> .._proc_check_if_graph_operator7 (*
+		_<- eraseEl;;
+		_-> rrel_1:: rrel_erase:: rrel_fixed:: rrel_scp_var:: _arc;;
 
-		=> nrel_then: ..check_if_graph_op5_3;; 
-		=> nrel_else: ..check_if_graph_op7;;
+		_=> nrel_goto:: .._proc_check_if_graph_operator9;;
 	*);;
 
-	-> ..check_if_graph_op5_3 
-	(*
-	<- searchElStr3;;
-		-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
-		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
-		-> rrel_3: rrel_fixed: rrel_scp_var: _vert2;;
+	_-> .._proc_check_if_graph_operator6 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: concept_graph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _graph;;
 
-		=> nrel_then: ..check_if_graph_op2;; 
-		=> nrel_else: ..check_if_graph_op7;;
+		_=> nrel_goto:: .._proc_check_if_graph_operator8;;
 	*);;
 
+	_-> .._proc_check_if_graph_operator9 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _graph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _vert;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_vertex;;
 
-	-> ..check_if_graph_op6 
-	(*
-	<- genElStr3;;
-		-> rrel_1: rrel_fixed: rrel_scp_const: concept_graph;;
-		-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
-		-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
-
-		=> nrel_goto: ..check_if_graph_op8;; 
+		_=> nrel_else:: .._proc_check_if_graph_operator10;;
+		_=> nrel_then:: .._proc_check_if_graph_operator5;;
 	*);;
 
+	_-> .._proc_check_if_graph_operator10 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _graph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _vert;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_oredge;;
 
-	-> ..check_if_graph_op7 
-	(*
-	<- genElStr3;;
-		-> rrel_1: rrel_fixed: rrel_scp_const: concept_graph;;
-		-> rrel_2: rrel_assign: rrel_scp_var: rrel_neg: rrel_const: rrel_perm: rrel_access: _arc2;;
-		-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
-
-		=> nrel_goto: ..check_if_graph_op8;; 
+		_=> nrel_else:: .._proc_check_if_graph_operator4;;
+		_=> nrel_then:: .._proc_check_if_graph_operator11;;
 	*);;
 
+	_-> .._proc_check_if_graph_operator11 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_assign:: rrel_scp_var:: _vert1;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _vert;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _vert2;;
 
-	-> ..check_if_graph_op8 
-	(*
-	<- eraseEl;;
-	-> rrel_1: rrel_fixed: rrel_erase: rrel_scp_var: _soUPset;;
-
-	=> nrel_goto: ..check_if_graph_return;; 
+		_=> nrel_else:: .._proc_check_if_graph_operator4;;
+		_=> nrel_then:: .._proc_check_if_graph_operator12;;
 	*);;
 
+	_-> .._proc_check_if_graph_operator12 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _graph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _vert1;;
 
-	-> ..check_if_graph_return 
-	(*
-		<- return;; *);;
+		_=> nrel_else:: .._proc_check_if_graph_operator4;;
+		_=> nrel_then:: .._proc_check_if_graph_operator13;;
 	*);;
+
+	_-> .._proc_check_if_graph_operator13 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _graph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _vert2;;
+
+		_=> nrel_else:: .._proc_check_if_graph_operator4;;
+		_=> nrel_then:: .._proc_check_if_graph_operator5;;
 	*);;
+
+*);;
+
+*];;

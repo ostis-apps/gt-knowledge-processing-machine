@@ -1,0 +1,74 @@
+test_template_class_for_graph =
+[*
+.._class_question
+    <-_ question_solving_complex_task;
+    _-> .._class_param;;
+@target_edge = ( _target_class _-/> _input_graph );;
+.._class_param
+    _-> rrel_input::
+        input_graph;
+    _-> rrel_solution_goal::
+        @target_edge;;
+*];;
+
+test_template_class_for_graph
+    => nrel_main_idtf:
+        [template for a classification task]
+        (*
+            <- lang_en;;
+        *);
+        [шаблон задачи классификации]
+        (*
+            <- lang_ru;;
+        *);
+    -> rrel_1:
+        _input_graph;
+    -> rrel_2:
+        _target_class;
+    -> rrel_question_node:
+        .._class_question;;
+
+sc_node_tuple
+    -> _tuple;;
+
+test_template_binary_operation =
+[*
+.._binary_operation_question
+    <-_ question_solving_complex_task;
+    _-> .._binary_operation_param;;
+
+.._binary_operation_param
+    _-> rrel_input::
+        _input_graph_1;
+    _-> rrel_input::
+        _input_graph_2;
+    _-> rrel_solution_goal::
+        _result;;
+
+_tuple
+    _-> rrel_1::
+        input_graph_1;
+    _-> rrel_2::
+        input_graph_2;
+    _=> _binary_operation::
+        _result;;
+*];;
+
+test_template_binary_operation
+    => nrel_main_idtf:
+        [template for a task of a binary operation using]
+        (*
+            <- lang_en;;
+        *);
+        [шаблон задачи применения бинарной операции]
+        (*
+            <- lang_ru;;
+        *);
+    -> rrel_1:
+        _input_graph_1;
+    -> rrel_2:
+        _input_graph_2;
+    -> rrel_3:
+        _binary_operation;
+    -> rrel_question_node:
+        .._binary_operation_question;;

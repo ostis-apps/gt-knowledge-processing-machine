@@ -1,112 +1,110 @@
-scp_program -> proc_nodes_is_connected
-(*
-	-> rrel_params: ...
-	(*
-		-> rrel_1: rrel_in: _node1;;
-		-> rrel_2: rrel_in: _node2;;
-		-> rrel_3: rrel_out: _node_relation;;
+proc_nodes_is_connected
+=> nrel_main_idtf:
+	[] (* <- lang_ru;; *);
+	[] (* <- lang_en;; *);
+<- scp_program;
+-> rrel_key_sc_element: .._process1;;
+
+proc_nodes_is_connected = [*
+.._process1
+_<- scp_process;
+
+_-> rrel_1:: rrel_in:: _node1;
+_-> rrel_2:: rrel_in:: _node2;
+_-> rrel_3:: rrel_out:: _node_relation;
+_<= nrel_decomposition_of_action:: .._actions (*
+
+	_-> rrel_1:: .._proc_nodes_is_connected_operator0 (*
+		_<- call;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: proc_print_idtf;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._proc_nodes_is_connected_param0 (*
+			_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _node1;;
+		*);;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _descr1;;
+
+		_=> nrel_goto:: .._proc_nodes_is_connected_operator1;;
 	*);;
 
-	-> rrel_operators: ... 
-	(*
-		-> rrel_init: .proc_nodes_is_connected_operator001
-		(*
-			<- call;;
-		    -> rrel_1: rrel_fixed: rrel_scp_const: proc_print_idtf;;
-		    -> rrel_2: rrel_fixed: rrel_scp_const: ... 
-				(*
-					-> rrel_1: rrel_fixed: rrel_scp_var: _node1;;
-				*);;
-		    -> rrel_3: rrel_assign: rrel_scp_var: _descr1;;
+	_-> .._proc_nodes_is_connected_operator1 (*
+		_<- waitReturn;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _descr1;;
 
-			=> nrel_goto: .proc_nodes_is_connected_operator002;;
-		*);;
-
-		-> .proc_nodes_is_connected_operator002
-		(*
-			<- waitReturn;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _descr1;;
-
-			=> nrel_goto: .proc_nodes_is_connected_operator003;;
-		*);;
-
-		-> .proc_nodes_is_connected_operator003
-		(*
-			<- call;;
-		    -> rrel_1: rrel_fixed: rrel_scp_const: proc_print_idtf;;
-		    -> rrel_2: rrel_fixed: rrel_scp_const: ... 
-				(*
-					-> rrel_1: rrel_fixed: rrel_scp_var: _node2;;
-				*);;
-		    -> rrel_3: rrel_assign: rrel_scp_var: _descr1;;
-
-			=> nrel_goto: .proc_nodes_is_connected_operator004;;
-		*);;
-
-		-> .proc_nodes_is_connected_operator004
-		(*
-			<- waitReturn;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _descr1;;
-
-			=> nrel_goto: .proc_nodes_is_connected_operator2;;
-		*);;
-
-		-> .proc_nodes_is_connected_operator2
-		(*
-			<- ifType;;
-            -> rrel_1: rrel_fixed: rrel_not_relation: rrel_scp_var: _node2;;  
-			
-			=> nrel_then: .proc_nodes_is_connected_operator3;;
-            => nrel_else: .proc_nodes_is_connected_operator4;;
-		*);;
-
-		-> .proc_nodes_is_connected_operator3
-		(*
-			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _node2;;
-            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _node_relation;;
-            -> rrel_3: rrel_fixed: rrel_scp_var: _node1;;
-			
-			=>nrel_then: .proc_nodes_is_connected_operator_return;;
-			=>nrel_else: .proc_nodes_is_connected_operator3_1;; 	
-		*);;
-
-		-> .proc_nodes_is_connected_operator3_1
-		(*
-			<- searchElStr3;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _node2;;
-            -> rrel_2: rrel_assign: rrel_scp_var: rrel_neg: _node_relation;;
-            -> rrel_3: rrel_fixed: rrel_scp_var: _node1;;
-			
-			=>nrel_goto: .proc_nodes_is_connected_operator_return;;	
-		*);;
-
-		-> .proc_nodes_is_connected_operator4
-		(*
-			<- searchElStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _node1;;
-            -> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc1;;
-            -> rrel_3: rrel_assign: rrel_scp_var: _node_relation;;
-            -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
-            -> rrel_5: rrel_fixed: rrel_scp_var: _node2;;
-			
-			=>nrel_then: .proc_nodes_is_connected_operator_return;;
-			=>nrel_else: .proc_nodes_is_connected_operator5;; 	
-		*);;
-
-		-> .proc_nodes_is_connected_operator5
-		(*
-			<- searchElStr5;;
-			-> rrel_1: rrel_fixed: rrel_scp_var: _node1;;
-            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
-            -> rrel_3: rrel_assign: rrel_scp_var: _node_relation;;
-            -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
-            -> rrel_5: rrel_fixed: rrel_scp_var: _node2;;
-			
-			=>nrel_goto: .proc_nodes_is_connected_operator_return;;	
-		*);;
-
-		-> .proc_nodes_is_connected_operator_return(*<-return;;*);;
+		_=> nrel_goto:: .._proc_nodes_is_connected_operator2;;
 	*);;
+
+	_-> .._proc_nodes_is_connected_operator2 (*
+		_<- call;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: proc_print_idtf;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._proc_nodes_is_connected_param1 (*
+			_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _node2;;
+		*);;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _descr1;;
+
+		_=> nrel_goto:: .._proc_nodes_is_connected_operator3;;
+	*);;
+
+	_-> .._proc_nodes_is_connected_operator3 (*
+		_<- waitReturn;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _descr1;;
+
+		_=> nrel_goto:: .._proc_nodes_is_connected_operator4;;
+	*);;
+
+	_-> .._proc_nodes_is_connected_operator4 (*
+		_<- ifType;;
+		_-> rrel_1:: rrel_fixed:: rrel_class:: rrel_scp_const:: _node2;;
+
+		_=> nrel_else:: .._proc_nodes_is_connected_operator5;;
+		_=> nrel_then:: .._proc_nodes_is_connected_operator6;;
+	*);;
+
+	_-> .._proc_nodes_is_connected_operator6 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _node2;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _node_relation;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _node1;;
+
+		_=> nrel_else:: .._proc_nodes_is_connected_operator7;;
+		_=> nrel_then:: .._proc_nodes_is_connected_operator_return;;
+	*);;
+
+	_-> .._proc_nodes_is_connected_operator5 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _node1;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _node_relation;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: _node2;;
+
+		_=> nrel_else:: .._proc_nodes_is_connected_operator9;;
+		_=> nrel_then:: .._proc_nodes_is_connected_operator_return;;
+	*);;
+
+	_-> .._proc_nodes_is_connected_operator_return (*
+		_<- return;;
+
+	*);;
+
+	_-> .._proc_nodes_is_connected_operator9 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _node1;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _node_relation;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: _node2;;
+
+		_=> nrel_goto:: .._proc_nodes_is_connected_operator_return;;
+	*);;
+
+	_-> .._proc_nodes_is_connected_operator7 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _node2;;
+		_-> rrel_2:: rrel_assign:: rrel_neg:: rrel_scp_var:: _node_relation;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _node1;;
+
+		_=> nrel_goto:: .._proc_nodes_is_connected_operator_return;;
+	*);;
+
 *);;
 
+*];;
