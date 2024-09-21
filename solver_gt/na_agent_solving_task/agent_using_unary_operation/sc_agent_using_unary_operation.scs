@@ -2,15 +2,20 @@ agent_using_unary_operation
 => nrel_main_idtf:
 	[sc-агент выполнения унарной операции] (* <- lang_ru;; *);
 <- abstract_sc_agent;
-=> nrel_primary_initiation_condition: (sc_event_add_output_arc => question_initiated);
-=> nrel_initiation_condition_and_result: (sc_agent_using_unary_operation_initiation_condition => sc_agent_using_unary_operation_result);
+=> nrel_primary_initiation_condition: (sc_event_after_generate_outgoing_arc => action_initiated);
+=> nrel_initiation_condition_and_result: (..sc_agent_using_unary_operation_initiation_condition => ..sc_agent_using_unary_operation_result);
 => nrel_sc_agent_action_class:
-    question_using_unary_operation;
+    action_using_unary_operation
+    (*
+    <- sc_node_class;;
+    <= nrel_inclusion:
+        information_action;;
+    *);
 <= nrel_sc_agent_key_sc_elements:
 	{
-		question_initiated;
-		question;
-		question_using_unary_operation
+		action_initiated;
+		action;
+		action_using_unary_operation
 	};
 <- key_sc_element:
 	sc_agent_using_unary_operation_behavior
@@ -36,19 +41,19 @@ agent_using_unary_operation
 
 ..sc_agent_using_unary_operation_initiation_condition
 = [*
-	question_using_unary_operation _-> .._question_bin;;
-	question_initiated _-> .._question_bin;;
-	question _-> .._question_bin;;
-	.._question_bin _-> rrel_1:: .._parameter1;;
-	.._question_bin _-> rrel_2:: .._parameter2;;
+	action_using_unary_operation _-> .._action_bin;;
+	action_initiated _-> .._action_bin;;
+	action _-> .._action_bin;;
+	.._action_bin _-> rrel_1:: .._parameter1;;
+	.._action_bin _-> rrel_2:: .._parameter2;;
 *];;
 
 ..sc_agent_using_unary_operation_result
 = [*
-	question_using_unary_operation _-> .._question_bin;;
-	question_finished _-> .._question_bin;;
-	question _-> .._question_bin;;
-	/*.._question_bin _=> nrel_answer:: .._answer_bin;;*/
-	.._question_bin _-> rrel_1:: .._parameter1;;
-	.._question_bin _-> rrel_2:: .._parameter2;;
+	action_using_unary_operation _-> .._action_bin;;
+	action_finished _-> .._action_bin;;
+	action _-> .._action_bin;;
+	/*.._action_bin _=> nrel_result:: .._result_bin;;*/
+	.._action_bin _-> rrel_1:: .._parameter1;;
+	.._action_bin _-> rrel_2:: .._parameter2;;
 *];;                   

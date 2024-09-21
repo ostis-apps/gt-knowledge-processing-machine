@@ -11,7 +11,7 @@ _<- scp_process;
 
 _-> rrel_1:: rrel_in:: _current;
 _-> rrel_2:: rrel_in:: _graph;
-_-> rrel_3:: rrel_in:: _answer;
+_-> rrel_3:: rrel_in:: _result;
 _<= nrel_decomposition_of_action:: .._actions (*
 
 	_-> rrel_1:: .._full_checking_operator0 (*
@@ -78,7 +78,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
 	_-> .._full_checking_operator7 (*
 		_<- genElStr3;;
-		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _answer;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _result;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _graph;;
 

@@ -10,7 +10,7 @@ proc_add_min_tree = [*
 _<- scp_process;
 
 _-> rrel_1:: rrel_in:: _set;
-_-> rrel_2:: rrel_in:: _answer;
+_-> rrel_2:: rrel_in:: _result;
 _<= nrel_decomposition_of_action:: .._actions (*
 
 	_-> rrel_1:: .._proc_add_min_tree_operator0 (*
@@ -66,7 +66,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
 	_-> .._proc_add_min_tree_operator6 (*
 		_<- genElStr3;;
-		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _answer;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _result;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _ara1;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _arc_in_ans;;
 
@@ -75,7 +75,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
 	_-> .._proc_add_min_tree_operator7 (*
 		_<- genElStr3;;
-		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _answer;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _result;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _ara1;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _vertex1;;
 
@@ -84,7 +84,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
 	_-> .._proc_add_min_tree_operator8 (*
 		_<- genElStr3;;
-		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _answer;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _result;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _ara1;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _curr_arc;;
 
@@ -93,7 +93,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
 	_-> .._proc_add_min_tree_operator9 (*
 		_<- genElStr3;;
-		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _answer;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _result;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _ara1;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _vertex2;;
 

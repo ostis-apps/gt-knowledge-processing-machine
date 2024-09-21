@@ -25,7 +25,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
 	_-> .._agent_solving_complex_task_operator1 (*
 		_<- searchElStr3;;
-		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: question_solving_complex_task;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: action_solving_complex_task;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _quest;;
 
@@ -64,14 +64,14 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
 	_-> .._agent_solving_complex_task_operator7 (*
 		_<- genEl;;
-		_-> rrel_1:: rrel_assign:: rrel_const:: rrel_node:: rrel_struct:: rrel_scp_var:: _answer;;
+		_-> rrel_1:: rrel_assign:: rrel_const:: rrel_node:: rrel_struct:: rrel_scp_var:: _result;;
 
 		_=> nrel_goto:: .._agent_solving_complex_task_operator8;;
 	*);;
 
 	_-> .._agent_solving_complex_task_operator_finish_unsuccessfully (*
 		_<- genElStr3;;
-		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: question_finished_unsuccessfully;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: action_finished_unsuccessfully;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _quest;;
 
@@ -110,7 +110,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: proc_add_solver_solution_to_outline;;
 		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._agent_solving_complex_task_param1 (*
 			_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _solution_tree_root;;
-			_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _answer;;
+			_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _result;;
 		*);;
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _descr;;
 
@@ -128,16 +128,16 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_<- genElStr5;;
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _quest;;
 		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_const:: rrel_scp_var:: _arc;;
-		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _answer;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _result;;
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
-		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_answer;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_result;;
 
 		_=> nrel_goto:: .._agent_solving_complex_task_operator14;;
 	*);;
 
 	_-> .._agent_solving_complex_task_operator14 (*
 		_<- genElStr3;;
-		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: question_finished_successfully;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: action_finished_successfully;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _quest;;
 
