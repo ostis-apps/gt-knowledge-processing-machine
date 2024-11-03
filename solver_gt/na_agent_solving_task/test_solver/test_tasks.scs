@@ -3,7 +3,7 @@ test_template_class_for_graph =
 .._class_action
     <-_ action_solving_complex_task;
     _-> .._class_param;;
-@target_edge = ( _target_class _-/> _input_graph );;
+@target_edge = ( _target_class _/> _input_graph );;
 .._class_param
     _-> rrel_input::
         input_graph;
