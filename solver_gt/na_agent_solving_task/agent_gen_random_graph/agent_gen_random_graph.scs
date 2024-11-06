@@ -1,0 +1,229 @@
+sc_agent_gen_random_graph
+=> nrel_main_idtf:
+	[агентная scp-программа  генерации случайного графа] (* <- lang_ru;; *);
+	[agent scp-program of generating a random graph] (* <- lang_en;; *);
+<- scp_program;
+<- agent_scp_program;
+-> rrel_key_sc_element: .._process1;;
+
+sc_agent_gen_random_graph = [*
+.._process1
+_<- scp_process;
+
+_-> rrel_1:: rrel_in:: _event;
+_-> rrel_2:: rrel_in:: _input_arc;
+_<= nrel_decomposition_of_action:: .._actions (*
+
+	_-> rrel_1:: .._agent_gen_random_graph_operator0 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_assign:: rrel_scp_var:: _temp;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: _input_arc;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _quest;;
+
+		_=> nrel_goto:: .._agent_gen_random_graph_operator1;;
+	*);;
+
+	_-> .._agent_gen_random_graph_operator1 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: action_generate_random_graph;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _quest;;
+
+		_=> nrel_else:: .._agent_gen_random_graph_operator2;;
+		_=> nrel_then:: .._agent_gen_random_graph_operator3;;
+	*);;
+
+	_-> .._agent_gen_random_graph_operator3 (*
+		_<- printNl;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: [Start work agent_generate_graph];;
+
+		_=> nrel_goto:: .._agent_gen_random_graph_operator4;;
+	*);;
+
+	_-> .._agent_gen_random_graph_operator2 (*
+		_<- return;;
+
+	*);;
+
+	_-> .._agent_gen_random_graph_operator4 (*
+		_<- searchElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _quest;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _params;;
+
+		_=> nrel_else:: .._agent_gen_random_graph_operator5;;
+		_=> nrel_then:: .._agent_gen_random_graph_operator6;;
+	*);;
+
+	_-> .._agent_gen_random_graph_operator6 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _params;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _param1;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_1;;
+
+		_=> nrel_else:: .._agent_gen_random_graph_operator5;;
+		_=> nrel_then:: .._agent_gen_random_graph_operator7;;
+	*);;
+
+	_-> .._agent_gen_random_graph_operator5 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: action_finished_unsuccessfully;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _quest;;
+
+		_=> nrel_goto:: .._agent_gen_random_graph_operator2;;
+	*);;
+
+	_-> .._agent_gen_random_graph_operator7 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _params;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _param2;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_2;;
+
+		_=> nrel_else:: .._agent_gen_random_graph_operator5;;
+		_=> nrel_then:: .._agent_gen_random_graph_operator8;;
+	*);;
+
+	_-> ..._agent_gen_random_graph_operator8 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _params;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _param3;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_3;;
+
+		_=> nrel_else:: .._agent_gen_random_graph_operator5;;
+		_=> nrel_then:: .._agent_gen_random_graph_operator9;;
+	*);;
+
+	_-> .._agent_gen_random_graph_operator9 (*
+		_<- genEl;;
+		_-> rrel_1:: rrel_assign:: rrel_const:: rrel_node:: rrel_scp_var:: _result;;
+
+		_=> nrel_goto:: .._agent_gen_random_graph_operator10;;
+	*);;
+
+	_-> .._agent_gen_random_graph_operator10 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: solution_tree_node;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _ara;;
+		_-> rrel_3:: rrel_assign:: rrel_const:: rrel_node:: rrel_scp_var:: _solution_tree_root;;
+
+		_=> nrel_goto:: .._agent_gen_random_graph_operator11;;
+	*);;
+
+	_-> .._agent_gen_random_graph_operator11 (*
+		_<- genElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _solution_tree_root;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_const:: rrel_scp_var:: _arc;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _param3;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_solution_action_goal;;
+
+		_=> nrel_goto:: .._agent_gen_random_graph_operator12;;
+	*);;
+
+	_-> .._agent_gen_random_graph_operator12 (*
+		_<- genElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _solution_tree_root;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_const:: rrel_scp_var:: _arc;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _param1;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_solution_argument_1;;
+
+		_=> nrel_goto:: .._agent_gen_random_graph_operator13;;
+	*);;
+
+	_-> .._agent_gen_random_graph_operator13 (*
+		_<- genElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _solution_tree_root;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_const:: rrel_scp_var:: _arc;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _param2;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_solution_argument_2;;
+
+		_=> nrel_goto:: .._agent_gen_random_graph_operator14;;
+	*);;
+
+	_-> .._agent_gen_random_graph_operator14 (*
+		_<- call;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: proc_gen_random_graph;;
+		_-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._agent_gen_random_graph_operation_param0 (*
+			_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _param1;;
+			_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _param2;;
+			_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _param3;;
+			_-> rrel_4:: rrel_fixed:: rrel_scp_var:: _solution_tree_root;;
+		*);;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _descr;;
+
+		_=> nrel_goto:: .._agent_gen_random_graph_operator15;;
+	*);;
+
+	_-> .._agent_gen_random_graph_operator15 (*
+		_<- waitReturn;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _descr;;
+
+		_=> nrel_goto:: .._agent_gen_random_graph_operator16;;
+	*);;
+
+	_-> ..._agent_gen_random_graph_operator16 (*
+		_<- searchElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _solution_tree_root;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_scp_var:: _arc;;
+		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _operation_result;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_action_result;;
+
+		_=> nrel_else:: .._agent_gen_random_graph_operator5;;
+		_=> nrel_then:: .._agent_gen_random_graph_operator17;;
+	*);;
+
+	_-> .._agent_gen_random_graph_operator17 (*
+		_<- genElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _result;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _operation_result;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_1;;
+
+		_=> nrel_goto:: .._agent_gen_random_graph_operator18;;
+	*);;
+
+	_-> .._agent_gen_random_graph_operator18 (*
+		_<- genElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _result;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _solution_tree_root;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_2;;
+
+		_=> nrel_goto:: .._agent_gen_random_graph_operator19;;
+	*);;
+
+	_-> .._agent_gen_random_graph_operator19 (*
+		_<- genElStr5;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _quest;;
+		_-> rrel_2:: rrel_assign:: rrel_common:: rrel_const:: rrel_scp_var:: _arc;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _result;;
+		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
+		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_result;;
+
+		_=> nrel_goto:: .._agent_gen_random_graph_operator20;;
+	*);;
+
+	_-> .._agent_gen_random_graph_operator20 (*
+		_<- genElStr3;;
+		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: action_finished_successfully;;
+		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _quest;;
+
+		_=> nrel_goto:: .._agent_gen_random_graph_operator2;;
+	*);;
+
+*);;
+
+*];;
