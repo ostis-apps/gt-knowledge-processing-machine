@@ -5,11 +5,16 @@ sc_agent_gen_random_graph
 <- abstract_sc_agent;
 => nrel_primary_initiation_condition: 
     (sc_event_after_generate_outgoing_arc => action_initiated); 
-=> nrel_sc_agent_action_class:
-    action_generate_random_graph; 
 => nrel_initiation_condition_and_result: 
     (..sc_agent_gen_random_graph_initiation_condition 
         => ..sc_agent_gen_random_graph_initiation_result_condition);
+=> nrel_sc_agent_action_class:
+    action_generate_random_graph
+    (*
+    <- sc_node_class;;
+    <= nrel_inclusion:
+        information_action;;
+    *); 
 <= nrel_sc_agent_key_sc_elements:
 {
     action_initiated;
@@ -24,6 +29,7 @@ sc_agent_gen_random_graph
             agent_gen_random_graph;
             proc_gen_random_graph
         };; 
+        -> sc_agent_gen_random_graph_implementation (* <- active_sc_agent;; *);;
     *);;
 
 ..sc_agent_gen_random_graph_initiation_condition
