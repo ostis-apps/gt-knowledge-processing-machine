@@ -1,0 +1,34 @@
+proc_gen_random_graph
+=> nrel_main_idtf:
+        [Программа генерации случайного графа](* <- lang_ru;; *);
+        [Program for generating random graph](* <- lang_en;; *);
+
+=> nrel_initiation_condition_and_result: (..scp_program_proc_gen_random_graph_initiation_condition
+                                          => ..scp_program_proc_gen_random_graph_result);
+
+-> rrel_key_sc_element: concept_graph;
+-> rrel_solver_key_sc_element: nrel_result;
+
+<- rrel_key_sc_element:
+        ..scp_program_proc_gen_random_graph_behaviour
+        (*
+                <-sc_description_of_scp_program_behaviour;;
+                <= nrel_sc_text_translation:
+                ...
+                (*
+                        -> rrel_example:
+                                [Эта программа генерирует случайный граф и связывает его с исходным графом отношением "сгенерированный граф*"];;
+                *);;
+        *);;
+
+..scp_program_proc_gen_random_graph_initiation_condition
+= [*
+        action_generate_random_graph _-> _action;;
+        action_initiated _-> _action;;
+        _action _-> rrel_1:: _[];;
+*];;
+
+..scp_program_proc_gen_random_graph_result
+= [*
+        _action _-> nrel_result: _generated_graph;;
+*];;
