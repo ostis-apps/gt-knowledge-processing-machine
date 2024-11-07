@@ -47,8 +47,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
                 _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _el1;;
                 _-> rrel_2:: rrel_fixed:: rrel_scp_const:: [0];;
 
-                _=> nrel_then:: .._change_result;;
-                _=> nrel_else:: .._sub_from_number;;
+                _=> nrel_then:: .._sub_from_number;;
+                _=> nrel_else:: .._change_result;;
         *);;
 
         _-> .._sub_from_number (*
@@ -62,7 +62,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
         _-> .._gen_vertex (*
                 _<- genElStr3;;
-                _-> rrel_1:: rrel_assign:: rrel_scp_var:: _set;;
+                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _result;;
                 _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_const_pos_perm:: _arc1;;
                 _-> rrel_3:: rrel_assign:: rrel_scp_var:: _node_in_graph;;
 
