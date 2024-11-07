@@ -9,12 +9,14 @@ proc_gen_random_graph = [*
 .._process1
 _<- scp_process;;
 
+_-> rrel_1:: rrel_in:: _number_of_vert;
+_-> rrel_2:: rrel_in:: action1;;
 _<= nrel_decomposition_of_action:: .._actions (*
 
-        _-> .._create_result (*
+        _-> rrel_1:: .._create_result (*
                 _<- genElStr5;;
-                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _action;;
-                _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_common:: _arc_to_result;;
+                _-> rrel_1:: rrel_fixed:: rrel_scp_const:: rrel_const:: action1;;
+                _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_common:: rrel_const:: _arc_to_result;;
                 _-> rrel_3:: rrel_assign:: rrel_scp_var:: rrel_struct:: rrel_const:: _result;;
                 _-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_const_pos_perm:: _arc_to_arc;;
                 _-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_result;;
@@ -22,32 +24,21 @@ _<= nrel_decomposition_of_action:: .._actions (*
                 _=> nrel_goto:: .._search_link;;
         *);;
 
-        _-> .._search_link (*
-                _<- searchElStr5;;
-                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _action;;
-                _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_const_pos_perm:: _arc2;;
-                _-> rrel_3:: rrel_assign:: rrel_scp_var:: _number_of_vert;;
-                _-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_const_pos_perm:: _arc3;;
-                _-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_1;;
-
-                _=> nrel_goto:: .._copy_link_content;;
-        *);;
-
         _-> .._copy_link_content (*
-                _<- contAdd;;
+                _<- varAssign;;
                 _-> rrel_1:: rrel_assign:: rrel_scp_var:: _el1;;
-                _-> rrel_2:: rrel_fixed:: rrel_scp_var:: _number_of_vert;;
+                _-> rrel_2:: rrel_fixed:: rrel_scp_const:: _number_of_vert;;
 
                 _=> nrel_goto:: .._check_condition;;
         *);;
 
         _-> .._check_condition (*
-                _<- ifEq;;
+                _<- ifGr;;
                 _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _el1;;
                 _-> rrel_2:: rrel_fixed:: rrel_scp_const:: [0];;
 
-                _=> nrel_then:: .._change_result;;
-                _=> nrel_else:: .._sub_from_number;;
+                _=> nrel_then:: .._sub_from_number;;
+                _=> nrel_else:: .._change_result;;
         *);;
 
         _-> .._sub_from_number (*
@@ -61,7 +52,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
         _-> .._gen_vertex (*
                 _<- genElStr3;;
-                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _set;;
+                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _result;;
                 _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_const_pos_perm:: _arc1;;
                 _-> rrel_3:: rrel_assign:: rrel_scp_var:: _node_in_graph;;
 
@@ -70,7 +61,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
         _-> .._change_result (*
                 _<- genElStr5;;
-                _-> rrel1:: rrel_fixed:: rrel_scp_var:: _action;;
+                _-> rrel_1:: rrel_fixed:: rrel_scp_const:: rrel_const:: action1;;
                 _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_common:: _arc_to_result;;
                 _-> rrel_3:: rrel_fixed:: rrel_scp_var:: _set;;
                 _-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_const_pos_perm:: _arc_to_arc;;
