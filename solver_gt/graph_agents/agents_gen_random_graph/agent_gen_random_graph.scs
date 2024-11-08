@@ -53,7 +53,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
         _-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_const_pos_perm:: _arc2;;
         _-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_link;;
 
-        _=> nrel_then:: .._agent_gen_random_graph_operator_create_result;;
+        _=> nrel_then:: .._agent_gen_random_graph_call_operator;;
         _=> nrel_else:: .._agent_gen_random_graph_operator_unsuccess;;
     *);;
 
