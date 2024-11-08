@@ -82,6 +82,17 @@ _<= nrel_decomposition_of_action:: .._actions (*
         _<- waitReturn;;
         _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _descr;;
 
+        _=> nrel_goto:: .._agent_gen_random_graph_operator_take_result;;
+    *);;
+
+    _-> .._agent_gen_random_graph_operator_take_result (*
+        _<- genElStr5;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _quest;;
+        _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_common:: rrel_const:: _arc_to_result;;
+        _-> rrel_3:: rrel_fixed:: rrel_scp_var:: _result;;
+        _-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_arc;;
+        _-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_result;;
+
         _=> nrel_goto:: .._agent_gen_random_graph_operator_success;;
     *);;
 
