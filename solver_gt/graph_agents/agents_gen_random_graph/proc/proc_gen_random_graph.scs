@@ -14,12 +14,8 @@ _-> rrel_2:: rrel_out:: _result;
 _<= nrel_decomposition_of_action:: .._actions (*
 
         _-> rrel_1:: .._create_result (*
-                _<- genElStr5;;
-                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: rrel_const:: action1;;
-                _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_common:: rrel_const:: _arc_to_result;;
-                _-> rrel_3:: rrel_assign:: rrel_scp_var:: rrel_struct:: rrel_const:: _result;;
-                _-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_arc;;
-                _-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_result;;
+                _<- genEl;;
+                _-> rrel_1:: rrel_assign:: rrel_scp_var:: rrel_const:: rrel_node:: _result;;
 
                 _=> nrel_goto:: .._copy_link_content;;
         *);;
@@ -38,7 +34,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
                 _-> rrel_2:: rrel_fixed:: rrel_scp_const:: [0];;
 
                 _=> nrel_then:: .._sub_from_number;;
-                _=> nrel_else:: .._change_result;;
+                _=> nrel_else:: .._return_operator;;
         *);;
 
         _-> .._sub_from_number (*
@@ -57,17 +53,6 @@ _<= nrel_decomposition_of_action:: .._actions (*
                 _-> rrel_3:: rrel_assign:: rrel_scp_var:: _node_in_graph;;
 
                 _=> nrel_goto:: .._check_condition;;
-        *);;
-
-        _-> .._change_result (*
-                _<- genElStr5;;
-                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: rrel_const:: action1;;
-                _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_common:: _arc_to_result;;
-                _-> rrel_3:: rrel_fixed:: rrel_scp_var:: _set;;
-                _-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_arc;;
-                _-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_result;;
-
-                _=> nrel_goto:: .._return_operator;;
         *);;
 
         _-> .._return_operator (*
