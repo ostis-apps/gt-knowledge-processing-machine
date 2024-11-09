@@ -7,7 +7,7 @@ proc_gen_random_graph
 
 proc_gen_random_graph = [*
 .._process1
-_<- scp_process;;
+_<- scp_process;
 
 _-> rrel_1:: rrel_in:: _number_of_vert;
 _-> rrel_2:: rrel_out:: _result;
@@ -50,7 +50,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
                 _<- genElStr3;;
                 _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _result;;
                 _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc1;;
-                _-> rrel_3:: rrel_assign:: rrel_scp_var:: _node_in_graph;;
+                _-> rrel_3:: rrel_assign:: rrel_scp_var:: rrel_node:: _node_in_graph;;
 
                 _=> nrel_goto:: .._check_condition;;
         *);;
