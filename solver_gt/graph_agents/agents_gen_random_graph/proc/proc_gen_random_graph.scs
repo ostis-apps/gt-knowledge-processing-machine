@@ -10,12 +10,13 @@ proc_gen_random_graph = [*
 _<- scp_process;
 
 _-> rrel_1:: rrel_in:: _number_of_vert;
-_-> rrel_2:: rrel_out:: _result;
+_-> rrel_2:: rrel_in:: _chance_of_connection;
+_-> rrel_3:: rrel_out:: _result;
 _<= nrel_decomposition_of_action:: .._actions (*
 
         _-> rrel_1:: .._create_result (*
                 _<- genEl;;
-                _-> rrel_1:: rrel_assign:: rrel_scp_var:: rrel_const:: rrel_node:: _result;;
+                _-> rrel_1:: rrel_assign:: rrel_scp_var:: rrel_const:: rrel_node:: rrel_struct:: _result;;
 
                 _=> nrel_goto:: .._copy_link_content;;
         *);;
@@ -48,9 +49,9 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
         _-> .._gen_vertex (*
                 _<- genElStr3;;
-                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _result;;
+                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: rrel_struct:: _result;;
                 _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc1;;
-                _-> rrel_3:: rrel_assign:: rrel_scp_var:: rrel_node:: _node_in_graph;;
+                _-> rrel_3:: rrel_assign:: rrel_scp_var:: rrel_node:: rrel_const:: _node_in_graph;;
 
                 _=> nrel_goto:: .._check_condition;;
         *);;
