@@ -63,7 +63,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
                 _-> rrel_3:: rrel_assign:: rrel_scp_var:: rrel_node:: rrel_const:: _node_in_set1;;
                 _-> rrel_set_3:: rrel_assign:: rrel_scp_var:: _graph_vertexes1;;
 
-                _=> nrel_goto:: .._create_new_set_with_vertexes;;
+                _=> nrel_goto:: .._operator_take_vertex_from_set1;;
         *);;
 
         _-> .._operator_take_vertex_from_set1 (*
