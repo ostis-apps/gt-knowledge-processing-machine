@@ -66,6 +66,23 @@ _<= nrel_decomposition_of_action:: .._actions (*
                 _=> nrel_goto:: .._create_new_set_with_vertexes;;
         *);;
 
+        _-> .._operator_take_vertex_from_set1 (*
+                _<- searchElStr3;;
+                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _graph_vertexes1;;
+                _-> rrel_2:: rrel_assign:: rrel_scp_var:: _arc_to_new_node;;
+                _-> rrel_3:: rrel_assign:: rrel_scp_var:: _node_in_set1;;
+
+                _=> nrel_then:: .._delete_el_from_set1;;
+                _=> nrel_else:: .._return_operator;;
+        *);;
+
+        _-> .._delete_el_from_set1 (*
+                _<- eraseEl;;
+                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _arc_to_new_node;;
+
+                _=> nrel_goto:: .._create_new_set_with_vertexes;;
+        *);;
+
         _-> .._create_new_set_with_vertexes (*
                 _<- searchSetStr3;;
                 _-> rrel_1:: rrel_fixed:: rrel_scp_var:: rrel_struct:: _result;;
@@ -73,17 +90,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
                 _-> rrel_3:: rrel_assign:: rrel_scp_var:: rrel_node:: rrel_const:: _node_in_set2;;
                 _-> rrel_set_3:: rrel_assign:: rrel_scp_var:: _graph_vertexes2;;
 
-                _=> nrel_goto:: .._operator_take_vertex_from_set1;;
-        *);;
-
-        _-> .._operator_take_vertex_from_set1 (*
-                _<- searchElStr3;;
-                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _graph_vertexes1;;
-                _-> rrel_2:: rrel_assign:: rrel_scp_var:: _arc_to_new_node;;
-                _-> rrel_3:: rrel_assign:: rrel_scp_var:: _node_in_set1;;
-
-                _=> nrel_then:: .._operator_take_vertex_from_set2;;
-                _=> nrel_else:: .._return_operator;;
+                _=> nrel_goto:: .._operator_take_vertex_from_set2;;
         *);;
 
         _-> .._operator_take_vertex_from_set2 (*
@@ -92,8 +99,15 @@ _<= nrel_decomposition_of_action:: .._actions (*
                 _-> rrel_2:: rrel_assign:: rrel_scp_var:: _arc_to_new_node2;;
                 _-> rrel_3:: rrel_assign:: rrel_scp_var:: _node_in_set2;;
 
-                _=> nrel_then:: .._gen_random_number;;
+                _=> nrel_then:: .._delete_el_from_set2;;
                 _=> nrel_else:: .._operator_take_vertex_from_set1;;
+        *);;
+
+        _-> .._delete_el_from_set2 (*
+                _<- eraseEl;;
+                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _arc_to_new_node2;;
+
+                _=> nrel_goto:: .._gen_random_number;;
         *);;
 
         _-> .._gen_random_number (*
