@@ -9,10 +9,11 @@ ui_menu_gen_random_graph => ui_nrel_command_template:
 		_-> rrel_2:: ui_arg_2;;
 	*);;
 	._action_generate_random_graph_instance _<- action;;
+	._action_generate_random_graph_instance _=> nrel_max_customer_waiting_time_for_action_to_finish:: [30000];;
 *];;
-ui_menu_gen_random_graph =>ui_nrel_command_lang_template: [Решение задачи: $ui_arg_1]
+ui_menu_gen_random_graph =>ui_nrel_command_lang_template: [Решение задачи]
 (*
 	<- lang_ru;;
 *);;
-ui_menu_gen_random_graph =>ui_nrel_command_lang_template: [Task solution: $ui_arg_1]
+ui_menu_gen_random_graph =>ui_nrel_command_lang_template: [Task solution]
 (* <- lang_en;; *);;
