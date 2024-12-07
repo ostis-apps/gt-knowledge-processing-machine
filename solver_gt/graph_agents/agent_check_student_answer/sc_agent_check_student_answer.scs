@@ -38,7 +38,7 @@ sc_agent_check_student_answer
 	action_initiated _-> .._action;;
 	action _-> .._action;;
 	.._action _-> rrel_1:: .._parameter1;;
-    .._action _-> nrel_expected_answer:: .._parameter2;;
+    .._action _=> nrel_expected_answer:: .._parameter2;;
 *];; 
 
 ..sc_agent_check_student_answer_result_condition

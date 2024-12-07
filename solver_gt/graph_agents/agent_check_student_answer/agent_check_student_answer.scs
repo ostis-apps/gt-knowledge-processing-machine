@@ -20,7 +20,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
         _-> rrel_2:: rrel_fixed:: rrel_scp_const:: _input_arc;;
         _-> rrel_3:: rrel_assign:: rrel_scp_var:: _quest;;
 
-        _=> nrel_goto:: .._agent_gen_random_graph_operator1;;
+        _=> nrel_goto:: .._agent_check_student_answer_operator1;;
     *);;
 
     _-> .._agent_check_student_answer_operator1 (*
@@ -47,7 +47,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
     _-> .._agent_check_student_answer_get_arg1 (*
         _<- searchElStr5;;
-        _-> rrel_1:: rrel_fixed:: rrel_sc_var:: _quest;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _quest;;
         _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc1;;
         _-> rrel_3:: rrel_assign:: rrel_scp_var:: rrel_struct:: _param1;;
         _-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc2;;
@@ -68,8 +68,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
 
     _-> .._agent_check_student_answer_get_arg2 (*
         _<- searchElStr5;;
-        _-> rrel_1:: rrel_fixed:: rrel_sc_var:: _quest;;
-        _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc1;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _quest;;
+        _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_common:: _arc1;;
         _-> rrel_3:: rrel_assign:: rrel_scp_var:: rrel_struct:: _param2;;
         _-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc2;;
         _-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_expected_answer;;
@@ -138,7 +138,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
     _-> .._agent_check_student_answer_operator_check_state (*
         _<- searchElStr5;;
         _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _new_action;;
-        _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_result;;
+        _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_common:: _arc_to_result;;
         _-> rrel_3:: rrel_assign:: rrel_scp_var:: rrel_struct:: _result_structure;;
         _-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_arc3;;
         _-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_result;;
@@ -158,7 +158,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
         _<- call;;
         _-> rrel_1:: rrel_fixed:: rrel_scp_const:: proc_check_student_answer;;
         _-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._agent_check_student_answer_params (*
-                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _param1;;
+                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _result_structure;;
                 _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_struct:: _result;;
         *);;
         _-> rrel_3:: rrel_assign:: rrel_scp_var:: _descr;;
