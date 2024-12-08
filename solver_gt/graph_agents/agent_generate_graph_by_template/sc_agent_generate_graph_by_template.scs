@@ -1,0 +1,55 @@
+sc_agent_generate_graph_by_template
+<- abstract_sc_agent;
+=> nrel_primary_initiation_condition:
+    (sc_event_after_generate_outgoing_arc => action_initiated);
+=> nrel_sc_agent_action_class:
+    action_generate_graph_by_template
+    (*
+        <- sc_node_class;;
+        <= nrel_inclusion:
+            information_action;;
+    *);
+=> nrel_initiation_condition_and_result:
+    (..agent_generate_graph_by_template_initiation_condition
+        => ..agent_generate_graph_by_template_result_condition);
+<= nrel_sc_agent_key_sc_elements:
+{
+    action_initiated;
+    action_generate_graph_by_template
+};
+=> nrel_inclusion:
+    agent_generate_graph_by_template_implementation
+    (*
+        <- platform_independent_abstract_sc_agent;;
+        <= nrel_sc_agent_program:
+        {
+            agent_generate_graph_by_template;
+            proc_generate_graph_by_template
+        };;
+        -> sc_agent_generate_graph_by_template_scp (* <- active_sc_agent;; *);;
+    *);;
+
+..agent_generate_graph_by_template_initiation_condition
+= [*
+    action_generate_graph_by_template _-> .._action;;
+    action_initiated _-> .._action;;
+    .._action _-> rrel_1:: .._graph_template;;
+*];;
+
+..agent_generate_graph_by_template_result_condition
+= [*
+    .._set _=> nrel_set_power:: _[];;
+*];;
+
+action_generate_graph_by_template
+-> test_action_generate_graph_by_template
+(*
+    -> rrel_1: template_for_action_generate_graph_by_template;;
+*);;
+
+template_for_action_generate_graph_by_template
+= [*
+    _...
+    _=> _...;
+    _<= _...;;
+*];;
