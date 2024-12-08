@@ -115,6 +115,17 @@ _<= nrel_decomposition_of_action:: .._actions (*
         _-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_arc2;;
         _-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_2;;
 
+        _=> nrel_goto:: .._agent_check_student_answer_gen;;
+    *);;
+
+    _-> .._agent_check_student_answer_gen (*
+        _<- genElStr5;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _new_action;;
+        _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_common:: rrel_const:: _arc_to_time;;
+        _-> rrel_3:: rrel_fixed:: rrel_scp_const:: [99999];;
+        _-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_time_arc;;
+        _-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_max_customer_waiting_time_for_action_to_finish;;
+
         _=> nrel_goto:: .._agent_check_student_answer_operator6;;
     *);;
 
