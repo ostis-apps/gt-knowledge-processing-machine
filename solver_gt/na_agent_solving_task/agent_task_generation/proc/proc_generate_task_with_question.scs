@@ -117,6 +117,13 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _generation_param;;
 
+		_=> nrel_goto:: .._proc_generate_task_with_action_operator13_generate_task_structure;;
+	*);;
+
+	_-> .._proc_generate_task_with_action_operator13_generate_task_structure (*
+		_<- genEl;;
+		_-> rrel_1:: rrel_assign:: rrel_scp_var:: rrel_node:: rrel_struct:: rrel_const:: _generated_task;;
+
 		_=> nrel_goto:: .._proc_generate_task_with_action_operator13;;
 	*);;
 
@@ -125,7 +132,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: _task_template;;
 		_-> rrel_2:: rrel_assign:: rrel_scp_var:: _O;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _generation_params;;
-		_-> rrel_4:: rrel_assign:: rrel_scp_var:: _generated_task;;
+		_-> rrel_4:: rrel_fixed:: rrel_scp_var:: _generated_task;;
 
 		_=> nrel_goto:: .._proc_generate_task_with_action_operator14;;
 	*);;
