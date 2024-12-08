@@ -36,6 +36,11 @@
 
 
  7. Если перейти по указанной структуре с помощью выбора опции **Какие элементы принадлежат указываемому множеству?**, то можно увидеть результат выполнения агента:
-![image](https://github.com/user-attachments/assets/8f964044-38de-4942-8e18-8500af7e2226)
+![image](https://github.com/user-attachments/assets/ae49821f-d11f-4e91-863d-335da5549a64)
+![image](https://github.com/user-attachments/assets/c4f48949-eac7-48f5-afc1-e5e14d8ea425)
+![image](https://github.com/user-attachments/assets/908805d1-dc06-40b9-9196-a50ed4d6e36a)
+
+
+
 
  
