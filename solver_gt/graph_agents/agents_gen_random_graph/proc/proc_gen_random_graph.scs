@@ -1,0 +1,148 @@
+proc_gen_random_graph
+=> nrel_main_idtf:
+        [Программа генерации случайного графа](* <- lang_ru;; *);
+        [Program for generating random graph](* <- lang_en;; *);
+<- scp_program;
+-> rrel_key_sc_element: .._process1;;
+
+proc_gen_random_graph = [*
+.._process1
+_<- scp_process;
+
+_-> rrel_1:: rrel_in:: _number_of_vert;
+_-> rrel_2:: rrel_in:: _chance_of_connection;
+_-> rrel_3:: rrel_out:: _result;
+_<= nrel_decomposition_of_action:: .._actions (*
+
+        _-> rrel_1:: .._create_result (*
+                _<- genEl;;
+                _-> rrel_1:: rrel_assign:: rrel_scp_var:: rrel_const:: rrel_node:: rrel_struct:: _result;;
+
+                _=> nrel_goto:: .._copy_link_content;;
+        *);;
+
+        _-> .._copy_link_content (*
+                _<- varAssign;;
+                _-> rrel_1:: rrel_assign:: rrel_scp_var:: _el1;;
+                _-> rrel_2:: rrel_fixed:: rrel_scp_const:: _number_of_vert;;
+
+                _=> nrel_goto:: .._check_condition;;
+        *);;
+
+        _-> .._check_condition (*
+                _<- ifGr;;
+                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _el1;;
+                _-> rrel_2:: rrel_fixed:: rrel_scp_const:: [0];;
+
+                _=> nrel_then:: .._sub_from_number;;
+                _=> nrel_else:: .._create_set_with_vertexes;;
+        *);;
+
+        _-> .._sub_from_number (*
+                _<- contSub;;
+                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _el1;;
+                _-> rrel_2:: rrel_fixed:: rrel_scp_var:: _el1;;
+                _-> rrel_3:: rrel_fixed:: rrel_scp_const:: [1];;
+
+                _=> nrel_goto:: .._gen_vertex;;
+        *);;
+
+        _-> .._gen_vertex (*
+                _<- genElStr3;;
+                _-> rrel_1:: rrel_fixed:: rrel_scp_var::  _result;;
+                _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc1;;
+                _-> rrel_3:: rrel_assign:: rrel_scp_var:: rrel_node:: rrel_const:: _node_in_graph;;
+
+                _=> nrel_goto:: .._check_condition;;
+        *);;
+
+        _-> .._create_set_with_vertexes (*
+                _<- searchSetStr3;;
+                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: rrel_struct:: _result;;
+                _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_node;;
+                _-> rrel_3:: rrel_assign:: rrel_scp_var:: rrel_node:: rrel_const:: _node_in_set1;;
+                _-> rrel_set_3:: rrel_assign:: rrel_scp_var:: _graph_vertexes1;;
+
+                _=> nrel_goto:: .._operator_take_vertex_from_set1;;
+        *);;
+
+        _-> .._operator_take_vertex_from_set1 (*
+                _<- searchElStr3;;
+                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _graph_vertexes1;;
+                _-> rrel_2:: rrel_assign:: rrel_scp_var:: _arc_to_new_node;;
+                _-> rrel_3:: rrel_assign:: rrel_scp_var:: _node_in_set1;;
+
+                _=> nrel_then:: .._delete_el_from_set1;;
+                _=> nrel_else:: .._return_operator;;
+        *);;
+
+        _-> .._delete_el_from_set1 (*
+                _<- eraseEl;;
+                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _arc_to_new_node;;
+
+                _=> nrel_goto:: .._create_new_set_with_vertexes;;
+        *);;
+
+        _-> .._create_new_set_with_vertexes (*
+                _<- searchSetStr3;;
+                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: rrel_struct:: _result;;
+                _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_node2;;
+                _-> rrel_3:: rrel_assign:: rrel_scp_var:: rrel_node:: rrel_const:: _node_in_set2;;
+                _-> rrel_set_3:: rrel_assign:: rrel_scp_var:: _graph_vertexes2;;
+
+                _=> nrel_goto:: .._operator_take_vertex_from_set2;;
+        *);;
+
+        _-> .._operator_take_vertex_from_set2 (*
+                _<- searchElStr3;;
+                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _graph_vertexes2;;
+                _-> rrel_2:: rrel_assign:: rrel_scp_var:: _arc_to_new_node2;;
+                _-> rrel_3:: rrel_assign:: rrel_scp_var:: _node_in_set2;;
+
+                _=> nrel_then:: .._delete_el_from_set2;;
+                _=> nrel_else:: .._operator_take_vertex_from_set1;;
+        *);;
+
+        _-> .._delete_el_from_set2 (*
+                _<- eraseEl;;
+                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _arc_to_new_node2;;
+
+                _=> nrel_goto:: .._gen_random_number;;
+        *);;
+
+        _-> .._gen_random_number (*
+                _<- contRandom;;
+                _-> rrel_1:: rrel_assign:: rrel_scp_var:: _random;;
+                _-> rrel_2:: rrel_fixed:: rrel_scp_const:: [0];;
+                _-> rrel_3:: rrel_fixed:: rrel_scp_const:: [100];;
+
+                _=> nrel_goto:: .._check_random_number;;
+        *);;
+
+        _-> .._check_random_number (*
+                _<- ifGr;;
+                _-> rrel_1:: rrel_fixed:: rrel_scp_const:: _chance_of_connection;;
+                _-> rrel_2:: rrel_fixed:: rrel_scp_var:: _random;;
+
+                _=> nrel_then:: .._add_arc_to_result;;
+                _=> nrel_else:: .._operator_take_vertex_from_set2;;
+        *);;
+
+        _-> .._add_arc_to_result (*
+                _<- genElStr5;;
+                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _node_in_set1;;
+                _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_var:: rrel_common:: _arc_between_nodes;;
+                _-> rrel_3:: rrel_fixed:: rrel_scp_var:: _node_in_set2;;
+                _-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_from_graph;;
+                _-> rrel_5:: rrel_fixed:: rrel_scp_var:: rrel_struct:: _result;;
+
+                _=> nrel_goto:: .._operator_take_vertex_from_set2;;
+        *);;
+
+        _-> .._return_operator (*
+                _<- return;;
+        *);;
+
+*);;
+
+*];;

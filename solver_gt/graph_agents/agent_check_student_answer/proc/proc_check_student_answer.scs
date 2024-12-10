@@ -1,0 +1,126 @@
+proc_check_student_answer
+=> nrel_main_idtf:
+        [Программа проверки ответа студента](* <- lang_ru;; *);
+        [Program for checking student answer](* <- lang_en;; *);
+<- scp_program;
+-> rrel_key_sc_element: .._process1;;
+
+proc_check_student_answer = [*
+.._process1
+_<- scp_process;
+
+_-> rrel_1:: rrel_in:: _structure;
+_-> rrel_2:: rrel_out:: _result;
+_<= nrel_decomposition_of_action:: .._actions (*
+
+        _-> rrel_1:: .._create_result (*
+                _<- genEl;;
+                _-> rrel_1:: rrel_assign:: rrel_scp_var:: rrel_const:: rrel_node:: rrel_struct:: _result;;
+
+                _=> nrel_goto:: .._find_forward_difference;;
+        *);;
+
+        _-> .._find_forward_difference (*
+                _<- searchElStr5;;
+                _-> rrel_1:: rrel_fixed:: rrel_scp_const:: concept_forward_difference;;
+                _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_diff;;
+                _-> rrel_3:: rrel_assign:: rrel_scp_var:: rrel_struct:: _difference;;
+                _-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_arc4;;
+                _-> rrel_5:: rrel_fixed:: rrel_scp_const:: _structure;;
+
+                _=> nrel_goto:: .._check_forward_difference;;
+        *);;
+
+        _-> .._check_forward_difference (*
+                _<- ifVarAssign;;
+                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _difference;;
+
+                _=> nrel_then:: .._find_forward_structure;;
+                _=> nrel_else:: .._if_no_values;;
+        *);;
+
+         _-> .._if_no_values (*
+                _<- genElStr3;;
+                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _result;;
+                _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_correct;;
+                _-> rrel_3:: rrel_fixed:: rrel_scp_const:: [Student gave right answer!];;
+
+                _=> nrel_goto:: .._return_operator;;
+        *);;
+
+        _-> .._find_forward_structure (*
+                _<- searchElStr5;;
+                _-> rrel_1:: rrel_assign:: rrel_scp_var:: _structure_concept;;
+                _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_diff_structure;;
+                _-> rrel_3:: rrel_assign:: rrel_scp_var:: rrel_struct:: _graph_structure;;
+                _-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_arc;;
+                _-> rrel_5:: rrel_fixed:: rrel_scp_var:: _difference;;
+
+                _=> nrel_goto:: .._add_concept;;
+        *);;
+
+        _-> .._add_concept (*
+                _<- genElStr3;;
+                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _result;;
+                _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_concept;;
+                _-> rrel_3:: rrel_fixed:: rrel_scp_const:: concept_structure_with_elements_not_in_answer;;
+
+                _=> nrel_goto:: .._add_new_structure;;
+        *);;
+
+        _-> .._add_new_structure (*
+                _<- genElStr3;;
+                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _result;;
+                _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_new_structure;;
+                _-> rrel_3:: rrel_assign:: rrel_scp_var:: rrel_struct:: _new_result;;
+
+                _=> nrel_goto:: .._add_concept_structure;;
+        *);;
+
+        _-> .._add_concept_structure (*
+                _<- genElStr5;;
+                _-> rrel_1:: rrel_fixed:: rrel_scp_const:: concept_structure_with_elements_not_in_answer;;
+                _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_from_concept;;
+                _-> rrel_3:: rrel_fixed:: rrel_scp_var:: _new_result;;
+                _-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_concept;;
+                _-> rrel_5:: rrel_fixed:: rrel_scp_var:: _result;;
+
+                _=> nrel_goto:: .._add_concept_to_new_result;;
+        *);;
+
+        _-> .._add_concept_to_new_result (*
+                _<- genElStr3;;
+                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _new_result;;
+                _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _new_arc;;
+                _-> rrel_3:: rrel_fixed:: rrel_scp_var:: _structure_concept;;
+
+                _=> nrel_goto:: .._add_structure_to_new_result;;
+        *);;
+
+        _-> .._add_structure_to_new_result (*
+                _<- genElStr3;;
+                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _new_result;;
+                _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _new_arc2;;
+                _-> rrel_3:: rrel_fixed:: rrel_scp_var:: _graph_structure;;
+
+                _=> nrel_goto:: .._add_arc_to_new_result;;
+        *);;
+
+        _-> .._add_arc_to_new_result (*
+                _<- genElStr5;;
+                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _structure_concept;;
+                _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _new_arc3;;
+                _-> rrel_3:: rrel_fixed:: rrel_scp_var:: _graph_structure;;
+                _-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _new_arc4;;
+                _-> rrel_5:: rrel_fixed:: rrel_scp_var:: _new_result;;
+
+                _=> nrel_goto:: .._return_operator;;
+        *);;
+
+        _-> .._return_operator (*
+                _<- return;;
+        *);;
+
+*);;
+
+*];;

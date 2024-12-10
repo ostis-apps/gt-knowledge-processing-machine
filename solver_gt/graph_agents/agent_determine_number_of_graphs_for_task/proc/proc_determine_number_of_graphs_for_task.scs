@@ -1,0 +1,109 @@
+proc_determine_number_of_graphs_for_task
+=> nrel_main_idtf:
+    [Программа для определения количества графов для задания] (* <- lang_ru;; *);
+	[Program for determining the number of graphs for a task] (* <- lang_en;; *);
+<- scp_program;
+-> rrel_key_sc_element: .._process1;;
+
+
+proc_determine_number_of_graphs_for_task = [*
+.._process1
+_<- scp_process;
+
+_-> rrel_1:: rrel_in:: _task_element;
+_-> rrel_2:: rrel_out:: _result;
+_<= nrel_decomposition_of_action:: .._actions (*
+
+    _-> rrel_1:: .._operator_is_parameter_class (*
+        _<- searchElStr5;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_const:: concept_graph;;
+        _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_common:: _arc_to_concept_graph;;
+        _-> rrel_3:: rrel_fixed:: rrel_scp_const:: _task_element;;
+        _-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_arc_to_concept_graph;;
+        _-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_inclusion;;
+
+        _=> nrel_then:: .._operator_create_result_for_class;;
+        _=> nrel_else:: .._operator_find_arity_of_relation;;
+    *);;
+
+
+    _-> .._operator_find_arity_of_relation (*
+        _<- searchElStr5;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_const:: _task_element;;
+        _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_common:: _arc_to_arity;;
+        _-> rrel_3:: rrel_assign:: rrel_scp_var:: _arity;;
+        _-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_arc_to_arity;;
+        _-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_arity_of_relations;;
+
+        _=> nrel_then:: .._operator_get_arity_of_relation_link;;
+        _=> nrel_else:: .._operator_create_result_with_message_arity_not_found;;
+    *);;
+    
+    
+    _-> .._operator_create_result_with_message_arity_not_found (*
+    	_<- varAssign;;
+        _-> rrel_1:: rrel_assign:: rrel_scp_var:: _result;;
+        _-> rrel_2:: rrel_fixed:: rrel_scp_const:: [arity not found];;
+        
+        _=> nrel_goto:: .._operator_return;;
+    *);;
+
+
+    _-> .._operator_get_arity_of_relation_link (*
+        _<- searchElStr5;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _arity;;
+        _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_common:: _arc_to_arity_link;;
+        _-> rrel_3:: rrel_assign:: rrel_scp_var:: _arity_link;;
+        _-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_arc_to_arity_link;;
+        _-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_system_identifier;;
+
+        _=> nrel_then:: .._operator_calculate_result_for_relation;; 
+        _=> nrel_else:: .._operator_create_result_with_message_arity_link_not_found;;
+    *);;
+    
+    
+    _-> .._operator_create_result_with_message_arity_link_not_found (*
+    	_<- varAssign;;
+        _-> rrel_1:: rrel_assign:: rrel_scp_var:: _result;;
+        _-> rrel_2:: rrel_fixed:: rrel_scp_const:: [arity link not found];;
+        
+        _=> nrel_goto:: .._operator_return;;
+    *);;
+
+
+    _-> .._operator_calculate_result_for_relation (*
+        _<- contSub;;
+        _-> rrel_1:: rrel_assign:: rrel_scp_var:: _result_for_relation;;
+        _-> rrel_2:: rrel_fixed:: rrel_scp_var:: _arity_link;;
+        _-> rrel_3:: rrel_fixed:: rrel_scp_const:: [1];;
+
+        _=> nrel_goto:: .._operator_create_result_for_relation;;
+    *);;
+
+
+    _-> .._operator_create_result_for_class (*
+        _<- varAssign;;
+        _-> rrel_1:: rrel_assign:: rrel_scp_var:: _result;;
+        _-> rrel_2:: rrel_fixed:: rrel_scp_const:: [1];;
+
+        _=> nrel_goto:: .._operator_return;;
+    *);;
+
+
+    _-> .._operator_create_result_for_relation (*
+        _<- varAssign;;
+        _-> rrel_1:: rrel_assign:: rrel_scp_var:: _result;;
+        _-> rrel_2:: rrel_fixed:: rrel_scp_const:: _result_for_relation;;
+
+        _=> nrel_goto:: .._operator_return;;
+    *);;
+
+
+    _-> .._operator_return (*
+        _<- return;;
+    *);;
+
+
+*);;
+
+*];;

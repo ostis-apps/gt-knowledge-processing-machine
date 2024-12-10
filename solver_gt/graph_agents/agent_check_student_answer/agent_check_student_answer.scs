@@ -1,0 +1,217 @@
+agent_check_student_answer
+=> nrel_main_idtf:
+	[агентная scp-программа проверки ответа студента] (* <- lang_ru;; *);
+	[agent scp-program for checking student answer] (* <- lang_en;; *);
+<- scp_program;
+<- agent_scp_program;
+-> rrel_key_sc_element: .._process1;;
+
+agent_check_student_answer = [*
+.._process1
+_<- scp_process;
+
+_-> rrel_1:: rrel_in:: _event;
+_-> rrel_2:: rrel_in:: _input_arc;
+_<= nrel_decomposition_of_action:: .._actions (*
+
+    _-> rrel_1:: .._agent_check_student_answer_operator_start (*
+        _<- searchElStr3;;
+        _-> rrel_1:: rrel_assign:: rrel_scp_var:: _temp;;
+        _-> rrel_2:: rrel_fixed:: rrel_scp_const:: _input_arc;;
+        _-> rrel_3:: rrel_assign:: rrel_scp_var:: _quest;;
+
+        _=> nrel_goto:: .._agent_check_student_answer_operator1;;
+    *);;
+
+    _-> .._agent_check_student_answer_operator1 (*
+        _<- searchElStr3;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_const:: action_check_student_answer;;
+        _-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+        _-> rrel_3:: rrel_fixed:: rrel_scp_var:: _quest;;
+
+        _=> nrel_then:: .._agent_check_student_answer_operator_message;;
+        _=> nrel_else:: .._agent_check_student_answer_operator_return;;
+    *);;
+
+	_-> .._agent_check_student_answer_operator_return (*
+        _<- return;;
+
+    *);;
+
+    _-> .._agent_check_student_answer_operator_message (*
+        _<- printNl;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_const:: [Start work agent_check_student_answer];;
+
+        _=> nrel_goto:: .._agent_check_student_answer_get_arg1;;
+    *);;
+
+    _-> .._agent_check_student_answer_get_arg1 (*
+        _<- searchElStr5;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _quest;;
+        _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc1;;
+        _-> rrel_3:: rrel_assign:: rrel_scp_var:: rrel_struct:: _param1;;
+        _-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc2;;
+        _-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_1;;
+
+        _=> nrel_then:: .._agent_check_student_answer_get_arg2;;
+        _=> nrel_else:: .._agent_check_student_answer_unsuccess;;
+    *);;
+
+    _-> .._agent_check_student_answer_unsuccess (*
+        _<- genElStr3;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_const:: action_finished_unsuccessfully;;
+        _-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+        _-> rrel_3:: rrel_fixed:: rrel_scp_var:: _quest;;
+
+        _=> nrel_goto:: .._agent_check_student_answer_operator_return;;
+    *);;
+
+    _-> .._agent_check_student_answer_get_arg2 (*
+        _<- searchElStr5;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _quest;;
+        _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_common:: _arc1;;
+        _-> rrel_3:: rrel_assign:: rrel_scp_var:: rrel_struct:: _param2;;
+        _-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc2;;
+        _-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_expected_answer;;
+
+        _=> nrel_then:: .._agent_check_student_answer_operator2;;
+        _=> nrel_else:: .._agent_check_student_answer_unsuccess;;
+    *);;
+
+    _-> .._agent_check_student_answer_operator2 (*
+        _<- genElStr3;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_const:: action_compare_structures;;
+        _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_action;;
+        _-> rrel_3:: rrel_assign:: rrel_scp_var:: _new_action;;
+
+        _=> nrel_goto:: .._agent_check_student_answer_operator3;;
+    *);;
+
+    _-> .._agent_check_student_answer_operator3 (*
+        _<- genElStr3;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_const:: action;;
+        _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_action_new;;
+        _-> rrel_3:: rrel_fixed:: rrel_scp_var:: _new_action;;
+
+        _=> nrel_goto:: .._agent_check_student_answer_operator4;;
+    *);;
+
+    _-> .._agent_check_student_answer_operator4 (*
+        _<- genElStr5;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _new_action;;
+        _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_p1;;
+        _-> rrel_3:: rrel_fixed:: rrel_scp_var:: _param1;;
+        _-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_arc1;;
+        _-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_1;;
+
+        _=> nrel_goto:: .._agent_check_student_answer_operator5;;
+    *);;
+
+    _-> .._agent_check_student_answer_operator5 (*
+        _<- genElStr5;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _new_action;;
+        _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_p2;;
+        _-> rrel_3:: rrel_fixed:: rrel_scp_var:: _param2;;
+        _-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_arc2;;
+        _-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_2;;
+
+        _=> nrel_goto:: .._agent_check_student_answer_gen;;
+    *);;
+
+    _-> .._agent_check_student_answer_gen (*
+        _<- genElStr5;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _new_action;;
+        _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_common:: rrel_const:: _arc_to_time;;
+        _-> rrel_3:: rrel_fixed:: rrel_scp_const:: [99999];;
+        _-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_time_arc;;
+        _-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_max_customer_waiting_time_for_action_to_finish;;
+
+        _=> nrel_goto:: .._agent_check_student_answer_operator6;;
+    *);;
+
+    _-> .._agent_check_student_answer_operator6 (*
+        _<- genElStr3;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_const:: action_initiated;;
+        _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_action2;;
+        _-> rrel_3:: rrel_fixed:: rrel_scp_var:: _new_action;;
+
+        _=> nrel_goto:: .._agent_check_student_answer_operator_wait;;
+    *);;
+
+    _-> .._agent_check_student_answer_operator_wait (*
+        _<- sys_wait;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_const:: sc_event_after_generate_outgoing_arc;;
+        _-> rrel_2:: rrel_fixed:: rrel_scp_var:: _new_action;;
+
+        _=> nrel_goto:: .._agent_check_student_answer_operator_check_state;;
+    *);;
+
+    _-> .._agent_check_student_answer_operator_check_state (*
+        _<- searchElStr5;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _new_action;;
+        _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_common:: _arc_to_result;;
+        _-> rrel_3:: rrel_assign:: rrel_scp_var:: rrel_struct:: _result_structure;;
+        _-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_arc3;;
+        _-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_result;;
+
+        _=> nrel_then:: .._agent_check_student_answer_call;;
+        _=> nrel_else:: .._agent_check_student_answer_operator_print;;
+    *);;
+
+    _-> .._agent_check_student_answer_operator_print (*
+        _<- printNl;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_const:: [Can not find result node];;
+
+        _=> nrel_goto:: .._agent_check_student_answer_unsuccess;;
+    *);;
+
+    _-> .._agent_check_student_answer_call (*
+        _<- call;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_const:: proc_check_student_answer;;
+        _-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._agent_check_student_answer_params (*
+                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _result_structure;;
+                _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_struct:: _result;;
+        *);;
+        _-> rrel_3:: rrel_assign:: rrel_scp_var:: _descr;;
+
+        _=> nrel_goto:: .._agent_check_student_answer_wait;;
+    *);;
+
+    _-> .._agent_check_student_answer_wait (*
+        _<- waitReturn;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _descr;;
+
+        _=> nrel_goto:: .._agent_check_student_answer_check_result;;
+    *);;
+
+    _-> .._agent_check_student_answer_check_result (*
+         _<- ifVarAssign;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _result;;
+
+        _=> nrel_then:: .._agent_check_student_answer_get_result;;
+        _=> nrel_else:: .._agent_check_student_answer_unsuccess;;
+    *);;
+
+    _-> .._agent_check_student_answer_get_result (*
+        _<- genElStr5;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _quest;;
+        _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_common:: rrel_const:: _arc_to_result;;
+        _-> rrel_3:: rrel_fixed:: rrel_scp_var:: _result;;
+        _-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_arc;;
+        _-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_result;;
+
+        _=> nrel_goto:: .._agent_check_student_answer_success;;
+    *);;
+
+    _-> .._agent_check_student_answer_success (*
+        _<- genElStr3;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_const:: action_finished_successfully;;
+        _-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+        _-> rrel_3:: rrel_fixed:: rrel_scp_var:: _quest;;
+
+        _=> nrel_goto:: .._agent_check_student_answer_operator_return;;
+    *);;
+
+*);;
+
+*];;

@@ -1,0 +1,46 @@
+sc_agent_determine_number_of_graphs_for_task
+=> nrel_main_idtf:
+    [sc-агент определения количества графов для задания](* <- lang_ru;; *);
+    [sc-agent of determining number of graphs for task](* <- lang_en;; *);
+<- abstract_sc_agent;
+=> nrel_primary_initiation_condition: 
+    (sc_event_after_generate_outgoing_arc => action_initiated); 
+=> nrel_initiation_condition_and_result: 
+    (..sc_agent_determine_number_of_graphs_for_task_initiation_condition 
+        => ..sc_agent_determine_number_of_graphs_for_task_result_condition);
+=> nrel_sc_agent_action_class:
+    action_determine_number_of_graphs_for_task
+    (*
+    <- sc_node_class;;
+    <= nrel_inclusion:
+        information_action;;
+    *); 
+<= nrel_sc_agent_key_sc_elements:
+{
+    action_initiated;
+    action_determine_number_of_graphs_for_task
+};
+=> nrel_inclusion: 
+    sc_agent_determine_number_of_graphs_for_task_implementation 
+    (*
+        <- platform_independent_abstract_sc_agent;;
+        <= nrel_sc_agent_program: 
+        {
+            agent_determine_number_of_graphs_for_task;
+            proc_determine_number_of_graphs_for_task
+        };; 
+        -> sc_agent_determine_number_of_graphs_for_task_scp (* <- active_sc_agent;; *);;
+    *);;
+
+..sc_agent_determine_number_of_graphs_for_task_initiation_condition
+= [*
+    action_determine_number_of_graphs_for_task _-> .._action;;
+	action_initiated _-> .._action;;
+	action _-> .._action;;
+    .._action _-> rrel_1:: .._parameter;;
+*];; 
+
+..sc_agent_determine_number_of_graphs_for_task_result_condition
+= [*
+    .._action _=> nrel_result:: .._result;;
+*];;

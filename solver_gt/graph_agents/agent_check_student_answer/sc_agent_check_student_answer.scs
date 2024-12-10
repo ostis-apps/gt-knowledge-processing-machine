@@ -1,0 +1,47 @@
+sc_agent_check_student_answer
+=> nrel_main_idtf:
+    [sc-агент проверки ответа студента](* <- lang_ru;; *);
+    [sc-agent for checking student answer](* <- lang_en;; *);
+<- abstract_sc_agent;
+=> nrel_primary_initiation_condition: 
+    (sc_event_after_generate_outgoing_arc => action_initiated); 
+=> nrel_initiation_condition_and_result: 
+    (..sc_agent_check_student_answer_initiation_condition 
+        => ..sc_agent_check_student_answer_result_condition);
+=> nrel_sc_agent_action_class:
+    action_check_student_answer
+    (*
+    <- sc_node_class;;
+    <= nrel_inclusion:
+        information_action;;
+    *); 
+<= nrel_sc_agent_key_sc_elements:
+{
+    action_initiated;
+    action_check_student_answer
+};
+=> nrel_inclusion: 
+    sc_agent_check_student_answer_implementation 
+    (*
+        <- platform_independent_abstract_sc_agent;;
+        <= nrel_sc_agent_program: 
+        {
+            agent_check_student_answer;
+            proc_check_student_answer
+        };; 
+        -> sc_agent_check_student_answer_scp (* <- active_sc_agent;; *);;
+    *);;
+
+..sc_agent_check_student_answer_initiation_condition
+= [*
+    action_check_student_answer _-> .._action;;
+	action_initiated _-> .._action;;
+	action _-> .._action;;
+	.._action _-> rrel_1:: .._parameter1;;
+    .._action _=> nrel_expected_answer:: .._parameter2;;
+*];; 
+
+..sc_agent_check_student_answer_result_condition
+= [*
+    .._action _=> nrel_result:: .._result;;
+*];;
