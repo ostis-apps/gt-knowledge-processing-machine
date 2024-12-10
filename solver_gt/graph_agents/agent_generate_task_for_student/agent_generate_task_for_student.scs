@@ -230,7 +230,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
         _-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_time_arc;;
         _-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_max_customer_waiting_time_for_action_to_finish;;
         
-        _=> nrel_goto:: ._action_init_generate_random_graph_answer;;
+        _=> nrel_goto:: .._action_init_generate_random_graph_answer;;
     *);;
 
     _-> .._action_init_generate_random_graph_answer (*
