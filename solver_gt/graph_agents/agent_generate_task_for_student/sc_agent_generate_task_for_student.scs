@@ -30,8 +30,7 @@ sc_agent_generate_task_for_student
         <- platform_independent_abstract_sc_agent;;
         <= nrel_sc_agent_program: 
         {
-            agent_generate_task_for_student;
-            proc_generate_task_for_student
+            agent_generate_task_for_student
         };; 
         -> sc_agent_generate_task_for_student_scp (* <- active_sc_agent;; *);;
     *);;
