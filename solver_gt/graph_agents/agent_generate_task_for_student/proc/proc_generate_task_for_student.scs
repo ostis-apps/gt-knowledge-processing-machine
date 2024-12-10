@@ -44,7 +44,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
         _<- eraseEl;;
         _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _arc_to_delete;;
 
-        _=> nrel_goto:: _add_node_to_result;;
+        _=> nrel_goto:: .._add_node_to_result;;
     *);;
 
     _-> .._add_node_to_result (*
