@@ -127,8 +127,8 @@ _<= nrel_decomposition_of_action:: .._actions (*
         _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _node1;;
         _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_common:: rrel_const:: _arc;;
         _-> rrel_3:: rrel_fixed:: rrel_scp_var:: _node2;;
-        _-> rrel_4:: rrel_assign:: rrel_scp_var:: _arc_to_arc;;
-        _-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_pos_const_perm:: _result;;
+        _-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_arc;;
+        _-> rrel_5:: rrel_fixed:: rrel_scp_var:: _result;;
     
         _=> nrel_goto:: .._cycle_node1;;
     *);;
