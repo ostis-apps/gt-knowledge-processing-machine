@@ -1,0 +1,102 @@
+proc_generate_graph_by_template
+=> nrel_main_idtf:
+    [Программа генерации графа по шаблону](* <- lang_ru;; *);
+    [Program of generating a graph by template](* <- lang_en;; *);
+<- scp_program;
+-> rrel_key_sc_element: .._process1;;
+
+proc_generate_graph_by_template = [*
+.._process1
+_<- scp_process;
+
+_-> rrel_1:: rrel_in:: _graph_template;
+_-> rrel_2:: rrel_out:: _generated_graph;
+_<= nrel_decomposition_of_action:: .._actions (*
+
+    _-> rrel_1:: .._generate_result (*
+        _<- genEl;;
+        _-> rrel_1:: rrel_assign:: rrel_scp_var:: rrel_node:: rrel_struct:: rrel_const:: _generated_graph;;
+
+        _=> nrel_goto:: .._generate_graph;;
+    *);;
+
+    _-> .._generate_graph (*
+        _<- sys_gen;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_const:: _graph_template;;
+        _-> rrel_2:: rrel_assign:: rrel_scp_var:: _param_to_erase_later;;
+        _-> rrel_3:: rrel_fixed:: rrel_scp_const:: _...;;
+        _-> rrel_4:: rrel_fixed:: rrel_scp_var:: _generated_graph;;
+
+        _=> nrel_goto:: .._erase_param_to_erase;;
+    *);;
+
+    _-> .._erase_param_to_erase (*
+        _<- eraseEl;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _param_to_erase_later;;
+
+        _=> nrel_goto:: .._copy_graph_content;;
+    *);;
+
+    _-> .._copy_graph_content (*
+        _<- searchSetStr3;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _generated_graph;;
+        _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _...;;
+        _-> rrel_3:: rrel_assign:: rrel_scp_var:: _...;;
+        _-> rrel_set_3:: rrel_assign:: rrel_scp_var:: _graph_content;;
+
+        _=> nrel_then:: .._take_next_from_content;;
+        _=> nrel_else:: .._return;;
+    *);;
+
+    _-> .._take_next_from_content (*
+        _<- searchElStr3;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _graph_content;;
+        _-> rrel_2:: rrel_assign:: rrel_scp_var:: _arc_to_erase;;
+        _-> rrel_3:: rrel_assign:: rrel_scp_var:: _graph_element;;
+
+        _=> nrel_then:: .._erase_arc_to_erase;;
+        _=> nrel_else:: .._return;;
+    *);;
+
+    _-> .._erase_arc_to_erase (*
+        _<- eraseEl;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _arc_to_erase;;
+
+        _=> nrel_goto:: .._check_graph_element_type;;
+    *);;
+
+    _-> .._check_graph_element_type (*
+        _<- ifType;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_var:: rrel_node:: _graph_element;;
+
+        _=> nrel_then:: .._add_graph_element_to_vertices;;
+        _=> nrel_else:: .._add_graph_element_to_oredges;;
+    *);;
+
+    _-> .._add_graph_element_to_vertices (*
+        _<- searchSetStr3;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _generated_graph;;
+        _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _...;;
+        _-> rrel_3:: rrel_fixed:: rrel_scp_var:: _graph_element;;
+        _-> rrel_set_2:: rrel_fixed:: rrel_scp_const:: rrel_vertex;;
+
+        _=> nrel_goto:: .._take_next_from_content;;
+    *);;
+
+    _-> .._add_graph_element_to_oredges (*
+        _<- searchSetStr3;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _generated_graph;;
+        _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _...;;
+        _-> rrel_3:: rrel_fixed:: rrel_scp_var:: _graph_element;;
+        _-> rrel_set_2:: rrel_fixed:: rrel_scp_const:: rrel_oredge;;
+
+        _=> nrel_goto:: .._take_next_from_content;;
+    *);;
+
+    _-> .._return (*
+        _<- return;;
+    *);;
+
+*);;
+
+*];;

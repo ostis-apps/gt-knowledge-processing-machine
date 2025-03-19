@@ -1,0 +1,143 @@
+sc_agent_solve_task_using_template
+<- abstract_sc_agent;
+=> nrel_primary_initiation_condition:
+    (sc_event_after_generate_outgoing_arc => action_initiated);
+=> nrel_sc_agent_action_class:
+    action_solve_task_using_template
+    (*
+        <- sc_node_class;;
+        <= nrel_inclusion:
+            information_action;;
+    *);
+=> nrel_initiation_condition_and_result:
+    (..agent_solve_task_using_template_initiation_condition
+        => ..agent_solve_task_using_template_result_condition);
+<= nrel_sc_agent_key_sc_elements:
+{
+    action_initiated;
+    action_solve_task_using_template
+};
+=> nrel_inclusion:
+    agent_solve_task_using_template_implementation
+    (*
+        <- platform_independent_abstract_sc_agent;;
+        <= nrel_sc_agent_program:
+        {
+            agent_solve_task_using_template;
+            proc_solve_task_using_template
+        };;
+        -> sc_agent_solve_task_using_template_scp (* <- active_sc_agent;; *);;
+    *);;
+
+..agent_solve_task_using_template_initiation_condition
+= [*
+    action_solve_task_using_template _-> .._action;;
+    action_initiated _-> .._action;;
+    .._action _-> rrel_1:: .._param1;;
+    .._action _-> rrel_2:: .._param2;;
+    // rrel_3 is optional, sometimes agent has 2 arguments(graph + concept), sometime it has 3(2 graphs + concept)
+*];;
+
+..agent_solve_task_using_template_result_condition
+= [*
+    .._set _=> nrel_set_power:: _[];;
+*];;
+
+task_template_for_classification =
+[*
+action_solving_complex_task
+    _-> .._action_classification;;
+.._action_classification
+    _-> .._params_action_classification;;
+.._params_action_classification
+    _-> rrel_input:: .._graph_for_classification;
+    _-> rrel_solution_goal:: (.._class_for_classification _/> .._graph_for_classification);;
+*];;
+task_template_for_classification
+    -> rrel_action_node: .._action_classification;
+    -> rrel_1: .._class_for_classification;
+    -> rrel_2: .._graph_for_classification;;
+
+task_template_for_parameter =
+[*
+action_solving_complex_task
+    _-> .._action_parameter;;
+.._action_parameter
+    _-> .._params_action_parameter;;
+.._params_action_parameter
+    _-> rrel_input:: .._graph_for_parameter;
+    _-> rrel_solution_goal:: .._goal_parameter;;
+.._parameter _-> (.._graph_for_parameter _=> .._goal_parameter);;
+*];;
+task_template_for_parameter
+    -> rrel_action_node: .._action_parameter;
+    -> rrel_1: .._parameter;
+    -> rrel_2: .._graph_for_parameter;;
+
+
+.._tuple_for_binary_operation
+    <- sc_node_tuple;;
+task_template_for_binary_operation =
+[*
+action_solving_complex_task
+    _-> .._action_binary_operation;;
+.._action_binary_operation
+    _-> .._params_action_binary_operation;;
+.._params_action_binary_operation
+    _-> rrel_input:: .._graph_for_binary_operation_1;
+    _-> rrel_input:: .._graph_for_binary_operation_2;
+    _-> rrel_solution_goal:: .._goal_binary_operation;;
+.._tuple_for_binary_operation
+    _-> rrel_1:: .._graph_for_binary_operation_1;
+    _-> rrel_2:: .._graph_for_binary_operation_2;
+    _=> .._binary_operation:: .._goal_binary_operation;;
+*];;
+task_template_for_binary_operation
+    -> rrel_action_node: .._action_binary_operation;
+    -> rrel_1: .._binary_operation;
+    -> rrel_2: .._graph_for_binary_operation_1;
+    -> rrel_3: .._graph_for_binary_operation_2;;
+
+
+action_solve_task_using_template
+-> test_action_solve_task_using_classification_template
+(*
+    -> rrel_1: concept_acyclic_graph;;
+    -> rrel_2: test_graph_for_action_solve_task_using_template;;
+*);;
+
+action_solve_task_using_template
+-> test_action_solve_task_using_parameter_template
+(*
+    -> rrel_1: nrel_number_of_vertexes;;
+    -> rrel_2: test_graph_for_action_solve_task_using_template;;
+*);;
+
+action_solve_task_using_template
+-> test_action_solve_task_using_binary_relation_template
+(*
+    -> rrel_1: nrel_graph_union;;
+    -> rrel_2: test_graph_for_action_solve_task_using_template;;
+    -> rrel_3: test_second_graph_for_action_solve_task_using_template;;
+*);;
+
+test_graph_for_action_solve_task_using_template
+<- sc_node_struct;
+-> rrel_vertex: .v1;
+-> rrel_vertex: .v2;
+-> rrel_vertex: .v3;
+-> rrel_vertex: .v4;
+-> rrel_oredge: (.v1 => .v2);
+-> rrel_oredge: (.v1 => .v3);
+-> rrel_oredge: (.v2 => .v3);
+-> rrel_oredge: (.v4 => .v2);;
+
+test_second_graph_for_action_solve_task_using_template
+<- sc_node_struct;
+-> rrel_vertex: .v1;
+-> rrel_vertex: .v2;
+-> rrel_vertex: .v3;
+-> rrel_vertex: .v5;
+-> rrel_oredge: (.v1 => .v2);
+-> rrel_oredge: (.v1 => .v5);
+-> rrel_oredge: (.v5 => .v3);;

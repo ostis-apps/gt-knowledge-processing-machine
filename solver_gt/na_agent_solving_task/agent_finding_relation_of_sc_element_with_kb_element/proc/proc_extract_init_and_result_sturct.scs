@@ -27,7 +27,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _init_result_arc;;
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_initiation_condition_and_result;;
-		_=> nrel_else:: .._proc_extract_init_and_result_sturct_operator3;;
+		_=> nrel_else:: .._proc_extract_init_and_result_sturct_operator_return;;
 		_=> nrel_then:: .._proc_extract_init_and_result_sturct_operator4;;
 	*);;
 	_-> .._proc_extract_init_and_result_sturct_operator1 (*
@@ -35,7 +35,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: sc_statement;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_const:: _solver_element;;
-		_=> nrel_else:: .._proc_extract_init_and_result_sturct_operator3;;
+		_=> nrel_else:: .._proc_extract_init_and_result_sturct_operator_return;;
 		_=> nrel_then:: .._proc_extract_init_and_result_sturct_operator5;;
 	*);;
 	_-> .._proc_extract_init_and_result_sturct_operator5 (*
@@ -45,10 +45,10 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _init_result_rel;;
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_main_key_sc_element;;
-		_=> nrel_else:: .._proc_extract_init_and_result_sturct_operator3;;
+		_=> nrel_else:: .._proc_extract_init_and_result_sturct_operator_return;;
 		_=> nrel_then:: .._proc_extract_init_and_result_sturct_operator6;;
 	*);;
-	_-> .._proc_extract_init_and_result_sturct_operator3 (*
+	_-> .._proc_extract_init_and_result_sturct_operator_return (*
 		_<- return;;
 	*);;
 	_-> .._proc_extract_init_and_result_sturct_operator6 (*
@@ -65,7 +65,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _init_result_rel;;
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _result_struct;;
 		_=> nrel_else:: .._proc_extract_init_and_result_sturct_operator7;;
-		_=> nrel_then:: .._proc_extract_init_and_result_sturct_operator3;;
+		_=> nrel_then:: .._proc_extract_init_and_result_sturct_operator_return;;
 	*);;
 	_-> .._proc_extract_init_and_result_sturct_operator7 (*
 		_<- searchElStr3;;
@@ -82,7 +82,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _init_struct;;
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_if;;
-		_=> nrel_else:: .._proc_extract_init_and_result_sturct_operator3;;
+		_=> nrel_else:: .._proc_extract_init_and_result_sturct_operator_return;;
 		_=> nrel_then:: .._proc_extract_init_and_result_sturct_operator11;;
 	*);;
 	_-> .._proc_extract_init_and_result_sturct_operator9 (*
@@ -90,7 +90,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_1:: rrel_fixed:: rrel_scp_const:: nrel_equivalence;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
 		_-> rrel_3:: rrel_fixed:: rrel_scp_var:: _init_result_rel;;
-		_=> nrel_else:: .._proc_extract_init_and_result_sturct_operator3;;
+		_=> nrel_else:: .._proc_extract_init_and_result_sturct_operator_return;;
 		_=> nrel_then:: .._proc_extract_init_and_result_sturct_operator12;;
 	*);;
 	_-> .._proc_extract_init_and_result_sturct_operator12 (*
@@ -99,7 +99,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _init_result_element;;
 		_-> rrel_set_3:: rrel_assign:: rrel_scp_var:: _init_result_rel_copy;;
-		_=> nrel_else:: .._proc_extract_init_and_result_sturct_operator3;;
+		_=> nrel_else:: .._proc_extract_init_and_result_sturct_operator_return;;
 		_=> nrel_then:: .._proc_extract_init_and_result_sturct_operator13;;
 	*);;
 	_-> .._proc_extract_init_and_result_sturct_operator13 (*
@@ -107,7 +107,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _init_result_rel_copy;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_erase;;
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _init_result_element1;;
-		_=> nrel_else:: .._proc_extract_init_and_result_sturct_operator3;;
+		_=> nrel_else:: .._proc_extract_init_and_result_sturct_operator_return;;
 		_=> nrel_then:: .._proc_extract_init_and_result_sturct_operator14;;
 	*);;
 	_-> .._proc_extract_init_and_result_sturct_operator14 (*
@@ -120,7 +120,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_1:: rrel_fixed:: rrel_scp_var:: _init_result_rel_copy;;
 		_-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc_erase;;
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _init_result_element2;;
-		_=> nrel_else:: .._proc_extract_init_and_result_sturct_operator3;;
+		_=> nrel_else:: .._proc_extract_init_and_result_sturct_operator_return;;
 		_=> nrel_then:: .._proc_extract_init_and_result_sturct_operator16;;
 	*);;
 	_-> .._proc_extract_init_and_result_sturct_operator16 (*
@@ -157,7 +157,7 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_<- varAssign;;
 		_-> rrel_1:: rrel_assign:: rrel_scp_var:: _init_struct;;
 		_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _init_result_element1;;
-		_=> nrel_goto:: .._proc_extract_init_and_result_sturct_operator3;;
+		_=> nrel_goto:: .._proc_extract_init_and_result_sturct_operator_return;;
 	*);;
 	_-> .._proc_extract_init_and_result_sturct_operator21 (*
 		_<- varAssign;;
@@ -172,14 +172,14 @@ _<= nrel_decomposition_of_action:: .._actions (*
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _result_struct;;
 		_-> rrel_4:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc2;;
 		_-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_then;;
-		_=> nrel_goto:: .._proc_extract_init_and_result_sturct_operator3;;
+		_=> nrel_goto:: .._proc_extract_init_and_result_sturct_operator_return;;
 	*);;
 	_-> .._proc_extract_init_and_result_sturct_operator4 (*
 		_<- searchElStr3;;
 		_-> rrel_1:: rrel_assign:: rrel_scp_var:: _init_struct;;
 		_-> rrel_2:: rrel_fixed:: rrel_scp_var:: _init_result_arc;;
 		_-> rrel_3:: rrel_assign:: rrel_scp_var:: _result_struct;;
-		_=> nrel_goto:: .._proc_extract_init_and_result_sturct_operator3;;
+		_=> nrel_goto:: .._proc_extract_init_and_result_sturct_operator_return;;
 	*);;
 *);;
 *];;

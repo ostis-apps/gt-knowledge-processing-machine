@@ -1,0 +1,117 @@
+agent_generate_graph_by_template
+=> nrel_main_idtf:
+    [агентная scp-программа генерации графа по шаблону] (* <- lang_ru;; *);
+    [agent scp-program of generating a graph by template] (* <- lang_en;; *);
+<- scp_program;
+<- agent_scp_program;
+-> rrel_key_sc_element: .._process1;;
+
+agent_generate_graph_by_template = [*
+.._process1
+_<- scp_process;
+
+_-> rrel_1:: rrel_in:: _event;
+_-> rrel_2:: rrel_in:: _input_arc;
+_<= nrel_decomposition_of_action:: .._actions (*
+
+    _-> rrel_1:: .._agent_generate_graph_by_template_operator_start (*
+        _<- searchElStr3;;
+        _-> rrel_1:: rrel_assign:: rrel_scp_var:: _...;;
+        _-> rrel_2:: rrel_fixed:: rrel_scp_const:: _input_arc;;
+        _-> rrel_3:: rrel_assign:: rrel_scp_var:: _action;;
+
+        _=> nrel_goto:: .._agent_generate_graph_by_template_operator1;;
+    *);;
+
+    _-> .._agent_generate_graph_by_template_operator1 (*
+        _<- searchElStr3;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_const:: action_generate_graph_by_template;;
+        _-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc;;
+        _-> rrel_3:: rrel_fixed:: rrel_scp_var:: _action;;
+
+        _=> nrel_then:: .._agent_generate_graph_by_template_operator_message;;
+        _=> nrel_else:: .._agent_generate_graph_by_template_operator_return;;
+    *);;
+
+    _-> .._agent_generate_graph_by_template_operator_return (*
+        _<- return;;
+    *);;
+
+    _-> .._agent_generate_graph_by_template_operator_message (*
+        _<- printNl;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_const:: [Start work agent_generate_graph_by_template];;
+
+        _=> nrel_goto:: .._agent_generate_graph_by_template_operator_get_arg1;;
+    *);;
+
+    _-> .._agent_generate_graph_by_template_operator_get_arg1 (*
+        _<- searchElStr5;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _action;;
+        _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_const_pos_perm:: _arc1;;
+        _-> rrel_3:: rrel_assign:: rrel_scp_var:: rrel_const:: rrel_struct:: _graph_template;;
+        _-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_const_pos_perm:: _arc2;;
+        _-> rrel_5:: rrel_fixed:: rrel_scp_const:: rrel_1;;
+
+        _=> nrel_then:: .._agent_generate_graph_by_template_call_operator;;
+        _=> nrel_else:: .._agent_generate_graph_by_template_operator_unsuccess;;
+    *);;
+
+    _-> .._agent_generate_graph_by_template_operator_unsuccess (*
+        _<- genElStr3;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_const:: action_finished_unsuccessfully;;
+        _-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+        _-> rrel_3:: rrel_fixed:: rrel_scp_var:: _action;;
+
+        _=> nrel_goto:: .._agent_generate_graph_by_template_operator_return;;
+    *);;
+
+    _-> .._agent_generate_graph_by_template_call_operator (*
+        _<- call;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_const:: proc_generate_graph_by_template;;
+        _-> rrel_2:: rrel_fixed:: rrel_scp_const:: .._agent_generate_graph_by_template_params (*
+                _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _graph_template;;
+                _-> rrel_2:: rrel_assign:: rrel_scp_var:: _result;;
+        *);;
+        _-> rrel_3:: rrel_assign:: rrel_scp_var:: _descr;;
+
+        _=> nrel_goto:: .._agent_generate_graph_by_template_wait_operator;;
+    *);;
+
+    _-> .._agent_generate_graph_by_template_wait_operator (*
+        _<- waitReturn;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _descr;;
+
+        _=> nrel_goto:: .._agent_check_result_value;;
+    *);;
+
+    _-> .._agent_check_result_value (*
+        _<- ifVarAssign;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _result;;
+
+        _=> nrel_then:: .._agent_generate_graph_by_template_operator_connect_result;;
+        _=> nrel_else:: .._agent_generate_graph_by_template_operator_unsuccess;;
+    *);;
+
+    _-> .._agent_generate_graph_by_template_operator_connect_result (*
+        _<- genElStr5;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_var:: _action;;
+        _-> rrel_2:: rrel_assign:: rrel_scp_var:: rrel_common:: rrel_const:: _arc_to_result;;
+        _-> rrel_3:: rrel_fixed:: rrel_scp_var:: _result;;
+        _-> rrel_4:: rrel_assign:: rrel_scp_var:: rrel_pos_const_perm:: _arc_to_arc;;
+        _-> rrel_5:: rrel_fixed:: rrel_scp_const:: nrel_result;;
+
+        _=> nrel_goto:: .._agent_generate_graph_by_template_operator_success;;
+    *);;
+
+     _-> .._agent_generate_graph_by_template_operator_success (*
+        _<- genElStr3;;
+        _-> rrel_1:: rrel_fixed:: rrel_scp_const:: action_finished_successfully;;
+        _-> rrel_2:: rrel_assign:: rrel_pos_const_perm:: rrel_scp_var:: _arc1;;
+        _-> rrel_3:: rrel_fixed:: rrel_scp_var:: _action;;
+
+        _=> nrel_goto:: .._agent_generate_graph_by_template_operator_return;;
+    *);;
+
+*);;
+
+*];;
