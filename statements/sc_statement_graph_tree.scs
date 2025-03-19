@@ -26,17 +26,17 @@ sc_statement_graph_tree = [*
 -> rrel_main_key_sc_element: ..sc_statement_graph_tree_equivalence
 	(*
 		<- nrel_equivalence;;
-		-> ..sc_statement_graph_tree_equivalence_element1;;
-		-> ..sc_statement_graph_tree_equivalence_element2;;
+		-> sc_statement_graph_tree_equivalence_element_with_three_memberships;;
+		-> sc_statement_graph_tree_equivalence_element_with_tree;;
 	*);;
 	
-..sc_statement_graph_tree_equivalence_element1 = [*
+sc_statement_graph_tree_equivalence_element_with_three_memberships = [*
 	concept_graph _-> _graph;;
 	concept_acyclic_graph _-> _graph;;
 	concept_connected_graph _-> _graph;;
 *];;
 
-..sc_statement_graph_tree_equivalence_element2
+sc_statement_graph_tree_equivalence_element_with_tree
 = [*
 	concept_tree _-> _graph;;
 *];;

@@ -43,9 +43,6 @@ agent_using_unary_operation
 = [*
 	action_using_unary_operation _-> .._action_bin;;
 	action_initiated _-> .._action_bin;;
-	action _-> .._action_bin;;
-	.._action_bin _-> rrel_1:: .._parameter1;;
-	.._action_bin _-> rrel_2:: .._parameter2;;
 *];;
 
 ..sc_agent_using_unary_operation_result

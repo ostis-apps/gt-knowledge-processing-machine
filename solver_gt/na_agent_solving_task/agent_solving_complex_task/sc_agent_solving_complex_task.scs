@@ -43,10 +43,6 @@ sc_agent_solving_complex_task
 = [*
 	action_solving_complex_task _-> .._action;;
 	action_initiated _-> .._action;;
-	action _-> .._action;;
-	.._action _-> .._parameter;;
-	.._parameter _=> nrel_task:: _task;;
-	.._parameter _-> rrel_solution_goal:: _solution_goal;;
 *];;
 
 ..sc_agent_solving_complex_task_result

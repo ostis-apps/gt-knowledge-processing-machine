@@ -51,7 +51,7 @@ action_solving_complex_task
     _-> .._params_action_classification;;
 .._params_action_classification
     _-> rrel_input:: .._graph_for_classification;
-    _-> rrel_solution_goal:: (.._class_for_classification _-/> .._graph_for_classification);;
+    _-> rrel_solution_goal:: (.._class_for_classification _/> .._graph_for_classification);;
 *];;
 task_template_for_classification
     -> rrel_action_node: .._action_classification;
